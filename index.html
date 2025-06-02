@@ -529,22 +529,33 @@
         }
 
          @media (max-width: 768px) {
-            .navbar {
-                padding: 0.5rem 0;
-            }
-            
-            .nav-container {
-                padding: 0 ;
-                height:250px;
-            }
-            .nav-links{
-                padding:0;
-                margin:0;
-            }
-            .nav-brand{
-                padding:0;
-                margin:0;
-            }
+        .navbar {
+            padding: 0.5rem 1rem;
+        }
+
+        .nav-container {
+            padding: 0 1rem;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .nav-brand {
+            align-self: center;
+            margin: 0 auto;
+        }
+
+        .nav-links {
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-links a, .dropdown-btn {
+            padding: 0.5rem 1rem;
+        }
         }
 
         /* Enhanced Dropdown */
