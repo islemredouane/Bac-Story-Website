@@ -529,34 +529,59 @@
         }
 
          @media (max-width: 768px) {
-        .navbar {
-            padding: 0.5rem 1rem;
-        }
+    .navbar {
+        padding: 0.3rem 1rem; /* Reduced vertical padding */
+        transform: translateY(0);
+        transition: transform 0.3s ease;
+        position: relative;
+        z-index: 1000;
+    }
 
-        .nav-container {
-            padding: 0 1rem;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 0.5rem;
-        }
+    .nav-container {
+        padding: 0 1rem;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.1rem; /* Very tight space between elements */
+    }
 
-        .nav-brand {
-            align-self: center;
-            margin: 0 auto;
-        }
+    .nav-brand {
+        align-self: center;
+        margin: 0 auto;
+        font-size: 1rem; /* Smaller text */
+        line-height: 1.2; /* Tighter line spacing */
+        padding: 0; /* Remove extra padding if any */
+    }
 
-        .nav-links {
-            flex-wrap: wrap;
-            justify-content: flex-start;
-            width: 100%;
-            padding: 0;
-            margin: 0;
-        }
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
 
-        .nav-links a, .dropdown-btn {
-            padding: 0.5rem 1rem;
-        }
-        }
+    .nav-links a,
+    .dropdown-btn {
+        padding: 0.2rem 0.6rem; /* Smaller paddings */
+        font-size: 0.9rem; /* Slightly smaller text */
+    }
+
+    /* Hide navbar by sliding it up */
+    .navbar.hidden {
+        transform: translateY(-100%);
+    }
+
+    /* Fix nav brand on top when navbar is hidden */
+    .nav-brand.fixed {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: white; /* Same as navbar background */
+        z-index: 1001;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* subtle shadow */
+    }
+}
 
         /* Enhanced Dropdown */
         .dropdown {
@@ -5415,6 +5440,34 @@ function initSampleData() {
                 }, 5000);
             });
         });
+
+        let lastScrollY = window.scrollY;
+const navbar = document.querySelector('.navbar');
+const navBrand = document.querySelector('.nav-brand');
+
+window.addEventListener('scroll', () => {
+    if (window.innerWidth > 768) {
+        navbar.classList.remove('hidden');
+        navBrand.classList.remove('fixed');
+        return;
+    }
+
+    if (window.scrollY === 0) {
+        // At top, show full navbar with brand normal
+        navbar.classList.remove('hidden');
+        navBrand.classList.remove('fixed');
+    } else if (window.scrollY > lastScrollY) {
+        // Scroll down: hide navbar, fix brand at top
+        navbar.classList.add('hidden');
+        navBrand.classList.add('fixed');
+    } else {
+        // Scroll up: show navbar, brand normal
+        navbar.classList.remove('hidden');
+        navBrand.classList.remove('fixed');
+    }
+
+    lastScrollY = window.scrollY;
+});
 
     </script>
 </body>
