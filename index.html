@@ -1986,13 +1986,63 @@
 
         /* Timer Styles */
         .compact-timer {
-            background: white;
+            background-image: url(timerbg.png);
+            background-position: center;
+            opacity: 0.95;
             padding: 2rem;
             border-radius: var(--border-radius);
             max-width: 700px;
             margin: 2rem auto;
             box-shadow: var(--box-shadow);
             text-align: center;
+        }
+
+        .compact-timer {
+            background: #ffffff;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+         
+            z-index: 2;
+        }
+
+        .compact-timer::before,
+        .compact-timer::after {
+            content: "";
+            position: absolute;
+            height:150%;
+            width:150%;
+            top:50%;
+            left:50%;
+            transform: translate(-50% , -50%);
+            z-index: -1;
+        }
+        .compact-timer::before {
+            background: conic-gradient(#44f 20deg transparent 20deg);
+            animation: rotate 4s infinite linear;
+        }
+        .compact-timer::after {
+            background: white;
+            height:100%;
+            width:100%;
+            box-shadow: 5px 5px 15px inset;
+            border-radius: 10px;
+        }
+        @keyframes rotate {
+            100%{
+                transform: translate(-50% , -50%);
+                rotate:rotate(-360deg);
+            }
+        }
+
+       
+        .compact-timer:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(44, 92, 197, 0.18);
         }
 
         .timer-numbers {
@@ -15381,6 +15431,7 @@ NhSM تُعدّ مركزًا لنشر البحث في الرياضيات الب�
     </script>
 </body>
 </html>
+
 
 
 
