@@ -750,7 +750,7 @@ html {
             font-weight: 700;
             cursor: pointer;
             transition: var(--transition);
-        
+            text-decoration:none;
             align-items: center;
             justify-content: center;
             gap: 10px;
@@ -762,6 +762,7 @@ html {
             font-family: 'Tajawal', sans-serif;
             font-size: 1.1rem;
             font-weight: 700;
+            text-decoration:none;
             cursor: pointer;
             transition: var(--transition);
             display: flex;
@@ -3175,4 +3176,5 @@ html {
 
         .floating {
             animation: float 3s ease-in-out infinite;
+
         }
