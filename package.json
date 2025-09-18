@@ -1,0 +1,25 @@
+{
+  "name": "bac-website",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/islemredouane/islemredouane.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/islemredouane/islemredouane.github.io/issues"
+  },
+  "homepage": "https://github.com/islemredouane/islemredouane.github.io#readme",
+  "dependencies": {
+    "nodemailer": "^7.0.6"
+  }
+}
+
