@@ -91,10 +91,9 @@
             font-size: 1.8rem;
             font-weight: 200;
             display: block;
-            align-items: flex-end;
+            align-items: center;
             gap: 0;
             transition: var(--transition);
-            display: inline-block;
             line-height: 1;
         }
         
@@ -3418,4 +3417,5 @@
 
         .floating {
             animation: float 3s ease-in-out infinite;
+
         }
