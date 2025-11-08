@@ -2412,7 +2412,7 @@
             .navbar {
                 padding: 0.3rem 1rem;
                 transform: translateY(0);
-                transition: transform 1s ease-in-out;
+                transition: transform 0.1s ease-in-out;
                 position: relative;
                 z-index: 1000;
             }
@@ -3419,3 +3419,4 @@
             animation: float 3s ease-in-out infinite;
 
         }
+
