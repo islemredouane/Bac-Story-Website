@@ -2413,7 +2413,7 @@
                 padding: 0.3rem 1rem;
                 transform: translateY(0);
                 transition: transform 0.1s ease-in-out;
-                position: relative;
+                position: fixed;
                 z-index: 1000;
             }
 
@@ -3419,4 +3419,5 @@
             animation: float 3s ease-in-out infinite;
 
         }
+
 
