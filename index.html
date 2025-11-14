@@ -14762,11 +14762,12 @@ NhSM تُعدّ مركزًا لنشر البحث في الرياضيات الب�
 
     <script src="script.js"></script>
     <script type="module">
-      import { SpeedInsights } from "https://cdn.jsdelivr.net/npm/@vercel/speed-insights@latest/dist/browser/speed-insights.mjs";
-    
-      SpeedInsights();
+      import { injectSpeedInsights } from '@vercel/speed-insights';
+
+      injectSpeedInsights();
     </script>
 
 </body>
 
 </html>
+
