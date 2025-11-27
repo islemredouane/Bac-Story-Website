@@ -3129,7 +3129,7 @@
             }
 
             .home-container {
-                
+                justify-self: center;
                 padding: 3rem 2rem;
             }
 
@@ -3374,3 +3374,4 @@
         .floating {
             animation: float 3s ease-in-out infinite;
         }
+
