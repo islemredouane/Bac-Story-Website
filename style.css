@@ -290,7 +290,7 @@
                 -moz-border-radius: 10px;
                 -ms-border-radius: 10px;
                 -o-border-radius: 10px;
-}
+            }
 
             .nav-container {
                 display: flex;
@@ -422,6 +422,7 @@
         .resource-content {
             display: none;
             animation: fadeIn 0.5s ease-out;
+            margin-top: 0;
         }
 
         .active {
@@ -444,7 +445,7 @@
 
         /* Heome Section*/
         .home-container {
-            margin:9.5rem 0;
+            margin:4rem 0;
             display: flex;
             flex-direction: row;
             justify-content: space-evenly;
@@ -2782,8 +2783,12 @@
         }
 
          @media (max-width: 1024px) {
+            .home-container {
+                width:105%;
+                justify-self: center;
+            }
             .container {
-                margin: 1rem auto;
+                margin: 4rem auto;
                 padding: 1rem;
             }
             
@@ -2793,6 +2798,12 @@
             
             .nav-brand a {
                 font-size: 1.5rem;
+            }
+
+            .nav-links a {
+                font-size: 1rem;
+                line-height: 25px;
+                margin-right: 0;
             }
             
             .calculator-header {
@@ -2819,9 +2830,10 @@
             }
 
             .home-container {
-                margin: 3rem 0;
-                padding: 0.5;
-                overflow-x: hidden;
+                width: 105%;
+                margin: r2em 0;
+                padding: 0.5rem;
+                height: 110%;
             }
             
             .hero h1 {
@@ -2832,16 +2844,12 @@
                 font-size: 1rem;
             }
 
-            .home-photo {
-                height:50px;
-                width:30%;
-                margin-left: 160px;
-                margin-top: 30px;
-            }
-
             .home-photo img {
-                margin-left: 200px;
-                height: 400px;
+                margin-right: 3rem;
+                height: 450px;
+            }
+            .action-btn {
+                width: 30%;
             }
 
             .btn-container {
@@ -2913,9 +2921,9 @@
                 font-size: 1.8rem;
             }
 
-            .action-btn {
+            a.action-btn {
                 height:60px;
-                width:50px;
+                width:300px;
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
@@ -3121,7 +3129,7 @@
             }
 
             .home-container {
-                margin-top:3rem;
+                
                 padding: 3rem 2rem;
             }
 
@@ -3174,7 +3182,7 @@
                 padding: 0 1rem;
             }
             .resource-content {
-                margin-top: 8rem;
+                margin-top: 1rem;
             }
             
             .logo h1 {
