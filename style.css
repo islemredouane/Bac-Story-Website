@@ -2922,7 +2922,6 @@
             }
 
             a.action-btn {
-                height:60px;
                 width:250px;
                 display: flex;
                 flex-direction: row;
@@ -3368,3 +3367,4 @@
         .floating {
             animation: float 3s ease-in-out infinite;
         }
+
