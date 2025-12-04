@@ -3131,7 +3131,6 @@
             .home-container {
                 justify-self: center;
                 padding: 3rem 2rem;
-                margin-left: 1rem;
             }
 
             .home-photo {
@@ -3375,5 +3374,6 @@
         .floating {
             animation: float 3s ease-in-out infinite;
         }
+
 
 
