@@ -2947,7 +2947,7 @@
             .home-photo img {
                 height:200px
             }
-            
+
             .btn-container {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
@@ -2955,6 +2955,11 @@
                 align-items: center;
                 align-content: center;
                 margin: 0 auto;
+                place-items: center;
+            }
+
+            .btn-container > :only-child {
+                grid-column: 1 / -1;
             }
             
             .timer-numbers {
@@ -3104,8 +3109,16 @@
 
             .btn-container {
                 display: grid;
+                grid-template-columns: 1fr 1fr;
                 justify-content: center;
-                grid-template-columns: 1fr 1fr; 
+                align-items: center;
+                align-content: center;
+                margin: 0 auto;
+                place-items: center;
+            }
+
+            .btn-container > :only-child {
+                grid-column: 2 / -1;
             }
 
             .home-btn {
@@ -3145,9 +3158,17 @@
             }
             
             .btn-container {
-                flex-direction: column;
-                justify-content: space-between;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                justify-content: center;
                 align-items: center;
+                align-content: center;
+                margin: 0 auto;
+                place-items: center;
+            }
+
+            .btn-container > :only-child {
+                grid-column: 2 / -1;
             }
             
             .main-btn {
@@ -3366,4 +3387,5 @@
 
         .floating {
             animation: float 3s ease-in-out infinite;
+
         }
