@@ -2849,7 +2849,7 @@
                 height: 450px;
             }
             .action-btn {
-                width: 30%;
+                width: 70%;
             }
 
             .btn-container {
@@ -3388,4 +3388,5 @@
             animation: float 3s ease-in-out infinite;
 
         }
+
 
