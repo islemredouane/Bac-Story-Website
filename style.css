@@ -3141,7 +3141,6 @@
             }
 
             .home-container {
-                margin-left: 3rem;
                 padding: 3rem 2rem;
             }
 
@@ -3389,3 +3388,4 @@
             animation: float 3s ease-in-out infinite;
 
         }
+
