@@ -48,9 +48,10 @@ const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
 const navOverlay = document.querySelector('.nav-overlay');
 const dropdowns = document.querySelectorAll('.dropdown');
+const menuClose = document.querySelector('.menu-close');
 
 // Toggle mobile menu
-hamburger.addEventListener('click', function(e) {
+hamburger.addEventListener('click', function (e) {
     e.stopPropagation();
     hamburger.classList.toggle('active');
     navLinks.classList.toggle('active');
@@ -58,23 +59,31 @@ hamburger.addEventListener('click', function(e) {
     document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
 });
 
-// Close menu when clicking on overlay
-navOverlay.addEventListener('click', function() {
+// Close mobile menu function
+function closeMobileMenu() {
     hamburger.classList.remove('active');
     navLinks.classList.remove('active');
     navOverlay.classList.remove('active');
     document.body.style.overflow = '';
-    
+
     // Close all dropdowns
     dropdowns.forEach(dropdown => {
         dropdown.classList.remove('active');
     });
-});
+}
 
-// Close menu when clicking on a link (mobile)
+// Close menu with close button
+if (menuClose) {
+    menuClose.addEventListener('click', closeMobileMenu);
+}
+
+// Close menu when clicking on overlay
+navOverlay.addEventListener('click', closeMobileMenu);
+
+// Close menu when clicking on a link (mobile), but ignore dropdown buttons
 document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', function() {
-        if (window.innerWidth <= 900) {
+    link.addEventListener('click', function (e) {
+        if (window.innerWidth <= 900 && !this.classList.contains('dropdown-btn')) {
             hamburger.classList.remove('active');
             navLinks.classList.remove('active');
             navOverlay.classList.remove('active');
@@ -86,19 +95,19 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 // Mobile dropdown functionality
 dropdowns.forEach(dropdown => {
     const dropdownBtn = dropdown.querySelector('.dropdown-btn');
-    
-    dropdownBtn.addEventListener('click', function(e) {
+
+    dropdownBtn.addEventListener('click', function (e) {
         if (window.innerWidth <= 900) {
             e.preventDefault();
             e.stopPropagation();
-            
+
             // Close other dropdowns
             dropdowns.forEach(otherDropdown => {
                 if (otherDropdown !== dropdown) {
                     otherDropdown.classList.remove('active');
                 }
             });
-            
+
             // Toggle current dropdown
             dropdown.classList.toggle('active');
         }
@@ -106,7 +115,7 @@ dropdowns.forEach(dropdown => {
 });
 
 // Close dropdowns when clicking outside (mobile)
-document.addEventListener('click', function(e) {
+document.addEventListener('click', function (e) {
     if (window.innerWidth <= 900 && !e.target.closest('.dropdown')) {
         dropdowns.forEach(dropdown => {
             dropdown.classList.remove('active');
@@ -114,11 +123,18 @@ document.addEventListener('click', function(e) {
     }
 });
 
+// ESC key to close mobile menu
+document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+        closeMobileMenu();
+    }
+});
+
 function showSection(id, push = true) {
-    if (id === 'fieldSelection' || id === 'mathSubjects' || 
+    if (id === 'fieldSelection' || id === 'mathSubjects' ||
         id === 'scienceSubjects' || id === 'techSubjects') {
 
-        document.getElementById('fieldSelection').style.display = 
+        document.getElementById('fieldSelection').style.display =
             (id === 'fieldSelection') ? 'grid' : 'none';
 
         document.querySelectorAll('.subject-container').forEach(container => {
@@ -127,7 +143,7 @@ function showSection(id, push = true) {
 
         if (id !== 'fieldSelection') {
             const fieldName = getFieldName(id.replace('Subjects', ''));
-            document.querySelector('.calculator-header h2').textContent = 
+            document.querySelector('.calculator-header h2').textContent =
                 `حساب معدل البكالوريا - ${fieldName}`;
             document.querySelector('.calculator-header p').textContent = 'أدخل علاماتك';
         } else {
@@ -151,6 +167,14 @@ function showSection(id, push = true) {
             history.pushState({ section: id, calculatorState }, '', `#${id}`);
         }
     }
+
+    // Auto-close mobile menu on navigation
+    if (window.innerWidth <= 900) {
+        if (typeof closeMobileMenu === 'function') {
+            closeMobileMenu();
+        }
+    }
+
 }
 
 window.addEventListener('popstate', (event) => {
@@ -184,23 +208,23 @@ document.addEventListener('DOMContentLoaded', () => {
     initSampleData();
 
     document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetId);
-        if (targetElement) {
-            // Only show section if it's one of your managed sections
-            if (['home', 'about', 'contact', 'calculator', 'calculator-section', 'field-selection ' , 'subject-container' ,'fieldSelection', 
-            'mathSubjects', 'scienceSubjects', 'techSubjects', 
-            'resources'].includes(targetId)) { 
-                showSection(targetId);
-            } else {
-                // Just scroll to the section (for static parts like about, contact)
-                targetElement.scrollIntoView({ behavior: 'smooth' });
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                // Only show section if it's one of your managed sections
+                if (['home', 'about', 'contact', 'calculator', 'calculator-section', 'field-selection ', 'subject-container', 'fieldSelection',
+                    'mathSubjects', 'scienceSubjects', 'techSubjects',
+                    'resources'].includes(targetId)) {
+                    showSection(targetId);
+                } else {
+                    // Just scroll to the section (for static parts like about, contact)
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
             }
-        }
+        });
     });
-});
 });
 
 function updateTimer() {
@@ -220,19 +244,19 @@ function updateTimer() {
 }
 
 function getFieldName(field) {
-    if(field === 'math') return 'شعبة رياضيات';
-    if(field === 'science') return 'شعبة علوم تجريبية';
-    if(field === 'tech') return 'شعبة تقني رياضي';        
+    if (field === 'math') return 'شعبة رياضيات';
+    if (field === 'science') return 'شعبة علوم تجريبية';
+    if (field === 'tech') return 'شعبة تقني رياضي';
     return '';
 }
 
 function selectField(field) {
     document.getElementById('fieldSelection').style.display = 'none';
-    if(field === 'math') {
+    if (field === 'math') {
         document.getElementById('mathSubjects').style.display = 'block';
-    } else if(field === 'science') {
+    } else if (field === 'science') {
         document.getElementById('scienceSubjects').style.display = 'block';
-    } else if(field === 'tech') {
+    } else if (field === 'tech') {
         document.getElementById('techSubjects').style.display = 'block';
     }
     document.querySelector('.calculator-header h2').textContent = `حساب معدل البكالوريا - ${getFieldName(field)}`;
@@ -373,7 +397,7 @@ function initSampleData() {
     document.getElementById('tech-sport-grade').value = '18.33';
 }
 // Handle form submission with AJAX 
-document.getElementById('contactForm').addEventListener('submit', function(e) {
+document.getElementById('contactForm').addEventListener('submit', function (e) {
     e.preventDefault();
 
     const submitButton = this.querySelector('button[type="submit"]');
@@ -399,37 +423,37 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
             message: this.querySelector('[name="message"]').value
         })
     })
-    .then(response => response.json())
-    .then(data => {
-        if (data.status === 'success') {
-            successMessage.style.display = 'block';
-            this.reset();
-        } else {
-            errorMessage.textContent = data.message;
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                successMessage.style.display = 'block';
+                this.reset();
+            } else {
+                errorMessage.textContent = data.message;
+                errorMessage.style.display = 'block';
+            }
+        })
+        .catch(() => {
+            errorMessage.textContent = 'حدث خطأ في الشبكة. يرجى المحاولة لاحقاً.';
             errorMessage.style.display = 'block';
-        }
-    })
-    .catch(() => {
-        errorMessage.textContent = 'حدث خطأ في الشبكة. يرجى المحاولة لاحقاً.';
-        errorMessage.style.display = 'block';
-    })
-    .finally(() => {
-        submitButton.disabled = false;
-        submitButton.textContent = 'إرسال الرسالة';
+        })
+        .finally(() => {
+            submitButton.disabled = false;
+            submitButton.textContent = 'إرسال الرسالة';
 
-        // Auto-hide after 5s
-        setTimeout(() => {
-            successMessage.style.display = 'none';
-            errorMessage.style.display = 'none';
-        }, 5000);
-    });
+            // Auto-hide after 5s
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+                errorMessage.style.display = 'none';
+            }, 5000);
+        });
 });
 
 // Fullscreen toggler for multiple PDF viewers
 function toggleFullScreen(event) {
     // Get the clicked button element (fullscreen button)
     const btn = event.currentTarget;
-    
+
     // Find the iframe inside this wrapper
     const iframe = btn.closest('.pdf-wrapper').querySelector('iframe');
 
@@ -467,25 +491,28 @@ document.addEventListener('keydown', function (e) {
     }
 });
 
-    document.addEventListener('DOMContentLoaded', function () {
-        document.querySelectorAll('.resource-content').forEach(resource => {
-            const galleryImages = Array.from(resource.querySelectorAll('.gallery-images img'));
-            const centerImg = resource.querySelector('.center-photo-img');
-            const leftImg = resource.querySelector('.left-photo');
-            const rightImg = resource.querySelector('.right-photo');
-            const counter = resource.querySelector('.photo-counter');
-            const leftNav = resource.querySelector('.left-nav');
-            const rightNav = resource.querySelector('.right-nav');
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.resource-content').forEach(resource => {
+        const galleryImages = Array.from(resource.querySelectorAll('.gallery-images img'));
+        const centerImg = resource.querySelector('.center-photo-img');
+        const leftImg = resource.querySelector('.left-photo');
+        const rightImg = resource.querySelector('.right-photo');
+        const counter = resource.querySelector('.photo-counter');
+        const leftNav = resource.querySelector('.left-nav');
+        const rightNav = resource.querySelector('.right-nav');
 
-            // Exit if key elements are missing
-            if (!galleryImages.length || !centerImg || !leftImg || !rightImg || !leftNav || !rightNav || !counter) {
-            console.warn("Missing one or more gallery elements in:", resource);
+        // Only initialize if the section is intended to be a gallery
+        if (!galleryImages.length) return;
+
+        // Log a warning only if it's meant to be a gallery but is missing UI components
+        if (!centerImg || !leftImg || !rightImg || !leftNav || !rightNav || !counter) {
+            console.warn("Missing one or more gallery UI elements in:", resource);
             return;
-            }
+        }
 
-            let currentIndex = 0;
+        let currentIndex = 0;
 
-            function updateGallery() {
+        function updateGallery() {
             const prevIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
             const nextIndex = (currentIndex + 1) % galleryImages.length;
 
@@ -501,20 +528,20 @@ document.addEventListener('keydown', function (e) {
 
             // Update counter
             counter.textContent = `${currentIndex + 1} / ${galleryImages.length}`;
-            }
+        }
 
-            // Navigation buttons
-            leftNav.addEventListener('click', () => {
+        // Navigation buttons
+        leftNav.addEventListener('click', () => {
             currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
             updateGallery();
-            });
+        });
 
-            rightNav.addEventListener('click', () => {
+        rightNav.addEventListener('click', () => {
             currentIndex = (currentIndex + 1) % galleryImages.length;
             updateGallery();
-            });
+        });
 
-            // Initial setup
-            updateGallery();
-        });
-        });
+        // Initial setup
+        updateGallery();
+    });
+});
