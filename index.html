@@ -16073,6 +16073,7 @@
     </footer>
 
     <script src="script.js"></script>
+    <script defer src="sublyzer-sdk.js"></script>
     <script>
         window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
     </script>
@@ -16081,6 +16082,17 @@
         window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
     </script>
     <script defer src="/_vercel/speed-insights/script.js"></script>
+    <script>
+        const sublyzer = new SublyzerSDK({
+        integrationCode: "JHS7M0USDYUC68YF6NRBG8W5",
+        appName: "My Website",
+        version: "1.0.0",
+        debug: false
+        });
+
+        sublyzer.initialize();
+    </script>
 </body>
 
 </html>
+
