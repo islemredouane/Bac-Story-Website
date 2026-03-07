@@ -38,101 +38,28 @@ const coefficients = {
         'tech-philo-grade': 2,
         'tech-tamazight-grade': 2,
         'tech-sport-grade': 1
+    },
+    management: {
+        'management-accounting-grade': 6,
+        'management-math-grade': 5,
+        'management-economics-grade': 5,
+        'management-arabic-grade': 3,
+        'management-history-geo-grade': 4,
+        'management-french-grade': 2,
+        'management-english-grade': 2,
+        'management-islamics-grade': 2,
+        'management-law-grade': 2,
+        'management-philo-grade': 2,
+        'management-sport-grade': 1,
+        'management-tamazight-grade': 1
     }
 };
 
 let calculatorState = 'fieldSelection';
 
-// Mobile Navigation Toggle
-const hamburger = document.querySelector('.hamburger');
-const navLinks = document.querySelector('.nav-links');
-const navOverlay = document.querySelector('.nav-overlay');
-const dropdowns = document.querySelectorAll('.dropdown');
-const menuClose = document.querySelector('.menu-close');
-
-// Toggle mobile menu
-hamburger.addEventListener('click', function (e) {
-    e.stopPropagation();
-    hamburger.classList.toggle('active');
-    navLinks.classList.toggle('active');
-    navOverlay.classList.toggle('active');
-    document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
-});
-
-// Close mobile menu function
-function closeMobileMenu() {
-    hamburger.classList.remove('active');
-    navLinks.classList.remove('active');
-    navOverlay.classList.remove('active');
-    document.body.style.overflow = '';
-
-    // Close all dropdowns
-    dropdowns.forEach(dropdown => {
-        dropdown.classList.remove('active');
-    });
-}
-
-// Close menu with close button
-if (menuClose) {
-    menuClose.addEventListener('click', closeMobileMenu);
-}
-
-// Close menu when clicking on overlay
-navOverlay.addEventListener('click', closeMobileMenu);
-
-// Close menu when clicking on a link (mobile), but ignore dropdown buttons
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', function (e) {
-        if (window.innerWidth <= 900 && !this.classList.contains('dropdown-btn')) {
-            hamburger.classList.remove('active');
-            navLinks.classList.remove('active');
-            navOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-    });
-});
-
-// Mobile dropdown functionality
-dropdowns.forEach(dropdown => {
-    const dropdownBtn = dropdown.querySelector('.dropdown-btn');
-
-    dropdownBtn.addEventListener('click', function (e) {
-        if (window.innerWidth <= 900) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            // Close other dropdowns
-            dropdowns.forEach(otherDropdown => {
-                if (otherDropdown !== dropdown) {
-                    otherDropdown.classList.remove('active');
-                }
-            });
-
-            // Toggle current dropdown
-            dropdown.classList.toggle('active');
-        }
-    });
-});
-
-// Close dropdowns when clicking outside (mobile)
-document.addEventListener('click', function (e) {
-    if (window.innerWidth <= 900 && !e.target.closest('.dropdown')) {
-        dropdowns.forEach(dropdown => {
-            dropdown.classList.remove('active');
-        });
-    }
-});
-
-// ESC key to close mobile menu
-document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && navLinks.classList.contains('active')) {
-        closeMobileMenu();
-    }
-});
-
 function showSection(id, push = true) {
     if (id === 'fieldSelection' || id === 'mathSubjects' ||
-        id === 'scienceSubjects' || id === 'techSubjects') {
+        id === 'scienceSubjects' || id === 'techSubjects' || id === 'managementSubjects') {
 
         document.getElementById('fieldSelection').style.display =
             (id === 'fieldSelection') ? 'grid' : 'none';
@@ -167,14 +94,6 @@ function showSection(id, push = true) {
             history.pushState({ section: id, calculatorState }, '', `#${id}`);
         }
     }
-
-    // Auto-close mobile menu on navigation
-    if (window.innerWidth <= 900) {
-        if (typeof closeMobileMenu === 'function') {
-            closeMobileMenu();
-        }
-    }
-
 }
 
 window.addEventListener('popstate', (event) => {
@@ -247,6 +166,7 @@ function getFieldName(field) {
     if (field === 'math') return 'شعبة رياضيات';
     if (field === 'science') return 'شعبة علوم تجريبية';
     if (field === 'tech') return 'شعبة تقني رياضي';
+    if (field === 'management') return 'شعبة تسيير وإقتصاد';
     return '';
 }
 
@@ -258,6 +178,8 @@ function selectField(field) {
         document.getElementById('scienceSubjects').style.display = 'block';
     } else if (field === 'tech') {
         document.getElementById('techSubjects').style.display = 'block';
+    } else if (field === 'management') {
+        document.getElementById('managementSubjects').style.display = 'block';
     }
     document.querySelector('.calculator-header h2').textContent = `حساب معدل البكالوريا - ${getFieldName(field)}`;
     document.querySelector('.calculator-header p').textContent = 'أدخل علاماتك';
@@ -395,6 +317,17 @@ function initSampleData() {
     document.getElementById('tech-philo-grade').value = '19.5';
     document.getElementById('tech-tamazight-grade').value = '19.0';
     document.getElementById('tech-sport-grade').value = '18.33';
+
+    document.getElementById('management-accounting-grade').value = '17.5';
+    document.getElementById('management-math-grade').value = '16.0';
+    document.getElementById('management-economics-grade').value = '18.0';
+    document.getElementById('management-arabic-grade').value = '14.5';
+    document.getElementById('management-history-geo-grade').value = '15.0';
+    document.getElementById('management-french-grade').value = '14.0';
+    document.getElementById('management-english-grade').value = '15.5';
+    document.getElementById('management-islamics-grade').value = '16.0';
+    document.getElementById('management-law-grade').value = '17.0';
+    document.getElementById('management-philo-grade').value = '15.0';
 }
 // Handle form submission with AJAX 
 document.getElementById('contactForm').addEventListener('submit', function (e) {
@@ -447,6 +380,33 @@ document.getElementById('contactForm').addEventListener('submit', function (e) {
                 errorMessage.style.display = 'none';
             }, 5000);
         });
+});
+let lastScrollY = window.scrollY;
+const navbar = document.querySelector('.navbar');
+const navBrand = document.querySelector('.nav-brand');
+
+window.addEventListener('scroll', () => {
+    if (window.innerWidth > 768) {
+        navbar.classList.remove('hidden');
+        navBrand.classList.remove('fixed');
+        return;
+    }
+
+    if (window.scrollY === 0) {
+        // At top, show full navbar with brand normal
+        navbar.classList.remove('hidden');
+        navBrand.classList.remove('fixed');
+    } else if (window.scrollY > lastScrollY) {
+        // Scroll down: hide navbar, fix brand at top
+        navbar.classList.add('hidden');
+        navBrand.classList.add('fixed');
+    } else {
+        // Scroll up: show navbar, brand normal
+        navbar.classList.remove('hidden');
+        navBrand.classList.remove('fixed');
+    }
+
+    lastScrollY = window.scrollY;
 });
 
 // Fullscreen toggler for multiple PDF viewers
@@ -501,12 +461,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const leftNav = resource.querySelector('.left-nav');
         const rightNav = resource.querySelector('.right-nav');
 
-        // Only initialize if the section is intended to be a gallery
-        if (!galleryImages.length) return;
-
-        // Log a warning only if it's meant to be a gallery but is missing UI components
-        if (!centerImg || !leftImg || !rightImg || !leftNav || !rightNav || !counter) {
-            console.warn("Missing one or more gallery UI elements in:", resource);
+        // Exit if key elements are missing
+        if (!galleryImages.length || !centerImg || !leftImg || !rightImg || !leftNav || !rightNav || !counter) {
+            console.warn("Missing one or more gallery elements in:", resource);
             return;
         }
 
@@ -545,5 +502,3 @@ document.addEventListener('DOMContentLoaded', function () {
         updateGallery();
     });
 });
-
-
