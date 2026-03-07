@@ -109,43 +109,6 @@ window.addEventListener('popstate', (event) => {
     }
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    const initial = location.hash.slice(1) || 'home';
-    const savedState = localStorage.getItem('calculatorState') || 'fieldSelection';
-
-    if (initial === 'calculator') {
-        calculatorState = savedState;
-        showSection(savedState, false);
-        history.replaceState({ section: 'calculator', calculatorState: savedState }, '', '#calculator');
-    } else {
-        showSection(initial, false);
-        history.replaceState({ section: initial }, '', `#${initial}`);
-    }
-
-    updateTimer();
-    setInterval(updateTimer, 1000);
-    initSampleData();
-
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-        link.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-                // Only show section if it's one of your managed sections
-                if (['home', 'about', 'contact', 'calculator', 'calculator-section', 'field-selection ', 'subject-container', 'fieldSelection',
-                    'mathSubjects', 'scienceSubjects', 'techSubjects',
-                    'resources'].includes(targetId)) {
-                    showSection(targetId);
-                } else {
-                    // Just scroll to the section (for static parts like about, contact)
-                    targetElement.scrollIntoView({ behavior: 'smooth' });
-                }
-            }
-        });
-    });
-});
-
 function updateTimer() {
     const examDate = new Date(2026, 5, 15, 8, 30, 0);
     const now = new Date();
@@ -282,6 +245,7 @@ function resetForm() {
 }
 
 function initSampleData() {
+    if (!document.getElementById('math-math-grade')) return;
     document.getElementById('math-math-grade').value = '18.0';
     document.getElementById('math-physics-grade').value = '16.5';
     document.getElementById('math-arabic-grade').value = '14.5';
@@ -329,58 +293,61 @@ function initSampleData() {
     document.getElementById('management-law-grade').value = '17.0';
     document.getElementById('management-philo-grade').value = '15.0';
 }
+
 // Handle form submission with AJAX 
-document.getElementById('contactForm').addEventListener('submit', function (e) {
-    e.preventDefault();
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
 
-    const submitButton = this.querySelector('button[type="submit"]');
-    const successMessage = document.getElementById('successMessage');
-    const errorMessage = document.getElementById('errorMessage');
+        const submitButton = this.querySelector('button[type="submit"]');
+        const successMessage = document.getElementById('successMessage');
+        const errorMessage = document.getElementById('errorMessage');
 
-    // Hide both first
-    successMessage.style.display = 'none';
-    errorMessage.style.display = 'none';
+        successMessage.style.display = 'none';
+        errorMessage.style.display = 'none';
 
-    submitButton.disabled = true;
-    submitButton.textContent = 'جاري الإرسال...';
+        submitButton.disabled = true;
+        submitButton.textContent = 'جاري الإرسال...';
 
-    fetch(this.action, {
-        method: this.method,
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            name: this.querySelector('[name="name"]').value,
-            email: this.querySelector('[name="email"]').value,
-            subject: this.querySelector('[name="subject"]').value,
-            message: this.querySelector('[name="message"]').value
+        fetch(this.action, {
+            method: this.method,
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                name: this.querySelector('[name="name"]').value,
+                email: this.querySelector('[name="email"]').value,
+                subject: this.querySelector('[name="subject"]').value,
+                message: this.querySelector('[name="message"]').value
+            })
         })
-    })
-        .then(response => response.json())
-        .then(data => {
-            if (data.status === 'success') {
-                successMessage.style.display = 'block';
-                this.reset();
-            } else {
-                errorMessage.textContent = data.message;
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    successMessage.style.display = 'block';
+                    this.reset();
+                } else {
+                    errorMessage.textContent = data.message;
+                    errorMessage.style.display = 'block';
+                }
+            })
+            .catch(() => {
+                errorMessage.textContent = 'حدث خطأ في الشبكة. يرجى المحاولة لاحقاً.';
                 errorMessage.style.display = 'block';
-            }
-        })
-        .catch(() => {
-            errorMessage.textContent = 'حدث خطأ في الشبكة. يرجى المحاولة لاحقاً.';
-            errorMessage.style.display = 'block';
-        })
-        .finally(() => {
-            submitButton.disabled = false;
-            submitButton.textContent = 'إرسال الرسالة';
+            })
+            .finally(() => {
+                submitButton.disabled = false;
+                submitButton.textContent = 'إرسال الرسالة';
 
-            // Auto-hide after 5s
-            setTimeout(() => {
-                successMessage.style.display = 'none';
-                errorMessage.style.display = 'none';
-            }, 5000);
-        });
-});
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                    errorMessage.style.display = 'none';
+                }, 5000);
+            });
+    });
+}
+
 let lastScrollY = window.scrollY;
 const navbar = document.querySelector('.navbar');
 const navBrand = document.querySelector('.nav-brand');
@@ -393,15 +360,12 @@ window.addEventListener('scroll', () => {
     }
 
     if (window.scrollY === 0) {
-        // At top, show full navbar with brand normal
         navbar.classList.remove('hidden');
         navBrand.classList.remove('fixed');
     } else if (window.scrollY > lastScrollY) {
-        // Scroll down: hide navbar, fix brand at top
         navbar.classList.add('hidden');
         navBrand.classList.add('fixed');
     } else {
-        // Scroll up: show navbar, brand normal
         navbar.classList.remove('hidden');
         navBrand.classList.remove('fixed');
     }
@@ -411,47 +375,124 @@ window.addEventListener('scroll', () => {
 
 // Fullscreen toggler for multiple PDF viewers
 function toggleFullScreen(event) {
-    // Get the clicked button element (fullscreen button)
     const btn = event.currentTarget;
-
-    // Find the iframe inside this wrapper
     const iframe = btn.closest('.pdf-wrapper').querySelector('iframe');
 
     if (document.fullscreenElement === iframe) {
-        // Exit fullscreen if this iframe is already fullscreen
         if (document.exitFullscreen) {
             document.exitFullscreen();
-        } else if (document.webkitExitFullscreen) { // Safari
+        } else if (document.webkitExitFullscreen) {
             document.webkitExitFullscreen();
-        } else if (document.msExitFullscreen) { // IE11
+        } else if (document.msExitFullscreen) {
             document.msExitFullscreen();
         }
     } else {
-        // Enter fullscreen only for the iframe
         if (iframe.requestFullscreen) {
             iframe.requestFullscreen();
-        } else if (iframe.webkitRequestFullscreen) { // Safari
+        } else if (iframe.webkitRequestFullscreen) {
             iframe.webkitRequestFullscreen();
-        } else if (iframe.msRequestFullscreen) { // IE11
+        } else if (iframe.msRequestFullscreen) {
             iframe.msRequestFullscreen();
         }
     }
 }
 
-// Optional: ESC exits fullscreen for better UX
 document.addEventListener('keydown', function (e) {
     if (e.key === "Escape" && document.fullscreenElement) {
         if (document.exitFullscreen) {
             document.exitFullscreen();
-        } else if (document.webkitExitFullscreen) { // Safari
-            document.webkitExitFullscreen();
-        } else if (document.msExitFullscreen) { // IE11
-            document.msExitFullscreen();
         }
     }
 });
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Initial Section Loading
+    const initial = location.hash.slice(1) || 'home';
+    const savedState = localStorage.getItem('calculatorState') || 'fieldSelection';
+
+    if (initial === 'calculator') {
+        calculatorState = savedState;
+        showSection(savedState, false);
+    } else {
+        showSection(initial, false);
+    }
+
+    // 2. Timer Setup
+    updateTimer();
+    setInterval(updateTimer, 1000);
+    initSampleData();
+
+    // 3. Anchor Link Smooth Scrolling & Section Management
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                if (['home', 'about', 'contact', 'calculator', 'oqba', 'resumes-exercises', 'books', 'topics', 'Drives', 'monthly-plans', 'subject-plans', 'challenges', 'timer', 'exam-sheet', 'university-system', 'university-section', 'averages-of-acceptance'].includes(targetId)) {
+                    showSection(targetId);
+                } else {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+    });
+
+    // 4. Mobile Menu Toggle Logic
+    const hamburger = document.getElementById('hamburger');
+    const menuClose = document.getElementById('menuClose');
+    const navLinks = document.getElementById('navLinks');
+    const navOverlay = document.querySelector('.nav-overlay');
+
+    const toggleMenu = (show) => {
+        if (!navLinks || !hamburger || !navOverlay) return;
+        navLinks.classList.toggle('active', show);
+        hamburger.classList.toggle('active', show);
+        navOverlay.classList.toggle('active', show);
+        document.body.style.overflow = show ? 'hidden' : '';
+    };
+
+    if (hamburger) {
+        hamburger.addEventListener('click', () => toggleMenu(true));
+    }
+
+    if (menuClose) {
+        menuClose.addEventListener('click', () => toggleMenu(false));
+    }
+
+    if (navOverlay) {
+        navOverlay.addEventListener('click', () => toggleMenu(false));
+    }
+
+    // Close menu when a link is clicked
+    if (navLinks) {
+        const links = navLinks.querySelectorAll('a:not(.dropdown-btn)');
+        links.forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
+
+        // Handle Mobile Dropdowns
+        const dropdowns = navLinks.querySelectorAll('.dropdown');
+        dropdowns.forEach(dropdown => {
+            const btn = dropdown.querySelector('.dropdown-btn');
+            if (btn) {
+                btn.addEventListener('click', (e) => {
+                    if (window.innerWidth <= 900) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        dropdown.classList.toggle('active');
+
+                        // Close other dropdowns
+                        dropdowns.forEach(other => {
+                            if (other !== dropdown) other.classList.remove('active');
+                        });
+                    }
+                });
+            }
+        });
+    }
+
+    // 5. Gallery / Slider logic
     document.querySelectorAll('.resource-content').forEach(resource => {
         const galleryImages = Array.from(resource.querySelectorAll('.gallery-images img'));
         const centerImg = resource.querySelector('.center-photo-img');
@@ -461,9 +502,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const leftNav = resource.querySelector('.left-nav');
         const rightNav = resource.querySelector('.right-nav');
 
-        // Exit if key elements are missing
         if (!galleryImages.length || !centerImg || !leftImg || !rightImg || !leftNav || !rightNav || !counter) {
-            console.warn("Missing one or more gallery elements in:", resource);
             return;
         }
 
@@ -473,21 +512,15 @@ document.addEventListener('DOMContentLoaded', function () {
             const prevIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
             const nextIndex = (currentIndex + 1) % galleryImages.length;
 
-            // Update the main and peek images
             centerImg.src = galleryImages[currentIndex].src;
             centerImg.alt = galleryImages[currentIndex].alt;
-
             leftImg.src = galleryImages[prevIndex].src;
             leftImg.alt = galleryImages[prevIndex].alt;
-
             rightImg.src = galleryImages[nextIndex].src;
             rightImg.alt = galleryImages[nextIndex].alt;
-
-            // Update counter
             counter.textContent = `${currentIndex + 1} / ${galleryImages.length}`;
         }
 
-        // Navigation buttons
         leftNav.addEventListener('click', () => {
             currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
             updateGallery();
@@ -498,7 +531,6 @@ document.addEventListener('DOMContentLoaded', function () {
             updateGallery();
         });
 
-        // Initial setup
         updateGallery();
     });
 });
