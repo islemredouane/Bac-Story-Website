@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script>(function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-T5H3TNJ4');</script>
+    <meta name="تواصل مع فريق Bac Story للاستفسار والدعمription" content="تواصل مع فريق Bac Story للاستفسار والدعم">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <title>تواصل معنا | BAC STORY</title>
+    <link rel="canonical" href="https://www.bacstory.com">
+    <meta name="author" content="redouane mohamed islem">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    </noscript>
+    <link rel="preload"
+        href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Pattaya&display=swap"
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Pattaya&display=swap">
+    </noscript>
+</head>
+
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5H3TNJ4" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+
+    <div id="navbar-placeholder"></div>
+    <div id="contact" class="resource-content active">
+        <div class="container">
+            <div class="modern-section-header">
+                <h2>تواصل معنا</h2>
+            </div>
+            <div class="contact-methods">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>البريد الإلكتروني</h3>
+                    <p><a href="mailto:m_redouane@estin.dz">m_redouane@estin.dz</a></p>
+                    <p><a href="mailto:islem06rd@gmail.com">islem06rd@gmail.com</a></p>
+                    <p>الرد خلال 24 ساعة على الأكثر</p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fa-solid fa-hashtag"></i>
+                    </div>
+                    <h3>مواقع التواصل</h3>
+                    <div class="social-links" style="display: flex;justify-content: center;">
+                        <a style="text-decoration: none;" href="https://t.me/islembacdz" class="social-l"
+                            target="_blank"><i class="fab fa-telegram-plane"></i></a>
+                        <a style="text-decoration: none;"
+                            href="https://www.instagram.com/islembacdz?igsh=ZHVybHF1djA5OWc0" class="social-l"
+                            target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a style="text-decoration: none;"
+                            href="https://www.linkedin.com/in/mohamed-islem-redouane-5ba586338?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                            class="social-l"><i class="fab fa-linkedin" target="_blank"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modern-section-header">
+                <h2>أرسل لنا رسالة</h2>
+            </div>
+            <div class="contact-form">
+                <!-- Success / Error Messages -->
+                <div class="notification success" id="successMessage">
+                    تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.
+                </div>
+
+                <div class="notification error" id="errorMessage">
+                    حدث خطأ أثناء إرسال الرسالة. يرجى المحاولة مرة أخرى.
+                </div>
+
+                <!-- Contact Form -->
+                <form id="contactForm" action="api/form.js" method="POST">
+                    <div class="form-group">
+                        <label for="name">الإسم الكامل</label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="أدخل اسمك الكامل"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">البريد الإلكتروني</label>
+                        <input type="email" id="email" name="email" class="form-control"
+                            placeholder="أدخل بريدك الإلكتروني" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">الموضوع</label>
+                        <input type="text" id="subject" name="subject" class="form-control" placeholder="موضوع رسالتك"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">الرسالة</label>
+                        <textarea id="message" name="message" class="form-control" placeholder="أدخل رسالتك هنا..."
+                            required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-primary btn-block">إرسال الرسالة</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+    <script src="/components/shared.js"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1BWT5DE65Q"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-1BWT5DE65Q');</script>
+    <script defer src="/_vercel/insights/script.js"></script>
+    <script defer src="/_vercel/speed-insights/script.js"></script>
+    <script defer src="/sublyzer-sdk.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', function () { if (typeof SublyzerSDK !== 'undefined') { const s = new SublyzerSDK({ integrationCode: "JHS7M0USDYUC68YF6NRBG8W5", appName: "My Website", version: "1.0.0", debug: false }); s.initialize(); } });</script>
+</body>
+
+</html>
