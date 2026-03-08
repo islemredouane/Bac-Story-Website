@@ -1,0 +1,109 @@
+<nav class="navbar">
+    <div class="nav-container">
+        <!-- Search button for mobile (Right) -->
+        <div class="nav-right-mobile">
+            <button id="searchBtnMobile" class="nav-icon-btn" aria-label="Search">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+
+        <!-- Logo (Center) -->
+        <div class="nav-brand">
+            <a href="/index.html">BAC STORY</a>
+        </div>
+
+        <!-- Hamburger Menu (Left) -->
+        <button id="hamburger" class="hamburger" aria-label="Open menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Menu on the right -->
+        <div id="navLinks" class="nav-links">
+            <button id="menuClose" class="menu-close" aria-label="Close menu">&times;</button>
+            <div class="dropdown">
+                <a class="dropdown-btn">الشعبة</a>
+                <div class="dropdown-content">
+                    <a href="/resources.html#math">شعبة رياضيات</a>
+                    <a href="/resources.html#science">شعبة علوم تجريبية</a>
+                    <a href="/resources.html#tech">شعبة تقني رياضي</a>
+                    <a href="/resources.html#management">شعبة تسيير و اقتصاد</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a class="dropdown-btn">المصادر الدراسية</a>
+                <div class="dropdown-content">
+                    <a href="/resources.html#resumes-exercises">ملخصات و تمارين</a>
+                    <a href="/resources.html#books">كتب خارجية</a>
+                    <a href="/bac-topics.html">المواضيع</a>
+                    <a href="/resources.html#Drives">درايفات المتفوقين</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a class="dropdown-btn">الخطط و التحديات</a>
+                <div class="dropdown-content">
+                    <a href="/plans.html#monthly-plans">الخطط الشهرية</a>
+                    <a href="/plans.html#subject-plans">خطط التميز للمواد</a>
+                    <a href="/plans.html#challenges">تحديات التميز</a>
+                </div>
+            </div>
+            <a href="/oqba.html">باقات عقبة بن نافع</a>
+            <div class="dropdown">
+                <a class="dropdown-btn">ملحقات البكالوريا</a>
+                <div class="dropdown-content">
+                    <a href="/tools.html#timer">الوقت المتبقي</a>
+                    <a href="/tools.html#calculator">حساب المعدل</a>
+                    <a href="/tools.html#exam-sheet">ورقة الإجابة</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a class="dropdown-btn">دليل الجامعة</a>
+                <div class="dropdown-content">
+                    <a href="/university.html#university-system">النظام الجامعي</a>
+                    <a href="/university.html#university-section">تعريف التخصصات</a>
+                    <a href="/university.html#averages-of-acceptance">معدلات القبول 2025</a>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Footer -->
+            <div class="mobile-menu-footer">
+                <div class="menu-footer-logo">BAC STORY</div>
+                <a href="https://t.me/islembacdz" target="_blank" rel="noopener" class="search-telegram-btn">
+                    <i class="fab fa-telegram-plane"></i>
+                    <span>انضم إلينا على التلغرام</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Desktop Search (Visible only on large screens) -->
+        <div class="nav-left-desktop">
+            <button id="searchBtnDesktop" class="nav-icon-btn" aria-label="Search">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Overlay -->
+    <div class="nav-overlay"> </div>
+</nav>
+
+<!-- Mobile Bottom Navbar -->
+<div class="mobile-bottom-bar">
+    <a href="/index.html" class="bottom-nav-item">
+        <i class="fas fa-home"></i>
+        <span>الرئيسية</span>
+    </a>
+    <a href="/about.html" class="bottom-nav-item">
+        <i class="fas fa-info-circle"></i>
+        <span>عن المنصة</span>
+    </a>
+    <button class="bottom-nav-item bottom-menu-btn" id="bottomMenuBtn">
+        <i class="fas fa-bars"></i>
+        <span>القائمة</span>
+    </button>
+    <button class="bottom-nav-item slide-up-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <i class="fas fa-arrow-up"></i>
+        <span>للأعلى</span>
+    </button>
+</div>
