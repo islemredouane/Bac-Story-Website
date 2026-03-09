@@ -75,9 +75,8 @@ function setupMobileMenu() {
         const btn = dropdown.querySelector('.dropdown-btn');
         if (!btn) return;
         btn.addEventListener('click', (e) => {
-            // CSS mobile menu triggers at 900px, but padding changes up to 1024px
-            // Let's ensure this works for mobile toggle
-            if (window.innerWidth <= 1024) {
+            // CSS mobile menu triggers at 1100px
+            if (window.innerWidth <= 1100) {
                 e.preventDefault();
                 e.stopPropagation();
                 const isOpen = dropdown.classList.contains('active');
