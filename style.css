@@ -685,7 +685,10 @@ body.search-active .mobile-bottom-bar,
     }
 
     .dropdown-btn::after {
-        transform: rotate(90deg);
+        content: "\f107";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        transform: rotate(0deg);
         transition: transform 0.25s ease;
         color: rgba(255, 255, 255, 0.7);
         font-size: 0.9rem;
@@ -702,6 +705,8 @@ body.search-active .mobile-bottom-bar,
     }
 
     .dropdown-content {
+        display: block;
+        position: static;
         max-height: 0;
         overflow: hidden;
         opacity: 0;
@@ -901,6 +906,13 @@ body.search-active .mobile-bottom-bar,
     display: block;
     width: 90%;
     margin: 2rem auto;
+}
+
+@media (max-width: 768px) {
+    .active {
+        width: 100% !important;
+        margin: 1rem 0 !important;
+    }
 }
 
 /* Main Container (Modern borderless look) */
@@ -3289,11 +3301,26 @@ textarea.form-control {
     }
 
     .intro {
-        width: 40%;
+        width: 100%;
+        padding: 15px 8px;
+        margin-bottom: 25px;
     }
 
     .intro h2 {
         font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .intro li {
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+        gap: 8px;
+        padding: 15px 10px;
+    }
+
+    .intro li i {
+        margin: 0;
     }
 
     .photo-container {
@@ -3521,7 +3548,8 @@ textarea.form-control {
     }
 
     .container {
-        margin: 4rem 1.5rem;
+        margin: 2rem auto;
+        padding: 1rem 0.5rem;
     }
 
     .home-container {
@@ -4463,6 +4491,7 @@ textarea.form-control {
 .search-telegram-btn {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 0.75rem;
     background: #24A1DE;
     /* Telegram Blue */
@@ -4474,6 +4503,13 @@ textarea.form-control {
     font-weight: 600;
     transition: var(--transition);
     box-shadow: 0 4px 15px rgba(36, 161, 222, 0.3);
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.search-footer .search-telegram-btn {
+    margin: 0;
+    /* Keep it on the side in the search overlay */
 }
 
 .search-telegram-btn:hover {
