@@ -2533,7 +2533,7 @@ body.search-active .mobile-bottom-bar,
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     transition: var(--transition);
-
+    overflow: hidden;
     z-index: 2;
 }
 
