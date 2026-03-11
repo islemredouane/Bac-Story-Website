@@ -23,7 +23,10 @@
 async function injectComponent(selector, url) {
     try {
         const res = await fetch(url);
-        if (!res.ok) return;
+        if (!res.ok) {
+            console.warn(`Failed to fetch component: ${url} (Status: ${res.status})`);
+            return;
+        }
         const html = await res.text();
         const el = document.querySelector(selector);
         if (el) el.innerHTML = html;
@@ -352,10 +355,10 @@ function setupSearch() {
 
 // ─── PAGE BOOT ───────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', async () => {
-    // Inject components concurrently
+    // Inject components concurrently using absolute paths
     await Promise.all([
-        injectComponent('#navbar-placeholder', 'components/navbar.html'),
-        injectComponent('#footer-placeholder', 'components/footer.html')
+        injectComponent('#navbar-placeholder', '/components/navbar.html'),
+        injectComponent('#footer-placeholder', '/components/footer.html')
     ]);
 
     // Ensure search placeholder is at body level for max z-index
@@ -364,7 +367,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         sp.id = 'search-placeholder';
         document.body.appendChild(sp);
     }
-    await injectComponent('#search-placeholder', 'components/search.html');
+    await injectComponent('#search-placeholder', '/components/search.html');
 
     // Setup after injection
     setupMobileMenu();
