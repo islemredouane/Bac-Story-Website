@@ -143,7 +143,7 @@ window.addEventListener('popstate', (event) => {
 });
 
 function updateTimer() {
-    const examDate = new Date(2026, 5, 15, 8, 30, 0);
+    const examDate = new Date(2026, 5, 7, 8, 30, 0);
     const now = new Date();
     const diff = examDate - now;
 
@@ -545,3 +545,4 @@ document.addEventListener('DOMContentLoaded', () => {
         updateGallery();
     });
 });
+
