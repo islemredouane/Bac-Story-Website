@@ -106,6 +106,22 @@
                     <h3 class="field-title">شعبة تسيير واقتصاد</h3>
                     <p class="field-description">احسب المعدل</p>
                 </div>
+
+                <div class="field-card literature" onclick="selectField('literature')">
+                    <div class="field-icon">
+                        <i class="fas fa-pen-nib"></i>
+                    </div>
+                    <h3 class="field-title">شعبة آداب وفلسفة</h3>
+                    <p class="field-description">احسب المعدل</p>
+                </div>
+
+                <div class="field-card languages" onclick="selectField('languages')">
+                    <div class="field-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="field-title">شعبة لغات أجنبية</h3>
+                    <p class="field-description">احسب المعدل</p>
+                </div>
             </div>
 
             <!-- Math Subjects -->
@@ -713,6 +729,252 @@
 
                 <div class="action-buttons">
                     <button class="btn calculate" onclick="calculateAverage('management')">
+                        <i class="fas fa-calculator"></i> احسب المعدل
+                    </button>
+                    <button class="btn reset" onclick="resetForm()">
+                        <i class="fas fa-redo"></i> إعادة تعيين
+                    </button>
+                    <button class="btn back" onclick="showFieldSelection()">
+                        <i class="fas fa-arrow-left"></i> تغيير الشعبة
+                    </button>
+                </div>
+            </div>
+            <!-- Literature Subjects -->
+            <div class="subject-container" id="literatureSubjects" style="display: none;">
+                <div class="subjects-grid">
+                    <div class="subject-card">
+                        <div class="subject-header">
+                            <div class="subject-name">اللغة العربية</div>
+                            <div class="subject-coeff">المعامل: 6</div>
+                        </div>
+                        <div class="grade-input-container">
+                            <input type="number" min="0" max="20" step="0.01" class="grade-input" id="literature-arabic-grade" placeholder="أدخل العلامة">
+                            <span class="error-message"></span>
+                        </div>
+                    </div>
+
+                    <div class="subject-card">
+                        <div class="subject-header">
+                            <div class="subject-name">الفلسفة</div>
+                            <div class="subject-coeff">المعامل: 6</div>
+                        </div>
+                        <div class="grade-input-container">
+                            <input type="number" min="0" max="20" step="0.01" class="grade-input" id="literature-philo-grade" placeholder="أدخل العلامة">
+                            <span class="error-message"></span>
+                        </div>
+                    </div>
+
+                    <div class="subject-card">
+                        <div class="subject-header">
+                            <div class="subject-name">التاريخ والجغرافيا</div>
+                            <div class="subject-coeff">المعامل: 4</div>
+                        </div>
+                        <div class="grade-input-container">
+                            <input type="number" min="0" max="20" step="0.01" class="grade-input" id="literature-history-geo-grade" placeholder="أدخل العلامة">
+                            <span class="error-message"></span>
+                        </div>
+                    </div>
+
+                    <div class="subject-card">
+                        <div class="subject-header">
+                            <div class="subject-name">اللغة الفرنسية</div>
+                            <div class="subject-coeff">المعامل: 3</div>
+                        </div>
+                        <div class="grade-input-container">
+                            <input type="number" min="0" max="20" step="0.01" class="grade-input" id="literature-french-grade" placeholder="أدخل العلامة">
+                            <span class="error-message"></span>
+                        </div>
+                    </div>
+
+                    <div class="subject-card">
+                        <div class="subject-header">
+                            <div class="subject-name">اللغة الإنجليزية</div>
+                            <div class="subject-coeff">المعامل: 3</div>
+                        </div>
+                        <div class="grade-input-container">
+                            <input type="number" min="0" max="20" step="0.01" class="grade-input" id="literature-english-grade" placeholder="أدخل العلامة">
+                            <span class="error-message"></span>
+                        </div>
+                    </div>
+
+                    <div class="subject-card">
+                        <div class="subject-header">
+                            <div class="subject-name">العلوم الإسلامية</div>
+                            <div class="subject-coeff">المعامل: 2</div>
+                        </div>
+                        <div class="grade-input-container">
+                            <input type="number" min="0" max="20" step="0.01" class="grade-input" id="literature-islamics-grade" placeholder="أدخل العلامة">
+                            <span class="error-message"></span>
+                        </div>
+                    </div>
+
+                    <div class="subject-card">
+                        <div class="subject-header">
+                            <div class="subject-name">الرياضيات</div>
+                            <div class="subject-coeff">المعامل: 2</div>
+                        </div>
+                        <div class="grade-input-container">
+                            <input type="number" min="0" max="20" step="0.01" class="grade-input" id="literature-math-grade" placeholder="أدخل العلامة">
+                            <span class="error-message"></span>
+                        </div>
+                    </div>
+
+                    <div class="subject-card optional">
+                        <div class="subject-header">
+                            <div class="subject-name">الأمازيغية</div>
+                            <div class="subject-coeff">المعامل: 2</div>
+                        </div>
+                        <div class="grade-input-container">
+                            <input type="number" min="0" max="20" step="0.01" class="grade-input" id="literature-tamazight-grade" placeholder="اختياري">
+                            <span class="error-message"></span>
+                        </div>
+                        <div class="optional-tag">مادة اختيارية</div>
+                    </div>
+
+                    <div class="subject-card optional">
+                        <div class="subject-header">
+                            <div class="subject-name">التربية البدنية</div>
+                            <div class="subject-coeff">المعامل: 1</div>
+                        </div>
+                        <div class="grade-input-container">
+                            <input type="number" min="0" max="20" step="0.01" class="grade-input" id="literature-sport-grade" placeholder="اختياري">
+                            <span class="error-message"></span>
+                        </div>
+                        <div class="optional-tag">مادة اختيارية</div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn calculate" onclick="calculateAverage('literature')">
+                        <i class="fas fa-calculator"></i> احسب المعدل
+                    </button>
+                    <button class="btn reset" onclick="resetForm()">
+                        <i class="fas fa-redo"></i> إعادة تعيين
+                    </button>
+                    <button class="btn back" onclick="showFieldSelection()">
+                        <i class="fas fa-arrow-left"></i> تغيير الشعبة
+                    </button>
+                </div>
+            </div>
+
+            <!-- Languages Subjects -->
+            <div class="subject-container" id="languagesSubjects" style="display: none;">
+                <div class="subjects-grid">
+                    <div class="subject-card">
+                        <div class="subject-header">
+                            <div class="subject-name">اللغة العربية</div>
+                            <div class="subject-coeff">المعامل: 5</div>
+                        </div>
+                        <div class="grade-input-container">
+                            <input type="number" min="0" max="20" step="0.01" class="grade-input" id="languages-arabic-grade" placeholder="أدخل العلامة">
+                            <span class="error-message"></span>
+                        </div>
+                    </div>
+
+                    <div class="subject-card">
+                        <div class="subject-header">
+                            <div class="subject-name">اللغة الفرنسية</div>
+                            <div class="subject-coeff">المعامل: 5</div>
+                        </div>
+                        <div class="grade-input-container">
+                            <input type="number" min="0" max="20" step="0.01" class="grade-input" id="languages-french-grade" placeholder="أدخل العلامة">
+                            <span class="error-message"></span>
+                        </div>
+                    </div>
+
+                    <div class="subject-card">
+                        <div class="subject-header">
+                            <div class="subject-name">اللغة الإنجليزية</div>
+                            <div class="subject-coeff">المعامل: 5</div>
+                        </div>
+                        <div class="grade-input-container">
+                            <input type="number" min="0" max="20" step="0.01" class="grade-input" id="languages-english-grade" placeholder="أدخل العلامة">
+                            <span class="error-message"></span>
+                        </div>
+                    </div>
+
+                    <div class="subject-card">
+                        <div class="subject-header">
+                            <div class="subject-name">اللغة الأجنبية الثالثة <small style="font-weight:400;font-size:0.8em;">(ألمانية / إيطالية / إسبانية)</small></div>
+                            <div class="subject-coeff">المعامل: 4</div>
+                        </div>
+                        <div class="grade-input-container">
+                            <input type="number" min="0" max="20" step="0.01" class="grade-input" id="languages-lang3-grade" placeholder="أدخل العلامة">
+                            <span class="error-message"></span>
+                        </div>
+                    </div>
+
+                    <div class="subject-card">
+                        <div class="subject-header">
+                            <div class="subject-name">العلوم الإسلامية</div>
+                            <div class="subject-coeff">المعامل: 2</div>
+                        </div>
+                        <div class="grade-input-container">
+                            <input type="number" min="0" max="20" step="0.01" class="grade-input" id="languages-islamics-grade" placeholder="أدخل العلامة">
+                            <span class="error-message"></span>
+                        </div>
+                    </div>
+
+                    <div class="subject-card">
+                        <div class="subject-header">
+                            <div class="subject-name">التاريخ والجغرافيا</div>
+                            <div class="subject-coeff">المعامل: 2</div>
+                        </div>
+                        <div class="grade-input-container">
+                            <input type="number" min="0" max="20" step="0.01" class="grade-input" id="languages-history-geo-grade" placeholder="أدخل العلامة">
+                            <span class="error-message"></span>
+                        </div>
+                    </div>
+
+                    <div class="subject-card">
+                        <div class="subject-header">
+                            <div class="subject-name">الفلسفة</div>
+                            <div class="subject-coeff">المعامل: 2</div>
+                        </div>
+                        <div class="grade-input-container">
+                            <input type="number" min="0" max="20" step="0.01" class="grade-input" id="languages-philo-grade" placeholder="أدخل العلامة">
+                            <span class="error-message"></span>
+                        </div>
+                    </div>
+
+                    <div class="subject-card">
+                        <div class="subject-header">
+                            <div class="subject-name">الرياضيات</div>
+                            <div class="subject-coeff">المعامل: 2</div>
+                        </div>
+                        <div class="grade-input-container">
+                            <input type="number" min="0" max="20" step="0.01" class="grade-input" id="languages-math-grade" placeholder="أدخل العلامة">
+                            <span class="error-message"></span>
+                        </div>
+                    </div>
+
+                    <div class="subject-card optional">
+                        <div class="subject-header">
+                            <div class="subject-name">الأمازيغية</div>
+                            <div class="subject-coeff">المعامل: 2</div>
+                        </div>
+                        <div class="grade-input-container">
+                            <input type="number" min="0" max="20" step="0.01" class="grade-input" id="languages-tamazight-grade" placeholder="اختياري">
+                            <span class="error-message"></span>
+                        </div>
+                        <div class="optional-tag">مادة اختيارية</div>
+                    </div>
+
+                    <div class="subject-card optional">
+                        <div class="subject-header">
+                            <div class="subject-name">التربية البدنية</div>
+                            <div class="subject-coeff">المعامل: 1</div>
+                        </div>
+                        <div class="grade-input-container">
+                            <input type="number" min="0" max="20" step="0.01" class="grade-input" id="languages-sport-grade" placeholder="اختياري">
+                            <span class="error-message"></span>
+                        </div>
+                        <div class="optional-tag">مادة اختيارية</div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn calculate" onclick="calculateAverage('languages')">
                         <i class="fas fa-calculator"></i> احسب المعدل
                     </button>
                     <button class="btn reset" onclick="resetForm()">
