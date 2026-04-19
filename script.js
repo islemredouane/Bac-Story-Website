@@ -52,6 +52,29 @@ const coefficients = {
         'management-philo-grade': 2,
         'management-sport-grade': 1,
         'management-tamazight-grade': 1
+    },
+    literature: {
+        'literature-arabic-grade': 6,
+        'literature-philo-grade': 6,
+        'literature-history-geo-grade': 4,
+        'literature-french-grade': 3,
+        'literature-english-grade': 3,
+        'literature-islamics-grade': 2,
+        'literature-math-grade': 2,
+        'literature-sport-grade': 1,
+        'literature-tamazight-grade': 2
+    },
+    languages: {
+        'languages-arabic-grade': 5,
+        'languages-french-grade': 5,
+        'languages-english-grade': 5,
+        'languages-lang3-grade': 4,
+        'languages-islamics-grade': 2,
+        'languages-history-geo-grade': 2,
+        'languages-philo-grade': 2,
+        'languages-math-grade': 2,
+        'languages-sport-grade': 1,
+        'languages-tamazight-grade': 2
     }
 };
 
@@ -59,7 +82,8 @@ let calculatorState = 'fieldSelection';
 
 function showSection(id, push = true) {
     if (id === 'fieldSelection' || id === 'mathSubjects' ||
-        id === 'scienceSubjects' || id === 'techSubjects' || id === 'managementSubjects') {
+        id === 'scienceSubjects' || id === 'techSubjects' || id === 'managementSubjects' ||
+        id === 'literatureSubjects' || id === 'languagesSubjects') {
 
         document.getElementById('fieldSelection').style.display =
             (id === 'fieldSelection') ? 'grid' : 'none';
@@ -193,6 +217,8 @@ function getFieldName(field) {
     if (field === 'science') return 'شعبة علوم تجريبية';
     if (field === 'tech') return 'شعبة تقني رياضي';
     if (field === 'management') return 'شعبة تسيير وإقتصاد';
+    if (field === 'literature') return 'شعبة آداب وفلسفة';
+    if (field === 'languages') return 'شعبة لغات أجنبية';
     return '';
 }
 
@@ -206,6 +232,10 @@ function selectField(field) {
         document.getElementById('techSubjects').style.display = 'block';
     } else if (field === 'management') {
         document.getElementById('managementSubjects').style.display = 'block';
+    } else if (field === 'literature') {
+        document.getElementById('literatureSubjects').style.display = 'block';
+    } else if (field === 'languages') {
+        document.getElementById('languagesSubjects').style.display = 'block';
     }
     document.querySelector('.calculator-header h2').textContent = `حساب معدل البكالوريا - ${getFieldName(field)}`;
     document.querySelector('.calculator-header p').textContent = 'أدخل علاماتك';
