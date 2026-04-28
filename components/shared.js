@@ -521,6 +521,152 @@ function setupSearch() {
     });
 }
 
+// ─── AD STRIP INJECTION ──────────────────────────────────────────────────────
+function injectAdStrip() {
+    if (typeof window.BAC_ADS === 'undefined') return;
+    if (BAC_ADS.isStripDismissed()) return;
+
+    const ads = BAC_ADS.getActiveStripAds();
+    if (!ads.length) return;
+
+    const AD_H = 52;
+    let currentIdx = 0;
+
+    function buildContentHTML(ad) {
+        return `
+            <span class="ad-strip-emoji">${ad.emoji || '📢'}</span>
+            <span class="ad-strip-text">
+                <span class="ad-strip-headline">${ad.headline}</span>
+                ${ad.subline ? `<span class="ad-strip-subline">${ad.subline}</span>` : ''}
+            </span>
+            ${ad.badge ? `<span class="ad-strip-badge">${ad.badge}</span>` : ''}`;
+    }
+
+    const strip = document.createElement('div');
+    strip.className = 'ad-strip is-hidden';
+    strip.innerHTML = `
+        <div class="ad-strip-inner">
+            <span class="ad-strip-countdown">${BAC_ADS.getCountdownText()}</span>
+            <div class="ad-strip-content">${buildContentHTML(ads[0])}</div>
+            <div class="ad-strip-actions">
+                <a href="${ads[0].ctaHref}" target="${ads[0].ctaTarget || '_self'}" class="ad-strip-cta">
+                    ${ads[0].ctaText}
+                </a>
+                <button class="ad-strip-dismiss" aria-label="إغلاق الإعلان">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>`;
+    document.body.appendChild(strip);
+
+    // Adjust body padding-top
+    document.documentElement.style.setProperty('--ad-strip-height', AD_H + 'px');
+    document.body.style.paddingTop = (75 + AD_H) + 'px';
+
+    // Animate in
+    requestAnimationFrame(() => requestAnimationFrame(() => strip.classList.remove('is-hidden')));
+
+    // Dismiss
+    strip.querySelector('.ad-strip-dismiss').addEventListener('click', () => {
+        BAC_ADS.dismissStrip();
+        strip.classList.add('is-hidden');
+        const cleanup = () => {
+            if (strip.parentNode) strip.remove();
+            document.documentElement.style.setProperty('--ad-strip-height', '0px');
+            document.body.style.paddingTop = '75px';
+        };
+        strip.addEventListener('transitionend', cleanup, { once: true });
+        setTimeout(cleanup, 500);
+    });
+
+    // Auto-rotation (only if multiple active ads)
+    if (ads.length > 1) {
+        setInterval(() => {
+            currentIdx = (currentIdx + 1) % ads.length;
+            const ad = ads[currentIdx];
+            const contentEl = strip.querySelector('.ad-strip-content');
+            const ctaEl = strip.querySelector('.ad-strip-cta');
+            contentEl.classList.add('rotating-out');
+            contentEl.addEventListener('animationend', () => {
+                contentEl.innerHTML = buildContentHTML(ad);
+                ctaEl.href = ad.ctaHref;
+                ctaEl.textContent = ad.ctaText;
+                contentEl.classList.remove('rotating-out');
+                contentEl.classList.add('rotating-in');
+                contentEl.addEventListener('animationend', () => {
+                    contentEl.classList.remove('rotating-in');
+                }, { once: true });
+            }, { once: true });
+        }, 6000);
+    }
+}
+
+// ─── INLINE AD CARD INJECTION ────────────────────────────────────────────────
+function injectAdCards() {
+    if (typeof window.BAC_ADS === 'undefined') return;
+
+    const cards = BAC_ADS.getActiveRotatingCards ? BAC_ADS.getActiveRotatingCards() : [];
+    if (!cards.length) return;
+
+    const placeholders = document.querySelectorAll('.ad-card-inject');
+    if (!placeholders.length) return;
+
+    let currentIdx = 0;
+
+    function buildCardHTML(card) {
+        const specialtyHTML = card.specialty
+            ? `<span class="ad-card-specialty">${card.specialty}</span>` : '';
+        return `
+            <div class="ad-card-wrap">
+                <div class="ad-card">
+                    <span class="ad-card-sponsor">${card.sponsorLabel || 'محتوى مدعوم'}</span>
+                    <div class="ad-card-avatar" style="background:${card.avatarColor || '#2c5cc5'}">
+                        <i class="${card.avatarIcon || 'fas fa-star'}"></i>
+                    </div>
+                    <div class="ad-card-body">
+                        <p class="ad-card-name">${card.name}</p>
+                        <div class="ad-card-meta">
+                            ${card.subject ? `<span class="ad-card-subject">${card.subject}</span>` : ''}
+                            ${specialtyHTML}
+                        </div>
+                        <p class="ad-card-pitch">${card.pitch}</p>
+                    </div>
+                    <a href="${card.ctaHref}" target="${card.ctaTarget || '_self'}" class="ad-card-cta">
+                        ${card.ctaText} <i class="fas fa-arrow-left"></i>
+                    </a>
+                </div>
+            </div>`;
+    }
+
+    // Render a specific card index on all placeholders with a fade transition
+    function renderCard(idx, animate) {
+        if (animate) {
+            placeholders.forEach(ph => ph.classList.add('ad-card-fade-out'));
+            setTimeout(() => {
+                placeholders.forEach(ph => {
+                    ph.innerHTML = buildCardHTML(cards[idx]);
+                    ph.classList.remove('ad-card-fade-out');
+                    ph.classList.add('ad-card-fade-in');
+                    setTimeout(() => ph.classList.remove('ad-card-fade-in'), 400);
+                });
+            }, 300);
+        } else {
+            placeholders.forEach(ph => { ph.innerHTML = buildCardHTML(cards[idx]); });
+        }
+    }
+
+    // Initial render (no animation on first paint)
+    renderCard(0, false);
+
+    // Rotate globally if multiple active cards
+    if (cards.length > 1) {
+        setInterval(() => {
+            currentIdx = (currentIdx + 1) % cards.length;
+            renderCard(currentIdx, true);
+        }, BAC_ADS.cardRotationMs || 7000);
+    }
+}
+
 // ─── PAGE BOOT ───────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', async () => {
     // Inject components concurrently using absolute paths
@@ -541,6 +687,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupMobileMenu();
     setupNavbarScroll();
     setupSearch();
+    injectAdStrip();
+    injectAdCards();
 
     // Handle hash-based section
     handleHashNav();
