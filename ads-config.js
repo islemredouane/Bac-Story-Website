@@ -84,7 +84,7 @@ window.BAC_ADS = {
       ctaText:      'تعرف على الباقات',
       ctaHref:      '/advertise.html',
       ctaTarget:    '_self'
-    }
+    },
     {
       id:           'card-platform',
       active:       true,
