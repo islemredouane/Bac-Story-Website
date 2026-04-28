@@ -48,7 +48,7 @@ window.BAC_ADS = {
       name:         'أستاذ أو مدرّب؟ وسّع انتشارك',
       subject:      'جميع المواد',
       specialty:    null,
-      pitch:        'آلاف الطلاب يبحثون عن أساتذة الآن. اعرض كورساتك ودروسك الخاصة أمامهم.',
+      pitch:        'آلاف الطلاب يبحثون عن أساتذة الآن. اعرض دوراتك ودروسك الخاصة أمامهم.',
       ctaText:      'أعلن معنا',
       ctaHref:      '/advertise.html',
       ctaTarget:    '_self'
@@ -64,7 +64,7 @@ window.BAC_ADS = {
       name:         'مراجعة المواضيع والتصحيح؟',
       subject:      'جميع الشعب',
       specialty:    null,
-      pitch:        'أعلن عن دروسك في المراجعة والمواضيع — الطلاب في أوج تحضيرهم للباك.',
+      pitch:        'أعلن عن دوراتك في المراجعة النهائية والمواضيع — الطلاب في أوج تحضيرهم للبكالوريا.',
       ctaText:      'احجز إعلانك',
       ctaHref:      '/advertise.html',
       ctaTarget:    '_self'
@@ -81,6 +81,22 @@ window.BAC_ADS = {
       subject:      'جميع المواد',
       specialty:    null,
       pitch:        'قدّم منهجيتك وخططك الدراسية لطلاب يبحثون عن التميز في الأيام الأخيرة.',
+      ctaText:      'تعرف على الباقات',
+      ctaHref:      '/advertise.html',
+      ctaTarget:    '_self'
+    }
+    {
+      id:           'card-platform',
+      active:       true,
+      priority:     2,
+      type:         'planning',
+      sponsorLabel: 'محتوى مدعوم',
+      avatarIcon:   'fas fa-calendar-check',
+      avatarColor:  '#2c5cc5',
+      name:         'منصة تعليمية',
+      subject:      'جميع المواد',
+      specialty:    null,
+      pitch:        'اعرض منصتك أو تطبيقك التعليمي للطلبة المستهدفين',
       ctaText:      'تعرف على الباقات',
       ctaHref:      '/advertise.html',
       ctaTarget:    '_self'
