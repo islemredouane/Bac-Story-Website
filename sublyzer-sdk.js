@@ -224,9 +224,8 @@
       const parseStack = (stack)=>{
         try{
           const out = [];
-          // IMPORTANTE: este código está dentro de um template string TSX.
-          // Se usarmos '
-' aqui, ele vira newline real e quebra o JS gerado.
+          // IMPORTANTE: este codigo esta dentro de um template string TSX.
+          // Se usarmos newline aqui, ele vira newline real e quebra o JS gerado.
           const lines = String(stack||'').split('\n').slice(0, 40);
           for (const line of lines){
             const l = String(line||'').trim();
