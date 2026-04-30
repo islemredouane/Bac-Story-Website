@@ -2780,45 +2780,28 @@ body.search-active .mobile-bottom-bar,
 
 .detail-card {
     background: #ffffff;
-    padding: 25px;
+    padding: 22px 24px;
     display: flex;
     flex-direction: column;
     position: relative;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    transition: var(--transition);
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+    transition: all 0.28s ease;
     overflow: hidden;
-    z-index: 2;
+    border: 1.5px solid #edf0f7;
+    border-top: 3px solid var(--primary-color);
 }
 
 .detail-card::before,
 .detail-card::after {
-    content: "";
-    position: absolute;
-    height: 150%;
-    width: 150%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: -1;
-}
-
-.detail-card::before {
-    background: conic-gradient(#44f 20deg transparent 20deg);
-    animation: rotate 4s infinite linear;
-}
-
-.detail-card::after {
-    background: white;
-    height: 100%;
-    width: 100%;
-    box-shadow: 5px 5px 15px inset;
-    border-radius: 10px;
+    content: none;
 }
 
 .detail-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 35px rgba(44, 92, 197, 0.18);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 28px rgba(44, 92, 197, 0.14);
+    border-color: rgba(44, 92, 197, 0.25);
+    border-top-color: var(--primary-color);
 }
 
 .detail-card.prencipal-card {
@@ -6220,4 +6203,544 @@ textarea.form-control {
     .adp-urgency-btn        { font-size: 0.82rem; padding: 0.9rem 1.5rem; }
     .adp-urgency-countdown  { padding: 0.45rem 1.25rem; }
     .adp-urgency-num        { font-size: 2.5rem; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   UNIVERSITY PAGE — ENHANCED DESIGN v2
+═══════════════════════════════════════════════════════════ */
+
+/* Enhanced section header — orange accent underline */
+.modern-section-header h2::after {
+    content: '';
+    display: block;
+    width: 38px;
+    height: 3px;
+    background: var(--secondary-color);
+    border-radius: 2px;
+    margin-top: 5px;
+}
+
+/* ── University Hero Banner ───────────────────────────── */
+.uni-hero {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--gradient-color) 100%);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    color: white;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+.uni-hero::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    right: -10%;
+    width: 280px;
+    height: 280px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 50%;
+    pointer-events: none;
+}
+.uni-hero::after {
+    content: '';
+    position: absolute;
+    bottom: -35%;
+    left: -8%;
+    width: 200px;
+    height: 200px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 50%;
+    pointer-events: none;
+}
+.uni-hero h2 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 900;
+    margin-bottom: 0.85rem;
+    position: relative;
+    z-index: 1;
+}
+.uni-hero p {
+    font-size: 1.02rem;
+    line-height: 1.85;
+    opacity: 0.93;
+    max-width: 680px;
+    position: relative;
+    z-index: 1;
+    margin: 0;
+}
+.uni-hero-chips {
+    display: flex;
+    gap: 0.85rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+}
+.uni-hero-chip {
+    background: rgba(255,255,255,0.15);
+    border: 1.5px solid rgba(255,255,255,0.35);
+    color: white;
+    padding: 0.52rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    font-family: 'Tajawal', sans-serif;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+}
+.uni-hero-chip:hover {
+    background: rgba(255,255,255,0.28);
+    transform: translateY(-2px);
+    color: white;
+    text-decoration: none;
+}
+
+/* ── Study Path Comparison ────────────────────────────── */
+.study-comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.4rem;
+    margin-bottom: 2rem;
+}
+.study-path {
+    background: white;
+    border-radius: 16px;
+    padding: 1.65rem;
+    box-shadow: var(--box-shadow);
+    position: relative;
+    overflow: hidden;
+}
+.study-path--lmd  { border-top: 4px solid var(--primary-color); }
+.study-path--ing  { border-top: 4px solid var(--secondary-color); }
+.study-path-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.4rem;
+    padding-bottom: 0.9rem;
+    border-bottom: 1px solid #eee;
+}
+.study-path-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    flex-shrink: 0;
+}
+.study-path--lmd .study-path-icon { background: rgba(44,92,197,0.12); color: var(--primary-color); }
+.study-path--ing .study-path-icon { background: rgba(255,107,53,0.12); color: var(--secondary-color); }
+.study-path-header h3 { font-size: 1.15rem; font-weight: 800; margin: 0; }
+.study-path--lmd .study-path-header h3 { color: var(--primary-color); }
+.study-path--ing .study-path-header h3 { color: var(--secondary-color); }
+.study-timeline { display: flex; flex-direction: column; gap: 0.8rem; }
+.study-stage {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    padding: 0.65rem 0.7rem;
+    border-radius: 10px;
+    background: #f8f9fa;
+    transition: background 0.2s;
+}
+.study-stage:hover { background: #eef2f7; }
+.study-stage-dot {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.82rem;
+    font-weight: 800;
+    flex-shrink: 0;
+    color: white;
+}
+.study-path--lmd .study-stage-dot  { background: var(--primary-color); }
+.study-path--ing .study-stage-dot  { background: var(--secondary-color); }
+.study-stage-info strong { display: block; font-size: 0.93rem; font-weight: 700; color: #222; }
+.study-stage-info span  { font-size: 0.82rem; color: var(--text-light); line-height: 1.5; }
+
+/* ── Comparison Table ─────────────────────────────────── */
+.study-compare-table {
+    background: white;
+    border-radius: 16px;
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+.study-compare-table table { width: 100%; border-collapse: collapse; }
+.study-compare-table th {
+    padding: 0.85rem 1.1rem;
+    font-size: 0.92rem;
+    font-weight: 800;
+    text-align: right;
+}
+.study-compare-table th:first-child { background: #f1f4fb; color: var(--primary-color); }
+.study-compare-table .lmd-head { background: var(--primary-color); color: white; }
+.study-compare-table .ing-head { background: var(--secondary-color); color: white; }
+.study-compare-table td {
+    padding: 0.8rem 1.1rem;
+    font-size: 0.91rem;
+    color: #444;
+    line-height: 1.6;
+    border-top: 1px solid #f0f0f0;
+    text-align: right;
+    vertical-align: top;
+}
+.study-compare-table tr:hover td { background: #f8f9ff; }
+.study-compare-table td:first-child {
+    font-weight: 700;
+    color: var(--primary-color);
+    background: #fafbff;
+    white-space: nowrap;
+}
+
+/* ── University Life Icon Grid ────────────────────────── */
+.uni-life-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.1rem;
+    margin-bottom: 2rem;
+}
+.uni-life-card {
+    background: white;
+    border-radius: 14px;
+    padding: 1.35rem;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+.uni-life-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 28px rgba(44,92,197,0.14);
+    border-bottom-color: var(--primary-color);
+}
+.uni-life-card-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    margin-bottom: 0.9rem;
+}
+.uni-life-card h4 { font-size: 0.98rem; font-weight: 800; color: #1a1a2e; margin-bottom: 0.45rem; }
+.uni-life-card p  { font-size: 0.86rem; color: var(--text-light); line-height: 1.65; margin: 0; }
+
+/* ── Common Mistakes Callout ──────────────────────────── */
+.mistake-callout {
+    background: #fff8f7;
+    border: 2px solid #e74c3c;
+    border-radius: 16px;
+    padding: 1.65rem 1.85rem;
+    margin-bottom: 2rem;
+}
+.mistake-callout-header {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-bottom: 1.1rem;
+}
+.mistake-callout-header i  { font-size: 1.5rem; color: #e74c3c; }
+.mistake-callout-header h3 { font-size: 1.1rem; font-weight: 800; color: #e74c3c; margin: 0; }
+.mistake-callout ol {
+    padding-right: 0.5rem;
+    margin: 0;
+    list-style: none;
+    counter-reset: mistake-counter;
+}
+.mistake-callout ol li {
+    counter-increment: mistake-counter;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    padding: 0.6rem 0;
+    font-size: 0.97rem;
+    color: #444;
+    border-bottom: 1px dashed #f5c5bf;
+    line-height: 1.6;
+}
+.mistake-callout ol li::before {
+    content: counter(mistake-counter);
+    background: #e74c3c;
+    color: white;
+    min-width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.78rem;
+    font-weight: 800;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+.mistake-callout ol li:last-child { border-bottom: none; }
+
+/* ── Speciality Filter Bar ────────────────────────────── */
+.spec-filter-bar {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+    padding: 1.1rem 1.4rem;
+    margin-bottom: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+.spec-filter-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+.filter-row-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-light);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+.filter-chip {
+    padding: 0.38rem 0.88rem;
+    border-radius: 50px;
+    border: 1.5px solid #dde3f0;
+    background: #f4f6fb;
+    color: #555;
+    font-size: 0.83rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    font-family: 'Tajawal', sans-serif;
+    user-select: none;
+}
+.filter-chip:hover { border-color: var(--primary-color); color: var(--primary-color); }
+.filter-chip.active { background: var(--primary-color); border-color: var(--primary-color); color: white; }
+.spec-search-wrap {
+    position: relative;
+    flex: 1;
+    min-width: 160px;
+}
+.spec-search-wrap i {
+    position: absolute;
+    right: 0.8rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-light);
+    font-size: 0.88rem;
+    pointer-events: none;
+}
+.spec-search-input {
+    width: 100%;
+    padding: 0.48rem 2.1rem 0.48rem 0.85rem;
+    border: 1.5px solid #dde3f0;
+    border-radius: 50px;
+    font-size: 0.86rem;
+    font-family: 'Tajawal', sans-serif;
+    outline: none;
+    transition: border 0.2s;
+    box-sizing: border-box;
+    color: #333;
+    background: #f4f6fb;
+    direction: rtl;
+}
+.spec-search-input:focus { border-color: var(--primary-color); background: white; }
+
+/* ── Speciality Cards — Horizontal Layout ─────────────── */
+.Speciality-container-new {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    margin: 0.5rem 0 2rem;
+}
+.spec-card {
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 3px 16px rgba(0,0,0,0.07);
+    overflow: hidden;
+    display: flex;
+    align-items: stretch;
+    transition: all 0.28s ease;
+    cursor: pointer;
+    border: 1.5px solid transparent;
+    text-align: right;
+}
+.spec-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(44,92,197,0.15);
+    border-color: rgba(44,92,197,0.2);
+}
+.spec-card-img {
+    width: 130px;
+    min-height: 115px;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+.spec-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+.spec-card:hover .spec-card-img img { transform: scale(1.08); }
+.spec-card-body {
+    padding: 0.95rem 1.2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.45rem;
+    min-width: 0;
+}
+.spec-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.65rem;
+    flex-wrap: nowrap;
+}
+.spec-card-name {
+    font-size: 0.97rem;
+    font-weight: 800;
+    color: #1a1a2e;
+    line-height: 1.45;
+    flex: 1;
+    min-width: 0;
+}
+.cat-badge {
+    padding: 0.25rem 0.72rem;
+    border-radius: 50px;
+    font-size: 0.73rem;
+    font-weight: 700;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+.cat-badge--engineering { background: rgba(44,92,197,0.11); color: var(--primary-color); }
+.cat-badge--medical     { background: rgba(231,76,60,0.11);  color: #c0392b; }
+.cat-badge--business    { background: rgba(243,156,18,0.13); color: #b7770d; }
+.cat-badge--science     { background: rgba(40,167,69,0.11);  color: #1a7a38; }
+.cat-badge--education   { background: rgba(155,89,182,0.11); color: #7d3c98; }
+.spec-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.spec-detail-btn {
+    padding: 0.42rem 1rem;
+    border-radius: 50px;
+    border: 1.5px solid var(--primary-color);
+    background: transparent;
+    color: var(--primary-color);
+    font-size: 0.82rem;
+    font-weight: 700;
+    font-family: 'Tajawal', sans-serif;
+    cursor: pointer;
+    transition: all 0.22s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    white-space: nowrap;
+}
+.spec-detail-btn:hover { background: var(--primary-color); color: white; }
+
+/* Empty state */
+.spec-empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    display: none;
+}
+.spec-empty-state i { font-size: 2.8rem; color: #ccc; display: block; margin-bottom: 0.9rem; }
+.spec-empty-state p { color: var(--text-light); font-size: 1rem; }
+
+/* ── School Detail Tabs ───────────────────────────────── */
+.school-tab-bar {
+    display: flex;
+    gap: 0.45rem;
+    flex-wrap: nowrap;
+    padding: 0.65rem 0 0.85rem;
+    margin-bottom: 1rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+}
+.school-tab-bar::-webkit-scrollbar { display: none; }
+.school-tab-btn {
+    padding: 0.45rem 1rem;
+    border-radius: 50px;
+    border: 1.5px solid #dde3f0;
+    background: #f4f6fb;
+    color: #555;
+    font-size: 0.83rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    font-family: 'Tajawal', sans-serif;
+}
+.school-tab-btn:hover { border-color: var(--primary-color); color: var(--primary-color); }
+.school-tab-btn.active { background: var(--primary-color); border-color: var(--primary-color); color: white; }
+.detail-card.tab-hidden { display: none !important; }
+
+/* ── Scroll-to-top Button ─────────────────────────────── */
+.scroll-top-btn {
+    position: fixed;
+    bottom: 90px;
+    left: 1.4rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+    box-shadow: 0 4px 14px rgba(44,92,197,0.38);
+    transition: all 0.3s ease;
+    z-index: 999;
+    opacity: 0;
+    transform: translateY(18px);
+    pointer-events: none;
+}
+.scroll-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+.scroll-top-btn:hover {
+    background: #1e44a8;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(44,92,197,0.48);
+}
+
+/* ── Responsive ───────────────────────────────────────── */
+@media (max-width: 900px) {
+    .study-comparison     { grid-template-columns: 1fr; }
+    .uni-life-grid        { grid-template-columns: repeat(2, 1fr); }
+    .spec-card-img        { width: 105px; }
+    .spec-card-name       { font-size: 0.9rem; }
+    .study-compare-table  { overflow-x: auto; }
+    .study-compare-table table { min-width: 520px; }
+}
+@media (max-width: 600px) {
+    .uni-life-grid        { grid-template-columns: 1fr; }
+    .spec-card-img        { width: 88px; min-height: 100px; }
+    .spec-card-body       { padding: 0.75rem 0.9rem; }
+    .spec-card-name       { font-size: 0.85rem; }
+    .spec-detail-btn      { font-size: 0.76rem; padding: 0.36rem 0.8rem; }
+    .uni-hero             { padding: 1.8rem 1.3rem; }
+    .uni-hero h2          { font-size: 1.35rem; }
+    .mistake-callout      { padding: 1.3rem 1.2rem; }
 }
