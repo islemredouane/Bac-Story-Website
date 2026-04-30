@@ -452,15 +452,15 @@ window.addEventListener('scroll', () => {
         return;
     }
 
-    if (window.scrollY === 0) {
-        navbar.classList.remove('hidden');
-        navBrand.classList.remove('fixed');
+   if (window.scrollY === 0) {
+        document.getElementById('navbar').classList.remove('hidden');
+        document.getElementById('navBrand').classList.remove('fixed');
     } else if (window.scrollY > lastScrollY) {
-        navbar.classList.add('hidden');
-        navBrand.classList.add('fixed');
+        document.getElementById('navbar').classList.add('hidden');
+        document.getElementById('navBrand').classList.add('fixed');
     } else {
-        navbar.classList.remove('hidden');
-        navBrand.classList.remove('fixed');
+        document.getElementById('navbar').classList.remove('hidden');
+        document.getElementById('navBrand').classList.remove('fixed');
     }
 
     lastScrollY = window.scrollY;
