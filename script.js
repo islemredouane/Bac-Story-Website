@@ -446,21 +446,25 @@ const navbar = document.querySelector('.navbar');
 const navBrand = document.querySelector('.nav-brand');
 
 window.addEventListener('scroll', () => {
+    const nav = navbar || document.querySelector('.navbar');
+    const brand = navBrand || document.querySelector('.nav-brand');
+    if (!nav || !brand) return;
+
     if (window.innerWidth > 768) {
-        navbar.classList.remove('hidden');
-        navBrand.classList.remove('fixed');
+        nav.classList.remove('hidden');
+        brand.classList.remove('fixed');
         return;
     }
 
-   if (window.scrollY === 0) {
-        document.getElementById('navbar').classList.remove('hidden');
-        document.getElementById('navBrand').classList.remove('fixed');
+    if (window.scrollY === 0) {
+        nav.classList.remove('hidden');
+        brand.classList.remove('fixed');
     } else if (window.scrollY > lastScrollY) {
-        document.getElementById('navbar').classList.add('hidden');
-        document.getElementById('navBrand').classList.add('fixed');
+        nav.classList.add('hidden');
+        brand.classList.add('fixed');
     } else {
-        document.getElementById('navbar').classList.remove('hidden');
-        document.getElementById('navBrand').classList.remove('fixed');
+        nav.classList.remove('hidden');
+        brand.classList.remove('fixed');
     }
 
     lastScrollY = window.scrollY;
