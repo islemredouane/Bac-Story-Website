@@ -575,3 +575,184 @@ document.addEventListener('DOMContentLoaded', () => {
         updateGallery();
     });
 });
+
+
+/* ═══════════════════════════════════════════════════
+   UNIVERSITY PAGE — FILTER, TABS & SCROLL-TO-TOP
+═══════════════════════════════════════════════════ */
+
+// ── Speciality Filter ─────────────────────────────
+(function initSpecFilter() {
+    var ready = false;
+
+    function setup() {
+        if (ready) return;
+        var container = document.getElementById('spec-cards-container');
+        if (!container) return;
+        ready = true;
+
+        var chips = document.querySelectorAll('.filter-chip');
+        var searchInput = document.getElementById('spec-search');
+        var cards = container.querySelectorAll('.spec-card');
+        var emptyState = document.getElementById('spec-empty-state');
+
+        var activeCategory = 'all';
+        var searchText = '';
+
+        function applyFilters() {
+            var visible = 0;
+            cards.forEach(function(card) {
+                var cat = card.dataset.category || '';
+                var name = (card.dataset.name || '').toLowerCase();
+                var matchCat = activeCategory === 'all' || cat === activeCategory;
+                var matchSearch = !searchText || name.indexOf(searchText) !== -1;
+                card.style.display = (matchCat && matchSearch) ? '' : 'none';
+                if (matchCat && matchSearch) visible++;
+            });
+            if (emptyState) {
+                emptyState.style.display = visible === 0 ? 'block' : 'none';
+            }
+        }
+
+        chips.forEach(function(chip) {
+            chip.addEventListener('click', function() {
+                var type = chip.dataset.filterType;
+                var val = chip.dataset.filterVal;
+                document.querySelectorAll('.filter-chip[data-filter-type="' + type + '"]')
+                    .forEach(function(c) { c.classList.remove('active'); });
+                chip.classList.add('active');
+                if (type === 'category') activeCategory = val;
+                applyFilters();
+            });
+        });
+
+        if (searchInput) {
+            searchInput.addEventListener('input', function() {
+                searchText = searchInput.value.trim().toLowerCase();
+                applyFilters();
+            });
+        }
+    }
+
+    // Run on page load and also when university-section becomes active
+    document.addEventListener('DOMContentLoaded', setup);
+    // Hook into showSection
+    var _origShowSection = window.showSection;
+    if (typeof _origShowSection === 'function') {
+        window.showSection = function(id, push) {
+            _origShowSection(id, push);
+            if (id === 'university-section') {
+                setTimeout(setup, 50);
+            }
+            if (id && id !== 'university-system' && id !== 'university-section' && id !== 'averages-of-acceptance') {
+                setTimeout(function() { initSchoolTabs(id); }, 50);
+            }
+        };
+    }
+})();
+
+// ── School Detail Tabs ────────────────────────────
+var TAB_KEYWORDS = {
+    admission: ['معدلات القبول', 'القبول'],
+    system: ['نظام الدراسة', 'صعوبة الدراسة', 'هل توجد مشاريع', 'مستوى الدكاترة', 'الفرق بينها', 'الفرق بين'],
+    career: ['العمل في', 'فرص العمل'],
+    student: ['النوادي العلمية', 'فائدة النوادي', 'الإقامة'],
+    firstyear: ['المقاييس المدروسة', 'السنة الأولى']
+};
+var TAB_LABELS = {
+    admission: 'القبول',
+    system: 'نظام الدراسة',
+    career: 'المسار المهني',
+    student: 'حياة الطالب',
+    firstyear: 'السنة الأولى'
+};
+
+function initSchoolTabs(sectionId) {
+    var sectionEl = document.getElementById(sectionId);
+    if (!sectionEl) return;
+    if (sectionEl.querySelector('.school-tab-bar')) return; // already initialized
+
+    var detailsEl = sectionEl.querySelector('.details');
+    if (!detailsEl) return;
+
+    var cards = detailsEl.querySelectorAll('.detail-card');
+    if (cards.length < 4) return; // not enough cards for tabs
+
+    var tabsPresent = {};
+
+    cards.forEach(function(card) {
+        var h3 = card.querySelector('h3');
+        if (!h3) { card.dataset.tab = 'general'; return; }
+        var text = h3.textContent.trim();
+        var assigned = false;
+        for (var tab in TAB_KEYWORDS) {
+            var kws = TAB_KEYWORDS[tab];
+            for (var i = 0; i < kws.length; i++) {
+                if (text.indexOf(kws[i]) !== -1) {
+                    card.dataset.tab = tab;
+                    tabsPresent[tab] = true;
+                    assigned = true;
+                    break;
+                }
+            }
+            if (assigned) break;
+        }
+        if (!assigned) card.dataset.tab = 'general';
+    });
+
+    if (Object.keys(tabsPresent).length === 0) return;
+
+    var tabBar = document.createElement('div');
+    tabBar.className = 'school-tab-bar';
+
+    // "All" button
+    var allBtn = document.createElement('button');
+    allBtn.className = 'school-tab-btn active';
+    allBtn.dataset.tab = 'all';
+    allBtn.textContent = 'الكل';
+    tabBar.appendChild(allBtn);
+
+    // Category buttons in order
+    ['admission', 'system', 'career', 'student', 'firstyear'].forEach(function(tab) {
+        if (!tabsPresent[tab]) return;
+        var btn = document.createElement('button');
+        btn.className = 'school-tab-btn';
+        btn.dataset.tab = tab;
+        btn.textContent = TAB_LABELS[tab];
+        tabBar.appendChild(btn);
+    });
+
+    detailsEl.parentNode.insertBefore(tabBar, detailsEl);
+
+    tabBar.addEventListener('click', function(e) {
+        var btn = e.target.closest('.school-tab-btn');
+        if (!btn) return;
+        tabBar.querySelectorAll('.school-tab-btn').forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        var activeTab = btn.dataset.tab;
+        cards.forEach(function(card) {
+            if (activeTab === 'all') {
+                card.classList.remove('tab-hidden');
+            } else {
+                if (card.dataset.tab === activeTab) {
+                    card.classList.remove('tab-hidden');
+                } else {
+                    card.classList.add('tab-hidden');
+                }
+            }
+        });
+    });
+}
+
+// ── Scroll-to-top Button ──────────────────────────
+(function() {
+    var btn = document.getElementById('scrollTopBtn');
+    if (!btn) return;
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 400) {
+            btn.classList.add('visible');
+        } else {
+            btn.classList.remove('visible');
+        }
+    }, { passive: true });
+})();
