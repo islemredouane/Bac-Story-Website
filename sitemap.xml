@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://bacstory.vercel.app/</loc><priority>1.0</priority></url>
+  <url><loc>https://bacstory.vercel.app/resources</loc><priority>0.9</priority></url>
+  <url><loc>https://bacstory.vercel.app/bac-topics</loc><priority>0.8</priority></url>
+  <url><loc>https://bacstory.vercel.app/university</loc><priority>0.7</priority></url>
+  <url><loc>https://bacstory.vercel.app/plans</loc><priority>0.7</priority></url>
+  <url><loc>https://bacstory.vercel.app/tools</loc><priority>0.7</priority></url>
+  <url><loc>https://bacstory.vercel.app/oqba</loc><priority>0.6</priority></url>
+  <url><loc>https://bacstory.vercel.app/about</loc><priority>0.5</priority></url>
+  <url><loc>https://bacstory.vercel.app/contact</loc><priority>0.5</priority></url>
+  <url><loc>https://bacstory.vercel.app/advertise</loc><priority>0.4</priority></url>
+</urlset>
