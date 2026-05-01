@@ -16,7 +16,7 @@
     <link rel="icon" href="favicon.png" type="image/x-icon">
     <title>أدوات البكالوريا | BAC STORY</title>
     <link rel="canonical" href="https://www.bacstory.com">
-    <link rel="stylesheet" href="style.css?v=3.2">
+    <link rel="stylesheet" href="style.css?v=3.0">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style"
         onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
@@ -67,65 +67,66 @@
 
     <!-- Calculator Section -->
     <div id="calculator" class="resource-content">
-
-        <div class="calculator-section">
-            <div class="calculator-header">
-                <h2>حساب معدل البكالوريا</h2>
-                <p>اختر شعبتك ثم أدخل علاماتك لحساب المعدل النهائي</p>
-            </div>
-
-            <!-- Field Selection -->
-            <div class="field-selection" id="fieldSelection">
-                <div class="field-card math" onclick="selectField('math')">
-                    <div class="field-icon">
-                        <i class="fas fa-calculator"></i>
-                    </div>
-                    <h3 class="field-title">شعبة رياضيات</h3>
-                    <p class="field-description">احسب المعدل</p>
+        <div class="container">
+            <div class="ad-card-inject"></div>
+            <div class="calculator-section">
+                <div class="calculator-header">
+                    <h2>حساب معدل البكالوريا</h2>
+                    <p>اختر شعبتك ثم أدخل علاماتك لحساب المعدل النهائي</p>
                 </div>
 
-                <div class="field-card science" onclick="selectField('science')">
-                    <div class="field-icon">
-                        <i class="fas fa-flask"></i>
+                <!-- Field Selection -->
+                <div class="field-selection" id="fieldSelection">
+                    <div class="field-card math" onclick="selectField('math')">
+                        <div class="field-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <h3 class="field-title">شعبة رياضيات</h3>
+                        <p class="field-description">احسب المعدل</p>
                     </div>
-                    <h3 class="field-title">شعبة علوم تجريبية</h3>
-                    <p class="field-description">احسب المعدل</p>
+
+                    <div class="field-card science" onclick="selectField('science')">
+                        <div class="field-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h3 class="field-title">شعبة علوم تجريبية</h3>
+                        <p class="field-description">احسب المعدل</p>
+                    </div>
+
+                    <div class="field-card tech" onclick="selectField('tech')">
+                        <div class="field-icon">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <h3 class="field-title">شعبة تقني رياضي</h3>
+                        <p class="field-description">احسب المعدل</p>
+                    </div>
+
+                    <div class="field-card management" onclick="selectField('management')">
+                        <div class="field-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="field-title">شعبة تسيير واقتصاد</h3>
+                        <p class="field-description">احسب المعدل</p>
+                    </div>
+
+                    <div class="field-card literature" onclick="selectField('literature')">
+                        <div class="field-icon">
+                            <i class="fas fa-pen-nib"></i>
+                        </div>
+                        <h3 class="field-title">شعبة آداب وفلسفة</h3>
+                        <p class="field-description">احسب المعدل</p>
+                    </div>
+
+                    <div class="field-card languages" onclick="selectField('languages')">
+                        <div class="field-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3 class="field-title">شعبة لغات أجنبية</h3>
+                        <p class="field-description">احسب المعدل</p>
+                    </div>
                 </div>
 
-                <div class="field-card tech" onclick="selectField('tech')">
-                    <div class="field-icon">
-                        <i class="fas fa-microchip"></i>
-                    </div>
-                    <h3 class="field-title">شعبة تقني رياضي</h3>
-                    <p class="field-description">احسب المعدل</p>
-                </div>
-
-                <div class="field-card management" onclick="selectField('management')">
-                    <div class="field-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3 class="field-title">شعبة تسيير واقتصاد</h3>
-                    <p class="field-description">احسب المعدل</p>
-                </div>
-
-                <div class="field-card literature" onclick="selectField('literature')">
-                    <div class="field-icon">
-                        <i class="fas fa-pen-nib"></i>
-                    </div>
-                    <h3 class="field-title">شعبة آداب وفلسفة</h3>
-                    <p class="field-description">احسب المعدل</p>
-                </div>
-
-                <div class="field-card languages" onclick="selectField('languages')">
-                    <div class="field-icon">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <h3 class="field-title">شعبة لغات أجنبية</h3>
-                    <p class="field-description">احسب المعدل</p>
-                </div>
-            </div>
-
-            <!-- Math Subjects -->
+                <!-- Math Subjects -->
             <div class="subject-container" id="mathSubjects">
                 <div class="subjects-grid">
                     <div class="subject-card">
@@ -1012,6 +1013,7 @@
                 <i class="fas fa-redo"></i> حساب جديد
             </button>
         </div>
+        </div>
     </div>
 
 
@@ -1024,119 +1026,25 @@
                 <h2>ورقة الإجابة في البكالوريا </h2>
             </div>
             <div class="btn-container">
-                <button class="main-btn" onclick="showSection('exam-sheet-how')">
+                <button class="main-btn"
+                    onclick="window.open('https://drive.google.com/file/d/1OydAlosZOnG3fgdQP2TseuMi1mzQQ6iB/view?usp=drive_link', '_blank')">
                     <i class="fas fa-file-pen"></i> كيفية تنظيم ورقة الإجابة
                 </button>
-                <button class="main-btn" onclick="showSection('exam-sheet-green')">
+                <button class="main-btn"
+                    onclick="window.open('https://drive.google.com/file/d/1Fl_FS5y8tM_Hp3eF65cfnkYY-umm-nmh/view?usp=drive_link', '_blank')">
                     <i class="fas fa-file-lines"></i> ورقة الإجابة - النسخة الخضراء
                 </button>
-                <button class="main-btn" onclick="showSection('exam-sheet-semester')">
+                <button class="main-btn"
+                    onclick="window.open('https://drive.google.com/file/d/1xiPJQPIASnRamzszF0UVFX7lZFsSJWsx/view?usp=drive_link', '_blank')">
                     <i class="fas fa-file-contract"></i> ورقة الإجابة في الإمتحانات الفصلية
                 </button>
             </div>
         </div>
     </div>
-
-    <!-- exam sheet: كيفية تنظيم ورقة الإجابة -->
-    <div id="exam-sheet-how" class="resource-content">
-        <div class="container">
-            <div class="ad-card-inject"></div>
-            <div class="modern-section-header">
-                <h2>كيفية تنظيم ورقة الإجابة</h2>
-            </div>
-            <section class="pdf-viewer" style="text-align: center; padding-bottom: 40px;">
-                <div class="pdf-wrapper" style="padding-top: 40px;">
-                    <a href="https://t.me/islembacdz" target="_blank" rel="noopener" style="margin-bottom: 40px;" class="search-telegram-btn">
-                        <i class="fab fa-telegram-plane"></i>
-                        <span>انضم إلينا على التلغرام</span>
-                    </a>
-                    <iframe src="https://drive.google.com/file/d/1XTvyjvUgI_ANQ3SiakRmxMLmJEfThcpj/preview"
-                        class="responsive-pdf" loading="lazy" allowfullscreen>
-                    </iframe>
-                    <div class="pdf-buttons">
-                        <button onclick="toggleFullScreen(event)" class="full-btn"
-                            style="flex: 1; border: none; font-size: 16px; font-weight: 500; cursor: pointer;">
-                            <i class="fa-solid fa-expand"></i> تكبير الملف
-                        </button>
-                        <a href="https://drive.google.com/uc?export=download&id=1XTvyjvUgI_ANQ3SiakRmxMLmJEfThcpj"
-                            download class="down-btn"
-                            style="flex: 1; text-decoration: none; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 500;">
-                            <i class="fa-solid fa-download"></i> تحميل الملف
-                        </a>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </div>
-
-    <!-- exam sheet: ورقة الإجابة - النسخة الخضراء -->
-    <div id="exam-sheet-green" class="resource-content">
-        <div class="container">
-            <div class="ad-card-inject"></div>
-            <div class="modern-section-header">
-                <h2>ورقة الإجابة - النسخة الخضراء</h2>
-            </div>
-            <section class="pdf-viewer" style="text-align: center; padding-bottom: 40px;">
-                <div class="pdf-wrapper" style="padding-top: 40px;">
-                    <a href="https://t.me/islembacdz" target="_blank" rel="noopener" style="margin-bottom: 40px;" class="search-telegram-btn">
-                        <i class="fab fa-telegram-plane"></i>
-                        <span>انضم إلينا على التلغرام</span>
-                    </a>
-                    <iframe src="https://drive.google.com/file/d/1Fl_FS5y8tM_Hp3eF65cfnkYY-umm-nmh/preview"
-                        class="responsive-pdf" loading="lazy" allowfullscreen>
-                    </iframe>
-                    <div class="pdf-buttons">
-                        <button onclick="toggleFullScreen(event)" class="full-btn"
-                            style="flex: 1; border: none; font-size: 16px; font-weight: 500; cursor: pointer;">
-                            <i class="fa-solid fa-expand"></i> تكبير الملف
-                        </button>
-                        <a href="https://drive.google.com/uc?export=download&id=1Fl_FS5y8tM_Hp3eF65cfnkYY-umm-nmh"
-                            download class="down-btn"
-                            style="flex: 1; text-decoration: none; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 500;">
-                            <i class="fa-solid fa-download"></i> تحميل الملف
-                        </a>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </div>
-
-    <!-- exam sheet: ورقة الإجابة في الإمتحانات الفصلية -->
-    <div id="exam-sheet-semester" class="resource-content">
-        <div class="container">
-            <div class="ad-card-inject"></div>
-            <div class="modern-section-header">
-                <h2>ورقة الإجابة في الإمتحانات الفصلية</h2>
-            </div>
-            <section class="pdf-viewer" style="text-align: center; padding-bottom: 40px;">
-                <div class="pdf-wrapper" style="padding-top: 40px;">
-                    <a href="https://t.me/islembacdz" target="_blank" rel="noopener" style="margin-bottom: 40px;" class="search-telegram-btn">
-                        <i class="fab fa-telegram-plane"></i>
-                        <span>انضم إلينا على التلغرام</span>
-                    </a>
-                    <iframe src="https://drive.google.com/file/d/1xiPJQPIASnRamzszF0UVFX7lZFsSJWsx/preview"
-                        class="responsive-pdf" loading="lazy" allowfullscreen>
-                    </iframe>
-                    <div class="pdf-buttons">
-                        <button onclick="toggleFullScreen(event)" class="full-btn"
-                            style="flex: 1; border: none; font-size: 16px; font-weight: 500; cursor: pointer;">
-                            <i class="fa-solid fa-expand"></i> تكبير الملف
-                        </button>
-                        <a href="https://drive.google.com/uc?export=download&id=1xiPJQPIASnRamzszF0UVFX7lZFsSJWsx"
-                            download class="down-btn"
-                            style="flex: 1; text-decoration: none; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 500;">
-                            <i class="fa-solid fa-download"></i> تحميل الملف
-                        </a>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </div>
-
     <!-- About Page -->
     <div id="footer-placeholder"></div>
-    <script src="/ads-config.js?v=1.1"></script>
-    <script src="components/shared.js?v=3.2"></script>
+    <script src="/ads-config.js?v=1.0"></script>
+    <script src="components/shared.js?v=3.0"></script>
     <script src="script.js?v=2"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1BWT5DE65Q"></script>
     <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-1BWT5DE65Q');</script>
