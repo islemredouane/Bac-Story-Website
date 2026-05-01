@@ -7084,14 +7084,18 @@ textarea.form-control {
 
 /* ── School Detail Tabs ───────────────────────────────── */
 .school-tab-bar {
-    display: inline-flex;
+    position: relative;
+    display: flex;
+    width: max-content;
+    height: fit-content;
+    margin: 0 auto 1.5rem auto;
     justify-content: flex-start;
     align-items: center;
     gap: 0.4rem;
     flex-wrap: nowrap;
-    padding: 0.4rem;
-    margin-bottom: 1.5rem;
+    padding: 0.3rem;
     overflow-x: auto;
+    overflow-y: hidden;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
     background: #eef1f8;
@@ -7104,8 +7108,24 @@ textarea.form-control {
     display: none;
 }
 
+.school-tab-indicator {
+    position: absolute;
+    top: 0.3rem;
+    bottom: 0.3rem;
+    left: 0;
+    width: 0;
+    background: var(--primary-color);
+    border-radius: 50px;
+    z-index: 1;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 3px 10px rgba(44, 92, 197, 0.3);
+}
+
 .school-tab-btn {
+    position: relative;
+    z-index: 2;
     padding: 0.45rem 1.1rem;
+    margin: 0;
     border-radius: 50px;
     border: none;
     background: transparent;
@@ -7129,13 +7149,10 @@ textarea.form-control {
 
 .school-tab-btn:hover {
     color: var(--primary-color);
-    background: rgba(44, 92, 197, 0.06);
 }
 
 .school-tab-btn.active {
-    background: var(--primary-color);
     color: #fff;
-    box-shadow: 0 3px 10px rgba(44, 92, 197, 0.3);
 }
 
 .detail-card.tab-hidden {
