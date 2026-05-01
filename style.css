@@ -2264,7 +2264,7 @@ body.search-active .mobile-bottom-bar,
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     overflow: hidden;
-    margin: 3rem 0;
+    margin: 1rem 0;
     animation: fadeIn 0.5s ease-out;
 }
 
@@ -4434,7 +4434,7 @@ textarea.form-control {
     }
 
     .calculator-section {
-        margin: 1.5rem 1.2rem;
+        margin: 1.5rem 0.5rem;
     }
 
     .calculator-header h2 {
