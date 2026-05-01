@@ -605,7 +605,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function applyFilters() {
             var visible = 0;
-            cards.forEach(function(card) {
+            cards.forEach(function (card) {
                 var cat = card.dataset.category || '';
                 var name = (card.dataset.name || '').toLowerCase();
                 var matchCat = activeCategory === 'all' || cat === activeCategory;
@@ -618,12 +618,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        chips.forEach(function(chip) {
-            chip.addEventListener('click', function() {
+        chips.forEach(function (chip) {
+            chip.addEventListener('click', function () {
                 var type = chip.dataset.filterType;
                 var val = chip.dataset.filterVal;
                 document.querySelectorAll('.filter-chip[data-filter-type="' + type + '"]')
-                    .forEach(function(c) { c.classList.remove('active'); });
+                    .forEach(function (c) { c.classList.remove('active'); });
                 chip.classList.add('active');
                 if (type === 'category') activeCategory = val;
                 applyFilters();
@@ -631,7 +631,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         if (searchInput) {
-            searchInput.addEventListener('input', function() {
+            searchInput.addEventListener('input', function () {
                 searchText = searchInput.value.trim().toLowerCase();
                 applyFilters();
             });
@@ -643,13 +643,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Hook into showSection
     var _origShowSection = window.showSection;
     if (typeof _origShowSection === 'function') {
-        window.showSection = function(id, push) {
+        window.showSection = function (id, push) {
             _origShowSection(id, push);
             if (id === 'university-section') {
                 setTimeout(setup, 50);
             }
             if (id && id !== 'university-system' && id !== 'university-section' && id !== 'averages-of-acceptance') {
-                setTimeout(function() { initSchoolTabs(id); }, 50);
+                setTimeout(function () { initSchoolTabs(id); }, 50);
             }
         };
     }
@@ -684,7 +684,7 @@ function initSchoolTabs(sectionId) {
 
     var tabsPresent = {};
 
-    cards.forEach(function(card) {
+    cards.forEach(function (card) {
         var h3 = card.querySelector('h3');
         if (!h3) { card.dataset.tab = 'general'; return; }
         var text = h3.textContent.trim();
@@ -709,6 +709,10 @@ function initSchoolTabs(sectionId) {
     var tabBar = document.createElement('div');
     tabBar.className = 'school-tab-bar';
 
+    var indicator = document.createElement('div');
+    indicator.className = 'school-tab-indicator';
+    tabBar.appendChild(indicator);
+
     // "All" button
     var allBtn = document.createElement('button');
     allBtn.className = 'school-tab-btn active';
@@ -717,7 +721,7 @@ function initSchoolTabs(sectionId) {
     tabBar.appendChild(allBtn);
 
     // Category buttons in order
-    ['admission', 'system', 'career', 'student', 'firstyear'].forEach(function(tab) {
+    ['admission', 'system', 'career', 'student', 'firstyear'].forEach(function (tab) {
         if (!tabsPresent[tab]) return;
         var btn = document.createElement('button');
         btn.className = 'school-tab-btn';
@@ -728,13 +732,21 @@ function initSchoolTabs(sectionId) {
 
     detailsEl.parentNode.insertBefore(tabBar, detailsEl);
 
-    tabBar.addEventListener('click', function(e) {
+    function updateIndicator(btn) {
+        if (!btn) return;
+        indicator.style.width = btn.offsetWidth + 'px';
+        indicator.style.transform = 'translateX(' + btn.offsetLeft + 'px)';
+    }
+
+    tabBar.addEventListener('click', function (e) {
         var btn = e.target.closest('.school-tab-btn');
         if (!btn) return;
-        tabBar.querySelectorAll('.school-tab-btn').forEach(function(b) { b.classList.remove('active'); });
+        tabBar.querySelectorAll('.school-tab-btn').forEach(function (b) { b.classList.remove('active'); });
         btn.classList.add('active');
+        updateIndicator(btn);
+
         var activeTab = btn.dataset.tab;
-        cards.forEach(function(card) {
+        cards.forEach(function (card) {
             if (activeTab === 'all') {
                 card.classList.remove('tab-hidden');
             } else {
@@ -746,13 +758,18 @@ function initSchoolTabs(sectionId) {
             }
         });
     });
+
+    setTimeout(function () {
+        var activeBtn = tabBar.querySelector('.school-tab-btn.active');
+        if (activeBtn) updateIndicator(activeBtn);
+    }, 50);
 }
 
 // ── Scroll-to-top Button ──────────────────────────
-(function() {
+(function () {
     var btn = document.getElementById('scrollTopBtn');
     if (!btn) return;
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
         if (window.scrollY > 400) {
             btn.classList.add('visible');
         } else {
