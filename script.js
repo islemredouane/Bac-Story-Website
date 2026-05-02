@@ -148,6 +148,15 @@ function showSection(id, push = true) {
             history.pushState({ section: id, calculatorState }, '', `#${id}`);
         }
 
+        // --- GOOGLE ANALYTICS VIRTUAL PAGEVIEW ---
+        if (window.dataLayer) {
+            window.dataLayer.push({
+                event: 'page_view',
+                page_path: window.location.pathname + (id ? '#' + id : ''),
+                page_title: document.title + ' - ' + id
+            });
+        }
+
         // Scroll to top when section changes
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
