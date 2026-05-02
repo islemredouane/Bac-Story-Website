@@ -135,6 +135,15 @@ if (typeof window.showSection === 'undefined') {
         document.querySelectorAll('.resource-content').forEach(s => s.classList.remove('active'));
         const el = document.getElementById(id);
         if (el) el.classList.add('active');
+
+        // --- GOOGLE ANALYTICS VIRTUAL PAGEVIEW (FALLBACK) ---
+        if (window.dataLayer) {
+            window.dataLayer.push({
+                event: 'page_view',
+                page_path: window.location.pathname + (id ? '#' + id : ''),
+                page_title: document.title + ' - ' + id
+            });
+        }
     };
 }
 
