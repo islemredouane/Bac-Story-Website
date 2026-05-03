@@ -1398,7 +1398,7 @@ body.search-active .mobile-bottom-bar,
     transition: var(--transition);
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 1rem;
     text-decoration: none;
     box-shadow: 0 10px 25px rgba(44, 92, 197, 0.25);
     z-index: 1;
