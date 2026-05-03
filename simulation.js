@@ -325,6 +325,7 @@ const simApp = {
             alert("عذراً، التصحيح النموذجي لهذا الموضوع غير متوفر حالياً. سيتم إضافته قريباً!");
             return;
         }
+
         this.showStep('sim-exam');
         document.getElementById('exam-prestart').style.display = 'none';
         document.getElementById('timer-side').style.display = 'none';
