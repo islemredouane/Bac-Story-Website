@@ -200,11 +200,11 @@ const simApp = {
         this.state.specialty.subjects.forEach((sub, i) => {
             const btn = document.createElement('button');
             btn.className = `main-btn ${sub.icon === 'ⵣ' ? 'tamazight-btn' : ''}`;
-            
-            const iconHtml = sub.icon.startsWith('fa') 
-                ? `<i class="${sub.icon}"></i>` 
+
+            const iconHtml = sub.icon.startsWith('fa')
+                ? `<i class="${sub.icon}"></i>`
                 : `<span class="tamazight-icon">${sub.icon}</span>`;
-                
+
             btn.innerHTML = `${iconHtml}${sub.name}<span class="sim-duration-text" style="font-size:0.8rem;margin-top:4px;">${this.formatDuration(sub.duration)}</span>`;
             btn.onclick = () => this.selectSubject(i);
             grid.appendChild(btn);
@@ -222,12 +222,12 @@ const simApp = {
         document.getElementById('meta-dur').classList.add('sim-duration-text');
         document.getElementById('exam-iframe').src = this.state.subject.examUrl || 'about:blank';
         document.getElementById('exam-download-btn').href = this.state.subject.examUrl || '#';
-        
+
         // Update prep icon
         const iconContainer = document.querySelector('.sim-prestart-icon');
         if (iconContainer) {
-            const iconHtml = this.state.subject.icon.startsWith('fa') 
-                ? `<i class="${this.state.subject.icon}"></i>` 
+            const iconHtml = this.state.subject.icon.startsWith('fa')
+                ? `<i class="${this.state.subject.icon}"></i>`
                 : `<span class="tamazight-icon" style="font-size: 2.8rem; margin:0;">${this.state.subject.icon}</span>`;
             iconContainer.innerHTML = iconHtml;
         }
@@ -262,6 +262,12 @@ const simApp = {
 
         window.onbeforeunload = () => "أنت في منتصف الامتحان!";
 
+        // Clear any existing timer to prevent stacking
+        if (this.state.timer) {
+            clearInterval(this.state.timer);
+            this.state.timer = null;
+        }
+
         this.state.timer = setInterval(() => {
             this.state.remainingSeconds--;
             this.renderTimer();
@@ -275,7 +281,7 @@ const simApp = {
         const m = Math.floor((s % 3600) / 60);
         const sec = s % 60;
         const display = document.getElementById('timer-display');
-        display.innerText = `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}:${sec.toString().padStart(2,'0')}`;
+        display.innerText = `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
 
         const pct = (s / this.state.totalSeconds) * 100;
         const bar = document.getElementById('timer-bar');
@@ -306,16 +312,16 @@ const simApp = {
             const h = Math.floor(spent / 3600);
             const m = Math.floor((spent % 3600) / 60);
             const s = spent % 60;
-            
+
             let timeStr = "";
             if (h > 0) timeStr += `${h} ساعة `;
             if (m > 0) timeStr += `${m} دقيقة `;
             if (s > 0 && h === 0) timeStr += `${s} ثانية`;
-            
+
             document.getElementById('done-msg').innerText = timeUp
                 ? `انتهى الوقت الرسمي! لقد استغرقت ${timeStr || 'كامل الوقت'} في محاولة الحل.`
                 : `لقد أنهيت الامتحان في ${timeStr || 'أقل من دقيقة'}. مجهود رائع!`;
-            
+
             this.showStep('sim-done');
 
             // Tracking completion via Google Tag Manager
