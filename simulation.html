@@ -1,367 +1,262 @@
-/* ============================================
-   BAC SIMULATION ENGINE — simulation.js
-   ============================================ */
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 
-const examData = {
-    math: {
-        label: "رياضيات", color: "#2c5cc5", icon: "fas fa-calculator",
-        subjects: [
-            { name: "الرياضيات", duration: 270, icon: "fa-solid fa-calculator", examUrl: "", solutionUrl: "", schedule: "الاثنين 04 ماي - 08:30" },
-            { name: "العلوم الفيزيائية", duration: 270, icon: "fa-solid fa-atom", examUrl: "", solutionUrl: "", schedule: "الخميس 07 ماي - 08:30" },
-            { name: "العلوم الطبيعية", duration: 150, icon: "fa-solid fa-dna", examUrl: "", solutionUrl: "", schedule: "الثلاثاء 05 ماي - 08:30" },
-            { name: "اللغة العربية", duration: 150, icon: "fa-solid fa-language", examUrl: "https://drive.google.com/file/d/1lfIXDuPheU68cIz4RU1nLosn_pwp7et9/preview", solutionUrl: "", schedule: "الأحد 03 ماي - 08:30" },
-            { name: "اللغة الفرنسية", duration: 150, icon: "fas fa-flag", examUrl: "", solutionUrl: "", schedule: "الثلاثاء 05 ماي - 15:00" },
-            { name: "اللغة الإنجليزية", duration: 150, icon: "fas fa-comment-dots", examUrl: "", solutionUrl: "", schedule: "الاثنين 04 ماي - 15:00" },
-            { name: "تاريخ وجغرافيا", duration: 210, icon: "fas fa-landmark", examUrl: "", solutionUrl: "", schedule: "الأربعاء 06 ماي - 08:30" },
-            { name: "العلوم الإسلامية", duration: 150, icon: "fa-solid fa-mosque", examUrl: "https://drive.google.com/file/d/1fhOrK51LPssye7Cd755yUeCkdRwF8dZs/preview", solutionUrl: "https://drive.google.com/file/d/1wLaZhLISXi3c84H1laUYO3Gx4UktAA69/preview", schedule: "الأحد 03 ماي - 15:00" },
-            { name: "الفلسفة", duration: 210, icon: "fas fa-brain", examUrl: "", solutionUrl: "", schedule: "الخميس 07 ماي - 15:00" },
-            { name: "اللغة الأمازيغية", duration: 150, icon: "ⵣ", examUrl: "", solutionUrl: "", schedule: "الأربعاء 06 ماي - 15:00" }
-        ]
-    },
-    science: {
-        label: "علوم تجريبية", color: "#28a745", icon: "fas fa-flask",
-        subjects: [
-            { name: "العلوم الطبيعية", duration: 270, icon: "fa-solid fa-dna", examUrl: "https://drive.google.com/file/d/12oNBN9_-31lluAI3E7dJuCmwXhdhQzPB/preview", solutionUrl: "", schedule: "الثلاثاء 05 ماي - 08:30" },
-            { name: "الرياضيات", duration: 210, icon: "fa-solid fa-calculator", examUrl: "https://drive.google.com/file/d/1EtKYVK2q8NPXkP-kb8HGfMC6Mm-Mmvck/preview", solutionUrl: "https://drive.google.com/file/d/12iBbsGbEOaHIVNkm71p99TAf_KK5IlrA/preview", schedule: "الاثنين 04 ماي - 08:30" },
-            { name: "العلوم الفيزيائية", duration: 210, icon: "fa-solid fa-atom", examUrl: "https://drive.google.com/file/d/1BjCBGeAoME73ZG3CiNZD44mslCgYCcXe/preview", solutionUrl: "https://drive.google.com/file/d/1tJw40VPEHmrZhonb-aaCMksd8KwwtcfS/preview", schedule: "الخميس 07 ماي - 08:30" },
-            { name: "اللغة العربية", duration: 150, icon: "fa-solid fa-language", examUrl: "https://drive.google.com/file/d/1lfIXDuPheU68cIz4RU1nLosn_pwp7et9/preview", solutionUrl: "", schedule: "الأحد 03 ماي - 08:30" },
-            { name: "اللغة الفرنسية", duration: 150, icon: "fas fa-flag", examUrl: "", solutionUrl: "", schedule: "الثلاثاء 05 ماي - 15:00" },
-            { name: "اللغة الإنجليزية", duration: 150, icon: "fas fa-comment-dots", examUrl: "", solutionUrl: "", schedule: "الاثنين 04 ماي - 15:00" },
-            { name: "تاريخ وجغرافيا", duration: 210, icon: "fas fa-landmark", examUrl: "", solutionUrl: "", schedule: "الأربعاء 06 ماي - 08:30" },
-            { name: "العلوم الإسلامية", duration: 150, icon: "fa-solid fa-mosque", examUrl: "https://drive.google.com/file/d/1fhOrK51LPssye7Cd755yUeCkdRwF8dZs/preview", solutionUrl: "https://drive.google.com/file/d/1wLaZhLISXi3c84H1laUYO3Gx4UktAA69/preview", schedule: "الأحد 03 ماي - 15:00" },
-            { name: "الفلسفة", duration: 210, icon: "fas fa-brain", examUrl: "", solutionUrl: "", schedule: "الخميس 07 ماي - 15:00" },
-            { name: "اللغة الأمازيغية", duration: 150, icon: "ⵣ", examUrl: "", solutionUrl: "", schedule: "الأربعاء 06 ماي - 15:00" }
-        ]
-    },
-    tech: {
-        label: "تقني رياضي", color: "#f39c12", icon: "fas fa-microchip",
-        subjects: [
-            { name: "التكنولوجيا", duration: 270, icon: "fas fa-microchip", examUrl: "", solutionUrl: "", schedule: "الثلاثاء 05 ماي - 08:30" },
-            { name: "الرياضيات", duration: 270, icon: "fa-solid fa-calculator", examUrl: "", solutionUrl: "", schedule: "الاثنين 04 ماي - 08:30" },
-            { name: "العلوم الفيزيائية", duration: 270, icon: "fa-solid fa-atom", examUrl: "", solutionUrl: "", schedule: "الخميس 07 ماي - 08:30" },
-            { name: "اللغة العربية", duration: 150, icon: "fa-solid fa-language", examUrl: "https://drive.google.com/file/d/1lfIXDuPheU68cIz4RU1nLosn_pwp7et9/preview", solutionUrl: "", schedule: "الأحد 03 ماي - 08:30" },
-            { name: "اللغة الفرنسية", duration: 150, icon: "fas fa-flag", examUrl: "", solutionUrl: "", schedule: "الثلاثاء 05 ماي - 15:00" },
-            { name: "اللغة الإنجليزية", duration: 150, icon: "fas fa-comment-dots", examUrl: "", solutionUrl: "", schedule: "الاثنين 04 ماي - 15:00" },
-            { name: "تاريخ وجغرافيا", duration: 210, icon: "fas fa-landmark", examUrl: "", solutionUrl: "", schedule: "الأربعاء 06 ماي - 08:30" },
-            { name: "العلوم الإسلامية", duration: 150, icon: "fa-solid fa-mosque", examUrl: "https://drive.google.com/file/d/1fhOrK51LPssye7Cd755yUeCkdRwF8dZs/preview", solutionUrl: "https://drive.google.com/file/d/1wLaZhLISXi3c84H1laUYO3Gx4UktAA69/preview", schedule: "الأحد 03 ماي - 15:00" },
-            { name: "الفلسفة", duration: 210, icon: "fas fa-brain", examUrl: "", solutionUrl: "", schedule: "الخميس 07 ماي - 15:00" },
-            { name: "اللغة الأمازيغية", duration: 150, icon: "ⵣ", examUrl: "", solutionUrl: "", schedule: "الأربعاء 06 ماي - 15:00" }
-        ]
-    },
-    management: {
-        label: "تسيير واقتصاد", color: "#8e44ad", icon: "fas fa-chart-line",
-        subjects: [
-            { name: "التسيير المحاسبي والمالي", duration: 270, icon: "fas fa-file-invoice-dollar", examUrl: "", solutionUrl: "", schedule: "الثلاثاء 05 ماي - 08:30" },
-            { name: "الاقتصاد والمناجمنت", duration: 210, icon: "fas fa-chart-line", examUrl: "", solutionUrl: "", schedule: "الخميس 07 ماي - 08:30" },
-            { name: "القانون", duration: 150, icon: "fas fa-gavel", examUrl: "https://drive.google.com/file/d/1HZjg0JTD4juK-Tyx4LkgETCqI4domYD1/preview", solutionUrl: "https://drive.google.com/file/d/1LnqgNlawVgxj8CDY-_agbTKyTCqPI5vi/preview", schedule: "الأحد 03 ماي - 11:30" },
-            { name: "الرياضيات", duration: 210, icon: "fa-solid fa-calculator", examUrl: "", solutionUrl: "", schedule: "الاثنين 04 ماي - 08:30" },
-            { name: "تاريخ وجغرافيا", duration: 210, icon: "fas fa-landmark", examUrl: "", solutionUrl: "", schedule: "الأربعاء 06 ماي - 08:30" },
-            { name: "اللغة العربية", duration: 150, icon: "fa-solid fa-language", examUrl: "https://drive.google.com/file/d/1lfIXDuPheU68cIz4RU1nLosn_pwp7et9/preview", solutionUrl: "", schedule: "الأحد 03 ماي - 08:30" },
-            { name: "اللغة الفرنسية", duration: 150, icon: "fas fa-flag", examUrl: "", solutionUrl: "", schedule: "الثلاثاء 05 ماي - 15:00" },
-            { name: "اللغة الإنجليزية", duration: 150, icon: "fas fa-comment-dots", examUrl: "", solutionUrl: "", schedule: "الاثنين 04 ماي - 15:00" },
-            { name: "العلوم الإسلامية", duration: 150, icon: "fa-solid fa-mosque", examUrl: "https://drive.google.com/file/d/1fhOrK51LPssye7Cd755yUeCkdRwF8dZs/preview", solutionUrl: "https://drive.google.com/file/d/1wLaZhLISXi3c84H1laUYO3Gx4UktAA69/preview", schedule: "الأحد 03 ماي - 15:00" },
-            { name: "الفلسفة", duration: 210, icon: "fas fa-brain", examUrl: "", solutionUrl: "", schedule: "الخميس 07 ماي - 15:00" },
-            { name: "اللغة الأمازيغية", duration: 150, icon: "ⵣ", examUrl: "", solutionUrl: "", schedule: "الأربعاء 06 ماي - 15:00" }
-        ]
-    },
-    literature: {
-        label: "آداب وفلسفة", color: "#e74c3c", icon: "fas fa-pen-nib",
-        subjects: [
-            { name: "الفلسفة", duration: 270, icon: "fas fa-brain", examUrl: "", solutionUrl: "", schedule: "الثلاثاء 05 ماي - 08:30" },
-            { name: "اللغة العربية", duration: 270, icon: "fa-solid fa-language", examUrl: "https://drive.google.com/file/d/1LBcnE-aHFigFoX83hZwaJ0cxLHvVoFHj/preview", solutionUrl: "https://drive.google.com/file/d/1Ws1EtpQ9BFy3LN4cqVyOKMngszUvzR4h/preview", schedule: "الأحد 03 ماي - 08:30" },
-            { name: "تاريخ وجغرافيا", duration: 270, icon: "fas fa-landmark", examUrl: "", solutionUrl: "", schedule: "الأربعاء 06 ماي - 08:30" },
-            { name: "اللغة الفرنسية", duration: 150, icon: "fas fa-flag", examUrl: "", solutionUrl: "", schedule: "الثلاثاء 05 ماي - 15:00" },
-            { name: "اللغة الإنجليزية", duration: 150, icon: "fas fa-comment-dots", examUrl: "", solutionUrl: "", schedule: "الاثنين 04 ماي - 15:00" },
-            { name: "العلوم الإسلامية", duration: 150, icon: "fa-solid fa-mosque", examUrl: "https://drive.google.com/file/d/1fhOrK51LPssye7Cd755yUeCkdRwF8dZs/preview", solutionUrl: "https://drive.google.com/file/d/1wLaZhLISXi3c84H1laUYO3Gx4UktAA69/preview", schedule: "الأحد 03 ماي - 15:00" },
-            { name: "الرياضيات", duration: 150, icon: "fa-solid fa-calculator", examUrl: "", solutionUrl: "", schedule: "الاثنين 04 ماي - 08:30" },
-            { name: "اللغة الأمازيغية", duration: 150, icon: "ⵣ", examUrl: "", solutionUrl: "", schedule: "الأربعاء 06 ماي - 15:00" }
-        ]
-    },
-    languages: {
-        label: "لغات أجنبية", color: "#16a085", icon: "fas fa-globe",
-        subjects: [
-            { name: "اللغة الفرنسية", duration: 210, icon: "fas fa-flag", examUrl: "", solutionUrl: "", schedule: "الثلاثاء 05 ماي - 15:00" },
-            { name: "اللغة الإنجليزية", duration: 210, icon: "fas fa-comment-dots", examUrl: "", solutionUrl: "", schedule: "الاثنين 04 ماي - 15:00" },
-            { name: "لغة أجنبية ثالثة", duration: 210, icon: "fa-solid fa-language", examUrl: "", solutionUrl: "", schedule: "الخميس 07 ماي - 08:30" },
-            { name: "اللغة العربية", duration: 210, icon: "fa-solid fa-language", examUrl: "https://drive.google.com/file/d/1eWJBioO7WIl3nN32KycPRAwDsDG76VBv/preview", solutionUrl: "https://drive.google.com/file/d/1NO3eqI5KuIBtTId_04OrdZ7ntJhbLELz/preview", schedule: "الأحد 03 ماي - 08:30" },
-            { name: "تاريخ وجغرافيا", duration: 210, icon: "fas fa-landmark", examUrl: "", solutionUrl: "", schedule: "الأربعاء 06 ماي - 08:30" },
-            { name: "الفلسفة", duration: 210, icon: "fas fa-brain", examUrl: "", solutionUrl: "", schedule: "الثلاثاء 05 ماي - 08:30" },
-            { name: "العلوم الإسلامية", duration: 150, icon: "fa-solid fa-mosque", examUrl: "https://drive.google.com/file/d/1fhOrK51LPssye7Cd755yUeCkdRwF8dZs/preview", solutionUrl: "https://drive.google.com/file/d/1wLaZhLISXi3c84H1laUYO3Gx4UktAA69/preview", schedule: "الأحد 03 ماي - 15:00" },
-            { name: "الرياضيات", duration: 150, icon: "fa-solid fa-calculator", examUrl: "", solutionUrl: "", schedule: "الاثنين 04 ماي - 08:30" },
-            { name: "اللغة الأمازيغية", duration: 150, icon: "ⵣ", examUrl: "", solutionUrl: "", schedule: "الأربعاء 06 ماي - 15:00" }
-        ]
-    }
-};
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-T5H3TNJ4');</script>
+    <meta name="description"
+        content="محاكاة البكالوريا: جرب حل مواضيع البكالوريا في ظروف مشابهة للامتحان الحقيقي مع مؤقت زمني دقيق وتصحيح تفصيلي.">
+    <meta name="keywords"
+        content="محاكاة البكالوريا, باك ستوري, امتحان تجريبي, توقيت الباك, مواضيع بكالوريا, BAC STORY">
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+    <title>محاكاة البكالوريا | BAC STORY</title>
+    <link rel="canonical" href="https://bacstory.vercel.app/simulation">
+    <link rel="stylesheet" href="/style.css?v=11.2">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    </noscript>
+    <link rel="preload"
+        href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Pattaya&display=swap"
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Pattaya&display=swap">
+    </noscript>
+</head>
 
-const simApp = {
-    state: { specialty: null, subject: null, timer: null, totalSeconds: 0, remainingSeconds: 0, isActive: false },
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5H3TNJ4" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <div id="navbar-placeholder"></div>
 
-    init() {
-        // Initialize history state
-        if (!history.state) {
-            history.replaceState({ step: 'sim-home' }, '', '');
-        }
-
-        window.addEventListener('popstate', (e) => {
-            if (e.state) {
-                if (e.state.specialtyKey) {
-                    // Re-select specialty without pushing state
-                    this.selectSpecialty(e.state.specialtyKey, false);
-                }
-                if (e.state.subjectIndex !== undefined) {
-                    // Re-select subject without pushing state
-                    this.selectSubject(e.state.subjectIndex, false);
-                }
-                this.showStep(e.state.step || 'sim-home', false);
-            } else {
-                this.showStep('sim-home', false);
-            }
-        });
-
-        // Auto-refresh availability
-        setInterval(() => this.checkAvailability(), 30000);
-    },
-
-    showStep(id, push = true, extraState = {}) {
-        if (push) {
-            history.pushState({ step: id, ...extraState }, '', '');
-        }
-
-        ['sim-home', 'sim-subjects', 'sim-prep', 'sim-exam', 'sim-done'].forEach(s => {
-            const el = document.getElementById(s);
-            if (el) { el.style.display = 'none'; el.classList.remove('active'); }
-        });
-        const target = document.getElementById(id);
-        if (target) { target.style.display = 'block'; setTimeout(() => target.classList.add('active'), 30); }
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    },
-
-    goBack(step) {
-        if (this.state.isActive) {
-            if (!confirm("أنت في منتصف الامتحان! هل تريد حقاً المغادرة؟")) return;
-            this.cleanup();
-        }
-        window.history.back();
-    },
-
-    formatDuration(minutes) {
-        const h = Math.floor(minutes / 60);
-        const m = minutes % 60;
-        let res = "";
-        if (h > 0) res += `${h} سا `;
-        if (m > 0) res += `${m} د `;
-        return res.trim();
-    },
-
-    parseSchedule(scheduleStr) {
-        if (!scheduleStr) return null;
-        try {
-            const parts = scheduleStr.split(' ');
-            const day = parseInt(parts[1]);
-            const monthStr = parts[2];
-            const timeStr = parts[4];
-            const months = {
-                "جانفي": 0, "فيفري": 1, "مارس": 2, "أفريل": 3, "ماي": 4, "جوان": 5,
-                "جويلية": 6, "أوت": 7, "سبتمبر": 8, "أكتوبر": 9, "نوفمبر": 10, "ديسمبر": 11
-            };
-            const [hours, minutes] = timeStr.split(':').map(Number);
-            return new Date(2026, months[monthStr], day, hours, minutes);
-        } catch (e) { return null; }
-    },
-
-    checkAvailability() {
-        if (!this.state.subject) return;
-        const startBtn = document.getElementById('sim-start-btn');
-        const availMsg = document.getElementById('availability-msg');
-        const scheduledTime = this.parseSchedule(this.state.subject.schedule);
-        const now = new Date();
-        const isTimeArrived = scheduledTime ? (now.getTime() >= (scheduledTime.getTime() - 60000)) : true;
-        const hasUrl = !!this.state.subject.examUrl;
-
-        if (hasUrl && isTimeArrived) {
-            startBtn.style.display = 'block';
-            availMsg.style.display = 'none';
-        } else {
-            startBtn.style.display = 'none';
-            availMsg.style.display = 'block';
-            if (!hasUrl && isTimeArrived) {
-                availMsg.innerHTML = `<i class="fas fa-info-circle"></i> ستكون المواضيع متوفرة في تاريخ الانطلاق الرسمي`;
-            } else if (scheduledTime) {
-                availMsg.innerHTML = `<i class="fas fa-clock"></i> سيكون الموضوع متوفراً يوم ${this.state.subject.schedule}`;
-            }
-        }
-    },
-
-    selectSpecialty(key, push = true) {
-        this.state.specialty = examData[key];
-        document.getElementById('subject-title').innerText = `مواد شعبة ${this.state.specialty.label}`;
-        const grid = document.getElementById('subject-grid');
-        grid.innerHTML = '';
-        this.state.specialty.subjects.forEach((sub, i) => {
-            const btn = document.createElement('button');
-            btn.className = `main-btn ${sub.icon === 'ⵣ' ? 'tamazight-btn' : ''}`;
+    <!-- ======== STEP 1: HERO + SPECIALTY SELECTION ======== -->
+    <div id="sim-home" class="resource-content active">
+        <section class="modern-hero">
+            <h1 class="modern-title shiny-text">محاكاة البكالوريا</h1>
+            <p class="modern-subtitle">عش تجربة الامتحان الحقيقي — اختر شعبتك، حدد المادة، وابدأ حل الموضوع بمؤقت رسمي.
+                في النهاية، قارن إجاباتك بالتصحيح النموذجي.</p>
+            <div class="modern-utilities">
+                <span class="modern-tag"><i class="fas fa-stopwatch"></i> مؤقت رسمي</span>
+                <span class="modern-tag"><i class="fas fa-file-signature"></i> تصحيح نموذجي</span>
+                <span class="modern-tag"><i class="fas fa-lock"></i> وضع تركيز</span>
+            </div>
             
-            const iconHtml = sub.icon.startsWith('fa') 
-                ? `<i class="${sub.icon}"></i>` 
-                : `<span class="tamazight-icon">${sub.icon}</span>`;
-                
-            btn.innerHTML = `${iconHtml}${sub.name}<span class="sim-duration-text" style="font-size:0.8rem;margin-top:4px;">${this.formatDuration(sub.duration)}</span>`;
-            btn.onclick = () => this.selectSubject(i);
-            grid.appendChild(btn);
-        });
-        this.showStep('sim-subjects', push, { specialtyKey: key });
-    },
+            <div class="hero-actions-container">
+                <a href="javascript:void(0)" class="modern-cta-btn floating" onclick="simApp.scrollTo('schedule-section')">
+                    توزيع البكالوريا التجريبية <i class="fas fa-calendar-alt"></i>
+                </a>
+                <a href="javascript:void(0)" class="modern-cta-btn floating" onclick="simApp.scrollTo('strategy-section')">
+                    كيفية إختيار الموضوع <i class="fas fa-lightbulb"></i>
+                </a>
+            </div>
+        </section>
+        <div class="container">
+            <div class="modern-section-header">
+                <h2>اختر شعبتك</h2>
+            </div>
+            <div class="specialty-grid">
+                <button class="specialty-btn math-btn" onclick="simApp.selectSpecialty('math')">
+                    <i class="fas fa-calculator"></i> رياضيات
+                </button>
+                <button class="specialty-btn science-btn" onclick="simApp.selectSpecialty('science')">
+                    <i class="fas fa-flask"></i> علوم تجريبية
+                </button>
+                <button class="specialty-btn tech-btn" onclick="simApp.selectSpecialty('tech')">
+                    <i class="fas fa-microchip"></i> تقني رياضي
+                </button>
+                <button class="specialty-btn manage-btn" onclick="simApp.selectSpecialty('management')">
+                    <i class="fas fa-chart-line"></i> تسيير واقتصاد
+                </button>
+                <button class="specialty-btn literature-btn" onclick="simApp.selectSpecialty('literature')">
+                    <i class="fas fa-pen-nib"></i> آداب وفلسفة
+                </button>
+                <button class="specialty-btn languages-btn" onclick="simApp.selectSpecialty('languages')">
+                    <i class="fas fa-globe"></i> لغات أجنبية
+                </button>
+            </div>
 
-    selectSubject(i, push = true) {
-        this.state.subject = this.state.specialty.subjects[i];
-        document.getElementById('pre-exam-title').innerText = this.state.subject.name;
-        document.getElementById('pre-exam-duration').innerHTML = `المدة الرسمية: <span class="sim-duration-text">${this.formatDuration(this.state.subject.duration)}</span>`;
-        document.getElementById('meta-spec').innerText = this.state.specialty.label;
-        document.getElementById('meta-sub').innerText = this.state.subject.name;
-        document.getElementById('meta-dur').innerText = this.formatDuration(this.state.subject.duration);
-        document.getElementById('meta-dur').classList.add('sim-duration-text');
-        document.getElementById('exam-iframe').src = this.state.subject.examUrl || 'about:blank';
-        document.getElementById('exam-download-btn').href = this.state.subject.examUrl || '#';
-        
-        // Update prep icon
-        const iconContainer = document.querySelector('.sim-prestart-icon');
-        if (iconContainer) {
-            const iconHtml = this.state.subject.icon.startsWith('fa') 
-                ? `<i class="${this.state.subject.icon}"></i>` 
-                : `<span class="tamazight-icon" style="font-size: 2.8rem; margin:0;">${this.state.subject.icon}</span>`;
-            iconContainer.innerHTML = iconHtml;
-        }
+            <!-- New Informational Sections -->
+            <section id="schedule-section" class="sim-info-section">
+                <div class="modern-section-header">
+                    <h2><i class="fas fa-calendar-alt"></i> توزيع البكالوريا التجريبية</h2>
+                </div>
+                <div class="sim-info-card schedule-card">
+                    <div class="card-badge">2026</div>
+                    <img src="BacStory-Schedule (3).png" alt="توزيع البكالوريا التجريبية" class="schedule-img">
+                </div>
+            </section>
 
-        this.checkAvailability();
+            <section id="strategy-section" class="sim-info-section">
+                <div class="modern-section-header">
+                    <h2><i class="fas fa-lightbulb"></i> كيفية إختيار الموضوع الأنسب</h2>
+                </div>
+                <div class="strategy-grid">
+                    <div class="strategy-main-card">
+                        <div class="strategy-header">
+                            <span class="pro-badge">نصيحة ذهبية ✨</span>
+                            <h3>قاعدة الـ 30 دقيقة</h3>
+                            <p>في كل مادة كاين نصف ساعة إضافي مخصص لإختيار الموضوع، استغلها بذكاء وماتتسرعش!</p>
+                        </div>
+                        
+                        <div class="strategy-steps-modern">
+                            <div class="s-step">
+                                <div class="s-icon success">✅</div>
+                                <div class="s-text">
+                                    <h4>متمكن منه</h4>
+                                    <p>السؤال لي تشوف بلي متأكد تقدرلو 100%</p>
+                                </div>
+                            </div>
+                            <div class="s-step">
+                                <div class="s-icon warning">〰️</div>
+                                <div class="s-text">
+                                    <h4>متردد فيه</h4>
+                                    <p>السؤال لي راك شاك فيه أو نص نص</p>
+                                </div>
+                            </div>
+                            <div class="s-step">
+                                <div class="s-icon danger">❌</div>
+                                <div class="s-text">
+                                    <h4>صعب جداً</h4>
+                                    <p>السؤال لي تحس بلي ماراحش تقدرلو حالياً</p>
+                                </div>
+                            </div>
+                        </div>
 
-        // Reset exam UI
-        document.getElementById('exam-layout').classList.remove('exam-active');
-        document.getElementById('timer-side').style.display = 'none';
-        this.state.totalSeconds = this.state.subject.duration * 60;
-        this.state.remainingSeconds = this.state.totalSeconds;
-        this.renderTimer();
-        this.showStep('sim-prep', push, { subjectIndex: i });
-    },
+                        <div class="strategy-footer">
+                            <div class="conclusion-box">
+                                <p>الخلاصة: الموضوع اللي فيه أكثر <span>✅</span> أو أقل <span>❌</span> هو الاختيار الأنسب لك 🤠</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
 
-    startExam() {
-        this.state.isActive = true;
-        this.showStep('sim-exam');
-        document.getElementById('exam-layout').classList.add('exam-active');
-        document.getElementById('timer-side').style.display = 'flex';
+    <!-- ======== STEP 2: SUBJECT SELECTION ======== -->
+    <div id="sim-subjects" class="resource-content">
+        <div class="container">
+            <div class="modern-section-header">
+                <h2 id="subject-title">المواد</h2>
+            </div>
+            <div class="btn-container" id="subject-grid"></div>
+        </div>
+    </div>
 
-        // Play start sound
-        const sound = document.getElementById('end-sound');
-        if (sound) {
-            console.log("Playing start sound...");
-            sound.currentTime = 0;
-            const playPromise = sound.play();
-            if (playPromise !== undefined) {
-                playPromise.catch(e => console.warn("Start sound play failed:", e));
-            }
-        }
+    <!-- ======== STEP 3: PRE-EXAM PREP ======== -->
+    <div id="sim-prep" class="resource-content">
+        <div class="sim-prestart" id="exam-prestart" style="position:static; background:none; backdrop-filter:none;">
+            <div class="sim-prestart-card">
+                <div class="sim-prestart-icon"><i class="fas fa-file-alt"></i></div>
+                <h2 id="pre-exam-title" class="sim-prestart-title"></h2>
+                <p id="pre-exam-duration" class="sim-prestart-sub"></p>
+                <div class="sim-prestart-tags">
+                    <span><i class="fas fa-clock"></i> توقيت رسمي</span>
+                    <span><i class="fas fa-ban"></i> منع الخروج</span>
+                    <span><i class="fas fa-eye"></i> تصحيح بعد الانتهاء</span>
+                </div>
+                <div id="availability-msg" class="sim-availability-msg" style="display:none;">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>سيكون الموضوع متوفرا في تاريخ الانطلاق الرسمي</span>
+                </div>
+                <button id="sim-start-btn" class="sim-go-btn" onclick="simApp.startExam()">
+                    <i class="fas fa-play"></i> ابدأ المحاكاة
+                </button>
+                <button class="sim-back-link" onclick="simApp.goBack(2)">
+                    <i class="fas fa-arrow-right"></i> تغيير المادة
+                </button>
+            </div>
+        </div>
+    </div>
 
-        window.onbeforeunload = () => "أنت في منتصف الامتحان!";
+    <!-- ======== STEP 4: EXAM MODE ======== -->
+    <div id="sim-exam" class="resource-content" style="padding:0;">
+        <div class="sim-exam-layout" id="exam-layout">
+            <!-- PDF iframe side -->
+            <div class="sim-pdf-side">
+                <div class="pdf-wrapper">
+                    <iframe id="exam-iframe" src="" class="responsive-pdf" allow="autoplay" allowfullscreen></iframe>
+                    <div class="pdf-buttons">
+                        <button onclick="toggleFullScreen(event)" class="full-btn">
+                            <i class="fas fa-expand"></i> ملء الشاشة
+                        </button>
+                        <a id="exam-download-btn" href="#" target="_blank" class="down-btn">
+                            <i class="fas fa-download"></i> تحميل الموضوع
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Timer side -->
+            <div class="sim-timer-side" id="timer-side">
+                <div class="sim-timer-badge">جاري الامتحان</div>
+                <div class="sim-timer-clock" id="timer-display">00:00:00</div>
+                <div class="sim-timer-bar-wrap">
+                    <div class="sim-timer-bar" id="timer-bar"></div>
+                </div>
+                <div class="sim-timer-meta">
+                    <div class="sim-meta-row"><span>الشعبة</span><strong id="meta-spec">--</strong></div>
+                    <div class="sim-meta-row"><span>المادة</span><strong id="meta-sub">--</strong></div>
+                    <div class="sim-meta-row"><span>المدة</span><strong id="meta-dur">--</strong></div>
+                </div>
+                <button class="sim-finish-btn" id="finish-btn" onclick="simApp.endExam(true)">
+                    <i class="fas fa-flag-checkered"></i> أنهيت الامتحان
+                </button>
+            </div>
+        </div>
+    </div>
 
-        this.state.timer = setInterval(() => {
-            this.state.remainingSeconds--;
-            this.renderTimer();
-            if (this.state.remainingSeconds <= 0) this.endExam(true, true);
-        }, 1000);
-    },
+    <!-- ======== STEP 4: RESULTS ======== -->
+    <div id="sim-done" class="resource-content">
+        <section class="modern-hero">
+            <div class="sim-done-badge"><i class="fas fa-check-circle"></i></div>
+            <h1 class="modern-title" style="color: var(--success-color);">أحسنت!</h1>
+            <p id="done-msg" class="modern-subtitle"></p>
+            <div style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:center;">
+                <a class="modern-cta-btn floating" href="javascript:void(0)" onclick="simApp.showSolution()"
+                    style="background: var(--primary-color);">
+                    <i class="fas fa-file-signature"></i> التصحيح النموذجي
+                </a>
+                <a class="modern-cta-btn floating" href="javascript:void(0)" onclick="simApp.reset()"
+                    style="background: var(--primary-color);">
+                    <i class="fas fa-redo"></i> محاكاة جديدة
+                </a>
+            </div>
+        </section>
+    </div>
 
-    renderTimer() {
-        const s = this.state.remainingSeconds;
-        const h = Math.floor(s / 3600);
-        const m = Math.floor((s % 3600) / 60);
-        const sec = s % 60;
-        const display = document.getElementById('timer-display');
-        display.innerText = `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}:${sec.toString().padStart(2,'0')}`;
+    <div id="footer-placeholder"></div>
+    <script src="/ads-config.js?v=1.1"></script>
+    <script src="/components/shared.js?v=3.5"></script>
+    <script src="/script.js"></script>
+    <script src="/simulation.js?v=1.0"></script>
+    <script defer src="/_vercel/insights/script.js"></script>
+    <script defer src="/_vercel/speed-insights/script.js"></script>
 
-        const pct = (s / this.state.totalSeconds) * 100;
-        const bar = document.getElementById('timer-bar');
-        bar.style.width = `${pct}%`;
-
-        // Color states
-        bar.classList.remove('warning', 'critical');
-        display.classList.remove('critical');
-        if (pct < 20 && pct >= 5) { bar.classList.add('warning'); }
-        else if (pct < 5) { bar.classList.add('critical'); display.classList.add('critical'); }
-    },
-
-    endExam(completed, timeUp) {
-        this.cleanup();
-        if (timeUp) {
+    <!-- Sound Effects -->
+    <audio id="end-sound" src="Sonnerie_ecole.mp3" preload="auto"></audio>
+    <script>
+        // Pre-unlock audio context on first interaction if needed
+        document.addEventListener('click', function () {
             const sound = document.getElementById('end-sound');
-            if (sound) {
-                console.log("Playing end sound (Time Up)...");
-                sound.currentTime = 0;
-                const playPromise = sound.play();
-                if (playPromise !== undefined) {
-                    playPromise.catch(e => console.warn("End sound play failed:", e));
-                }
+            if (sound && sound.paused && sound.currentTime === 0) {
+                sound.load();
             }
-        }
-        if (completed) {
-            const spent = this.state.totalSeconds - this.state.remainingSeconds;
-            const h = Math.floor(spent / 3600);
-            const m = Math.floor((spent % 3600) / 60);
-            const s = spent % 60;
-            
-            let timeStr = "";
-            if (h > 0) timeStr += `${h} ساعة `;
-            if (m > 0) timeStr += `${m} دقيقة `;
-            if (s > 0 && h === 0) timeStr += `${s} ثانية`;
-            
-            document.getElementById('done-msg').innerText = timeUp
-                ? `انتهى الوقت الرسمي! لقد استغرقت ${timeStr || 'كامل الوقت'} في محاولة الحل.`
-                : `لقد أنهيت الامتحان في ${timeStr || 'أقل من دقيقة'}. مجهود رائع!`;
-            
-            this.showStep('sim-done');
+        }, { once: true });
+    </script>
+</body>
 
-            // Tracking completion via Google Tag Manager
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({
-                'event': 'exam_completed',
-                'event_category': 'Simulation',
-                'event_label': this.state.subject.name,
-                'specialty': this.state.specialty.label,
-                'subject': this.state.subject.name,
-                'time_spent_seconds': spent
-            });
-        }
-    },
-
-    showSolution() {
-        if (!this.state.subject.solutionUrl) {
-            alert("عذراً، التصحيح النموذجي لهذا الموضوع غير متوفر حالياً. سيتم إضافته قريباً!");
-            return;
-        }
-
-        this.showStep('sim-exam');
-        document.getElementById('exam-prestart').style.display = 'none';
-        document.getElementById('timer-side').style.display = 'none';
-        document.getElementById('exam-layout').classList.remove('exam-active');
-        document.getElementById('exam-iframe').src = this.state.subject.solutionUrl;
-    },
-
-    reset() {
-        this.cleanup();
-        this.showStep('sim-home');
-    },
-
-    scrollTo(id) {
-        const el = document.getElementById(id);
-        if (el) {
-            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    },
-
-    cleanup() {
-        this.state.isActive = false;
-        clearInterval(this.state.timer);
-        window.onbeforeunload = null;
-    }
-};
-
-// Initialize the app
-simApp.init();
+</html>
