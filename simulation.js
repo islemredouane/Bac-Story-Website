@@ -13,9 +13,7 @@ const examData = {
             { name: "اللغة الفرنسية", duration: 150, icon: "fas fa-flag", examUrl: "https://drive.google.com/file/d/17-4u8xcL5hLLJRgTYusXQUj-dOyT17L6/view?usp=drive_link", solutionUrl: "https://drive.google.com/file/d/1e_0IT0m1itjegNQ_lnDsTr1WbkffFZ06/view?usp=drive_link", schedule: "الثلاثاء 05 ماي - 15:00" },
             { name: "اللغة الإنجليزية", duration: 150, icon: "fas fa-comment-dots", examUrl: "https://drive.google.com/file/d/1r9LEVgy2HwV8B8JCabJpVrdzRysZvw-H/preview", solutionUrl: "https://drive.google.com/file/d/1D7I4GYzifVhzV0iQucemW3SKu8tj7sB8/preview", schedule: "الاثنين 04 ماي - 15:00" },
             { name: "تاريخ وجغرافيا", duration: 210, icon: "fas fa-landmark", examUrl: "https://drive.google.com/file/d/1nl3vZkHrWN3ITAJWmTDIsNWg4Jc_-KUW/preview", solutionUrl: "https://drive.google.com/file/d/1O-dbnO9S5OOrnDXimDt0dieXQe2RC0D-/preview", schedule: "الأربعاء 06 ماي - 08:30" },
-            { name: "العلوم الإسلامية", duration: 150, icon: "fa-solid fa-mosque", examUrl: "https://drive.google.com/file/d/1fhOrK51LPssye7Cd755yUeCkdRwF8dZs/preview", solutionUrl: "https://drive.google.com/file/d/1wLaZhLISXi3c84H1laUYO3Gx4UktAA69/preview", schedule: "الأحد 03 ماي - 15:00" },
-            { name: "الفلسفة", duration: 210, icon: "fas fa-brain", examUrl: "", solutionUrl: "", schedule: "الخميس 07 ماي - 15:00" },
-            { name: "اللغة الأمازيغية", duration: 150, icon: "ⵣ", examUrl: "", solutionUrl: "", schedule: "الأربعاء 06 ماي - 15:00" }
+            { name: "العلوم الإسلامية", duration: 150, icon: "fa-solid fa-mosque", examUrl: "https://drive.google.com/file/d/1fhOrK51LPssye7Cd755yUeCkdRwF8dZs/preview", solutionUrl: "https://drive.google.com/file/d/1wLaZhLISXi3c84H1laUYO3Gx4UktAA69/preview", schedule: "الأحد 03 ماي - 15:00" }
         ]
     },
     science: {
@@ -28,9 +26,7 @@ const examData = {
             { name: "اللغة الفرنسية", duration: 150, icon: "fas fa-flag", examUrl: "https://drive.google.com/file/d/17-4u8xcL5hLLJRgTYusXQUj-dOyT17L6/view?usp=drive_link", solutionUrl: "https://drive.google.com/file/d/1e_0IT0m1itjegNQ_lnDsTr1WbkffFZ06/view?usp=drive_link", schedule: "الثلاثاء 05 ماي - 15:00" },
             { name: "اللغة الإنجليزية", duration: 150, icon: "fas fa-comment-dots", examUrl: "https://drive.google.com/file/d/1r9LEVgy2HwV8B8JCabJpVrdzRysZvw-H/preview", solutionUrl: "https://drive.google.com/file/d/1D7I4GYzifVhzV0iQucemW3SKu8tj7sB8/preview", schedule: "الاثنين 04 ماي - 15:00" },
             { name: "تاريخ وجغرافيا", duration: 210, icon: "fas fa-landmark", examUrl: "https://drive.google.com/file/d/1nl3vZkHrWN3ITAJWmTDIsNWg4Jc_-KUW/preview", solutionUrl: "https://drive.google.com/file/d/1O-dbnO9S5OOrnDXimDt0dieXQe2RC0D-/preview", schedule: "الأربعاء 06 ماي - 08:30" },
-            { name: "العلوم الإسلامية", duration: 150, icon: "fa-solid fa-mosque", examUrl: "https://drive.google.com/file/d/1fhOrK51LPssye7Cd755yUeCkdRwF8dZs/preview", solutionUrl: "https://drive.google.com/file/d/1wLaZhLISXi3c84H1laUYO3Gx4UktAA69/preview", schedule: "الأحد 03 ماي - 15:00" },
-            { name: "الفلسفة", duration: 210, icon: "fas fa-brain", examUrl: "", solutionUrl: "", schedule: "الخميس 07 ماي - 15:00" },
-            { name: "اللغة الأمازيغية", duration: 150, icon: "ⵣ", examUrl: "", solutionUrl: "", schedule: "الأربعاء 06 ماي - 15:00" }
+            { name: "العلوم الإسلامية", duration: 150, icon: "fa-solid fa-mosque", examUrl: "https://drive.google.com/file/d/1fhOrK51LPssye7Cd755yUeCkdRwF8dZs/preview", solutionUrl: "https://drive.google.com/file/d/1wLaZhLISXi3c84H1laUYO3Gx4UktAA69/preview", schedule: "الأحد 03 ماي - 15:00" }
         ]
     },
     tech_elec: {
@@ -43,9 +39,7 @@ const examData = {
             { name: "اللغة الفرنسية", duration: 150, icon: "fas fa-flag", examUrl: "https://drive.google.com/file/d/17-4u8xcL5hLLJRgTYusXQUj-dOyT17L6/view?usp=drive_link", solutionUrl: "https://drive.google.com/file/d/1e_0IT0m1itjegNQ_lnDsTr1WbkffFZ06/view?usp=drive_link", schedule: "الثلاثاء 05 ماي - 15:00" },
             { name: "اللغة الإنجليزية", duration: 150, icon: "fas fa-comment-dots", examUrl: "https://drive.google.com/file/d/1r9LEVgy2HwV8B8JCabJpVrdzRysZvw-H/preview", solutionUrl: "https://drive.google.com/file/d/1D7I4GYzifVhzV0iQucemW3SKu8tj7sB8/preview", schedule: "الاثنين 04 ماي - 15:00" },
             { name: "تاريخ وجغرافيا", duration: 210, icon: "fas fa-landmark", examUrl: "https://drive.google.com/file/d/1nl3vZkHrWN3ITAJWmTDIsNWg4Jc_-KUW/preview", solutionUrl: "https://drive.google.com/file/d/1O-dbnO9S5OOrnDXimDt0dieXQe2RC0D-/preview", schedule: "الأربعاء 06 ماي - 08:30" },
-            { name: "العلوم الإسلامية", duration: 150, icon: "fa-solid fa-mosque", examUrl: "https://drive.google.com/file/d/1fhOrK51LPssye7Cd755yUeCkdRwF8dZs/preview", solutionUrl: "https://drive.google.com/file/d/1wLaZhLISXi3c84H1laUYO3Gx4UktAA69/preview", schedule: "الأحد 03 ماي - 15:00" },
-            { name: "الفلسفة", duration: 210, icon: "fas fa-brain", examUrl: "", solutionUrl: "", schedule: "الخميس 07 ماي - 15:00" },
-            { name: "اللغة الأمازيغية", duration: 150, icon: "ⵣ", examUrl: "", solutionUrl: "", schedule: "الأربعاء 06 ماي - 15:00" }
+            { name: "العلوم الإسلامية", duration: 150, icon: "fa-solid fa-mosque", examUrl: "https://drive.google.com/file/d/1fhOrK51LPssye7Cd755yUeCkdRwF8dZs/preview", solutionUrl: "https://drive.google.com/file/d/1wLaZhLISXi3c84H1laUYO3Gx4UktAA69/preview", schedule: "الأحد 03 ماي - 15:00" }
         ]
     },
     tech_civil: {
@@ -58,9 +52,7 @@ const examData = {
             { name: "اللغة الفرنسية", duration: 150, icon: "fas fa-flag", examUrl: "https://drive.google.com/file/d/17-4u8xcL5hLLJRgTYusXQUj-dOyT17L6/view?usp=drive_link", solutionUrl: "https://drive.google.com/file/d/1e_0IT0m1itjegNQ_lnDsTr1WbkffFZ06/view?usp=drive_link", schedule: "الثلاثاء 05 ماي - 15:00" },
             { name: "اللغة الإنجليزية", duration: 150, icon: "fas fa-comment-dots", examUrl: "https://drive.google.com/file/d/1r9LEVgy2HwV8B8JCabJpVrdzRysZvw-H/preview", solutionUrl: "https://drive.google.com/file/d/1D7I4GYzifVhzV0iQucemW3SKu8tj7sB8/preview", schedule: "الاثنين 04 ماي - 15:00" },
             { name: "تاريخ وجغرافيا", duration: 210, icon: "fas fa-landmark", examUrl: "https://drive.google.com/file/d/1nl3vZkHrWN3ITAJWmTDIsNWg4Jc_-KUW/preview", solutionUrl: "https://drive.google.com/file/d/1O-dbnO9S5OOrnDXimDt0dieXQe2RC0D-/preview", schedule: "الأربعاء 06 ماي - 08:30" },
-            { name: "العلوم الإسلامية", duration: 150, icon: "fa-solid fa-mosque", examUrl: "https://drive.google.com/file/d/1fhOrK51LPssye7Cd755yUeCkdRwF8dZs/preview", solutionUrl: "https://drive.google.com/file/d/1wLaZhLISXi3c84H1laUYO3Gx4UktAA69/preview", schedule: "الأحد 03 ماي - 15:00" },
-            { name: "الفلسفة", duration: 210, icon: "fas fa-brain", examUrl: "", solutionUrl: "", schedule: "الخميس 07 ماي - 15:00" },
-            { name: "اللغة الأمازيغية", duration: 150, icon: "ⵣ", examUrl: "", solutionUrl: "", schedule: "الأربعاء 06 ماي - 15:00" }
+            { name: "العلوم الإسلامية", duration: 150, icon: "fa-solid fa-mosque", examUrl: "https://drive.google.com/file/d/1fhOrK51LPssye7Cd755yUeCkdRwF8dZs/preview", solutionUrl: "https://drive.google.com/file/d/1wLaZhLISXi3c84H1laUYO3Gx4UktAA69/preview", schedule: "الأحد 03 ماي - 15:00" }
         ]
     },
     tech_mech: {
@@ -73,9 +65,7 @@ const examData = {
             { name: "اللغة الفرنسية", duration: 150, icon: "fas fa-flag", examUrl: "https://drive.google.com/file/d/17-4u8xcL5hLLJRgTYusXQUj-dOyT17L6/view?usp=drive_link", solutionUrl: "https://drive.google.com/file/d/1e_0IT0m1itjegNQ_lnDsTr1WbkffFZ06/view?usp=drive_link", schedule: "الثلاثاء 05 ماي - 15:00" },
             { name: "اللغة الإنجليزية", duration: 150, icon: "fas fa-comment-dots", examUrl: "https://drive.google.com/file/d/1r9LEVgy2HwV8B8JCabJpVrdzRysZvw-H/preview", solutionUrl: "https://drive.google.com/file/d/1D7I4GYzifVhzV0iQucemW3SKu8tj7sB8/preview", schedule: "الاثنين 04 ماي - 15:00" },
             { name: "تاريخ وجغرافيا", duration: 210, icon: "fas fa-landmark", examUrl: "https://drive.google.com/file/d/1nl3vZkHrWN3ITAJWmTDIsNWg4Jc_-KUW/preview", solutionUrl: "https://drive.google.com/file/d/1O-dbnO9S5OOrnDXimDt0dieXQe2RC0D-/preview", schedule: "الأربعاء 06 ماي - 08:30" },
-            { name: "العلوم الإسلامية", duration: 150, icon: "fa-solid fa-mosque", examUrl: "https://drive.google.com/file/d/1fhOrK51LPssye7Cd755yUeCkdRwF8dZs/preview", solutionUrl: "https://drive.google.com/file/d/1wLaZhLISXi3c84H1laUYO3Gx4UktAA69/preview", schedule: "الأحد 03 ماي - 15:00" },
-            { name: "الفلسفة", duration: 210, icon: "fas fa-brain", examUrl: "", solutionUrl: "", schedule: "الخميس 07 ماي - 15:00" },
-            { name: "اللغة الأمازيغية", duration: 150, icon: "ⵣ", examUrl: "", solutionUrl: "", schedule: "الأربعاء 06 ماي - 15:00" }
+            { name: "العلوم الإسلامية", duration: 150, icon: "fa-solid fa-mosque", examUrl: "https://drive.google.com/file/d/1fhOrK51LPssye7Cd755yUeCkdRwF8dZs/preview", solutionUrl: "https://drive.google.com/file/d/1wLaZhLISXi3c84H1laUYO3Gx4UktAA69/preview", schedule: "الأحد 03 ماي - 15:00" }
         ]
     },
     tech_process: {
@@ -88,9 +78,7 @@ const examData = {
             { name: "اللغة الفرنسية", duration: 150, icon: "fas fa-flag", examUrl: "https://drive.google.com/file/d/17-4u8xcL5hLLJRgTYusXQUj-dOyT17L6/view?usp=drive_link", solutionUrl: "https://drive.google.com/file/d/1e_0IT0m1itjegNQ_lnDsTr1WbkffFZ06/view?usp=drive_link", schedule: "الثلاثاء 05 ماي - 15:00" },
             { name: "اللغة الإنجليزية", duration: 150, icon: "fas fa-comment-dots", examUrl: "https://drive.google.com/file/d/1r9LEVgy2HwV8B8JCabJpVrdzRysZvw-H/preview", solutionUrl: "https://drive.google.com/file/d/1D7I4GYzifVhzV0iQucemW3SKu8tj7sB8/preview", schedule: "الاثنين 04 ماي - 15:00" },
             { name: "تاريخ وجغرافيا", duration: 210, icon: "fas fa-landmark", examUrl: "https://drive.google.com/file/d/1nl3vZkHrWN3ITAJWmTDIsNWg4Jc_-KUW/preview", solutionUrl: "https://drive.google.com/file/d/1O-dbnO9S5OOrnDXimDt0dieXQe2RC0D-/preview", schedule: "الأربعاء 06 ماي - 08:30" },
-            { name: "العلوم الإسلامية", duration: 150, icon: "fa-solid fa-mosque", examUrl: "https://drive.google.com/file/d/1fhOrK51LPssye7Cd755yUeCkdRwF8dZs/preview", solutionUrl: "https://drive.google.com/file/d/1wLaZhLISXi3c84H1laUYO3Gx4UktAA69/preview", schedule: "الأحد 03 ماي - 15:00" },
-            { name: "الفلسفة", duration: 210, icon: "fas fa-brain", examUrl: "", solutionUrl: "", schedule: "الخميس 07 ماي - 15:00" },
-            { name: "اللغة الأمازيغية", duration: 150, icon: "ⵣ", examUrl: "", solutionUrl: "", schedule: "الأربعاء 06 ماي - 15:00" }
+            { name: "العلوم الإسلامية", duration: 150, icon: "fa-solid fa-mosque", examUrl: "https://drive.google.com/file/d/1fhOrK51LPssye7Cd755yUeCkdRwF8dZs/preview", solutionUrl: "https://drive.google.com/file/d/1wLaZhLISXi3c84H1laUYO3Gx4UktAA69/preview", schedule: "الأحد 03 ماي - 15:00" }
         ]
     },
     management: {
@@ -104,9 +92,7 @@ const examData = {
             { name: "اللغة العربية", duration: 150, icon: "fa-solid fa-language", examUrl: "https://drive.google.com/file/d/1lfIXDuPheU68cIz4RU1nLosn_pwp7et9/preview", solutionUrl: "https://drive.google.com/file/d/1J1ED3nxvnN3yGnvWgs4R446Q3W9KT6te/preview", schedule: "الأحد 03 ماي - 08:30" },
             { name: "اللغة الفرنسية", duration: 150, icon: "fas fa-flag", examUrl: "https://drive.google.com/file/d/17-4u8xcL5hLLJRgTYusXQUj-dOyT17L6/view?usp=drive_link", solutionUrl: "https://drive.google.com/file/d/1e_0IT0m1itjegNQ_lnDsTr1WbkffFZ06/view?usp=drive_link", schedule: "الثلاثاء 05 ماي - 15:00" },
             { name: "اللغة الإنجليزية", duration: 150, icon: "fas fa-comment-dots", examUrl: "https://drive.google.com/file/d/1r9LEVgy2HwV8B8JCabJpVrdzRysZvw-H/preview", solutionUrl: "https://drive.google.com/file/d/1D7I4GYzifVhzV0iQucemW3SKu8tj7sB8/preview", schedule: "الاثنين 04 ماي - 15:00" },
-            { name: "العلوم الإسلامية", duration: 150, icon: "fa-solid fa-mosque", examUrl: "https://drive.google.com/file/d/1fhOrK51LPssye7Cd755yUeCkdRwF8dZs/preview", solutionUrl: "https://drive.google.com/file/d/1wLaZhLISXi3c84H1laUYO3Gx4UktAA69/preview", schedule: "الأحد 03 ماي - 15:00" },
-            { name: "الفلسفة", duration: 210, icon: "fas fa-brain", examUrl: "", solutionUrl: "", schedule: "الخميس 07 ماي - 15:00" },
-            { name: "اللغة الأمازيغية", duration: 150, icon: "ⵣ", examUrl: "", solutionUrl: "", schedule: "الأربعاء 06 ماي - 15:00" }
+            { name: "العلوم الإسلامية", duration: 150, icon: "fa-solid fa-mosque", examUrl: "https://drive.google.com/file/d/1fhOrK51LPssye7Cd755yUeCkdRwF8dZs/preview", solutionUrl: "https://drive.google.com/file/d/1wLaZhLISXi3c84H1laUYO3Gx4UktAA69/preview", schedule: "الأحد 03 ماي - 15:00" }
         ]
     },
     literature: {
@@ -118,8 +104,7 @@ const examData = {
             { name: "اللغة الفرنسية", duration: 150, icon: "fas fa-flag", examUrl: "https://drive.google.com/file/d/1wm3N7u6uS9141pjthC-LnUR1FXnT2ZwB/view?usp=drive_link", solutionUrl: "https://drive.google.com/file/d/1q8wKYQs4DP7looZHDsPs6HZMmadduS2R/view?usp=drive_link", schedule: "الثلاثاء 05 ماي - 15:00" },
             { name: "اللغة الإنجليزية", duration: 150, icon: "fas fa-comment-dots", examUrl: "https://drive.google.com/file/d/1XQG_JG6NxLTSu2rygH4AdF_dTMslcxRJ/preview", solutionUrl: "https://drive.google.com/file/d/1YhgCr2uz_OT7co81_6t-ETY7kOZ2HSPw/preview", schedule: "الاثنين 04 ماي - 15:00" },
             { name: "العلوم الإسلامية", duration: 150, icon: "fa-solid fa-mosque", examUrl: "https://drive.google.com/file/d/1fhOrK51LPssye7Cd755yUeCkdRwF8dZs/preview", solutionUrl: "https://drive.google.com/file/d/1wLaZhLISXi3c84H1laUYO3Gx4UktAA69/preview", schedule: "الأحد 03 ماي - 15:00" },
-            { name: "الرياضيات", duration: 150, icon: "fa-solid fa-calculator", examUrl: "https://drive.google.com/file/d/1V3Cgq03y-coRYy9he3_JbAA32JlO-KMP/preview", solutionUrl: "https://drive.google.com/file/d/1vwkFcP1n74OL7Ku3FFCPQnXHOb4OHC8e/preview", schedule: "الاثنين 04 ماي - 08:30" },
-            { name: "اللغة الأمازيغية", duration: 150, icon: "ⵣ", examUrl: "", solutionUrl: "", schedule: "الأربعاء 06 ماي - 15:00" }
+            { name: "الرياضيات", duration: 150, icon: "fa-solid fa-calculator", examUrl: "https://drive.google.com/file/d/1V3Cgq03y-coRYy9he3_JbAA32JlO-KMP/preview", solutionUrl: "https://drive.google.com/file/d/1vwkFcP1n74OL7Ku3FFCPQnXHOb4OHC8e/preview", schedule: "الاثنين 04 ماي - 08:30" }
         ]
     },
     lang_german: {
@@ -132,8 +117,7 @@ const examData = {
             { name: "تاريخ وجغرافيا", duration: 210, icon: "fas fa-landmark", examUrl: "https://drive.google.com/file/d/1t6tJ9jEB8KHLDvPpcx-HFjH5q12Ip0OV/preview", solutionUrl: "https://drive.google.com/file/d/143IixWiSj4h9Iv_SEpKYRhc5R78BMzJW/preview", schedule: "الأربعاء 06 ماي - 08:30" },
             { name: "الفلسفة", duration: 210, icon: "fas fa-brain", examUrl: "https://drive.google.com/file/d/10M79Tvm7C12IwiQ9gVa936AgX6ktGJ48/preview", solutionUrl: "https://drive.google.com/file/d/178dn4Kt4CLBo7lEtHLsChPInuS_5XXBg/preview", schedule: "الثلاثاء 05 ماي - 08:30" },
             { name: "العلوم الإسلامية", duration: 150, icon: "fa-solid fa-mosque", examUrl: "https://drive.google.com/file/d/1fhOrK51LPssye7Cd755yUeCkdRwF8dZs/preview", solutionUrl: "https://drive.google.com/file/d/1wLaZhLISXi3c84H1laUYO3Gx4UktAA69/preview", schedule: "الأحد 03 ماي - 15:00" },
-            { name: "الرياضيات", duration: 150, icon: "fa-solid fa-calculator", examUrl: "https://drive.google.com/file/d/1V3Cgq03y-coRYy9he3_JbAA32JlO-KMP/preview", solutionUrl: "https://drive.google.com/file/d/1vwkFcP1n74OL7Ku3FFCPQnXHOb4OHC8e/preview", schedule: "الاثنين 04 ماي - 08:30" },
-            { name: "اللغة الأمازيغية", duration: 150, icon: "ⵣ", examUrl: "", solutionUrl: "", schedule: "الأربعاء 06 ماي - 15:00" }
+            { name: "الرياضيات", duration: 150, icon: "fa-solid fa-calculator", examUrl: "https://drive.google.com/file/d/1V3Cgq03y-coRYy9he3_JbAA32JlO-KMP/preview", solutionUrl: "https://drive.google.com/file/d/1vwkFcP1n74OL7Ku3FFCPQnXHOb4OHC8e/preview", schedule: "الاثنين 04 ماي - 08:30" }
         ]
     },
     lang_spanish: {
@@ -146,8 +130,7 @@ const examData = {
             { name: "تاريخ وجغرافيا", duration: 210, icon: "fas fa-landmark", examUrl: "https://drive.google.com/file/d/1t6tJ9jEB8KHLDvPpcx-HFjH5q12Ip0OV/preview", solutionUrl: "https://drive.google.com/file/d/143IixWiSj4h9Iv_SEpKYRhc5R78BMzJW/preview", schedule: "الأربعاء 06 ماي - 08:30" },
             { name: "الفلسفة", duration: 210, icon: "fas fa-brain", examUrl: "https://drive.google.com/file/d/10M79Tvm7C12IwiQ9gVa936AgX6ktGJ48/preview", solutionUrl: "https://drive.google.com/file/d/178dn4Kt4CLBo7lEtHLsChPInuS_5XXBg/preview", schedule: "الثلاثاء 05 ماي - 08:30" },
             { name: "العلوم الإسلامية", duration: 150, icon: "fa-solid fa-mosque", examUrl: "https://drive.google.com/file/d/1fhOrK51LPssye7Cd755yUeCkdRwF8dZs/preview", solutionUrl: "https://drive.google.com/file/d/1wLaZhLISXi3c84H1laUYO3Gx4UktAA69/preview", schedule: "الأحد 03 ماي - 15:00" },
-            { name: "الرياضيات", duration: 150, icon: "fa-solid fa-calculator", examUrl: "https://drive.google.com/file/d/1V3Cgq03y-coRYy9he3_JbAA32JlO-KMP/preview", solutionUrl: "https://drive.google.com/file/d/1vwkFcP1n74OL7Ku3FFCPQnXHOb4OHC8e/preview", schedule: "الاثنين 04 ماي - 08:30" },
-            { name: "اللغة الأمازيغية", duration: 150, icon: "ⵣ", examUrl: "", solutionUrl: "", schedule: "الأربعاء 06 ماي - 15:00" }
+            { name: "الرياضيات", duration: 150, icon: "fa-solid fa-calculator", examUrl: "https://drive.google.com/file/d/1V3Cgq03y-coRYy9he3_JbAA32JlO-KMP/preview", solutionUrl: "https://drive.google.com/file/d/1vwkFcP1n74OL7Ku3FFCPQnXHOb4OHC8e/preview", schedule: "الاثنين 04 ماي - 08:30" }
         ]
     },
     lang_italian: {
@@ -160,8 +143,7 @@ const examData = {
             { name: "تاريخ وجغرافيا", duration: 210, icon: "fas fa-landmark", examUrl: "https://drive.google.com/file/d/1t6tJ9jEB8KHLDvPpcx-HFjH5q12Ip0OV/preview", solutionUrl: "https://drive.google.com/file/d/143IixWiSj4h9Iv_SEpKYRhc5R78BMzJW/preview", schedule: "الأربعاء 06 ماي - 08:30" },
             { name: "الفلسفة", duration: 210, icon: "fas fa-brain", examUrl: "https://drive.google.com/file/d/10M79Tvm7C12IwiQ9gVa936AgX6ktGJ48/preview", solutionUrl: "https://drive.google.com/file/d/178dn4Kt4CLBo7lEtHLsChPInuS_5XXBg/preview", schedule: "الثلاثاء 05 ماي - 08:30" },
             { name: "العلوم الإسلامية", duration: 150, icon: "fa-solid fa-mosque", examUrl: "https://drive.google.com/file/d/1fhOrK51LPssye7Cd755yUeCkdRwF8dZs/preview", solutionUrl: "https://drive.google.com/file/d/1wLaZhLISXi3c84H1laUYO3Gx4UktAA69/preview", schedule: "الأحد 03 ماي - 15:00" },
-            { name: "الرياضيات", duration: 150, icon: "fa-solid fa-calculator", examUrl: "https://drive.google.com/file/d/1V3Cgq03y-coRYy9he3_JbAA32JlO-KMP/preview", solutionUrl: "https://drive.google.com/file/d/1vwkFcP1n74OL7Ku3FFCPQnXHOb4OHC8e/preview", schedule: "الاثنين 04 ماي - 08:30" },
-            { name: "اللغة الأمازيغية", duration: 150, icon: "ⵣ", examUrl: "", solutionUrl: "", schedule: "الأربعاء 06 ماي - 15:00" }
+            { name: "الرياضيات", duration: 150, icon: "fa-solid fa-calculator", examUrl: "https://drive.google.com/file/d/1V3Cgq03y-coRYy9he3_JbAA32JlO-KMP/preview", solutionUrl: "https://drive.google.com/file/d/1vwkFcP1n74OL7Ku3FFCPQnXHOb4OHC8e/preview", schedule: "الاثنين 04 ماي - 08:30" }
         ]
     }
 };
@@ -173,6 +155,12 @@ const simApp = {
         // Initialize history state
         if (!history.state) {
             history.replaceState({ step: 'sim-home' }, '', '');
+        } else {
+            // Restore state on reload/initial load if state exists
+            const state = history.state;
+            if (state.specialtyKey) this.selectSpecialty(state.specialtyKey, false);
+            if (state.subjectIndex !== undefined) this.selectSubject(state.subjectIndex, false);
+            if (state.step) this.showStep(state.step, false);
         }
 
         window.addEventListener('popstate', (e) => {
@@ -259,6 +247,13 @@ const simApp = {
             availMsg.style.display = 'block';
             if (!hasUrl && isTimeArrived) {
                 availMsg.innerHTML = `<i class="fas fa-info-circle"></i> ستكون المواضيع متوفرة في تاريخ الانطلاق الرسمي`;
+                
+                // Force a reload once when time arrives if URL is missing (to get new version)
+                const reloadKey = 'sim_refreshed_' + this.state.subject.name;
+                if (!sessionStorage.getItem(reloadKey)) {
+                    sessionStorage.setItem(reloadKey, 'true');
+                    setTimeout(() => location.reload(), 500);
+                }
             } else if (scheduledTime) {
                 availMsg.innerHTML = `<i class="fas fa-clock"></i> سيكون الموضوع متوفراً يوم ${this.state.subject.schedule}`;
             }
