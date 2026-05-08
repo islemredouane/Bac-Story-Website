@@ -714,4 +714,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Show one-time announcement modal (800ms after loader — feels intentional, not jarring)
     setTimeout(showAnnouncementModal, 800);
+
+    // Register Service Worker for PWA / Shortcut functionality
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js')
+                .then(reg => console.log('Service Worker registered successfully'))
+                .catch(err => console.warn('Service Worker registration failed', err));
+        });
+    }
 });
