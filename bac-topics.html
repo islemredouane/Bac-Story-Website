@@ -179,51 +179,62 @@
         </div>
     </div>
 
-    <!-- channel Topics -->
+    <!-- channel Topics — Step 1: Speciality Selection -->
     <div id="channel-topics" class="resource-content">
         <div class="container">
             <div class="ad-card-inject"></div>
             <div class="modern-section-header">
                 <h2>مواضيع البكالوريا التجريبية الخاصة بقناتي</h2>
             </div>
-            <div class="btn-container">
-                <button class="main-btn"
-                    onclick="window.open('https://drive.google.com/drive/folders/1dR7wsxPXjeGbDTwcSUkrY-qFnkIcNn4X?usp=drive_link', '_blank')">
-                    <i class="fa-solid fa-calculator"></i> الرياضيات
+            <div class="specialty-grid">
+                <button class="specialty-btn" style="background:var(--primary-color);color:#fff;" onclick="chTopics.selectSpecialty('math')">
+                    <i class="fas fa-calculator"></i> رياضيات
                 </button>
-                <button class="main-btn"
-                    onclick="window.open('https://drive.google.com/drive/folders/1QWJQU_sklf2iBqa7ty6uOcmPI66inBuf?usp=drive_link', '_blank')">
-                    <i class="fa-solid fa-atom"></i> العلوم الفيزيائية
+                <button class="specialty-btn" style="background:var(--primary-color);color:#fff;" onclick="chTopics.selectSpecialty('science')">
+                    <i class="fas fa-flask"></i> علوم تجريبية
                 </button>
-                <button class="main-btn"
-                    onclick="window.open('https://drive.google.com/drive/folders/18Dt6420Aqz6UN4QUA3JzbmYM3L4JQw4s?usp=drive_link', '_blank')">
-                    <i class="fa-solid fa-dna"></i> العلوم الطبيعية
+                <button class="specialty-btn" style="background:var(--primary-color);color:#fff;" onclick="chTopics.selectSpecialty('tech')">
+                    <i class="fas fa-microchip"></i> تقني رياضي
                 </button>
-                <button class="main-btn"
-                    onclick="window.open('https://drive.google.com/drive/folders/1qtITU9bLBAmU1ChSJkk1H7PGqqESxd-e?usp=drive_link', '_blank')">
-                    <i class="fas fa-microchip"></i> التكنولوجيا
+                <button class="specialty-btn" style="background:var(--primary-color);color:#fff;" onclick="chTopics.selectSpecialty('management')">
+                    <i class="fas fa-chart-line"></i> تسيير واقتصاد
                 </button>
-                <button class="main-btn"
-                    onclick="window.open('https://drive.google.com/drive/folders/1tH17gP82S75-wphTDVxzPtxls_vMpyzN?usp=drive_link', '_blank')">
-                    <i class="fa-solid fa-language"></i> اللغة العربية
+                <button class="specialty-btn" style="background:var(--primary-color);color:#fff;" onclick="chTopics.selectSpecialty('literature')">
+                    <i class="fas fa-pen-nib"></i> آداب وفلسفة
                 </button>
-                <button class="main-btn"
-                    onclick="window.open('https://drive.google.com/drive/folders/1AF32fmFVFAdHrjJPClTyt71tXYBTENme?usp=drive_link', '_blank')">
-                    <i class="fas fa-flag"></i> اللغة الفرنسية
-                </button>
-                <button class="main-btn"
-                    onclick="window.open('https://drive.google.com/drive/folders/1LJTwAd8tVzcyMuAG2SrcSQxf1FqAH-tw?usp=drive_link', '_blank')">
-                    <i class="fas fa-comment-dots"></i> اللغة الإنجليزية
-                </button>
-                <button class="main-btn"
-                    onclick="window.open('https://drive.google.com/drive/folders/1iyaln2M4LyHf2OtkV5LIfswPZiaRI1Mj?usp=drive_link', '_blank')">
-                    <i class="fa-solid fa-mosque"></i> العلوم الإسلامية
-                </button>
-                <button class="main-btn"
-                    onclick="window.open('https://drive.google.com/drive/folders/1MLRZObXAPEaTHLtY-JUT3uIpl3xckjYV?usp=drive_link', '_blank')">
-                    <i class="fas fa-landmark"></i> التاريخ و الجغرافيا
+                <button class="specialty-btn" style="background:var(--primary-color);color:#fff;" onclick="chTopics.selectSpecialty('languages')">
+                    <i class="fas fa-globe"></i> لغات أجنبية
                 </button>
             </div>
+        </div>
+    </div>
+
+    <!-- channel Topics — Step 2: Year Selection -->
+    <div id="channel-topics-year" class="resource-content">
+        <div class="container">
+            <div class="ad-card-inject"></div>
+            <div class="modern-section-header">
+                <h2 id="ch-year-title">اختر السنة</h2>
+            </div>
+            <div class="specialty-grid">
+                <button class="specialty-btn" style="background:var(--primary-color);color:#fff;font-size:1.3rem;" onclick="chTopics.selectYear(2025)">
+                    <i class="fas fa-folder-open"></i> 2025
+                </button>
+                <button class="specialty-btn" style="background:var(--primary-color);color:#fff;font-size:1.3rem;" onclick="chTopics.selectYear(2026)">
+                    <i class="fas fa-star"></i> 2026
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- channel Topics — Step 3: Subjects -->
+    <div id="channel-topics-subjects" class="resource-content">
+        <div class="container">
+            <div class="ad-card-inject"></div>
+            <div class="modern-section-header">
+                <h2 id="ch-subjects-title">المواد</h2>
+            </div>
+            <div class="btn-container" id="ch-subjects-grid"></div>
         </div>
     </div>
 
@@ -9795,107 +9806,14 @@
         </div>
     </div>
 
-        <!-- Study Plans -->
-
     <div id="footer-placeholder"></div>
     <script src="/ads-config.js?v=1.1"></script>
     <script src="/components/shared.js?v=3.3"></script>
     <script src="/script.js"></script>
     <script defer src="/_vercel/insights/script.js"></script>
     <script defer src="/_vercel/speed-insights/script.js"></script>
-    <script>
-        const _exc = {
-            math: {
-                name: 'الرياضيات',
-                sp: [
-                    { n: 'علوم تجريبية', i: 'fas fa-flask', l: 'https://drive.google.com/drive/folders/1QfiXd9GJXJF2zRRo8EMDKHWZv-OderoI?usp=drive_link' },
-                    { n: 'رياضيات', i: 'fas fa-calculator', l: 'https://drive.google.com/drive/folders/1sGMd4cBtQrTx6WndXwOkG-VrMhNZ6iNu?usp=drive_link' },
-                    { n: 'تقني رياضي', i: 'fas fa-microchip', l: 'https://drive.google.com/drive/folders/1JSMfGViG3OalekrZL_UwAdIr0YBOr4KP?usp=drive_link' },
-                    { n: 'تسيير و اقتصاد', i: 'fas fa-chart-line', l: 'https://drive.google.com/drive/folders/132oZUhPy-efDj_ZCAsWVbWUZqxMwLD4N?usp=drive_link' },
-                    { n: 'آداب و فلسفة', i: 'fas fa-pen-nib', l: 'https://drive.google.com/drive/folders/1IXDCcVB3YXrKIHnr_HsLptZtP_52z4aI?usp=drive_link' },
-                    { n: 'لغات أجنبية', i: 'fas fa-globe', l: 'https://drive.google.com/drive/folders/1IXDCcVB3YXrKIHnr_HsLptZtP_52z4aI?usp=drive_link' },
-                ]
-            },
-            physics: {
-                name: 'العلوم الفيزيائية',
-                sp: [
-                    { n: 'علوم تجريبية', i: 'fas fa-flask', l: 'https://drive.google.com/drive/folders/1EFHAfflIpZDWNXzelAcm6UJL_h90sXXF?usp=drive_link' },
-                    { n: 'رياضيات', i: 'fas fa-calculator', l: 'https://drive.google.com/drive/folders/1EFHAfflIpZDWNXzelAcm6UJL_h90sXXF?usp=drive_link' },
-                    { n: 'تقني رياضي', i: 'fas fa-microchip', l: 'https://drive.google.com/drive/folders/1EFHAfflIpZDWNXzelAcm6UJL_h90sXXF?usp=drive_link' },
-                ]
-            },
-            biology: {
-                name: 'العلوم الطبيعية',
-                sp: [
-                    { n: 'علوم تجريبية', i: 'fas fa-flask', l: 'https://drive.google.com/drive/folders/1Mq1qrA3gdhShne4gj-ItKtbDFdZywvND?usp=drive_link' },
-                    { n: 'رياضيات', i: 'fas fa-calculator', l: 'https://drive.google.com/drive/folders/1oYza0gyrYXpKOoVDKkXjvU-UvE1Kspmj?usp=drive_link' },
-                ]
-            },
-            arabic: {
-                name: 'اللغة العربية',
-                sp: [
-                    { n: 'علوم تجريبية', i: 'fas fa-flask', l: 'https://drive.google.com/drive/folders/11y99kZfWi6h8j_sj7_pmhBR7uDENf354?usp=drive_link' },
-                    { n: 'رياضيات', i: 'fas fa-calculator', l: 'https://drive.google.com/drive/folders/11y99kZfWi6h8j_sj7_pmhBR7uDENf354?usp=drive_link' },
-                    { n: 'تقني رياضي', i: 'fas fa-microchip', l: 'https://drive.google.com/drive/folders/11y99kZfWi6h8j_sj7_pmhBR7uDENf354?usp=drive_link' },
-                    { n: 'تسيير و اقتصاد', i: 'fas fa-chart-line', l: 'https://drive.google.com/drive/folders/11y99kZfWi6h8j_sj7_pmhBR7uDENf354?usp=drive_link' },
-                    { n: 'آداب و فلسفة', i: 'fas fa-pen-nib', l: 'https://drive.google.com/drive/folders/12d9gujoYGfANUUFE7E6YAEnBk1yNBnWi?usp=drive_link' },
-                    { n: 'لغات أجنبية', i: 'fas fa-globe', l: 'https://drive.google.com/drive/folders/12d9gujoYGfANUUFE7E6YAEnBk1yNBnWi?usp=drive_link' },
-                ]
-            },
-            french: {
-                name: 'اللغة الفرنسية',
-                sp: [
-                    { n: 'علوم تجريبية', i: 'fas fa-flask', l: 'https://drive.google.com/drive/folders/12Xtfgyii2w9XhfAD4my6P1pJSURTvWJs?usp=drive_link' },
-                    { n: 'رياضيات', i: 'fas fa-calculator', l: 'https://drive.google.com/drive/folders/12Xtfgyii2w9XhfAD4my6P1pJSURTvWJs?usp=drive_link' },
-                    { n: 'تقني رياضي', i: 'fas fa-microchip', l: 'https://drive.google.com/drive/folders/12Xtfgyii2w9XhfAD4my6P1pJSURTvWJs?usp=drive_link' },
-                    { n: 'تسيير و اقتصاد', i: 'fas fa-chart-line', l: 'https://drive.google.com/drive/folders/12Xtfgyii2w9XhfAD4my6P1pJSURTvWJs?usp=drive_link' },
-                    { n: 'آداب و فلسفة', i: 'fas fa-pen-nib', l: 'https://drive.google.com/drive/folders/12Xtfgyii2w9XhfAD4my6P1pJSURTvWJs?usp=drive_link' },
-                    { n: 'لغات أجنبية', i: 'fas fa-globe', l: 'https://drive.google.com/drive/folders/12Xtfgyii2w9XhfAD4my6P1pJSURTvWJs?usp=drive_link' },
-                ]
-            },
-            english: {
-                name: 'اللغة الإنجليزية',
-                sp: [
-                    { n: 'علوم تجريبية', i: 'fas fa-flask', l: 'https://drive.google.com/drive/folders/1NFwwxEzWGWz1C25RwM2Uj4ReaFbW4pbp?usp=drive_link' },
-                    { n: 'رياضيات', i: 'fas fa-calculator', l: 'https://drive.google.com/drive/folders/1NFwwxEzWGWz1C25RwM2Uj4ReaFbW4pbp?usp=drive_link' },
-                    { n: 'تقني رياضي', i: 'fas fa-microchip', l: 'https://drive.google.com/drive/folders/1NFwwxEzWGWz1C25RwM2Uj4ReaFbW4pbp?usp=drive_link' },
-                    { n: 'تسيير و اقتصاد', i: 'fas fa-chart-line', l: 'https://drive.google.com/drive/folders/1NFwwxEzWGWz1C25RwM2Uj4ReaFbW4pbp?usp=drive_link' },
-                    { n: 'آداب و فلسفة', i: 'fas fa-pen-nib', l: 'https://drive.google.com/drive/folders/1oHOg6UIZjQ6dUEU47fE89S63Yo1LFfu1?usp=drive_link' },
-                    { n: 'لغات أجنبية', i: 'fas fa-globe', l: 'https://drive.google.com/drive/folders/1oHOg6UIZjQ6dUEU47fE89S63Yo1LFfu1?usp=drive_link' },
-                ]
-            }, 
-            histgeo: {
-                name: 'التاريخ و الجغرافيا',
-                sp: [
-                    { n: 'علوم تجريبية', i: 'fas fa-flask', l: 'https://drive.google.com/drive/folders/1CIkG4iGe6tVTCkXE3QJGXQNGlKJxUx9m?usp=drive_link' },
-                    { n: 'رياضيات', i: 'fas fa-calculator', l: 'https://drive.google.com/drive/folders/1CIkG4iGe6tVTCkXE3QJGXQNGlKJxUx9m?usp=drive_link' },
-                    { n: 'تقني رياضي', i: 'fas fa-microchip', l: 'https://drive.google.com/drive/folders/1CIkG4iGe6tVTCkXE3QJGXQNGlKJxUx9m?usp=drive_link' },
-                    { n: 'تسيير و اقتصاد', i: 'fas fa-chart-line', l: 'https://drive.google.com/drive/folders/1ELGX2F95S4XD6XQQb5uB8f7cN_bOpQrR?usp=drive_link' },
-                    { n: 'آداب و فلسفة', i: 'fas fa-pen-nib', l: 'https://drive.google.com/drive/folders/12BWyAZ5byCPaDyZjsejIKF47Kl2Zs4d1?usp=drive_link' },
-                    { n: 'لغات أجنبية', i: 'fas fa-globe', l: 'https://drive.google.com/drive/folders/1CIkG4iGe6tVTCkXE3QJGXQNGlKJxUx9m?usp=drive_link' },
-                ]
-            },
-        };
+    <script src="/bac-topics.js?v=1.0" defer></script>
 
-        function showExcellenceSpeciality(key) {
-            const d = _exc[key];
-            document.getElementById('excellence-subject-title').textContent = d.name;
-            const c = document.getElementById('excellence-speciality-buttons');
-            c.innerHTML = '';
-            d.sp.forEach(s => {
-                const b = document.createElement('button');
-                b.className = 'main-btn';
-                b.innerHTML = `<i class="${s.i}"></i> ${s.n}`;
-                if (s.l && s.l !== '#') {
-                    b.onclick = () => window.open(s.l, '_blank');
-                } else {
-                    b.onclick = () => {};
-                }
-                c.appendChild(b);
-            });
-            showSection('excellence-speciality');
-        }
-    </script>
 </body>
 
 </html>
