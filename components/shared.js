@@ -719,8 +719,21 @@ document.addEventListener('DOMContentLoaded', async () => {
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
             navigator.serviceWorker.register('/sw.js')
-                .then(reg => console.log('Service Worker registered successfully'))
-                .catch(err => console.warn('Service Worker registration failed', err));
+                .then(reg => {
+                    console.log('Service Worker registered');
+                    // Check for updates periodically
+                    reg.update();
+                })
+                .catch(err => console.warn('SW failed', err));
+        });
+
+        // Detect when a new service worker takes over and reload automatically
+        let refreshing = false;
+        navigator.serviceWorker.addEventListener('controllerchange', () => {
+            if (!refreshing) {
+                refreshing = true;
+                window.location.reload();
+            }
         });
     }
 });
