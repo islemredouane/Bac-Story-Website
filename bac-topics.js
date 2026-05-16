@@ -1,4 +1,4 @@
-﻿        const _exc = {
+        const _exc = {
             math: {
                 name: 'الرياضيات',
                 sp: [
