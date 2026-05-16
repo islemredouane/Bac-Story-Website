@@ -148,35 +148,340 @@ const examData = {
     }
 };
 
+// ─── NAFI EXTRA EXAMS — 2026 ─────────────────────────────────────────────────
+// Combined exam+solution PDFs from نافع ²⁶. examUrl = solutionUrl (same file).
+(function attachNafiExams() {
+    const pu = id => `https://drive.google.com/file/d/${id}/preview`;
+    const ne = (n, id) => ({ label: `موضوع ${String(n).padStart(2,'0')}`, source: 'nafi', examUrl: pu(id), solutionUrl: pu(id), duration: null });
+
+    /* ── MATH: شعبة رياضيات ──────────────────────────────────────────────── */
+    const mathMATH = [ne(1,'17uLPDZz5ObEXwXL5La0_5ZLdQJWnrqd0'),ne(2,'15NfJO6AJIkPt7Jc8LHhSliNggvsaZjIF'),ne(3,'1ysLozkt6hDo-7RF3SZ_DfhumhjRI2lOC'),ne(4,'1umWCs3WJOe_YeSdti0C76mLf-lJX53x1'),ne(5,'1ytOyTTUZnsg2WPjssUFuxEFOdwupyN6F'),ne(6,'1_6lew7VqenvwFQjZVfmHwRoutwG3Rt5D'),ne(7,'1ir49WZBT7x0J8L15ns7fduIryVKT6-9J'),ne(8,'1ZhKjoSA9n0riYEfWMMbbDn4oIcKnXrJo'),ne(9,'1QOOX-qufUKtR6B39J1CaWttBgzCMqNMn'),ne(10,'15hDZI585-ZAFzc_kstFHdgrVN26Zd7eH'),ne(11,'18M6kpzcjdROz1GnuJkh6uWg51HqCIN8O'),ne(12,'1IZO_Ju0dIo3BssPxW2zSR-mtWU9k8MFh'),ne(13,'1y3Y1odAJhl-4s7nGZQ-APC_HZ3ILZ4pp'),ne(14,'1QVP2YSXEh4XIiMRJIqorkjP8dAYY9SDm'),ne(15,'17c2u_kxV48CLL0SbyxAsu3S65Bsm2Lhx'),ne(16,'1aCUeu5utGCugux_SjMxGehTOAzwm9gTq')];
+    /* ── MATH: شعبة تقني رياضي ──────────────────────────────────────────── */
+    const mathTR = [ne(1,'1U5RpE4yFCVgqDsodQTxK7GD53FWlflZD'),ne(2,'1ZEmbT-Kcax_XP6CJwVkXcfkDMxNInVn7'),ne(3,'19KUuS5xOaAwP-AmXnZzWDF0A9zUVjEdL'),ne(4,'1QhY29z0Y9iV-nNN5IazNiXOHNqEZRNgC'),ne(5,'1TyWOfeeWDdL2b1L8tQlvcVa9wbIhxUug'),ne(6,'1I7JSBlPrYN6QKCBEzHA3OCVMzwhRU0mo'),ne(7,'1pDp29dx95EbbVmzm2PEXdkqvlpjSzD6H'),ne(8,'1myvP6ZlfRCEBdjGcAnuFsRjlBZ2hjvlf')];
+    /* ── MATH: شعبة علوم تجريبية ────────────────────────────────────────── */
+    const mathSC = [ne(1,'1Jr_zsbkvu3BG_KjL2zVTokpDMJIMzZ60'),ne(2,'1RD9joXRLa1L3XnCdpmJu4WJeczYS1wXi'),ne(3,'1JMVI3AQ6vOvKDIh2i_QnrApmi0MdElDq'),ne(4,'1J-bfnXGrF3gquZdVLWgQpLdow5dj7l4x'),ne(5,'1A74vFZYP5lBeVof5--ndSBKq5R0dZH6i'),ne(6,'1go-y98kuz9-wzHJa79oYjFVqw5wnIef'),ne(7,'1wD2Yl3PqfgbCnsniBtvSAW8hk1jZblV5'),ne(8,'1FbgBu-3K3s7MtzRRa_HzpQJnCRuQ6cBv')];
+
+    /* ── PHYSICS: علوم تجريبية ──────────────────────────────────────────── */
+    const physSC = [ne(1,'1ZH6jVpejgKB2Wkv3YYQ9IErMEvQJA9eV'),ne(2,'11pQxpzMVSnsg1Hkzqx6fz4ZOlfqkUHxM'),ne(3,'18VdAsjJ1txcGkc6USbcuSxp2pMAOra_M'),ne(4,'1BGwNm9BTaZzxPP65q8h9FsCuUBx3Eidk'),ne(5,'120oDDBKkQVbWJ3SxanxrShnWif25aQLP'),ne(6,'1Zu2yautSmL3mad9x-pbvD5ex1WS_N7wd'),ne(7,'1lyau-0w8yg-IuOy96xPlqJdWsKfb6Hbr'),ne(8,'10xlW1hM2Ncw8WQ4xgPndlEG8dEUllkYs'),ne(9,'16lAKnIPqdj9FzRSS-ijocyIIpLyip9Zk'),ne(10,'1J_12SBL8p1fM6NEmiDVOq_-rU1QxTxs7'),ne(11,'1g1-nH9dwl5booLBCLu9FI5XySm_GzMec'),ne(12,'1KJ8yH79j6n8r2YuG5aWsWI93fVX0z9xq')];
+    /* ── PHYSICS: رياضي + تقني رياضي ───────────────────────────────────── */
+    const physRT = [ne(1,'1h59Uq0EkRv9tK9V3NklNk3YAvxIIdPfy'),ne(2,'1-EqCafk1p7Ikp4GGtZqX5tE7oZ9Yb16S'),ne(3,'1NAqt2FUd2CkdRs0Tb_AMqyZ-Ivet4pcj'),ne(4,'1ti956-Jwgtmyy5Dmwglfnwme15CRQYr_'),ne(5,'1EYoL72kxJLXuz0jt3g3JZtpKW4HJ4lsr'),ne(6,'1dVyJkuE_aiREJ54y1KsIJ3Zhj3sg8Iq_'),ne(7,'1sPYwfa2WcEudAMJ-JdN0KxOIRZmIRhjf'),ne(8,'1u5dSiXJZYaHZ_4UdeqHH8ArciHhqUb6l'),ne(9,'1nYoCtlCitGg0o1ksyLI6qNyGE1Az191Z'),ne(10,'1nI7hdOgq01v56Y_j4lzSSC5UGnhj8WeS'),ne(11,'1xLr5co6T-BheT01nlYft4hgFllHuwqFI'),ne(12,'14j6DPh8rNAczQ28JTyZgHGpVVnxg_VL2')];
+
+    /* ── NATURAL SCIENCES: علوم تجريبية (25 exams) ─────────────────────── */
+    const sciSC = [ne(1,'1edeUQY116GYomHBfXQLHi-TxpKh3MneS'),ne(2,'1eeWfs0CNRhGVI7Bz6lQj3yEzI1EJfE8l'),ne(3,'10N4K8Pjbtu9x3v69KAL4wC358eFRhDlN'),ne(4,'16x-ot20mkPSjJRtBTCigG9Zz9m3nojUI'),ne(5,'1WGPmUN33hRRJzKC5nSoBw9s_JsfzfcaV'),ne(6,'17Q6FqZlF-yrCVY3GXK6-Kbb7bu_r_57E'),ne(7,'1ig-dG2evkj-dDyUgOUWxAb2uDlsjXqTe'),ne(8,'1kgh-yGJ45_BgxiWBKXCz0DKyMN2FL6q9'),ne(9,'1NnQzMnNQRP4QwgVsU4M8BvXCDTvORN3C'),ne(10,'1rZUIJHArGjhGHRd2997JyzM644ocFaJj'),ne(11,'1P4IE6SA7eRNvwU-_HDlH-E136fyWcI0y'),ne(12,'1QyRLlGijFvUeszFYGUV90vkK0gwZ0KRW'),ne(13,'1aa3SHvYLQNKsNbi1bwE39Nj7sqrm3yA0'),ne(14,'1puYGeVWTmKLsltIWlogRy6kTrH-xZwuQ'),ne(15,'1TLXxjbLG5fGg9Dytef03Xh80hbK1CqmM'),ne(16,'1u5rxBbbcMCf3zXrHlhRXfU_ls4JA5jZo'),ne(17,'1mJGD0ink8_3OxLB0lSD7jgvoXW3v-N7D'),ne(18,'10PBqGnnNYH6zXVcKaoSygIagSootPQLf'),ne(19,'13yrQYaD7jasXDQHtUGg8S5oeYgQvJySJ'),ne(20,'1Vu28hJCjia1egUlxORkNIKA8xpDkGp3n'),ne(21,'1p1aKw8jNM6ehFr8KKmdi_alRNJF_IWuE'),ne(22,'1GUsG9zm1MTrz7oBWkZHQgz5zdrYPURXW'),ne(23,'1l2mCYn4OG1-gqW_GJvSoX7T5yfgeWS_J'),ne(24,'1RIYAAS7kfhP2TkRJDJeJF6OxBGZ4ZUjQ'),ne(25,'1toWs3rpsh4yEppTJkmJgi8PeYIMml_-W'),ne(26,'1jo1Wv6ssVK-x30R86VIS0mFoy6uZc1NH')];
+    /* ── NATURAL SCIENCES: رياضي (5 exams) ─────────────────────────────── */
+    const sciMATH = [ne(1,'1v7EPT2Fp6eseSF2G1lczwccR6NxXFBUU'),ne(2,'1YM_dLWfTH56htc-_4VXzDJEuW0_UW5b_'),ne(3,'133ZrE-dcg_8jf9e8e332ufR4CDBDaB_c'),ne(4,'19-w9Q_kdJWRiedw-Ri6ErSeHHzG2fpBY'),ne(5,'18AU0DNjdFiJLKiQyhyYTuCdhWMnMj2xS')];
+
+    /* ── ARABIC: علمي ───────────────────────────────────────────────────── */
+    const arabicSci = [ne(1,'1mM2ysRQQNAsHkjC053cCrdj7L8P6T5Aj'),ne(2,'14Dr-RSuYl_ufsbANiy9wCu7XUtCSdqvo'),ne(3,'1PioSric6PnWeWxoZ533Jfs8k1S78s_J2')];
+    /* ── ENGLISH ─────────────────────────────────────────────────────────── */
+    const english = [ne(1,'1B9lSLnTn1sEhoAaXPuIHdMYNGCLZRnna'),ne(2,'1YnaTgYh5qwrctNsBybMH3u4COIKeFTUg'),ne(3,'1I910vX_Ex_XkFsgwZbN0dq_MPm5wiY8d'),ne(4,'1vWObfGInJtqgyK5ARMaezjEukyScCzC4'),ne(5,'1K9tomL8wV8Mbznv97vNehZntCXzP8_3B'),ne(6,'1Z0gBCfrxA8hvtSuyWVfCi59IDD9sWeAy'),ne(7,'1CSqnqdz3zZK_pXYsICLKxnPRenCHdECr'),ne(8,'1FB9bzSx1viaPQV8RvXBPJiVyzEzbchj4'),ne(9,'1bwyPJI33KMJIKKjQmY32jirtJBxoQuhx')];
+    /* ── FRENCH: علمي ───────────────────────────────────────────────────── */
+    const frenchSci = [ne(1,'1yLf9qvkVDyBMM5nlBXsN2P6TaDMbIkBQ')];
+    /* ── HISTORY / GEO ──────────────────────────────────────────────────── */
+    const histGeo = [ne(1,'1uUDN16SbCqSlSDNYBN6T4GEM1VxdpkZx'),ne(2,'1o1gl767QVYPk6sAiKb1ppAyrycLH0Gw8'),ne(3,'1wdhzBUb3UOoWdbBPkafkqYgTDtK4ToHR'),ne(4,'1iw-Owa3j3TiLYQHeV5o77pSeB0HyB-Hy'),ne(5,'1pv0kWQdkKJ9JWbtZR3Ws3xCYsxu_Y_2a'),ne(6,'1_piGelsEnlyLFzgtEq9MA-Yz0d2DIkk1'),ne(7,'1FrO_OQIRIclfhn7tuHg9FkLtUkm8j7AO'),ne(8,'1WfqGbp0k-zO26Re9Mnzo4fvmHZnJW2ny'),ne(9,'1hhmNtU_F7BNmHARezscv6t3b_lZdyo0R'),ne(10,'1zw6xcGGs3J3yoUw9n-l-YhHzHkIRcEPZ'),ne(11,'1ZQNahmcR5IcCtv0JBY6mpFQUsBVGsgj_'),ne(12,'1QHe-NHOSbnQOWKxuxeluPIY6ieb0Vygt'),ne(13,'181fO1frE7db9i9Oje0jQN_Fbx5UGOE8P'),ne(14,'1PLtvWOM-6MhqzjFSvDSBgkmc1uSX31jv'),ne(15,'1vYDyHmnqyQhRnfuGa8r6zf-L5379OqhT')];
+    /* ── ISLAMIC SCIENCES ───────────────────────────────────────────────── */
+    const islamic = [ne(1,'1bLx5mjQ0EMuXkRFU3Yw6Wk_829thb9C2'),ne(2,'122NA-hsaTkjwt-ffpsDjoXVtrSBSvZmD'),ne(3,'1q5wONkT-MeMcuKBJSAkYcljHUaa3cWpf'),ne(4,'1r6Mgpd8rItfwgH7ch9qbuMUZC65fZWG-'),ne(5,'1b-TggM5wzncQGv0ZOawiXKWMOUd7daKD'),ne(6,'1gVcj-WaN_NpAWZTQQNzncTqUIgebhUmC')];
+
+    /* ── TECHNOLOGY ─────────────────────────────────────────────────────── */
+    const techElec  = [ne(1,'1jGjTZ-Tx-ca-7HxAa_QcG93IW4hTTP5p'),ne(2,'1v8CmiPV-xB5LWfEx7Vxr-apu5NdBWXAs'),ne(3,'10weOvZwk4IJlFnVba28SjjqoDIsvRaqv'),ne(4,'1fjzvj4IVz4ej2vdHrXYuodb2ZrxSlV7C'),ne(5,'1GK8-pp4bESuHiIYR_EBJLrkVqYmXu5GX'),ne(6,'1jofXTChrp_GSpbU7Vs2OXdOovAaNS-Ci'),ne(7,'1v193KJaGCl-gg0JQPocApE0jP2DImSyP')];
+    const techCivil = [ne(1,'1uW0Ww7PEuvyxl4dLpyB7qLJi4NgaWzJ6'),ne(2,'1njQ3Pq8yQkN03kO_IwuGGDLciLehKGUz'),ne(3,'18yeTOcfzg1gwkcJdbLlvOhQsisjeNzo9'),ne(4,'1LjClcowURF_HcFXjGuyB6yY9013OuL5m'),ne(5,'1zmeYnAMkgY2-pg5Uq7vcPUh9OQXqKdvW'),ne(6,'1yQusDrYyJm-jHqE433eoZMaxKpquCpzx'),ne(7,'1_DyDxRC_by3Y9aJuPefoTuJxvjG-_ZIe'),ne(8,'1yFi0UqaYWqurH2_qgb11ibyiMX1EHoGS'),ne(9,'1V-QLU7nliR4J3Yx0Wnj8xzm90xVHL3dO'),ne(10,'1E-Qc_BTjflFcqgjDx8xxRMOh_mq2Tm8Z'),ne(11,'1pJvaVh3ixD7rAe2fpVztH4PGbt36uBFG'),ne(12,'1RvGVxfnUwWW47SaLBQJBzKJFR1N-x6kr'),ne(13,'1g6RREzwcaeVrpFcJjw3d4soVSiFBv34y'),ne(14,'1YD-Oqo01_wxGIiTuWgHXb5E15Fr8IPcL'),ne(15,'1Jm8mYCTwhgvgX7yCbkX4XlAjIR6srSSg'),ne(16,'1FpZdvpcE4rzB9FVyqnMay87kWO2atvhM'),ne(17,'1iR8UTn45V2LXfFdX-R6a79IOTbzqHqrL'),ne(18,'18ZDeHyTXM-bw4O5kPAzY3xj-MHYvrdfX'),ne(19,'1e_d3qwuBbV-c5JI45clx0BuN95jAgLRt'),ne(20,'18jQM_CuwsotBcFE_kPpRyoam-O7iMZ2n'),ne(21,'1F0ToI2ND76SXT8fdqPhv9MgzZZjPVC5N')];
+    const techMech  = [ne(1,'1pXq0_q1D0v0g9m7f5jxU8uKZ6pLdwpSE'),ne(2,'1qLVQVDArYpqkQIWYr2JpMVNRxmjF0i5T'),ne(3,'1Sw7a6LL7zDm_LpVl0pqPckb014soENiw'),ne(4,'1RcHp0TE7P-Oborqnll1BYPafyaPjk_4g'),ne(5,'16bfkoPCHR6HPy7AWBpb_lamHWzDb6BWZ')];
+    const techProc  = [ne(1,'1OZD1MRbc3gM60X6Fb-q6TUz2oi9iZOX0'),ne(2,'1XuTsoR3PV142CA0bUpIBOiuoIbd-iuXT'),ne(3,'1z6XWkj3myXiT3etOj5aqE9Nc5ZQ-TlHZ'),ne(4,'1JreY1Khn-4r05ePckrQv8KJMlp84o9Bi')];
+
+    // Helper: find a subject by name in a specialty
+    function gs(spec, name) { return examData[spec].subjects.find(s => s.name === name); }
+
+    // ── Islamic Sciences → ALL 11 specialties ────────────────────────────────
+    ['math','science','tech_elec','tech_civil','tech_mech','tech_process','management','literature','lang_german','lang_spanish','lang_italian'].forEach(sp => {
+        const is = gs(sp,'العلوم الإسلامية'); if (is) is.extraExams = islamic;
+    });
+
+    // ── arabicSci + frenchSci + english + histGeo → sci specialties + management ─
+    // (math, science, tech_*, management — NOT literature/lang_*)
+    ['math','science','tech_elec','tech_civil','tech_mech','tech_process','management'].forEach(sp => {
+        const ar = gs(sp,'اللغة العربية');    if (ar) ar.extraExams = arabicSci;
+        const fr = gs(sp,'اللغة الفرنسية');  if (fr) fr.extraExams = frenchSci;
+        const en = gs(sp,'اللغة الإنجليزية'); if (en) en.extraExams = english;
+        const hg = gs(sp,'تاريخ وجغرافيا');   if (hg) hg.extraExams = histGeo;
+    });
+
+    // ── Physics ──────────────────────────────────────────────────────────────
+    gs('science','العلوم الفيزيائية').extraExams  = physSC;   // ع تج only
+    gs('math','العلوم الفيزيائية').extraExams      = physRT;   // رياضي
+    ['tech_elec','tech_civil','tech_mech','tech_process'].forEach(sp => {
+        gs(sp,'العلوم الفيزيائية').extraExams = physRT;        // تقني رياضي
+    });
+
+    // ── Math ─────────────────────────────────────────────────────────────────
+    gs('math','الرياضيات').extraExams   = mathMATH;            // رياضي
+    gs('science','الرياضيات').extraExams = mathSC;             // ع تج only
+    ['tech_elec','tech_civil','tech_mech','tech_process'].forEach(sp => {
+        gs(sp,'الرياضيات').extraExams = mathTR;                // تقني رياضي only
+    });
+
+    // ── Natural Sciences ──────────────────────────────────────────────────────
+    gs('science','العلوم الطبيعية').extraExams = sciSC;        // ع تج only
+    gs('math','العلوم الطبيعية').extraExams    = sciMATH;      // رياضي only
+
+    // ── Technology ───────────────────────────────────────────────────────────
+    gs('tech_elec','التكنولوجيا (هندسة كهربائية)').extraExams   = techElec;
+    gs('tech_civil','التكنولوجيا (هندسة مدنية)').extraExams     = techCivil;
+    gs('tech_mech','التكنولوجيا (هندسة ميكانيكية)').extraExams  = techMech;
+    gs('tech_process','التكنولوجيا (هندسة طرائق)').extraExams   = techProc;
+}());
+
+// ─── TAMAYOZ EXTRA EXAMS — مواضيع التميز ────────────────────────────────────
+(function attachTamayozExams() {
+    const pu  = id       => `https://drive.google.com/file/d/${id}/preview`;
+    const nt  = (n, id)       => ({ label: `موضوع ${String(n).padStart(2,'0')}`, source: 'tamayoz', examUrl: pu(id),  solutionUrl: pu(id),  duration: null });
+    const nts = (n, eid, sid) => ({ label: `موضوع ${String(n).padStart(2,'0')}`, source: 'tamayoz', examUrl: pu(eid), solutionUrl: pu(sid), duration: null });
+    function gs(spec, name) { return examData[spec].subjects.find(s => s.name === name); }
+    function add(subj, arr) { if (subj) subj.extraExams = (subj.extraExams || []).concat(arr); }
+
+    /* ── MATH: شعبة رياضيات ──────────────────────────────────────────────── */
+    const mathRIADHI_T = [nts(1,'1ZNTBvTIHZhy09pQxV0-RIt5urV9SiZPe','1uqJGhqfXa8TIKmZSH3oJNEKJZVnf6Q8e'),nt(2,'1KNd8qQo3NCKOOB-VMvTebvUhJRNwnGAA')];
+    add(gs('math','الرياضيات'), mathRIADHI_T);
+
+    /* ── MATH: شعبة علوم تجريبية ─────────────────────────────────────────── */
+    const mathSCI_T = [nts(1,'1DeoXRstUciuHOIbEFAaivBLhp0wZOSi3','1a4-vv6y2jWrDF0c4wUYRwy5HTfX0wri0'),nt(2,'13JfaitZanlAlsfbOS48jGYn2_TH910Xg')];
+    add(gs('science','الرياضيات'), mathSCI_T);
+
+    /* ── MATH: شعبة تقني رياضي ───────────────────────────────────────────── */
+    const mathTECH_T = [nt(1,'1_e9ronK8KDPF8ZI7pQFG8c_Kzyl9g7HQ')];
+    ['tech_elec','tech_civil','tech_mech','tech_process'].forEach(sp => add(gs(sp,'الرياضيات'), mathTECH_T));
+
+    /* ── MATH: شعبة تسيير واقتصاد ───────────────────────────────────────── */
+    const mathMGMT_T = [nt(1,'1XRC4TggGA8aAUHYVl6K_TByM6AfPwLlY'),nt(2,'1B0b0bsEUda4-dsJ_GX9wt1LKWO5wVWb7'),nt(3,'1thkShk6ArJIC90Qh0a3pmCXUO4kbN-Qo'),nt(4,'13Z9vzMvvtD5lqq0OZ6Dy4PMsFdV7XXb_'),nt(5,'1bL0tMx3tkR2YyltQVESrWRCO7hPbZUFi'),nt(6,'1z6YtGKki7bbw_DM6vZBQ35LxwwfWjCvz'),nt(7,'1OfUS2Tceq3PW5el-f2IEf-Ajyxudg6Kh'),nt(8,'1KJnRn4FIQ4M21t_aoZxPUpFMze_byqLe'),nt(9,'1piBeZzBxw82p3sT_sgy4cOPxZaQX9FWV'),nt(10,'1CzPEtpoOyGnClm6LyPaE6yocCKss1fTq')];
+    add(gs('management','الرياضيات'), mathMGMT_T);
+
+    /* ── MATH: آداب + لغات ───────────────────────────────────────────────── */
+    const mathLIT_T = [nt(1,'1Z0BThIEeBVzSXPEyAlZuwyHr6YTEmozQ'),nt(2,'1rcH0-RNROx0OwLR8pF8Og0hU6oC3Ln_y'),nt(3,'1hunKpUmPPJkuIRx-uoeU33Q5FMJI1KxX'),nt(4,'12OlW1-csahSAnttdyCeXz1_jgiNU6NpF'),nt(5,'11pgFgemllPPm04vf4iHCRuXzXXNwBk_8'),nt(6,'1F6ndz6yE9LGWqZl1tB8qyk6pddjGgK2J'),nt(7,'1nBU0--2Efjdh4hiVtwBE6bl9MpxyJZgS'),nt(8,'1t69o8gKmLhB0VfWQnJtXGyWYSXPaQgeV')];
+    ['literature','lang_german','lang_spanish','lang_italian'].forEach(sp => add(gs(sp,'الرياضيات'), mathLIT_T));
+
+    /* ── NATURAL SCIENCES: علوم تجريبية ─────────────────────────────────── */
+    add(gs('science','العلوم الطبيعية'), [nts(1,'1AgCvzoCBpcwvH8Etvx762mKJ1-i52LHL','1h6aGPL4retzL3tifeVcBtiBMTuythntq')]);
+
+
+    /* ── PHYSICS: رياضي + تقني رياضي ────────────────────────────────────── */
+    const physRT_T = [nt(1,'1y_H2Zca8sTjrkSk2aopr_no_8uKp0k3Z')];
+    ['math','tech_elec','tech_civil','tech_mech','tech_process'].forEach(sp => add(gs(sp,'العلوم الفيزيائية'), physRT_T));
+
+    /* ── PHYSICS: علوم تجريبية ───────────────────────────────────────────── */
+    add(gs('science','العلوم الفيزيائية'), [nt(1,'1y_H2Zca8sTjrkSk2aopr_no_8uKp0k3Z')]);
+
+    /* ── ACCOUNTING: التسيير المحاسبي والمالي ─────────────────────────────── */
+    const acct_T = [nt(1,'1_JXKrLxiGfYL2cW4D8h0FLz5FOwpqlAY'),nt(2,'1K7XIZO_R-IkflAFItyix81Ju5x2vCioB'),nt(3,'1WTBt-h7IWGnvcHTr6Az-hKpW-LyTQWxC'),nt(4,'1EDIjGYn6RJ4fYcfHKITtKrFRWf2R3hyj'),nt(5,'1ovQie4xbfaqINdMRFWRm9XkOEHWHKt0V'),nt(6,'1yzjqe-SlOKvDgHarPZVwPDAmXghB7Dga'),nt(7,'1r4D62Dogu3CYx472iq2YpDCO1QNoT_j-')];
+    add(gs('management','التسيير المحاسبي والمالي'), acct_T);
+
+    /* ── ECONOMICS: الاقتصاد والمناجمنت ─────────────────────────────────── */
+    const econ_T = [nt(1,'1fnYWUun5Q4srWDHu7cvNgAFPS4V0uOBu'),nt(2,'1Zvr8NLgddBf776KEUz4GUtxa6MRA5tMf'),nt(3,'1tEEnKpyPF-Hj2NeVf5fBH-WV75t6kFUv'),nt(4,'11u39GXLGHzHtb5iRMbXs7DxD7BFtNSwL'),nt(5,'12cum1ZJLRxOB0e2IBYoXqhZ320TnKP8g'),nt(6,'1CA4M0QtTyR4kZRay5twe1ZjhxqWZhtXr'),nt(7,'1dIeeAOpAn0-lDFgwul98Hd9qxk8ZjaFZ'),nt(8,'1ZZ2Ng3lHLHuMBUXEeiQtA6uQWZ5L5t-j'),nt(9,'1BHLFYJnCqDQA72R3oL2pYG7yMQCfPzEp'),nt(10,'1QHRog82xfj88we3cd9f0ZY0GsMq9fXlV'),nt(11,'1-pOXY7SqsQbmDH57q-tmimKMZWN_wPLi'),nt(12,'1Il9QdTQwJz2jYeEkcQknynFyt5gO0t8d'),nt(13,'1AWOsZnDD7GZGpbishuRFRB2Ra3rkxj54'),nt(14,'1OSRlUzMaLSwUOknYVeoPBDc-PilEMZqL'),nt(15,'16CpK5I5l720BDefRVgHCVOunr_H_zZ7J'),nt(16,'1HHnkFrXVnTJUBYhJ2r6H61ZlP6m1PMl_')];
+    add(gs('management','الاقتصاد والمناجمنت'), econ_T);
+
+    /* ── LAW: القانون ────────────────────────────────────────────────────── */
+    const law_T = [nt(1,'1L0HfzMxwqUcQ0xFM1ye65MiwVpBxd-_v'),nt(2,'1BS5owyIgSnzwh42kWoahxR163X1CjHUP'),nt(3,'1X48UCiRBse1KyL8UWm72ZkZgH-IO4KCk'),nt(4,'1aCipOD5PTiCjHROruGqET9ArIgx_7xu6'),nt(5,'12U2W5CU6nmUcv3yXqJYO6lNR7NmBTZcu'),nt(6,'1EIB5Pgn2KyC7puH9uJql6utvOVl4gJlB'),nt(7,'1CzT58GDUlVo4CwukIy8Tt-EIgOkSKMs3'),nt(8,'18r2NDYE85xvv9aXpDHsD7heX6dCD-Toc'),nt(9,'1t0K5KghqeVNeyLNC1f_JknkWO1pFITZr'),nt(10,'1956YWjWBKiKRtDKYgHk5YD3cmj0wjYxV'),nt(11,'17Ljp3FQEYDkFMUPOJ9iIOMRSUjcRG7vn'),nt(12,'1DTu_9DJOsv-BRlbQAa2zlhETdYhuhn1F')];
+    add(gs('management','القانون'), law_T);
+
+    /* ── ARABIC: math+science+tech+management ────────────────────────────── */
+    const arabicSCI_T = [nt(1,'1KQLsNI34RI0sEpKn6vmTbLFjlnAMxqvY'),nt(2,'154BD5b7GgMi0m5tza_-BQ0CKJPakMJ1K'),nt(3,'15BPXb93rV5Ei5ZhzaevYAr2JlURbilbx'),nt(4,'1h0eponVmSvH_kiJN_74x8ZAUKSqkNA2H'),nt(5,'1W8NGrzWbksE6mI1DVP_pYOJnTWKQXT3E'),nt(6,'1jVGB002n8NymDrguGM59muVRBlGFlfJF')];
+    ['math','science','tech_elec','tech_civil','tech_mech','tech_process','management'].forEach(sp => add(gs(sp,'اللغة العربية'), arabicSCI_T));
+
+    /* ── ARABIC: آداب + لغات ─────────────────────────────────────────────── */
+    const arabicLIT_T = [nt(1,'15EYx_fyyvqI6dZsCrZN21atkxJUTnh-A'),nt(2,'1r9BA7YHxNVwYY0b_a3efj2RsRxaUjcI0'),nt(3,'1-Y0liJORwidXeQue6Sw4989i5cd6en8S'),nt(4,'1PSirtHjxyzziXZbyRDrlU0STrLzHJBA2'),nt(5,'1u6TH9B6Uc9bZ9TGJ3dU4fl9HPpc4fwtO'),nt(6,'1MojwPfb1vFLIa5kODVM5yvy5QRYt8HlD'),nt(7,'1V5I8Uc2mBSRWccVYNCCw_XiGS69i9JyT'),nt(8,'1Kmpo8Cg8TWE_ZkTLbYmvu1lsfoSB83WL'),nt(9,'1EGigPdd3fN0vKH-rxpFa80jTQzXCIpAZ')];
+    ['literature','lang_german','lang_spanish','lang_italian'].forEach(sp => add(gs(sp,'اللغة العربية'), arabicLIT_T));
+
+    /* ── FRENCH: ALL specialties ──────────────────────────────────────────── */
+    const french_T = [nt(1,'1pw1dFZN9j3oIqhn8d9OCtvC2ndFz27wG'),nt(2,'1sn7VTuvU-l1-YZ6wtQOj6puaRw5jJg90'),nt(3,'1FaRDLSwdjIJ0Yxy7Hwg9Q1LxM2JgboNU'),nt(4,'1aX-jee7q4QCRzsAtFSzRl6jcOzl1Y0mA'),nt(5,'1HTBWHpKlIbOzWO2SkOIP1nbI7qC2wQLO'),nt(6,'1Gn6fPM3fGjg7Avy8qa-jGsTBSEh8uG7h'),nt(7,'1myxhglpImTshRf1L1HMr3KDPYsLhBHOv'),nt(8,'1Q9wWTErgVteh8-bX_b2MXli_qMbnOj9g'),nt(9,'1F-fvdMciD787tL-SXrgkf2RSDyGsSW_I'),nt(10,'1cKLmep4pOOElhcjSPOf7kGoiUDD3-loC'),nt(11,'1UiUPo2FN485BHuPpaCIaaKWz1GFQiyc4')];
+    ['math','science','tech_elec','tech_civil','tech_mech','tech_process','management','literature','lang_german','lang_spanish','lang_italian'].forEach(sp => add(gs(sp,'اللغة الفرنسية'), french_T));
+
+    /* ── ENGLISH: math+science+tech+management ───────────────────────────── */
+    const englishSCI_T = [nt(1,'1aKmeqtqo7FpjHEt5peWVETKsL2M0GhOS'),nt(2,'1JRUFRrLlr0uyZV_AcoF1BqkLvHwYkogi'),nt(3,'1STX0J94qa4pldlM5shgcZT6A2v3fuKg2'),nt(4,'13fRbSFepFF8JjGahqQS3GCtXYQHXBNR4'),nt(5,'1oQSZsvj_zYUjtFJpaZSrkmUmJ6nQ_4hZ'),nt(6,'1WeM6ijkTy8qkgzTv4psIAsARTG7DIB5w'),nt(7,'1weU3nYvRfjay7K68U70chgS6-ivlS006'),nt(8,'1fcIWnX2lNv2sVYsZ0OuReXcaYsNO8cMO'),nt(9,'1LZs1rVq6heb7fzIgU2GcFkonlK98NAmi'),nt(10,'1MVHBz_1SxIbPgDSHnQFYh1mFz0QQMUEC'),nt(11,'1hJ_QYNlii80O-gDDzdufh48hsGNm8eyp'),nt(12,'1QLQ6XUAZOnv2V-Agmhf6TS1r7YYmU_X6'),nt(13,'1E6Iab48I3eOceNmUXpFIlvyshtWJtBGH'),nt(14,'1jdsUzcJV-ET2iXqgscwj8D1jxNZIff0V'),nt(15,'1O11qjtx4No1Xk4piJWp7a6KjSUHtQ4Xa'),nt(16,'1j7VCI0Ze9vi2blHrspxcrJVZEI3gGjnj'),nt(17,'1tqhPYaoaKF6VockWYCeq3K5fpTimTQ00'),nt(18,'1-nKSAulFNyMBLgKfvH9WMaEtKTO9cfMq'),nt(19,'1dEa5dAR8ClY5paeBVTHAdtC1NQOj-i1n'),nt(20,'1BHzV9S0mWAZQtWEJDwlIbxN6AVUasRTg'),nt(21,'1r_GHqXWGtxFRvzaxazqZHqquvi146W0t')];
+    ['math','science','tech_elec','tech_civil','tech_mech','tech_process','management'].forEach(sp => add(gs(sp,'اللغة الإنجليزية'), englishSCI_T));
+
+    /* ── ENGLISH: آداب + لغات ────────────────────────────────────────────── */
+    const englishLIT_T = [nt(1,'1eaJa6Tw44Vat_bx8IYhTk0t3vU0Fu8u8')];
+    ['literature','lang_german','lang_spanish','lang_italian'].forEach(sp => add(gs(sp,'اللغة الإنجليزية'), englishLIT_T));
+
+    /* ── HISTORY/GEO: math+science+tech+languages ────────────────────────── */
+    const histMAIN_T = [nt(1,'1SnUA79nQiYHWLvKYhnZw09Uc3vioD4gW'),nt(2,'13sHXeRVzVrM8lryyLquhreMUrYsdgrek'),nt(3,'1DAH1c5uCDtNcp_w_xB36C2LlB3HYBSwx'),nt(4,'1Z71tt9Ba1HhBQWfpCO87_PFoy37tEXI4'),nt(5,'1F6yK-8LBAZuoLnnxRgTRrR6dhiBizokS'),nt(6,'1IX3XPc_x6WhK2FtOP3AUBc2w2m-OCvko'),nt(7,'11apIPoCodL1oS87EizwsRuuN1813Gtui'),nt(8,'1rQ_o1QWtmFGvrj-v6bG7bgDQGDbVNnd6'),nt(9,'18sfA3z0TTcF4BLfx-X2uUOUY2Jz5RcwX')];
+    ['math','science','tech_elec','tech_civil','tech_mech','tech_process','lang_german','lang_spanish','lang_italian'].forEach(sp => add(gs(sp,'تاريخ وجغرافيا'), histMAIN_T));
+
+    /* ── HISTORY/GEO: آداب وفلسفة ───────────────────────────────────────── */
+    const histLIT_T = [nt(1,'1a-ZicAUgeeq1e0IUlMRvCcdiWtDUtcs1'),nt(2,'13zgtz3okpp960pIUr_4vFLjJ2vgnPsmX'),nt(3,'1cOiW0h0xgA3BxsBHgsIukFvGkP46rj8W'),nt(4,'1-318Gdbtp83HFvRIgwVotf6b6zauRB_z'),nt(5,'1DCjW0tXnEEe4ye_lpMBL6aegkfUhq-W6')];
+    add(gs('literature','تاريخ وجغرافيا'), histLIT_T);
+
+    /* ── HISTORY/GEO: تسيير واقتصاد ─────────────────────────────────────── */
+    const histMGMT_T = [nt(1,'1KkYG46rB6fnrWhOnmqOlk7SufTxTPD6u'),nt(2,'1Ad82OGWYSbg2HXlTh0Xt8uZbF1lW0vbP'),nt(3,'1POUNF6AzRx8IKhQUwwGYvSQj_D_S007U'),nt(4,'1NLhSchm9ul9xV5BiGvIbjc8zM9sDBpR_'),nt(5,'1_tWJ3ASqfGePTzX-S5NG5Wmv4uWMe1do'),nt(6,'12ihxHEa9FFdyLswNgjzBF0XESHdiil4w'),nt(7,'1BIMqQrnFLl3qXvkm27qJ-qRZwsRyo41L'),nt(8,'18NHilI76wruIdmDBNXV4CDkROgPVk_NM'),nt(9,'1ipRl_VPTK3PZhKA5uCFkzHqvX53G26QJ'),nt(10,'1UZgZPISuAzLUXFMMdJiiIIs_92XvKlWw')];
+    add(gs('management','تاريخ وجغرافيا'), histMGMT_T);
+
+    /* ── ISLAMIC SCIENCES: ALL specialties ───────────────────────────────── */
+    const islamicALL_T = [nt(1,'1_4LlyR7qVfUiYE_zfoKDqV8Q_derSIcp'),nt(2,'1gYtlt1aUcZ7xloyaL4xhGsvcfYGHursw'),nt(3,'10QQ88JyvRg46FONeGypltoIvxOoD5liF'),nt(4,'1sS5TMP_4JGlPbuvu5nWuMClleFMKsCUS'),nt(5,'1vr4VYp2zKLgHFZjbG27Ig2BXsILCpHjn'),nt(6,'1zAa0vdcXWNxHnlY-0ZUT__zNh5_TSvaI'),nt(7,'1Nf9X43iSDcqzSHUlDL_DGHJSG7AcrXBv'),nt(8,'1QukpQR5nNrOdzWOOVWPlJDsK1FVDcdWh'),nt(9,'1ekysoTAQYS5XC_K9B3iokEcgkQJQHfS_'),nt(10,'1bh3kMRmYuxDWeKwa9nBA8H1zSc83lX6b'),nt(11,'1tgH-41Hc5rLDUrF8iBWfIA7gUvsb2jOP'),nt(12,'1pNKm-ALBM2s_eURZWg2oBxX_mYsdbrSu'),nt(13,'1JkpWPC85v-uu2gU6FOZo4Zubt1NKQPux'),nt(14,'1J4Xe9WgtIOdWBS0_5w859TfDRMTp7i6d'),nt(15,'10s8v7EeKdl5LcFfVNyfytt9h1ucPNa3l'),nt(16,'1oU_qHM8aXp_sKbZzOchmojOxvQqY45zq'),nt(17,'1YFUfW5xjcR2fTkmw90HkfeY9XBOsU7TD'),nt(18,'1Fp1gLFJmlc0hFEB_wzvJPvEr4MQR92KW'),nt(19,'1o9a6SJw6oGv-IpVhT_Rv3IEx3UUQOaEz'),nt(20,'1ZnGoEZbD7e6AFcL0f-VOURyYdnf9wiOz'),nt(21,'1-4reM8V4fs4vMSxdoQIFC-2uwAr_5Xt0'),nt(22,'1LOhaYDNjH6m40sIaICBW_T96DNVMIJ2E')];
+    ['math','science','tech_elec','tech_civil','tech_mech','tech_process','management','literature','lang_german','lang_spanish','lang_italian'].forEach(sp => add(gs(sp,'العلوم الإسلامية'), islamicALL_T));
+
+    /* ── GERMAN ──────────────────────────────────────────────────────────── */
+    add(gs('lang_german','اللغة الألمانية'), [nt(1,'1kru-2bvSib3laiBrFQs4rKToXpZy43O4'),nt(2,'14ATmj_Mh3Rc4ljUy4EKw4TJ_I3uT25ec'),nt(3,'1EzHShz4PzdPvvK8BIy2y-M-9iUdjIt1f'),nt(4,'1qTQXIsIGAFQo3WvC6MelNAP4USGSzt8p'),nt(5,'1GrkzkMJQ-peWOS-yCD5sj6uefVQHe3YL')]);
+
+    /* ── SPANISH ─────────────────────────────────────────────────────────── */
+    add(gs('lang_spanish','اللغة الإسبانية'), [nt(1,'1Q62BpqZXNEAsgz1bDxP4vbPq127C2pBL'),nt(2,'17zY4ZHwTv5O1QJd2DfkGkaeB-vN62eLI'),nt(3,'1P6dlCb2qDybEOONB0-GatkTCMQ89349T'),nt(4,'10QRfz8R6M6LjrUxU0m4LK60azlayOPAQ'),nt(5,'1UYwXo3MZe1nReMCZAd0I2nJNZX5x_-wT')]);
+
+    /* ── ITALIAN ─────────────────────────────────────────────────────────── */
+    add(gs('lang_italian','اللغة الإيطالية'), [nt(1,'1x4EqWbp8fPnON8qYqXBRhrfapns_GRHg'),nt(2,'16-gQM6nH6vT0rCGBkhby-ZQHiSyJLTPx')]);
+
+}());
+
+// ─── EXTRA EXAMS (نافع additions + مواضيع التميز) ─────────────────────────────
+(function attachExtraExams() {
+    const pu = id => `https://drive.google.com/file/d/${id}/preview`;
+    const ne = (n, id) => ({ label: `موضوع ${String(n).padStart(2,'0')}`, source: 'nafi', examUrl: pu(id), solutionUrl: pu(id), duration: null });
+    const te = (n, id, solId) => ({ label: `موضوع ${String(n).padStart(2,'0')}`, source: 'tamayoz', examUrl: pu(id), solutionUrl: solId ? pu(solId) : pu(id), duration: null });
+    function gs(spec, name) { return examData[spec].subjects.find(s => s.name === name); }
+    function append(subj, arr) { if (subj) subj.extraExams = [...(subj.extraExams || []), ...arr]; }
+
+    /* ── NAFI: Math specialty – math subject (16 files) ──────────────────── */
+    const mathRIADHI = [ne(1,'17uLPDZz5ObEXwXL5La0_5ZLdQJWnrqd0'),ne(2,'15NfJO6AJIkPt7Jc8LHhSliNggvsaZjIF'),ne(3,'1ysLozkt6hDo-7RF3SZ_DfhumhjRI2lOC'),ne(4,'1umWCs3WJOe_YeSdti0C76mLf-lJX53x1'),ne(5,'1ytOyTTUZnsg2WPjssUFuxEFOdwupyN6F'),ne(6,'1_6lew7VqenvwFQjZVfmHwRoutwG3Rt5D'),ne(7,'1ir49WZBT7x0J8L15ns7fduIryVKT6-9J'),ne(8,'1ZhKjoSA9n0riYEfWMMbbDn4oIcKnXrJo'),ne(9,'1QOOX-qufUKtR6B39J1CaWttBgzCMqNMn'),ne(10,'15hDZI585-ZAFzc_kstFHdgrVN26Zd7eH'),ne(11,'18M6kpzcjdROz1GnuJkh6uWg51HqCIN8O'),ne(12,'1IZO_Ju0dIo3BssPxW2zSR-mtWU9k8MFh'),ne(13,'1y3Y1odAJhl-4s7nGZQ-APC_HZ3ILZ4pp'),ne(14,'1QVP2YSXEh4XIiMRJIqorkjP8dAYY9SDm'),ne(15,'17c2u_kxV48CLL0SbyxAsu3S65Bsm2Lhx'),ne(16,'1aCUeu5utGCugux_SjMxGehTOAzwm9gTq')];
+
+    /* ── NAFI: sciSC addition (file 26) ──────────────────────────────────── */
+    append(gs('science','العلوم الطبيعية'), [ne(26,'1jo1Wv6ssVK-x30R86VIS0mFoy6uZc1NH')]);
+
+    /* ── TAMAYOZ: Math ───────────────────────────────────────────────────── */
+    gs('math','الرياضيات').extraExams = [...mathRIADHI,
+        te(17,'1ZNTBvTIHZhy09pQxV0-RIt5urV9SiZPe','1uqJGhqfXa8TIKmZSH3oJNEKJZVnf6Q8e'),
+        te(18,'1KNd8qQo3NCKOOB-VMvTebvUhJRNwnGAA')];
+    append(gs('science','الرياضيات'), [te(9,'1DeoXRstUciuHOIbEFAaivBLhp0wZOSi3','1a4-vv6y2jWrDF0c4wUYRwy5HTfX0wri0'),te(10,'13JfaitZanlAlsfbOS48jGYn2_TH910Xg')]);
+    ['tech_elec','tech_civil','tech_mech','tech_process'].forEach(sp => append(gs(sp,'الرياضيات'), [te(9,'1_e9ronK8KDPF8ZI7pQFG8c_Kzyl9g7HQ')]));
+    append(gs('management','الرياضيات'), [te(1,'1XRC4TggGA8aAUHYVl6K_TByM6AfPwLlY'),te(2,'1B0b0bsEUda4-dsJ_GX9wt1LKWO5wVWb7'),te(3,'1thkShk6ArJIC90Qh0a3pmCXUO4kbN-Qo'),te(4,'13Z9vzMvvtD5lqq0OZ6Dy4PMsFdV7XXb_'),te(5,'1bL0tMx3tkR2YyltQVESrWRCO7hPbZUFi'),te(6,'1z6YtGKki7bbw_DM6vZBQ35LxwwfWjCvz'),te(7,'1OfUS2Tceq3PW5el-f2IEf-Ajyxudg6Kh'),te(8,'1KJnRn4FIQ4M21t_aoZxPUpFMze_byqLe'),te(9,'1piBeZzBxw82p3sT_sgy4cOPxZaQX9FWV'),te(10,'1CzPEtpoOyGnClm6LyPaE6yocCKss1fTq')]);
+    const mathLitLang = [te(1,'1Z0BThIEeBVzSXPEyAlZuwyHr6YTEmozQ'),te(2,'1rcH0-RNROx0OwLR8pF8Og0hU6oC3Ln_y'),te(3,'1hunKpUmPPJkuIRx-uoeU33Q5FMJI1KxX'),te(4,'12OlW1-csahSAnttdyCeXz1_jgiNU6NpF'),te(5,'11pgFgemllPPm04vf4iHCRuXzXXNwBk_8'),te(6,'1F6ndz6yE9LGWqZl1tB8qyk6pddjGgK2J'),te(7,'1nBU0--2Efjdh4hiVtwBE6bl9MpxyJZgS'),te(8,'1t69o8gKmLhB0VfWQnJtXGyWYSXPaQgeV')];
+    ['literature','lang_german','lang_spanish','lang_italian'].forEach(sp => append(gs(sp,'الرياضيات'), mathLitLang));
+
+    /* ── TAMAYOZ: Natural Sciences ───────────────────────────────────────── */
+    append(gs('science','العلوم الطبيعية'), [te(1,'1AgCvzoCBpcwvH8Etvx762mKJ1-i52LHL','1h6aGPL4retzL3tifeVcBtiBMTuythntq')]);
+
+    /* ── TAMAYOZ: Physics ────────────────────────────────────────────────── */
+    const physTZ = [te(1,'1y_H2Zca8sTjrkSk2aopr_no_8uKp0k3Z')];
+    ['math','science','tech_elec','tech_civil','tech_mech','tech_process'].forEach(sp => append(gs(sp,'العلوم الفيزيائية'), physTZ));
+
+    /* ── TAMAYOZ: Accounting (management) ───────────────────────────────── */
+    append(gs('management','التسيير المحاسبي والمالي'), ['1_JXKrLxiGfYL2cW4D8h0FLz5FOwpqlAY','1K7XIZO_R-IkflAFItyix81Ju5x2vCioB','1WTBt-h7IWGnvcHTr6Az-hKpW-LyTQWxC','1EDIjGYn6RJ4fYcfHKITtKrFRWf2R3hyj','1ovQie4xbfaqINdMRFWRm9XkOEHWHKt0V','1yzjqe-SlOKvDgHarPZVwPDAmXghB7Dga','1r4D62Dogu3CYx472iq2YpDCO1QNoT_j-'].map((id,i) => te(i+1,id)));
+
+    /* ── TAMAYOZ: Iqtisad (management) ──────────────────────────────────── */
+    append(gs('management','الاقتصاد والمناجمنت'), [...['1fnYWUun5Q4srWDHu7cvNgAFPS4V0uOBu','1Zvr8NLgddBf776KEUz4GUtxa6MRA5tMf','1tEEnKpyPF-Hj2NeVf5fBH-WV75t6kFUv','11u39GXLGHzHtb5iRMbXs7DxD7BFtNSwL','12cum1ZJLRxOB0e2IBYoXqhZ320TnKP8g','1CA4M0QtTyR4kZRay5twe1ZjhxqWZhtXr','1dIeeAOpAn0-lDFgwul98Hd9qxk8ZjaFZ','1ZZ2Ng3lHLHuMBUXEeiQtA6uQWZ5L5t-j','1BHLFYJnCqDQA72R3oL2pYG7yMQCfPzEp','1QHRog82xfj88we3cd9f0ZY0GsMq9fXlV'].map((id,i)=>te(i+1,id)),...['1-pOXY7SqsQbmDH57q-tmimKMZWN_wPLi','1Il9QdTQwJz2jYeEkcQknynFyt5gO0t8d','1AWOsZnDD7GZGpbishuRFRB2Ra3rkxj54','1OSRlUzMaLSwUOknYVeoPBDc-PilEMZqL','16CpK5I5l720BDefRVgHCVOunr_H_zZ7J','1HHnkFrXVnTJUBYhJ2r6H61ZlP6m1PMl_'].map((id,i)=>te(i+12,id))]);
+
+    /* ── TAMAYOZ: Law (management) ───────────────────────────────────────── */
+    append(gs('management','القانون'), [...['1L0HfzMxwqUcQ0xFM1ye65MiwVpBxd-_v','1BS5owyIgSnzwh42kWoahxR163X1CjHUP','1X48UCiRBse1KyL8UWm72ZkZgH-IO4KCk','1aCipOD5PTiCjHROruGqET9ArIgx_7xu6','12U2W5CU6nmUcv3yXqJYO6lNR7NmBTZcu','1EIB5Pgn2KyC7puH9uJql6utvOVl4gJlB','1CzT58GDUlVo4CwukIy8Tt-EIgOkSKMs3','18r2NDYE85xvv9aXpDHsD7heX6dCD-Toc','1t0K5KghqeVNeyLNC1f_JknkWO1pFITZr','1956YWjWBKiKRtDKYgHk5YD3cmj0wjYxV'].map((id,i)=>te(i+1,id)),...['17Ljp3FQEYDkFMUPOJ9iIOMRSUjcRG7vn','1DTu_9DJOsv-BRlbQAa2zlhETdYhuhn1F'].map((id,i)=>te(i+12,id))]);
+
+    /* ── TAMAYOZ: Arabic ─────────────────────────────────────────────────── */
+    const arSciTech = ['1KQLsNI34RI0sEpKn6vmTbLFjlnAMxqvY','154BD5b7GgMi0m5tza_-BQ0CKJPakMJ1K','15BPXb93rV5Ei5ZhzaevYAr2JlURbilbx','1h0eponVmSvH_kiJN_74x8ZAUKSqkNA2H','1W8NGrzWbksE6mI1DVP_pYOJnTWKQXT3E','1jVGB002n8NymDrguGM59muVRBlGFlfJF'].map((id,i)=>te(i+1,id));
+    const arLitLang = ['15EYx_fyyvqI6dZsCrZN21atkxJUTnh-A','1r9BA7YHxNVwYY0b_a3efj2RsRxaUjcI0','1-Y0liJORwidXeQue6Sw4989i5cd6en8S','1PSirtHjxyzziXZbyRDrlU0STrLzHJBA2','1u6TH9B6Uc9bZ9TGJ3dU4fl9HPpc4fwtO','1MojwPfb1vFLIa5kODVM5yvy5QRYt8HlD','1V5I8Uc2mBSRWccVYNCCw_XiGS69i9JyT','1Kmpo8Cg8TWE_ZkTLbYmvu1lsfoSB83WL','1EGigPdd3fN0vKH-rxpFa80jTQzXCIpAZ'].map((id,i)=>te(i+1,id));
+    ['math','science','tech_elec','tech_civil','tech_mech','tech_process','management'].forEach(sp => append(gs(sp,'اللغة العربية'), arSciTech));
+    ['literature','lang_german','lang_spanish','lang_italian'].forEach(sp => append(gs(sp,'اللغة العربية'), arLitLang));
+
+    /* ── TAMAYOZ: French ─────────────────────────────────────────────────── */
+    const frTZ = ['1pw1dFZN9j3oIqhn8d9OCtvC2ndFz27wG','1sn7VTuvU-l1-YZ6wtQOj6puaRw5jJg90','1FaRDLSwdjIJ0Yxy7Hwg9Q1LxM2JgboNU','1aX-jee7q4QCRzsAtFSzRl6jcOzl1Y0mA','1HTBWHpKlIbOzWO2SkOIP1nbI7qC2wQLO','1Gn6fPM3fGjg7Avy8qa-jGsTBSEh8uG7h','1myxhglpImTshRf1L1HMr3KDPYsLhBHOv','1Q9wWTErgVteh8-bX_b2MXli_qMbnOj9g','1F-fvdMciD787tL-SXrgkf2RSDyGsSW_I','1cKLmep4pOOElhcjSPOf7kGoiUDD3-loC','1UiUPo2FN485BHuPpaCIaaKWz1GFQiyc4'].map((id,i)=>te(i+1,id));
+    ['math','science','tech_elec','tech_civil','tech_mech','tech_process','management','literature','lang_german','lang_spanish','lang_italian'].forEach(sp => append(gs(sp,'اللغة الفرنسية'), frTZ));
+
+    /* ── TAMAYOZ: English ────────────────────────────────────────────────── */
+    const enSciTech = ['1aKmeqtqo7FpjHEt5peWVETKsL2M0GhOS','1JRUFRrLlr0uyZV_AcoF1BqkLvHwYkogi','1STX0J94qa4pldlM5shgcZT6A2v3fuKg2','13fRbSFepFF8JjGahqQS3GCtXYQHXBNR4','1oQSZsvj_zYUjtFJpaZSrkmUmJ6nQ_4hZ','1WeM6ijkTy8qkgzTv4psIAsARTG7DIB5w','1weU3nYvRfjay7K68U70chgS6-ivlS006','1fcIWnX2lNv2sVYsZ0OuReXcaYsNO8cMO','1LZs1rVq6heb7fzIgU2GcFkonlK98NAmi','1MVHBz_1SxIbPgDSHnQFYh1mFz0QQMUEC','1hJ_QYNlii80O-gDDzdufh48hsGNm8eyp','1QLQ6XUAZOnv2V-Agmhf6TS1r7YYmU_X6','1E6Iab48I3eOceNmUXpFIlvyshtWJtBGH','1jdsUzcJV-ET2iXqgscwj8D1jxNZIff0V','1O11qjtx4No1Xk4piJWp7a6KjSUHtQ4Xa','1j7VCI0Ze9vi2blHrspxcrJVZEI3gGjnj','1tqhPYaoaKF6VockWYCeq3K5fpTimTQ00','1-nKSAulFNyMBLgKfvH9WMaEtKTO9cfMq','1dEa5dAR8ClY5paeBVTHAdtC1NQOj-i1n','1BHzV9S0mWAZQtWEJDwlIbxN6AVUasRTg','1r_GHqXWGtxFRvzaxazqZHqquvi146W0t'].map((id,i)=>te(i+1,id));
+    ['math','science','tech_elec','tech_civil','tech_mech','tech_process','management'].forEach(sp => append(gs(sp,'اللغة الإنجليزية'), enSciTech));
+    ['literature','lang_german','lang_spanish','lang_italian'].forEach(sp => append(gs(sp,'اللغة الإنجليزية'), [te(1,'1eaJa6Tw44Vat_bx8IYhTk0t3vU0Fu8u8')]));
+
+    /* ── TAMAYOZ: History & Geography ───────────────────────────────────── */
+    const hgSciTech = ['1SnUA79nQiYHWLvKYhnZw09Uc3vioD4gW','13sHXeRVzVrM8lryyLquhreMUrYsdgrek','1DAH1c5uCDtNcp_w_xB36C2LlB3HYBSwx','1Z71tt9Ba1HhBQWfpCO87_PFoy37tEXI4','1F6yK-8LBAZuoLnnxRgTRrR6dhiBizokS','1IX3XPc_x6WhK2FtOP3AUBc2w2m-OCvko','11apIPoCodL1oS87EizwsRuuN1813Gtui','1rQ_o1QWtmFGvrj-v6bG7bgDQGDbVNnd6','18sfA3z0TTcF4BLfx-X2uUOUY2Jz5RcwX'].map((id,i)=>te(i+1,id));
+    const hgLit = ['1a-ZicAUgeeq1e0IUlMRvCcdiWtDUtcs1','13zgtz3okpp960pIUr_4vFLjJ2vgnPsmX','1cOiW0h0xgA3BxsBHgsIukFvGkP46rj8W','1-318Gdbtp83HFvRIgwVotf6b6zauRB_z','1DCjW0tXnEEe4ye_lpMBL6aegkfUhq-W6'].map((id,i)=>te(i+1,id));
+    const hgMgmt = ['1KkYG46rB6fnrWhOnmqOlk7SufTxTPD6u','1Ad82OGWYSbg2HXlTh0Xt8uZbF1lW0vbP','1POUNF6AzRx8IKhQUwwGYvSQj_D_S007U','1NLhSchm9ul9xV5BiGvIbjc8zM9sDBpR_','1_tWJ3ASqfGePTzX-S5NG5Wmv4uWMe1do','12ihxHEa9FFdyLswNgjzBF0XESHdiil4w','1BIMqQrnFLl3qXvkm27qJ-qRZwsRyo41L','18NHilI76wruIdmDBNXV4CDkROgPVk_NM','1ipRl_VPTK3PZhKA5uCFkzHqvX53G26QJ','1UZgZPISuAzLUXFMMdJiiIIs_92XvKlWw'].map((id,i)=>te(i+1,id));
+    ['math','science','tech_elec','tech_civil','tech_mech','tech_process'].forEach(sp => append(gs(sp,'تاريخ وجغرافيا'), hgSciTech));
+    append(gs('literature','تاريخ وجغرافيا'), hgLit);
+    append(gs('management','تاريخ وجغرافيا'), hgMgmt);
+    ['lang_german','lang_spanish','lang_italian'].forEach(sp => append(gs(sp,'تاريخ وجغرافيا'), hgSciTech));
+
+    /* ── TAMAYOZ: Islamic Sciences ───────────────────────────────────────── */
+    const islTZ = ['1_4LlyR7qVfUiYE_zfoKDqV8Q_derSIcp','1gYtlt1aUcZ7xloyaL4xhGsvcfYGHursw','10QQ88JyvRg46FONeGypltoIvxOoD5liF','1sS5TMP_4JGlPbuvu5nWuMClleFMKsCUS','1vr4VYp2zKLgHFZjbG27Ig2BXsILCpHjn','1zAa0vdcXWNxHnlY-0ZUT__zNh5_TSvaI','1Nf9X43iSDcqzSHUlDL_DGHJSG7AcrXBv','1QukpQR5nNrOdzWOOVWPlJDsK1FVDcdWh','1ekysoTAQYS5XC_K9B3iokEcgkQJQHfS_','1bh3kMRmYuxDWeKwa9nBA8H1zSc83lX6b','1tgH-41Hc5rLDUrF8iBWfIA7gUvsb2jOP','1pNKm-ALBM2s_eURZWg2oBxX_mYsdbrSu','1JkpWPC85v-uu2gU6FOZo4Zubt1NKQPux','1J4Xe9WgtIOdWBS0_5w859TfDRMTp7i6d','10s8v7EeKdl5LcFfVNyfytt9h1ucPNa3l','1oU_qHM8aXp_sKbZzOchmojOxvQqY45zq','1YFUfW5xjcR2fTkmw90HkfeY9XBOsU7TD','1Fp1gLFJmlc0hFEB_wzvJPvEr4MQR92KW','1o9a6SJw6oGv-IpVhT_Rv3IEx3UUQOaEz','1ZnGoEZbD7e6AFcL0f-VOURyYdnf9wiOz','1-4reM8V4fs4vMSxdoQIFC-2uwAr_5Xt0','1LOhaYDNjH6m40sIaICBW_T96DNVMIJ2E'].map((id,i)=>te(i+1,id));
+    ['math','science','tech_elec','tech_civil','tech_mech','tech_process','management','literature','lang_german','lang_spanish','lang_italian'].forEach(sp => append(gs(sp,'العلوم الإسلامية'), islTZ));
+
+    /* ── TAMAYOZ: German / Spanish / Italian ─────────────────────────────── */
+    append(gs('lang_german','اللغة الألمانية'),   ['1kru-2bvSib3laiBrFQs4rKToXpZy43O4','14ATmj_Mh3Rc4ljUy4EKw4TJ_I3uT25ec','1EzHShz4PzdPvvK8BIy2y-M-9iUdjIt1f','1qTQXIsIGAFQo3WvC6MelNAP4USGSzt8p','1GrkzkMJQ-peWOS-yCD5sj6uefVQHe3YL'].map((id,i)=>te(i+1,id)));
+    append(gs('lang_spanish','اللغة الإسبانية'), ['1Q62BpqZXNEAsgz1bDxP4vbPq127C2pBL','17zY4ZHwTv5O1QJd2DfkGkaeB-vN62eLI','1P6dlCb2qDybEOONB0-GatkTCMQ89349T','10QRfz8R6M6LjrUxU0m4LK60azlayOPAQ','1UYwXo3MZe1nReMCZAd0I2nJNZX5x_-wT'].map((id,i)=>te(i+1,id)));
+    append(gs('lang_italian','اللغة الإيطالية'), ['1x4EqWbp8fPnON8qYqXBRhrfapns_GRHg','16-gQM6nH6vT0rCGBkhby-ZQHiSyJLTPx'].map((id,i)=>te(i+1,id)));
+
+    /* ── Renumber all extraExams sequentially so labels never repeat ──────── */
+    Object.values(examData).forEach(spec =>
+        spec.subjects.forEach(sub =>
+            (sub.extraExams || []).forEach((e, i) => { e.label = `موضوع ${String(i+1).padStart(2,'0')}`; })
+        )
+    );
+
+    /* ── CHANNEL 2025: البكالوريا التجريبية للقناة 2025 ─────────────────────
+       Added AFTER renumbering so the label is preserved intact.              */
+    const ch25 = (eid, sid) => ({ label: 'البكالوريا التجريبية للقناة 2025', source: 'channel', examUrl: pu(eid), solutionUrl: sid ? pu(sid) : pu(eid), duration: null });
+
+    // ── الرياضيات ──────────────────────────────────────────────────────────
+    append(gs('math','الرياضيات'),    [ch25('1WU4PRqH70vjWKTOFA1RfyoX6mz3_qphe','1cXMa9_l73RD9KoSexMh1jMWNqPMmAX-0')]);
+    append(gs('science','الرياضيات'), [ch25('16Gmm2SHfurVSy9Bc3DUBGvMQZsYnAlMD','11lay0z2EFl5fq2-7NpKajjWSqA5kqRWB')]);
+    ['tech_elec','tech_civil','tech_mech','tech_process'].forEach(sp => append(gs(sp,'الرياضيات'), [ch25('1LgJA3Jhf_mOpco4zPdN8oyiv11anR5-k','1dKQceZJpn7c4PntTyZOxWOTTIHy4aRqh')]));
+
+    // ── العلوم الفيزيائية ──────────────────────────────────────────────────
+    append(gs('science','العلوم الفيزيائية'), [ch25('1KIFzD_rPwSCbgIvEAfMphQ-yGMyzd8uv','1eDhflbvXVCnVXUYpnNf_r-hrHEQIlDeV')]);
+    ['math','tech_elec','tech_civil','tech_mech','tech_process'].forEach(sp => append(gs(sp,'العلوم الفيزيائية'), [ch25('1wv5enNecBYAyTvqL-5i76YzAj-lAm1Bs','1ttLump9L-G6SrvZ7mzIQ_mWVOcOM1BY6')]));
+
+    // ── العلوم الطبيعية ────────────────────────────────────────────────────
+    append(gs('math','العلوم الطبيعية'),    [ch25('1JVEFkxnoZfzw6X7bGmygCacSHdozMyaq','1Av_YVRZSBmqPKxdt5tadie1Aau4duGxl')]);
+    append(gs('science','العلوم الطبيعية'), [ch25('1IZsaHc-m5sevJQUjbYc8ixNH4cN0HP5Q','1vLWdyy7psMYdUJMA4OVWmp7aIDEvmQGM')]);
+
+    // ── اللغة العربية (علمي + تقني + تسيير فقط) ──────────────────────────
+    ['math','science','tech_elec','tech_civil','tech_mech','tech_process','management'].forEach(sp => append(gs(sp,'اللغة العربية'), [ch25('1EcmncclEDuUvmjJgLSAxRcMZpktRNqWh','14zBlqnl2hTUbTPrHqpPRcesTmdmHzAaB')]));
+
+    // ── اللغة الفرنسية (الشعب العلمية والتقنية والتسيير) ──────────────────
+    ['math','science','tech_elec','tech_civil','tech_mech','tech_process','management'].forEach(sp => append(gs(sp,'اللغة الفرنسية'), [ch25('19RBQLuHrqmPDUcukQDrJ4zK6-yb2jkJj','1RI79pL72qZzDz8pb5TDFigZnps1FncSJ')]));
+
+    // ── اللغة الإنجليزية (الشعب العلمية والتقنية والتسيير) ────────────────
+    ['math','science','tech_elec','tech_civil','tech_mech','tech_process','management'].forEach(sp => append(gs(sp,'اللغة الإنجليزية'), [ch25('1stzwJB4kS0bULgcs7iRgivPHOQpsZ66X','1TWQWrNeg-LtNRWjxZrUC4Ssk7PFI3kef')]));
+
+    // ── العلوم الإسلامية (جميع الشعب) ────────────────────────────────────
+    ['math','science','tech_elec','tech_civil','tech_mech','tech_process','management','literature','lang_german','lang_spanish','lang_italian'].forEach(sp => append(gs(sp,'العلوم الإسلامية'), [ch25('1QhDk1R2YqfsKvoZlSNkhPHVgluhH6kJb','1NPGm4rwGmotu1qBCeAsgYbNZlgJB__-3')]));
+
+    // ── التاريخ والجغرافيا (رياضيات + علوم تجريبية + تقني فقط) ───────────
+    ['math','science','tech_elec','tech_civil','tech_mech','tech_process'].forEach(sp => append(gs(sp,'تاريخ وجغرافيا'), [ch25('1TLcg6qTer9bvx-AAssjkp0vz2JKTZERF','1GnYiD0h2mYdIO5lWWOmhDfoswu20NKtB')]));
+
+    // ── التكنولوجيا ────────────────────────────────────────────────────────
+    // كهربائية ومدنية: ملف موحد (موضوع + تصحيح معاً) — نفس الملف للاثنين
+    append(gs('tech_elec','التكنولوجيا (هندسة كهربائية)'), [ch25('1l6Twuzb6nsTiS_-Lpb0prbmr1RSXgdkZ', null)]);
+    append(gs('tech_civil','التكنولوجيا (هندسة مدنية)'),   [ch25('1uD_0-f3T1wte94fNP85PeTNSzGG5OrlB', null)]);
+    // ميكانيكية وطرائق: موضوع فقط
+    append(gs('tech_mech','التكنولوجيا (هندسة ميكانيكية)'), [ch25('1URKaHvk8TRSebeWvw5P1juQpw5tXmlcm', null)]);
+    append(gs('tech_process','التكنولوجيا (هندسة طرائق)'),   [ch25('1DyR_0ZMPNHhk8JARw0MlMPhoF9aqkt3W', null)]);
+}());
+
 const simApp = {
-    state: { specialty: null, subject: null, timer: null, totalSeconds: 0, remainingSeconds: 0, isActive: false },
+    state: { specialty: null, subject: null, selectedExam: null, timer: null, totalSeconds: 0, remainingSeconds: 0, isActive: false },
+
+    _restoreStep(state) {
+        if (!state || !state.step) { this.showStep('sim-home', false); return; }
+        const needsContext = ['sim-source', 'sim-exam-list', 'sim-prep', 'sim-exam', 'sim-done'];
+        if (needsContext.includes(state.step) && (!state.specialtyKey || state.subjectIndex === undefined)) {
+            this.showStep('sim-home', false); return;
+        }
+        if (state.specialtyKey) this.selectSpecialty(state.specialtyKey, false);
+        if (state.subjectIndex !== undefined) this.selectSubject(state.subjectIndex, false);
+        if (state.step === 'sim-exam-list' && this.state.subject) {
+            this.showExamList(false);
+        } else {
+            this.showStep(state.step, false);
+        }
+    },
 
     init() {
-        // Initialize history state
         if (!history.state) {
             history.replaceState({ step: 'sim-home' }, '', '');
         } else {
-            // Restore state on reload/initial load if state exists
-            const state = history.state;
-            if (state.specialtyKey) this.selectSpecialty(state.specialtyKey, false);
-            if (state.subjectIndex !== undefined) this.selectSubject(state.subjectIndex, false);
-            if (state.step) this.showStep(state.step, false);
+            this._restoreStep(history.state);
         }
 
         window.addEventListener('popstate', (e) => {
-            if (e.state) {
-                if (e.state.specialtyKey) {
-                    // Re-select specialty without pushing state
-                    this.selectSpecialty(e.state.specialtyKey, false);
-                }
-                if (e.state.subjectIndex !== undefined) {
-                    // Re-select subject without pushing state
-                    this.selectSubject(e.state.subjectIndex, false);
-                }
-                this.showStep(e.state.step || 'sim-home', false);
-            } else {
-                this.showStep('sim-home', false);
-            }
+            this._restoreStep(e.state);
+        });
+
+        // Navbar "محاكاة البكالوريا" link resets to home when already on this page
+        document.addEventListener('click', (e) => {
+            const link = e.target.closest('a[href="/simulation.html"]');
+            if (link) { e.preventDefault(); this.showStep('sim-home'); }
         });
 
         // Auto-refresh availability
@@ -188,7 +493,7 @@ const simApp = {
             history.pushState({ step: id, ...extraState }, '', '');
         }
 
-        ['sim-home', 'sim-sub-specialty', 'sim-lang-specialty', 'sim-subjects', 'sim-prep', 'sim-exam', 'sim-done'].forEach(s => {
+        ['sim-home', 'sim-sub-specialty', 'sim-lang-specialty', 'sim-subjects', 'sim-source', 'sim-exam-list', 'sim-custom-page', 'sim-prep', 'sim-exam', 'sim-done'].forEach(s => {
             const el = document.getElementById(s);
             if (el) { el.style.display = 'none'; el.classList.remove('active'); }
         });
@@ -273,50 +578,165 @@ const simApp = {
         document.getElementById('subject-title').innerText = `مواد شعبة ${this.state.specialty.label}`;
         const grid = document.getElementById('subject-grid');
         grid.innerHTML = '';
+        grid.className = 'sim-subject-grid';
         this.state.specialty.subjects.forEach((sub, i) => {
-            const btn = document.createElement('button');
-            btn.className = `main-btn ${sub.icon === 'ⵣ' ? 'tamazight-btn' : ''}`;
+            const card = document.createElement('div');
+            card.className = 'sim-subject-card';
+            card.tabIndex = 0;
 
             const iconHtml = sub.icon.startsWith('fa')
                 ? `<i class="${sub.icon}"></i>`
                 : `<span class="tamazight-icon">${sub.icon}</span>`;
 
-            btn.innerHTML = `${iconHtml}${sub.name}<span class="sim-duration-text" style="font-size:0.8rem;margin-top:4px;">${this.formatDuration(sub.duration)}</span>`;
-            btn.onclick = () => this.selectSubject(i);
-            grid.appendChild(btn);
+            card.innerHTML = `
+                <div class="sim-subj-icon-wrap">${iconHtml}</div>
+                <div class="sim-subj-info">
+                    <div class="sim-subj-name">${sub.name}</div>
+                    <div class="sim-subj-dur"><i class="fas fa-clock"></i>${this.formatDuration(sub.duration)}</div>
+                </div>
+                <div class="sim-subj-arrow"><i class="fas fa-arrow-left"></i></div>`;
+            card.onclick = () => this.selectSubject(i);
+            card.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') this.selectSubject(i); };
+            grid.appendChild(card);
         });
         this.showStep('sim-subjects', push, { specialtyKey: key });
     },
 
     selectSubject(i, push = true) {
         this.state.subject = this.state.specialty.subjects[i];
-        document.getElementById('pre-exam-title').innerText = this.state.subject.name;
-        document.getElementById('pre-exam-duration').innerHTML = `المدة الرسمية: <span class="sim-duration-text">${this.formatDuration(this.state.subject.duration)}</span>`;
-        document.getElementById('meta-spec').innerText = this.state.specialty.label;
-        document.getElementById('meta-sub').innerText = this.state.subject.name;
-        document.getElementById('meta-dur').innerText = this.formatDuration(this.state.subject.duration);
-        document.getElementById('meta-dur').classList.add('sim-duration-text');
-        document.getElementById('exam-iframe').src = this.state.subject.examUrl || 'about:blank';
-        document.getElementById('exam-download-btn').href = this.state.subject.examUrl || '#';
+        this.state.selectedExam = null;
 
-        // Update prep icon
+        // Update source step label
+        const lbl = document.getElementById('source-subject-label');
+        if (lbl) lbl.innerHTML = `<span style="opacity:0.75;font-weight:600;font-size:0.85em;">شعبة</span> ${this.state.specialty.label} &nbsp;–&nbsp; <span style="opacity:0.75;font-weight:600;font-size:0.85em;">مادة</span> ${this.state.subject.name}`;
+
+        // Hide custom form when entering source step
+        const cf = document.getElementById('sim-custom-form');
+        if (cf) cf.style.display = 'none';
+
+        const specKey = Object.keys(examData).find(k => examData[k] === this.state.specialty);
+        this.showStep('sim-source', push, { specialtyKey: specKey, subjectIndex: i });
+    },
+
+    _buildExamPool() {
+        const pool = [];
+        const subj = this.state.subject;
+        if (subj.examUrl) {
+            pool.push({ label: 'البكالوريا التجريبية للقناة 2026', source: 'channel', examUrl: subj.examUrl, solutionUrl: subj.solutionUrl || null, duration: subj.duration });
+        }
+        (subj.extraExams || []).forEach(e => pool.push(e));
+        return pool;
+    },
+
+    showExamList(push = true) {
+        const pool = this._buildExamPool();
+        if (pool.length === 0) {
+            simToast('لا توجد مواضيع متاحة لهذه المادة حالياً.', 'warning');
+            return;
+        }
+        document.getElementById('exam-list-title').innerText = `اختر موضوع — ${this.state.subject.name}`;
+        const grid = document.getElementById('exam-list-grid');
+        grid.innerHTML = '';
+        pool.forEach((entry, idx) => {
+            const card = document.createElement('div');
+            card.className = 'sim-exam-entry-card';
+            const srcBadge = entry.source === 'channel'
+                ? '<span class="sim-src-badge channel">قناتي</span>'
+                : entry.source === 'nafi'
+                ? '<span class="sim-src-badge nafi">نافع</span>'
+                : entry.source === 'tamayoz'
+                ? '<span class="sim-src-badge tamayoz">مواضيع التميز</span>'
+                : '<span class="sim-src-badge other">إضافي</span>';
+            card.innerHTML = `
+                <div class="exam-card-icon"><i class="fas fa-file-alt"></i></div>
+                <div class="exam-card-label">${entry.label}</div>
+                <div class="exam-card-meta">${srcBadge}</div>
+                <div class="exam-card-start">
+                    <span>ابدأ الامتحان <i class="fas fa-arrow-left"></i></span>
+                </div>`;
+            card.onclick = () => this._loadExam(entry);
+            grid.appendChild(card);
+        });
+        const specKey = Object.keys(examData).find(k => examData[k] === this.state.specialty);
+        const subjIdx = this.state.specialty.subjects.indexOf(this.state.subject);
+        this.showStep('sim-exam-list', push, { specialtyKey: specKey, subjectIndex: subjIdx });
+    },
+
+    pickRandom() {
+        const pool = this._buildExamPool();
+        if (pool.length === 0) {
+            simToast('لا توجد مواضيع متاحة لهذه المادة حالياً.', 'warning');
+            return;
+        }
+        const entry = pool[Math.floor(Math.random() * pool.length)];
+        this._loadExam(entry);
+    },
+
+    showCustomForm() {
+        const dur = this.state.subject ? this.state.subject.duration : null;
+        const durDisplay = document.getElementById('custom-dur-display');
+        if (durDisplay && dur) durDisplay.textContent = this.formatDuration(dur);
+        this.showStep('sim-custom-page');
+    },
+
+    startCustomExam() {
+        const urlEl = document.getElementById('custom-exam-url');
+        const solEl = document.getElementById('custom-sol-url');
+        const url = urlEl ? urlEl.value.trim() : '';
+        if (!url) { alert('الرجاء إدخال رابط الموضوع.'); return; }
+        const entry = {
+            label: 'موضوع خاص',
+            source: 'custom',
+            examUrl: this._toPreviewUrl(url),
+            solutionUrl: solEl && solEl.value.trim() ? this._toPreviewUrl(solEl.value.trim()) : null,
+            duration: this.state.subject ? this.state.subject.duration : 150
+        };
+        this._loadExam(entry);
+    },
+
+    _toPreviewUrl(url) {
+        // Convert /view or /edit Drive links to /preview
+        return url.replace(/\/(view|edit)(\?.*)?$/, '/preview');
+    },
+
+    _loadExam(entry) {
+        this.state.selectedExam = entry;
+        const subj = this.state.subject;
+        const duration = entry.duration || subj.duration;
+
+        document.getElementById('pre-exam-title').innerText = entry.label !== 'موضوع خاص' ? `${subj.name} — ${entry.label}` : subj.name;
+        document.getElementById('pre-exam-duration').innerHTML = `المدة الرسمية: <span class="sim-duration-text">${this.formatDuration(duration)}</span>`;
+        document.getElementById('meta-spec').innerText = this.state.specialty.label;
+        document.getElementById('meta-sub').innerText = subj.name;
+        document.getElementById('meta-dur').innerText = this.formatDuration(duration);
+        document.getElementById('meta-dur').classList.add('sim-duration-text');
+        document.getElementById('exam-iframe').src = entry.examUrl || 'about:blank';
+        document.getElementById('exam-download-btn').href = entry.examUrl || '#';
+
         const iconContainer = document.querySelector('.sim-prestart-icon');
         if (iconContainer) {
-            const iconHtml = this.state.subject.icon.startsWith('fa')
-                ? `<i class="${this.state.subject.icon}"></i>`
-                : `<span class="tamazight-icon" style="font-size: 2.8rem; margin:0;">${this.state.subject.icon}</span>`;
+            const iconHtml = subj.icon.startsWith('fa')
+                ? `<i class="${subj.icon}"></i>`
+                : `<span class="tamazight-icon" style="font-size:2.8rem;margin:0;">${subj.icon}</span>`;
             iconContainer.innerHTML = iconHtml;
         }
 
-        this.checkAvailability();
-
-        // Reset exam UI
         document.getElementById('exam-layout').classList.remove('exam-active');
         document.getElementById('timer-side').style.display = 'none';
-        this.state.totalSeconds = this.state.subject.duration * 60;
+        this.state.totalSeconds = duration * 60;
         this.state.remainingSeconds = this.state.totalSeconds;
         this.renderTimer();
-        this.showStep('sim-prep', push, { subjectIndex: i });
+
+        // Use selected exam URL for availability check
+        const saved = subj.examUrl;
+        subj.examUrl = entry.examUrl;
+        this.checkAvailability();
+        subj.examUrl = saved;
+
+        document.getElementById('sim-start-btn').style.display = 'block';
+        document.getElementById('availability-msg').style.display = 'none';
+
+        this.showStep('sim-prep');
     },
 
     startExam() {
@@ -357,7 +777,10 @@ const simApp = {
         const m = Math.floor((s % 3600) / 60);
         const sec = s % 60;
         const display = document.getElementById('timer-display');
-        display.innerText = `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
+        const parts = display.querySelectorAll('span:not(.sep)');
+        const vals = [h, m, sec].map(v => v.toString().padStart(2, '0'));
+        if (parts.length === 3) { parts[0].textContent = vals[0]; parts[1].textContent = vals[1]; parts[2].textContent = vals[2]; }
+        else { display.innerText = vals.join(':'); }
 
         const pct = (s / this.state.totalSeconds) * 100;
         const bar = document.getElementById('timer-bar');
@@ -414,7 +837,9 @@ const simApp = {
     },
 
     showSolution() {
-        if (!this.state.subject.solutionUrl) {
+        const solUrl = (this.state.selectedExam && this.state.selectedExam.solutionUrl)
+            || this.state.subject.solutionUrl;
+        if (!solUrl) {
             alert("عذراً، التصحيح النموذجي لهذا الموضوع غير متوفر حالياً. سيتم إضافته قريباً!");
             return;
         }
@@ -423,7 +848,7 @@ const simApp = {
         document.getElementById('exam-prestart').style.display = 'none';
         document.getElementById('timer-side').style.display = 'none';
         document.getElementById('exam-layout').classList.remove('exam-active');
-        document.getElementById('exam-iframe').src = this.state.subject.solutionUrl;
+        document.getElementById('exam-iframe').src = solUrl;
     },
 
     reset() {
