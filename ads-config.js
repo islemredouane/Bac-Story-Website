@@ -60,7 +60,7 @@ window.BAC_ADS = {
       type:         'exams',
       sponsorLabel: 'محتوى مدعوم',
       avatarIcon:   'fas fa-file-alt',
-      avatarColor:  '#ff6b35',
+      avatarColor:  '#2c5cc5',
       name:         'مراجعة المواضيع والتصحيح؟',
       subject:      'جميع الشعب',
       specialty:    null,
