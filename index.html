@@ -44,19 +44,20 @@
         التعريف بالتخصصات الجامعية, معدلات القبول 2025, orientation universitaire algerie,
         bac feljib, eddirasa, dz exams, bac algerie net,
         منصة مراجعة البكالوريا, موقع البكالوريا الجزائرية, موقع مراجعة الباك">
-    <link rel="icon" href="/favicon.png" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#2c5cc5">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="BAC STORY">
-    <link rel="apple-touch-icon" href="/favicon.png">
-    
+    <meta name="apple-mobile-web-app-title" content="BAC STORY">    
     <title>BAC STORY - منصة التميز في البكالوريا</title>
     <link rel="canonical" href="https://bacstory.vercel.app">
     <meta name="author" content="redouane mohamed islem">
     <meta name="google-site-verification" content="qoBM-Cu5e5LU1w_2GOwKiuWhT7l8Z9eqZo0XNg77prE">
-    <link rel="stylesheet" href="/style.css?v=3.3">
+    <link rel="stylesheet" href="/style.css?v=5.0">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style"
         onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
@@ -87,10 +88,26 @@
             <p class="modern-subtitle">المنصة الشاملة والمبتكرة للتحضير لشهادة البكالوريا</p>
 
             <div class="modern-utilities">
-                <span class="modern-tag"><i class="fas fa-book-reader" aria-hidden="true"></i> مصادر دراسية شاملة</span>
-                <span class="modern-tag"><i class="fas fa-calendar-alt" aria-hidden="true"></i> خطط و تحديات</span>
-                <span class="modern-tag"><i class="fas fa-calculator" aria-hidden="true"></i> ملحقات البكالوريا</span>
-                <span class="modern-tag"><i class="fas fa-user-graduate" aria-hidden="true"></i> دليل الجامعة</span>
+                <div class="ticker-row">
+                    <div class="ticker-track">
+                        <span class="modern-tag"><i class="fas fa-book-reader" aria-hidden="true"></i> مصادر دراسية شاملة</span>
+                        <span class="modern-tag"><i class="fas fa-calendar-alt" aria-hidden="true"></i> خطط و تحديات</span>
+                        <span class="modern-tag ticker-dupe" aria-hidden="true"><i class="fas fa-book-reader"></i> مصادر دراسية شاملة</span>
+                        <span class="modern-tag ticker-dupe" aria-hidden="true"><i class="fas fa-calendar-alt"></i> خطط و تحديات</span>
+                        <span class="modern-tag ticker-dupe" aria-hidden="true"><i class="fas fa-book-reader"></i> مصادر دراسية شاملة</span>
+                        <span class="modern-tag ticker-dupe" aria-hidden="true"><i class="fas fa-calendar-alt"></i> خطط و تحديات</span>
+                    </div>
+                </div>
+                <div class="ticker-row">
+                    <div class="ticker-track ticker-track--rev">
+                        <span class="modern-tag"><i class="fas fa-calculator" aria-hidden="true"></i> ملحقات البكالوريا</span>
+                        <span class="modern-tag"><i class="fas fa-user-graduate" aria-hidden="true"></i> دليل الجامعة</span>
+                        <span class="modern-tag ticker-dupe" aria-hidden="true"><i class="fas fa-calculator"></i> ملحقات البكالوريا</span>
+                        <span class="modern-tag ticker-dupe" aria-hidden="true"><i class="fas fa-user-graduate"></i> دليل الجامعة</span>
+                        <span class="modern-tag ticker-dupe" aria-hidden="true"><i class="fas fa-calculator"></i> ملحقات البكالوريا</span>
+                        <span class="modern-tag ticker-dupe" aria-hidden="true"><i class="fas fa-user-graduate"></i> دليل الجامعة</span>
+                    </div>
+                </div>
             </div>
 
             <a href="#specialties" class="modern-cta-btn floating">
@@ -111,34 +128,22 @@
                 <h2>اختر شعبتك</h2>
             </div>
             <div class="specialty-grid">
-                <button class="specialty-btn math"
-                    style="background-color:#2c5cc5; box-shadow: 0 4px 20px rgba(44, 92, 197, 0.3);"
-                    onclick="window.location.href='/resources.html#math'">
+                <button class="specialty-btn math-btn" onclick="window.location.href='/resources.html#math'">
                     <i class="fas fa-calculator" aria-hidden="true"></i> رياضيات
                 </button>
-                <button class="specialty-btn science"
-                    style="background-color:#2c5cc5; box-shadow: 0 4px 20px rgba(44, 92, 197, 0.3);"
-                    onclick="window.location.href='/resources.html#science'">
+                <button class="specialty-btn science-btn" onclick="window.location.href='/resources.html#science'">
                     <i class="fas fa-flask" aria-hidden="true"></i> علوم تجريبية
                 </button>
-                <button class="specialty-btn tech"
-                    style="background-color:#2c5cc5; box-shadow: 0 4px 20px rgba(44, 92, 197, 0.3);"
-                    onclick="window.location.href='/resources.html#tech'">
+                <button class="specialty-btn tech-btn" onclick="window.location.href='/resources.html#tech'">
                     <i class="fas fa-microchip" aria-hidden="true"></i> تقني رياضي
                 </button>
-                <button class="specialty-btn management"
-                    style="background-color:#2c5cc5; box-shadow: 0 4px 20px rgba(44, 92, 197, 0.3);"
-                    onclick="window.location.href='/resources.html#management'">
+                <button class="specialty-btn manage-btn" onclick="window.location.href='/resources.html#management'">
                     <i class="fas fa-chart-line" aria-hidden="true"></i> تسيير و اقتصاد
                 </button>
-                <button class="specialty-btn literature"
-                    style="background-color:#2c5cc5; box-shadow: 0 4px 20px rgba(44, 92, 197, 0.3);"
-                    onclick="window.location.href='/resources.html#literature'">
+                <button class="specialty-btn literature-btn" onclick="window.location.href='/resources.html#literature'">
                     <i class="fas fa-pen-nib" aria-hidden="true"></i> آداب و فلسفة
                 </button>
-                <button class="specialty-btn languages"
-                    style="background-color:#2c5cc5; box-shadow: 0 4px 20px rgba(44, 92, 197, 0.3);"
-                    onclick="window.location.href='/resources.html#languages'">
+                <button class="specialty-btn languages-btn" onclick="window.location.href='/resources.html#languages'">
                     <i class="fas fa-globe" aria-hidden="true"></i> لغات أجنبية
                 </button>
             </div>
@@ -211,7 +216,7 @@
     <div id="footer-placeholder"></div>
 
     <script src="/ads-config.js?v=1.1"></script>
-    <script src="/components/shared.js?v=3.3"></script>
+    <script src="/components/shared.js?v=3.6"></script>
     <script src="/script.js"></script>
 
     <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
