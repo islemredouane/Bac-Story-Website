@@ -20,16 +20,18 @@
         content="محاكاة البكالوريا: جرب حل مواضيع البكالوريا في ظروف مشابهة للامتحان الحقيقي مع مؤقت زمني دقيق وتصحيح تفصيلي.">
     <meta name="keywords"
         content="محاكاة البكالوريا, باك ستوري, امتحان تجريبي, توقيت الباك, مواضيع بكالوريا, BAC STORY">
-    <link rel="icon" href="/favicon.png" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#2c5cc5">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="BAC STORY">
-    <link rel="apple-touch-icon" href="/favicon.png">
-    <title>محاكاة البكالوريا | BAC STORY</title>
+    <meta name="apple-mobile-web-app-title" content="BAC STORY">    <title>محاكاة البكالوريا | BAC STORY</title>
     <link rel="canonical" href="https://bacstory.vercel.app/simulation">
-    <link rel="stylesheet" href="/style.css?v=11.2">
+    <link rel="stylesheet" href="/style.css?v=13.1">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style"
         onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
@@ -62,15 +64,15 @@
             </div>
             
             <div class="hero-actions-container">
-                <a href="javascript:void(0)" class="modern-cta-btn floating" onclick="simApp.scrollTo('schedule-section')">
-                    اختر شعبتك <i class="fas fa-calendar-alt"></i>
+                <a href="javascript:void(0)" class="modern-cta-btn floating" onclick="simApp.scrollTo('specialty-section')">
+                    اختر شعبتك <i class="fas fa-graduation-cap"></i>
                 </a>
-                <a href="javascript:void(0)" class="modern-cta-btn floating" onclick="simApp.scrollTo('specialty-grid')">
+                <a href="javascript:void(0)" class="modern-cta-btn floating" onclick="simApp.scrollTo('strategy-section')">
                     كيفية إختيار الموضوع <i class="fas fa-lightbulb"></i>
                 </a>
             </div>
         </section>
-        <div class="container">
+        <div class="container" id="specialty-section">
             <div class="modern-section-header">
                 <h2>اختر شعبتك</h2>
             </div>
@@ -95,49 +97,59 @@
                 </button>
             </div>
 
-            <section id="strategy-section" class="sim-info-section">
+            <section id="strategy-section" class="sim-strategy-section">
+
+                <!-- Section title -->
                 <div class="modern-section-header">
                     <h2><i class="fas fa-lightbulb"></i> كيفية إختيار الموضوع الأنسب</h2>
                 </div>
-                <div class="strategy-grid">
-                    <div class="strategy-main-card">
-                        <div class="strategy-header">
-                            <span class="pro-badge">نصيحة ذهبية ✨</span>
-                            <h3>قاعدة الـ 30 دقيقة</h3>
-                            <p>في كل مادة كاين نصف ساعة إضافي مخصص لإختيار الموضوع، استغلها بذكاء وماتتسرعش!</p>
-                        </div>
-                        
-                        <div class="strategy-steps-modern">
-                            <div class="s-step">
-                                <div class="s-icon success">✅</div>
-                                <div class="s-text">
-                                    <h4>متمكن منه</h4>
-                                    <p>السؤال لي تشوف بلي متأكد تقدرلو 100%</p>
-                                </div>
-                            </div>
-                            <div class="s-step">
-                                <div class="s-icon warning">〰️</div>
-                                <div class="s-text">
-                                    <h4>متردد فيه</h4>
-                                    <p>السؤال لي راك شاك فيه أو نص نص</p>
-                                </div>
-                            </div>
-                            <div class="s-step">
-                                <div class="s-icon danger">❌</div>
-                                <div class="s-text">
-                                    <h4>صعب جداً</h4>
-                                    <p>السؤال لي تحس بلي ماراحش تقدرلو حالياً</p>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="strategy-footer">
-                            <div class="conclusion-box">
-                                <p>الخلاصة: الموضوع اللي فيه أكثر <span>✅</span> أو أقل <span>❌</span> هو الاختيار الأنسب لك 🤠</p>
-                            </div>
-                        </div>
+                <!-- Hero banner -->
+                <div class="sim-strategy-hero">
+                    <div class="sim-strategy-hero-left">
+                        <div class="sim-strategy-badge">نصيحة ذهبية ✨</div>
+                        <h2 class="sim-strategy-title">قاعدة الـ 30 دقيقة</h2>
+                        <p class="sim-strategy-desc">في كل مادة كاين نصف ساعة إضافي مخصص لإختيار الموضوع — استغلها بذكاء وماتتسرعش!</p>
+                    </div>
+                    <div class="sim-strategy-hero-icon">
+                        <i class="fas fa-stopwatch"></i>
                     </div>
                 </div>
+
+                <!-- 3 step chips -->
+                <div class="sim-strategy-steps">
+                    <div class="sim-strategy-step step-green">
+                        <div class="sim-strategy-step-icon"><i class="fas fa-check-circle"></i></div>
+                        <div class="sim-strategy-step-body">
+                            <strong>متمكن منه</strong>
+                            <span>السؤال لي تشوف بلي متأكد تقدرلو 100%</span>
+                        </div>
+                        <div class="sim-strategy-step-tag">✅</div>
+                    </div>
+                    <div class="sim-strategy-step step-yellow">
+                        <div class="sim-strategy-step-icon"><i class="fas fa-minus-circle"></i></div>
+                        <div class="sim-strategy-step-body">
+                            <strong>متردد فيه</strong>
+                            <span>السؤال لي راك شاك فيه أو نص نص</span>
+                        </div>
+                        <div class="sim-strategy-step-tag">〰️</div>
+                    </div>
+                    <div class="sim-strategy-step step-red">
+                        <div class="sim-strategy-step-icon"><i class="fas fa-times-circle"></i></div>
+                        <div class="sim-strategy-step-body">
+                            <strong>صعب جداً</strong>
+                            <span>السؤال لي تحس بلي ماراحش تقدرلو حالياً</span>
+                        </div>
+                        <div class="sim-strategy-step-tag">❌</div>
+                    </div>
+                </div>
+
+                <!-- Conclusion -->
+                <div class="sim-strategy-conclusion">
+                    <div class="sim-strategy-conclusion-icon"><i class="fas fa-trophy"></i></div>
+                    <p>الخلاصة: الموضوع اللي فيه أكثر <strong>✅</strong> وأقل <strong>❌</strong> هو الاختيار الأنسب ليك 🤠</p>
+                </div>
+
             </section>
         </div>
     </div>
@@ -201,8 +213,154 @@
             <div class="modern-section-header">
                 <h2 id="subject-title">المواد</h2>
             </div>
-            <div class="btn-container" id="subject-grid"></div>
+            <div id="subject-grid"></div>
+            <div style="text-align:center;margin-top:2rem;">
+                <button class="sim-back-link" onclick="simApp.goBack()">
+                    <i class="fas fa-arrow-right"></i> رجوع للرئيسية
+                </button>
+            </div>
         </div>
+    </div>
+
+    <!-- ======== STEP 2.5: EXAM SOURCE SELECTION ======== -->
+    <div id="sim-source" class="resource-content">
+      <div class="container">
+        <div class="sim-source-hero">
+          <div class="sim-source-hero-label"><i class="fas fa-book-open"></i> تحضير الموضوع</div>
+          <h2 id="source-subject-label">اختر مصدر الموضوع</h2>
+          <p class="sim-source-hero-sub">كيف تريد أن تحصل على موضوع المحاكاة؟</p>
+        </div>
+
+        <div class="sim-source-grid">
+          <div class="sim-source-card" onclick="simApp.showExamList()">
+            <div class="sim-source-card-top">
+              <div class="sim-source-icon" style="background:rgba(44,92,197,0.1);color:#2c5cc5;">
+                <i class="fas fa-list-alt"></i>
+              </div>
+              <span class="sim-src-pill" style="background:rgba(44,92,197,0.1);color:#2c5cc5;">الأكثر استخداماً</span>
+            </div>
+            <h3>من مواضيعنا</h3>
+            <p>اختر موضوعاً من مجموعة مواضيع البكالوريا التجريبية المصحَّحة</p>
+            <div class="sim-source-card-footer">
+              <span class="sim-source-arrow"><i class="fas fa-arrow-left"></i></span>
+            </div>
+          </div>
+
+          <div class="sim-source-card" onclick="simApp.pickRandom()">
+            <div class="sim-source-card-top">
+              <div class="sim-source-icon" style="background:rgba(255,107,53,0.1);color:#ff6b35;">
+                <i class="fas fa-random"></i>
+              </div>
+              <span class="sim-src-pill" style="background:rgba(255,107,53,0.1);color:#ff6b35;">للتحدي</span>
+            </div>
+            <h3>النظام يختار</h3>
+            <p>دعنا نختار لك موضوعاً عشوائياً — مفاجأة مثل الامتحان الحقيقي</p>
+            <div class="sim-source-card-footer">
+              <span class="sim-source-arrow"><i class="fas fa-arrow-left"></i></span>
+            </div>
+          </div>
+
+          <div class="sim-source-card" onclick="simApp.showCustomForm()">
+            <div class="sim-source-card-top">
+              <div class="sim-source-icon" style="background:rgba(40,167,69,0.1);color:#28a745;">
+                <i class="fas fa-link"></i>
+              </div>
+              <span class="sim-src-pill" style="background:rgba(40,167,69,0.1);color:#28a745;">مخصص</span>
+            </div>
+            <h3>موضوعي الخاص</h3>
+            <p>أدخل رابط PDF لموضوعك الخاص وابدأ المحاكاة بمؤقتك الرسمي</p>
+            <div class="sim-source-card-footer">
+              <span class="sim-source-arrow"><i class="fas fa-arrow-left"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align:center;margin-top:2rem;">
+          <button class="sim-back-link" onclick="simApp.goBack()">
+            <i class="fas fa-arrow-right"></i> تغيير المادة
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======== STEP 2.6: CUSTOM EXAM PAGE ======== -->
+    <div id="sim-custom-page" class="resource-content">
+      <div class="container">
+        <div class="sim-custom-hero">
+          <div class="sim-custom-hero-icon"><i class="fas fa-link"></i></div>
+          <h1 class="sim-custom-hero-title">موضوعي الخاص</h1>
+          <p class="sim-custom-hero-sub">أدخل رابط PDF لموضوعك وابدأ المحاكاة بمؤقت رسمي دقيق</p>
+          <div class="sim-custom-hero-chips">
+            <span><i class="fas fa-clock"></i> توقيت رسمي</span>
+            <span><i class="fas fa-shield-alt"></i> وضع تركيز</span>
+            <span><i class="fas fa-check-circle"></i> تصحيح اختياري</span>
+          </div>
+        </div>
+
+        <div class="sim-custom-form-card">
+
+          <div class="sim-custom-field">
+            <label class="sim-custom-label">
+              <i class="fas fa-file-pdf"></i> رابط الموضوع <span class="req">*</span>
+            </label>
+            <div class="sim-custom-input-wrap">
+              <input type="url" id="custom-exam-url" placeholder="https://drive.google.com/..." class="sim-custom-input" dir="ltr" autocomplete="off">
+              <i class="fas fa-link sim-custom-input-icon"></i>
+            </div>
+          </div>
+
+          <div class="sim-custom-field">
+            <label class="sim-custom-label">
+              <i class="fas fa-check-double"></i> رابط التصحيح <span class="opt">اختياري</span>
+            </label>
+            <div class="sim-custom-input-wrap">
+              <input type="url" id="custom-sol-url" placeholder="https://drive.google.com/..." class="sim-custom-input" dir="ltr" autocomplete="off">
+              <i class="fas fa-link sim-custom-input-icon"></i>
+            </div>
+          </div>
+
+          <div class="sim-custom-dur-info">
+            <i class="fas fa-hourglass-half"></i>
+            <span>المدة الزمنية: <strong id="custom-dur-display">--</strong> — حسب المادة المختارة</span>
+          </div>
+
+          <button class="sim-custom-start-btn" onclick="simApp.startCustomExam()">
+            <i class="fas fa-play"></i> ابدأ المحاكاة
+          </button>
+        </div>
+
+        <div style="text-align:center;margin-top:1.5rem;">
+          <button class="sim-back-link" onclick="simApp.goBack()">
+            <i class="fas fa-arrow-right"></i> رجوع
+          </button>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener('click', e => {
+        const chip = e.target.closest('.sim-dur-chip');
+        if (!chip) return;
+        chip.closest('.sim-duration-chips').querySelectorAll('.sim-dur-chip').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        document.getElementById('custom-duration').value = chip.dataset.val;
+      });
+    </script>
+
+    <!-- ======== STEP 2.7: EXAM LIST ======== -->
+    <div id="sim-exam-list" class="resource-content">
+      <div class="container">
+        <div class="sim-source-hero">
+          <div class="sim-source-hero-label"><i class="fas fa-file-alt"></i> اختر الموضوع</div>
+          <h2 id="exam-list-title">المواضيع المتاحة</h2>
+          <p class="sim-source-hero-sub">اختر الموضوع الذي تريد حله — كل موضوع مقترن بتصحيحه النموذجي</p>
+        </div>
+        <div id="exam-list-grid" class="sim-exam-card-grid"></div>
+        <div style="text-align:center;margin-top:2rem;">
+          <button class="sim-back-link" onclick="simApp.goBack()">
+            <i class="fas fa-arrow-right"></i> رجوع
+          </button>
+        </div>
+      </div>
     </div>
 
     <!-- ======== STEP 3: PRE-EXAM PREP ======== -->
@@ -250,15 +408,37 @@
             </div>
             <!-- Timer side -->
             <div class="sim-timer-side" id="timer-side">
-                <div class="sim-timer-badge">جاري الامتحان</div>
-                <div class="sim-timer-clock" id="timer-display">00:00:00</div>
+                <div class="sim-timer-badge">
+                    <i class="fas fa-circle-dot"></i> جاري الامتحان
+                </div>
+                <div class="sim-timer-clock" id="timer-display">
+                    <span>00</span><span class="sep">:</span><span>00</span><span class="sep">:</span><span>00</span>
+                </div>
                 <div class="sim-timer-bar-wrap">
                     <div class="sim-timer-bar" id="timer-bar"></div>
                 </div>
                 <div class="sim-timer-meta">
-                    <div class="sim-meta-row"><span>الشعبة</span><strong id="meta-spec">--</strong></div>
-                    <div class="sim-meta-row"><span>المادة</span><strong id="meta-sub">--</strong></div>
-                    <div class="sim-meta-row"><span>المدة</span><strong id="meta-dur">--</strong></div>
+                    <div class="sim-meta-chip">
+                        <div class="sim-meta-chip-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <div class="sim-meta-chip-body">
+                            <span>الشعبة</span>
+                            <strong id="meta-spec">--</strong>
+                        </div>
+                    </div>
+                    <div class="sim-meta-chip">
+                        <div class="sim-meta-chip-icon"><i class="fas fa-book-open"></i></div>
+                        <div class="sim-meta-chip-body">
+                            <span>المادة</span>
+                            <strong id="meta-sub">--</strong>
+                        </div>
+                    </div>
+                    <div class="sim-meta-chip">
+                        <div class="sim-meta-chip-icon"><i class="fas fa-hourglass-half"></i></div>
+                        <div class="sim-meta-chip-body">
+                            <span>المدة</span>
+                            <strong id="meta-dur">--</strong>
+                        </div>
+                    </div>
                 </div>
                 <button class="sim-finish-btn" id="finish-btn" onclick="simApp.endExam(true)">
                     <i class="fas fa-flag-checkered"></i> أنهيت الامتحان
@@ -288,11 +468,10 @@
 
     <div id="footer-placeholder"></div>
     <script src="/ads-config.js?v=1.1"></script>
-    <script src="/components/shared.js?v=3.5"></script>
+    <script src="/components/shared.js?v=3.6"></script>
     <script src="/script.js"></script>
-    <script src="/simulation.js?v=1.4"></script>
-    <script defer src="/_vercel/insights/script.js"></script>
-    <script defer src="/_vercel/speed-insights/script.js"></script>
+    <script src="/simulation.js?v=2.0"></script>
+    <script>if(location.hostname!=='localhost'&&!location.hostname.startsWith('127.')){var vi=document.createElement('script');vi.defer=true;vi.src='/_vercel/insights/script.js';document.head.appendChild(vi);var vs=document.createElement('script');vs.defer=true;vs.src='/_vercel/speed-insights/script.js';document.head.appendChild(vs);}</script>
 
     <!-- Sound Effects -->
     <audio id="end-sound" src="Sonnerie_ecole.mp3" preload="auto"></audio>
