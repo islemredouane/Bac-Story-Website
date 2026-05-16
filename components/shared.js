@@ -147,114 +147,82 @@ if (typeof window.showSection === 'undefined') {
     };
 }
 
-// ─── ANNOUNCEMENT MODAL — ALL SPECIALTIES ────────────────────────────────────
-// Key is versioned: change the suffix (v2, v3…) to re-trigger for future updates
-const ANNOUNCE_KEY = 'bs_allspec_v1';
+// ─── ANNOUNCEMENT — SIMULATION BOTTOM SHEET ──────────────────────────────────
+// Bump suffix (v2, v3…) to re-show for all users on next update
+const ANNOUNCE_KEY = 'bs_simulation_v1';
 
 function showAnnouncementModal() {
-    // Already seen? Skip.
     if (localStorage.getItem(ANNOUNCE_KEY)) return;
 
     const overlay = document.createElement('div');
     overlay.id = 'announce-modal';
-    overlay.className = 'announce-overlay';
-    overlay.setAttribute('role', 'dialog');
-    overlay.setAttribute('aria-modal', 'true');
-    overlay.setAttribute('aria-labelledby', 'announce-title');
+    overlay.className = 'sim-announce-overlay';
 
     overlay.innerHTML = `
-        <div class="announce-card">
-
-            <!-- Header -->
-            <div class="announce-header">
-                <button class="announce-close" id="announceClose" aria-label="إغلاق">
-                    <i class="fas fa-times"></i>
-                </button>
-                <span class="announce-emoji">🎉</span>
-                <h2 class="announce-title" id="announce-title">
-                    منصة <span>BAC STORY</span> الآن لجميع الشعب!
-                </h2>
-                <p class="announce-subtitle">انضمت شعبتان جديدتان إلى عائلة التميز</p>
-            </div>
-
-            <!-- Body -->
-            <div class="announce-body">
-                <p class="announce-desc">
-                    أصبحت منصتنا تخدم <strong>جميع شعب البكالوريا الجزائرية</strong> — ملخصات، تمارين، مواضيع وأدوات لكل طالب، مهما كانت شعبته.
-                </p>
-
-                <div class="announce-specs">
-                    <div class="announce-spec-chip">
-                        <i class="fas fa-calculator"></i>
-                        <span>رياضيات</span>
-                    </div>
-                    <div class="announce-spec-chip">
-                        <i class="fas fa-flask"></i>
-                        <span>علوم تجريبية</span>
-                    </div>
-                    <div class="announce-spec-chip">
-                        <i class="fas fa-microchip"></i>
-                        <span>تقني رياضي</span>
-                    </div>
-                    <div class="announce-spec-chip">
-                        <i class="fas fa-chart-line"></i>
-                        <span>تسيير واقتصاد</span>
-                    </div>
-                    <div class="announce-spec-chip is-new">
-                        <span class="announce-new-badge">جديد ✦</span>
-                        <i class="fas fa-pen-nib"></i>
-                        <span>آداب وفلسفة</span>
-                    </div>
-                    <div class="announce-spec-chip is-new">
-                        <span class="announce-new-badge">جديد ✦</span>
-                        <i class="fas fa-globe"></i>
-                        <span>لغات أجنبية</span>
+        <div class="sim-sheet-slide"><div class="sim-sheet">
+            <div class="sim-banner">
+                <div class="sim-handle-wrap">
+                    <div class="sim-handle"></div>
+                    <button class="sim-close-btn" id="announceClose"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="sim-banner-inner">
+                    <div class="sim-banner-text">
+                        <div class="sim-banner-tag">متاح الآن</div>
+                        <h2 class="sim-banner-title">محاكاة البكالوريا الحقيقية وصلت</h2>
+                        <p class="sim-banner-sub">جرّب امتحانك قبل يوم الامتحان</p>
                     </div>
                 </div>
             </div>
-
-            <!-- Footer -->
-            <div class="announce-footer">
-                <a href="/#specialties" class="announce-cta-primary" id="announceExplore">
-                    <i class="fas fa-arrow-left"></i>
-                    استكشف الشعب الجديدة
-                </a>
-                <button class="announce-cta-secondary" id="announceDismiss">
-                    ربما لاحقاً
-                </button>
+            <div class="sim-sheet-body">
+                <div class="sim-intro">
+                    <p class="sim-intro-text">
+                        عِش تجربة <strong>امتحان البكالوريا</strong> قبل يوم الامتحان الحقيقي — محاكاة واقعية تحضّرك نفسيًا، تعلّمك كيف تدير وقتك، وتساعدك تدخل القاعة بثقة وهدوء.
+                    </p>
+                </div>
+                <div class="sim-pills-row">
+                    <div class="sim-pill">
+                        <div class="sim-pill-icon"><i class="fas fa-clipboard-check"></i></div>
+                        <div class="sim-pill-title">محاكاة حقيقية</div>
+                        <div class="sim-pill-desc">تجربة مطابقة لامتحان البكالوريا الرسمي</div>
+                    </div>
+                    <div class="sim-pill">
+                        <div class="sim-pill-icon"><i class="fas fa-layer-group"></i></div>
+                        <div class="sim-pill-title">كل الشعب مدعومة</div>
+                        <div class="sim-pill-desc">رياضيات، علوم، تقني، آداب، لغات، تسيير</div>
+                    </div>
+                    <div class="sim-pill">
+                        <div class="sim-pill-icon"><i class="fas fa-user-check"></i></div>
+                        <div class="sim-pill-title">مواضيع مختارة بعناية</div>
+                        <div class="sim-pill-desc">مواضيع منتقاة للاستفادة التامة</div>
+                    </div>
+                    <div class="sim-pill">
+                        <div class="sim-pill-icon"><i class="fas fa-lightbulb"></i></div>
+                        <div class="sim-pill-title">استراتيجية الموضوع</div>
+                        <div class="sim-pill-desc">دليل ذكي لاختيار الموضوع الأنسب لك</div>
+                    </div>
+                </div>
+<div class="sim-actions">
+                    <a href="/simulation.html" class="sim-cta-btn" id="announceExplore">
+                        <i class="fas fa-rocket"></i> ابدأ المحاكاة الآن
+                    </a>
+                    <button class="sim-dismiss-btn" id="announceDismiss">ربما لاحقًا</button>
+                </div>
             </div>
-
-        </div>`;
+        </div></div>`;
 
     document.body.appendChild(overlay);
 
-    // Mark as seen immediately (so refresh doesn't show it again)
-    localStorage.setItem(ANNOUNCE_KEY, '1');
+    requestAnimationFrame(() => requestAnimationFrame(() => overlay.classList.add('is-visible')));
 
-    // Trigger entrance animation after paint
-    requestAnimationFrame(() => {
-        requestAnimationFrame(() => overlay.classList.add('is-visible'));
-    });
-
-    // Close helpers
     const close = () => {
+        localStorage.setItem(ANNOUNCE_KEY, '1');
         overlay.classList.remove('is-visible');
-        overlay.addEventListener('transitionend', () => overlay.remove(), { once: true });
         setTimeout(() => { if (overlay.parentNode) overlay.remove(); }, 500);
     };
 
-    document.getElementById('announceClose').addEventListener('click', close);
     document.getElementById('announceDismiss').addEventListener('click', close);
-
-    // Close on CTA click (navigates away anyway)
     document.getElementById('announceExplore').addEventListener('click', close);
-
-    // Close on backdrop click
-    overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
-
-    // Close on ESC
-    const escHandler = (e) => { if (e.key === 'Escape') { close(); document.removeEventListener('keydown', escHandler); } };
-    document.addEventListener('keydown', escHandler);
+    document.getElementById('announceClose').addEventListener('click', close);
 }
 
 // ─── HASH-BASED NAVIGATION ON LOAD ───────────────────────────────────────────
@@ -629,7 +597,7 @@ function injectAdCards() {
             <div class="ad-card-wrap">
                 <div class="ad-card">
                     <span class="ad-card-sponsor">${card.sponsorLabel || 'محتوى مدعوم'}</span>
-                    <div class="ad-card-avatar" style="background:${card.avatarColor || '#2c5cc5'}">
+                    <div class="ad-card-avatar" style="background:${card.avatarColor || '#2c5cc5'};box-shadow:0 8px 24px ${card.avatarColor || '#2c5cc5'}99, 0 2px 8px ${card.avatarColor || '#2c5cc5'}55;">
                         <i class="${card.avatarIcon || 'fas fa-star'}"></i>
                     </div>
                     <div class="ad-card-body">
