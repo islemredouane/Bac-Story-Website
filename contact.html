@@ -8,130 +8,158 @@
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-T5H3TNJ4');</script>
-    <!-- End Google Tag Manager -->
-    <meta name="description"
-        content="تواصل مع فريق Bac Story للاستفسار، تقديم اقتراحات، أو طلب الدعم الفني. نحن هنا لمساعدتك في رحلة نجاحك في البكالوريا.">
+    <meta name="description" content="تواصل مع فريق Bac Story للاستفسار، تقديم اقتراحات، أو طلب الدعم الفني. نحن هنا لمساعدتك في رحلة نجاحك في البكالوريا.">
     <meta name="keywords" content="تواصل معنا Bac Story, الاتصال بباك ستوري, دعم منصة Bac Story">
-    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#2c5cc5">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="BAC STORY">
-    <link rel="apple-touch-icon" href="/favicon.png">
-    <title>تواصل معنا | BAC STORY</title>
+    <meta name="apple-mobile-web-app-title" content="BAC STORY">    <title>تواصل معنا | BAC STORY</title>
     <link rel="canonical" href="https://bacstory.vercel.app/contact">
     <meta name="author" content="redouane mohamed islem">
-    <link rel="stylesheet" href="/style.css?v=3.3">
+    <link rel="stylesheet" href="/style.css?v=5.0">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style"
         onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    </noscript>
-    <link rel="preload"
-        href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Pattaya&display=swap"
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Pattaya&display=swap"
         as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-        <link rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Pattaya&display=swap">
-    </noscript>
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Pattaya&display=swap"></noscript>
 </head>
 
 <body>
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5H3TNJ4" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5H3TNJ4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <div id="navbar-placeholder"></div>
+
     <div id="contact" class="resource-content active">
+
+        <!-- ── HERO ── -->
+        <section class="modern-hero">
+            <h1 class="modern-title shiny-text">تواصل معنا</h1>
+            <p class="modern-subtitle">هنا لمساعدتك — سواء كان عندك سؤال، اقتراح، أو ملاحظة. نرد في أقرب وقت ممكن.</p>
+            <div class="modern-utilities">
+                <span class="modern-tag"><i class="fas fa-clock"></i> رد خلال 24 ساعة</span>
+                <span class="modern-tag"><i class="fab fa-telegram-plane"></i> تيليغرام</span>
+                <span class="modern-tag"><i class="fas fa-envelope"></i> بريد إلكتروني</span>
+            </div>
+            <button class="hero-scroll-btn" onclick="document.querySelector('#contact .container').scrollIntoView({behavior:'smooth'})">
+                <i class="fas fa-chevron-down"></i>
+            </button>
+        </section>
+
         <div class="container">
-            <div class="modern-section-header">
-                <h2>تواصل معنا</h2>
-            </div>
-            <div class="contact-methods">
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
+
+            <!-- ── CONTACT CHANNELS ── -->
+            <div class="modern-section-header"><h2>طرق التواصل</h2></div>
+            <div class="contact-channels-grid">
+
+                <!-- Email -->
+                <div class="cc-card">
+                    <div class="cc-head cc-head--blue">
+                        <div class="cc-head-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="cc-head-text">
+                            <h3>البريد الإلكتروني</h3>
+                            <span><i class="fas fa-bolt"></i> رد خلال 24 ساعة</span>
+                        </div>
                     </div>
-                    <h3>البريد الإلكتروني</h3>
-                    <p><a href="mailto:m_redouane@estin.dz">m_redouane@estin.dz</a></p>
-                    <p><a href="mailto:islem06rd@gmail.com">islem06rd@gmail.com</a></p>
-                    <p>الرد خلال 24 ساعة على الأكثر</p>
+                    <div class="cc-body">
+                        <a href="mailto:m_redouane@estin.dz" class="cc-email-row">
+                            <i class="fas fa-at"></i>
+                            <span>m_redouane@estin.dz</span>
+                        </a>
+                        <a href="mailto:redouanemohamedislem@gmail.com" class="cc-email-row">
+                            <i class="fas fa-at"></i>
+                            <span>redouanemohamedislem@gmail.com</span>
+                        </a>
+                    </div>
                 </div>
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fa-solid fa-hashtag"></i>
+
+                <!-- Social -->
+                <div class="cc-card">
+                    <div class="cc-head cc-head--orange">
+                        <div class="cc-head-icon"><i class="fas fa-share-nodes"></i></div>
+                        <div class="cc-head-text">
+                            <h3>مواقع التواصل</h3>
+                            <span>تابعنا وتواصل معنا</span>
+                        </div>
                     </div>
-                    <h3>مواقع التواصل</h3>
-                    <div class="social-links" style="display: flex;justify-content: center;">
-                        <a style="text-decoration: none;" href="https://t.me/islembacdz" class="social-l"
-                            target="_blank"><i class="fab fa-telegram-plane"></i></a>
-                        <a style="text-decoration: none;"
-                            href="https://www.instagram.com/islembacdz?igsh=ZHVybHF1djA5OWc0" class="social-l"
-                            target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a style="text-decoration: none;"
-                            href="https://www.linkedin.com/in/mohamed-islem-redouane-5ba586338?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-                            class="social-l"><i class="fab fa-linkedin" target="_blank"></i></a>
+                    <div class="cc-body">
+                        <div class="cc-social-row">
+                            <a href="https://t.me/islembacdz" target="_blank" rel="noopener" class="cc-social-item cc-tg" aria-label="تيليغرام">
+                                <div class="cc-social-icon"><i class="fab fa-telegram-plane"></i></div>
+                            </a>
+                            <a href="https://www.instagram.com/islembacdz" target="_blank" rel="noopener" class="cc-social-item cc-ig" aria-label="إنستغرام">
+                                <div class="cc-social-icon"><i class="fab fa-instagram"></i></div>
+                            </a>
+                            <a href="https://www.linkedin.com/in/mohamed-islem-redouane-5ba586338" target="_blank" rel="noopener" class="cc-social-item cc-li" aria-label="لينكدإن">
+                                <div class="cc-social-icon"><i class="fab fa-linkedin"></i></div>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="modern-section-header">
-                <h2>أرسل لنا رسالة</h2>
-            </div>
-            <div class="contact-form">
-                <!-- Success / Error Messages -->
+            <!-- ── FORM ── -->
+            <div class="modern-section-header"><h2>أرسل لنا رسالة</h2></div>
+            <div class="contact-form-modern">
+
                 <div class="notification success" id="successMessage">
-                    تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.
+                    <i class="fas fa-check-circle"></i> تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.
                 </div>
-
                 <div class="notification error" id="errorMessage">
-                    حدث خطأ أثناء إرسال الرسالة. يرجى المحاولة مرة أخرى.
+                    <i class="fas fa-exclamation-circle"></i> حدث خطأ أثناء إرسال الرسالة. يرجى المحاولة مرة أخرى.
                 </div>
 
-                <!-- Contact Form -->
                 <form id="contactForm" action="api/form.js" method="POST">
-                    <div class="form-group">
-                        <label for="name">الإسم الكامل</label>
-                        <input type="text" id="name" name="name" class="form-control" placeholder="أدخل اسمك الكامل"
-                            required>
+                    <div class="cfm-row">
+                        <div class="cfm-group">
+                            <label class="cfm-label" for="name">الاسم الكامل</label>
+                            <div class="cfm-input-wrap">
+                                <i class="fas fa-user cfm-input-icon"></i>
+                                <input type="text" id="name" name="name" class="cfm-input" placeholder="أدخل اسمك الكامل" required>
+                            </div>
+                        </div>
+                        <div class="cfm-group">
+                            <label class="cfm-label" for="email">البريد الإلكتروني</label>
+                            <div class="cfm-input-wrap">
+                                <i class="fas fa-envelope cfm-input-icon"></i>
+                                <input type="email" id="email" name="email" class="cfm-input" placeholder="أدخل بريدك الإلكتروني" required>
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="form-group">
-                        <label for="email">البريد الإلكتروني</label>
-                        <input type="email" id="email" name="email" class="form-control"
-                            placeholder="أدخل بريدك الإلكتروني" required>
+                    <div class="cfm-group">
+                        <label class="cfm-label" for="subject">الموضوع</label>
+                        <div class="cfm-input-wrap">
+                            <i class="fas fa-tag cfm-input-icon"></i>
+                            <input type="text" id="subject" name="subject" class="cfm-input" placeholder="موضوع رسالتك" required>
+                        </div>
                     </div>
-
-                    <div class="form-group">
-                        <label for="subject">الموضوع</label>
-                        <input type="text" id="subject" name="subject" class="form-control" placeholder="موضوع رسالتك"
-                            required>
+                    <div class="cfm-group">
+                        <label class="cfm-label" for="message">الرسالة</label>
+                        <textarea id="message" name="message" class="cfm-input cfm-textarea" placeholder="اكتب رسالتك هنا..." required></textarea>
                     </div>
-
-                    <div class="form-group">
-                        <label for="message">الرسالة</label>
-                        <textarea id="message" name="message" class="form-control" placeholder="أدخل رسالتك هنا..."
-                            required></textarea>
-                    </div>
-
-                    <button type="submit" class="btn-primary btn-block">إرسال الرسالة</button>
+                    <button type="submit" class="cfm-submit">
+                        <i class="fas fa-paper-plane"></i> إرسال الرسالة
+                    </button>
                 </form>
             </div>
+
         </div>
     </div>
 
     <div id="footer-placeholder"></div>
     <script src="/ads-config.js?v=1.1"></script>
-    <script src="/components/shared.js?v=3.3"></script>
-
+    <script src="/components/shared.js?v=3.6"></script>
     <script defer src="/_vercel/insights/script.js"></script>
     <script defer src="/_vercel/speed-insights/script.js"></script>
 </body>
-
 </html>
