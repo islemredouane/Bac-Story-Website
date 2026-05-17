@@ -173,13 +173,11 @@ bacstory.vercel.app/advertise    →  advertise.html
 
 | Metric | Value | vs. Previous Period |
 |---|---|---|
-| Page Views | **59,000** | ↑ 98.6% |
-| Active Users | **8,800** | ↑ 57.7% |
-| Total Events | **143,000** | ↑ 90.8% |
-| New Users | **5,300** | ↑ 72.5% |
+| Page Views | **61,000** | ↑ 98.6% |
+| Active Users | **9,900** | ↑ 57.7% |
+| Total Events | **147,000** | ↑ 90.8% |
 
 **Top country:** Algeria 🇩🇿 — 96%+ of all traffic  
-**Real-time peak:** 87 concurrent users
 
 ---
 
