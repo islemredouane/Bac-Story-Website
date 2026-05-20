@@ -774,15 +774,4 @@ function initSchoolTabs(sectionId) {
     }, 50);
 }
 
-// ── Scroll-to-top Button ──────────────────────────
-(function () {
-    var btn = document.getElementById('scrollTopBtn');
-    if (!btn) return;
-    window.addEventListener('scroll', function () {
-        if (window.scrollY > 400) {
-            btn.classList.add('visible');
-        } else {
-            btn.classList.remove('visible');
-        }
-    }, { passive: true });
-})();
+
