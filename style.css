@@ -1123,6 +1123,7 @@ body.search-active .mobile-bottom-bar,
     box-shadow: var(--box-shadow);
     z-index: 100;
     overflow: visible;
+    padding: 6px;
     animation: fadeInCentered 0.4s ease-out forwards;
 }
 
@@ -1171,8 +1172,26 @@ body.search-active .mobile-bottom-bar,
     padding: 0.75rem 1.5rem;
     display: block;
     text-align: right;
-    transition: var(--transition);
+    transition: color 0.25s ease, transform 0.25s ease, border-radius 0.25s ease;
+    position: relative;
+    z-index: 1;
+    overflow: visible;
+}
 
+.dropdown-content a::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #1a3a8f, #3d6ee0);
+    border-radius: inherit;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.25s ease, box-shadow 0.25s ease;
+}
+
+.dropdown-content a:hover::before {
+    opacity: 1;
+    box-shadow: 0 4px 12px rgba(44, 92, 197, 0.35);
 }
 
 .dropdown-content a:last-child {
@@ -1180,12 +1199,10 @@ body.search-active .mobile-bottom-bar,
 }
 
 .dropdown-content a:hover {
-    background-color: var(--primary-color);
-    color: #e9f7fe;
-    box-shadow: 0 6px 12px var(--primary-color);
-    border-radius: 5px;
-    transform: translateX(-6px);
-    -webkit-transform: translateX(-6px);
+    color: white;
+    border-radius: 10px;
+    transform: translateX(-4px);
+    -webkit-transform: translateX(-4px);
 }
 
 /* ============================================
@@ -1479,6 +1496,7 @@ body.search-active .mobile-bottom-bar,
         margin-top: 0.5rem;
         margin-bottom: 0.75rem;
         padding: 0.75rem;
+        overflow: visible;
     }
 
     .dropdown-content a {
@@ -1499,10 +1517,9 @@ body.search-active .mobile-bottom-bar,
 
     .dropdown-content a:hover,
     .dropdown-content a:active {
-        background-color: var(--primary-color);
-        color: #e9f7fe !important;
-        box-shadow: 0 6px 12px rgba(44, 92, 197, 0.3);
-        transform: translateX(-6px);
+        color: white !important;
+        border-radius: 8px;
+        transform: translateX(-4px);
     }
 
     .telegram-btn {
@@ -2326,13 +2343,15 @@ body.search-active .mobile-bottom-bar,
 }
 
 .down-btn {
-    background: var(--primary-color);
+    background: linear-gradient(135deg, #1a3a8f 0%, #2c5cc5 55%, #3d6ee0 100%);
     color: white;
+    box-shadow: 0 4px 12px rgba(26, 58, 143, 0.2);
 }
 
 .down-btn:hover {
-    background-color: #4268ba;
+    filter: brightness(1.08);
     transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(26, 58, 143, 0.35);
 }
 
 .full-btn {
@@ -2666,9 +2685,9 @@ body.search-active .mobile-bottom-bar,
 }
 
 .field-card {
-    background: #eef2f7;
+    background: #ffffff;
     border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     padding: 2rem;
     text-align: center;
     transition: var(--transition);
@@ -2680,41 +2699,63 @@ body.search-active .mobile-bottom-bar,
 
 .field-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-    border-color: var(--primary-color);
+    border-color: color-mix(in srgb, var(--card-theme, #2c5cc5) 30%, transparent);
+    box-shadow: 0 15px 35px color-mix(in srgb, var(--card-theme, #2c5cc5) 15%, transparent);
 }
 
 .field-icon {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 14px;
     margin: 0 auto 1.5rem;
-    font-size: 2.8rem;
-    color: var(--primary-color);
+    font-size: 1.6rem;
+    background: linear-gradient(135deg, var(--grad-start, #1a3a8f), var(--grad-end, #3d6ee0));
+    color: white !important;
+    box-shadow: 0 5px 12px color-mix(in srgb, var(--card-theme, #2c5cc5) 35%, transparent);
+    transition: transform 0.2s ease;
 }
 
-.field-card.math .field-icon {
-    color: var(--primary-color);
+.field-card:hover .field-icon {
+    transform: scale(1.1);
 }
 
-.field-card.science .field-icon {
-    color: var(--secondary-color);
+.field-card.math {
+    --card-theme: #2c5cc5;
+    --grad-start: #1a3a8f;
+    --grad-end: #3d6ee0;
 }
 
-.field-card.tech .field-icon {
-    color: var(--primary-color);
+.field-card.science {
+    --card-theme: #ff6b35;
+    --grad-start: #d4530a;
+    --grad-end: #ff885e;
 }
 
-.field-card.management .field-icon {
-    color: var(--secondary-color);
+.field-card.tech {
+    --card-theme: #2c5cc5;
+    --grad-start: #1a3a8f;
+    --grad-end: #3d6ee0;
 }
 
-.field-card.literature .field-icon {
-    color: var(--primary-color);
+.field-card.management {
+    --card-theme: #ff6b35;
+    --grad-start: #d4530a;
+    --grad-end: #ff885e;
 }
 
-.field-card.languages .field-icon {
-    color: var(--secondary-color);
+.field-card.literature {
+    --card-theme: #2c5cc5;
+    --grad-start: #1a3a8f;
+    --grad-end: #3d6ee0;
+}
+
+.field-card.languages {
+    --card-theme: #ff6b35;
+    --grad-start: #d4530a;
+    --grad-end: #ff885e;
 }
 
 .field-title {
@@ -2876,25 +2917,28 @@ body.search-active .mobile-bottom-bar,
 }
 
 .btn.calculate {
-    background: #2c5cc5;
+    background: linear-gradient(135deg, #1a3a8f, #3d6ee0);
     color: white;
+    box-shadow: 0 4px 12px rgba(44, 92, 197, 0.35);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
 }
 
 .btn.calculate:hover {
-    background: var(--secondary-color);
     transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(44, 92, 197, 0.45);
 }
 
 .btn.reset {
-    background: #f1f5f9;
-    color: #475569;
-    border: 1.5px solid #e2e8f0;
+    background: linear-gradient(135deg, #e11d48, #ff718b);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 12px rgba(225, 29, 72, 0.3);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
 }
 
 .btn.reset:hover {
-    background: #e2e8f0;
     transform: translateY(-3px);
-    color: #1e293b;
+    box-shadow: 0 6px 16px rgba(225, 29, 72, 0.45);
 }
 
 .result-section .btn.reset {
@@ -2911,14 +2955,15 @@ body.search-active .mobile-bottom-bar,
 }
 
 .btn.back {
-    background: #f1f5f9;
-    color: #1e293b;
-    border: 1.5px solid #e2e8f0;
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 12px rgba(243, 156, 18, 0.3);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
 }
 .btn.back:hover {
     transform: translateY(-3px);
-    background: #e2e8f0;
-    color: #1e293b;
+    box-shadow: 0 6px 16px rgba(243, 156, 18, 0.45);
 }
 
 /* Result Section */
@@ -4786,7 +4831,9 @@ textarea.form-control {
     }
 
     .field-icon {
-        font-size: 2rem;
+        width: 52px;
+        height: 52px;
+        font-size: 1.4rem;
     }
 
     .field-title {
@@ -5025,7 +5072,10 @@ textarea.form-control {
     }
 
     .field-icon {
-        font-size: 1.8rem;
+        width: 46px;
+        height: 46px;
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
     }
 
     .field-title {
@@ -5126,7 +5176,7 @@ textarea.form-control {
 .search-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(44, 92, 197, 0.95);
+    background: linear-gradient(135deg, rgba(26, 58, 143, 0.96) 0%, rgba(44, 92, 197, 0.96) 55%, rgba(61, 110, 224, 0.96) 100%);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     z-index: 9999;
@@ -6952,14 +7002,26 @@ textarea.form-control {
     box-shadow: var(--box-shadow);
     position: relative;
     overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 1.5px solid #eef2f6;
+}
+
+.study-path:hover {
+    transform: translateY(-4px);
+    border-color: color-mix(in srgb, var(--card-theme) 25%, transparent);
+    box-shadow: 0 12px 30px color-mix(in srgb, var(--card-theme) 10%, transparent);
 }
 
 .study-path--lmd {
-    border-top: 4px solid var(--primary-color);
+    --card-theme: var(--primary-color);
+    --grad-start: #1a3a8f;
+    --grad-end: #3d6ee0;
 }
 
 .study-path--ing {
-    border-top: 4px solid var(--secondary-color);
+    --card-theme: var(--secondary-color);
+    --grad-start: #d4530a;
+    --grad-end: #ff885e;
 }
 
 .study-path-header {
@@ -6980,16 +7042,15 @@ textarea.form-control {
     justify-content: center;
     font-size: 1.35rem;
     flex-shrink: 0;
+    background: linear-gradient(135deg, var(--grad-start), var(--grad-end));
+    color: white;
+    box-shadow: 0 4px 10px color-mix(in srgb, var(--card-theme) 25%, transparent);
+    transition: all 0.25s ease;
 }
 
-.study-path--lmd .study-path-icon {
-    background: rgba(44, 92, 197, 0.12);
-    color: var(--primary-color);
-}
-
-.study-path--ing .study-path-icon {
-    background: rgba(255, 107, 53, 0.12);
-    color: var(--secondary-color);
+.study-path:hover .study-path-icon {
+    transform: scale(1.08);
+    box-shadow: 0 6px 14px color-mix(in srgb, var(--card-theme) 40%, transparent);
 }
 
 .study-path-header h3 {
@@ -7037,14 +7098,14 @@ textarea.form-control {
     font-weight: 800;
     flex-shrink: 0;
     color: white;
+    background: linear-gradient(135deg, var(--grad-start), var(--grad-end));
+    box-shadow: 0 3px 8px color-mix(in srgb, var(--card-theme) 35%, transparent);
+    transition: all 0.25s ease;
 }
 
-.study-path--lmd .study-stage-dot {
-    background: var(--primary-color);
-}
-
-.study-path--ing .study-stage-dot {
-    background: var(--secondary-color);
+.study-stage:hover .study-stage-dot {
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px color-mix(in srgb, var(--card-theme) 50%, transparent);
 }
 
 .study-stage-info strong {
@@ -7125,19 +7186,78 @@ textarea.form-control {
     margin-bottom: 2rem;
 }
 
+.uni-life-card:nth-child(1) {
+    --card-theme: #2c5cc5;
+    --grad-start: #1a3a8f;
+    --grad-end: #3d6ee0;
+}
+
+.uni-life-card:nth-child(2) {
+    --card-theme: #ff6b35;
+    --grad-start: #d4530a;
+    --grad-end: #ff885e;
+}
+
+.uni-life-card:nth-child(3) {
+    --card-theme: #28a745;
+    --grad-start: #1a7a38;
+    --grad-end: #34ce57;
+}
+
+.uni-life-card:nth-child(4) {
+    --card-theme: #9b59b6;
+    --grad-start: #7d3c98;
+    --grad-end: #9b59b6;
+}
+
+.uni-life-card:nth-child(5) {
+    --card-theme: #e74c3c;
+    --grad-start: #c0392b;
+    --grad-end: #e74c3c;
+}
+
+.uni-life-card:nth-child(6) {
+    --card-theme: #f39c12;
+    --grad-start: #b7770d;
+    --grad-end: #f39c12;
+}
+
 .uni-life-card {
     background: white;
-    border-radius: 14px;
-    padding: 1.35rem;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.07);
-    transition: all 0.3s ease;
-    border-bottom: 3px solid transparent;
+    border-radius: 16px;
+    padding: 1.5rem 1.3rem 1.4rem;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+    transition: all 0.28s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+    border: 1.5px solid #eef2f6;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.uni-life-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--card-theme, #2c5cc5));
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+    z-index: 1;
+}
+
+.uni-life-card:hover::before {
+    transform: scaleX(1);
 }
 
 .uni-life-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 28px rgba(44, 92, 197, 0.14);
-    border-bottom-color: var(--primary-color);
+    transform: translateY(-5px);
+    border-color: color-mix(in srgb, var(--card-theme, #2c5cc5) 30%, transparent);
+    box-shadow: 0 12px 30px color-mix(in srgb, var(--card-theme, #2c5cc5) 12%, transparent);
 }
 
 .uni-life-card-icon {
@@ -7148,20 +7268,34 @@ textarea.form-control {
     align-items: center;
     justify-content: center;
     font-size: 1.4rem;
-    margin-bottom: 0.9rem;
+    margin-bottom: 0.4rem;
+    background: linear-gradient(135deg, var(--grad-start, #1a3a8f), var(--grad-end, #3d6ee0)) !important;
+    color: white !important;
+    box-shadow: 0 4px 10px color-mix(in srgb, var(--card-theme, #2c5cc5) 30%, transparent);
+    transition: all 0.28s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.uni-life-card:hover .uni-life-card-icon {
+    transform: scale(1.08);
+    box-shadow: 0 6px 16px color-mix(in srgb, var(--card-theme, #2c5cc5) 45%, transparent);
 }
 
 .uni-life-card h4 {
     font-size: 0.98rem;
     font-weight: 800;
-    color: #1a1a2e;
-    margin-bottom: 0.45rem;
+    color: #1a2340;
+    margin-bottom: 0.25rem;
+    transition: color 0.25s ease;
+}
+
+.uni-life-card:hover h4 {
+    color: var(--card-theme, #1a2340);
 }
 
 .uni-life-card p {
-    font-size: 0.86rem;
-    color: var(--text-light);
-    line-height: 1.65;
+    font-size: 0.84rem;
+    color: #64748b;
+    line-height: 1.6;
     margin: 0;
 }
 
@@ -7329,23 +7463,72 @@ textarea.form-control {
     margin: 0.5rem 0 2rem;
 }
 
+.spec-card[data-category="engineering"] {
+    --card-theme: #2c5cc5;
+    --grad-start: #1a3a8f;
+    --grad-end: #3d6ee0;
+}
+
+.spec-card[data-category="medical"] {
+    --card-theme: #e74c3c;
+    --grad-start: #c0392b;
+    --grad-end: #e74c3c;
+}
+
+.spec-card[data-category="business"] {
+    --card-theme: #f39c12;
+    --grad-start: #b7770d;
+    --grad-end: #f39c12;
+}
+
+.spec-card[data-category="science"] {
+    --card-theme: #28a745;
+    --grad-start: #1a7a38;
+    --grad-end: #28a745;
+}
+
+.spec-card[data-category="education"] {
+    --card-theme: #9b59b6;
+    --grad-start: #7d3c98;
+    --grad-end: #9b59b6;
+}
+
 .spec-card {
     background: white;
-    border-radius: 14px;
-    box-shadow: 0 3px 16px rgba(0, 0, 0, 0.07);
+    border-radius: 18px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     overflow: hidden;
     display: flex;
     align-items: stretch;
-    transition: all 0.28s ease;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     cursor: pointer;
-    border: 1.5px solid transparent;
+    border: 1.5px solid #eef2f6;
     text-align: right;
+    position: relative;
+}
+
+.spec-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 3.5px;
+    background: linear-gradient(90deg, transparent, var(--card-theme, #2c5cc5));
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+    z-index: 2;
 }
 
 .spec-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(44, 92, 197, 0.15);
-    border-color: rgba(44, 92, 197, 0.2);
+    transform: translateY(-5px);
+    border-color: color-mix(in srgb, var(--card-theme, #2c5cc5) 35%, transparent);
+    box-shadow: 0 14px 35px color-mix(in srgb, var(--card-theme, #2c5cc5) 15%, transparent);
+}
+
+.spec-card:hover::before {
+    transform: scaleX(1);
 }
 
 .spec-card-img {
@@ -7353,6 +7536,21 @@ textarea.form-control {
     min-height: 115px;
     flex-shrink: 0;
     overflow: hidden;
+    position: relative;
+}
+
+.spec-card-img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to left, color-mix(in srgb, var(--card-theme, #2c5cc5) 15%, transparent), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.spec-card:hover .spec-card-img::after {
+    opacity: 1;
 }
 
 .spec-card-img img {
@@ -7360,20 +7558,20 @@ textarea.form-control {
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.4s ease;
+    transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .spec-card:hover .spec-card-img img {
-    transform: scale(1.08);
+    transform: scale(1.1) rotate(1deg);
 }
 
 .spec-card-body {
-    padding: 0.95rem 1.2rem;
+    padding: 1.1rem 1.3rem;
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 0.45rem;
+    gap: 0.5rem;
     min-width: 0;
 }
 
@@ -7386,46 +7584,35 @@ textarea.form-control {
 }
 
 .spec-card-name {
-    font-size: 0.97rem;
+    font-size: 0.98rem;
     font-weight: 800;
-    color: #1a1a2e;
-    line-height: 1.45;
+    color: #1a2340;
+    line-height: 1.5;
     flex: 1;
     min-width: 0;
+    transition: color 0.25s ease;
+}
+
+.spec-card:hover .spec-card-name {
+    color: var(--card-theme, #1a2340);
 }
 
 .cat-badge {
-    padding: 0.25rem 0.72rem;
+    padding: 0.28rem 0.78rem;
     border-radius: 50px;
-    font-size: 0.73rem;
-    font-weight: 700;
+    font-size: 0.74rem;
+    font-weight: 800;
     white-space: nowrap;
     flex-shrink: 0;
+    background: linear-gradient(135deg, var(--grad-start, #1a3a8f), var(--grad-end, #3d6ee0));
+    color: white;
+    box-shadow: 0 4px 10px color-mix(in srgb, var(--card-theme, #2c5cc5) 30%, transparent);
+    transition: all 0.25s ease;
 }
 
-.cat-badge--engineering {
-    background: rgba(44, 92, 197, 0.11);
-    color: var(--primary-color);
-}
-
-.cat-badge--medical {
-    background: rgba(231, 76, 60, 0.11);
-    color: #c0392b;
-}
-
-.cat-badge--business {
-    background: rgba(243, 156, 18, 0.13);
-    color: #b7770d;
-}
-
-.cat-badge--science {
-    background: rgba(40, 167, 69, 0.11);
-    color: #1a7a38;
-}
-
-.cat-badge--education {
-    background: rgba(155, 89, 182, 0.11);
-    color: #7d3c98;
+.spec-card:hover .cat-badge {
+    transform: scale(1.05);
+    box-shadow: 0 6px 14px color-mix(in srgb, var(--card-theme, #2c5cc5) 45%, transparent);
 }
 
 .spec-card-footer {
@@ -7435,25 +7622,39 @@ textarea.form-control {
 }
 
 .spec-detail-btn {
-    padding: 0.42rem 1rem;
+    padding: 0.45rem 1.1rem;
     border-radius: 50px;
-    border: 1.5px solid var(--primary-color);
-    background: transparent;
-    color: var(--primary-color);
-    font-size: 0.82rem;
-    font-weight: 700;
+    border: none;
+    background: linear-gradient(135deg, var(--grad-start, #1a3a8f), var(--grad-end, #3d6ee0));
+    color: white;
+    font-size: 0.84rem;
+    font-weight: 800;
     font-family: 'Tajawal', sans-serif;
     cursor: pointer;
-    transition: all 0.22s ease;
+    transition: all 0.28s cubic-bezier(0.25, 0.8, 0.25, 1);
     display: inline-flex;
     align-items: center;
-    gap: 0.3rem;
+    gap: 0.35rem;
     white-space: nowrap;
+    box-shadow: 0 4px 12px color-mix(in srgb, var(--card-theme, #2c5cc5) 25%, transparent);
+}
+
+.spec-detail-btn i {
+    font-size: 0.75rem;
+    transition: transform 0.28s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.spec-card:hover .spec-detail-btn {
+    transform: scale(1.03);
+    box-shadow: 0 6px 18px color-mix(in srgb, var(--card-theme, #2c5cc5) 45%, transparent);
+}
+
+.spec-card:hover .spec-detail-btn i {
+    transform: translateX(-4px);
 }
 
 .spec-detail-btn:hover {
-    background: var(--primary-color);
-    color: white;
+    filter: brightness(1.08);
 }
 
 /* Empty state */
@@ -7587,6 +7788,27 @@ textarea.form-control {
     transform: translateY(-3px);
     box-shadow: 0 6px 18px rgba(44, 92, 197, 0.48);
 }
+
+.progress-ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 44px;
+    height: 44px;
+    transform: rotate(-90deg);
+    pointer-events: none;
+}
+
+.progress-ring__circle {
+    transition: stroke-dashoffset 0.08s ease-out;
+}
+
+@media screen and (max-width: 1100px) {
+    .scroll-top-btn {
+        display: none !important;
+    }
+}
+
 
 /* ── Responsive ───────────────────────────────────────── */
 @media (max-width: 900px) {
@@ -8406,9 +8628,9 @@ textarea.form-control {
     margin-right: 6px;
     vertical-align: middle;
 }
-.sim-src-badge.channel{ background: #fff0ea; color: #c0390b; }
-.sim-src-badge.nafi   { background: #d1fae5; color: #065f46; }
-.sim-src-badge.other  { background: #fef3c7; color: #92400e; }
+.sim-src-badge.channel{ background: linear-gradient(135deg, #c0390b, #ff6b35); color: white; box-shadow: 0 4px 10px rgba(255,107,53,0.35); }
+.sim-src-badge.nafi   { background: linear-gradient(135deg, #a83d02, #d4530a); color: white; box-shadow: 0 4px 10px rgba(212,83,10,0.35); }
+.sim-src-badge.other  { background: linear-gradient(135deg, #125426, #28a745); color: white; box-shadow: 0 4px 10px rgba(40,167,69,0.35); }
 
 @media (max-width: 768px) {
     .sim-source-grid { grid-template-columns: 1fr; }
@@ -8509,7 +8731,7 @@ textarea.form-control {
   position: absolute;
   top: 0; right: 0;
   width: 100%; height: 3px;
-  background: linear-gradient(90deg, transparent, rgba(44,92,197,0.4));
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--card-theme, #2c5cc5) 40%, transparent));
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 0.3s ease;
@@ -8517,8 +8739,8 @@ textarea.form-control {
 .sim-source-card:hover::before { transform: scaleX(1); }
 .sim-source-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(44,92,197,0.3);
-  box-shadow: 0 10px 30px rgba(44,92,197,0.12);
+  border-color: color-mix(in srgb, var(--card-theme, #2c5cc5) 30%, transparent);
+  box-shadow: 0 10px 30px color-mix(in srgb, var(--card-theme, #2c5cc5) 12%, transparent);
 }
 .sim-source-card-top {
   display: flex;
@@ -8532,14 +8754,20 @@ textarea.form-control {
   display: flex; align-items: center; justify-content: center;
   font-size: 1.3rem;
   transition: transform 0.2s;
+  background: linear-gradient(135deg, var(--grad-start, #1a3a8f), var(--grad-end, #3d6ee0)) !important;
+  color: white !important;
+  box-shadow: 0 4px 10px color-mix(in srgb, var(--card-theme, #2c5cc5) 35%, transparent) !important;
 }
 .sim-source-card:hover .sim-source-icon { transform: scale(1.08); }
 .sim-src-pill {
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 700;
-  padding: 0.22rem 0.65rem;
+  padding: 0.25rem 0.7rem;
   border-radius: 50px;
   letter-spacing: 0.01em;
+  background: linear-gradient(135deg, var(--grad-start, #1a3a8f), var(--grad-end, #3d6ee0)) !important;
+  color: white !important;
+  box-shadow: 0 4px 10px color-mix(in srgb, var(--card-theme, #2c5cc5) 35%, transparent) !important;
 }
 .sim-source-card h3 {
   font-size: 1.05rem;
@@ -8555,19 +8783,25 @@ textarea.form-control {
   flex: 1;
 }
 .sim-source-card-footer { display: flex; justify-content: flex-end; margin-top: 0.4rem; }
+.sim-source-card:nth-child(1) { --card-theme: #2c5cc5; --grad-start: #1a3a8f; --grad-end: #3d6ee0; }
+.sim-source-card:nth-child(2) { --card-theme: #ff6b35; --grad-start: #d4530a; --grad-end: #ff885e; }
+.sim-source-card:nth-child(3) { --card-theme: #28a745; --grad-start: #1a7a38; --grad-end: #34ce57; }
+
 .sim-source-arrow {
   width: 32px; height: 32px;
   border-radius: 50%;
   background: #f1f5fb;
   display: flex; align-items: center; justify-content: center;
-  color: var(--primary-color, #2c5cc5);
+  color: var(--card-theme, #2c5cc5);
   font-size: 0.8rem;
-  transition: background 0.2s, transform 0.2s;
+  transition: background 0.2s, transform 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 10px color-mix(in srgb, var(--card-theme, #2c5cc5) 35%, transparent);
 }
 .sim-source-card:hover .sim-source-arrow {
-  background: var(--primary-color, #2c5cc5);
+  background: var(--card-theme, #2c5cc5);
   color: #fff;
   transform: translateX(-2px);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--card-theme, #2c5cc5) 50%, transparent);
 }
 
 /* Custom form redesign */
@@ -8614,10 +8848,11 @@ textarea.form-control {
 .sim-exam-entry-card .exam-card-icon {
   width: 40px; height: 40px;
   border-radius: 10px;
-  background: rgba(44,92,197,0.08);
-  color: #2c5cc5;
+  background: linear-gradient(135deg, #1a3a8f, #3d6ee0);
+  color: white;
   display: flex; align-items: center; justify-content: center;
   font-size: 1.1rem;
+  box-shadow: 0 4px 10px rgba(44,92,197,0.35);
 }
 .sim-exam-entry-card .exam-card-label {
   font-size: 0.92rem;
@@ -8632,10 +8867,10 @@ textarea.form-control {
   flex-wrap: wrap;
 }
 /* override old badge styles for new cards */
-.sim-src-badge.channel { background: rgba(255,107,53,0.12); color: #c0390b; border-radius: 50px; padding: 0.18rem 0.6rem; font-size: 0.7rem; font-weight: 700; }
-.sim-src-badge.nafi    { background: rgba(255,107,53,0.1); color: #d4530a; border-radius: 50px; padding: 0.18rem 0.6rem; font-size: 0.7rem; font-weight: 700; }
-.sim-src-badge.other   { background: rgba(40,167,69,0.1);  color: #1a7a38; border-radius: 50px; padding: 0.18rem 0.6rem; font-size: 0.7rem; font-weight: 700; }
-.sim-src-badge.tamayoz { background: rgba(139,92,246,0.1); color: #6d28d9; border-radius: 50px; padding: 0.18rem 0.6rem; font-size: 0.7rem; font-weight: 700; }
+.sim-src-badge.channel { background: linear-gradient(135deg, #c0390b, #ff6b35) !important; color: white !important; border-radius: 50px; padding: 0.25rem 0.7rem; font-size: 0.75rem; font-weight: 700; box-shadow: 0 4px 10px rgba(255,107,53,0.35) !important; }
+.sim-src-badge.nafi    { background: linear-gradient(135deg, #a83d02, #d4530a) !important; color: white !important; border-radius: 50px; padding: 0.25rem 0.7rem; font-size: 0.75rem; font-weight: 700; box-shadow: 0 4px 10px rgba(212,83,10,0.35) !important; }
+.sim-src-badge.other   { background: linear-gradient(135deg, #125426, #28a745) !important; color: white !important; border-radius: 50px; padding: 0.25rem 0.7rem; font-size: 0.75rem; font-weight: 700; box-shadow: 0 4px 10px rgba(40,167,69,0.35) !important; }
+.sim-src-badge.tamayoz { background: linear-gradient(135deg, #511c9c, #8b5cf6) !important; color: white !important; border-radius: 50px; padding: 0.25rem 0.7rem; font-size: 0.75rem; font-weight: 700; box-shadow: 0 4px 10px rgba(139,92,246,0.35) !important; }
 
 .sim-exam-entry-card .exam-card-start {
   margin-top: auto;
@@ -8694,14 +8929,14 @@ textarea.form-control {
   flex-shrink: 0;
   width: 42px; height: 42px;
   border-radius: 10px;
-  background: rgba(44,92,197,0.08);
-  color: var(--primary-color, #2c5cc5);
+  background: linear-gradient(135deg, #1a3a8f, #3d6ee0);
+  color: white;
   display: flex; align-items: center; justify-content: center;
   font-size: 1.15rem;
   transition: background 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(44,92,197,0.35);
 }
 .sim-subject-card:hover .sim-subj-icon-wrap {
-  background: rgba(44,92,197,0.14);
   transform: scale(1.08);
 }
 .sim-subj-info { flex: 1; min-width: 0; }
@@ -8722,14 +8957,18 @@ textarea.form-control {
 .sim-subj-dur i { font-size: 0.72rem; }
 .sim-subj-arrow {
   flex-shrink: 0;
-  color: var(--primary-color, #2c5cc5);
-  opacity: 0.4;
-  font-size: 0.85rem;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1a3a8f, #3d6ee0);
+  color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.75rem;
+  box-shadow: 0 4px 10px rgba(44,92,197,0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .sim-subject-card:hover .sim-subj-arrow {
-  opacity: 1;
   transform: translateX(-3px);
+  box-shadow: 0 6px 14px rgba(44,92,197,0.45);
 }
 .sim-exam-entry-card .exam-card-start i { font-size: 0.75rem; }
 
