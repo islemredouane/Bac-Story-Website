@@ -872,3 +872,37 @@ const simApp = {
 
 // Initialize the app
 simApp.init();
+
+
+// ─── FERGANI EXTRA EXAMS — مواضيع الأستاذ فرقاني ────────────────────────────────────
+(function attachFerganiExams() {
+    const pu  = id => `https://drive.google.com/file/d/${id}/preview`;
+    const fe  = (n, id) => ({ label: `موضوع للأستاذ فرقاني ${String(n).padStart(2,'0')}`, source: 'fergani', examUrl: pu(id),  solutionUrl: pu(id),  duration: null });
+    function gs(spec, name) { return examData[spec].subjects.find(s => s.name === name); }
+    function add(subj, arr) { if (subj) subj.extraExams = (subj.extraExams || []).concat(arr); }
+
+    const physFERGANI = [
+        fe(1, '15e7dlmGL4kZqByP7eWvfI14NtRbgVH9R'),
+        fe(2, '1Dn-glKKFNiqyNaPYv5dfj1166bRgj5Nd'),
+        fe(3, '1lUNErRvn0OoyZhvs1FxX0KjsjmaaZcuR'),
+        fe(4, '1ogIvK0QQTbNV3r49pdPBfKBBTXq-vm3V'),
+        fe(5, '1wfwtikTonJBjLJiUn6crVOONBodH9Sck'),
+        fe(6, '1WNUaYYskQM4dTW0w6BWhOsewJlDOxhRS'),
+        fe(7, '1MAR96F_dXw63bkMalONhGHxONb2sIKfY'),
+        fe(8, '1xk3-DVb1mKb9QRZ4CMEmrf5aK24TQNO1'),
+        fe(9, '1VCpFMy_1JK9MunUWV-Pz4XFz82iaDK_c'),
+        fe(10, '1HJAwDKVcwoaSDMakR1cLH6yzwAdk3nNC'),
+        fe(11, '1KfdPBq4hNbnU-bl0BMDWkK9DneTgpOKI'),
+        fe(12, '1m1lSmmw7tYB6CzVJCCvk-tj0UnbZKGe8'),
+        fe(13, '14hYXKFQUjNVaccLLHDkAFO9VcNcUSEh3'),
+        fe(14, '1dWbZEWszJ1Np1qvQOjZNodhkJCZhTvyL'),
+        fe(15, '1YM_mB9Zk3h-0lt3IQZjTGZQv8aSYMbcF'),
+        fe(16, '1E7JIPfYtvKnJryutQI0TGlfY6ywgVSHQ'),
+        fe(17, '1ZOs8iS6oi4wxGFSopIvxdkkpxCmX0b2K'),
+        fe(18, '1pSaccu_nOK_Vta10gaRFoVcM83hQZvAA'),
+        fe(19, '1PnPCaEO1SoVTbLKgmFhDclzeD217gJAP'),
+        fe(20, '10-HR5mQBAEBI8KRGwfSBt1b_Q1Q1Z7wv')
+    ];
+
+    ['math','science','tech_elec','tech_civil','tech_mech','tech_process'].forEach(sp => add(gs(sp,'العلوم الفيزيائية'), physFERGANI));
+}());
