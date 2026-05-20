@@ -127,6 +127,38 @@ function setupNavbarScroll() {
     }, { passive: true });
 }
 
+// ─── SCROLL TO TOP BUTTON ────────────────────────────────────────────────────
+function setupScrollToTop() {
+    if (document.getElementById('scrollTopBtn')) return;
+
+    const btn = document.createElement('button');
+    btn.id = 'scrollTopBtn';
+    btn.className = 'scroll-top-btn';
+    btn.setAttribute('title', 'scroll-btn');
+    btn.innerHTML = `
+        <i class="fas fa-chevron-up"></i>
+    `;
+    btn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    document.body.appendChild(btn);
+
+    function updateProgress() {
+        const scrollTop = window.scrollY;
+
+        if (scrollTop > 400) {
+            btn.classList.add('visible');
+        } else {
+            btn.classList.remove('visible');
+        }
+    }
+
+    // Run once on load
+    updateProgress();
+
+    window.addEventListener('scroll', updateProgress, { passive: true });
+}
+
 // ─── WITHIN-PAGE SECTION NAVIGATION ─────────────────────────────────────────
 // showSection is defined in script.js, but for pages that don't need it,
 // this is a no-op fallback.
@@ -666,6 +698,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupSearch();
     injectAdStrip();
     injectAdCards();
+    setupScrollToTop();
 
     // Handle hash-based section
     handleHashNav();
