@@ -251,11 +251,11 @@ const examData = {
     ['tech_elec','tech_civil','tech_mech','tech_process'].forEach(sp => add(gs(sp,'الرياضيات'), mathTECH_T));
 
     /* ── MATH: شعبة تسيير واقتصاد ───────────────────────────────────────── */
-    const mathMGMT_T = [nt(1,'1XRC4TggGA8aAUHYVl6K_TByM6AfPwLlY'),nt(2,'1B0b0bsEUda4-dsJ_GX9wt1LKWO5wVWb7'),nt(3,'1thkShk6ArJIC90Qh0a3pmCXUO4kbN-Qo'),nt(4,'13Z9vzMvvtD5lqq0OZ6Dy4PMsFdV7XXb_'),nt(5,'1bL0tMx3tkR2YyltQVESrWRCO7hPbZUFi'),nt(6,'1z6YtGKki7bbw_DM6vZBQ35LxwwfWjCvz'),nt(7,'1OfUS2Tceq3PW5el-f2IEf-Ajyxudg6Kh'),nt(8,'1KJnRn4FIQ4M21t_aoZxPUpFMze_byqLe'),nt(9,'1piBeZzBxw82p3sT_sgy4cOPxZaQX9FWV'),nt(10,'1CzPEtpoOyGnClm6LyPaE6yocCKss1fTq')];
+    const mathMGMT_T = [nt(1,'1XRC4TggGA8aAUHYVl6K_TByM6AfPwLlY'),nt(2,'1B0b0bsEUda4-dsJ_GX9wt1LKWO5wVWb7'),nt(3,'1thkShk6ArJIC90Qh0a3pmCXUO4kbN-Qo'),nt(4,'13Z9vzMvvtD5lqq0OZ6Dy4PMsFdV7XXb_'),nt(5,'1bL0tMx3tkR2YyltQVESrWRCO7hPbZUFi'),nt(6,'1z6YtGKki7bbw_DM6vZBQ35LxwwfWjCvz'),nt(7,'1OfUS2Tceq3PW5el-f2IEf-Ajyxudg6Kh'),nt(8,'1KJnRn4FIQ4M21t_aoZxPUpFMze_byqLe'),nt(9,'1piBeZzBxw82p3sT_sgy4cOPxZaQX9FWV'),nt(10,'1CzPEtpoOyGnClm6LyPaE6yocCKss1fTq'),nt(11,'1OT1_X-Eu1RGvy9i5jqcJW_FpTGT-QbkT'),nt(12,'1fhDxOlnd-YKMWLUTjm_xUlTwdC7vk4nP'),nt(13,'1H457RD-7W1Y_vaOsP8PHccfmLtIHSXUI'),nt(14,'1vuGLF3ecjgippM8e1PK2670PIv-LhrgI'),nt(15,'1TJMC51WTC3Svw222eyD4-LGbwd2oDWNo')];
     add(gs('management','الرياضيات'), mathMGMT_T);
 
     /* ── MATH: آداب + لغات ───────────────────────────────────────────────── */
-    const mathLIT_T = [nt(1,'1Z0BThIEeBVzSXPEyAlZuwyHr6YTEmozQ'),nt(2,'1rcH0-RNROx0OwLR8pF8Og0hU6oC3Ln_y'),nt(3,'1hunKpUmPPJkuIRx-uoeU33Q5FMJI1KxX'),nt(4,'12OlW1-csahSAnttdyCeXz1_jgiNU6NpF'),nt(5,'11pgFgemllPPm04vf4iHCRuXzXXNwBk_8'),nt(6,'1F6ndz6yE9LGWqZl1tB8qyk6pddjGgK2J'),nt(7,'1nBU0--2Efjdh4hiVtwBE6bl9MpxyJZgS'),nt(8,'1t69o8gKmLhB0VfWQnJtXGyWYSXPaQgeV')];
+    const mathLIT_T = [nt(1,'1Z0BThIEeBVzSXPEyAlZuwyHr6YTEmozQ'),nt(2,'1rcH0-RNROx0OwLR8pF8Og0hU6oC3Ln_y'),nt(3,'1hunKpUmPPJkuIRx-uoeU33Q5FMJI1KxX'),nt(4,'12OlW1-csahSAnttdyCeXz1_jgiNU6NpF'),nt(5,'11pgFgemllPPm04vf4iHCRuXzXXNwBk_8'),nt(6,'1F6ndz6yE9LGWqZl1tB8qyk6pddjGgK2J'),nt(7,'1nBU0--2Efjdh4hiVtwBE6bl9MpxyJZgS'),nt(8,'1t69o8gKmLhB0VfWQnJtXGyWYSXPaQgeV'),nt(9,'1P9HW9V-sKAqBrpxuU7ulOv23juJgW1eX')];
     ['literature','lang_german','lang_spanish','lang_italian'].forEach(sp => add(gs(sp,'الرياضيات'), mathLIT_T));
 
     /* ── NATURAL SCIENCES: علوم تجريبية ─────────────────────────────────── */
@@ -270,15 +270,15 @@ const examData = {
     add(gs('science','العلوم الفيزيائية'), [nt(1,'1y_H2Zca8sTjrkSk2aopr_no_8uKp0k3Z')]);
 
     /* ── ACCOUNTING: التسيير المحاسبي والمالي ─────────────────────────────── */
-    const acct_T = [nt(1,'1_JXKrLxiGfYL2cW4D8h0FLz5FOwpqlAY'),nt(2,'1K7XIZO_R-IkflAFItyix81Ju5x2vCioB'),nt(3,'1WTBt-h7IWGnvcHTr6Az-hKpW-LyTQWxC'),nt(4,'1EDIjGYn6RJ4fYcfHKITtKrFRWf2R3hyj'),nt(5,'1ovQie4xbfaqINdMRFWRm9XkOEHWHKt0V'),nt(6,'1yzjqe-SlOKvDgHarPZVwPDAmXghB7Dga'),nt(7,'1r4D62Dogu3CYx472iq2YpDCO1QNoT_j-')];
+    const acct_T = [nt(1,'1_JXKrLxiGfYL2cW4D8h0FLz5FOwpqlAY'),nt(2,'1K7XIZO_R-IkflAFItyix81Ju5x2vCioB'),nt(3,'1WTBt-h7IWGnvcHTr6Az-hKpW-LyTQWxC'),nt(4,'1EDIjGYn6RJ4fYcfHKITtKrFRWf2R3hyj'),nt(5,'1ovQie4xbfaqINdMRFWRm9XkOEHWHKt0V'),nt(6,'1yzjqe-SlOKvDgHarPZVwPDAmXghB7Dga'),nt(7,'1r4D62Dogu3CYx472iq2YpDCO1QNoT_j-'),nt(8,'10nW5lsTPNzrIM7d28ZJwmCclGuClSXY7')];
     add(gs('management','التسيير المحاسبي والمالي'), acct_T);
 
     /* ── ECONOMICS: الاقتصاد والمناجمنت ─────────────────────────────────── */
-    const econ_T = [nt(1,'1fnYWUun5Q4srWDHu7cvNgAFPS4V0uOBu'),nt(2,'1Zvr8NLgddBf776KEUz4GUtxa6MRA5tMf'),nt(3,'1tEEnKpyPF-Hj2NeVf5fBH-WV75t6kFUv'),nt(4,'11u39GXLGHzHtb5iRMbXs7DxD7BFtNSwL'),nt(5,'12cum1ZJLRxOB0e2IBYoXqhZ320TnKP8g'),nt(6,'1CA4M0QtTyR4kZRay5twe1ZjhxqWZhtXr'),nt(7,'1dIeeAOpAn0-lDFgwul98Hd9qxk8ZjaFZ'),nt(8,'1ZZ2Ng3lHLHuMBUXEeiQtA6uQWZ5L5t-j'),nt(9,'1BHLFYJnCqDQA72R3oL2pYG7yMQCfPzEp'),nt(10,'1QHRog82xfj88we3cd9f0ZY0GsMq9fXlV'),nt(11,'1-pOXY7SqsQbmDH57q-tmimKMZWN_wPLi'),nt(12,'1Il9QdTQwJz2jYeEkcQknynFyt5gO0t8d'),nt(13,'1AWOsZnDD7GZGpbishuRFRB2Ra3rkxj54'),nt(14,'1OSRlUzMaLSwUOknYVeoPBDc-PilEMZqL'),nt(15,'16CpK5I5l720BDefRVgHCVOunr_H_zZ7J'),nt(16,'1HHnkFrXVnTJUBYhJ2r6H61ZlP6m1PMl_')];
+    const econ_T = [nt(1,'1fnYWUun5Q4srWDHu7cvNgAFPS4V0uOBu'),nt(2,'1Zvr8NLgddBf776KEUz4GUtxa6MRA5tMf'),nt(3,'1tEEnKpyPF-Hj2NeVf5fBH-WV75t6kFUv'),nt(4,'11u39GXLGHzHtb5iRMbXs7DxD7BFtNSwL'),nt(5,'12cum1ZJLRxOB0e2IBYoXqhZ320TnKP8g'),nt(6,'1CA4M0QtTyR4kZRay5twe1ZjhxqWZhtXr'),nt(7,'1dIeeAOpAn0-lDFgwul98Hd9qxk8ZjaFZ'),nt(8,'1ZZ2Ng3lHLHuMBUXEeiQtA6uQWZ5L5t-j'),nt(9,'1BHLFYJnCqDQA72R3oL2pYG7yMQCfPzEp'),nt(10,'1QHRog82xfj88we3cd9f0ZY0GsMq9fXlV'),nt(11,'1-pOXY7SqsQbmDH57q-tmimKMZWN_wPLi'),nt(12,'1Il9QdTQwJz2jYeEkcQknynFyt5gO0t8d'),nt(13,'1AWOsZnDD7GZGpbishuRFRB2Ra3rkxj54'),nt(14,'1OSRlUzMaLSwUOknYVeoPBDc-PilEMZqL'),nt(15,'16CpK5I5l720BDefRVgHCVOunr_H_zZ7J'),nt(16,'1HHnkFrXVnTJUBYhJ2r6H61ZlP6m1PMl_'),nt(17,'12CCpNf1rmHCZWFdKW8j9dAk4K37eUVSZ')];
     add(gs('management','الاقتصاد والمناجمنت'), econ_T);
 
     /* ── LAW: القانون ────────────────────────────────────────────────────── */
-    const law_T = [nt(1,'1L0HfzMxwqUcQ0xFM1ye65MiwVpBxd-_v'),nt(2,'1BS5owyIgSnzwh42kWoahxR163X1CjHUP'),nt(3,'1X48UCiRBse1KyL8UWm72ZkZgH-IO4KCk'),nt(4,'1aCipOD5PTiCjHROruGqET9ArIgx_7xu6'),nt(5,'12U2W5CU6nmUcv3yXqJYO6lNR7NmBTZcu'),nt(6,'1EIB5Pgn2KyC7puH9uJql6utvOVl4gJlB'),nt(7,'1CzT58GDUlVo4CwukIy8Tt-EIgOkSKMs3'),nt(8,'18r2NDYE85xvv9aXpDHsD7heX6dCD-Toc'),nt(9,'1t0K5KghqeVNeyLNC1f_JknkWO1pFITZr'),nt(10,'1956YWjWBKiKRtDKYgHk5YD3cmj0wjYxV'),nt(11,'17Ljp3FQEYDkFMUPOJ9iIOMRSUjcRG7vn'),nt(12,'1DTu_9DJOsv-BRlbQAa2zlhETdYhuhn1F')];
+    const law_T = [nt(1,'1L0HfzMxwqUcQ0xFM1ye65MiwVpBxd-_v'),nt(2,'1BS5owyIgSnzwh42kWoahxR163X1CjHUP'),nt(3,'1X48UCiRBse1KyL8UWm72ZkZgH-IO4KCk'),nt(4,'1aCipOD5PTiCjHROruGqET9ArIgx_7xu6'),nt(5,'12U2W5CU6nmUcv3yXqJYO6lNR7NmBTZcu'),nt(6,'1EIB5Pgn2KyC7puH9uJql6utvOVl4gJlB'),nt(7,'1CzT58GDUlVo4CwukIy8Tt-EIgOkSKMs3'),nt(8,'18r2NDYE85xvv9aXpDHsD7heX6dCD-Toc'),nt(9,'1t0K5KghqeVNeyLNC1f_JknkWO1pFITZr'),nt(10,'1956YWjWBKiKRtDKYgHk5YD3cmj0wjYxV'),nt(11,'17Ljp3FQEYDkFMUPOJ9iIOMRSUjcRG7vn'),nt(12,'1DTu_9DJOsv-BRlbQAa2zlhETdYhuhn1F'),nt(13,'1hU_dY38gMBmMFffpiuPWbv52DULtGe58')];
     add(gs('management','القانون'), law_T);
 
     /* ── ARABIC: math+science+tech+management ────────────────────────────── */
@@ -286,7 +286,7 @@ const examData = {
     ['math','science','tech_elec','tech_civil','tech_mech','tech_process','management'].forEach(sp => add(gs(sp,'اللغة العربية'), arabicSCI_T));
 
     /* ── ARABIC: آداب + لغات ─────────────────────────────────────────────── */
-    const arabicLIT_T = [nt(1,'15EYx_fyyvqI6dZsCrZN21atkxJUTnh-A'),nt(2,'1r9BA7YHxNVwYY0b_a3efj2RsRxaUjcI0'),nt(3,'1-Y0liJORwidXeQue6Sw4989i5cd6en8S'),nt(4,'1PSirtHjxyzziXZbyRDrlU0STrLzHJBA2'),nt(5,'1u6TH9B6Uc9bZ9TGJ3dU4fl9HPpc4fwtO'),nt(6,'1MojwPfb1vFLIa5kODVM5yvy5QRYt8HlD'),nt(7,'1V5I8Uc2mBSRWccVYNCCw_XiGS69i9JyT'),nt(8,'1Kmpo8Cg8TWE_ZkTLbYmvu1lsfoSB83WL'),nt(9,'1EGigPdd3fN0vKH-rxpFa80jTQzXCIpAZ')];
+    const arabicLIT_T = [nt(1,'15EYx_fyyvqI6dZsCrZN21atkxJUTnh-A'),nt(2,'1r9BA7YHxNVwYY0b_a3efj2RsRxaUjcI0'),nt(3,'1-Y0liJORwidXeQue6Sw4989i5cd6en8S'),nt(4,'1PSirtHjxyzziXZbyRDrlU0STrLzHJBA2'),nt(5,'1u6TH9B6Uc9bZ9TGJ3dU4fl9HPpc4fwtO'),nt(6,'1MojwPfb1vFLIa5kODVM5yvy5QRYt8HlD'),nt(7,'1V5I8Uc2mBSRWccVYNCCw_XiGS69i9JyT'),nt(8,'1Kmpo8Cg8TWE_ZkTLbYmvu1lsfoSB83WL'),nt(9,'1EGigPdd3fN0vKH-rxpFa80jTQzXCIpAZ'),nt(10,'1zM4aa5LngREWjLnhuJdq0gvA0qrepDSa'),nt(11,'1KI1_vG_9YvoouoGxt1l18R6bLkpV6Ywt'),nt(12,'1g0RLtgvZihznFRXgqCGsx0ftjEBvXZqT')];
     ['literature','lang_german','lang_spanish','lang_italian'].forEach(sp => add(gs(sp,'اللغة العربية'), arabicLIT_T));
 
     /* ── FRENCH: ALL specialties ──────────────────────────────────────────── */
@@ -298,7 +298,7 @@ const examData = {
     ['math','science','tech_elec','tech_civil','tech_mech','tech_process','management'].forEach(sp => add(gs(sp,'اللغة الإنجليزية'), englishSCI_T));
 
     /* ── ENGLISH: آداب + لغات ────────────────────────────────────────────── */
-    const englishLIT_T = [nt(1,'1eaJa6Tw44Vat_bx8IYhTk0t3vU0Fu8u8')];
+    const englishLIT_T = [nt(1,'1eaJa6Tw44Vat_bx8IYhTk0t3vU0Fu8u8'),nt(2,'1vT5Yd-v1uEGicY_r87Up1vRGkFqipFVT'),nt(3,'1syHjts3Mg-WGwn_2vgZwH-5XkBWTLJYd'),nt(4,'1moMCO-wijbLSbJzjj-4HBbCS45T_ZALI'),nt(5,'1i4yv54qCt7DBDksS46bF4bg8VD4v42Iy'),nt(6,'19giGAYXowGTZcRuZ8e4h0TWSLJRXYLC9'),nt(7,'1S572huiBfF2o9_KbI5FX0C-a7sAHw9mJ'),nt(8,'1PHU-7I3xLt7-_CQYfoJQw-Ntfe0XvIHP')];
     ['literature','lang_german','lang_spanish','lang_italian'].forEach(sp => add(gs(sp,'اللغة الإنجليزية'), englishLIT_T));
 
     /* ── HISTORY/GEO: math+science+tech+languages ────────────────────────── */
@@ -381,7 +381,7 @@ const examData = {
     /* ── TAMAYOZ: English ────────────────────────────────────────────────── */
     const enSciTech = ['1aKmeqtqo7FpjHEt5peWVETKsL2M0GhOS','1JRUFRrLlr0uyZV_AcoF1BqkLvHwYkogi','1STX0J94qa4pldlM5shgcZT6A2v3fuKg2','13fRbSFepFF8JjGahqQS3GCtXYQHXBNR4','1oQSZsvj_zYUjtFJpaZSrkmUmJ6nQ_4hZ','1WeM6ijkTy8qkgzTv4psIAsARTG7DIB5w','1weU3nYvRfjay7K68U70chgS6-ivlS006','1fcIWnX2lNv2sVYsZ0OuReXcaYsNO8cMO','1LZs1rVq6heb7fzIgU2GcFkonlK98NAmi','1MVHBz_1SxIbPgDSHnQFYh1mFz0QQMUEC','1hJ_QYNlii80O-gDDzdufh48hsGNm8eyp','1QLQ6XUAZOnv2V-Agmhf6TS1r7YYmU_X6','1E6Iab48I3eOceNmUXpFIlvyshtWJtBGH','1jdsUzcJV-ET2iXqgscwj8D1jxNZIff0V','1O11qjtx4No1Xk4piJWp7a6KjSUHtQ4Xa','1j7VCI0Ze9vi2blHrspxcrJVZEI3gGjnj','1tqhPYaoaKF6VockWYCeq3K5fpTimTQ00','1-nKSAulFNyMBLgKfvH9WMaEtKTO9cfMq','1dEa5dAR8ClY5paeBVTHAdtC1NQOj-i1n','1BHzV9S0mWAZQtWEJDwlIbxN6AVUasRTg','1r_GHqXWGtxFRvzaxazqZHqquvi146W0t'].map((id,i)=>te(i+1,id));
     ['math','science','tech_elec','tech_civil','tech_mech','tech_process','management'].forEach(sp => append(gs(sp,'اللغة الإنجليزية'), enSciTech));
-    ['literature','lang_german','lang_spanish','lang_italian'].forEach(sp => append(gs(sp,'اللغة الإنجليزية'), [te(1,'1eaJa6Tw44Vat_bx8IYhTk0t3vU0Fu8u8')]));
+    // English for literature/lang already fully handled by englishLIT_T in attachTamayozExams
 
     /* ── TAMAYOZ: History & Geography ───────────────────────────────────── */
     const hgSciTech = ['1SnUA79nQiYHWLvKYhnZw09Uc3vioD4gW','13sHXeRVzVrM8lryyLquhreMUrYsdgrek','1DAH1c5uCDtNcp_w_xB36C2LlB3HYBSwx','1Z71tt9Ba1HhBQWfpCO87_PFoy37tEXI4','1F6yK-8LBAZuoLnnxRgTRrR6dhiBizokS','1IX3XPc_x6WhK2FtOP3AUBc2w2m-OCvko','11apIPoCodL1oS87EizwsRuuN1813Gtui','1rQ_o1QWtmFGvrj-v6bG7bgDQGDbVNnd6','18sfA3z0TTcF4BLfx-X2uUOUY2Jz5RcwX'].map((id,i)=>te(i+1,id));
