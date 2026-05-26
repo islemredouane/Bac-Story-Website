@@ -179,6 +179,157 @@ if (typeof window.showSection === 'undefined') {
     };
 }
 
+// ─── ISLAMIC WELCOME CARD ────────────────────────────────────────────────────
+const WELCOME_KEY = 'bs_seen_islamic_welcome_v1';
+
+function showIslamicWelcomeModal() {
+    if (localStorage.getItem(WELCOME_KEY)) {
+        // Already seen, proceed with the simulation announcement check after 800ms
+        setTimeout(showAnnouncementModal, 800);
+        return;
+    }
+
+    // Dynamic Loading of the CSS stylesheet
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = '/islamic-welcome.css';
+    document.head.appendChild(link);
+
+    // Create the HTML overlay structure
+    const overlay = document.createElement('div');
+    overlay.id = 'islamic-welcome-overlay';
+    overlay.className = 'islamic-overlay';
+
+    // Golden Lantern SVGs with elegant designs
+    const lanternSVGLeft = `
+        <svg class="islamic-lantern islamic-lantern-left" viewBox="0 0 100 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="50" y1="0" x2="50" y2="40" stroke="#bf953f" stroke-width="2.5"/>
+            <!-- Ring -->
+            <circle cx="50" cy="46" r="6" stroke="#bf953f" stroke-width="2.5"/>
+            <!-- Top Cap -->
+            <path d="M50 56 L35 76 L65 76 Z" fill="url(#gold-grad)"/>
+            <!-- Glass Body -->
+            <path d="M35 76 L40 126 L60 126 L65 76 Z" fill="rgba(255, 215, 0, 0.15)" stroke="#bf953f" stroke-width="2.5"/>
+            <!-- Inner Light Glow -->
+            <circle cx="50" cy="101" r="14" fill="#ffd54f" opacity="0.35" filter="blur(4px)"/>
+            <circle cx="50" cy="101" r="6" fill="#ffffff" opacity="0.9"/>
+            <!-- Bottom Cap -->
+            <path d="M38 126 L30 136 L70 136 L62 126 Z" fill="url(#gold-grad)"/>
+            <!-- Tassel hanging -->
+            <line x1="50" y1="136" x2="50" y2="166" stroke="#bf953f" stroke-width="2"/>
+            <circle cx="50" cy="170" r="4" fill="#bf953f"/>
+        </svg>
+    `;
+
+    const lanternSVGRight = `
+        <svg class="islamic-lantern islamic-lantern-right" viewBox="0 0 100 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="50" y1="0" x2="50" y2="40" stroke="#bf953f" stroke-width="2.5"/>
+            <!-- Ring -->
+            <circle cx="50" cy="46" r="6" stroke="#bf953f" stroke-width="2.5"/>
+            <!-- Top Cap -->
+            <path d="M50 56 L35 76 L65 76 Z" fill="url(#gold-grad)"/>
+            <!-- Glass Body -->
+            <path d="M35 76 L40 126 L60 126 L65 76 Z" fill="rgba(255, 215, 0, 0.15)" stroke="#bf953f" stroke-width="2.5"/>
+            <!-- Inner Light Glow -->
+            <circle cx="50" cy="101" r="14" fill="#ffd54f" opacity="0.35" filter="blur(4px)"/>
+            <circle cx="50" cy="101" r="6" fill="#ffffff" opacity="0.9"/>
+            <!-- Bottom Cap -->
+            <path d="M38 126 L30 136 L70 136 L62 126 Z" fill="url(#gold-grad)"/>
+            <!-- Tassel hanging -->
+            <line x1="50" y1="136" x2="50" y2="166" stroke="#bf953f" stroke-width="2"/>
+            <circle cx="50" cy="170" r="4" fill="#bf953f"/>
+        </svg>
+    `;
+
+    // Islamic Ornamental Divider SVG
+    const dividerSVG = `
+        <svg viewBox="0 0 200 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#bf953f" />
+                    <stop offset="25%" stop-color="#fcf6ba" />
+                    <stop offset="50%" stop-color="#b38728" />
+                    <stop offset="75%" stop-color="#fbf5b7" />
+                    <stop offset="100%" stop-color="#aa771c" />
+                </linearGradient>
+            </defs>
+            <!-- Left scroll line -->
+            <path d="M15 10 Q 55 2, 90 10" stroke="url(#gold-grad)" stroke-width="1.5" fill="none"/>
+            <!-- Right scroll line -->
+            <path d="M185 10 Q 145 2, 110 10" stroke="url(#gold-grad)" stroke-width="1.5" fill="none"/>
+            <!-- Central Star/Ornament -->
+            <path d="M100 2 L103 8 L109 10 L103 12 L100 18 L97 12 L91 10 L97 8 Z" fill="url(#gold-grad)"/>
+            <circle cx="83" cy="10" r="2.5" fill="url(#gold-grad)"/>
+            <circle cx="117" cy="10" r="2.5" fill="url(#gold-grad)"/>
+            <circle cx="73" cy="10" r="1.5" fill="url(#gold-grad)"/>
+            <circle cx="127" cy="10" r="1.5" fill="url(#gold-grad)"/>
+        </svg>
+    `;
+
+    overlay.innerHTML = `
+        <div class="islamic-card">
+            <div class="islamic-card-pattern"></div>
+            ${lanternSVGLeft}
+            ${lanternSVGRight}
+            
+            <div class="islamic-decor-top">۞</div>
+            
+            <h3 class="islamic-welcome-title">دعاء يوم عرفة</h3>
+            
+            <p class="islamic-welcome-dua">
+                رزقكم اللّه فرداً فرداً أعلى المعدلات، و وفقكم لدراسة التخصصات التي تتمنوها، و أسأل الله أن يسخركم لإفادة أهاليكم و المجتمع و الأُمّة بها🤲🏻🤍
+            </p>
+            
+            <div class="islamic-divider-ornament">
+                ${dividerSVG}
+            </div>
+            
+            <div class="islamic-welcome-request">
+                ضُمّوا اِسمي بين دعواتِكم.. 
+                <span class="highlight-parentheses">لعلَّ دعوةً منكُم تُمطِرُ عليّ خيراً وتوفيقاً وفرحاً بما أتمناه (و خاصة دعوة باه نطلع العام).</span>
+                <br>
+                لاتحرِموني مِن أيّ دعوةٍ لطيفة ولكُم مني أَضعافُ مادعوتُم إن شاء الله.🤍
+                <strong class="islamic-welcome-amin">لا رَدَّ الله لنا ولكُم دُعاء آمين ياربّ العالمين.</strong>
+            </div>
+            
+            <button class="islamic-welcome-btn" id="islamicWelcomeBtn">
+                آمين يارب العالمين 🤲🏻
+            </button>
+        </div>
+    `;
+
+    document.body.appendChild(overlay);
+
+    // Prevent body scrolling
+    document.body.style.overflow = 'hidden';
+
+    // Fade in
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            overlay.classList.add('is-visible');
+        });
+    });
+
+    const closeBtn = document.getElementById('islamicWelcomeBtn');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            // Write to localStorage
+            localStorage.setItem(WELCOME_KEY, '1');
+            
+            // Fade out
+            overlay.classList.add('fade-out');
+            
+            // Restore scrolling
+            document.body.style.overflow = '';
+            
+            // Clean up DOM after transition
+            setTimeout(() => {
+                if (overlay.parentNode) overlay.remove();
+            }, 600);
+        });
+    }
+}
+
 // ─── ANNOUNCEMENT — SIMULATION BOTTOM SHEET ──────────────────────────────────
 // Bump suffix (v2, v3…) to re-show for all users on next update
 const ANNOUNCE_KEY = 'bs_simulation_v1';
@@ -713,8 +864,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Hide loader
     hideLoader();
 
-    // Show one-time announcement modal (800ms after loader — feels intentional, not jarring)
-    setTimeout(showAnnouncementModal, 800);
+    // Show premium one-time Islamic welcome modal (800ms after loader)
+    setTimeout(showIslamicWelcomeModal, 800);
 
     // Register Service Worker for PWA / Shortcut functionality
     if ('serviceWorker' in navigator) {
