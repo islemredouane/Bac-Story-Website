@@ -318,13 +318,13 @@ const examData = {
     ['math','science','tech_elec','tech_civil','tech_mech','tech_process','management','literature','lang_german','lang_spanish','lang_italian'].forEach(sp => add(gs(sp,'العلوم الإسلامية'), islamicALL_T));
 
     /* ── GERMAN ──────────────────────────────────────────────────────────── */
-    add(gs('lang_german','اللغة الألمانية'), [nt(1,'1kru-2bvSib3laiBrFQs4rKToXpZy43O4'),nt(2,'14ATmj_Mh3Rc4ljUy4EKw4TJ_I3uT25ec'),nt(3,'1EzHShz4PzdPvvK8BIy2y-M-9iUdjIt1f'),nt(4,'1qTQXIsIGAFQo3WvC6MelNAP4USGSzt8p'),nt(5,'1GrkzkMJQ-peWOS-yCD5sj6uefVQHe3YL')]);
+    add(gs('lang_german','اللغة الألمانية'), [nt(1,'1kru-2bvSib3laiBrFQs4rKToXpZy43O4'),nt(2,'14ATmj_Mh3Rc4ljUy4EKw4TJ_I3uT25ec'),nt(3,'1EzHShz4PzdPvvK8BIy2y-M-9iUdjIt1f'),nt(4,'1qTQXIsIGAFQo3WvC6MelNAP4USGSzt8p'),nt(5,'1GrkzkMJQ-peWOS-yCD5sj6uefVQHe3YL'),nt(6,'1-VjX3fMYUbdywdZ1URn80fZ-jZwgc4A4'),nt(7,'10APiNszJgSenkb8l60bc1lsrSvJsnk-x'),nt(8,'1ykuGnHSSOichWwq-0ilHYSVT9vU3YTe1'),nt(9,'1Kcfa8rXzw-27aie7Jr0BFPo3j0zQOU6Q'),nt(10,'1PyJbs1wOyQ1oC-fjP3oMI15Gql8z3up_'),nt(11,'1jO7qP4YBFK2L4oCptAsUSn_pAKgKipUc')]);
 
     /* ── SPANISH ─────────────────────────────────────────────────────────── */
-    add(gs('lang_spanish','اللغة الإسبانية'), [nt(1,'1Q62BpqZXNEAsgz1bDxP4vbPq127C2pBL'),nt(2,'17zY4ZHwTv5O1QJd2DfkGkaeB-vN62eLI'),nt(3,'1P6dlCb2qDybEOONB0-GatkTCMQ89349T'),nt(4,'10QRfz8R6M6LjrUxU0m4LK60azlayOPAQ'),nt(5,'1UYwXo3MZe1nReMCZAd0I2nJNZX5x_-wT')]);
+    add(gs('lang_spanish','اللغة الإسبانية'), [nt(1,'1Q62BpqZXNEAsgz1bDxP4vbPq127C2pBL'),nt(2,'17zY4ZHwTv5O1QJd2DfkGkaeB-vN62eLI'),nt(3,'1P6dlCb2qDybEOONB0-GatkTCMQ89349T'),nt(4,'10QRfz8R6M6LjrUxU0m4LK60azlayOPAQ'),nt(5,'1UYwXo3MZe1nReMCZAd0I2nJNZX5x_-wT'),nt(6,'1nGD_yuGj2aHkVxEdPRWAyk5B9sbvCPnK'),nt(7,'1dIc3wBGb23ar-6m3K6EIlYyE0YVRjGkT'),nt(8,'1y0b5EnIVLD_GDEqtwrAGmlAru4AiTyEs'),nt(9,'1aaNgNzdI1UmBdVA5DPjFlmudoNiSZrPO')]);
 
     /* ── ITALIAN ─────────────────────────────────────────────────────────── */
-    add(gs('lang_italian','اللغة الإيطالية'), [nt(1,'1x4EqWbp8fPnON8qYqXBRhrfapns_GRHg'),nt(2,'16-gQM6nH6vT0rCGBkhby-ZQHiSyJLTPx')]);
+    add(gs('lang_italian','اللغة الإيطالية'), [nt(1,'1x4EqWbp8fPnON8qYqXBRhrfapns_GRHg'),nt(2,'16-gQM6nH6vT0rCGBkhby-ZQHiSyJLTPx'),nt(3,'1HoXJEnfP8IUU_CKw6cv6eYcixY8Fkqto')]);
 
 }());
 
@@ -396,10 +396,6 @@ const examData = {
     const islTZ = ['1_4LlyR7qVfUiYE_zfoKDqV8Q_derSIcp','1gYtlt1aUcZ7xloyaL4xhGsvcfYGHursw','10QQ88JyvRg46FONeGypltoIvxOoD5liF','1sS5TMP_4JGlPbuvu5nWuMClleFMKsCUS','1vr4VYp2zKLgHFZjbG27Ig2BXsILCpHjn','1zAa0vdcXWNxHnlY-0ZUT__zNh5_TSvaI','1Nf9X43iSDcqzSHUlDL_DGHJSG7AcrXBv','1QukpQR5nNrOdzWOOVWPlJDsK1FVDcdWh','1ekysoTAQYS5XC_K9B3iokEcgkQJQHfS_','1bh3kMRmYuxDWeKwa9nBA8H1zSc83lX6b','1tgH-41Hc5rLDUrF8iBWfIA7gUvsb2jOP','1pNKm-ALBM2s_eURZWg2oBxX_mYsdbrSu','1JkpWPC85v-uu2gU6FOZo4Zubt1NKQPux','1J4Xe9WgtIOdWBS0_5w859TfDRMTp7i6d','10s8v7EeKdl5LcFfVNyfytt9h1ucPNa3l','1oU_qHM8aXp_sKbZzOchmojOxvQqY45zq','1YFUfW5xjcR2fTkmw90HkfeY9XBOsU7TD','1Fp1gLFJmlc0hFEB_wzvJPvEr4MQR92KW','1o9a6SJw6oGv-IpVhT_Rv3IEx3UUQOaEz','1ZnGoEZbD7e6AFcL0f-VOURyYdnf9wiOz','1-4reM8V4fs4vMSxdoQIFC-2uwAr_5Xt0','1LOhaYDNjH6m40sIaICBW_T96DNVMIJ2E'].map((id,i)=>te(i+1,id));
     ['math','science','tech_elec','tech_civil','tech_mech','tech_process','management','literature','lang_german','lang_spanish','lang_italian'].forEach(sp => append(gs(sp,'العلوم الإسلامية'), islTZ));
 
-    /* ── TAMAYOZ: German / Spanish / Italian ─────────────────────────────── */
-    append(gs('lang_german','اللغة الألمانية'),   ['1kru-2bvSib3laiBrFQs4rKToXpZy43O4','14ATmj_Mh3Rc4ljUy4EKw4TJ_I3uT25ec','1EzHShz4PzdPvvK8BIy2y-M-9iUdjIt1f','1qTQXIsIGAFQo3WvC6MelNAP4USGSzt8p','1GrkzkMJQ-peWOS-yCD5sj6uefVQHe3YL'].map((id,i)=>te(i+1,id)));
-    append(gs('lang_spanish','اللغة الإسبانية'), ['1Q62BpqZXNEAsgz1bDxP4vbPq127C2pBL','17zY4ZHwTv5O1QJd2DfkGkaeB-vN62eLI','1P6dlCb2qDybEOONB0-GatkTCMQ89349T','10QRfz8R6M6LjrUxU0m4LK60azlayOPAQ','1UYwXo3MZe1nReMCZAd0I2nJNZX5x_-wT'].map((id,i)=>te(i+1,id)));
-    append(gs('lang_italian','اللغة الإيطالية'), ['1x4EqWbp8fPnON8qYqXBRhrfapns_GRHg','16-gQM6nH6vT0rCGBkhby-ZQHiSyJLTPx'].map((id,i)=>te(i+1,id)));
 
     /* ── Renumber all extraExams sequentially so labels never repeat ──────── */
     Object.values(examData).forEach(spec =>
