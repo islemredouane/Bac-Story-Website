@@ -272,28 +272,20 @@ function showIslamicWelcomeModal() {
             ${lanternSVGLeft}
             ${lanternSVGRight}
             
-            <div class="islamic-decor-top">۞</div>
+            <div class="islamic-decor-top">🌙</div>
             
-            <h3 class="islamic-welcome-title">دعاء يوم عرفة</h3>
-            
-            <p class="islamic-welcome-dua">
-                رزقكم اللّه فرداً فرداً أعلى المعدلات، و وفقكم لدراسة التخصصات التي تتمنوها، و أسأل الله أن يسخركم لإفادة أهاليكم و المجتمع و الأُمّة بها🤲🏻🤍
-            </p>
+            <h3 class="islamic-welcome-title">عيد أضحى مبارك أصدقائي 🤍</h3>
             
             <div class="islamic-divider-ornament">
                 ${dividerSVG}
             </div>
             
-            <div class="islamic-welcome-request">
-                ضُمّوا اِسمي بين دعواتِكم.. 
-                <span class="highlight-parentheses">لعلَّ دعوةً منكُم تُمطِرُ عليّ خيراً وتوفيقاً وفرحاً بما أتمناه (و خاصة دعوة باه نطلع العام).</span>
-                <br>
-                لاتحرِموني مِن أيّ دعوةٍ لطيفة ولكُم مني أَضعافُ مادعوتُم إن شاء الله.🤍
-                <strong class="islamic-welcome-amin">لا رَدَّ الله لنا ولكُم دُعاء آمين ياربّ العالمين.</strong>
-            </div>
+            <p class="islamic-welcome-dua">
+                كل عام و أنتم بخير، تقبَّل اللّه مِنّا و منكم صالح الأعمال، و غفر لنا ولكم 🤲🏻
+            </p>
             
             <button class="islamic-welcome-btn" id="islamicWelcomeBtn">
-                آمين يارب العالمين 🤲🏻
+                تقبَّل الله منّا ومنكم 🤍
             </button>
         </div>
     `;
