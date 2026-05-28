@@ -254,11 +254,11 @@ const examData = {
     // Note: mathTECH_T Tamayoz exams removed as requested.
 
     /* ── MATH: شعبة تسيير واقتصاد ───────────────────────────────────────── */
-    const mathMGMT_T = [nt(1,'1XRC4TggGA8aAUHYVl6K_TByM6AfPwLlY'),nt(2,'1B0b0bsEUda4-dsJ_GX9wt1LKWO5wVWb7'),nt(3,'1thkShk6ArJIC90Qh0a3pmCXUO4kbN-Qo'),nt(4,'13Z9vzMvvtD5lqq0OZ6Dy4PMsFdV7XXb_'),nt(5,'1bL0tMx3tkR2YyltQVESrWRCO7hPbZUFi'),nt(6,'1z6YtGKki7bbw_DM6vZBQ35LxwwfWjCvz'),nt(7,'1OfUS2Tceq3PW5el-f2IEf-Ajyxudg6Kh'),nt(8,'1KJnRn4FIQ4M21t_aoZxPUpFMze_byqLe'),nt(9,'1piBeZzBxw82p3sT_sgy4cOPxZaQX9FWV'),nt(10,'1CzPEtpoOyGnClm6LyPaE6yocCKss1fTq'),nt(11,'1OT1_X-Eu1RGvy9i5jqcJW_FpTGT-QbkT'),nt(12,'1fhDxOlnd-YKMWLUTjm_xUlTwdC7vk4nP'),nt(13,'1H457RD-7W1Y_vaOsP8PHccfmLtIHSXUI'),nt(14,'1vuGLF3ecjgippM8e1PK2670PIv-LhrgI'),nt(15,'1TJMC51WTC3Svw222eyD4-LGbwd2oDWNo')];
+    const mathMGMT_T = [nt(1,'1TuVVqudw4eFaXELMRFJ_qVwWXb5Sp0LT'),nt(2,'1cgI8t4uX8MdZaSRarQdcFJfRofl-BYW7'),nt(3,'1atka8hJVqDX300fHybcLP2_2CDUJkGVG'),nt(4,'1u3YeFMsxZylkM8_rYE1PIRnuVnWBhWCI'),nt(5,'1d32XyCrNRBYBuL0sk4GEBgl-ORBbmcw4'),nt(6,'1E1E-XWiDbSL3DogjhO6wdy511XkUvKu0'),nt(7,'1pn3YdRgHh2-eSc2GX8t1BKFRXgrTmcaI'),nt(8,'1v-3OyF4Pi1d1ofZLDj--ig6IXxBiWUdo'),nt(9,'1mlYVwCfmFlj4UhDM4on93HiEIa6naDTB'),nt(10,'1cUdivD2vcCgAYsNfWdZCR3rhq7pH3klR'),nt(11,'1ncCOvpqYLvB79wZBkPqRoh12zmBq9hMD'),nt(12,'1NzSn-N6HVPrWKnhWMqaqxU6tpCAaVBFS'),nt(13,'1LPUKjpL654Bus1S-c9HVmgHLmfCfwc1G'),nt(14,'1BKyqJuLsZ4qoDZY3ff0muqvvFpPhz7yg'),nt(15,'1wu8Xoz5wenuqKm53vv6ob4gGWjgQATUd'),nt(16,'1XGRvA3yJ2cg2u82Yv0r2yOXWsqZAOnP0'),nt(17,'1vNBm5rWpCJEvgOJnK5R4Ew3IvarjMaFD'),nt(18,'1pmlac12cXzQRBDB2BsPCn_I1lu0NrkCA'),nt(19,'12jnv0xL46ug335eotH66ebDmu3w4tb78'),nt(20,'1gjHnVDHyABOpcUC-aZqPnj1WpgKN0mGE')];
     add(gs('management','الرياضيات'), mathMGMT_T);
 
     /* ── MATH: آداب + لغات ───────────────────────────────────────────────── */
-    const mathLIT_T = [nt(1,'1Z0BThIEeBVzSXPEyAlZuwyHr6YTEmozQ'),nt(2,'1rcH0-RNROx0OwLR8pF8Og0hU6oC3Ln_y'),nt(3,'1hunKpUmPPJkuIRx-uoeU33Q5FMJI1KxX'),nt(4,'12OlW1-csahSAnttdyCeXz1_jgiNU6NpF'),nt(5,'11pgFgemllPPm04vf4iHCRuXzXXNwBk_8'),nt(6,'1F6ndz6yE9LGWqZl1tB8qyk6pddjGgK2J'),nt(7,'1nBU0--2Efjdh4hiVtwBE6bl9MpxyJZgS'),nt(8,'1t69o8gKmLhB0VfWQnJtXGyWYSXPaQgeV'),nt(9,'1P9HW9V-sKAqBrpxuU7ulOv23juJgW1eX')];
+    const mathLIT_T = [nt(1,'1Z0BThIEeBVzSXPEyAlZuwyHr6YTEmozQ'),nt(2,'1rcH0-RNROx0OwLR8pF8Og0hU6oC3Ln_y'),nt(3,'1hunKpUmPPJkuIRx-uoeU33Q5FMJI1KxX'),nt(4,'12OlW1-csahSAnttdyCeXz1_jgiNU6NpF'),nt(5,'11pgFgemllPPm04vf4iHCRuXzXXNwBk_8'),nt(6,'1F6ndz6yE9LGWqZl1tB8qyk6pddjGgK2J'),nt(7,'1nBU0--2Efjdh4hiVtwBE6bl9MpxyJZgS'),nt(8,'1t69o8gKmLhB0VfWQnJtXGyWYSXPaQgeV'),nt(9,'1P9HW9V-sKAqBrpxuU7ulOv23juJgW1eX'),nt(10,'1CI1SYHruxXTTkkAZ5-ybq6iD2u3jYDPv'),nt(11,'1z9WSXudHXuHkQGlMJrH-YSI8HJMlPqAh'),nt(12,'1W6aNum0TepX8V1FhvCt5Xc94dCu4vNzd'),nt(13,'15EFQAO2OjtIHf7PJoiX4PqX99fyU07mW'),nt(14,'1fNUDZUuVjtC3WHTQ4Sy2CHFyQ2-L7RnX'),nt(15,'1XmDTYmFzDjPcw7HFkcPq6f-kb1s5Ra-Q')];
     ['literature','lang_german','lang_spanish','lang_italian'].forEach(sp => add(gs(sp,'الرياضيات'), mathLIT_T));
 
     /* ── NATURAL SCIENCES: علوم تجريبية ─────────────────────────────────── */
@@ -300,7 +300,7 @@ const examData = {
     ['math','science','tech_elec','tech_civil','tech_mech','tech_process','management'].forEach(sp => add(gs(sp,'اللغة الإنجليزية'), englishSCI_T));
 
     /* ── ENGLISH: آداب + لغات ────────────────────────────────────────────── */
-    const englishLIT_T = [nt(1,'1eaJa6Tw44Vat_bx8IYhTk0t3vU0Fu8u8'),nt(2,'1vT5Yd-v1uEGicY_r87Up1vRGkFqipFVT'),nt(3,'1syHjts3Mg-WGwn_2vgZwH-5XkBWTLJYd'),nt(4,'1moMCO-wijbLSbJzjj-4HBbCS45T_ZALI'),nt(5,'1i4yv54qCt7DBDksS46bF4bg8VD4v42Iy'),nt(6,'19giGAYXowGTZcRuZ8e4h0TWSLJRXYLC9'),nt(7,'1S572huiBfF2o9_KbI5FX0C-a7sAHw9mJ'),nt(8,'1PHU-7I3xLt7-_CQYfoJQw-Ntfe0XvIHP')];
+    const englishLIT_T = [nt(1,'1eaJa6Tw44Vat_bx8IYhTk0t3vU0Fu8u8'),nt(2,'1i4yv54qCt7DBDksS46bF4bg8VD4v42Iy'),nt(3,'19giGAYXowGTZcRuZ8e4h0TWSLJRXYLC9'),nt(4,'1S572huiBfF2o9_KbI5FX0C-a7sAHw9mJ'),nt(5,'1PHU-7I3xLt7-_CQYfoJQw-Ntfe0XvIHP'),nt(6,'1vT5Yd-v1uEGicY_r87Up1vRGkFqipFVT'),nt(7,'1syHjts3Mg-WGwn_2vgZwH-5XkBWTLJYd'),nt(8,'1moMCO-wijbLSbJzjj-4HBbCS45T_ZALI'),nt(9,'1i4yv54qCt7DBDksS46bF4bg8VD4v42Iy'),nt(10,'1_ztUBDCkAF288Z4WYSn0jtBBs6USKxSZ'),nt(11,'1S572huiBfF2o9_KbI5FX0C-a7sAHw9mJ'),nt(12,'1Kof7-eVaKZ1xTyCQVlRgJZ7hOtu-LZih'),nt(13,'1RR6FGOtQNBBCxfpI4-TWbhjlMZj1bD3A'),nt(14,'1bAjoW4EA-wm3Gm_s2l8Ol28-NnAfENs-'),nt(15,'1JCC7gcyeriFIxqTU-saLwcQ_Xc4AEAuN'),nt(16,'1fVarXI1-JJellafmaAkogkxV765HYAxz'),nt(17,'1huSKD_tKi-tyCe4lf57kS521sd7FtTl3'),nt(18,'1YwHF3bEv1Qt574hV8QpymzggeRw9S3G4'),nt(19,'1CFmbvhrNJ2OWNpyDqOoYVRol8ZWThtTw'),nt(20,'1WXzGVcIVr2C4T2uPrromgrXZToyC7o9j')];
     ['literature','lang_german','lang_spanish','lang_italian'].forEach(sp => add(gs(sp,'اللغة الإنجليزية'), englishLIT_T));
 
     /* ── HISTORY/GEO: math+science+tech+languages ────────────────────────── */
@@ -308,7 +308,7 @@ const examData = {
     ['math','science','tech_elec','tech_civil','tech_mech','tech_process','lang_german','lang_spanish','lang_italian'].forEach(sp => add(gs(sp,'تاريخ وجغرافيا'), histMAIN_T));
 
     /* ── HISTORY/GEO: آداب وفلسفة ───────────────────────────────────────── */
-    const histLIT_T = [nt(1,'1a-ZicAUgeeq1e0IUlMRvCcdiWtDUtcs1'),nt(2,'13zgtz3okpp960pIUr_4vFLjJ2vgnPsmX'),nt(3,'1cOiW0h0xgA3BxsBHgsIukFvGkP46rj8W'),nt(4,'1-318Gdbtp83HFvRIgwVotf6b6zauRB_z'),nt(5,'1DCjW0tXnEEe4ye_lpMBL6aegkfUhq-W6')];
+    const histLIT_T = [nt(1,'1a-ZicAUgeeq1e0IUlMRvCcdiWtDUtcs1'),nt(2,'13zgtz3okpp960pIUr_4vFLjJ2vgnPsmX'),nt(3,'1cOiW0h0xgA3BxsBHgsIukFvGkP46rj8W'),nt(4,'1-318Gdbtp83HFvRIgwVotf6b6zauRB_z'),nt(5,'1DCjW0tXnEEe4ye_lpMBL6aegkfUhq-W6'),nt(6,'1uCc_DgS7l6xjufbHFGtTLunsMDOVdJGV'),nt(7,'1MIPLWjVFvMqkKU40V_ybXZfzUm-wYLI_'),nt(8,'1JLReu61mj9kYdxAh4eCPR0gPQVKY0uu_'),nt(9,'1tuHB0TjAuxVhpXqLeE_hkSxhegyG9GB1'),nt(10,'1FaxovmTrfAspp8r83M90P-mtZa5BCQea'),nt(11,'1tqqN_AcdTEaFQIAKj40J2V771JigvHj3')];
     add(gs('literature','تاريخ وجغرافيا'), histLIT_T);
 
     /* ── HISTORY/GEO: تسيير واقتصاد ─────────────────────────────────────── */
@@ -349,9 +349,8 @@ const examData = {
         te(17,'1ZNTBvTIHZhy09pQxV0-RIt5urV9SiZPe','1uqJGhqfXa8TIKmZSH3oJNEKJZVnf6Q8e')];
     // Duplicate append for science Math removed
     // Duplicate append for tech Math removed
-    append(gs('management','الرياضيات'), [te(1,'1XRC4TggGA8aAUHYVl6K_TByM6AfPwLlY'),te(2,'1B0b0bsEUda4-dsJ_GX9wt1LKWO5wVWb7'),te(3,'1thkShk6ArJIC90Qh0a3pmCXUO4kbN-Qo'),te(4,'13Z9vzMvvtD5lqq0OZ6Dy4PMsFdV7XXb_'),te(5,'1bL0tMx3tkR2YyltQVESrWRCO7hPbZUFi'),te(6,'1z6YtGKki7bbw_DM6vZBQ35LxwwfWjCvz'),te(7,'1OfUS2Tceq3PW5el-f2IEf-Ajyxudg6Kh'),te(8,'1KJnRn4FIQ4M21t_aoZxPUpFMze_byqLe'),te(9,'1piBeZzBxw82p3sT_sgy4cOPxZaQX9FWV'),te(10,'1CzPEtpoOyGnClm6LyPaE6yocCKss1fTq')]);
-    const mathLitLang = [te(1,'1Z0BThIEeBVzSXPEyAlZuwyHr6YTEmozQ'),te(2,'1rcH0-RNROx0OwLR8pF8Og0hU6oC3Ln_y'),te(3,'1hunKpUmPPJkuIRx-uoeU33Q5FMJI1KxX'),te(4,'12OlW1-csahSAnttdyCeXz1_jgiNU6NpF'),te(5,'11pgFgemllPPm04vf4iHCRuXzXXNwBk_8'),te(6,'1F6ndz6yE9LGWqZl1tB8qyk6pddjGgK2J'),te(7,'1nBU0--2Efjdh4hiVtwBE6bl9MpxyJZgS'),te(8,'1t69o8gKmLhB0VfWQnJtXGyWYSXPaQgeV')];
-    ['literature','lang_german','lang_spanish','lang_italian'].forEach(sp => append(gs(sp,'الرياضيات'), mathLitLang));
+    // Note: mathMGMT duplicate append removed
+    // Note: mathLitLang duplicate append removed - exams are updated in attachTamayozExams.
 
     /* ── TAMAYOZ: Natural Sciences ───────────────────────────────────────── */
     // Tamayoz Natural Sciences extra append removed
