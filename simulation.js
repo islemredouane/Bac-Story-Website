@@ -10,7 +10,7 @@ const examData = {
             { name: "العلوم الفيزيائية", duration: 270, icon: "fa-solid fa-atom", examUrl: "https://drive.google.com/file/d/17EZX9WNeV5uFrNwpNKuXUUOFu7QwQ6-F/preview", solutionUrl: "https://drive.google.com/file/d/1LzgcoYk3Vc2AFjO8UmM19HV13YxzIj-H/preview", schedule: "الخميس 07 ماي - 08:30" },
             { name: "العلوم الطبيعية", duration: 150, icon: "fa-solid fa-dna", examUrl: "https://drive.google.com/file/d/1iWRaeTH4K0ITGn5yLGGaEidhJcPY193v/preview", solutionUrl: "https://drive.google.com/file/d/1d2XefeyNPn8w5S_FQ4TWeBGR1hJi2nM-/preview",  },
             { name: "اللغة العربية", duration: 150, icon: "fa-solid fa-language", examUrl: "https://drive.google.com/file/d/1lfIXDuPheU68cIz4RU1nLosn_pwp7et9/preview", solutionUrl: "https://drive.google.com/file/d/1J1ED3nxvnN3yGnvWgs4R446Q3W9KT6te/preview", schedule: "الأحد 03 ماي - 08:30" },
-            { name: "اللغة الفرنسية", duration: 150, icon: "fas fa-flag", examUrl: "https://drive.google.com/file/d/17-4u8xcL5hLLJRgTYusXQUj-dOyT17L6/view?usp=drive_link", solutionUrl: "https://drive.google.com/file/d/1e_0IT0m1itjegNQ_lnDsTr1WbkffFZ06/view?usp=drive_link", schedule: "الثلاثاء 05 ماي - 15:00" },
+            { name: "اللغة الفرنسية", duration: 150, icon: "fas fa-flag", examUrl: "https://drive.google.com/file/d/17-4u8xcL5hLLJRgTYusXQUj-dOyT17L6/preview", solutionUrl: "https://drive.google.com/file/d/1e_0IT0m1itjegNQ_lnDsTr1WbkffFZ06/preview", schedule: "الثلاثاء 05 ماي - 15:00" },
             { name: "اللغة الإنجليزية", duration: 150, icon: "fas fa-comment-dots", examUrl: "https://drive.google.com/file/d/1r9LEVgy2HwV8B8JCabJpVrdzRysZvw-H/preview", solutionUrl: "https://drive.google.com/file/d/1D7I4GYzifVhzV0iQucemW3SKu8tj7sB8/preview", schedule: "الاثنين 04 ماي - 15:00" },
             { name: "تاريخ وجغرافيا", duration: 210, icon: "fas fa-landmark", examUrl: "https://drive.google.com/file/d/1nl3vZkHrWN3ITAJWmTDIsNWg4Jc_-KUW/preview", solutionUrl: "https://drive.google.com/file/d/1O-dbnO9S5OOrnDXimDt0dieXQe2RC0D-/preview", schedule: "الأربعاء 06 ماي - 08:30" },
             { name: "العلوم الإسلامية", duration: 150, icon: "fa-solid fa-mosque", examUrl: "https://drive.google.com/file/d/1fhOrK51LPssye7Cd755yUeCkdRwF8dZs/preview", solutionUrl: "https://drive.google.com/file/d/1wLaZhLISXi3c84H1laUYO3Gx4UktAA69/preview", schedule: "الأحد 03 ماي - 15:00" }
@@ -23,7 +23,7 @@ const examData = {
             { name: "الرياضيات", duration: 210, icon: "fa-solid fa-calculator", examUrl: "https://drive.google.com/file/d/1XkxKLbgNfdqeiyR9hhOiro9bFyI6BucF/preview", solutionUrl: "https://drive.google.com/file/d/1IMYqPJE_q4mHtnErhnHbq_d9iTx8fRv9/preview", schedule: "الاثنين 04 ماي - 08:30" },
             { name: "العلوم الفيزيائية", duration: 210, icon: "fa-solid fa-atom", examUrl: "https://drive.google.com/file/d/1jcmPtJnvMdLN8__NIyl8yzGWXz--ujqI/preview", solutionUrl: "https://drive.google.com/file/d/1281tFAO53RmODuSoaKTgUQiyhM5TW55q/preview", schedule: "الخميس 07 ماي - 08:30" },
             { name: "اللغة العربية", duration: 150, icon: "fa-solid fa-language", examUrl: "https://drive.google.com/file/d/1lfIXDuPheU68cIz4RU1nLosn_pwp7et9/preview", solutionUrl: "https://drive.google.com/file/d/1J1ED3nxvnN3yGnvWgs4R446Q3W9KT6te/preview", schedule: "الأحد 03 ماي - 08:30" },
-            { name: "اللغة الفرنسية", duration: 150, icon: "fas fa-flag", examUrl: "https://drive.google.com/file/d/17-4u8xcL5hLLJRgTYusXQUj-dOyT17L6/view?usp=drive_link", solutionUrl: "https://drive.google.com/file/d/1e_0IT0m1itjegNQ_lnDsTr1WbkffFZ06/view?usp=drive_link", schedule: "الثلاثاء 05 ماي - 15:00" },
+            { name: "اللغة الفرنسية", duration: 150, icon: "fas fa-flag", examUrl: "https://drive.google.com/file/d/17-4u8xcL5hLLJRgTYusXQUj-dOyT17L6/preview", solutionUrl: "https://drive.google.com/file/d/1e_0IT0m1itjegNQ_lnDsTr1WbkffFZ06/preview", schedule: "الثلاثاء 05 ماي - 15:00" },
             { name: "اللغة الإنجليزية", duration: 150, icon: "fas fa-comment-dots", examUrl: "https://drive.google.com/file/d/1r9LEVgy2HwV8B8JCabJpVrdzRysZvw-H/preview", solutionUrl: "https://drive.google.com/file/d/1D7I4GYzifVhzV0iQucemW3SKu8tj7sB8/preview", schedule: "الاثنين 04 ماي - 15:00" },
             { name: "تاريخ وجغرافيا", duration: 210, icon: "fas fa-landmark", examUrl: "https://drive.google.com/file/d/1nl3vZkHrWN3ITAJWmTDIsNWg4Jc_-KUW/preview", solutionUrl: "https://drive.google.com/file/d/1O-dbnO9S5OOrnDXimDt0dieXQe2RC0D-/preview", schedule: "الأربعاء 06 ماي - 08:30" },
             { name: "العلوم الإسلامية", duration: 150, icon: "fa-solid fa-mosque", examUrl: "https://drive.google.com/file/d/1fhOrK51LPssye7Cd755yUeCkdRwF8dZs/preview", solutionUrl: "https://drive.google.com/file/d/1wLaZhLISXi3c84H1laUYO3Gx4UktAA69/preview", schedule: "الأحد 03 ماي - 15:00" }
@@ -36,7 +36,7 @@ const examData = {
             { name: "الرياضيات", duration: 270, icon: "fa-solid fa-calculator", examUrl: "https://drive.google.com/file/d/1zLNcWx2rksnEqgmZO3-XVu7M6BQgP7S-/preview", solutionUrl: "https://drive.google.com/file/d/1qKQISWZhJbpN9nSy5wTsBtE8DDbyUvtT/preview", schedule: "الاثنين 04 ماي - 08:30" },
             { name: "العلوم الفيزيائية", duration: 270, icon: "fa-solid fa-atom", examUrl: "https://drive.google.com/file/d/17EZX9WNeV5uFrNwpNKuXUUOFu7QwQ6-F/preview", solutionUrl: "https://drive.google.com/file/d/1LzgcoYk3Vc2AFjO8UmM19HV13YxzIj-H/preview", schedule: "الخميس 07 ماي - 08:30" },
             { name: "اللغة العربية", duration: 150, icon: "fa-solid fa-language", examUrl: "https://drive.google.com/file/d/1lfIXDuPheU68cIz4RU1nLosn_pwp7et9/preview", solutionUrl: "https://drive.google.com/file/d/1J1ED3nxvnN3yGnvWgs4R446Q3W9KT6te/preview", schedule: "الأحد 03 ماي - 08:30" },
-            { name: "اللغة الفرنسية", duration: 150, icon: "fas fa-flag", examUrl: "https://drive.google.com/file/d/17-4u8xcL5hLLJRgTYusXQUj-dOyT17L6/view?usp=drive_link", solutionUrl: "https://drive.google.com/file/d/1e_0IT0m1itjegNQ_lnDsTr1WbkffFZ06/view?usp=drive_link", schedule: "الثلاثاء 05 ماي - 15:00" },
+            { name: "اللغة الفرنسية", duration: 150, icon: "fas fa-flag", examUrl: "https://drive.google.com/file/d/17-4u8xcL5hLLJRgTYusXQUj-dOyT17L6/preview", solutionUrl: "https://drive.google.com/file/d/1e_0IT0m1itjegNQ_lnDsTr1WbkffFZ06/preview", schedule: "الثلاثاء 05 ماي - 15:00" },
             { name: "اللغة الإنجليزية", duration: 150, icon: "fas fa-comment-dots", examUrl: "https://drive.google.com/file/d/1r9LEVgy2HwV8B8JCabJpVrdzRysZvw-H/preview", solutionUrl: "https://drive.google.com/file/d/1D7I4GYzifVhzV0iQucemW3SKu8tj7sB8/preview", schedule: "الاثنين 04 ماي - 15:00" },
             { name: "تاريخ وجغرافيا", duration: 210, icon: "fas fa-landmark", examUrl: "https://drive.google.com/file/d/1nl3vZkHrWN3ITAJWmTDIsNWg4Jc_-KUW/preview", solutionUrl: "https://drive.google.com/file/d/1O-dbnO9S5OOrnDXimDt0dieXQe2RC0D-/preview", schedule: "الأربعاء 06 ماي - 08:30" },
             { name: "العلوم الإسلامية", duration: 150, icon: "fa-solid fa-mosque", examUrl: "https://drive.google.com/file/d/1fhOrK51LPssye7Cd755yUeCkdRwF8dZs/preview", solutionUrl: "https://drive.google.com/file/d/1wLaZhLISXi3c84H1laUYO3Gx4UktAA69/preview", schedule: "الأحد 03 ماي - 15:00" }
@@ -49,7 +49,7 @@ const examData = {
             { name: "الرياضيات", duration: 270, icon: "fa-solid fa-calculator", examUrl: "https://drive.google.com/file/d/1zLNcWx2rksnEqgmZO3-XVu7M6BQgP7S-/preview", solutionUrl: "https://drive.google.com/file/d/1qKQISWZhJbpN9nSy5wTsBtE8DDbyUvtT/preview", schedule: "الاثنين 04 ماي - 08:30" },
             { name: "العلوم الفيزيائية", duration: 270, icon: "fa-solid fa-atom", examUrl: "https://drive.google.com/file/d/17EZX9WNeV5uFrNwpNKuXUUOFu7QwQ6-F/preview", solutionUrl: "https://drive.google.com/file/d/1LzgcoYk3Vc2AFjO8UmM19HV13YxzIj-H/preview", schedule: "الخميس 07 ماي - 08:30" },
             { name: "اللغة العربية", duration: 150, icon: "fa-solid fa-language", examUrl: "https://drive.google.com/file/d/1lfIXDuPheU68cIz4RU1nLosn_pwp7et9/preview", solutionUrl: "https://drive.google.com/file/d/1J1ED3nxvnN3yGnvWgs4R446Q3W9KT6te/preview", schedule: "الأحد 03 ماي - 08:30" },
-            { name: "اللغة الفرنسية", duration: 150, icon: "fas fa-flag", examUrl: "https://drive.google.com/file/d/17-4u8xcL5hLLJRgTYusXQUj-dOyT17L6/view?usp=drive_link", solutionUrl: "https://drive.google.com/file/d/1e_0IT0m1itjegNQ_lnDsTr1WbkffFZ06/view?usp=drive_link", schedule: "الثلاثاء 05 ماي - 15:00" },
+            { name: "اللغة الفرنسية", duration: 150, icon: "fas fa-flag", examUrl: "https://drive.google.com/file/d/17-4u8xcL5hLLJRgTYusXQUj-dOyT17L6/preview", solutionUrl: "https://drive.google.com/file/d/1e_0IT0m1itjegNQ_lnDsTr1WbkffFZ06/preview", schedule: "الثلاثاء 05 ماي - 15:00" },
             { name: "اللغة الإنجليزية", duration: 150, icon: "fas fa-comment-dots", examUrl: "https://drive.google.com/file/d/1r9LEVgy2HwV8B8JCabJpVrdzRysZvw-H/preview", solutionUrl: "https://drive.google.com/file/d/1D7I4GYzifVhzV0iQucemW3SKu8tj7sB8/preview", schedule: "الاثنين 04 ماي - 15:00" },
             { name: "تاريخ وجغرافيا", duration: 210, icon: "fas fa-landmark", examUrl: "https://drive.google.com/file/d/1nl3vZkHrWN3ITAJWmTDIsNWg4Jc_-KUW/preview", solutionUrl: "https://drive.google.com/file/d/1O-dbnO9S5OOrnDXimDt0dieXQe2RC0D-/preview", schedule: "الأربعاء 06 ماي - 08:30" },
             { name: "العلوم الإسلامية", duration: 150, icon: "fa-solid fa-mosque", examUrl: "https://drive.google.com/file/d/1fhOrK51LPssye7Cd755yUeCkdRwF8dZs/preview", solutionUrl: "https://drive.google.com/file/d/1wLaZhLISXi3c84H1laUYO3Gx4UktAA69/preview", schedule: "الأحد 03 ماي - 15:00" }
@@ -62,7 +62,7 @@ const examData = {
             { name: "الرياضيات", duration: 270, icon: "fa-solid fa-calculator", examUrl: "https://drive.google.com/file/d/1zLNcWx2rksnEqgmZO3-XVu7M6BQgP7S-/preview", solutionUrl: "https://drive.google.com/file/d/1qKQISWZhJbpN9nSy5wTsBtE8DDbyUvtT/preview", schedule: "الاثنين 04 ماي - 08:30" },
             { name: "العلوم الفيزيائية", duration: 270, icon: "fa-solid fa-atom", examUrl: "https://drive.google.com/file/d/17EZX9WNeV5uFrNwpNKuXUUOFu7QwQ6-F/preview", solutionUrl: "https://drive.google.com/file/d/1LzgcoYk3Vc2AFjO8UmM19HV13YxzIj-H/preview", schedule: "الخميس 07 ماي - 08:30" },
             { name: "اللغة العربية", duration: 150, icon: "fa-solid fa-language", examUrl: "https://drive.google.com/file/d/1lfIXDuPheU68cIz4RU1nLosn_pwp7et9/preview", solutionUrl: "https://drive.google.com/file/d/1J1ED3nxvnN3yGnvWgs4R446Q3W9KT6te/preview", schedule: "الأحد 03 ماي - 08:30" },
-            { name: "اللغة الفرنسية", duration: 150, icon: "fas fa-flag", examUrl: "https://drive.google.com/file/d/17-4u8xcL5hLLJRgTYusXQUj-dOyT17L6/view?usp=drive_link", solutionUrl: "https://drive.google.com/file/d/1e_0IT0m1itjegNQ_lnDsTr1WbkffFZ06/view?usp=drive_link", schedule: "الثلاثاء 05 ماي - 15:00" },
+            { name: "اللغة الفرنسية", duration: 150, icon: "fas fa-flag", examUrl: "https://drive.google.com/file/d/17-4u8xcL5hLLJRgTYusXQUj-dOyT17L6/preview", solutionUrl: "https://drive.google.com/file/d/1e_0IT0m1itjegNQ_lnDsTr1WbkffFZ06/preview", schedule: "الثلاثاء 05 ماي - 15:00" },
             { name: "اللغة الإنجليزية", duration: 150, icon: "fas fa-comment-dots", examUrl: "https://drive.google.com/file/d/1r9LEVgy2HwV8B8JCabJpVrdzRysZvw-H/preview", solutionUrl: "https://drive.google.com/file/d/1D7I4GYzifVhzV0iQucemW3SKu8tj7sB8/preview", schedule: "الاثنين 04 ماي - 15:00" },
             { name: "تاريخ وجغرافيا", duration: 210, icon: "fas fa-landmark", examUrl: "https://drive.google.com/file/d/1nl3vZkHrWN3ITAJWmTDIsNWg4Jc_-KUW/preview", solutionUrl: "https://drive.google.com/file/d/1O-dbnO9S5OOrnDXimDt0dieXQe2RC0D-/preview", schedule: "الأربعاء 06 ماي - 08:30" },
             { name: "العلوم الإسلامية", duration: 150, icon: "fa-solid fa-mosque", examUrl: "https://drive.google.com/file/d/1fhOrK51LPssye7Cd755yUeCkdRwF8dZs/preview", solutionUrl: "https://drive.google.com/file/d/1wLaZhLISXi3c84H1laUYO3Gx4UktAA69/preview", schedule: "الأحد 03 ماي - 15:00" }
@@ -75,7 +75,7 @@ const examData = {
             { name: "الرياضيات", duration: 270, icon: "fa-solid fa-calculator", examUrl: "https://drive.google.com/file/d/1zLNcWx2rksnEqgmZO3-XVu7M6BQgP7S-/preview", solutionUrl: "https://drive.google.com/file/d/1qKQISWZhJbpN9nSy5wTsBtE8DDbyUvtT/preview", schedule: "الاثنين 04 ماي - 08:30" },
             { name: "العلوم الفيزيائية", duration: 270, icon: "fa-solid fa-atom", examUrl: "https://drive.google.com/file/d/17EZX9WNeV5uFrNwpNKuXUUOFu7QwQ6-F/preview", solutionUrl: "https://drive.google.com/file/d/1LzgcoYk3Vc2AFjO8UmM19HV13YxzIj-H/preview", schedule: "الخميس 07 ماي - 08:30" },
             { name: "اللغة العربية", duration: 150, icon: "fa-solid fa-language", examUrl: "https://drive.google.com/file/d/1lfIXDuPheU68cIz4RU1nLosn_pwp7et9/preview", solutionUrl: "https://drive.google.com/file/d/1J1ED3nxvnN3yGnvWgs4R446Q3W9KT6te/preview", schedule: "الأحد 03 ماي - 08:30" },
-            { name: "اللغة الفرنسية", duration: 150, icon: "fas fa-flag", examUrl: "https://drive.google.com/file/d/17-4u8xcL5hLLJRgTYusXQUj-dOyT17L6/view?usp=drive_link", solutionUrl: "https://drive.google.com/file/d/1e_0IT0m1itjegNQ_lnDsTr1WbkffFZ06/view?usp=drive_link", schedule: "الثلاثاء 05 ماي - 15:00" },
+            { name: "اللغة الفرنسية", duration: 150, icon: "fas fa-flag", examUrl: "https://drive.google.com/file/d/17-4u8xcL5hLLJRgTYusXQUj-dOyT17L6/preview", solutionUrl: "https://drive.google.com/file/d/1e_0IT0m1itjegNQ_lnDsTr1WbkffFZ06/preview", schedule: "الثلاثاء 05 ماي - 15:00" },
             { name: "اللغة الإنجليزية", duration: 150, icon: "fas fa-comment-dots", examUrl: "https://drive.google.com/file/d/1r9LEVgy2HwV8B8JCabJpVrdzRysZvw-H/preview", solutionUrl: "https://drive.google.com/file/d/1D7I4GYzifVhzV0iQucemW3SKu8tj7sB8/preview", schedule: "الاثنين 04 ماي - 15:00" },
             { name: "تاريخ وجغرافيا", duration: 210, icon: "fas fa-landmark", examUrl: "https://drive.google.com/file/d/1nl3vZkHrWN3ITAJWmTDIsNWg4Jc_-KUW/preview", solutionUrl: "https://drive.google.com/file/d/1O-dbnO9S5OOrnDXimDt0dieXQe2RC0D-/preview", schedule: "الأربعاء 06 ماي - 08:30" },
             { name: "العلوم الإسلامية", duration: 150, icon: "fa-solid fa-mosque", examUrl: "https://drive.google.com/file/d/1fhOrK51LPssye7Cd755yUeCkdRwF8dZs/preview", solutionUrl: "https://drive.google.com/file/d/1wLaZhLISXi3c84H1laUYO3Gx4UktAA69/preview", schedule: "الأحد 03 ماي - 15:00" }
@@ -90,7 +90,7 @@ const examData = {
             { name: "الرياضيات", duration: 210, icon: "fa-solid fa-calculator", examUrl: "https://drive.google.com/file/d/1QHeNhbOnzd77x9WMrdwg1G-FvPJtPtac/preview", solutionUrl: "https://drive.google.com/file/d/14tl8cUMVQ7rf8O3mLymhE3t110KH2Izx/preview", schedule: "الاثنين 04 ماي - 08:30" },
             { name: "تاريخ وجغرافيا", duration: 210, icon: "fas fa-landmark", examUrl: "https://drive.google.com/file/d/1nZQeDE1JRY7cS-xeyv1D7zxgDxSWwrF6/preview", solutionUrl: "https://drive.google.com/file/d/1YC4exLpxk1AJjsrK72iTkXVN7o9qzc03/preview", schedule: "الأربعاء 06 ماي - 08:30" },
             { name: "اللغة العربية", duration: 150, icon: "fa-solid fa-language", examUrl: "https://drive.google.com/file/d/1lfIXDuPheU68cIz4RU1nLosn_pwp7et9/preview", solutionUrl: "https://drive.google.com/file/d/1J1ED3nxvnN3yGnvWgs4R446Q3W9KT6te/preview", schedule: "الأحد 03 ماي - 08:30" },
-            { name: "اللغة الفرنسية", duration: 150, icon: "fas fa-flag", examUrl: "https://drive.google.com/file/d/17-4u8xcL5hLLJRgTYusXQUj-dOyT17L6/view?usp=drive_link", solutionUrl: "https://drive.google.com/file/d/1e_0IT0m1itjegNQ_lnDsTr1WbkffFZ06/view?usp=drive_link", schedule: "الثلاثاء 05 ماي - 15:00" },
+            { name: "اللغة الفرنسية", duration: 150, icon: "fas fa-flag", examUrl: "https://drive.google.com/file/d/17-4u8xcL5hLLJRgTYusXQUj-dOyT17L6/preview", solutionUrl: "https://drive.google.com/file/d/1e_0IT0m1itjegNQ_lnDsTr1WbkffFZ06/preview", schedule: "الثلاثاء 05 ماي - 15:00" },
             { name: "اللغة الإنجليزية", duration: 150, icon: "fas fa-comment-dots", examUrl: "https://drive.google.com/file/d/1r9LEVgy2HwV8B8JCabJpVrdzRysZvw-H/preview", solutionUrl: "https://drive.google.com/file/d/1D7I4GYzifVhzV0iQucemW3SKu8tj7sB8/preview", schedule: "الاثنين 04 ماي - 15:00" },
             { name: "العلوم الإسلامية", duration: 150, icon: "fa-solid fa-mosque", examUrl: "https://drive.google.com/file/d/1fhOrK51LPssye7Cd755yUeCkdRwF8dZs/preview", solutionUrl: "https://drive.google.com/file/d/1wLaZhLISXi3c84H1laUYO3Gx4UktAA69/preview", schedule: "الأحد 03 ماي - 15:00" }
         ]
@@ -101,7 +101,7 @@ const examData = {
             { name: "الفلسفة", duration: 270, icon: "fas fa-brain", examUrl: "https://drive.google.com/file/d/12Y_wk1eFhLOGM2MfkFyEJ8kmlDrgTmeE/preview", solutionUrl: "https://drive.google.com/file/d/1gCwKhsRlS7PeJ5_9g9ez_HcBimsQjxjc/preview", schedule: "الثلاثاء 05 ماي - 08:30" },
             { name: "اللغة العربية", duration: 270, icon: "fa-solid fa-language", examUrl: "https://drive.google.com/file/d/1LBcnE-aHFigFoX83hZwaJ0cxLHvVoFHj/preview", solutionUrl: "https://drive.google.com/file/d/1Ws1EtpQ9BFy3LN4cqVyOKMngszUvzR4h/preview", schedule: "الأحد 03 ماي - 08:30" },
             { name: "تاريخ وجغرافيا", duration: 270, icon: "fas fa-landmark", examUrl: "https://drive.google.com/file/d/1cw49tUoyYTYul-3XU_-mcROjj2L_32SL/preview", solutionUrl: "https://drive.google.com/file/d/1XOPp3fdgk8reD7nvmzFsBuqbpw9a_4YZ/preview", schedule: "الأربعاء 06 ماي - 08:30" },
-            { name: "اللغة الفرنسية", duration: 150, icon: "fas fa-flag", examUrl: "https://drive.google.com/file/d/1wm3N7u6uS9141pjthC-LnUR1FXnT2ZwB/view?usp=drive_link", solutionUrl: "https://drive.google.com/file/d/1q8wKYQs4DP7looZHDsPs6HZMmadduS2R/view?usp=drive_link", schedule: "الثلاثاء 05 ماي - 15:00" },
+            { name: "اللغة الفرنسية", duration: 150, icon: "fas fa-flag", examUrl: "https://drive.google.com/file/d/1wm3N7u6uS9141pjthC-LnUR1FXnT2ZwB/preview", solutionUrl: "https://drive.google.com/file/d/1q8wKYQs4DP7looZHDsPs6HZMmadduS2R/preview", schedule: "الثلاثاء 05 ماي - 15:00" },
             { name: "اللغة الإنجليزية", duration: 150, icon: "fas fa-comment-dots", examUrl: "https://drive.google.com/file/d/1XQG_JG6NxLTSu2rygH4AdF_dTMslcxRJ/preview", solutionUrl: "https://drive.google.com/file/d/1YhgCr2uz_OT7co81_6t-ETY7kOZ2HSPw/preview", schedule: "الاثنين 04 ماي - 15:00" },
             { name: "العلوم الإسلامية", duration: 150, icon: "fa-solid fa-mosque", examUrl: "https://drive.google.com/file/d/1fhOrK51LPssye7Cd755yUeCkdRwF8dZs/preview", solutionUrl: "https://drive.google.com/file/d/1wLaZhLISXi3c84H1laUYO3Gx4UktAA69/preview", schedule: "الأحد 03 ماي - 15:00" },
             { name: "الرياضيات", duration: 150, icon: "fa-solid fa-calculator", examUrl: "https://drive.google.com/file/d/1V3Cgq03y-coRYy9he3_JbAA32JlO-KMP/preview", solutionUrl: "https://drive.google.com/file/d/1vwkFcP1n74OL7Ku3FFCPQnXHOb4OHC8e/preview", schedule: "الاثنين 04 ماي - 08:30" }
@@ -110,7 +110,7 @@ const examData = {
     lang_german: {
         label: "لغات أجنبية - ألمانية", color: "#16a085", icon: "fas fa-globe",
         subjects: [
-            { name: "اللغة الفرنسية", duration: 210, icon: "fas fa-flag", examUrl: "https://drive.google.com/file/d/1wm3N7u6uS9141pjthC-LnUR1FXnT2ZwB/view?usp=drive_link", solutionUrl: "https://drive.google.com/file/d/1q8wKYQs4DP7looZHDsPs6HZMmadduS2R/view?usp=drive_link", schedule: "الثلاثاء 05 ماي - 15:00" },
+            { name: "اللغة الفرنسية", duration: 210, icon: "fas fa-flag", examUrl: "https://drive.google.com/file/d/1wm3N7u6uS9141pjthC-LnUR1FXnT2ZwB/preview", solutionUrl: "https://drive.google.com/file/d/1q8wKYQs4DP7looZHDsPs6HZMmadduS2R/preview", schedule: "الثلاثاء 05 ماي - 15:00" },
             { name: "اللغة الإنجليزية", duration: 210, icon: "fas fa-comment-dots", examUrl: "https://drive.google.com/file/d/1YgpvZrn0Z4qZyDDSaevsh2Tau3FfVga-/preview", solutionUrl: "https://drive.google.com/file/d/1DoziOVaNbogf2MzrF-ZQt7CzW08NleMN/preview", schedule: "الاثنين 04 ماي - 15:00" },
             { name: "اللغة الألمانية", duration: 210, icon: "fa-solid fa-language", examUrl: "https://drive.google.com/file/d/12D9Zth_njs3YXZJX8nT43DiWa7NE9cUX/preview", solutionUrl: "https://drive.google.com/file/d/1Nx24z8IEO64rmAdd0q6Iw2nV2DTVqGyX/preview", schedule: "الخميس 07 ماي - 08:30" },
             { name: "اللغة العربية", duration: 210, icon: "fa-solid fa-language", examUrl: "https://drive.google.com/file/d/1eWJBioO7WIl3nN32KycPRAwDsDG76VBv/preview", solutionUrl: "https://drive.google.com/file/d/1NO3eqI5KuIBtTId_04OrdZ7ntJhbLELz/preview", schedule: "الأحد 03 ماي - 08:30" },
@@ -123,7 +123,7 @@ const examData = {
     lang_spanish: {
         label: "لغات أجنبية - إسبانية", color: "#16a085", icon: "fas fa-globe",
         subjects: [
-            { name: "اللغة الفرنسية", duration: 210, icon: "fas fa-flag", examUrl: "https://drive.google.com/file/d/1wm3N7u6uS9141pjthC-LnUR1FXnT2ZwB/view?usp=drive_link", solutionUrl: "https://drive.google.com/file/d/1q8wKYQs4DP7looZHDsPs6HZMmadduS2R/view?usp=drive_link", schedule: "الثلاثاء 05 ماي - 15:00" },
+            { name: "اللغة الفرنسية", duration: 210, icon: "fas fa-flag", examUrl: "https://drive.google.com/file/d/1wm3N7u6uS9141pjthC-LnUR1FXnT2ZwB/preview", solutionUrl: "https://drive.google.com/file/d/1q8wKYQs4DP7looZHDsPs6HZMmadduS2R/preview", schedule: "الثلاثاء 05 ماي - 15:00" },
             { name: "اللغة الإنجليزية", duration: 210, icon: "fas fa-comment-dots", examUrl: "https://drive.google.com/file/d/1YgpvZrn0Z4qZyDDSaevsh2Tau3FfVga-/preview", solutionUrl: "https://drive.google.com/file/d/1DoziOVaNbogf2MzrF-ZQt7CzW08NleMN/preview", schedule: "الاثنين 04 ماي - 15:00" },
             { name: "اللغة الإسبانية", duration: 210, icon: "fa-solid fa-language", examUrl: "https://drive.google.com/file/d/1tlgAn7PwOtoR-oH-QuFxL-wbFzJUMl3P/preview", solutionUrl: "https://drive.google.com/file/d/1YXXeCPbzF0hrEW6MHyU14IkKGv4kpOSg/preview", schedule: "الخميس 07 ماي - 08:30" },
             { name: "اللغة العربية", duration: 210, icon: "fa-solid fa-language", examUrl: "https://drive.google.com/file/d/1eWJBioO7WIl3nN32KycPRAwDsDG76VBv/preview", solutionUrl: "https://drive.google.com/file/d/1NO3eqI5KuIBtTId_04OrdZ7ntJhbLELz/preview", schedule: "الأحد 03 ماي - 08:30" },
@@ -136,7 +136,7 @@ const examData = {
     lang_italian: {
         label: "لغات أجنبية - إيطالية", color: "#16a085", icon: "fas fa-globe",
         subjects: [
-            { name: "اللغة الفرنسية", duration: 210, icon: "fas fa-flag", examUrl: "https://drive.google.com/file/d/1wm3N7u6uS9141pjthC-LnUR1FXnT2ZwB/view?usp=drive_link", solutionUrl: "https://drive.google.com/file/d/1q8wKYQs4DP7looZHDsPs6HZMmadduS2R/view?usp=drive_link", schedule: "الثلاثاء 05 ماي - 15:00" },
+            { name: "اللغة الفرنسية", duration: 210, icon: "fas fa-flag", examUrl: "https://drive.google.com/file/d/1wm3N7u6uS9141pjthC-LnUR1FXnT2ZwB/preview", solutionUrl: "https://drive.google.com/file/d/1q8wKYQs4DP7looZHDsPs6HZMmadduS2R/preview", schedule: "الثلاثاء 05 ماي - 15:00" },
             { name: "اللغة الإنجليزية", duration: 210, icon: "fas fa-comment-dots", examUrl: "https://drive.google.com/file/d/1YgpvZrn0Z4qZyDDSaevsh2Tau3FfVga-/preview", solutionUrl: "https://drive.google.com/file/d/1DoziOVaNbogf2MzrF-ZQt7CzW08NleMN/preview", schedule: "الاثنين 04 ماي - 15:00" },
             { name: "اللغة الإيطالية", duration: 210, icon: "fa-solid fa-language", examUrl: "https://drive.google.com/file/d/1dWEC9EDYV-yVV7_TYafkboujGLFNzbVd/preview", solutionUrl: "https://drive.google.com/file/d/1cFrTcVPbt1cRGFi5MoXqsMhiTwZOM56p/preview", schedule: "الخميس 07 ماي - 08:30" },
             { name: "اللغة العربية", duration: 210, icon: "fa-solid fa-language", examUrl: "https://drive.google.com/file/d/1eWJBioO7WIl3nN32KycPRAwDsDG76VBv/preview", solutionUrl: "https://drive.google.com/file/d/1NO3eqI5KuIBtTId_04OrdZ7ntJhbLELz/preview", schedule: "الأحد 03 ماي - 08:30" },
@@ -172,11 +172,11 @@ const examData = {
     const sciMATH = [ne(1,'1v7EPT2Fp6eseSF2G1lczwccR6NxXFBUU'),ne(2,'1YM_dLWfTH56htc-_4VXzDJEuW0_UW5b_'),ne(3,'133ZrE-dcg_8jf9e8e332ufR4CDBDaB_c'),ne(4,'19-w9Q_kdJWRiedw-Ri6ErSeHHzG2fpBY'),ne(5,'18AU0DNjdFiJLKiQyhyYTuCdhWMnMj2xS')];
 
     /* ── ARABIC: علمي ───────────────────────────────────────────────────── */
-    const arabicSci = [ne(1,'1mM2ysRQQNAsHkjC053cCrdj7L8P6T5Aj'),ne(2,'14Dr-RSuYl_ufsbANiy9wCu7XUtCSdqvo'),ne(3,'1PioSric6PnWeWxoZ533Jfs8k1S78s_J2')];
+    const arabicSci = [ne(1,'1mM2ysRQQNAsHkjC053cCrdj7L8P6T5Aj'),ne(2,'14Dr-RSuYl_ufsbANiy9wCu7XUtCSdqvo'),ne(3,'1PioSric6PnWeWxoZ533Jfs8k1S78s_J2'),ne(4,'1dpltTCDezpQuJNjoqpqJAqn5SKoJpfga')];
     /* ── ENGLISH ─────────────────────────────────────────────────────────── */
     const english = [ne(1,'1B9lSLnTn1sEhoAaXPuIHdMYNGCLZRnna'),ne(2,'1YnaTgYh5qwrctNsBybMH3u4COIKeFTUg'),ne(3,'1I910vX_Ex_XkFsgwZbN0dq_MPm5wiY8d'),ne(4,'1vWObfGInJtqgyK5ARMaezjEukyScCzC4'),ne(5,'1K9tomL8wV8Mbznv97vNehZntCXzP8_3B'),ne(6,'1Z0gBCfrxA8hvtSuyWVfCi59IDD9sWeAy'),ne(7,'1CSqnqdz3zZK_pXYsICLKxnPRenCHdECr'),ne(8,'1FB9bzSx1viaPQV8RvXBPJiVyzEzbchj4'),ne(9,'1bwyPJI33KMJIKKjQmY32jirtJBxoQuhx')];
     /* ── FRENCH: علمي ───────────────────────────────────────────────────── */
-    const frenchSci = [ne(1,'1yLf9qvkVDyBMM5nlBXsN2P6TaDMbIkBQ')];
+    const frenchSci = [ne(1,'1yLf9qvkVDyBMM5nlBXsN2P6TaDMbIkBQ'),ne(2,'1eiN1bVK5sbWFMnGzKXXKzXzwfqSpYXhR'),ne(3,'19GYOjoBQ7qcHMVQCR-gxtWC1DOWoF4WU')];
     /* ── HISTORY / GEO ──────────────────────────────────────────────────── */
     const histGeo = [ne(1,'1uUDN16SbCqSlSDNYBN6T4GEM1VxdpkZx'),ne(2,'1o1gl767QVYPk6sAiKb1ppAyrycLH0Gw8'),ne(3,'1wdhzBUb3UOoWdbBPkafkqYgTDtK4ToHR'),ne(4,'1iw-Owa3j3TiLYQHeV5o77pSeB0HyB-Hy'),ne(5,'1pv0kWQdkKJ9JWbtZR3Ws3xCYsxu_Y_2a'),ne(6,'1_piGelsEnlyLFzgtEq9MA-Yz0d2DIkk1'),ne(7,'1FrO_OQIRIclfhn7tuHg9FkLtUkm8j7AO'),ne(8,'1WfqGbp0k-zO26Re9Mnzo4fvmHZnJW2ny'),ne(9,'1hhmNtU_F7BNmHARezscv6t3b_lZdyo0R'),ne(10,'1zw6xcGGs3J3yoUw9n-l-YhHzHkIRcEPZ'),ne(11,'1ZQNahmcR5IcCtv0JBY6mpFQUsBVGsgj_'),ne(12,'1QHe-NHOSbnQOWKxuxeluPIY6ieb0Vygt'),ne(13,'181fO1frE7db9i9Oje0jQN_Fbx5UGOE8P'),ne(14,'1PLtvWOM-6MhqzjFSvDSBgkmc1uSX31jv'),ne(15,'1vYDyHmnqyQhRnfuGa8r6zf-L5379OqhT')];
     /* ── ISLAMIC SCIENCES ───────────────────────────────────────────────── */
@@ -203,6 +203,10 @@ const examData = {
         const fr = gs(sp,'اللغة الفرنسية');  if (fr) fr.extraExams = frenchSci;
         const en = gs(sp,'اللغة الإنجليزية'); if (en) en.extraExams = english;
         const hg = gs(sp,'تاريخ وجغرافيا');   if (hg) hg.extraExams = histGeo;
+    });
+    // ── frenchSci → literature/lang specialities too (same Nafi exams for all) ─
+    ['literature','lang_german','lang_spanish','lang_italian'].forEach(sp => {
+        const fr = gs(sp,'اللغة الفرنسية'); if (fr) fr.extraExams = frenchSci;
     });
 
     // ── Physics ──────────────────────────────────────────────────────────────
@@ -239,16 +243,15 @@ const examData = {
     function add(subj, arr) { if (subj) subj.extraExams = (subj.extraExams || []).concat(arr); }
 
     /* ── MATH: شعبة رياضيات ──────────────────────────────────────────────── */
-    const mathRIADHI_T = [nts(1,'1ZNTBvTIHZhy09pQxV0-RIt5urV9SiZPe','1uqJGhqfXa8TIKmZSH3oJNEKJZVnf6Q8e'),nt(2,'1KNd8qQo3NCKOOB-VMvTebvUhJRNwnGAA')];
+    const mathRIADHI_T = [nts(1,'1ZNTBvTIHZhy09pQxV0-RIt5urV9SiZPe','1uqJGhqfXa8TIKmZSH3oJNEKJZVnf6Q8e')];
     add(gs('math','الرياضيات'), mathRIADHI_T);
 
     /* ── MATH: شعبة علوم تجريبية ─────────────────────────────────────────── */
-    const mathSCI_T = [nts(1,'1DeoXRstUciuHOIbEFAaivBLhp0wZOSi3','1a4-vv6y2jWrDF0c4wUYRwy5HTfX0wri0'),nt(2,'13JfaitZanlAlsfbOS48jGYn2_TH910Xg')];
+    const mathSCI_T = [nts(1,'1DeoXRstUciuHOIbEFAaivBLhp0wZOSi3','1a4-vv6y2jWrDF0c4wUYRwy5HTfX0wri0')];
     add(gs('science','الرياضيات'), mathSCI_T);
 
     /* ── MATH: شعبة تقني رياضي ───────────────────────────────────────────── */
-    const mathTECH_T = [nt(1,'1_e9ronK8KDPF8ZI7pQFG8c_Kzyl9g7HQ')];
-    ['tech_elec','tech_civil','tech_mech','tech_process'].forEach(sp => add(gs(sp,'الرياضيات'), mathTECH_T));
+    // Note: mathTECH_T Tamayoz exams removed as requested.
 
     /* ── MATH: شعبة تسيير واقتصاد ───────────────────────────────────────── */
     const mathMGMT_T = [nt(1,'1XRC4TggGA8aAUHYVl6K_TByM6AfPwLlY'),nt(2,'1B0b0bsEUda4-dsJ_GX9wt1LKWO5wVWb7'),nt(3,'1thkShk6ArJIC90Qh0a3pmCXUO4kbN-Qo'),nt(4,'13Z9vzMvvtD5lqq0OZ6Dy4PMsFdV7XXb_'),nt(5,'1bL0tMx3tkR2YyltQVESrWRCO7hPbZUFi'),nt(6,'1z6YtGKki7bbw_DM6vZBQ35LxwwfWjCvz'),nt(7,'1OfUS2Tceq3PW5el-f2IEf-Ajyxudg6Kh'),nt(8,'1KJnRn4FIQ4M21t_aoZxPUpFMze_byqLe'),nt(9,'1piBeZzBxw82p3sT_sgy4cOPxZaQX9FWV'),nt(10,'1CzPEtpoOyGnClm6LyPaE6yocCKss1fTq'),nt(11,'1OT1_X-Eu1RGvy9i5jqcJW_FpTGT-QbkT'),nt(12,'1fhDxOlnd-YKMWLUTjm_xUlTwdC7vk4nP'),nt(13,'1H457RD-7W1Y_vaOsP8PHccfmLtIHSXUI'),nt(14,'1vuGLF3ecjgippM8e1PK2670PIv-LhrgI'),nt(15,'1TJMC51WTC3Svw222eyD4-LGbwd2oDWNo')];
@@ -259,15 +262,14 @@ const examData = {
     ['literature','lang_german','lang_spanish','lang_italian'].forEach(sp => add(gs(sp,'الرياضيات'), mathLIT_T));
 
     /* ── NATURAL SCIENCES: علوم تجريبية ─────────────────────────────────── */
-    add(gs('science','العلوم الطبيعية'), [nts(1,'1AgCvzoCBpcwvH8Etvx762mKJ1-i52LHL','1h6aGPL4retzL3tifeVcBtiBMTuythntq')]);
+    // Note: Tamayoz exams for science removed as requested.
 
 
     /* ── PHYSICS: رياضي + تقني رياضي ────────────────────────────────────── */
-    const physRT_T = [nt(1,'1y_H2Zca8sTjrkSk2aopr_no_8uKp0k3Z')];
-    ['math','tech_elec','tech_civil','tech_mech','tech_process'].forEach(sp => add(gs(sp,'العلوم الفيزيائية'), physRT_T));
+    // Note: Tamayoz exams for physics removed as requested.
 
     /* ── PHYSICS: علوم تجريبية ───────────────────────────────────────────── */
-    add(gs('science','العلوم الفيزيائية'), [nt(1,'1y_H2Zca8sTjrkSk2aopr_no_8uKp0k3Z')]);
+    // Note: Tamayoz exams for physics removed as requested.
 
     /* ── ACCOUNTING: التسيير المحاسبي والمالي ─────────────────────────────── */
     const acct_T = [nt(1,'1_JXKrLxiGfYL2cW4D8h0FLz5FOwpqlAY'),nt(2,'1K7XIZO_R-IkflAFItyix81Ju5x2vCioB'),nt(3,'1WTBt-h7IWGnvcHTr6Az-hKpW-LyTQWxC'),nt(4,'1EDIjGYn6RJ4fYcfHKITtKrFRWf2R3hyj'),nt(5,'1ovQie4xbfaqINdMRFWRm9XkOEHWHKt0V'),nt(6,'1yzjqe-SlOKvDgHarPZVwPDAmXghB7Dga'),nt(7,'1r4D62Dogu3CYx472iq2YpDCO1QNoT_j-'),nt(8,'10nW5lsTPNzrIM7d28ZJwmCclGuClSXY7')];
@@ -282,15 +284,15 @@ const examData = {
     add(gs('management','القانون'), law_T);
 
     /* ── ARABIC: math+science+tech+management ────────────────────────────── */
-    const arabicSCI_T = [nt(1,'1KQLsNI34RI0sEpKn6vmTbLFjlnAMxqvY'),nt(2,'154BD5b7GgMi0m5tza_-BQ0CKJPakMJ1K'),nt(3,'15BPXb93rV5Ei5ZhzaevYAr2JlURbilbx'),nt(4,'1h0eponVmSvH_kiJN_74x8ZAUKSqkNA2H'),nt(5,'1W8NGrzWbksE6mI1DVP_pYOJnTWKQXT3E'),nt(6,'1jVGB002n8NymDrguGM59muVRBlGFlfJF')];
+    const arabicSCI_T = [nt(1,'1ao2WLuJKihdBmFxQGQSfwS__GLfhazfs'),nt(2,'1Irg3oJDFc5WvKSJpn1LYZciI3vqibA8_'),nt(3,'1-hbqxKH35FzOM_HLX7fy3pT-sCLWDD-a'),nt(4,'1thGENKTnpL04Z9VqiFKvZptm9v5pgcTs'),nt(5,'13o73kmOtquhoOWR4ZBR6Y67f5gecDotZ'),nt(6,'1Q8MStdMJ0qiNYRXh8pyQv0qeNYRPo3cC'),nt(7,'11lY3a8yaJaxCVIbCE9DjLah7crZE2Cly'),nt(8,'1hCcUCbXOvGg3ebD0QQgvy_FSvD0QwzbV'),nt(9,'1OFYNPpKY4RR1i9ut0tPVCN3JsvEbKAw-'),nt(10,'1zgdwmnIsfStBMgofPI8yPglUPoCYDemv'),nt(11,'1cMn2bQFGuGHw3-Q6ojtGRioZzc-cBy1B'),nt(12,'1BeZx8DsCiGMbkFwXFeqBeUVzDU1FVDM0')];
     ['math','science','tech_elec','tech_civil','tech_mech','tech_process','management'].forEach(sp => add(gs(sp,'اللغة العربية'), arabicSCI_T));
 
     /* ── ARABIC: آداب + لغات ─────────────────────────────────────────────── */
-    const arabicLIT_T = [nt(1,'15EYx_fyyvqI6dZsCrZN21atkxJUTnh-A'),nt(2,'1r9BA7YHxNVwYY0b_a3efj2RsRxaUjcI0'),nt(3,'1-Y0liJORwidXeQue6Sw4989i5cd6en8S'),nt(4,'1PSirtHjxyzziXZbyRDrlU0STrLzHJBA2'),nt(5,'1u6TH9B6Uc9bZ9TGJ3dU4fl9HPpc4fwtO'),nt(6,'1MojwPfb1vFLIa5kODVM5yvy5QRYt8HlD'),nt(7,'1V5I8Uc2mBSRWccVYNCCw_XiGS69i9JyT'),nt(8,'1Kmpo8Cg8TWE_ZkTLbYmvu1lsfoSB83WL'),nt(9,'1EGigPdd3fN0vKH-rxpFa80jTQzXCIpAZ'),nt(10,'1zM4aa5LngREWjLnhuJdq0gvA0qrepDSa'),nt(11,'1KI1_vG_9YvoouoGxt1l18R6bLkpV6Ywt'),nt(12,'1g0RLtgvZihznFRXgqCGsx0ftjEBvXZqT')];
+    const arabicLIT_T = [nt(1,'1nAHVmzQBSvp3iRjxB9kYSreNzv9gmFTQ'),nt(2,'1-Y0liJORwidXeQue6Sw4989i5cd6en8S'),nt(3,'1PSirtHjxyzziXZbyRDrlU0STrLzHJBA2'),nt(4,'1u6TH9B6Uc9bZ9TGJ3dU4fl9HPpc4fwtO'),nt(5,'1MojwPfb1vFLIa5kODVM5yvy5QRYt8HlD'),nt(6,'1V5I8Uc2mBSRWccVYNCCw_XiGS69i9JyT'),nt(7,'1Kmpo8Cg8TWE_ZkTLbYmvu1lsfoSB83WL'),nt(8,'1zM4aa5LngREWjLnhuJdq0gvA0qrepDSa'),nt(9,'1crRjKLvHdmPnqXy6dPc9KMrd7kovCFHz'),nt(10,'16X3TK3zXTa5_umjf9uk058lrkG3_V-HP'),nt(11,'10uaJJSGCV4idNOWDlhYBytbtIogyNCRZ'),nt(12,'175uNZElnnsLtAT2Ygj5Vu3Owk6ijvXbE'),nt(13,'1SzAK1A9HOD-FwiYscIUdPUt2JqySAjNZ'),nt(14,'1MmTVRoBJutRnyaHaKEt9VovjRWWTyl1q'),nt(15,'11DEtu_AwZtD4_5E0Hv6D4e4mlHHBktIw'),nt(16,'17D9FCfbV5xgktUR8EfDZ4Kbpf7-K52Qh'),nt(17,'1JMggtFQ0CjvYgK1e62eK-L5bNxAmauUP')];
     ['literature','lang_german','lang_spanish','lang_italian'].forEach(sp => add(gs(sp,'اللغة العربية'), arabicLIT_T));
 
     /* ── FRENCH: ALL specialties ──────────────────────────────────────────── */
-    const french_T = [nt(1,'1pw1dFZN9j3oIqhn8d9OCtvC2ndFz27wG'),nt(2,'1sn7VTuvU-l1-YZ6wtQOj6puaRw5jJg90'),nt(3,'1FaRDLSwdjIJ0Yxy7Hwg9Q1LxM2JgboNU'),nt(4,'1aX-jee7q4QCRzsAtFSzRl6jcOzl1Y0mA'),nt(5,'1HTBWHpKlIbOzWO2SkOIP1nbI7qC2wQLO'),nt(6,'1Gn6fPM3fGjg7Avy8qa-jGsTBSEh8uG7h'),nt(7,'1myxhglpImTshRf1L1HMr3KDPYsLhBHOv'),nt(8,'1Q9wWTErgVteh8-bX_b2MXli_qMbnOj9g'),nt(9,'1F-fvdMciD787tL-SXrgkf2RSDyGsSW_I'),nt(10,'1cKLmep4pOOElhcjSPOf7kGoiUDD3-loC'),nt(11,'1UiUPo2FN485BHuPpaCIaaKWz1GFQiyc4')];
+    const french_T = [nt(1,'1pw1dFZN9j3oIqhn8d9OCtvC2ndFz27wG'),nt(2,'1V2xErXPhypJXWge0PothInQ9RwwPeyyJ'),nt(3,'1jnnddeN_Ypa92a4w_xz0_U4UgOQXPR2L'),nt(4,'1HzPcyLaVHh24Zim9XYYlm13JIDOuSzf9'),nt(5,'1hEuO_ICZz6XpZL9u7gHzhyXj_1iwOEId'),nt(6,'17CgD7g_RvcqCCqAU-crbdhpe_-DKwOZx'),nt(7,'1wa0q_WEJCNyMRgv8mK8UPU3f8LiJGQai'),nt(8,'1B3BpcIAUSp4WJczL6QROXcVz1BuHCTYl'),nt(9,'1o2ZHbqb495qnQRyOs9ObkFCKmI9dLd4f'),nt(10,'1cKLmep4pOOElhcjSPOf7kGoiUDD3-loC'),nt(11,'1UiUPo2FN485BHuPpaCIaaKWz1GFQiyc4'),nt(12,'1AA0Utc1h0gR-eioQ5YcchQuu2n4-Zarq'),nt(13,'1PYQTBuv2ZtmLLqv5c47eBv-CpgdSHK2Y'),nt(14,'1p5UuQDaicBYXDvTzepF4GFAfTnou3iDj')];
     ['math','science','tech_elec','tech_civil','tech_mech','tech_process','management','literature','lang_german','lang_spanish','lang_italian'].forEach(sp => add(gs(sp,'اللغة الفرنسية'), french_T));
 
     /* ── ENGLISH: math+science+tech+management ───────────────────────────── */
@@ -302,7 +304,7 @@ const examData = {
     ['literature','lang_german','lang_spanish','lang_italian'].forEach(sp => add(gs(sp,'اللغة الإنجليزية'), englishLIT_T));
 
     /* ── HISTORY/GEO: math+science+tech+languages ────────────────────────── */
-    const histMAIN_T = [nt(1,'1SnUA79nQiYHWLvKYhnZw09Uc3vioD4gW'),nt(2,'13sHXeRVzVrM8lryyLquhreMUrYsdgrek'),nt(3,'1DAH1c5uCDtNcp_w_xB36C2LlB3HYBSwx'),nt(4,'1Z71tt9Ba1HhBQWfpCO87_PFoy37tEXI4'),nt(5,'1F6yK-8LBAZuoLnnxRgTRrR6dhiBizokS'),nt(6,'1IX3XPc_x6WhK2FtOP3AUBc2w2m-OCvko'),nt(7,'11apIPoCodL1oS87EizwsRuuN1813Gtui'),nt(8,'1rQ_o1QWtmFGvrj-v6bG7bgDQGDbVNnd6'),nt(9,'18sfA3z0TTcF4BLfx-X2uUOUY2Jz5RcwX')];
+    const histMAIN_T = [nt(1,'1shR4wx96tbYm_pTjrQqvmG_msf0E3RsM'),nt(2,'1DAH1c5uCDtNcp_w_xB36C2LlB3HYBSwx'),nt(3,'1Z71tt9Ba1HhBQWfpCO87_PFoy37tEXI4'),nt(4,'1F6yK-8LBAZuoLnnxRgTRrR6dhiBizokS'),nt(5,'1IX3XPc_x6WhK2FtOP3AUBc2w2m-OCvko'),nt(6,'11apIPoCodL1oS87EizwsRuuN1813Gtui'),nt(7,'1rQ_o1QWtmFGvrj-v6bG7bgDQGDbVNnd6'),nt(8,'1ZsjwbEePmNRGPxPIpMI2UFl7RJxlOddK'),nt(9,'1fAs-n0eSFqiJInxuQh_HSiNX1YiS1UNW'),nt(10,'1ZnDDZIhfLvDRLxSxgBPUNf56AdmKIuGx'),nt(11,'1W-G0G1ME2tLQIA_b-7IRZEce9B23tjtJ'),nt(12,'1rZGEyFzq48NKjq7kJcdACxMMkVCOfwha'),nt(13,'18Ouw9DOLo5nPvsHa-GohvKVDDhY6c38n'),nt(14,'1ZL12VhMgt5rE8PQeisq2-3k-dn_X5H5w'),nt(15,'1mxLXXF2osxvGcd9TiMRc7aVgrXxlzCCP'),nt(16,'17HXsm3B6ENbTuIqgy4JU5eXpG8v0hMGz'),nt(17,'1_HjRLBpAS76r7ThSVqHufFdqW8KSO5wK'),nt(18,'1y4iCpFSjfQRqVJu6i3eiI8tNbU72w9j9'),nt(19,'10ciJ7I3Lj5Rh-XEan0Bqyv3wyqzd439L'),nt(20,'1HVIBI1ykwqgGfXVKxSq_WJ75-7_IzYBF')];
     ['math','science','tech_elec','tech_civil','tech_mech','tech_process','lang_german','lang_spanish','lang_italian'].forEach(sp => add(gs(sp,'تاريخ وجغرافيا'), histMAIN_T));
 
     /* ── HISTORY/GEO: آداب وفلسفة ───────────────────────────────────────── */
@@ -314,7 +316,7 @@ const examData = {
     add(gs('management','تاريخ وجغرافيا'), histMGMT_T);
 
     /* ── ISLAMIC SCIENCES: ALL specialties ───────────────────────────────── */
-    const islamicALL_T = [nt(1,'1_4LlyR7qVfUiYE_zfoKDqV8Q_derSIcp'),nt(2,'1gYtlt1aUcZ7xloyaL4xhGsvcfYGHursw'),nt(3,'10QQ88JyvRg46FONeGypltoIvxOoD5liF'),nt(4,'1sS5TMP_4JGlPbuvu5nWuMClleFMKsCUS'),nt(5,'1vr4VYp2zKLgHFZjbG27Ig2BXsILCpHjn'),nt(6,'1zAa0vdcXWNxHnlY-0ZUT__zNh5_TSvaI'),nt(7,'1Nf9X43iSDcqzSHUlDL_DGHJSG7AcrXBv'),nt(8,'1QukpQR5nNrOdzWOOVWPlJDsK1FVDcdWh'),nt(9,'1ekysoTAQYS5XC_K9B3iokEcgkQJQHfS_'),nt(10,'1bh3kMRmYuxDWeKwa9nBA8H1zSc83lX6b'),nt(11,'1tgH-41Hc5rLDUrF8iBWfIA7gUvsb2jOP'),nt(12,'1pNKm-ALBM2s_eURZWg2oBxX_mYsdbrSu'),nt(13,'1JkpWPC85v-uu2gU6FOZo4Zubt1NKQPux'),nt(14,'1J4Xe9WgtIOdWBS0_5w859TfDRMTp7i6d'),nt(15,'10s8v7EeKdl5LcFfVNyfytt9h1ucPNa3l'),nt(16,'1oU_qHM8aXp_sKbZzOchmojOxvQqY45zq'),nt(17,'1YFUfW5xjcR2fTkmw90HkfeY9XBOsU7TD'),nt(18,'1Fp1gLFJmlc0hFEB_wzvJPvEr4MQR92KW'),nt(19,'1o9a6SJw6oGv-IpVhT_Rv3IEx3UUQOaEz'),nt(20,'1ZnGoEZbD7e6AFcL0f-VOURyYdnf9wiOz'),nt(21,'1-4reM8V4fs4vMSxdoQIFC-2uwAr_5Xt0'),nt(22,'1LOhaYDNjH6m40sIaICBW_T96DNVMIJ2E')];
+    const islamicALL_T = [nt(1,'1yuziwlq2LHKdvjuMXQ8_TUUZh44ZnTfh'),nt(2,'1HjIJZVgdAHB5vg-HUmvvfk87VT8YmeGn'),nt(3,'1jwaTPfxA6AKoGo8nzP8P-VrgFjtnzDGn'),nt(4,'1s4TZK79comK3qvs26kA0n-4dCHySymQs'),nt(5,'1J8l3VGeD3iKF4J-xmsRpH-sQqdDDT0Hq'),nt(6,'1yX4z6zXDpQ6sOKTt6Mz2LkAsLfWk7gKT'),nt(7,'1J_xtrlMoy6Dupj9Qfqmfp1X5roaMkp-P'),nt(8,'1X3stsxO65-u30xOc-fThSV71J4G8JyME'),nt(9,'1-fKAxpyBsJsfp4EposY9o74j4zzo9CQK'),nt(10,'13wzGB0R4rJmcpCSewR4VM_al1fE6Os9w'),nt(11,'191L1o1p5SRwm_km0x2VTepE5tdQZpRD4'),nt(12,'1ejqoBA-DmvVlAQMLFfVY5UUXNvXm6Q5I'),nt(13,'1iQVsItkKyunB3DSWcrMtZADYJICflWDb'),nt(14,'1d0tEXSeXTJdiyth3U9VtuTbnmhEcTAoR'),nt(15,'1jZMXNA07mpUJKwHRGFqzxgFek106_Mey'),nt(16,'1aKHiFrs06sm5eO6g3QvV8Lf6DEM78b20'),nt(17,'1FBUU-dhc-Z9ySbduzpg1OXH_Tj_Ze82f'),nt(18,'1fx_ICbIcObCe4hH3bjuam1LA0-TzUr6l'),nt(19,'1IRuHnr-0qQex9ICFmo0lZdtAw6-Tlhk_'),nt(20,'1f9qh--HDelkwyHlxW_KNdHqnKXkKukU0')];
     ['math','science','tech_elec','tech_civil','tech_mech','tech_process','management','literature','lang_german','lang_spanish','lang_italian'].forEach(sp => add(gs(sp,'العلوم الإسلامية'), islamicALL_T));
 
     /* ── GERMAN ──────────────────────────────────────────────────────────── */
@@ -344,20 +346,18 @@ const examData = {
 
     /* ── TAMAYOZ: Math ───────────────────────────────────────────────────── */
     gs('math','الرياضيات').extraExams = [...mathRIADHI,
-        te(17,'1ZNTBvTIHZhy09pQxV0-RIt5urV9SiZPe','1uqJGhqfXa8TIKmZSH3oJNEKJZVnf6Q8e'),
-        te(18,'1KNd8qQo3NCKOOB-VMvTebvUhJRNwnGAA')];
-    append(gs('science','الرياضيات'), [te(9,'1DeoXRstUciuHOIbEFAaivBLhp0wZOSi3','1a4-vv6y2jWrDF0c4wUYRwy5HTfX0wri0'),te(10,'13JfaitZanlAlsfbOS48jGYn2_TH910Xg')]);
-    ['tech_elec','tech_civil','tech_mech','tech_process'].forEach(sp => append(gs(sp,'الرياضيات'), [te(9,'1_e9ronK8KDPF8ZI7pQFG8c_Kzyl9g7HQ')]));
+        te(17,'1ZNTBvTIHZhy09pQxV0-RIt5urV9SiZPe','1uqJGhqfXa8TIKmZSH3oJNEKJZVnf6Q8e')];
+    // Duplicate append for science Math removed
+    // Duplicate append for tech Math removed
     append(gs('management','الرياضيات'), [te(1,'1XRC4TggGA8aAUHYVl6K_TByM6AfPwLlY'),te(2,'1B0b0bsEUda4-dsJ_GX9wt1LKWO5wVWb7'),te(3,'1thkShk6ArJIC90Qh0a3pmCXUO4kbN-Qo'),te(4,'13Z9vzMvvtD5lqq0OZ6Dy4PMsFdV7XXb_'),te(5,'1bL0tMx3tkR2YyltQVESrWRCO7hPbZUFi'),te(6,'1z6YtGKki7bbw_DM6vZBQ35LxwwfWjCvz'),te(7,'1OfUS2Tceq3PW5el-f2IEf-Ajyxudg6Kh'),te(8,'1KJnRn4FIQ4M21t_aoZxPUpFMze_byqLe'),te(9,'1piBeZzBxw82p3sT_sgy4cOPxZaQX9FWV'),te(10,'1CzPEtpoOyGnClm6LyPaE6yocCKss1fTq')]);
     const mathLitLang = [te(1,'1Z0BThIEeBVzSXPEyAlZuwyHr6YTEmozQ'),te(2,'1rcH0-RNROx0OwLR8pF8Og0hU6oC3Ln_y'),te(3,'1hunKpUmPPJkuIRx-uoeU33Q5FMJI1KxX'),te(4,'12OlW1-csahSAnttdyCeXz1_jgiNU6NpF'),te(5,'11pgFgemllPPm04vf4iHCRuXzXXNwBk_8'),te(6,'1F6ndz6yE9LGWqZl1tB8qyk6pddjGgK2J'),te(7,'1nBU0--2Efjdh4hiVtwBE6bl9MpxyJZgS'),te(8,'1t69o8gKmLhB0VfWQnJtXGyWYSXPaQgeV')];
     ['literature','lang_german','lang_spanish','lang_italian'].forEach(sp => append(gs(sp,'الرياضيات'), mathLitLang));
 
     /* ── TAMAYOZ: Natural Sciences ───────────────────────────────────────── */
-    append(gs('science','العلوم الطبيعية'), [te(1,'1AgCvzoCBpcwvH8Etvx762mKJ1-i52LHL','1h6aGPL4retzL3tifeVcBtiBMTuythntq')]);
+    // Tamayoz Natural Sciences extra append removed
 
     /* ── TAMAYOZ: Physics ────────────────────────────────────────────────── */
-    const physTZ = [te(1,'1y_H2Zca8sTjrkSk2aopr_no_8uKp0k3Z')];
-    ['math','science','tech_elec','tech_civil','tech_mech','tech_process'].forEach(sp => append(gs(sp,'العلوم الفيزيائية'), physTZ));
+    // Tamayoz Physics extra append removed
 
     /* ── TAMAYOZ: Accounting (management) ───────────────────────────────── */
     append(gs('management','التسيير المحاسبي والمالي'), ['1_JXKrLxiGfYL2cW4D8h0FLz5FOwpqlAY','1K7XIZO_R-IkflAFItyix81Ju5x2vCioB','1WTBt-h7IWGnvcHTr6Az-hKpW-LyTQWxC','1EDIjGYn6RJ4fYcfHKITtKrFRWf2R3hyj','1ovQie4xbfaqINdMRFWRm9XkOEHWHKt0V','1yzjqe-SlOKvDgHarPZVwPDAmXghB7Dga','1r4D62Dogu3CYx472iq2YpDCO1QNoT_j-'].map((id,i) => te(i+1,id)));
@@ -369,32 +369,16 @@ const examData = {
     append(gs('management','القانون'), [...['1L0HfzMxwqUcQ0xFM1ye65MiwVpBxd-_v','1BS5owyIgSnzwh42kWoahxR163X1CjHUP','1X48UCiRBse1KyL8UWm72ZkZgH-IO4KCk','1aCipOD5PTiCjHROruGqET9ArIgx_7xu6','12U2W5CU6nmUcv3yXqJYO6lNR7NmBTZcu','1EIB5Pgn2KyC7puH9uJql6utvOVl4gJlB','1CzT58GDUlVo4CwukIy8Tt-EIgOkSKMs3','18r2NDYE85xvv9aXpDHsD7heX6dCD-Toc','1t0K5KghqeVNeyLNC1f_JknkWO1pFITZr','1956YWjWBKiKRtDKYgHk5YD3cmj0wjYxV'].map((id,i)=>te(i+1,id)),...['17Ljp3FQEYDkFMUPOJ9iIOMRSUjcRG7vn','1DTu_9DJOsv-BRlbQAa2zlhETdYhuhn1F'].map((id,i)=>te(i+12,id))]);
 
     /* ── TAMAYOZ: Arabic ─────────────────────────────────────────────────── */
-    const arSciTech = ['1KQLsNI34RI0sEpKn6vmTbLFjlnAMxqvY','154BD5b7GgMi0m5tza_-BQ0CKJPakMJ1K','15BPXb93rV5Ei5ZhzaevYAr2JlURbilbx','1h0eponVmSvH_kiJN_74x8ZAUKSqkNA2H','1W8NGrzWbksE6mI1DVP_pYOJnTWKQXT3E','1jVGB002n8NymDrguGM59muVRBlGFlfJF'].map((id,i)=>te(i+1,id));
-    const arLitLang = ['15EYx_fyyvqI6dZsCrZN21atkxJUTnh-A','1r9BA7YHxNVwYY0b_a3efj2RsRxaUjcI0','1-Y0liJORwidXeQue6Sw4989i5cd6en8S','1PSirtHjxyzziXZbyRDrlU0STrLzHJBA2','1u6TH9B6Uc9bZ9TGJ3dU4fl9HPpc4fwtO','1MojwPfb1vFLIa5kODVM5yvy5QRYt8HlD','1V5I8Uc2mBSRWccVYNCCw_XiGS69i9JyT','1Kmpo8Cg8TWE_ZkTLbYmvu1lsfoSB83WL','1EGigPdd3fN0vKH-rxpFa80jTQzXCIpAZ'].map((id,i)=>te(i+1,id));
-    ['math','science','tech_elec','tech_civil','tech_mech','tech_process','management'].forEach(sp => append(gs(sp,'اللغة العربية'), arSciTech));
-    ['literature','lang_german','lang_spanish','lang_italian'].forEach(sp => append(gs(sp,'اللغة العربية'), arLitLang));
+    // Note: arSciTech and arLitLang removed — they were full duplicates of arabicSCI_T and arabicLIT_T from attachTamayozExams.
 
-    /* ── TAMAYOZ: French ─────────────────────────────────────────────────── */
-    const frTZ = ['1pw1dFZN9j3oIqhn8d9OCtvC2ndFz27wG','1sn7VTuvU-l1-YZ6wtQOj6puaRw5jJg90','1FaRDLSwdjIJ0Yxy7Hwg9Q1LxM2JgboNU','1aX-jee7q4QCRzsAtFSzRl6jcOzl1Y0mA','1HTBWHpKlIbOzWO2SkOIP1nbI7qC2wQLO','1Gn6fPM3fGjg7Avy8qa-jGsTBSEh8uG7h','1myxhglpImTshRf1L1HMr3KDPYsLhBHOv','1Q9wWTErgVteh8-bX_b2MXli_qMbnOj9g','1F-fvdMciD787tL-SXrgkf2RSDyGsSW_I','1cKLmep4pOOElhcjSPOf7kGoiUDD3-loC','1UiUPo2FN485BHuPpaCIaaKWz1GFQiyc4'].map((id,i)=>te(i+1,id));
-    ['math','science','tech_elec','tech_civil','tech_mech','tech_process','management','literature','lang_german','lang_spanish','lang_italian'].forEach(sp => append(gs(sp,'اللغة الفرنسية'), frTZ));
+    // Note: frTZ removed — was a full duplicate of french_T from attachTamayozExams.
 
-    /* ── TAMAYOZ: English ────────────────────────────────────────────────── */
-    const enSciTech = ['1aKmeqtqo7FpjHEt5peWVETKsL2M0GhOS','1JRUFRrLlr0uyZV_AcoF1BqkLvHwYkogi','1STX0J94qa4pldlM5shgcZT6A2v3fuKg2','13fRbSFepFF8JjGahqQS3GCtXYQHXBNR4','1oQSZsvj_zYUjtFJpaZSrkmUmJ6nQ_4hZ','1WeM6ijkTy8qkgzTv4psIAsARTG7DIB5w','1weU3nYvRfjay7K68U70chgS6-ivlS006','1fcIWnX2lNv2sVYsZ0OuReXcaYsNO8cMO','1LZs1rVq6heb7fzIgU2GcFkonlK98NAmi','1MVHBz_1SxIbPgDSHnQFYh1mFz0QQMUEC','1hJ_QYNlii80O-gDDzdufh48hsGNm8eyp','1QLQ6XUAZOnv2V-Agmhf6TS1r7YYmU_X6','1E6Iab48I3eOceNmUXpFIlvyshtWJtBGH','1jdsUzcJV-ET2iXqgscwj8D1jxNZIff0V','1O11qjtx4No1Xk4piJWp7a6KjSUHtQ4Xa','1j7VCI0Ze9vi2blHrspxcrJVZEI3gGjnj','1tqhPYaoaKF6VockWYCeq3K5fpTimTQ00','1-nKSAulFNyMBLgKfvH9WMaEtKTO9cfMq','1dEa5dAR8ClY5paeBVTHAdtC1NQOj-i1n','1BHzV9S0mWAZQtWEJDwlIbxN6AVUasRTg','1r_GHqXWGtxFRvzaxazqZHqquvi146W0t'].map((id,i)=>te(i+1,id));
-    ['math','science','tech_elec','tech_civil','tech_mech','tech_process','management'].forEach(sp => append(gs(sp,'اللغة الإنجليزية'), enSciTech));
     // English for literature/lang already fully handled by englishLIT_T in attachTamayozExams
+    // Note: enSciTech removed — was a full duplicate of englishSCI_T (positions 31-51 = 10-30)
 
-    /* ── TAMAYOZ: History & Geography ───────────────────────────────────── */
-    const hgSciTech = ['1SnUA79nQiYHWLvKYhnZw09Uc3vioD4gW','13sHXeRVzVrM8lryyLquhreMUrYsdgrek','1DAH1c5uCDtNcp_w_xB36C2LlB3HYBSwx','1Z71tt9Ba1HhBQWfpCO87_PFoy37tEXI4','1F6yK-8LBAZuoLnnxRgTRrR6dhiBizokS','1IX3XPc_x6WhK2FtOP3AUBc2w2m-OCvko','11apIPoCodL1oS87EizwsRuuN1813Gtui','1rQ_o1QWtmFGvrj-v6bG7bgDQGDbVNnd6','18sfA3z0TTcF4BLfx-X2uUOUY2Jz5RcwX'].map((id,i)=>te(i+1,id));
-    const hgLit = ['1a-ZicAUgeeq1e0IUlMRvCcdiWtDUtcs1','13zgtz3okpp960pIUr_4vFLjJ2vgnPsmX','1cOiW0h0xgA3BxsBHgsIukFvGkP46rj8W','1-318Gdbtp83HFvRIgwVotf6b6zauRB_z','1DCjW0tXnEEe4ye_lpMBL6aegkfUhq-W6'].map((id,i)=>te(i+1,id));
-    const hgMgmt = ['1KkYG46rB6fnrWhOnmqOlk7SufTxTPD6u','1Ad82OGWYSbg2HXlTh0Xt8uZbF1lW0vbP','1POUNF6AzRx8IKhQUwwGYvSQj_D_S007U','1NLhSchm9ul9xV5BiGvIbjc8zM9sDBpR_','1_tWJ3ASqfGePTzX-S5NG5Wmv4uWMe1do','12ihxHEa9FFdyLswNgjzBF0XESHdiil4w','1BIMqQrnFLl3qXvkm27qJ-qRZwsRyo41L','18NHilI76wruIdmDBNXV4CDkROgPVk_NM','1ipRl_VPTK3PZhKA5uCFkzHqvX53G26QJ','1UZgZPISuAzLUXFMMdJiiIIs_92XvKlWw'].map((id,i)=>te(i+1,id));
-    ['math','science','tech_elec','tech_civil','tech_mech','tech_process'].forEach(sp => append(gs(sp,'تاريخ وجغرافيا'), hgSciTech));
-    append(gs('literature','تاريخ وجغرافيا'), hgLit);
-    append(gs('management','تاريخ وجغرافيا'), hgMgmt);
-    ['lang_german','lang_spanish','lang_italian'].forEach(sp => append(gs(sp,'تاريخ وجغرافيا'), hgSciTech));
+    // Note: The TAMAYOZ History & Geography block was removed here because it was a full duplicate of histMAIN_T, histLIT_T, and histMGMT_T from attachTamayozExams.
 
-    /* ── TAMAYOZ: Islamic Sciences ───────────────────────────────────────── */
-    const islTZ = ['1_4LlyR7qVfUiYE_zfoKDqV8Q_derSIcp','1gYtlt1aUcZ7xloyaL4xhGsvcfYGHursw','10QQ88JyvRg46FONeGypltoIvxOoD5liF','1sS5TMP_4JGlPbuvu5nWuMClleFMKsCUS','1vr4VYp2zKLgHFZjbG27Ig2BXsILCpHjn','1zAa0vdcXWNxHnlY-0ZUT__zNh5_TSvaI','1Nf9X43iSDcqzSHUlDL_DGHJSG7AcrXBv','1QukpQR5nNrOdzWOOVWPlJDsK1FVDcdWh','1ekysoTAQYS5XC_K9B3iokEcgkQJQHfS_','1bh3kMRmYuxDWeKwa9nBA8H1zSc83lX6b','1tgH-41Hc5rLDUrF8iBWfIA7gUvsb2jOP','1pNKm-ALBM2s_eURZWg2oBxX_mYsdbrSu','1JkpWPC85v-uu2gU6FOZo4Zubt1NKQPux','1J4Xe9WgtIOdWBS0_5w859TfDRMTp7i6d','10s8v7EeKdl5LcFfVNyfytt9h1ucPNa3l','1oU_qHM8aXp_sKbZzOchmojOxvQqY45zq','1YFUfW5xjcR2fTkmw90HkfeY9XBOsU7TD','1Fp1gLFJmlc0hFEB_wzvJPvEr4MQR92KW','1o9a6SJw6oGv-IpVhT_Rv3IEx3UUQOaEz','1ZnGoEZbD7e6AFcL0f-VOURyYdnf9wiOz','1-4reM8V4fs4vMSxdoQIFC-2uwAr_5Xt0','1LOhaYDNjH6m40sIaICBW_T96DNVMIJ2E'].map((id,i)=>te(i+1,id));
-    ['math','science','tech_elec','tech_civil','tech_mech','tech_process','management','literature','lang_german','lang_spanish','lang_italian'].forEach(sp => append(gs(sp,'العلوم الإسلامية'), islTZ));
+    // Note: The TAMAYOZ Islamic Sciences block was removed here because it was a full duplicate of islamicALL_T from attachTamayozExams.
 
 
     /* ── Renumber all extraExams sequentially so labels never repeat ──────── */
@@ -425,7 +409,7 @@ const examData = {
     ['math','science','tech_elec','tech_civil','tech_mech','tech_process','management'].forEach(sp => append(gs(sp,'اللغة العربية'), [ch25('1b4e-y-1cC2PaXvkA6vad0wtwDGgu9p9w','1u5mPzx_A6e6JT4zf2pzBJfxxDTa1NXAA')]));
 
     // ── اللغة الفرنسية (الشعب العلمية والتقنية والتسيير) ──────────────────
-    ['math','science','tech_elec','tech_civil','tech_mech','tech_process','management'].forEach(sp => append(gs(sp,'اللغة الفرنسية'), [ch25('1mtJrhbhtAk0Rw7jTACntzUJtDzyJxeCD','13z75EiNYiRJXlkvwbTIYjPUcVddNAIMw')]));
+    ['math','science','tech_elec','tech_civil','tech_mech','tech_process','management'].forEach(sp => append(gs(sp,'اللغة الفرنسية'), [ch25('1_YqsZTBGeGqWysqmoNvU-afVAa9KMn1P','13z75EiNYiRJXlkvwbTIYjPUcVddNAIMw')]));
 
     // ── اللغة الإنجليزية (الشعب العلمية والتقنية والتسيير) ────────────────
     ['math','science','tech_elec','tech_civil','tech_mech','tech_process','management'].forEach(sp => append(gs(sp,'اللغة الإنجليزية'), [ch25('1xjlItQMYb8T4h8xDivilOXvCqLwhBnIE','1Gpg45S3mcXydGf2srKV-srLZX8smZMB2')]));
