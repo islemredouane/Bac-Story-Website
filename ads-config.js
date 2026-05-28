@@ -117,7 +117,7 @@ window.BAC_ADS = {
   getCountdownText: function () {
     var days = this.getCountdownDays();
     if (days === 0) return 'يوم البكالوريا اليوم!';
-    return days + ' يومًا متبقية للبكالوريا';
+    return days + ' أيام متبقية للبكالوريا';
   },
 
   isStripDismissed: function () {
