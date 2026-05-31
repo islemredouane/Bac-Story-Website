@@ -283,7 +283,7 @@ function showTelegramWelcomeModal() {
                 <span style="font-weight: 800; color: #ffd54f; font-size: 1.15rem; text-shadow: 0 2px 4px rgba(0,0,0,0.4);">لاتضيع هذا الكنز الثمين و انظم إلى قناتنا على التلغرام</span>
             </p>
             
-            <a href="https://t.me/BacStory2024" target="_blank" class="islamic-welcome-btn" id="islamicWelcomeBtn" style="text-decoration: none;">
+            <a href="https://t.me/islembacdz" target="_blank" class="islamic-welcome-btn" id="islamicWelcomeBtn" style="text-decoration: none;">
                 <i class="fa-brands fa-telegram"></i> الانضمام إلى التلغرام
             </a>
         </div>
