@@ -192,7 +192,7 @@ function showTelegramWelcomeModal() {
     // Dynamic Loading of the CSS stylesheet
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = '/islamic-welcome.css';
+    link.href = '/islamic-welcome.css?v=2.0';
     document.head.appendChild(link);
 
     // Create the HTML overlay structure
