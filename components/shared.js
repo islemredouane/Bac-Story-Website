@@ -246,19 +246,19 @@ function showIslamicWelcomeModal() {
         <svg viewBox="0 0 200 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <defs>
                 <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stop-color="#bf953f" />
-                    <stop offset="25%" stop-color="#fcf6ba" />
-                    <stop offset="50%" stop-color="#b38728" />
-                    <stop offset="75%" stop-color="#fbf5b7" />
-                    <stop offset="100%" stop-color="#aa771c" />
+                    <stop offset="0%" stop-color="#1A7CB0" />
+                    <stop offset="25%" stop-color="#24A1DE" />
+                    <stop offset="50%" stop-color="#5BC0EB" />
+                    <stop offset="75%" stop-color="#24A1DE" />
+                    <stop offset="100%" stop-color="#1A7CB0" />
                 </linearGradient>
             </defs>
             <!-- Left scroll line -->
             <path d="M15 10 Q 55 2, 90 10" stroke="url(#gold-grad)" stroke-width="1.5" fill="none"/>
             <!-- Right scroll line -->
             <path d="M185 10 Q 145 2, 110 10" stroke="url(#gold-grad)" stroke-width="1.5" fill="none"/>
-            <!-- Central Star/Ornament -->
-            <path d="M100 2 L103 8 L109 10 L103 12 L100 18 L97 12 L91 10 L97 8 Z" fill="url(#gold-grad)"/>
+            <!-- Central Simple Ornament -->
+            <path d="M100 6 L104 10 L100 14 L96 10 Z" fill="url(#gold-grad)"/>
             <circle cx="83" cy="10" r="2.5" fill="url(#gold-grad)"/>
             <circle cx="117" cy="10" r="2.5" fill="url(#gold-grad)"/>
             <circle cx="73" cy="10" r="1.5" fill="url(#gold-grad)"/>
@@ -269,24 +269,23 @@ function showIslamicWelcomeModal() {
     overlay.innerHTML = `
         <div class="islamic-card">
             <div class="islamic-card-pattern"></div>
-            ${lanternSVGLeft}
-            ${lanternSVGRight}
             
-            <div class="islamic-decor-top">🌙</div>
+            <div class="islamic-decor-top">🎓</div>
             
-            <h3 class="islamic-welcome-title">عيد أضحى مبارك أصدقائي 🤍</h3>
+            <h3 class="islamic-welcome-title">إعلان هام</h3>
             
             <div class="islamic-divider-ornament">
                 ${dividerSVG}
             </div>
             
-            <p class="islamic-welcome-dua">
-                كل عام و أنتم بخير، تقبَّل اللّه مِنّا و منكم صالح الأعمال، و غفر لنا ولكم 🤲🏻
+            <p class="islamic-welcome-dua" style="font-size: 1.05rem; line-height: 1.9; font-weight: 400;">
+                خلال هذا الأسبوع كل يوم على <strong style="color: #ffd54f;">قناتنا في التلغرام</strong> <strong style="color: #ffffff; font-weight: 900; text-shadow: 0 1px 3px rgba(0,0,0,0.3);">الأدمنز المتفوقين من مختلف الشعب</strong> راح يحكو <span style="background: rgba(255, 213, 79, 0.15); padding: 2px 6px; border-radius: 4px; border: 1px solid rgba(255, 213, 79, 0.3); color: #ffebbc; font-weight: 600;">تجربتهم مع موضوع كل مادة خلال أسبوع البكالوريا</span> حتى تأخذ العبرة و تتعلم كيفية التعامل مع المواضيع،<br><br>
+                <span style="font-weight: 800; color: #ffd54f; font-size: 1.15rem; text-shadow: 0 2px 4px rgba(0,0,0,0.4);">لاتضيع هذا الكنز الثمين و انظم إلى قناتنا على التلغرام</span>
             </p>
             
-            <button class="islamic-welcome-btn" id="islamicWelcomeBtn">
-                تقبَّل الله منّا ومنكم 🤍
-            </button>
+            <a href="https://t.me/BacStory2024" target="_blank" class="islamic-welcome-btn" id="islamicWelcomeBtn" style="text-decoration: none;">
+                <i class="fa-brands fa-telegram"></i> الانضمام إلى التلغرام
+            </a>
         </div>
     `;
 
