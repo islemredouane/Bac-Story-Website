@@ -179,10 +179,10 @@ if (typeof window.showSection === 'undefined') {
     };
 }
 
-// ─── ISLAMIC WELCOME CARD ────────────────────────────────────────────────────
-const WELCOME_KEY = 'bs_seen_islamic_welcome_v1';
+// ─── TELEGRAM ANNOUNCEMENT CARD ────────────────────────────────────────────────────
+const WELCOME_KEY = 'bs_seen_telegram_announce_v1';
 
-function showIslamicWelcomeModal() {
+function showTelegramWelcomeModal() {
     if (localStorage.getItem(WELCOME_KEY)) {
         // Already seen, proceed with the simulation announcement check after 800ms
         setTimeout(showAnnouncementModal, 800);
@@ -856,7 +856,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     hideLoader();
 
     // Show premium one-time Islamic welcome modal (800ms after loader)
-    setTimeout(showIslamicWelcomeModal, 800);
+    setTimeout(showTelegramWelcomeModal, 800);
 
     // Register Service Worker for PWA / Shortcut functionality
     if ('serviceWorker' in navigator) {
