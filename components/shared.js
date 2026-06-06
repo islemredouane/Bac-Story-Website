@@ -180,7 +180,7 @@ if (typeof window.showSection === 'undefined') {
 }
 
 // ─── TELEGRAM ANNOUNCEMENT CARD ────────────────────────────────────────────────────
-const WELCOME_KEY = 'bs_seen_telegram_announce_v1';
+const WELCOME_KEY = 'bs_seen_telegram_announce_v3';
 
 function showTelegramWelcomeModal() {
     if (localStorage.getItem(WELCOME_KEY)) {
@@ -268,6 +268,9 @@ function showTelegramWelcomeModal() {
 
     overlay.innerHTML = `
         <div class="islamic-card">
+            <button class="islamic-close-btn" id="islamicCloseBtn" aria-label="إغلاق">
+                <i class="fas fa-times"></i>
+            </button>
             <div class="islamic-card-pattern"></div>
             
             <div class="islamic-decor-top">🎓</div>
@@ -278,13 +281,37 @@ function showTelegramWelcomeModal() {
                 ${dividerSVG}
             </div>
             
-            <p class="islamic-welcome-dua" style="font-size: 1.05rem; line-height: 1.9; font-weight: 400;">
-                خلال هذا الأسبوع كل يوم على <strong style="color: #ffd54f;">قناتنا في التلغرام</strong> <strong style="color: #ffffff; font-weight: 900; text-shadow: 0 1px 3px rgba(0,0,0,0.3);">الأدمنز المتفوقين من مختلف الشعب</strong> راح يحكو <span style="background: rgba(255, 213, 79, 0.15); padding: 2px 6px; border-radius: 4px; border: 1px solid rgba(255, 213, 79, 0.3); color: #ffebbc; font-weight: 600;">تجربتهم مع موضوع كل مادة خلال أسبوع البكالوريا</span> حتى تأخذ العبرة و تتعلم كيفية التعامل مع المواضيع،<br><br>
-                <span style="font-weight: 800; color: #ffd54f; font-size: 1.15rem; text-shadow: 0 2px 4px rgba(0,0,0,0.4);">لاتضيع هذا الكنز الثمين و انظم إلى قناتنا على التلغرام</span>
+            <p class="islamic-welcome-dua" style="font-size: 1.08rem; line-height: 1.8; font-weight: 500; text-align: center; direction: rtl; margin-bottom: 1.25rem;">
+                شاركنا معكم في قناتنا على التلغرام أهم النصائح والتوجيهات التي يجب عليكم التقيد بها خلال <strong style="color: #ffd54f;">أسبوع البكالوريا</strong>.
             </p>
             
-            <a href="https://t.me/islembacdz" target="_blank" class="islamic-welcome-btn" id="islamicWelcomeBtn" style="text-decoration: none;">
-                <i class="fa-brands fa-telegram"></i> الانضمام إلى التلغرام
+            <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 18px; padding: 1.25rem 1.5rem; margin: 1.25rem 0; text-align: right; direction: rtl; box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.25);">
+                <div style="font-weight: 800; color: #ffd54f; font-size: 1.05rem; margin-bottom: 0.9rem; display: flex; align-items: center; gap: 8px;">
+                    <i class="fas fa-exclamation-circle" style="color: #ffd54f; font-size: 1.15rem;"></i>
+                    <span>توجيهات مصيرية تضمن تفوقكم:</span>
+                </div>
+                <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.85rem; color: #efeff0;">
+                    <li style="display: flex; align-items: flex-start; gap: 10px; font-size: 0.94rem; line-height: 1.5;">
+                        <i class="fas fa-check-circle" style="color: #5BC0EB; margin-top: 4px; font-size: 0.95rem; flex-shrink: 0;"></i>
+                        <span><strong>نصائح ذهبية:</strong> إرشادات عملية لتفادي التوتر وكيفية إدارة وقتك بذكاء.</span>
+                    </li>
+                    <li style="display: flex; align-items: flex-start; gap: 10px; font-size: 0.94rem; line-height: 1.5;">
+                        <i class="fas fa-check-circle" style="color: #5BC0EB; margin-top: 4px; font-size: 0.95rem; flex-shrink: 0;"></i>
+                        <span><strong>منهجية ورقة الإجابة:</strong> الطريقة المثالية لتنظيم إجابتك لتسهيل عمل المصحح.</span>
+                    </li>
+                    <li style="display: flex; align-items: flex-start; gap: 10px; font-size: 0.94rem; line-height: 1.5;">
+                        <i class="fas fa-check-circle" style="color: #5BC0EB; margin-top: 4px; font-size: 0.95rem; flex-shrink: 0;"></i>
+                        <span><strong>الأدوات الضرورية:</strong> قائمة المستلزمات الكاملة لي تحتاجوها يوم الامتحان.</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <p style="font-size: 0.98rem; color: #ffebbc; text-align: center; margin: 1.25rem 0; font-weight: 700; text-shadow: 0 1px 3px rgba(0,0,0,0.3);">
+                تأكدوا من عدم تفويت أي تفصيل، اطلعوا عليها مباشرة عبر الرابط 👇
+            </p>
+            
+            <a href="https://t.me/islembacdz/4284" target="_blank" class="islamic-welcome-btn" id="islamicWelcomeBtn" style="text-decoration: none; margin-top: 0.5rem; width: 80%; display: inline-flex; justify-content: center;">
+                <i class="fab fa-telegram-plane"></i> عرض التفاصيل في التلغرام
             </a>
         </div>
     `;
@@ -301,24 +328,46 @@ function showTelegramWelcomeModal() {
         });
     });
 
-    const closeBtn = document.getElementById('islamicWelcomeBtn');
-    if (closeBtn) {
-        closeBtn.addEventListener('click', () => {
-            // Write to localStorage
-            localStorage.setItem(WELCOME_KEY, '1');
-            
-            // Fade out
-            overlay.classList.add('fade-out');
-            
-            // Restore scrolling
-            document.body.style.overflow = '';
-            
-            // Clean up DOM after transition
-            setTimeout(() => {
-                if (overlay.parentNode) overlay.remove();
-            }, 600);
-        });
-    }
+    const dismissModal = () => {
+        // Write to localStorage so they don't see it again immediately
+        localStorage.setItem(WELCOME_KEY, '1');
+        
+        // Fade out
+        overlay.classList.add('fade-out');
+        
+        // Restore scrolling
+        document.body.style.overflow = '';
+        
+        // Clean up DOM after transition
+        setTimeout(() => {
+            if (overlay.parentNode) overlay.remove();
+        }, 600);
+        
+        // Clean up key listener
+        document.removeEventListener('keydown', handleEsc);
+    };
+
+    // Close on button clicks
+    const welcomeBtn = document.getElementById('islamicWelcomeBtn');
+    const closeBtn = document.getElementById('islamicCloseBtn');
+    
+    if (welcomeBtn) welcomeBtn.addEventListener('click', dismissModal);
+    if (closeBtn) closeBtn.addEventListener('click', dismissModal);
+
+    // Close on clicking outside the card (overlay background)
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) {
+            dismissModal();
+        }
+    });
+
+    // Close on ESC key press
+    const handleEsc = (e) => {
+        if (e.key === 'Escape') {
+            dismissModal();
+        }
+    };
+    document.addEventListener('keydown', handleEsc);
 }
 
 // ─── ANNOUNCEMENT — SIMULATION BOTTOM SHEET ──────────────────────────────────
