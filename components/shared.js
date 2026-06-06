@@ -180,7 +180,7 @@ if (typeof window.showSection === 'undefined') {
 }
 
 // ─── TELEGRAM ANNOUNCEMENT CARD ────────────────────────────────────────────────────
-const WELCOME_KEY = 'bs_seen_telegram_announce_v3';
+const WELCOME_KEY = 'bs_seen_telegram_announce_v4';
 
 function showTelegramWelcomeModal() {
     if (localStorage.getItem(WELCOME_KEY)) {
