@@ -480,33 +480,77 @@ window.addEventListener('scroll', () => {
 });
 
 // Fullscreen toggler for multiple PDF viewers
+// Strategy: try native Fullscreen API (desktop) → catch failure → CSS overlay (mobile/iOS)
 function toggleFullScreen(event) {
-    const btn = event.currentTarget;
-    const iframe = btn.closest('.pdf-wrapper').querySelector('iframe');
+    const btn     = event.currentTarget;
+    const wrapper = btn.closest('.pdf-wrapper');
+    const iframe  = wrapper.querySelector('iframe');
 
-    if (document.fullscreenElement === iframe) {
-        if (document.exitFullscreen) {
-            document.exitFullscreen();
-        } else if (document.webkitExitFullscreen) {
-            document.webkitExitFullscreen();
-        } else if (document.msExitFullscreen) {
-            document.msExitFullscreen();
-        }
+    const ICON_EXPAND  = '<i class="fa-solid fa-expand"></i> تكبير الملف';
+    const ICON_COMPRESS = '<i class="fa-solid fa-compress"></i> تصغير الملف';
+
+    // ── CSS overlay helpers ──────────────────────────────────────────────────
+    function enterCSSFullscreen() {
+        wrapper.classList.add('pdf-fullscreen');
+        document.body.classList.add('pdf-body-lock');
+        btn.innerHTML = ICON_COMPRESS;
+    }
+    function exitCSSFullscreen() {
+        wrapper.classList.remove('pdf-fullscreen');
+        document.body.classList.remove('pdf-body-lock');
+        btn.innerHTML = ICON_EXPAND;
+    }
+
+    // ── Already in CSS fullscreen? → exit ───────────────────────────────────
+    if (wrapper.classList.contains('pdf-fullscreen')) {
+        exitCSSFullscreen();
+        return;
+    }
+
+    // ── Already in native fullscreen? → exit ────────────────────────────────
+    const fsEl = document.fullscreenElement || document.webkitFullscreenElement;
+    if (fsEl === iframe) {
+        (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+        return;
+    }
+
+    // ── Try native fullscreen; fall back to CSS on rejection (Android) ───────
+    const reqFS = iframe.requestFullscreen
+               || iframe.webkitRequestFullscreen
+               || iframe.msRequestFullscreen;
+
+    if (reqFS) {
+        reqFS.call(iframe).catch(() => enterCSSFullscreen());
     } else {
-        if (iframe.requestFullscreen) {
-            iframe.requestFullscreen();
-        } else if (iframe.webkitRequestFullscreen) {
-            iframe.webkitRequestFullscreen();
-        } else if (iframe.msRequestFullscreen) {
-            iframe.msRequestFullscreen();
-        }
+        // iOS Safari — requestFullscreen not available on iframes
+        enterCSSFullscreen();
     }
 }
 
+// Sync button icons when native fullscreen exits via ESC or browser chrome
+function _syncFSButtons() {
+    if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+        document.querySelectorAll('.full-btn').forEach(function (b) {
+            b.innerHTML = '<i class="fa-solid fa-expand"></i> تكبير الملف';
+        });
+    }
+}
+document.addEventListener('fullscreenchange', _syncFSButtons);
+document.addEventListener('webkitfullscreenchange', _syncFSButtons);
+
 document.addEventListener('keydown', function (e) {
-    if (e.key === "Escape" && document.fullscreenElement) {
-        if (document.exitFullscreen) {
+    if (e.key === 'Escape') {
+        // Native fullscreen
+        if (document.fullscreenElement && document.exitFullscreen) {
             document.exitFullscreen();
+        }
+        // CSS fullscreen
+        var cssFs = document.querySelector('.pdf-wrapper.pdf-fullscreen');
+        if (cssFs) {
+            cssFs.classList.remove('pdf-fullscreen');
+            document.body.classList.remove('pdf-body-lock');
+            var b = cssFs.querySelector('.full-btn');
+            if (b) b.innerHTML = '<i class="fa-solid fa-expand"></i> تكبير الملف';
         }
     }
 });
