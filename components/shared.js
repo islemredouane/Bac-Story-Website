@@ -285,27 +285,6 @@ function showTelegramWelcomeModal() {
                 شاركنا معكم في قناتنا على التلغرام أهم النصائح والتوجيهات التي يجب عليكم التقيد بها خلال <strong style="color: #ffd54f;">أسبوع البكالوريا</strong>.
             </p>
             
-            <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 18px; padding: 1.25rem 1.5rem; margin: 1.25rem 0; text-align: right; direction: rtl; box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.25);">
-                <div style="font-weight: 800; color: #ffd54f; font-size: 1.05rem; margin-bottom: 0.9rem; display: flex; align-items: center; gap: 8px;">
-                    <i class="fas fa-exclamation-circle" style="color: #ffd54f; font-size: 1.15rem;"></i>
-                    <span>توجيهات مصيرية تضمن تفوقكم:</span>
-                </div>
-                <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.85rem; color: #efeff0;">
-                    <li style="display: flex; align-items: flex-start; gap: 10px; font-size: 0.94rem; line-height: 1.5;">
-                        <i class="fas fa-check-circle" style="color: #5BC0EB; margin-top: 4px; font-size: 0.95rem; flex-shrink: 0;"></i>
-                        <span><strong>نصائح ذهبية:</strong> إرشادات عملية لتفادي التوتر وكيفية إدارة وقتك بذكاء.</span>
-                    </li>
-                    <li style="display: flex; align-items: flex-start; gap: 10px; font-size: 0.94rem; line-height: 1.5;">
-                        <i class="fas fa-check-circle" style="color: #5BC0EB; margin-top: 4px; font-size: 0.95rem; flex-shrink: 0;"></i>
-                        <span><strong>منهجية ورقة الإجابة:</strong> الطريقة المثالية لتنظيم إجابتك لتسهيل عمل المصحح.</span>
-                    </li>
-                    <li style="display: flex; align-items: flex-start; gap: 10px; font-size: 0.94rem; line-height: 1.5;">
-                        <i class="fas fa-check-circle" style="color: #5BC0EB; margin-top: 4px; font-size: 0.95rem; flex-shrink: 0;"></i>
-                        <span><strong>الأدوات الضرورية:</strong> قائمة المستلزمات الكاملة لي تحتاجوها يوم الامتحان.</span>
-                    </li>
-                </ul>
-            </div>
-            
             <p style="font-size: 0.98rem; color: #ffebbc; text-align: center; margin: 1.25rem 0; font-weight: 700; text-shadow: 0 1px 3px rgba(0,0,0,0.3);">
                 تأكدوا من عدم تفويت أي تفصيل، اطلعوا عليها مباشرة عبر الرابط 👇
             </p>
