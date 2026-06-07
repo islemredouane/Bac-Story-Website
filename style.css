@@ -26,12 +26,12 @@ html {
     position: fixed;
     inset: 0;
     z-index: 99999;
-    background: #ffffff;
+    background: linear-gradient(160deg, #070f2b 0%, #0d1f5c 55%, #1a3585 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 1;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
     visibility: visible;
 }
 
@@ -44,37 +44,50 @@ html {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
-    animation: loaderZoomInOut 2s ease-in-out infinite;
+    gap: 1.4rem;
+    animation: loaderFadeUp 0.5s ease forwards;
 }
 
 .loader-logo {
     font-family: 'Pattaya', serif;
     font-size: clamp(3rem, 10vw, 5rem);
-    color: var(--primary-color);
+    color: #ffffff;
     letter-spacing: 4px;
-    filter: drop-shadow(0 10px 20px rgba(44, 92, 197, 0.15));
+    text-shadow:
+        0 0 40px rgba(255, 107, 53, 0.55),
+        0 4px 24px rgba(0, 0, 0, 0.4);
+    animation: loaderPulse 2.4s ease-in-out infinite;
 }
 
 .loader-tagline {
     font-family: 'Tajawal', sans-serif;
-    font-size: 1.1rem;
-    color: var(--text-light);
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.62);
     font-weight: 500;
     letter-spacing: 1px;
+    direction: rtl;
+}
+
+.loader-spinner {
+    width: 46px;
+    height: 46px;
+    border: 3px solid rgba(255, 255, 255, 0.12);
+    border-top-color: #ff6b35;
+    border-right-color: #ff6b35;
+    border-radius: 50%;
+    animation: loaderSpin 0.85s linear infinite;
 }
 
 .loader-dots {
     display: flex;
     gap: 8px;
-    margin-top: 0.5rem;
 }
 
 .loader-dots span {
-    width: 12px;
-    height: 12px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
-    background: var(--secondary-color);
+    background: rgba(255, 255, 255, 0.45);
     animation: loaderDot 1.2s ease-in-out infinite;
 }
 
@@ -86,24 +99,24 @@ html {
     animation-delay: 0.4s;
 }
 
-@keyframes loaderZoomInOut {
-    0% {
-        transform: scale(0.5);
+@keyframes loaderFadeUp {
+    from {
         opacity: 0;
-        filter: blur(10px);
+        transform: translateY(12px);
     }
-
-    50% {
-        transform: scale(1.5);
+    to {
         opacity: 1;
-        filter: blur(0px);
+        transform: translateY(0);
     }
+}
 
-    100% {
-        transform: scale(0.5);
-        opacity: 0;
-        filter: blur(10px);
-    }
+@keyframes loaderPulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.72; }
+}
+
+@keyframes loaderSpin {
+    to { transform: rotate(360deg); }
 }
 
 /* ============================================
@@ -2490,6 +2503,51 @@ body.search-active .mobile-bottom-bar,
     height: 100vh;
     border: none;
     border-radius: 0;
+}
+
+/* ── CSS-based fullscreen overlay (mobile / iOS fallback) ────────────────── */
+body.pdf-body-lock {
+    overflow: hidden !important;
+    touch-action: none !important;
+}
+
+.pdf-wrapper.pdf-fullscreen {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    height: 100dvh !important; /* dynamic viewport height accounts for mobile browser chrome */
+    max-width: none !important;
+    z-index: 99999 !important;
+    background: #000 !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    box-sizing: border-box !important;
+}
+
+.pdf-wrapper.pdf-fullscreen iframe {
+    flex: 1 1 auto !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    border: none !important;
+}
+
+/* Keep the exit button visible, overlay it at the bottom */
+.pdf-wrapper.pdf-fullscreen .pdf-buttons {
+    flex: 0 0 auto !important;
+    background: rgba(0, 0, 0, 0.75) !important;
+    padding: 6px 12px !important;
+    justify-content: center !important;
+}
+
+/* Hide non-essential elements in CSS fullscreen */
+.pdf-wrapper.pdf-fullscreen .telegram-btn,
+.pdf-wrapper.pdf-fullscreen .correct-btn {
+    display: none !important;
 }
 
 /*advice style*/
@@ -9390,3 +9448,108 @@ textarea.form-control {
     .sim-strategy-hero { flex-direction: column; text-align: center; }
     .sim-strategy-hero-icon { width: 70px; height: 70px; font-size: 1.8rem; }
 }
+
+/* ═══════════════════════════════════════════════
+   BAC 2026 — SUBJECT CARDS
+═══════════════════════════════════════════════ */
+#bac2026-subjects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+    padding: 8px 0;
+}
+
+.bac2026-subject-card {
+    background: var(--card-bg, #fff);
+    border: 1.5px solid rgba(44, 92, 195, 0.12);
+    border-radius: 16px;
+    padding: 18px 16px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    box-shadow: 0 2px 12px rgba(44, 92, 195, 0.07);
+    transition: box-shadow 0.25s, transform 0.25s;
+}
+
+.bac2026-subject-card:hover {
+    box-shadow: 0 6px 24px rgba(44, 92, 195, 0.15);
+    transform: translateY(-2px);
+}
+
+.bac2026-subject-label {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-color, #1a2a4a);
+    direction: rtl;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.bac2026-subject-label i {
+    color: var(--primary-color, #2c5cc5);
+    font-size: 1.05rem;
+}
+
+.bac2026-subject-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.bac2026-subject-actions .main-btn {
+    flex: 1;
+    font-size: 0.88rem;
+    padding: 10px 8px;
+    border-radius: 10px;
+    min-width: 0;
+    white-space: nowrap;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Exam button — pending state (no link yet) */
+.bac2026-btn-pending {
+    background: linear-gradient(135deg, #6b7fa3, #8a99bb) !important;
+    opacity: 0.75;
+    cursor: default;
+}
+
+/* Solution button — disabled (no solution yet) */
+.bac2026-btn-disabled {
+    background: transparent !important;
+    border: 1.5px solid rgba(44, 92, 195, 0.25) !important;
+    color: #8a99bb !important;
+    cursor: pointer;
+    position: relative;
+}
+
+.bac2026-btn-disabled:hover {
+    background: rgba(44, 92, 195, 0.06) !important;
+    border-color: rgba(44, 92, 195, 0.4) !important;
+}
+
+/* "قريباً" badge inside solution button */
+.bac2026-soon-badge {
+    background: #ff6b35;
+    color: #fff;
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 20px;
+    margin-inline-start: 4px;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+    #bac2026-subjects-grid {
+        grid-template-columns: 1fr;
+    }
+    .bac2026-subject-actions {
+        flex-direction: column;
+    }
+}
+
