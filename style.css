@@ -20,19 +20,20 @@ html {
 }
 
 /* ============================================
-   PAGE LOADER
+   PAGE LOADER — BAC STORY
    ============================================ */
 .page-loader {
     position: fixed;
     inset: 0;
     z-index: 99999;
-    background: linear-gradient(160deg, #070f2b 0%, #0d1f5c 55%, #1a3585 100%);
+    background: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 1;
-    transition: opacity 0.6s ease, visibility 0.6s ease;
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.6s ease;
     visibility: visible;
+    overflow: hidden;
 }
 
 .page-loader.loader-hiding {
@@ -40,83 +41,175 @@ html {
     visibility: hidden;
 }
 
+/* ── Subtle background tint (matches site's light feel) ─────────── */
+.loader-orb {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(90px);
+}
+
+.loader-orb:first-child {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(44, 92, 197, 0.07) 0%, transparent 70%);
+    top: -150px;
+    left: calc(50% - 300px);
+    animation: loaderOrbFloat1 7s ease-in-out infinite;
+}
+
+.loader-orb--2 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(44, 92, 197, 0.05) 0%, transparent 70%);
+    bottom: -100px;
+    right: 5%;
+    animation: loaderOrbFloat2 9s ease-in-out -4s infinite;
+}
+
+/* ── Main content ──────────────────────────────────────────────── */
 .loader-content {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.4rem;
-    animation: loaderFadeUp 0.5s ease forwards;
+    gap: 0;
+    z-index: 1;
 }
 
-.loader-logo {
+/* ── Letter row ────────────────────────────────────────────────── */
+.loader-letters {
+    display: flex;
+    align-items: baseline;
+    direction: ltr;
     font-family: 'Pattaya', serif;
-    font-size: clamp(3rem, 10vw, 5rem);
-    color: #ffffff;
-    letter-spacing: 4px;
-    text-shadow:
-        0 0 40px rgba(255, 107, 53, 0.55),
-        0 4px 24px rgba(0, 0, 0, 0.4);
-    animation: loaderPulse 2.4s ease-in-out infinite;
+    font-size: clamp(3.2rem, 11vw, 5.5rem);
+    line-height: 1;
+    letter-spacing: 3px;
 }
 
+/* individual letter — single brand blue */
+.ll {
+    display: inline-block;
+    opacity: 0;
+    color: #2c5cc5;
+    transform: translateY(-44px) scale(0.75);
+    animation: loaderLetterIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* space between BAC and STORY */
+.loader-gap { width: 0.35em; opacity: 1; transform: none; animation: none; }
+
+/* stagger delays */
+.ll:nth-child(1) { animation-delay: 0.05s; }
+.ll:nth-child(2) { animation-delay: 0.13s; }
+.ll:nth-child(3) { animation-delay: 0.21s; }
+.ll:nth-child(5) { animation-delay: 0.36s; }
+.ll:nth-child(6) { animation-delay: 0.44s; }
+.ll:nth-child(7) { animation-delay: 0.52s; }
+.ll:nth-child(8) { animation-delay: 0.60s; }
+.ll:nth-child(9) { animation-delay: 0.68s; }
+
+/* ── Sweep divider line ─────────────────────────────────────────── */
+.loader-divider {
+    width: 100%;
+    height: 1.5px;
+    margin: 1rem 0 0.9rem;
+    overflow: hidden;
+    opacity: 0;
+    animation: loaderFadeIn 0.3s ease 1s forwards;
+}
+
+.loader-divider span {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 0%, #2c5cc5 45%, #ff6b35 80%, transparent 100%);
+    transform: translateX(-100%);
+    animation: loaderLineSweep 0.75s cubic-bezier(0.4, 0, 0.2, 1) 1.05s forwards;
+}
+
+/* ── Arabic tagline ─────────────────────────────────────────────── */
 .loader-tagline {
     font-family: 'Tajawal', sans-serif;
-    font-size: 1.05rem;
-    color: rgba(255, 255, 255, 0.62);
+    font-size: clamp(0.85rem, 2.5vw, 1rem);
+    color: var(--text-light);
     font-weight: 500;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     direction: rtl;
+    opacity: 0;
+    animation: loaderFadeIn 0.5s ease 1.25s forwards;
 }
 
-.loader-spinner {
-    width: 46px;
-    height: 46px;
-    border: 3px solid rgba(255, 255, 255, 0.12);
-    border-top-color: #ff6b35;
-    border-right-color: #ff6b35;
+/* ── Progress bar ───────────────────────────────────────────────── */
+.loader-bar {
+    position: relative;
+    width: min(260px, 60vw);
+    height: 2px;
+    background: rgba(44, 92, 197, 0.12);
+    border-radius: 2px;
+    margin-top: 1.8rem;
+    overflow: visible;
+    opacity: 0;
+    animation: loaderFadeIn 0.4s ease 1.35s forwards;
+}
+
+.loader-bar-fill {
+    height: 100%;
+    width: 0;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #2c5cc5 0%, #4a7be8 100%);
+    animation: loaderBarFill 2.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.45s forwards;
+}
+
+/* glowing dot tracking the fill edge */
+.loader-bar-glow {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-50%, -50%);
+    width: 7px;
+    height: 7px;
     border-radius: 50%;
-    animation: loaderSpin 0.85s linear infinite;
+    background: #2c5cc5;
+    box-shadow: 0 0 8px 2px rgba(44, 92, 197, 0.55);
+    animation: loaderDotTrack 2.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.45s forwards;
 }
 
-.loader-dots {
-    display: flex;
-    gap: 8px;
+/* ── Keyframes ──────────────────────────────────────────────────── */
+@keyframes loaderLetterIn {
+    to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-.loader-dots span {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.45);
-    animation: loaderDot 1.2s ease-in-out infinite;
+@keyframes loaderFadeIn {
+    to { opacity: 1; }
 }
 
-.loader-dots span:nth-child(2) {
-    animation-delay: 0.2s;
+@keyframes loaderLineSweep {
+    to { transform: translateX(0); }
 }
 
-.loader-dots span:nth-child(3) {
-    animation-delay: 0.4s;
+@keyframes loaderBarFill {
+    0%   { width: 0%; }
+    50%  { width: 62%; }
+    75%  { width: 78%; }
+    100% { width: 88%; }
 }
 
-@keyframes loaderFadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(12px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+@keyframes loaderDotTrack {
+    0%   { left: 0%; }
+    50%  { left: 62%; }
+    75%  { left: 78%; }
+    100% { left: 88%; }
 }
 
-@keyframes loaderPulse {
-    0%, 100% { opacity: 1; }
-    50%       { opacity: 0.72; }
+@keyframes loaderOrbFloat1 {
+    0%, 100% { transform: translateY(0);    opacity: 1; }
+    50%       { transform: translateY(-24px); opacity: 0.6; }
 }
 
-@keyframes loaderSpin {
-    to { transform: rotate(360deg); }
+@keyframes loaderOrbFloat2 {
+    0%, 100% { transform: translateY(0);    opacity: 1; }
+    50%       { transform: translateY(-18px); opacity: 0.5; }
 }
 
 /* ============================================
