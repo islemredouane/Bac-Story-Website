@@ -385,7 +385,7 @@ function showTelegramWelcomeModal() {
             </div>
 
             <p class="islamic-welcome-dua" style="font-size: 1.05rem; line-height: 1.8; font-weight: 500; text-align: center; direction: rtl; margin-bottom: 1.1rem;">
-                غدوة آخر يوم في الباك، بصح موقعنا راح يكمل معاكم حتى تخيرو <strong style="color: #ffd54f;">تخصص أحلامكم</strong> 🎓
+                اليوم آخر يوم في الباك، بصح موقعنا راح يكمل معاكم حتى تخيرو <strong style="color: #ffd54f;">تخصص أحلامكم</strong> 🎓
             </p>
 
             <div style="display: flex; flex-direction: column; gap: 0.6rem; margin: 0.5rem 0 1.1rem 0; direction: rtl; text-align: right;">
