@@ -378,7 +378,7 @@ function showTelegramWelcomeModal() {
 
             <div class="islamic-decor-top">💪</div>
 
-            <h3 class="islamic-welcome-title">الباك يخلاص... بصح إحنا لا 💪</h3>
+            <h3 class="islamic-welcome-title">الباك يخلاص... بصح حنا مكملين </h3>
 
             <div class="islamic-divider-ornament">
                 ${dividerSVG}
