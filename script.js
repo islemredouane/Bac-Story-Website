@@ -175,41 +175,40 @@ window.addEventListener('popstate', (event) => {
     }
 });
 
-function updateTimer() {
-    const examDate = new Date(2026, 5, 7, 8, 30, 0);
+const TIMERS_CONFIG = [
+    { suffix: '1', target: new Date(2026, 5, 26, 8, 0, 0) },  // June 26 - التصحيح
+    { suffix: '2', target: new Date(2026, 6, 18, 8, 0, 0) },  // July 18 - النتائج
+    { suffix: '3', target: new Date(2027, 5, 7,  8, 30, 0) }, // June 7 2027 - بكالوريا 2027
+];
+
+function updateAllTimers() {
     const now = new Date();
-    const diff = examDate - now;
-
-    if (diff <= 0) {
-        document.getElementById('days').textContent = '00';
-        document.getElementById('hours').textContent = '00';
-        document.getElementById('minutes').textContent = '00';
-        document.getElementById('seconds').textContent = '00';
-        return;
-    }
-
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-    const daysEl = document.getElementById('days');
-    const hoursEl = document.getElementById('hours');
-    const minutesEl = document.getElementById('minutes');
-    const secondsEl = document.getElementById('seconds');
-
-    if (daysEl) daysEl.textContent = String(days).padStart(2, '0');
-    if (hoursEl) hoursEl.textContent = String(hours).padStart(2, '0');
-    if (minutesEl) minutesEl.textContent = String(minutes).padStart(2, '0');
-    if (secondsEl) secondsEl.textContent = String(seconds).padStart(2, '0');
+    TIMERS_CONFIG.forEach(function(cfg) {
+        const diff = cfg.target - now;
+        const s = cfg.suffix;
+        const set = function(id, val) {
+            const el = document.getElementById(id + s);
+            if (el) el.textContent = String(Math.max(0, val)).padStart(2, '0');
+        };
+        if (diff <= 0) {
+            set('t-days-', 0); set('t-hours-', 0); set('t-min-', 0); set('t-sec-', 0);
+            const doneEl = document.getElementById('timer-done-' + s);
+            if (doneEl) doneEl.style.display = 'block';
+            return;
+        }
+        set('t-days-', Math.floor(diff / 86400000));
+        set('t-hours-', Math.floor((diff % 86400000) / 3600000));
+        set('t-min-',   Math.floor((diff % 3600000)  / 60000));
+        set('t-sec-',   Math.floor((diff % 60000)    / 1000));
+    });
 }
 
 // Timer with Page Visibility API — pauses when tab is hidden
 let timerInterval = null;
 function startTimer() {
     if (timerInterval) return;
-    updateTimer();
-    timerInterval = setInterval(updateTimer, 1000);
+    updateAllTimers();
+    timerInterval = setInterval(updateAllTimers, 1000);
 }
 function stopTimer() {
     clearInterval(timerInterval);
@@ -219,6 +218,171 @@ document.addEventListener('visibilitychange', () => {
     if (document.hidden) stopTimer();
     else startTimer();
 }, { passive: true });
+
+// ── Share Card ──────────────────────────────────────────────────────────────
+(function () {
+    var overlay, card, cardSubject, cardUrl;
+
+    function buildCard() {
+        // overlay
+        overlay = document.createElement('div');
+        overlay.className = 'share-overlay';
+        overlay.addEventListener('click', closeCard);
+
+        // card
+        card = document.createElement('div');
+        card.className = 'share-card';
+        card.addEventListener('click', function (e) { e.stopPropagation(); });
+
+        card.innerHTML =
+            '<span class="share-card__handle"></span>' +
+            /* ── Gradient hero header ── */
+            '<div class="share-card__hero">' +
+                '<div class="share-card__hero-icon"><i class="fas fa-share-nodes"></i></div>' +
+                '<div class="share-card__hero-text">' +
+                    '<strong>شارك الموضوع</strong>' +
+                    '<span id="sc-subject"></span>' +
+                '</div>' +
+                '<button class="share-card__close" aria-label="إغلاق"><i class="fas fa-times"></i></button>' +
+            '</div>' +
+            /* ── Body ── */
+            '<div class="share-card__body">' +
+                '<p class="share-card__label">مشاركة عبر</p>' +
+                '<div class="share-card__options">' +
+                    '<button class="share-option share-option--wa"  onclick="scShare(\'wa\')">' +
+                        '<div class="share-option__icon"><i class="fab fa-whatsapp"></i></div>' +
+                        '<span>واتساب</span></button>' +
+                    '<button class="share-option share-option--tg"  onclick="scShare(\'tg\')">' +
+                        '<div class="share-option__icon"><i class="fab fa-telegram-plane"></i></div>' +
+                        '<span>تيليغرام</span></button>' +
+                    '<button class="share-option share-option--fb"  onclick="scShare(\'fb\')">' +
+                        '<div class="share-option__icon"><i class="fab fa-facebook-f"></i></div>' +
+                        '<span>فيسبوك</span></button>' +
+                    '<button class="share-option share-option--copy" onclick="scShare(\'copy\')">' +
+                        '<div class="share-option__icon" id="sc-copy-icon"><i class="fas fa-link"></i></div>' +
+                        '<span>نسخ الرابط</span></button>' +
+                '</div>' +
+                '<div class="share-card__url-row">' +
+                    '<span class="share-card__url" id="sc-url-text"></span>' +
+                    '<button class="share-card__copy-url" onclick="scShare(\'copy\')">' +
+                        '<i class="fas fa-copy"></i> نسخ' +
+                    '</button>' +
+                '</div>' +
+            '</div>';
+
+        card.querySelector('.share-card__close').addEventListener('click', closeCard);
+        cardSubject = card.querySelector('#sc-subject');
+        cardUrl     = card.querySelector('#sc-url-text');
+
+        document.body.appendChild(overlay);
+        document.body.appendChild(card);
+    }
+
+    function openCard(title, url) {
+        if (!overlay) buildCard();
+        cardSubject.textContent = title;
+        cardUrl.textContent = url;
+        card.dataset.url   = url;
+        card.dataset.title = title;
+        overlay.classList.add('active');
+        requestAnimationFrame(function () { card.classList.add('active'); });
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeCard() {
+        if (!card) return;
+        card.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    // close on Escape
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeCard();
+    });
+
+    // exposed globally
+    window.scShare = function (type) {
+        var url   = card.dataset.url;
+        var title = card.dataset.title;
+        var encoded = encodeURIComponent(title + '\n' + url);
+        if (type === 'wa')   window.open('https://wa.me/?text=' + encoded, '_blank', 'noopener');
+        if (type === 'tg')   window.open('https://t.me/share/url?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(title), '_blank', 'noopener');
+        if (type === 'fb')   window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url), '_blank', 'noopener');
+        if (type === 'copy') {
+            var icon    = document.getElementById('sc-copy-icon');
+            var copyBtn = card.querySelector('.share-card__copy-url');
+
+            function onCopied() {
+                icon.innerHTML = '<i class="fas fa-check"></i>';
+                if (copyBtn) copyBtn.innerHTML = '<i class="fas fa-check"></i> تم!';
+                setTimeout(function () {
+                    icon.innerHTML = '<i class="fas fa-link"></i>';
+                    if (copyBtn) copyBtn.innerHTML = '<i class="fas fa-copy"></i> نسخ';
+                }, 2000);
+            }
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(url).then(onCopied).catch(function () {
+                    // Fallback for denied clipboard permission
+                    try {
+                        var ta = document.createElement('textarea');
+                        ta.value = url;
+                        ta.style.cssText = 'position:fixed;opacity:0;pointer-events:none';
+                        document.body.appendChild(ta);
+                        ta.focus(); ta.select();
+                        document.execCommand('copy');
+                        document.body.removeChild(ta);
+                        onCopied();
+                    } catch (e) { /* silent */ }
+                });
+            } else {
+                // Legacy fallback
+                try {
+                    var ta = document.createElement('textarea');
+                    ta.value = url;
+                    ta.style.cssText = 'position:fixed;opacity:0;pointer-events:none';
+                    document.body.appendChild(ta);
+                    ta.focus(); ta.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(ta);
+                    onCopied();
+                } catch (e) { /* silent */ }
+            }
+        }
+    };
+
+    window._openShareCard = openCard;
+}());
+
+function shareOnWhatsApp(btn) {
+    var section = btn.closest('.resource-content');
+    var title   = (section && section.querySelector('h2'))
+        ? section.querySelector('h2').textContent.trim()
+        : 'مواضيع بكالوريا 2026';
+
+    // Read the section ID directly from the DOM — always accurate, no window.location dependency
+    var sectionId = section ? section.id : '';
+    var base = 'https://bacstory.vercel.app/bac-2026';
+    var url  = sectionId ? (base + '#' + sectionId) : base;
+
+    window._openShareCard(title, url);
+}
+
+// Inject share buttons into all .pdf-buttons containers
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.pdf-buttons').forEach(function (div) {
+        if (div.querySelector('.share-btn')) return; // already injected
+        const btn = document.createElement('button');
+        btn.className = 'share-btn';
+        btn.type = 'button';
+        btn.setAttribute('aria-label', 'شارك على واتساب');
+        btn.innerHTML = '<i class="fas fa-share-nodes"></i> شارك الملف';
+        btn.addEventListener('click', function () { shareOnWhatsApp(btn); });
+        div.appendChild(btn);
+    });
+
+});
 
 
 function getFieldName(field) {
