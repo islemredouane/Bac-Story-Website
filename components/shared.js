@@ -80,7 +80,7 @@ function injectGlobalCTA() {
             <div class="gcta-icon-circle"><i class="fas fa-calculator"></i></div>
             <div class="gcta-text">
                 <strong>حاسبة المعدل</strong>
-                <span>احسب معدلك بدقة واعرف نتيجتك التقديرية</span>
+                <span>احسب معدلك واعرف نتيجتك التقديرية</span>
             </div>
             <div class="gcta-btn">احسب الآن <i class="fas fa-arrow-left"></i></div>
         </a>
@@ -95,10 +95,10 @@ function injectGlobalCTA() {
         <a href="/tools.html" class="gcta-card gcta-card--timer">
             <div class="gcta-icon-circle"><i class="fas fa-hourglass-half"></i></div>
             <div class="gcta-text">
-                <strong>قداه بقى؟ ⏳</strong>
+                <strong>قداه بقى؟ </strong>
                 <span>شوف الوقت المتبقي للتصحيح والنتائج لحظة بلحظة</span>
             </div>
-            <div class="gcta-btn">شوف العداد <i class="fas fa-arrow-left"></i></div>
+            <div class="gcta-btn">تفقد العد التنازلي <i class="fas fa-arrow-left"></i></div>
         </a>
     </div>
     <!-- Mobile-only rotation dots -->
