@@ -326,8 +326,10 @@
         font-size: 0.95rem;
     }
     .islamic-welcome-btn {
-        padding: 0.8rem 2.25rem;
-        font-size: 1.05rem;
+        padding: 0.8rem 1.25rem;
+        font-size: 0.95rem;
+        white-space: normal;
+        text-align: center;
     }
     .islamic-lantern {
         width: 32px;
@@ -350,6 +352,11 @@
     }
     .islamic-welcome-request {
         font-size: 0.8rem;
+    }
+    .islamic-welcome-btn {
+        font-size: 0.88rem;
+        padding: 0.7rem 1rem;
+        width: 95% !important;
     }
     .islamic-lantern {
         display: none; /* Hide lanterns on very narrow screens to prevent clutter */
