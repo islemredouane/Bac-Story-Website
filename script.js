@@ -731,8 +731,8 @@ document.addEventListener('DOMContentLoaded', () => {
         showSection(initial, false);
     }
 
-    // 2. Timer Setup — only start if timer elements exist on this page
-    if (document.getElementById('days')) {
+    // 2. Timer Setup — start immediately if timer elements exist on this page
+    if (document.getElementById('t-days-1')) {
         startTimer();
     }
 
