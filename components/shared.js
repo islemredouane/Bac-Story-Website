@@ -4,16 +4,34 @@
  */
 
 // ─── PAGE LOADER ─────────────────────────────────────────────────────────────
+const _loaderShownAt = Date.now();
+const _LOADER_MIN_MS = 1200; // always visible for at least 1.2 s
+
 (function injectLoader() {
     const loader = document.createElement('div');
     loader.id = 'page-loader';
     loader.className = 'page-loader';
+    // HTML matches the CSS classes in style.css exactly
     loader.innerHTML = `
+        <div class="loader-orb"></div>
+        <div class="loader-orb loader-orb--2"></div>
         <div class="loader-content">
-            <div class="loader-logo">BAC STORY</div>
+            <div class="loader-letters">
+                <span class="ll">B</span>
+                <span class="ll">A</span>
+                <span class="ll">C</span>
+                <span class="loader-gap"></span>
+                <span class="ll">S</span>
+                <span class="ll">T</span>
+                <span class="ll">O</span>
+                <span class="ll">R</span>
+                <span class="ll">Y</span>
+            </div>
+            <div class="loader-divider"><span></span></div>
             <div class="loader-tagline">منصة التميز في البكالوريا</div>
-            <div class="loader-dots">
-                <span></span><span></span><span></span>
+            <div class="loader-bar">
+                <div class="loader-bar-fill"></div>
+                <div class="loader-bar-glow"></div>
             </div>
         </div>`;
     document.body.prepend(loader);
@@ -39,10 +57,90 @@ async function injectComponent(selector, url) {
 function hideLoader() {
     const loader = document.getElementById('page-loader');
     if (!loader) return;
-    loader.classList.add('loader-hiding');
-    loader.addEventListener('transitionend', () => loader.remove(), { once: true });
-    // Fallback in case transition doesn't fire
-    setTimeout(() => { if (loader.parentNode) loader.remove(); }, 600);
+    // Guarantee minimum visible time so the animation is always seen
+    const elapsed = Date.now() - _loaderShownAt;
+    const delay   = Math.max(0, _LOADER_MIN_MS - elapsed);
+    setTimeout(function () {
+        loader.classList.add('loader-hiding');
+        loader.addEventListener('transitionend', () => loader.remove(), { once: true });
+        setTimeout(() => { if (loader.parentNode) loader.remove(); }, 700);
+    }, delay);
+}
+
+// ─── GLOBAL CTA SECTION ──────────────────────────────────────────────────────
+function injectGlobalCTA() {
+    const ph = document.getElementById('global-cta-placeholder');
+    if (!ph) return;
+
+    ph.innerHTML = `
+<section class="global-cta" id="global-cta">
+    <!-- CTA Cards (side-by-side on desktop, rotating on mobile) -->
+    <div class="gcta-cards" id="gcta-cards">
+        <a href="/tools.html#calculator" class="gcta-card gcta-card--calc">
+            <div class="gcta-icon-circle"><i class="fas fa-calculator"></i></div>
+            <div class="gcta-text">
+                <strong>حاسبة المعدل</strong>
+                <span>احسب معدلك بدقة واعرف نتيجتك التقديرية</span>
+            </div>
+            <div class="gcta-btn">احسب الآن <i class="fas fa-arrow-left"></i></div>
+        </a>
+        <a href="/university.html" class="gcta-card gcta-card--uni">
+            <div class="gcta-icon-circle"><i class="fas fa-university"></i></div>
+            <div class="gcta-text">
+                <strong>مرحباً بك في مرحلة جديدة!</strong>
+                <span>اكتشف نظام الجامعة الجزائرية وخطط لمستقبلك</span>
+            </div>
+            <div class="gcta-btn">اكتشف الجامعة <i class="fas fa-arrow-left"></i></div>
+        </a>
+    </div>
+    <!-- Mobile-only rotation dots -->
+    <div class="gcta-dots" id="gcta-dots">
+        <span class="gcta-dot gcta-dot--active"></span>
+        <span class="gcta-dot"></span>
+    </div>
+</section>`;
+
+    // ── Card rotation (all screen sizes) ─────────────────────────
+    const gcCards   = document.querySelectorAll('.gcta-card');
+    const gcDots    = document.querySelectorAll('#gcta-dots .gcta-dot');
+    const gcWrapper = document.getElementById('gcta-cards');
+    let gcCurrent   = 0;
+
+    function gcSetHeight() {
+        // Temporarily make visible to measure, then restore
+        gcCards[gcCurrent].style.position = 'relative';
+        gcWrapper.style.minHeight = gcCards[gcCurrent].offsetHeight + 'px';
+        gcCards[gcCurrent].style.position = '';
+    }
+
+    function gcShow(idx) {
+        gcCards.forEach(function(c, i) {
+            if (i === idx) {
+                c.classList.remove('gcta-hidden');
+                c.classList.add('gcta-visible');
+            } else {
+                c.classList.remove('gcta-visible');
+                c.classList.add('gcta-hidden');
+            }
+        });
+        gcDots.forEach(function(d, i) {
+            d.classList.toggle('gcta-dot--active', i === idx);
+        });
+        setTimeout(gcSetHeight, 20);
+    }
+
+    function gcRotate() {
+        gcCurrent = (gcCurrent + 1) % gcCards.length;
+        gcShow(gcCurrent);
+    }
+
+    // Always show dots
+    var dotsEl = document.getElementById('gcta-dots');
+    if (dotsEl) dotsEl.style.display = 'flex';
+
+    gcShow(0);
+    window.addEventListener('resize', gcSetHeight);
+    setInterval(gcRotate, 4000);
 }
 
 // ─── MOBILE MENU SETUP ───────────────────────────────────────────────────────
@@ -879,6 +977,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         pageContent.classList.add('fade-in');
     }
     document.body.classList.add('page-ready');
+
+    // Inject global CTA section (all pages except university)
+    injectGlobalCTA();
 
     // Hide loader
     hideLoader();
