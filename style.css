@@ -1023,6 +1023,10 @@ html {
     background: linear-gradient(135deg, #0f2a6b 0%, #1a3a8f 45%, #2c5cc5 100%);
     box-shadow: 0 8px 28px rgba(15,42,107,0.25);
 }
+.gcta-card--timer {
+    background: linear-gradient(135deg, #7c3a00 0%, #c4600a 45%, #ff6b35 100%);
+    box-shadow: 0 8px 28px rgba(196,96,10,0.28);
+}
 .gcta-icon-circle {
     width: 52px; height: 52px; min-width: 52px;
     background: #fff;
