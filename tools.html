@@ -34,7 +34,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="BAC STORY">    <title>أدوات البكالوريا | BAC STORY</title>
     <link rel="canonical" href="https://bacstory.vercel.app/tools">
-    <link rel="stylesheet" href="style.css?v=5.3">
+    <link rel="stylesheet" href="style.css?v=5.9">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style"
         onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
@@ -47,6 +47,20 @@
         <link rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Pattaya&display=swap">
     </noscript>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "حاسبة معدل البكالوريا الجزائرية",
+        "description": "احسب معدل البكالوريا الجزائرية بدقة لجميع الشعب: رياضيات، علوم، تقني رياضي، تسيير، آداب، لغات.",
+        "url": "https://bacstory.vercel.app/tools",
+        "applicationCategory": "EducationalApplication",
+        "inLanguage": "ar",
+        "operatingSystem": "Web",
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "DZD"},
+        "publisher": {"@type": "EducationalOrganization", "name": "BAC STORY", "url": "https://bacstory.vercel.app"}
+    }
+    </script>
 </head>
 
 <body>
@@ -56,29 +70,48 @@
     <div id="timer" class="resource-content active">
         <div class="container">
             <div class="ad-card-inject"></div>
+            <h1 class="visually-hidden">أدوات بكالوريا 2026 | حاسبة المعدل والعدادات التنازلية</h1>
             <div class="modern-section-header">
-                <h2>الوقت المتبقي للبكالوريا</h2>
+                <h2>العدادات التنازلية</h2>
             </div>
-            <div class="compact-timer">
-                <p>الوقت كالسيف ، إن لم تقطعه<span> قطعك! </span></p>
-                <div class="timer-numbers">
-                    <div class="time-block">
-                        <div class="timer-number" id="days">10</div>
-                        <div class="timer-label">يوم</div>
+            <div class="timers-grid">
+
+                <!-- Timer 1: التصحيح -->
+                <div class="compact-timer compact-timer--correction">
+                    <p class="compact-timer__label">الوقت المتبقي <span style="color:#ff6b35;font-weight:900;">للتصحيح</span></p>
+                    <div class="timer-numbers">
+                        <div class="time-block"><div class="timer-number" id="t-days-1">--</div><div class="timer-label">يوم</div></div>
+                        <div class="time-block"><div class="timer-number" id="t-hours-1">--</div><div class="timer-label">ساعة</div></div>
+                        <div class="time-block"><div class="timer-number" id="t-min-1">--</div><div class="timer-label">دقيقة</div></div>
+                        <div class="time-block"><div class="timer-number" id="t-sec-1">--</div><div class="timer-label">ثانية</div></div>
                     </div>
-                    <div class="time-block">
-                        <div class="timer-number" id="hours">02</div>
-                        <div class="timer-label">ساعات</div>
-                    </div>
-                    <div class="time-block">
-                        <div class="timer-number" id="minutes">40</div>
-                        <div class="timer-label">دقائق</div>
-                    </div>
-                    <div class="time-block">
-                        <div class="timer-number" id="seconds">00</div>
-                        <div class="timer-label">ثواني</div>
-                    </div>
+                    <div class="timer-done" id="timer-done-1" style="display:none;">✅ انتهى التصحيح</div>
                 </div>
+
+                <!-- Timer 2: النتائج -->
+                <div class="compact-timer compact-timer--results">
+                    <p class="compact-timer__label">الوقت المتبقي <span style="color:#ff6b35;font-weight:900;">للنتائج</span></p>
+                    <div class="timer-numbers">
+                        <div class="time-block"><div class="timer-number" id="t-days-2">--</div><div class="timer-label">يوم</div></div>
+                        <div class="time-block"><div class="timer-number" id="t-hours-2">--</div><div class="timer-label">ساعة</div></div>
+                        <div class="time-block"><div class="timer-number" id="t-min-2">--</div><div class="timer-label">دقيقة</div></div>
+                        <div class="time-block"><div class="timer-number" id="t-sec-2">--</div><div class="timer-label">ثانية</div></div>
+                    </div>
+                    <div class="timer-done" id="timer-done-2" style="display:none;">✅ صدرت النتائج</div>
+                </div>
+
+                <!-- Timer 3: بكالوريا 2027 -->
+                <div class="compact-timer compact-timer--bac27">
+                    <p class="compact-timer__label">الوقت المتبقي <span style="color:#ff6b35;font-weight:900;">لبكالوريا 2027</span></p>
+                    <div class="timer-numbers">
+                        <div class="time-block"><div class="timer-number" id="t-days-3">--</div><div class="timer-label">يوم</div></div>
+                        <div class="time-block"><div class="timer-number" id="t-hours-3">--</div><div class="timer-label">ساعة</div></div>
+                        <div class="time-block"><div class="timer-number" id="t-min-3">--</div><div class="timer-label">دقيقة</div></div>
+                        <div class="time-block"><div class="timer-number" id="t-sec-3">--</div><div class="timer-label">ثانية</div></div>
+                    </div>
+                    <div class="timer-done" id="timer-done-3" style="display:none;">🎓 موعد بكالوريا 2027</div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -1191,10 +1224,11 @@
 
 
     <!-- About Page -->
+    <div id="global-cta-placeholder"></div>
     <div id="footer-placeholder"></div>
     <script src="/ads-config.js?v=1.0"></script>
-    <script src="components/shared.js?v=3.6"></script>
-    <script src="script.js?v=2"></script>
+    <script src="components/shared.js?v=4.9"></script>
+    <script src="/script.js?v=4.0"></script>
     <script defer src="/_vercel/insights/script.js"></script>
     <script defer src="/_vercel/speed-insights/script.js"></script>
 </body>
