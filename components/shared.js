@@ -287,7 +287,7 @@ if (typeof window.showSection === 'undefined') {
 }
 
 // ─── TELEGRAM ANNOUNCEMENT CARD ────────────────────────────────────────────────────
-const WELCOME_KEY = 'bs_seen_telegram_announce_v4';
+const WELCOME_KEY = 'bs_seen_telegram_announce_v5';
 
 function showTelegramWelcomeModal() {
     if (localStorage.getItem(WELCOME_KEY)) return;
@@ -375,25 +375,40 @@ function showTelegramWelcomeModal() {
                 <i class="fas fa-times"></i>
             </button>
             <div class="islamic-card-pattern"></div>
-            
-            <div class="islamic-decor-top">🎓</div>
-            
-            <h3 class="islamic-welcome-title">إعلان هام</h3>
-            
+
+            <div class="islamic-decor-top">💪</div>
+
+            <h3 class="islamic-welcome-title">الباك يخلاص... بصح إحنا لا 💪</h3>
+
             <div class="islamic-divider-ornament">
                 ${dividerSVG}
             </div>
-            
-            <p class="islamic-welcome-dua" style="font-size: 1.08rem; line-height: 1.8; font-weight: 500; text-align: center; direction: rtl; margin-bottom: 1.25rem;">
-                شاركنا معكم في قناتنا على التلغرام أهم النصائح والتوجيهات التي يجب عليكم التقيد بها خلال <strong style="color: #ffd54f;">أسبوع البكالوريا</strong>.
+
+            <p class="islamic-welcome-dua" style="font-size: 1.05rem; line-height: 1.8; font-weight: 500; text-align: center; direction: rtl; margin-bottom: 1.1rem;">
+                غدوة آخر يوم في الباك، بصح موقعنا راح يكمل معاكم حتى تخيرو <strong style="color: #ffd54f;">تخصص أحلامكم</strong> 🎓
             </p>
-            
-            <p style="font-size: 0.98rem; color: #ffebbc; text-align: center; margin: 1.25rem 0; font-weight: 700; text-shadow: 0 1px 3px rgba(0,0,0,0.3);">
-                تأكدوا من عدم تفويت أي تفصيل، اطلعوا عليها مباشرة عبر الرابط 👇
-            </p>
-            
-            <a href="https://t.me/islembacdz/4284" target="_blank" class="islamic-welcome-btn" id="islamicWelcomeBtn" style="text-decoration: none; margin-top: 0.5rem; width: 80%; display: inline-flex; justify-content: center;">
-                <i class="fab fa-telegram-plane"></i> عرض التفاصيل في التلغرام
+
+            <div style="display: flex; flex-direction: column; gap: 0.6rem; margin: 0.5rem 0 1.1rem 0; direction: rtl; text-align: right;">
+                <div style="display: flex; align-items: center; gap: 0.6rem; font-size: 0.97rem; color: #fff;">
+                    <span style="font-size: 1.2rem;">🏛️</span>
+                    <span>معلومات عن الجامعات والتخصصات</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.6rem; font-size: 0.97rem; color: #fff;">
+                    <span style="font-size: 1.2rem;">🧮</span>
+                    <span>حاسبة المعدل — قدّر معدلك من الآن وخطط لتخصصك</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.6rem; font-size: 0.97rem; color: #fff;">
+                    <span style="font-size: 1.2rem;">✅</span>
+                    <span>التصحيحات راح تكون متاحة مباشرة فور نشرها من قبل الوزارة</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.6rem; font-size: 0.97rem; background: rgba(255,213,79,0.15); border-radius: 8px; padding: 0.4rem 0.6rem; border: 1px solid rgba(255,213,79,0.35);">
+                    <span style="font-size: 1.2rem;">🎁</span>
+                    <span style="color: #ffd54f; font-weight: 700;">جائزة تقديرية لمتابعينا، التفاصيل حولها في التلغرام</span>
+                </div>
+            </div>
+
+            <a href="https://t.me/islembacdz" target="_blank" class="islamic-welcome-btn" id="islamicWelcomeBtn" style="text-decoration: none; margin-top: 0.5rem; width: 85%; display: inline-flex; justify-content: center;">
+                <i class="fab fa-telegram-plane"></i> تعرف على تفاصيل الجائزة
             </a>
         </div>
     `;
