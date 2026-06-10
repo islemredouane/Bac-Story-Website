@@ -240,7 +240,7 @@ document.addEventListener('visibilitychange', () => {
             '<div class="share-card__hero">' +
                 '<div class="share-card__hero-icon"><i class="fas fa-share-nodes"></i></div>' +
                 '<div class="share-card__hero-text">' +
-                    '<strong>شارك الموضوع</strong>' +
+                    '<strong>شارك الملف</strong>' +
                     '<span id="sc-subject"></span>' +
                 '</div>' +
                 '<button class="share-card__close" aria-label="إغلاق"><i class="fas fa-times"></i></button>' +
