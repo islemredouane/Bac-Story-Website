@@ -281,16 +281,12 @@ if (typeof window.showSection === 'undefined') {
 const WELCOME_KEY = 'bs_seen_telegram_announce_v4';
 
 function showTelegramWelcomeModal() {
-    if (localStorage.getItem(WELCOME_KEY)) {
-        // Already seen, proceed with the simulation announcement check after 800ms
-        setTimeout(showAnnouncementModal, 800);
-        return;
-    }
+    if (localStorage.getItem(WELCOME_KEY)) return;
 
     // Dynamic Loading of the CSS stylesheet
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = '/islamic-welcome.css?v=2.0';
+    link.href = '/islamic-welcome.css?v=2.1';
     document.head.appendChild(link);
 
     // Create the HTML overlay structure
@@ -447,83 +443,6 @@ function showTelegramWelcomeModal() {
     document.addEventListener('keydown', handleEsc);
 }
 
-// ─── ANNOUNCEMENT — SIMULATION BOTTOM SHEET ──────────────────────────────────
-// Bump suffix (v2, v3…) to re-show for all users on next update
-const ANNOUNCE_KEY = 'bs_simulation_v1';
-
-function showAnnouncementModal() {
-    if (localStorage.getItem(ANNOUNCE_KEY)) return;
-
-    const overlay = document.createElement('div');
-    overlay.id = 'announce-modal';
-    overlay.className = 'sim-announce-overlay';
-
-    overlay.innerHTML = `
-        <div class="sim-sheet-slide"><div class="sim-sheet">
-            <div class="sim-banner">
-                <div class="sim-handle-wrap">
-                    <div class="sim-handle"></div>
-                    <button class="sim-close-btn" id="announceClose"><i class="fas fa-times"></i></button>
-                </div>
-                <div class="sim-banner-inner">
-                    <div class="sim-banner-text">
-                        <div class="sim-banner-tag">متاح الآن</div>
-                        <h2 class="sim-banner-title">محاكاة البكالوريا الحقيقية وصلت</h2>
-                        <p class="sim-banner-sub">جرّب امتحانك قبل يوم الامتحان</p>
-                    </div>
-                </div>
-            </div>
-            <div class="sim-sheet-body">
-                <div class="sim-intro">
-                    <p class="sim-intro-text">
-                        عِش تجربة <strong>امتحان البكالوريا</strong> قبل يوم الامتحان الحقيقي — محاكاة واقعية تحضّرك نفسيًا، تعلّمك كيف تدير وقتك، وتساعدك تدخل القاعة بثقة وهدوء.
-                    </p>
-                </div>
-                <div class="sim-pills-row">
-                    <div class="sim-pill">
-                        <div class="sim-pill-icon"><i class="fas fa-clipboard-check"></i></div>
-                        <div class="sim-pill-title">محاكاة حقيقية</div>
-                        <div class="sim-pill-desc">تجربة مطابقة لامتحان البكالوريا الرسمي</div>
-                    </div>
-                    <div class="sim-pill">
-                        <div class="sim-pill-icon"><i class="fas fa-layer-group"></i></div>
-                        <div class="sim-pill-title">كل الشعب مدعومة</div>
-                        <div class="sim-pill-desc">رياضيات، علوم، تقني، آداب، لغات، تسيير</div>
-                    </div>
-                    <div class="sim-pill">
-                        <div class="sim-pill-icon"><i class="fas fa-user-check"></i></div>
-                        <div class="sim-pill-title">مواضيع مختارة بعناية</div>
-                        <div class="sim-pill-desc">مواضيع منتقاة للاستفادة التامة</div>
-                    </div>
-                    <div class="sim-pill">
-                        <div class="sim-pill-icon"><i class="fas fa-lightbulb"></i></div>
-                        <div class="sim-pill-title">استراتيجية الموضوع</div>
-                        <div class="sim-pill-desc">دليل ذكي لاختيار الموضوع الأنسب لك</div>
-                    </div>
-                </div>
-<div class="sim-actions">
-                    <a href="/simulation.html" class="sim-cta-btn" id="announceExplore">
-                        <i class="fas fa-rocket"></i> ابدأ المحاكاة الآن
-                    </a>
-                    <button class="sim-dismiss-btn" id="announceDismiss">ربما لاحقًا</button>
-                </div>
-            </div>
-        </div></div>`;
-
-    document.body.appendChild(overlay);
-
-    requestAnimationFrame(() => requestAnimationFrame(() => overlay.classList.add('is-visible')));
-
-    const close = () => {
-        localStorage.setItem(ANNOUNCE_KEY, '1');
-        overlay.classList.remove('is-visible');
-        setTimeout(() => { if (overlay.parentNode) overlay.remove(); }, 500);
-    };
-
-    document.getElementById('announceDismiss').addEventListener('click', close);
-    document.getElementById('announceExplore').addEventListener('click', close);
-    document.getElementById('announceClose').addEventListener('click', close);
-}
 
 // ─── HASH-BASED NAVIGATION ON LOAD ───────────────────────────────────────────
 function handleHashNav() {
