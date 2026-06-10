@@ -63,7 +63,7 @@
     <link rel="canonical" href="https://bacstory.vercel.app">
     <meta name="author" content="redouane mohamed islem">
     <meta name="google-site-verification" content="qoBM-Cu5e5LU1w_2GOwKiuWhT7l8Z9eqZo0XNg77prE">
-    <link rel="stylesheet" href="/style.css?v=5.3">
+    <link rel="stylesheet" href="/style.css?v=5.9">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style"
         onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
@@ -89,6 +89,9 @@
     <!-- Home Hero -->
     <div id="home" class="resource-content active">
         <section class="modern-hero">
+            <div class="social-proof-badge">
+                <i class="fas fa-users"></i> أكثر من <strong>10,000</strong> طالب يثق بنا
+            </div>
             <h1 class="modern-title shiny-text">مرحبًا بك في
                 منصة <span style="font-family: 'Pattaya'">BAC STORY</span></h1>
             <p class="modern-subtitle">المنصة الشاملة والمبتكرة للتحضير لشهادة البكالوريا</p>
@@ -120,7 +123,7 @@
                 استكشف الموقع<i class="fas fa-arrow-left" aria-hidden="true"></i>
             </a>
             <a href="https://t.me/islembacdz" target="_blank" rel="noopener" class="search-telegram-btn floating"
-                style="margin-top:3rem; scale: 1.2;">
+                style="margin-top:2rem; scale: 1.2;">
                 <i class="fab fa-telegram-plane"></i>
                 <span>انضم إلينا على التلغرام</span>
             </a>
@@ -160,6 +163,10 @@
                 <h2>استكشف الموقع</h2>
             </div>
             <div class="btn-container">
+                <button class="main-btn" onclick="window.location.href='/bac-2026.html'" style="border: 2px solid var(--secondary-color); position: relative;">
+                    <i class="fas fa-star" style="color: #ffd54f;"></i> مواضيع بكالوريا 2026
+                    <span class="announce-new-badge" style="top: -10px; right: 10px; transform: none;">جديد</span>
+                </button>
                 <button class="main-btn" onclick="window.location.href='/resources.html#resumes-exercises'">
                     <i class="fas fa-clipboard-list" aria-hidden="true"></i>ملخصات و تمارين
                 </button>
@@ -212,18 +219,19 @@
                     <i class="fas fa-school" aria-hidden="true"></i>التعريف بالتخصصات
                 </button>
                 <button class="main-btn" onclick="window.location.href='/university.html#averages-of-acceptance'">
-                    <i class="fas fa-graduation-cap" aria-hidden="true"></i>معدلات القبول لسنة 2025
+                    <i class="fas fa-graduation-cap" aria-hidden="true"></i>معدلات القبول لسنة 2026
                 </button>
             </div>
         </div>
     </div>
 
     <!-- Footer injected by shared.js -->
+    <div id="global-cta-placeholder" style="margin-top: 2.5rem;"></div>
     <div id="footer-placeholder"></div>
 
     <script src="/ads-config.js?v=1.1"></script>
-    <script src="/components/shared.js?v=3.6"></script>
-    <script src="/script.js"></script>
+    <script src="/components/shared.js?v=4.9"></script>
+    <script src="/script.js?v=4.0"></script>
 
     <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
     <script defer src="/_vercel/insights/script.js"></script>
