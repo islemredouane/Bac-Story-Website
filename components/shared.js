@@ -92,10 +92,19 @@ function injectGlobalCTA() {
             </div>
             <div class="gcta-btn">اكتشف الجامعة <i class="fas fa-arrow-left"></i></div>
         </a>
+        <a href="/tools.html" class="gcta-card gcta-card--timer">
+            <div class="gcta-icon-circle"><i class="fas fa-hourglass-half"></i></div>
+            <div class="gcta-text">
+                <strong>قداه بقى؟ ⏳</strong>
+                <span>شوف الوقت المتبقي للتصحيح والنتائج لحظة بلحظة</span>
+            </div>
+            <div class="gcta-btn">شوف العداد <i class="fas fa-arrow-left"></i></div>
+        </a>
     </div>
     <!-- Mobile-only rotation dots -->
     <div class="gcta-dots" id="gcta-dots">
         <span class="gcta-dot gcta-dot--active"></span>
+        <span class="gcta-dot"></span>
         <span class="gcta-dot"></span>
     </div>
 </section>`;
