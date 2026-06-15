@@ -39,7 +39,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="BAC STORY">    <title>أدوات البكالوريا | BAC STORY</title>
     <link rel="canonical" href="https://bacstory.vercel.app/tools">
-    <link rel="stylesheet" href="style.css?v=6.3">
+    <link rel="stylesheet" href="style.css?v=6.4">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style"
         onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
@@ -1168,6 +1168,71 @@
 
 
 
+    <!-- Weighted Average Calculator -->
+    <div id="weighted-calc" class="resource-content">
+        <div class="container">
+            <div class="ad-card-inject"></div>
+            <div class="calculator-section">
+                <div class="calculator-header">
+                    <h2 id="wc-header-title">حساب المعدل الموزون</h2>
+                    <p id="wc-header-sub">اختر الميدان لحساب معدلك الموزون للقبول في التخصصات الجامعية</p>
+                </div>
+
+                <!-- Type cards -->
+                <div class="field-selection" id="wc-type-selection">
+                    <div class="field-card math" onclick="wcSelectType('math')">
+                        <div class="field-icon"><i class="fas fa-square-root-alt"></i></div>
+                        <h3 class="field-title">بالرياضيات</h3>
+                        <p class="field-description">إعلام آلي، رياضيات، هندسة...</p>
+                    </div>
+                    <div class="field-card science" onclick="wcSelectType('math-physics')">
+                        <div class="field-icon"><i class="fas fa-atom"></i></div>
+                        <h3 class="field-title">بالرياضيات والفيزياء</h3>
+                        <p class="field-description">هندسة، علوم مادة، تقنية...</p>
+                    </div>
+                    <div class="field-card tech" onclick="wcSelectType('math-tech')">
+                        <div class="field-icon"><i class="fas fa-microchip"></i></div>
+                        <h3 class="field-title">بالرياضيات والتكنولوجيا</h3>
+                        <p class="field-description">هندسة صناعية، تكنولوجيا...</p>
+                    </div>
+                    <div class="field-card science" onclick="wcSelectType('bio')">
+                        <div class="field-icon"><i class="fas fa-leaf"></i></div>
+                        <h3 class="field-title">بالعلوم الطبيعية</h3>
+                        <p class="field-description">طب، صيدلة، بيطرة، بيولوجيا...</p>
+                    </div>
+                    <div class="field-card literature" onclick="wcSelectType('lang')">
+                        <div class="field-icon"><i class="fas fa-globe"></i></div>
+                        <h3 class="field-title">ميدان آداب ولغات</h3>
+                        <p class="field-description">لغات أجنبية...</p>
+                    </div>
+                    <div class="field-card languages" onclick="wcSelectType('translation')">
+                        <div class="field-icon"><i class="fas fa-language"></i></div>
+                        <h3 class="field-title">ميدان الترجمة</h3>
+                        <p class="field-description">معدل 3 لغات أجنبية مطلوبة</p>
+                    </div>
+                </div>
+
+                <!-- Input fields -->
+                <div id="wc-inputs" style="display:none;">
+                    <div class="subjects-grid" id="wc-fields-grid"></div>
+                    <div style="text-align:center; margin-top:28px;">
+                        <button class="wc-back-btn" onclick="wcReset()">
+                            <i class="fas fa-arrow-right"></i> تغيير الميدان
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Result — inside container, outside .calculator-section (same as BAC calc) -->
+            <div id="wc-result" class="result-section" style="display:none;">
+                <div class="result-card">
+                    <div class="result-label">المعدل الموزون</div>
+                    <div class="result-value" id="wc-result-value">--</div>
+                    <p class="result-note" id="wc-result-note" style="margin-top:8px;font-size:0.9rem;opacity:0.75;"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- exam sheet -->
     <div id="exam-sheet" class="resource-content">
         <div class="container">
@@ -1326,9 +1391,9 @@
     <div id="global-cta-placeholder"></div>
     <div id="footer-placeholder"></div>
     <script src="/ads-config.js?v=1.0"></script>
-    <script src="components/shared.js?v=6.9"></script>
+    <script src="components/shared.js?v=7.0"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" crossorigin="anonymous"></script>
-    <script src="/script.js?v=5.2"></script>
+    <script src="/script.js?v=5.5"></script>
     <script defer src="/_vercel/insights/script.js"></script>
     <script defer src="/_vercel/speed-insights/script.js"></script>
 </body>
