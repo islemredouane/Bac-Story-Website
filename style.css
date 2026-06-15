@@ -9401,7 +9401,7 @@ textarea.form-control {
 
 @media screen and (max-width: 1100px) {
     .scroll-top-btn {
-        display: none !important;
+        bottom: 80px;
     }
 }
 
