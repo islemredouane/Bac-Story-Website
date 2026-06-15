@@ -633,7 +633,7 @@ function _buildOEBContent() {
 function _buildGazetteContent() {
     const d = bsRevealData;
     const passed = d.mention !== null;
-    const fullName = [d.firstName, d.lastName].filter(Boolean).join(' ') || '---';
+    const fullName = [d.lastName, d.firstName].filter(Boolean).join(' ') || '---';
     const avgDisplay = d.average.toFixed(2);
     const mentionText = d.mention || 'غير ناجح';
     const year = new Date().getFullYear();
@@ -661,14 +661,14 @@ function _buildGazetteContent() {
                 <circle cx="60" cy="60" r="50" fill="none" stroke="#1a3a8f" stroke-width="1"/>
                 <circle cx="60" cy="60" r="49" fill="rgba(26,58,143,0.05)"/>
                 <defs>
-                    <path id="bsTopArc" d="M 14,60 A 46,46 0 0,1 106,60"/>
+                    <path id="bsTopArc" d="M 22,60 A 38,38 0 0,1 98,60"/>
                     <path id="bsBotArc" d="M 14,60 A 46,46 0 0,0 106,60"/>
                 </defs>
-                <text font-family="Cairo,Tajawal,sans-serif" font-size="7" fill="#1a3a8f" font-weight="600" text-anchor="middle" dy="10">
-                    <textPath href="#bsTopArc" startOffset="50%">BAC STORY · منصة التميز في البكالوريا</textPath>
+                <text font-family="'Cairo','Tajawal',sans-serif" font-size="5.5" fill="#1a3a8f" font-weight="700" text-anchor="middle">
+                    <textPath href="#bsTopArc" startOffset="50%" dy="4">BAC STORY - منصة التفوق في البكالوريا</textPath>
                 </text>
-                <text font-family="Cairo,Tajawal,sans-serif" font-size="7" fill="#1a3a8f" text-anchor="middle" dy="-10">
-                    <textPath href="#bsBotArc" startOffset="50%">bacstory.vercel.app</textPath>
+                <text font-family="'Cairo',sans-serif" font-size="7" fill="#1a3a8f" text-anchor="middle">
+                    <textPath href="#bsBotArc" startOffset="50%" dy="-5">bacstory.vercel.app</textPath>
                 </text>
                 <path d="M 60,42 L 84,50 L 60,58 L 36,50 Z" fill="#1a3a8f" />
                 <path d="M 47,54 L 47,60 C 47,66 73,66 73,60 L 73,54 Z" fill="#1a3a8f" />
@@ -686,98 +686,77 @@ function _buildGazetteContent() {
 function showOEBReveal() { showReveal(); }
 function showGazetteReveal() { showReveal(); bsSwitchTab('gazette'); }
 
-/* ── DOWNLOAD AS IMAGE ───────────────────────── */
-/* Helper to rasterize SVGs for html2canvas (forces proper rendering of curved text, icons) */
-function bsCapturePrepare(el, callback) {
-    return new Promise((resolve, reject) => {
-        const svgs = el.querySelectorAll('svg');
-        const replacements = [];
+/* ── CAPTURE HELPER ──────────────────────────── */
+async function _bsCapture(elementId) {
+    // For gazette, capture the full card (background, border rings) not just the inner div
+    const targetId = elementId === 'bsGazetteInner' ? 'bsGazetteCard' : elementId;
+    const el = document.getElementById(targetId);
+    if (!el) throw new Error('element not found');
 
-        if (svgs.length === 0) {
-            callback().then(resolve).catch(reject);
-            return;
-        }
+    const isGazette = elementId === 'bsGazetteInner';
+    const bg = isGazette ? '#f5f0e8' : '#ffffff';
+    const pad = isGazette ? 16 : 28;
 
-        let loadedCount = 0;
-        svgs.forEach((svg) => {
-            try {
-                const svgString = new XMLSerializer().serializeToString(svg);
-                const svgBlob = new Blob([svgString], { type: 'image/svg+xml;charset=utf-8' });
-                const url = URL.createObjectURL(svgBlob);
-                
-                const img = new Image();
-                img.width = svg.clientWidth || svg.getAttribute('width') || 110;
-                img.height = svg.clientHeight || svg.getAttribute('height') || 110;
-                img.src = url;
-                
-                const parent = svg.parentNode;
-                replacements.push({ svg, img, parent });
-                
-                img.onload = () => {
-                    loadedCount++;
-                    if (loadedCount === svgs.length) {
-                        proceed();
-                    }
-                };
-                img.onerror = () => {
-                    loadedCount++;
-                    if (loadedCount === svgs.length) {
-                        proceed();
-                    }
-                };
-            } catch (err) {
-                loadedCount++;
-                if (loadedCount === svgs.length) {
-                    proceed();
-                }
-            }
+    // Freeze animations so html2canvas captures the settled state
+    const prevAnimation = el.style.animation;
+    const prevTransform = el.style.transform;
+    el.style.animation = 'none';
+    el.style.transform = 'none';
+
+    // Wait for all webfonts to be ready
+    await document.fonts.ready;
+
+    try {
+        const raw = await html2canvas(el, {
+            scale: 3,
+            useCORS: true,
+            allowTaint: true,
+            backgroundColor: null,
+            logging: false,
+            x: -pad,
+            y: -pad,
+            width: el.offsetWidth + pad * 2,
+            height: el.offsetHeight + pad * 2,
         });
 
-        function proceed() {
-            replacements.forEach(r => {
-                r.parent.replaceChild(r.img, r.svg);
-            });
-            
-            callback()
-                .then(resolve)
-                .catch(reject)
-                .finally(() => {
-                    replacements.forEach(r => {
-                        if (r.img.parentNode === r.parent) {
-                            r.parent.replaceChild(r.svg, r.img);
-                        }
-                        URL.revokeObjectURL(r.img.src);
-                    });
-                });
-        }
-    });
+        if (isGazette) return raw;
+
+        // For OEB: composite card onto white background with professional drop shadow
+        const sp = 60; // shadow padding (px at 3x scale)
+        const out = document.createElement('canvas');
+        out.width  = raw.width  + sp * 2;
+        out.height = raw.height + sp * 2;
+        const ctx = out.getContext('2d');
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, out.width, out.height);
+        ctx.shadowColor    = 'rgba(0,0,0,0.22)';
+        ctx.shadowBlur     = 80;
+        ctx.shadowOffsetX  = 0;
+        ctx.shadowOffsetY  = 20;
+        ctx.drawImage(raw, sp, sp);
+        ctx.shadowColor = 'transparent';
+        return out;
+    } finally {
+        el.style.animation = prevAnimation;
+        el.style.transform = prevTransform;
+    }
 }
 
+/* ── DOWNLOAD AS IMAGE ───────────────────────── */
 function bsDownloadImage(elementId, filename) {
-    const el = document.getElementById(elementId);
-    if (!el || typeof html2canvas === 'undefined') return;
+    if (typeof html2canvas === 'undefined') return;
     const btn = event.currentTarget;
     btn.classList.add('loading');
     btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الحفظ...';
-    const scale = window.devicePixelRatio > 1 ? 2 : 1.5;
 
-    // Get user name for dynamic filename
     const fullName = [bsRevealData.firstName, bsRevealData.lastName].filter(Boolean).join('-') || '';
-    const finalFilename = fullName ? `${filename}-${fullName}` : filename;
+    const finalFilename = (fullName ? `${filename}-${fullName}` : filename) + '-bacstory.png';
 
-    bsCapturePrepare(el, () => {
-        return html2canvas(el, {
-            scale: scale,
-            useCORS: true,
-            allowTaint: false,
-            backgroundColor: elementId === 'bsGazetteInner' ? '#f5f0e8' : '#ffffff',
-            logging: false,
-        }).then(canvas => {
-            const link = document.createElement('a');
-            link.download = finalFilename + '-bacstory.png';
-            link.href = canvas.toDataURL('image/png');
-            link.click();
-        });
+    _bsCapture(elementId).then(canvas => {
+        const link = document.createElement('a');
+        link.download = finalFilename;
+        link.href = canvas.toDataURL('image/png', 1.0);
+        link.click();
     }).catch(() => {}).finally(() => {
         btn.classList.remove('loading');
         btn.innerHTML = '<i class="fas fa-download"></i> حفظ';
@@ -786,47 +765,30 @@ function bsDownloadImage(elementId, filename) {
 
 /* ── SHARE IMAGE ─────────────────────────────── */
 function bsShareImage(elementId, filename) {
-    const el = document.getElementById(elementId);
-    if (!el || typeof html2canvas === 'undefined') return;
+    if (typeof html2canvas === 'undefined') return;
     const btn = event.currentTarget;
     const origHTML = btn.innerHTML;
     btn.classList.add('loading');
     btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري التحضير...';
-    const scale = window.devicePixelRatio > 1 ? 2 : 1.5;
 
-    // Get user name for dynamic filename
     const fullName = [bsRevealData.firstName, bsRevealData.lastName].filter(Boolean).join('-') || '';
-    const finalFilename = fullName ? `${filename}-${fullName}` : filename;
+    const finalFilename = (fullName ? `${filename}-${fullName}` : filename) + '-bacstory.png';
 
-    bsCapturePrepare(el, () => {
-        return html2canvas(el, {
-            scale: scale,
-            useCORS: true,
-            allowTaint: false,
-            backgroundColor: elementId === 'bsGazetteInner' ? '#f5f0e8' : '#ffffff',
-            logging: false,
-        }).then(canvas => {
-            return new Promise((resolve, reject) => {
-                canvas.toBlob(async (blob) => {
-                    const file = new File([blob], finalFilename + '-bacstory.png', { type: 'image/png' });
-                    const shareData = {
-                        files: [file],
-                        title: 'نتيجتي في البكالوريا 🎓',
-                        text: 'شوف نتيجتي في البكالوريا على BAC STORY 🇩🇿',
-                    };
-                    if (navigator.canShare && navigator.canShare(shareData)) {
-                        try {
-                            await navigator.share(shareData);
-                        } catch (e) {}
-                    } else {
-                        const link = document.createElement('a');
-                        link.download = finalFilename + '-bacstory.png';
-                        link.href = canvas.toDataURL('image/png');
-                        link.click();
-                    }
-                    resolve();
-                }, 'image/png');
-            });
+    _bsCapture(elementId).then(canvas => {
+        return new Promise((resolve) => {
+            canvas.toBlob(async (blob) => {
+                const file = new File([blob], finalFilename, { type: 'image/png' });
+                const shareData = { files: [file], title: 'نتيجتي في البكالوريا', text: 'شوف نتيجتي في البكالوريا على BAC STORY' };
+                if (navigator.canShare && navigator.canShare(shareData)) {
+                    try { await navigator.share(shareData); } catch (e) {}
+                } else {
+                    const link = document.createElement('a');
+                    link.download = finalFilename;
+                    link.href = canvas.toDataURL('image/png', 1.0);
+                    link.click();
+                }
+                resolve();
+            }, 'image/png');
         });
     }).catch(() => {}).finally(() => {
         btn.classList.remove('loading');
