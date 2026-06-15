@@ -1027,6 +1027,10 @@ html {
     background: linear-gradient(135deg, #7c3a00 0%, #c4600a 45%, #ff6b35 100%);
     box-shadow: 0 8px 28px rgba(196,96,10,0.28);
 }
+.gcta-card--weighted {
+    background: linear-gradient(135deg, #0f2060 0%, #1a3a8f 45%, #2c5cc5 100%);
+    box-shadow: 0 8px 28px rgba(26,58,143,0.28);
+}
 .gcta-icon-circle {
     width: 52px; height: 52px; min-width: 52px;
     background: #fff;
@@ -3527,10 +3531,21 @@ body.pdf-body-lock {
     overflow: hidden;
 }
 
+.field-card::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 100%; height: 3px;
+    background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--card-theme, #2c5cc5) 50%, transparent));
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+.field-card:hover::before { transform: scaleX(1); }
 .field-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-4px);
     border-color: color-mix(in srgb, var(--card-theme, #2c5cc5) 30%, transparent);
-    box-shadow: 0 15px 35px color-mix(in srgb, var(--card-theme, #2c5cc5) 15%, transparent);
+    box-shadow: 0 10px 30px color-mix(in srgb, var(--card-theme, #2c5cc5) 12%, transparent);
 }
 
 .field-icon {
@@ -4589,15 +4604,52 @@ body.pdf-body-lock {
     opacity: 0.7;
 }
 .bs-dl-btn.bs-dl-secondary {
-    background: transparent;
-    border: 1.5px solid rgba(44,92,197,0.5);
-    color: #2c5cc5;
-    box-shadow: none;
+    background: #fff;
+    border: 1.5px solid rgba(44,92,197,0.15);
+    color: #1a3a8f;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 .bs-dl-btn.gazette.bs-dl-secondary {
     border-color: rgba(245,240,232,0.4);
     color: #f5f0e8;
 }
+#wc-inputs {
+    padding: 2rem;
+    animation: fadeIn 0.5s ease-out;
+}
+#wc-inputs .subjects-grid {
+    margin-bottom: 0;
+}
+#wc-inputs > div:last-child {
+    margin-top: 2rem;
+    padding-bottom: 0.5rem;
+}
+@media (max-width: 768px) {
+    #wc-inputs { padding: 1rem; }
+}
+
+.wc-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1.5px solid rgba(26,58,143,0.25);
+    color: #1a3a8f;
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.18s, border-color 0.18s, transform 0.15s;
+}
+.wc-back-btn:hover {
+    background: rgba(26,58,143,0.06);
+    border-color: rgba(26,58,143,0.5);
+    transform: translateY(-1px);
+}
+.wc-back-btn i { font-size: 0.85em; }
+
 .bs-oeb-actions, .bs-gazette-footer {
     display: flex;
     gap: 10px;
