@@ -4044,7 +4044,7 @@ body.pdf-body-lock {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding: 0 12px 40px;
+    padding: 28px 12px 40px;
     overflow-y: auto;
     backdrop-filter: blur(4px);
     animation: bsOverlayIn 0.3s ease;
@@ -4063,6 +4063,12 @@ body.pdf-body-lock {
     width: 100%;
     max-width: 480px;
     padding-top: 0;
+    padding-bottom: 20px;
+}
+
+.bs-oeb-wrapper,
+.bs-gazette-wrapper {
+    margin-top: 8px;
 }
 
 /* ─── TAB SWITCHER BAR ──────────────────────── */
@@ -4131,7 +4137,7 @@ body.pdf-body-lock {
     position: sticky;
     top: 0;
     z-index: 10;
-    padding: 10px 0 8px;
+    padding: 0 0 8px;
 }
 .bs-tab-row .bs-tab-bar {
     flex: 1;
