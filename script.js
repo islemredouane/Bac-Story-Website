@@ -137,6 +137,7 @@ function showSection(id, push = true) {
         'timer': 'tools.html',
         'calculator': 'tools.html',
         'exam-sheet': 'tools.html',
+        'weighted-calc': 'tools.html',
         'university-system': 'university.html',
         'university-section': 'university.html',
         'averages-of-acceptance': 'university.html',
@@ -665,16 +666,12 @@ function _buildGazetteContent() {
                     <path id="bsBotArc" d="M 14,60 A 46,46 0 0,0 106,60"/>
                 </defs>
                 <text font-family="'Cairo','Tajawal',sans-serif" font-size="5.5" fill="#1a3a8f" font-weight="700" text-anchor="middle">
-                    <textPath href="#bsTopArc" startOffset="50%" dy="4">BAC STORY - منصة التفوق في البكالوريا</textPath>
+                    <textPath href="#bsTopArc" startOffset="50%" dy="14">BAC STORY - منصة التميز في البكالوريا</textPath>
                 </text>
                 <text font-family="'Cairo',sans-serif" font-size="7" fill="#1a3a8f" text-anchor="middle">
                     <textPath href="#bsBotArc" startOffset="50%" dy="-5">bacstory.vercel.app</textPath>
                 </text>
-                <path d="M 60,42 L 84,50 L 60,58 L 36,50 Z" fill="#1a3a8f" />
-                <path d="M 47,54 L 47,60 C 47,66 73,66 73,60 L 73,54 Z" fill="#1a3a8f" />
-                <circle cx="60" cy="50" r="1.5" fill="#1a3a8f" />
-                <path d="M 60,50 Q 72,50 74,54 L 74,66" fill="none" stroke="#1a3a8f" stroke-width="1" stroke-linecap="round" />
-                <polygon points="72.5,66 75.5,66 76.5,72 71.5,72" fill="#1a3a8f" />
+                <image href="/logo-seal.png" x="30" y="30" width="60" height="60" preserveAspectRatio="xMidYMid meet"/>
                 <circle cx="32" cy="60" r="2" fill="#1a3a8f" opacity="0.4"/>
                 <circle cx="88" cy="60" r="2" fill="#1a3a8f" opacity="0.4"/>
             </svg>
@@ -740,6 +737,140 @@ async function _bsCapture(elementId) {
         el.style.animation = prevAnimation;
         el.style.transform = prevTransform;
     }
+}
+
+/* ── WEIGHTED AVERAGE CALCULATOR ────────────── */
+const wcConfig = {
+    'math': {
+        title: 'بالرياضيات',
+        fields: [
+            { id: 'wc-bac',  label: 'معدل البكالوريا' },
+            { id: 'wc-math', label: 'نقطة الرياضيات' }
+        ],
+        formula: v => (v['wc-bac'] * 2 + v['wc-math']) / 3
+    },
+    'math-physics': {
+        title: 'بالرياضيات والفيزياء',
+        fields: [
+            { id: 'wc-bac',     label: 'معدل البكالوريا' },
+            { id: 'wc-math',    label: 'نقطة الرياضيات' },
+            { id: 'wc-physics', label: 'نقطة الفيزياء' }
+        ],
+        formula: v => (v['wc-bac'] * 2 + (v['wc-math'] + v['wc-physics']) / 2) / 3
+    },
+    'math-tech': {
+        title: 'بالرياضيات والتكنولوجيا',
+        fields: [
+            { id: 'wc-bac',  label: 'معدل البكالوريا' },
+            { id: 'wc-math', label: 'نقطة الرياضيات' },
+            { id: 'wc-tech', label: 'نقطة التكنولوجيا' }
+        ],
+        formula: v => (v['wc-bac'] * 2 + (v['wc-math'] + v['wc-tech']) / 2) / 3
+    },
+    'bio': {
+        title: 'بالعلوم الطبيعية',
+        fields: [
+            { id: 'wc-bac', label: 'معدل البكالوريا' },
+            { id: 'wc-bio', label: 'نقطة العلوم الطبيعية' }
+        ],
+        formula: v => (v['wc-bac'] * 2 + v['wc-bio']) / 3
+    },
+    'lang': {
+        title: 'ميدان آداب ولغات',
+        fields: [
+            { id: 'wc-bac',  label: 'معدل البكالوريا' },
+            { id: 'wc-lang', label: 'نقطة اللغة الأجنبية المطلوبة' }
+        ],
+        formula: v => (v['wc-bac'] * 2 + v['wc-lang']) / 3
+    },
+    'translation': {
+        title: 'ميدان الترجمة',
+        fields: [
+            { id: 'wc-bac',   label: 'معدل البكالوريا' },
+            { id: 'wc-lang1', label: 'اللغة الأجنبية الأولى' },
+            { id: 'wc-lang2', label: 'اللغة الأجنبية الثانية' },
+            { id: 'wc-lang3', label: 'اللغة الأجنبية الثالثة' }
+        ],
+        formula: v => (v['wc-bac'] * 2 + (v['wc-lang1'] + v['wc-lang2'] + v['wc-lang3']) / 3) / 3
+    }
+};
+
+let wcCurrentType = null;
+
+function wcSelectType(type) {
+    wcCurrentType = type;
+    const cfg = wcConfig[type];
+    document.getElementById('wc-type-selection').style.display = 'none';
+    document.getElementById('wc-header-title').textContent = 'المعدل الموزون — ' + cfg.title;
+    document.getElementById('wc-header-sub').textContent = 'أدخل نقاطك لحساب المعدل الموزون';
+
+    document.getElementById('wc-fields-grid').innerHTML = cfg.fields.map(f => `
+        <div class="subject-card">
+            <div class="subject-header">
+                <div class="subject-name">${f.label}</div>
+            </div>
+            <div class="grade-input-container">
+                <input type="number" id="${f.id}" class="grade-input"
+                    min="0" max="20" step="0.01" placeholder="أدخل العلامة"
+                    oninput="wcValidate(this); wcAutoCalc()">
+                <span class="error-message" id="err-${f.id}"></span>
+            </div>
+        </div>
+    `).join('');
+
+    document.getElementById('wc-inputs').style.display = 'block';
+    document.getElementById('wc-result').style.display = 'none';
+}
+
+function wcValidate(input) {
+    const val = parseFloat(input.value);
+    const err = document.getElementById('err-' + input.id);
+    const invalid = input.value !== '' && (isNaN(val) || val < 0 || val > 20);
+    input.classList.toggle('input-error', invalid);
+    if (err) {
+        err.textContent = invalid ? 'النقطة يجب أن تكون بين 0 و 20' : '';
+        err.style.display = invalid ? 'block' : 'none';
+    }
+}
+
+function wcAutoCalc() {
+    const cfg = wcConfig[wcCurrentType];
+    const v = {};
+    for (const f of cfg.fields) {
+        const el = document.getElementById(f.id);
+        const val = parseFloat(el?.value);
+        if (isNaN(val) || val < 0 || val > 20) {
+            document.getElementById('wc-result').style.display = 'none';
+            return;
+        }
+        v[f.id] = val;
+    }
+    const avg = cfg.formula(v);
+    const rounded = (Math.round(avg * 100) / 100).toFixed(2);
+    document.getElementById('wc-result-value').textContent = rounded;
+    document.getElementById('wc-result-note').textContent = 'المعدل الموزون = ' + wcFormulaText(wcCurrentType);
+    document.getElementById('wc-result').style.display = 'block';
+}
+
+function wcFormulaText(type) {
+    const map = {
+        'math':         '(معدل الباك × 2 + الرياضيات) ÷ 3',
+        'math-physics': '(معدل الباك × 2 + (رياضيات + فيزياء) ÷ 2) ÷ 3',
+        'math-tech':    '(معدل الباك × 2 + (رياضيات + تكنولوجيا) ÷ 2) ÷ 3',
+        'bio':          '(معدل الباك × 2 + علوم طبيعية) ÷ 3',
+        'lang':         '(معدل الباك × 2 + اللغة الأجنبية) ÷ 3',
+        'translation':  '(معدل الباك × 2 + معدل 3 لغات) ÷ 3'
+    };
+    return map[type] || '';
+}
+
+function wcReset() {
+    wcCurrentType = null;
+    document.getElementById('wc-header-title').textContent = 'حساب المعدل الموزون';
+    document.getElementById('wc-header-sub').textContent = 'اختر الميدان لحساب معدلك الموزون للقبول في التخصصات الجامعية';
+    document.getElementById('wc-type-selection').style.display = '';
+    document.getElementById('wc-inputs').style.display = 'none';
+    document.getElementById('wc-result').style.display = 'none';
 }
 
 /* ── DOWNLOAD AS IMAGE ───────────────────────── */
