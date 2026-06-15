@@ -59,7 +59,7 @@
     inset: 0;
     border-radius: 24px;
     padding: 2px; /* Border thickness */
-    background: linear-gradient(135deg, #1A7CB0 0%, #24A1DE 25%, #1A7CB0 50%, #5BC0EB 75%, #1A7CB0 100%);
+    background: linear-gradient(135deg, #bf953f 0%, #ffd54f 25%, #d4af37 50%, #ffd54f 75%, #bf953f 100%);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
@@ -72,8 +72,8 @@
     position: absolute;
     inset: 0;
     opacity: 0.07;
-    background-image: radial-gradient(#24A1DE 1.2px, transparent 0),
-                      radial-gradient(#24A1DE 1.2px, transparent 0);
+    background-image: radial-gradient(#ffd54f 1.2px, transparent 0),
+                      radial-gradient(#ffd54f 1.2px, transparent 0);
     background-size: 24px 24px;
     background-position: 0 0, 12px 12px;
     pointer-events: none;
@@ -115,13 +115,13 @@
 /* Star symbol decorative wrapper */
 .islamic-decor-top {
     margin-bottom: 0.75rem;
-    color: #5BC0EB;
+    color: #ffd54f;
     font-size: 1.4rem;
     line-height: 1;
     position: relative;
     z-index: 1;
     display: inline-block;
-    filter: drop-shadow(0 2px 5px rgba(36, 161, 222, 0.4));
+    filter: drop-shadow(0 2px 5px rgba(255, 213, 79, 0.4));
 }
 
 /* Beautiful golden shiny text title */
@@ -130,7 +130,7 @@
     font-size: 1.6rem;
     font-weight: 900;
     margin: 0 0 1.5rem;
-    background: linear-gradient(135deg, #5BC0EB 0%, #24A1DE 40%, #5BC0EB 70%, #1A7CB0 100%);
+    background: linear-gradient(135deg, #ffd54f 0%, #d4af37 40%, #ffd54f 70%, #b78a28 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -203,48 +203,90 @@
     text-shadow: 0 0 12px rgba(255, 213, 79, 0.35);
 }
 
-/* Primary Action Button ("Amin") */
+/* Primary Action Button */
 .islamic-welcome-btn {
     font-family: 'Tajawal', sans-serif;
-    display: inline-flex;
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
     align-items: center;
     justify-content: center;
     flex-wrap: nowrap;
     white-space: nowrap;
     gap: 0.6rem;
-    padding: 0.95rem 3rem;
-    background: linear-gradient(135deg, #1A7CB0 0%, #24A1DE 40%, #1A7CB0 60%, #5BC0EB 100%);
-    background-size: 200% auto;
+    padding: 0.9rem 2rem;
     color: #ffffff;
     border: none;
     border-radius: 50px;
-    font-size: 1.15rem;
+    font-size: 1.05rem;
     font-weight: 800;
     cursor: pointer;
     text-decoration: none;
     position: relative;
     z-index: 2;
-    box-shadow: 
-        0 6px 20px rgba(36, 161, 222, 0.35),
-        0 2px 4px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease, background-position 0.5s ease;
     outline: none;
-    animation: goldPulse 2s infinite alternate;
 }
 
-.islamic-welcome-btn:hover {
-    transform: translateY(-2.5px) scale(1.03);
-    box-shadow: 
-        0 10px 25px rgba(36, 161, 222, 0.55),
-        0 3px 6px rgba(0, 0, 0, 0.2);
+.islamic-welcome-btn.btn-orange {
+    background: linear-gradient(135deg, #bf953f 0%, #ffd54f 25%, #d4af37 50%, #ffd54f 75%, #bf953f 100%);
+    background-size: 200% auto;
+    color: #080e24 !important;
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.35), 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+.islamic-welcome-btn.btn-orange:hover {
+    transform: translateY(-2.5px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.55), 0 3px 6px rgba(0, 0, 0, 0.2);
+    background-position: right center;
+    color: #080e24 !important;
+}
+
+.islamic-welcome-btn.btn-navy {
+    background: linear-gradient(135deg, #1a3a8f 0%, #2c5cc5 40%, #1a3a8f 60%, #102a70 100%);
+    background-size: 200% auto;
+    box-shadow: 0 6px 20px rgba(26, 58, 143, 0.35), 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+.islamic-welcome-btn.btn-navy:hover {
+    transform: translateY(-2.5px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(26, 58, 143, 0.55), 0 3px 6px rgba(0, 0, 0, 0.2);
+    background-position: right center;
+}
+
+.islamic-welcome-btn.btn-blue {
+    background: linear-gradient(135deg, #1A7CB0 0%, #24A1DE 40%, #1A7CB0 60%, #5BC0EB 100%);
+    background-size: 200% auto;
+    box-shadow: 0 6px 20px rgba(36, 161, 222, 0.35), 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+.islamic-welcome-btn.btn-blue:hover {
+    transform: translateY(-2.5px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(36, 161, 222, 0.55), 0 3px 6px rgba(0, 0, 0, 0.2);
+    background-position: right center;
+}
+
+.islamic-welcome-btn.btn-green {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 40%, #28a745 60%, #1e8449 100%);
+    background-size: 200% auto;
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.3), 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+.islamic-welcome-btn.btn-green:hover {
+    transform: translateY(-2.5px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(40, 167, 69, 0.55), 0 3px 6px rgba(0, 0, 0, 0.2);
+    background-position: right center;
+}
+
+.islamic-welcome-btn.btn-cyan {
+    background: linear-gradient(135deg, #17a2b8 0%, #20c997 40%, #17a2b8 60%, #117a8b 100%);
+    background-size: 200% auto;
+    box-shadow: 0 6px 20px rgba(23, 162, 184, 0.35), 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+.islamic-welcome-btn.btn-cyan:hover {
+    transform: translateY(-2.5px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(23, 162, 184, 0.55), 0 3px 6px rgba(0, 0, 0, 0.2);
     background-position: right center;
 }
 
 .islamic-welcome-btn:active {
     transform: translateY(-0.5px) scale(0.98);
-    box-shadow: 
-        0 4px 12px rgba(36, 161, 222, 0.4),
-        0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 /* Gold pulsing light animation on button shadow */
@@ -326,10 +368,11 @@
         font-size: 0.95rem;
     }
     .islamic-welcome-btn {
-        padding: 0.8rem 1.25rem;
-        font-size: 0.95rem;
-        white-space: normal;
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+        white-space: nowrap;
         text-align: center;
+        gap: 0.45rem;
     }
     .islamic-lantern {
         width: 32px;
@@ -354,11 +397,32 @@
         font-size: 0.8rem;
     }
     .islamic-welcome-btn {
-        font-size: 0.88rem;
-        padding: 0.7rem 1rem;
-        width: 95% !important;
+        font-size: 0.78rem;
+        padding: 0.65rem 0.6rem;
+        width: 100% !important;
+        white-space: nowrap;
+        gap: 0.3rem;
     }
     .islamic-lantern {
         display: none; /* Hide lanterns on very narrow screens to prevent clutter */
+    }
+}
+
+/* Button Group Container */
+.islamic-btn-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    width: 90%;
+    margin: 1.25rem auto 0;
+    align-items: stretch;
+    z-index: 2;
+    position: relative;
+}
+
+@media (max-width: 480px) {
+    .islamic-btn-group {
+        width: 100%;
+        gap: 0.65rem;
     }
 }
