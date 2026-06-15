@@ -23,7 +23,8 @@
         حاسبة معدل باك شعبة رياضيات, حاسبة معدل باك شعبة علوم, حاسبة معدل باك شعبة تقني رياضي, حاسبة معدل باك شعبة تسيير, حاسبة معدل باك شعبة آداب, حاسبة معدل باك شعبة لغات,
         moyenne bac algérie 2026, calculer moyenne bac algérie, calcul moyenne baccalauréat,
         نموذج ورقة الإجابة البكالوريا, نموذج ورقة تحرير البكالوريا, كيفية ملء ورقة الإجابة,
-        أدوات طالب البكالوريا, tools bac algérie, BAC STORY أدوات, حاسبة المعدل الجزائر">
+        أدوات طالب البكالوريا, tools bac algérie, BAC STORY أدوات, حاسبة المعدل الجزائر,
+        تصميم كشف نقاط البكالوريا, صانع كشف نقاط الباك, محاكاة كشف النقاط الرسمي, كشف نقاط البكالوريا التقديري, اسمك في الجريدة الرسمية للبكالوريا, تصميم الجريدة الرسمية للبكالوريا, مولد كشف نقاط الباك, حفظ كشف النقاط كصورة, simulation bulletin bac, relevé de notes bac algérie, simulateur journal officiel bac">
     <link rel="icon" href="/favicon.ico">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -34,7 +35,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="BAC STORY">    <title>أدوات البكالوريا | BAC STORY</title>
     <link rel="canonical" href="https://bacstory.vercel.app/tools">
-    <link rel="stylesheet" href="style.css?v=6.0">
+    <link rel="stylesheet" href="style.css?v=6.3">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style"
         onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
@@ -124,6 +125,18 @@
                 <div class="calculator-header">
                     <h2>حساب معدل البكالوريا</h2>
                     <p>اختر شعبتك ثم أدخل علاماتك لحساب المعدل النهائي</p>
+                </div>
+
+                <!-- Name inputs -->
+                <div class="calc-name-row" id="calcNameRow" style="display: none;">
+                    <div class="calc-name-group">
+                        <label for="calcFirstName">الاسم</label>
+                        <input type="text" id="calcFirstName" placeholder="محمد" autocomplete="given-name">
+                    </div>
+                    <div class="calc-name-group">
+                        <label for="calcLastName">اللقب</label>
+                        <input type="text" id="calcLastName" placeholder="بن علي" autocomplete="family-name">
+                    </div>
                 </div>
 
                 <!-- Field Selection -->
@@ -1042,27 +1055,109 @@
 
         <!-- Result Section -->
         <div class="result-section" id="resultSection">
-            <strong class="result-message">معدلك النهائي في البكالوريا</strong>
-            <div class="result-value" id="calculatedAverage">0.00</div>
+            <!-- Hidden computed values — used by reveal templates -->
+            <div style="display:none">
+                <span id="calculatedAverage">0.00</span>
+                <span id="totalPoints">0</span>
+                <span id="totalCoeffs">0</span>
+                <span id="subjectCount">0</span>
+            </div>
 
-            <div class="result-details">
-                <div class="result-box">
-                    <div class="result-label">مجموع النقاط</div>
-                    <div class="result-number" id="totalPoints">0</div>
-                </div>
-                <div class="result-box">
-                    <div class="result-label">مجموع المعاملات</div>
-                    <div class="result-number" id="totalCoeffs">0</div>
-                </div>
-                <div class="result-box">
-                    <div class="result-label">عدد المواد</div>
-                    <div class="result-number" id="subjectCount">0</div>
+            <!-- Reveal Picker — only thing visible after calculating -->
+            <div class="reveal-picker" id="revealPicker">
+                <p class="reveal-picker-label">🎉 اختر كيف تشوف نتيجتك</p>
+                <div class="reveal-picker-cards">
+                    <div class="reveal-pick-card" onclick="showOEBReveal()">
+                        <span class="rpc-icon">🏛️</span>
+                        <div class="rpc-content">
+                            <span class="rpc-title">كشف رسمي</span>
+                            <span class="rpc-desc">بنفس تجربة الموقع الرسمي</span>
+                        </div>
+                        <i class="fas fa-arrow-left rpc-arrow"></i>
+                    </div>
+                    <div class="reveal-pick-card" onclick="showGazetteReveal()">
+                        <span class="rpc-icon">📰</span>
+                        <div class="rpc-content">
+                            <span class="rpc-title">جريدة رسمية</span>
+                            <span class="rpc-desc">كأنك في الجريدة الرسمية للجمهورية</span>
+                        </div>
+                        <i class="fas fa-arrow-left rpc-arrow"></i>
+                    </div>
                 </div>
             </div>
 
-            <button class="btn reset" onclick="resetForm()" style="margin-top: 2rem;">
+            <button class="btn reset" onclick="resetForm()" style="margin-top: 1.5rem;">
                 <i class="fas fa-redo"></i> حساب جديد
             </button>
+        </div>
+
+        <!-- Unified Reveal Overlay -->
+        <div id="bs-reveal-overlay" class="bs-reveal-overlay" style="display:none">
+            <div class="bs-reveal-shell">
+
+            <!-- Tab bar row: close + tabs inline -->
+            <div class="bs-tab-row">
+                <button class="bs-reveal-close bs-reveal-close--inline" onclick="bsCloseReveal('bs-reveal-overlay')">✕</button>
+                <div class="bs-tab-bar" onclick="event.stopPropagation()">
+                    <div class="bs-tab-pill" id="bsTabPill"></div>
+                    <button class="bs-tab-btn active" id="bsTabOeb" onclick="bsSwitchTab('oeb')"><i class="fas fa-landmark"></i> كشف رسمي</button>
+                    <button class="bs-tab-btn" id="bsTabGazette" onclick="bsSwitchTab('gazette')"><i class="fas fa-newspaper"></i> جريدة رسمية</button>
+                </div>
+            </div>
+
+            <!-- OEB Template -->
+            <div class="bs-oeb-wrapper" id="bsOebWrapper">
+                <div class="bs-oeb-card" id="bsOebCard">
+                    <div class="bs-oeb-topbar">
+                        <div class="bs-oeb-topbar-glow"></div>
+                        <div class="bs-oeb-brand-logo">
+                            <div class="bs-oeb-logo-text">
+                                <span class="bs-oeb-brand-name">BAC STORY</span>
+                                <span class="bs-oeb-brand-tagline">منصة التميز في البكالوريا</span>
+                            </div>
+                        </div>
+                        <div class="bs-oeb-topbar-divider">
+                            <span class="bs-oeb-divider-line"></span>
+                            <span class="bs-oeb-divider-dot">✦</span>
+                            <span class="bs-oeb-divider-line"></span>
+                        </div>
+                    </div>
+                    <div class="bs-oeb-body">
+                        <div class="bs-oeb-congrats" id="bsOebCongrats"></div>
+                        <div class="bs-oeb-fields" id="bsOebFields"></div>
+                    </div>
+                    <div class="bs-oeb-footer-brand">
+                        <span class="bs-oeb-footer-line"></span>
+                        <a class="bs-oeb-footer-link">bacstory.vercel.app</a>
+                        <span class="bs-oeb-footer-line"></span>
+                    </div>
+                </div>
+                <div class="bs-oeb-actions">
+                    <button class="bs-dl-btn" onclick="bsShareImage('bsOebCard','نتيجة-البكالوريا')">
+                        <i class="fas fa-share-alt"></i> مشاركة
+                    </button>
+                    <button class="bs-dl-btn bs-dl-secondary" onclick="bsDownloadImage('bsOebCard','نتيجة-البكالوريا')">
+                        <i class="fas fa-download"></i> حفظ
+                    </button>
+                </div>
+            </div>
+
+            <!-- Gazette Template -->
+            <div class="bs-gazette-wrapper" id="bsGazetteWrapper" style="display:none">
+                <div class="bs-gazette-card" id="bsGazetteCard">
+                    <div class="bs-gazette-inner" id="bsGazetteInner"></div>
+                </div>
+                <div class="bs-gazette-actions">
+                    <button class="bs-dl-btn" onclick="bsShareImage('bsGazetteInner','جريدة-النتيجة')">
+                        <i class="fas fa-share-alt"></i> مشاركة
+                    </button>
+                    <button class="bs-dl-btn bs-dl-secondary" onclick="bsDownloadImage('bsGazetteInner','جريدة-النتيجة')">
+                        <i class="fas fa-download"></i> حفظ
+                    </button>
+                </div>
+            </div>
+
+            </div><!-- /.bs-reveal-shell -->
         </div>
         </div>
     </div>
@@ -1227,8 +1322,9 @@
     <div id="global-cta-placeholder"></div>
     <div id="footer-placeholder"></div>
     <script src="/ads-config.js?v=1.0"></script>
-    <script src="components/shared.js?v=5.5"></script>
-    <script src="/script.js?v=4.2"></script>
+    <script src="components/shared.js?v=6.9"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" crossorigin="anonymous"></script>
+    <script src="/script.js?v=5.0"></script>
     <script defer src="/_vercel/insights/script.js"></script>
     <script defer src="/_vercel/speed-insights/script.js"></script>
 </body>
