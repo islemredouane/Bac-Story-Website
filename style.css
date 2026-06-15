@@ -3896,6 +3896,709 @@ body.pdf-body-lock {
     font-family: 'Tajawal', sans-serif;
 }
 
+/* ═══════════════════════════════════════════════════════
+   CALCULATOR NAME ROW
+═══════════════════════════════════════════════════════ */
+.calc-name-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin: 1.8rem 2rem; /* Added 1.8rem top margin to create a gap between it and the header */
+    padding: 1.5rem;
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1.5px solid #e2e8f0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+.calc-name-row::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 4px; height: 100%;
+    background: linear-gradient(180deg, transparent, rgba(44,92,197,0.4), #2c5cc5);
+    border-radius: 0 16px 16px 0;
+}
+@media (max-width: 768px) {
+    .calc-name-row { margin: 1.2rem 1rem 1.5rem 1rem; } /* Added 1.2rem top margin on mobile */
+}
+@media (max-width: 520px) {
+    .calc-name-row { grid-template-columns: 1fr; gap: 1rem; padding: 1.25rem; margin: 1.2rem 1rem 1.5rem 1rem; }
+}
+.calc-name-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.calc-name-group label {
+    font-size: 0.88rem;
+    font-weight: 800;
+    color: #334155;
+}
+.calc-name-optional {
+    font-weight: 400;
+    color: #94a3b8;
+    font-size: 0.8rem;
+}
+.calc-name-group input {
+    padding: 0.75rem 1rem;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1e293b;
+    background: #f8fafc;
+    outline: none;
+    transition: all 0.25s ease;
+    direction: rtl;
+}
+.calc-name-group input:focus {
+    border-color: #2c5cc5;
+    box-shadow: 0 0 0 3px rgba(44,92,197,0.12);
+    background: #ffffff;
+}
+
+/* ═══════════════════════════════════════════════════════
+   REVEAL PICKER (inside result-section)
+═══════════════════════════════════════════════════════ */
+.reveal-picker {
+    margin-top: 2rem;
+    position: relative;
+    z-index: 1;
+}
+.reveal-picker-label {
+    color: rgba(255,255,255,0.9);
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.9rem;
+    letter-spacing: 0.3px;
+}
+.reveal-picker-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.85rem;
+}
+@media (max-width: 500px) {
+    .reveal-picker-cards { grid-template-columns: 1fr; }
+}
+.reveal-pick-card {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(255,255,255,0.13);
+    border: 1.5px solid rgba(255,255,255,0.25);
+    border-radius: 14px;
+    padding: 1rem 1.1rem;
+    cursor: pointer;
+    transition: background 0.22s, transform 0.18s, border-color 0.22s;
+    text-align: right;
+    backdrop-filter: blur(6px);
+}
+.reveal-pick-card:hover {
+    background: rgba(255,255,255,0.22);
+    border-color: rgba(255,213,79,0.6);
+    transform: translateY(-3px);
+}
+.reveal-pick-card:active { transform: translateY(0); }
+.rpc-icon {
+    font-size: 1.7rem;
+    flex-shrink: 0;
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.2));
+}
+.rpc-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.rpc-title {
+    font-size: 0.92rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.2;
+}
+.rpc-desc {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.3;
+}
+.rpc-arrow {
+    color: rgba(255,213,79,0.8);
+    font-size: 0.85rem;
+    flex-shrink: 0;
+    transition: transform 0.2s;
+}
+.reveal-pick-card:hover .rpc-arrow { transform: translateX(-4px); }
+
+/* ═══════════════════════════════════════════════════════
+   REVEAL OVERLAYS (shared base)
+═══════════════════════════════════════════════════════ */
+.bs-reveal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10,15,40,0.82);
+    z-index: 9900;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 12px 40px;
+    overflow-y: auto;
+    backdrop-filter: blur(4px);
+    animation: bsOverlayIn 0.3s ease;
+}
+@keyframes bsOverlayIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Shell: stacks tab bar + card content as one column */
+.bs-reveal-shell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    max-width: 480px;
+    padding-top: 0;
+}
+
+/* ─── TAB SWITCHER BAR ──────────────────────── */
+.bs-tab-bar {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 999px;
+    padding: 3px;
+    gap: 0;
+    width: 100%;
+    height: 40px;
+    direction: rtl;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+/* Sliding pill */
+.bs-tab-pill {
+    position: absolute;
+    top: 3px;
+    bottom: 3px;
+    background: #fff;
+    border-radius: 999px;
+    transition: left 0.32s cubic-bezier(0.34, 1.56, 0.64, 1),
+                width 0.32s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 1px 6px rgba(0,0,0,0.22);
+    pointer-events: none;
+    z-index: 0;
+}
+.bs-tab-btn {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+    background: none;
+    border: none;
+    height: 34px;
+    padding: 0 12px;
+    font-family: 'Cairo','Tajawal',sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.55);
+    cursor: pointer;
+    border-radius: 999px;
+    transition: color 0.22s ease;
+    white-space: nowrap;
+    text-align: center;
+    line-height: 34px;
+    overflow: hidden;
+    min-width: 0;
+    user-select: none;
+}
+.bs-tab-btn.active {
+    color: #1a3a8f;
+}
+/* Tab row: close button + tab bar on same line — sticky at top */
+.bs-tab-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    max-width: 480px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding: 10px 0 8px;
+}
+.bs-tab-row .bs-tab-bar {
+    flex: 1;
+    max-width: none;
+}
+/* Close button — inline in tab row */
+.bs-reveal-close--inline {
+    flex-shrink: 0;
+    position: static;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(4px);
+    transition: background 0.2s;
+    font-family: sans-serif;
+}
+.bs-reveal-close--inline:hover { background: rgba(255,255,255,0.25); }
+/* Legacy fixed close (kept for fallback) */
+.bs-reveal-close {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(4px);
+    transition: background 0.2s;
+    font-family: sans-serif;
+}
+.bs-reveal-close:hover { background: rgba(255,255,255,0.25); }
+
+/* Gazette wrapper (outside captured card) */
+.bs-gazette-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Increased from 14px to align visual gap with OEB template, compensating for the outer shadow border */
+    width: 100%;
+    max-width: 480px;
+}
+.bs-gazette-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+/* ─── OEB CARD ─────────────────────────────── */
+.bs-oeb-card {
+    background: #fff;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 480px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    overflow: hidden;
+    animation: bsCardUp 0.4s cubic-bezier(0.22,1,0.36,1);
+    font-family: 'Cairo','Tajawal',sans-serif;
+}
+@keyframes bsCardUp {
+    from { transform: translateY(40px); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+}
+.bs-oeb-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    max-width: 480px;
+}
+/* ── Premium header ── */
+.bs-oeb-topbar {
+    background: linear-gradient(135deg, #0f2660 0%, #1a3a8f 35%, #2c5cc5 70%, #3d6ee0 100%);
+    padding: 1.2rem 1.6rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 8px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+/* Subtle radial glow top-center */
+.bs-oeb-topbar-glow {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 220px;
+    height: 120px;
+    background: radial-gradient(ellipse, rgba(255,255,255,0.13) 0%, transparent 70%);
+    pointer-events: none;
+}
+.bs-oeb-brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+    font-family: 'Cairo','Tajawal',sans-serif;
+    direction: ltr;
+}
+/* Letter-mark circle */
+.bs-oeb-logo-mark {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.18);
+    border: 1.5px solid rgba(255,255,255,0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: -1px;
+    flex-shrink: 0;
+    backdrop-filter: blur(4px);
+}
+.bs-oeb-logo-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    text-align: right;
+}
+.bs-oeb-brand-name {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: #fff;
+    letter-spacing: 1px;
+    line-height: 1.1;
+    font-family: 'Pattaya', sans-serif;
+}
+.bs-oeb-brand-tagline {
+    font-size: 0.65rem;
+    color: rgba(255,255,255,0.65);
+    font-weight: 500;
+    letter-spacing: normal;
+    font-family: 'Cairo','Tajawal',sans-serif;
+}
+/* Ornamental divider inside header */
+.bs-oeb-topbar-divider {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 80%;
+    opacity: 0.4;
+}
+.bs-oeb-divider-line {
+    flex: 1;
+    height: 1px;
+    background: rgba(255,255,255,0.6);
+}
+.bs-oeb-divider-dot {
+    color: rgba(255,255,255,0.8);
+    font-size: 0.55rem;
+}
+.bs-oeb-brand-sub {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.68rem;
+    font-family: 'Cairo','Tajawal',sans-serif;
+    font-weight: 500;
+    letter-spacing: normal;
+}
+/* ── Body — exactly like real OEB: plain rows, no border box */
+.bs-oeb-body {
+    padding: 1.6rem 2rem 0.8rem;
+    direction: rtl;
+    background: #fff;
+}
+.bs-oeb-congrats {
+    font-size: 2rem;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 1.6rem;
+    letter-spacing: normal;
+    font-family: 'Cairo','Tajawal',sans-serif;
+}
+.bs-oeb-congrats.pass { color: #f97316; }
+.bs-oeb-congrats.fail { color: #7f8c8d; }
+/* Plain rows — no box, no border-radius, exact OEB style */
+.bs-oeb-fields {
+    border: none;
+    border-radius: 0;
+    overflow: visible;
+    margin-bottom: 0;
+}
+.bs-oeb-field {
+    display: flex;
+    align-items: baseline;
+    padding: 0.55rem 0;
+    border-bottom: none;
+    gap: 0.3rem;
+    direction: rtl;
+}
+.bs-oeb-field-lbl {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #111;
+    min-width: 120px;
+    flex-shrink: 0;
+    text-align: right;
+}
+.bs-oeb-field-sep {
+    color: #111;
+    font-weight: 700;
+    margin: 0 4px;
+}
+.bs-oeb-field-val {
+    font-size: 1rem;
+    color: #111;
+    font-weight: 600;
+    flex: 1;
+    text-align: right;
+}
+.bs-oeb-field-val.big {
+    font-size: 1.35rem;
+    font-weight: 900;
+    color: #111;
+    direction: ltr;
+    text-align: right;
+    font-family: 'Cairo','Tajawal',sans-serif;
+}
+.bs-oeb-field.highlight { background: none; }
+/* Separator line before average — like real OEB */
+.bs-oeb-field.highlight .bs-oeb-field-lbl { color: #1a3a8f; font-weight: 900; }
+.bs-oeb-watermark { display: none; }
+.bs-oeb-sep { display: none; }
+/* Premium footer brand strip */
+.bs-oeb-footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 1.6rem 14px;
+    background: #fafbff;
+    border-top: 1px solid #eef0f8;
+    width: 100%;
+}
+.bs-oeb-footer-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #c8d3f0, transparent);
+}
+.bs-oeb-footer-link {
+    font-family: 'Cairo','Tajawal',sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #2c5cc5;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    text-decoration: none;
+}
+.bs-oeb-actions {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+/* ─── GAZETTE CARD ──────────────────────────── */
+.bs-gazette-card {
+    background: #f5f0e8;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 468px; /* Adjusted from 480px to align visual frontiers (including 6px shadow/border on each side) with the 480px top section */
+    box-shadow: 0 0 0 1px #c9b89a, 0 0 0 5px #e8dcc8, 0 0 0 6px #c9b89a, 0 20px 60px rgba(0,0,0,0.5);
+    overflow: visible;
+    animation: bsCardUp 0.45s cubic-bezier(0.22,1,0.36,1);
+    font-family: 'Amiri','Cairo',serif;
+    color: #2b1a0a;
+    position: relative;
+}
+.bs-gazette-close {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    background: #f5f0e8;
+    border: 1.5px solid #c9b89a;
+    color: #5a3010;
+    font-size: 15px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: background 0.2s;
+    font-family: sans-serif;
+    line-height: 1;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.bs-gazette-close:hover { background: #e8dcc8; }
+.bs-gazette-inner { padding: 0; }
+.bs-gz-top {
+    padding: 18px 24px 12px;
+    text-align: center;
+    border-bottom: 1.5px solid #c9b89a;
+    position: relative;
+}
+.bs-gz-orn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    margin: 5px 0;
+}
+.bs-gz-ornline {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #5a3010 40%, #5a3010 60%, transparent);
+}
+.bs-gz-ornsym {
+    font-size: 13px;
+    color: #5a3010;
+    font-family: serif;
+}
+.bs-gz-title {
+    font-family: 'Pattaya', 'Amiri', serif;
+    font-size: 19px;
+    font-weight: 400;
+    color: #1a0a00;
+    line-height: 1.4;
+    margin: 4px 0 2px;
+}
+.bs-gz-issue {
+    font-size: 9.5px;
+    color: #7a5a30;
+    margin-top: 6px;
+}
+.bs-gz-decree {
+    padding: 20px 28px 14px;
+    position: relative;
+}
+.bs-gz-text {
+    font-size: 14.5px;
+    line-height: 1.9;
+    color: #2b1a0a;
+    text-align: center;
+}
+.bs-gz-intro {
+    display: block;
+    font-size: 13px;
+    color: #4a3010;
+    margin-bottom: 1px;
+    line-height: 1.7;
+}
+.bs-gz-name {
+    display: block;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a3a8f;
+    margin: 12px 0 8px;
+}
+.bs-gz-detail {
+    display: block;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    color: #2b1a0a;
+    margin: 6px 0 2px;
+    line-height: 1.6;
+}
+.bs-gz-detail strong { color: #1a3a8f; }
+.bs-gz-spec {
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    color: #5a3010;
+    margin-top: 6px;
+}
+.bs-gz-wish {
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    color: #5a3010;
+    margin-top: 6px;
+    font-weight: 700;
+}
+.bs-gz-seal {
+    display: flex;
+    justify-content: center;
+    padding: 8px 0 16px;
+}
+.bs-gz-seal svg { filter: drop-shadow(0 3px 8px rgba(0,0,0,0.2)); }
+.bs-gazette-footer {
+    padding: 14px 20px 18px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    background: transparent;
+}
+.bs-gz-watermark {
+    text-align: center;
+    color: #a08060;
+    font-size: 0.68rem;
+    font-family: 'Cairo',sans-serif;
+    padding: 6px 0 10px;
+    letter-spacing: normal;
+    opacity: 0.7;
+}
+
+/* ─── DOWNLOAD BUTTON ───────────────────────── */
+.bs-dl-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg,#1a3a8f,#2c5cc5);
+    color: #fff;
+    border: none;
+    border-radius: 9px;
+    padding: 0.65rem 1.5rem;
+    font-family: 'Cairo','Tajawal',sans-serif;
+    font-size: 0.92rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.15s;
+    box-shadow: 0 4px 16px rgba(44,92,197,0.3);
+}
+.bs-dl-btn:hover { opacity: 0.88; transform: translateY(-2px); }
+.bs-dl-btn:active { transform: translateY(0); }
+.bs-dl-btn.gazette {
+    background: linear-gradient(135deg,#5a3010,#8b4513);
+    box-shadow: 0 4px 16px rgba(90,48,16,0.3);
+}
+.bs-dl-btn.loading {
+    pointer-events: none;
+    opacity: 0.7;
+}
+.bs-dl-btn.bs-dl-secondary {
+    background: transparent;
+    border: 1.5px solid rgba(44,92,197,0.5);
+    color: #2c5cc5;
+    box-shadow: none;
+}
+.bs-dl-btn.gazette.bs-dl-secondary {
+    border-color: rgba(245,240,232,0.4);
+    color: #f5f0e8;
+}
+.bs-oeb-actions, .bs-gazette-footer {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 /*university section*/
 
 .Speciality-container {
