@@ -84,6 +84,14 @@ function injectGlobalCTA() {
             </div>
             <div class="gcta-btn">احسب الآن <i class="fas fa-arrow-left"></i></div>
         </a>
+        <a href="/tools.html#weighted-calc" class="gcta-card gcta-card--weighted">
+            <div class="gcta-icon-circle"><i class="fas fa-balance-scale"></i></div>
+            <div class="gcta-text">
+                <strong>المعدل الموزون</strong>
+                <span>احسب معدلك الموزون للقبول في التخصصات الجامعية</span>
+            </div>
+            <div class="gcta-btn">احسب الآن <i class="fas fa-arrow-left"></i></div>
+        </a>
         <a href="/university.html" class="gcta-card gcta-card--uni">
             <div class="gcta-icon-circle"><i class="fas fa-university"></i></div>
             <div class="gcta-text">
@@ -104,6 +112,7 @@ function injectGlobalCTA() {
     <!-- Mobile-only rotation dots -->
     <div class="gcta-dots" id="gcta-dots">
         <span class="gcta-dot gcta-dot--active"></span>
+        <span class="gcta-dot"></span>
         <span class="gcta-dot"></span>
         <span class="gcta-dot"></span>
     </div>
