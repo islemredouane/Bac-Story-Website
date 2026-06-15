@@ -287,7 +287,7 @@ if (typeof window.showSection === 'undefined') {
 }
 
 // ─── TELEGRAM ANNOUNCEMENT CARD ────────────────────────────────────────────────────
-const WELCOME_KEY = 'bs_seen_telegram_announce_v5';
+const WELCOME_KEY = 'bs_seen_telegram_announce_v20';
 
 function showTelegramWelcomeModal() {
     if (localStorage.getItem(WELCOME_KEY)) return;
@@ -295,7 +295,7 @@ function showTelegramWelcomeModal() {
     // Dynamic Loading of the CSS stylesheet
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = '/islamic-welcome.css?v=2.1';
+    link.href = '/islamic-welcome.css?v=2.9';
     document.head.appendChild(link);
 
     // Create the HTML overlay structure
@@ -349,11 +349,11 @@ function showTelegramWelcomeModal() {
         <svg viewBox="0 0 200 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <defs>
                 <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stop-color="#1A7CB0" />
-                    <stop offset="25%" stop-color="#24A1DE" />
-                    <stop offset="50%" stop-color="#5BC0EB" />
-                    <stop offset="75%" stop-color="#24A1DE" />
-                    <stop offset="100%" stop-color="#1A7CB0" />
+                    <stop offset="0%" stop-color="#ff6b35" />
+                    <stop offset="25%" stop-color="#ff9f43" />
+                    <stop offset="50%" stop-color="#ffebbc" />
+                    <stop offset="75%" stop-color="#ff9f43" />
+                    <stop offset="100%" stop-color="#ff6b35" />
                 </linearGradient>
             </defs>
             <!-- Left scroll line -->
@@ -376,40 +376,37 @@ function showTelegramWelcomeModal() {
             </button>
             <div class="islamic-card-pattern"></div>
 
-            <div class="islamic-decor-top">💪</div>
+            <div class="islamic-decor-top"><i class="fa-solid fa-graduation-cap"></i></div>
 
-            <h3 class="islamic-welcome-title">الباك يخلاص... بصح حنا مكملين </h3>
+            <h3 class="islamic-welcome-title">تحديث جديد وحصري لمرحلة ما بعد الباك!</h3>
 
             <div class="islamic-divider-ornament">
                 ${dividerSVG}
             </div>
 
-            <p class="islamic-welcome-dua" style="font-size: 1.05rem; line-height: 1.8; font-weight: 500; text-align: center; direction: rtl; margin-bottom: 1.1rem;">
-                اليوم آخر يوم في الباك، بصح موقعنا راح يكمل معاكم حتى تخيرو <strong style="color: #ffd54f;">تخصص أحلامكم</strong> 🎓
-            </p>
-
-            <div style="display: flex; flex-direction: column; gap: 0.6rem; margin: 0.5rem 0 1.1rem 0; direction: rtl; text-align: right;">
-                <div style="display: flex; align-items: center; gap: 0.6rem; font-size: 0.97rem; color: #fff;">
-                    <span style="font-size: 1.2rem;">🏛️</span>
-                    <span>معلومات عن الجامعات والتخصصات</span>
+            <div style="display: flex; flex-direction: column; gap: 0.8rem; margin: 0.6rem 0 1.2rem 0; direction: rtl; text-align: right; z-index: 1; position: relative; padding: 0 15px;">
+                <div style="font-size: 0.98rem; color: #fff; line-height: 1.6;">
+                    <strong>حاسبة المعدل:</strong> كيف سيبدو كشف نقاطك أو اسمك في الجريدة الرسمية؟
                 </div>
-                <div style="display: flex; align-items: center; gap: 0.6rem; font-size: 0.97rem; color: #fff;">
-                    <span style="font-size: 1.2rem;">🧮</span>
-                    <span>حاسبة المعدل — قدّر معدلك من الآن وخطط لتخصصك</span>
+                <div style="font-size: 0.98rem; color: #fff; line-height: 1.6;">
+                    <strong>دليل الجامعة:</strong> تصفح شروط ومعدلات القبول لجميع التخصصات.
                 </div>
-                <div style="display: flex; align-items: center; gap: 0.6rem; font-size: 0.97rem; color: #fff;">
-                    <span style="font-size: 1.2rem;">✅</span>
-                    <span>التصحيحات راح تكون متاحة مباشرة فور نشرها من قبل الوزارة</span>
-                </div>
-                <div style="display: flex; align-items: center; gap: 0.6rem; font-size: 0.97rem; background: rgba(255,213,79,0.15); border-radius: 8px; padding: 0.4rem 0.6rem; border: 1px solid rgba(255,213,79,0.35);">
-                    <span style="font-size: 1.2rem;">🎁</span>
-                    <span style="color: #ffd54f; font-weight: 700;">جائزة تقديرية لمتابعينا، التفاصيل حولها في التلغرام</span>
+                <div style="font-size: 0.98rem; color: #fff; line-height: 1.6;">
+                    <strong>التصحيحات و الأخبار:</strong> تحصل على التصحيحات النموذجية في الموقع فور توفرها، و تابع أخبار الجوائز الحصرية على قناتنا في التلغرام.
                 </div>
             </div>
 
-            <a href="https://t.me/islembacdz" target="_blank" class="islamic-welcome-btn" id="islamicWelcomeBtn" style="text-decoration: none; margin-top: 0.5rem; width: 85%; display: inline-flex; justify-content: center;">
-                <i class="fab fa-telegram-plane"></i> تعرف على تفاصيل الجائزة
-            </a>
+            <div class="islamic-btn-group">
+                <a href="/tools.html#calculator" class="islamic-welcome-btn btn-orange" id="islamicWelcomeBtn">
+                    <i class="fas fa-calculator"></i> جرب حاسبة المعدل وكشف النقاط
+                </a>
+                <a href="/university.html" class="islamic-welcome-btn btn-navy">
+                    <i class="fas fa-university"></i> تصفح دليل التخصصات الجامعية
+                </a>
+                <a href="https://t.me/islembacdz" target="_blank" class="islamic-welcome-btn btn-blue">
+                    <i class="fab fa-telegram-plane"></i> تابع أخبار النتائج والجوائز
+                </a>
+            </div>
         </div>
     `;
 
@@ -445,11 +442,9 @@ function showTelegramWelcomeModal() {
     };
 
     // Close on button clicks
-    const welcomeBtn = document.getElementById('islamicWelcomeBtn');
-    const closeBtn = document.getElementById('islamicCloseBtn');
-    
-    if (welcomeBtn) welcomeBtn.addEventListener('click', dismissModal);
-    if (closeBtn) closeBtn.addEventListener('click', dismissModal);
+    overlay.querySelectorAll('.islamic-welcome-btn, .islamic-close-btn').forEach(btn => {
+        btn.addEventListener('click', dismissModal);
+    });
 
     // Close on clicking outside the card (overlay background)
     overlay.addEventListener('click', (e) => {
