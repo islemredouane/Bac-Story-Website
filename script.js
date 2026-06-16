@@ -657,24 +657,28 @@ function _buildGazetteContent() {
             </div>
         </div>
         <div class="bs-gz-seal">
-            <svg width="110" height="110" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="60" cy="60" r="56" fill="none" stroke="#1a3a8f" stroke-width="2.5"/>
-                <circle cx="60" cy="60" r="50" fill="none" stroke="#1a3a8f" stroke-width="1"/>
-                <circle cx="60" cy="60" r="49" fill="rgba(26,58,143,0.05)"/>
-                <defs>
-                    <path id="bsTopArc" d="M 22,60 A 38,38 0 0,1 98,60"/>
-                    <path id="bsBotArc" d="M 14,60 A 46,46 0 0,0 106,60"/>
-                </defs>
-                <text font-family="'Cairo','Tajawal',sans-serif" font-size="5.5" fill="#1a3a8f" font-weight="700" text-anchor="middle">
-                    <textPath href="#bsTopArc" startOffset="50%" dy="14">BAC STORY - منصة التميز في البكالوريا</textPath>
-                </text>
-                <text font-family="'Cairo',sans-serif" font-size="7" fill="#1a3a8f" text-anchor="middle">
-                    <textPath href="#bsBotArc" startOffset="50%" dy="-5">bacstory.vercel.app</textPath>
-                </text>
-                <image href="/logo-seal.png" x="30" y="30" width="60" height="60" preserveAspectRatio="xMidYMid meet"/>
-                <circle cx="32" cy="60" r="2" fill="#1a3a8f" opacity="0.4"/>
-                <circle cx="88" cy="60" r="2" fill="#1a3a8f" opacity="0.4"/>
-            </svg>
+            <div style="position:relative;display:inline-block;width:110px;height:110px;">
+                <svg width="110" height="110" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" style="display:block;">
+                    <circle cx="60" cy="60" r="56" fill="none" stroke="#1a3a8f" stroke-width="2.5"/>
+                    <circle cx="60" cy="60" r="50" fill="none" stroke="#1a3a8f" stroke-width="1"/>
+                    <circle cx="60" cy="60" r="49" fill="rgba(26,58,143,0.05)"/>
+                    <defs>
+                        <path id="bsTopArc" d="M 22,60 A 38,38 0 0,1 98,60"/>
+                        <path id="bsBotArc" d="M 14,60 A 46,46 0 0,0 106,60"/>
+                    </defs>
+                    <text font-family="'Cairo','Tajawal',sans-serif" font-size="5.5" fill="#1a3a8f" font-weight="700" text-anchor="middle">
+                        <textPath href="#bsTopArc" startOffset="50%" dy="14">BAC STORY - منصة التميز في البكالوريا</textPath>
+                    </text>
+                    <text font-family="'Cairo',sans-serif" font-size="7" fill="#1a3a8f" text-anchor="middle">
+                        <textPath href="#bsBotArc" startOffset="50%" dy="-5">bacstory.vercel.app</textPath>
+                    </text>
+                    <circle cx="32" cy="60" r="2" fill="#1a3a8f" opacity="0.4"/>
+                    <circle cx="88" cy="60" r="2" fill="#1a3a8f" opacity="0.4"/>
+                </svg>
+                <img src="/logo-seal.png"
+                     style="position:absolute;top:27px;left:27px;width:56px;height:56px;object-fit:contain;"
+                     onerror="this.style.display='none'"/>
+            </div>
         </div>`;
     if (passed) setTimeout(bsConfetti, 300);
 }
