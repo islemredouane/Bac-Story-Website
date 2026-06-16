@@ -28,7 +28,7 @@
     <meta name="apple-mobile-web-app-title" content="BAC STORY">    <title>أعلن معنا | BAC STORY</title>
     <link rel="canonical" href="https://bacstory.vercel.app/advertise">
     <meta name="author" content="redouane mohamed islem">
-    <link rel="stylesheet" href="/style.css?v=6.5">
+    <link rel="stylesheet" href="/style.css?v=7.9">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style"
         onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
@@ -70,12 +70,16 @@
             <!-- Stats row — update each week from GA -->
             <div class="adp-stats-row">
                 <div class="adp-stat-card">
-                    <span class="adp-stat-val">59 ألف</span>
+                    <span class="adp-stat-val">216 ألف</span>
                     <span class="adp-stat-lbl">مشاهدة أسبوعية</span>
                 </div>
                 <div class="adp-stat-card">
-                    <span class="adp-stat-val">8.8 ألف</span>
+                    <span class="adp-stat-val">75 ألف</span>
                     <span class="adp-stat-lbl">مستخدم نشط أسبوعي</span>
+                </div>
+                <div class="adp-stat-card">
+                    <span class="adp-stat-val">90 ألف</span>
+                    <span class="adp-stat-lbl">زائر أسبوعي</span>
                 </div>
             </div>
         </div>
@@ -115,7 +119,7 @@
                     <div class="adp-tg-icon">
                         <i class="fab fa-telegram-plane"></i>
                     </div>
-                    <div class="adp-audience-num">8K+</div>
+                    <div class="adp-audience-num">10K+</div>
                     <div class="adp-audience-num-lbl">متابع على قناة التلغرام</div>
                     <div class="adp-audience-divider"></div>
                     <p class="adp-tg-desc">قناة <strong>BAC STORY WITH ISLEM</strong> — منصة التواصل المباشرة مع طلاب الباك. الظهور الكامل يتضمن ذكرًا على القناة.</p>
@@ -144,7 +148,7 @@
                         <p>كل زائر طالب باك أو وليّ أمر يبحث عن دعم. صفر هدر في ميزانية إعلانك.</p>
                     </div>
                 </div>
-                <div class="adp-why-card">
+                <div class="adp-why-card adp-why-card--orange">
                     <div class="adp-why-icon adp-why-icon--orange"><i class="fas fa-fire-alt"></i></div>
                     <div>
                         <h3>ذروة الطلب — الآن فقط</h3>
@@ -158,7 +162,7 @@
                         <p>إعلاناتنا تبدو كمحتوى حقيقي — يثق فيها الطلاب ويتفاعلون معها بكثير أكثر من الإعلانات العادية.</p>
                     </div>
                 </div>
-                <div class="adp-why-card">
+                <div class="adp-why-card adp-why-card--orange">
                     <div class="adp-why-icon adp-why-icon--orange"><i class="fas fa-map-marked-alt"></i></div>
                     <div>
                         <h3>جميع الشعب والولايات</h3>
@@ -232,7 +236,7 @@
                     <ul class="adp-pkg-list">
                         <li><i class="fas fa-check"></i> جميع مزايا الباقتين</li>
                         <li><i class="fas fa-check"></i> أولوية الظهور والترتيب</li>
-                        <li><i class="fas fa-check"></i> ذكر على قناة التلغرام (8K+ متابع)</li>
+                        <li><i class="fas fa-check"></i> ذكر على قناة التلغرام (10K+ متابع)</li>
                         <li><i class="fas fa-check"></i> مدة: أسبوعان كاملان</li>
                     </ul>
                     <div class="adp-pkg-ctas">
@@ -282,12 +286,8 @@
     ══════════════════════════════════════════════ -->
     <section class="adp-urgency">
         <div class="adp-urgency-inner">
-            <div class="adp-urgency-countdown">
-                <span class="adp-urgency-num" id="adpage-countdown">---</span>
-                <span class="adp-urgency-unit">يومًا للبكالوريا</span>
-            </div>
-            <h2>الموسم ينتهي — الفرصة الآن</h2>
-            <p>احجز مكانك اليوم قبل أن يسبقك المنافسون.</p>
+            <h2>احجز مكانك لموسم 2027 — الآن</h2>
+            <p>انتهى الموسم وبدأ التخطيط للعام القادم — احجز مبكرًا وكن أول من يصل لطلاب الباك 2027.</p>
             <div class="adp-contact-btns">
                 <a href="https://t.me/islemcs" target="_blank" rel="noopener"
                    class="adp-urgency-btn adp-urgency-btn--tg">
@@ -308,15 +308,8 @@
     <div id="footer-placeholder"></div>
 
     <script src="/ads-config.js?v=1.1"></script>
-    <script src="/components/shared.js?v=7.0"></script>
+    <script src="/components/shared.js?v=7.1"></script>
     <script>
-        // Update countdown on the advertise page
-        document.addEventListener('DOMContentLoaded', function () {
-            var el = document.getElementById('adpage-countdown');
-            if (el && typeof window.BAC_ADS !== 'undefined') {
-                el.textContent = BAC_ADS.getCountdownDays();
-            }
-        });
     </script>
 </body>
 
