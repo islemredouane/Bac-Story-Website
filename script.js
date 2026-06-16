@@ -609,18 +609,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ── School Detail Tabs ────────────────────────────
 var TAB_KEYWORDS = {
-    admission: ['معدلات القبول', 'القبول'],
-    system: ['نظام الدراسة', 'صعوبة الدراسة', 'هل توجد مشاريع', 'مستوى الدكاترة', 'الفرق بينها', 'الفرق بين'],
-    career: ['العمل في', 'فرص العمل'],
-    student: ['النوادي العلمية', 'فائدة النوادي', 'الإقامة'],
-    firstyear: ['المقاييس المدروسة', 'السنة الأولى']
+    intro: ['التعريف ب', 'تعريف التخصص', 'تعريف مختصر', 'ما هو', 'ماهو', 'واش هو', 'هل هو تخصص', 'بمن يعتني', 'إنسانية المهنة', 'لماذا هذا التخصص', 'واش يدير', 'واش تخدم', 'المهام اليومية', 'المهمات والمجالات', 'مهامه', '💻 التعريف', '🩺 الحالات', 'لغة الدراسة', 'لغة التدريس', 'تخصص جديد', 'الجامعات التي', 'الجامعات المتوفرة', 'الكليات المتوفرة', 'المدارس المتوفرة', 'وين تقرا', 'أين يمكن دراسته', 'أين يُدرّس', 'أماكن الدراسة', 'الموقع'],
+    admission: ['معدلات القبول', 'معدل القبول', 'شروط القبول', 'شروط الدخول', 'شروط الالتحاق', 'التسجيل والقبول', 'التسجيل', 'الشعب المسموح', 'كيف تلتحق', 'كيفاش تلتحق', 'تسجيلات', 'الولوج إلى', 'كيف يتم التوجيه', 'أين يمكن دراسته', 'أين يُدرّس', 'أماكن الدراسة'],
+    curriculum: ['المواد المدروسة', 'المواد الأساسية', 'المواد في', 'المواد والتكوين', 'مواد تقراها', 'البرنامج الدراسي', 'مسار الدراسة', 'المسار الدراسي', 'مدة الدراسة', 'المدة والمعاهد', 'طريقة الدراسة', 'كيفاش تقرا', 'تنظيم الدراسة', 'الدراسة والنظام', 'التربصات', 'التدريب الميداني', 'التطبيق العملي', 'طور الماستر', 'التخصصات في الماستر', 'التخصصات المتوفرة في الماستر', 'التخصصات بعد الليسانس', 'تخصصات الماستر', 'دورات الدراسات العليا', 'المقاييس المدروسة', 'السنة الأولى', 'نظام الدراسة', 'النظام الدراسي', 'نظام الاختبارات', 'نظام التقييم', 'صعوبة الدراسة', 'صعوبات التخصص', 'صعوبة التخصص', 'هل توجد مشاريع', 'مستوى الدكاترة', 'الفرق بينها', 'الفرق بين', 'الفرق مع', 'نظام LMD', 'نظام Ingénieur', 'نظام الإنتقال', 'البحث العلمي', 'بيئة البحث', 'تابع لأي'],
+    career: ['فرص العمل', 'آفاق التوظيف', 'آفاق العمل', 'مجالات التوظيف', 'بعد التخرج', 'العمل بعد', 'العمل في', 'الراتب', 'المستقبل المهني', 'وين تخدم', 'وين يخدم', 'وين يقدر يخدم', 'آفاق الترقية', 'الترقيات', 'سلم الترقية', 'سلم الرتب', 'فرص التكوين الإضافي', 'التوظيف', 'مجالات العمل'],
+    pros: ['المزايا', 'العيوب', 'الإيجابيات', 'السلبيات', 'مميزات التخصص', 'مميزات المدرسة', 'أهم مميزاته', 'سلبيات التخصص', 'التحديات', 'الامتيازات', 'إيجابيات التخصص', 'الإيجابيات والسلبيات', 'التحديات الحالية', 'الوضع الحالي', 'المميزات', 'السلبيات والتحديات'],
+    student: ['النوادي العلمية', 'فائدة النوادي', 'الإقامة', 'آراء الطلبة', 'آراء بعض الطلبة', 'رأي الطلبة', 'شهادة طالب', 'مزايا المدرسة'],
+    tips: ['نصائح', 'نصيحة', 'خلاصة', 'كلمة أخيرة', 'في الخلاصة', 'علاش تختار', 'علاه من أفضل', 'واش لازم تعرف', 'واش لازم تدير', 'نقولك', 'وبالنسبة للبنات', 'معلومات إضافية', 'معلومة إضافية', 'ملاحظات مهمة', 'ملاحظة مهمة', 'حقائق لازم', 'حاجات لازم', 'واش يخليك', 'واش تقرا'],
+    firstyear: ['البرنامج الدراسي (السنة الأولى)', 'المواد في الطور التحضيري', 'المواد المدروسة في الطور']
 };
 var TAB_LABELS = {
+    intro: 'عن التخصص',
     admission: 'القبول',
-    system: 'نظام الدراسة',
+    curriculum: 'الدراسة',
     career: 'المسار المهني',
+    pros: 'المزايا والعيوب',
     student: 'حياة الطالب',
-    firstyear: 'السنة الأولى'
+    tips: 'نصائح',
+    firstyear: 'الطور التحضيري'
 };
 
 function initSchoolTabs(sectionId) {
@@ -656,7 +662,12 @@ function initSchoolTabs(sectionId) {
         if (!assigned) card.dataset.tab = 'general';
     });
 
-    if (Object.keys(tabsPresent).length === 0) return;
+    // Detect optional specialities grid + its header inside this section
+    var specGrid = sectionEl.querySelector('.Speciality-container-new');
+    var specHeader = sectionEl.querySelector('[id$="-specialities-header"]');
+    var hasSpecGrid = !!specGrid;
+
+    if (Object.keys(tabsPresent).length === 0 && !hasSpecGrid) return;
 
     var tabBar = document.createElement('div');
     tabBar.className = 'school-tab-bar';
@@ -673,7 +684,7 @@ function initSchoolTabs(sectionId) {
     tabBar.appendChild(allBtn);
 
     // Category buttons in order
-    ['admission', 'system', 'career', 'student', 'firstyear'].forEach(function (tab) {
+    ['intro', 'admission', 'curriculum', 'career', 'pros', 'student', 'tips', 'firstyear'].forEach(function (tab) {
         if (!tabsPresent[tab]) return;
         var btn = document.createElement('button');
         btn.className = 'school-tab-btn';
@@ -681,6 +692,15 @@ function initSchoolTabs(sectionId) {
         btn.textContent = TAB_LABELS[tab];
         tabBar.appendChild(btn);
     });
+
+    // "التخصصات" button — only if a specialities grid exists in this section
+    if (hasSpecGrid) {
+        var specBtn = document.createElement('button');
+        specBtn.className = 'school-tab-btn';
+        specBtn.dataset.tab = 'specialities';
+        specBtn.textContent = 'التخصصات';
+        tabBar.appendChild(specBtn);
+    }
 
     detailsEl.parentNode.insertBefore(tabBar, detailsEl);
 
@@ -698,17 +718,29 @@ function initSchoolTabs(sectionId) {
         updateIndicator(btn);
 
         var activeTab = btn.dataset.tab;
-        cards.forEach(function (card) {
-            if (activeTab === 'all') {
-                card.classList.remove('tab-hidden');
-            } else {
-                if (card.dataset.tab === activeTab) {
+
+        var showGrid = activeTab === 'all' || activeTab === 'specialities';
+        if (specGrid) specGrid.style.display = showGrid ? '' : 'none';
+        if (specHeader) specHeader.style.display = showGrid ? '' : 'none';
+
+        if (activeTab === 'specialities') {
+            // Hide all detail cards, show only the specialities grid
+            cards.forEach(function (card) { card.classList.add('tab-hidden'); });
+            detailsEl.classList.add('tab-hidden');
+        } else {
+            detailsEl.classList.remove('tab-hidden');
+            cards.forEach(function (card) {
+                if (activeTab === 'all') {
                     card.classList.remove('tab-hidden');
                 } else {
-                    card.classList.add('tab-hidden');
+                    if (card.dataset.tab === activeTab) {
+                        card.classList.remove('tab-hidden');
+                    } else {
+                        card.classList.add('tab-hidden');
+                    }
                 }
-            }
-        });
+            });
+        }
     });
 
     setTimeout(function () {
