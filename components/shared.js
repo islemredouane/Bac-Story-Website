@@ -746,12 +746,22 @@ function setupSearch() {
 }
 
 // ─── AD STRIP INJECTION ──────────────────────────────────────────────────────
+function _setNavbarHeightVar() {
+    const nav = document.querySelector('.navbar');
+    if (nav) document.documentElement.style.setProperty('--navbar-height', nav.offsetHeight + 'px');
+}
+
 function injectAdStrip() {
     if (typeof window.BAC_ADS === 'undefined') return;
     if (BAC_ADS.isStripDismissed()) return;
 
     const ads = BAC_ADS.getActiveStripAds();
     if (!ads.length) return;
+
+    requestAnimationFrame(_setNavbarHeightVar);
+    document.fonts.ready.then(_setNavbarHeightVar);
+    window.addEventListener('load', _setNavbarHeightVar);
+    window.addEventListener('resize', _setNavbarHeightVar);
 
     const AD_H = 52;
     let currentIdx = 0;
