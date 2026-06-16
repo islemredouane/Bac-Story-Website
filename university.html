@@ -94,11 +94,14 @@
     <meta name="apple-mobile-web-app-title" content="BAC STORY">    <title>دليل الجامعة | BAC STORY</title>
     <link rel="canonical" href="https://bacstory.vercel.app/university">
     <meta name="author" content="redouane mohamed islem">
-    <link rel="stylesheet" href="/style.css?v=7.9">
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style"
-        onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="/style.css?v=8.1">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/solid.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/brands.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/solid.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/brands.min.css">
     </noscript>
     <link rel="preload"
         href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Pattaya&display=swap"
@@ -139,6 +142,8 @@
                 <div class="uni-hero-chips">
                     <a class="uni-hero-chip" href="#lmd-path"><i class="fas fa-graduation-cap"></i> نظام LMD</a>
                     <a class="uni-hero-chip" href="#ing-path"><i class="fas fa-hard-hat"></i> نظام Ingénieur</a>
+                    <a class="uni-hero-chip" onclick="showSection('ministry-guide')" href="#ministry-guide"><i class="fas fa-book-open"></i> الدليل الوزاري للتخصصات</a>
+                    <a class="uni-hero-chip" onclick="showSection('university-section')" href="#university-section"><i class="fas fa-compass"></i> التعريف بالتخصصات</a>
                 </div>
             </div>
 
@@ -7540,8 +7545,71 @@
 
     <div id="footer-placeholder"></div>
     <script src="/ads-config.js?v=1.1"></script>
-    <script src="/components/shared.js?v=7.1"></script>
-    <script src="/script.js?v=5.6"></script>
+    <script src="/components/shared.js?v=7.2"></script>
+    <script src="/script.js?v=5.9"></script>
+    <script>
+    (function () {
+        // Sections that are NOT shareable (main nav sections)
+        const NON_SHARE = new Set(['averages-of-acceptance', 'ministry-guide']);
+
+        function buildShareBtn() {
+            if (document.getElementById('uniShareBtn')) return;
+            const btn = document.createElement('button');
+            btn.id = 'uniShareBtn';
+            btn.className = 'uni-share-btn';
+            btn.title = 'مشاركة الصفحة';
+            btn.innerHTML = '<i class="fas fa-share"></i>';
+            btn.addEventListener('click', handleShare);
+            document.body.appendChild(btn);
+        }
+
+        function handleShare() {
+            const url = location.href;
+            const title = document.title;
+            if (navigator.share) {
+                navigator.share({ title, url }).catch(() => {});
+            } else {
+                navigator.clipboard.writeText(url).then(() => showToast('تم نسخ الرابط ✓')).catch(() => {});
+            }
+        }
+
+        function showToast(msg) {
+            let t = document.getElementById('uniShareToast');
+            if (!t) {
+                t = document.createElement('div');
+                t.id = 'uniShareToast';
+                t.className = 'uni-share-toast';
+                document.body.appendChild(t);
+            }
+            t.textContent = msg;
+            t.classList.add('visible');
+            clearTimeout(t._timer);
+            t._timer = setTimeout(() => t.classList.remove('visible'), 2200);
+        }
+
+        function updateShareBtn(sectionId) {
+            const btn = document.getElementById('uniShareBtn');
+            if (!btn) return;
+            const shareable = sectionId && !NON_SHARE.has(sectionId);
+            btn.classList.toggle('visible', shareable);
+        }
+
+        // Hook into showSection after scripts load
+        window.addEventListener('load', function () {
+            buildShareBtn();
+            // Intercept showSection
+            const orig = window.showSection;
+            window.showSection = function (id, push) {
+                const result = orig ? orig(id, push) : undefined;
+                updateShareBtn(id);
+                return result;
+            };
+            // Set initial state from current hash
+            const initial = location.hash.slice(1) || 'university-system';
+            updateShareBtn(initial);
+        });
+    })();
+    </script>
     <script defer src="/_vercel/insights/script.js"></script>
     <script defer src="/_vercel/speed-insights/script.js"></script>
 </body>
