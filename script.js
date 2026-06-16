@@ -112,7 +112,7 @@ window.addEventListener('popstate', (event) => {
 });
 
 const TIMERS_CONFIG = [
-    { suffix: '1', target: new Date(2026, 5, 26, 8, 0, 0) },  // June 26 - التصحيح
+    { suffix: '1', target: new Date(2026, 5, 24, 8, 0, 0) },  // June 24 - التصحيح
     { suffix: '2', target: new Date(2026, 6, 18, 8, 0, 0) },  // July 18 - النتائج
     { suffix: '3', target: new Date(2027, 5, 7,  8, 30, 0) }, // June 7 2027 - بكالوريا 2027
 ];
