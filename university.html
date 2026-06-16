@@ -94,7 +94,7 @@
     <meta name="apple-mobile-web-app-title" content="BAC STORY">    <title>دليل الجامعة | BAC STORY</title>
     <link rel="canonical" href="https://bacstory.vercel.app/university">
     <meta name="author" content="redouane mohamed islem">
-    <link rel="stylesheet" href="/style.css?v=6.5">
+    <link rel="stylesheet" href="/style.css?v=7.9">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style"
         onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
@@ -323,8 +323,7 @@
 
             <!-- Filter Bar -->
             <div class="spec-filter-bar">
-                <div class="spec-filter-row">
-                    <span class="filter-row-label">الفئة:</span>
+                <div class="spec-chips-row">
                     <button class="filter-chip active" data-filter-type="category" data-filter-val="all">الكل</button>
                     <button class="filter-chip" data-filter-type="category" data-filter-val="engineering">هندسة</button>
                     <button class="filter-chip" data-filter-type="category" data-filter-val="medical">طب وصحة</button>
@@ -332,13 +331,10 @@
                     <button class="filter-chip" data-filter-type="category" data-filter-val="science">علوم</button>
                     <button class="filter-chip" data-filter-type="category" data-filter-val="education">تربية</button>
                 </div>
-                <div class="spec-filter-row">
-                    <span class="filter-row-label">بحث:</span>
-                    <div class="spec-search-wrap">
-                        <i class="fas fa-search"></i>
-                        <input type="text" class="spec-search-input" placeholder="ابحث عن مدرسة أو تخصص..."
-                            id="spec-search">
-                    </div>
+                <div class="spec-search-wrap">
+                    <i class="fas fa-search"></i>
+                    <input type="text" class="spec-search-input" placeholder="ابحث عن مدرسة أو تخصص..."
+                        id="spec-search">
                 </div>
             </div>
 
@@ -352,9 +348,9 @@
                         <div class="spec-card-top">
                             <div class="spec-card-name">المدرسة العليا لعلوم وتكنولوجيات الإعلام الآلي والرقمنة – ESTIN
                             </div>
-                            <span class="cat-badge cat-badge--engineering">هندسة</span>
                         </div>
                         <div class="spec-card-footer">
+            <span class="cat-badge cat-badge--engineering">هندسة</span>
                             <button class="spec-detail-btn" onclick="showSection('ESTIN');event.stopPropagation()"><i
                                     class="fas fa-arrow-left"></i> التفاصيل</button>
                         </div>
@@ -367,9 +363,9 @@
                     <div class="spec-card-body">
                         <div class="spec-card-top">
                             <div class="spec-card-name">المدرسة العليا للذكاء الإصطناعي – ENSIA</div>
-                            <span class="cat-badge cat-badge--engineering">هندسة</span>
                         </div>
                         <div class="spec-card-footer">
+            <span class="cat-badge cat-badge--engineering">هندسة</span>
                             <button class="spec-detail-btn" onclick="showSection('ENSIA');event.stopPropagation()"><i
                                     class="fas fa-arrow-left"></i> التفاصيل</button>
                         </div>
@@ -383,9 +379,9 @@
                     <div class="spec-card-body">
                         <div class="spec-card-top">
                             <div class="spec-card-name">المدرسة العليا للأمن السيبيراني – ENSCS</div>
-                            <span class="cat-badge cat-badge--engineering">هندسة</span>
                         </div>
                         <div class="spec-card-footer">
+            <span class="cat-badge cat-badge--engineering">هندسة</span>
                             <button class="spec-detail-btn" onclick="showSection('ENSCS');event.stopPropagation()"><i
                                     class="fas fa-arrow-left"></i> التفاصيل</button>
                         </div>
@@ -399,9 +395,9 @@
                         <div class="spec-card-top">
                             <div class="spec-card-name">المدرسة الوطنية العليا للاتصالات وتكنولوجيا الإعلام – ENSTTIC
                             </div>
-                            <span class="cat-badge cat-badge--engineering">هندسة</span>
                         </div>
                         <div class="spec-card-footer">
+            <span class="cat-badge cat-badge--engineering">هندسة</span>
                             <button class="spec-detail-btn" onclick="showSection('ENSTTIC');event.stopPropagation()"><i
                                     class="fas fa-arrow-left"></i> التفاصيل</button>
                         </div>
@@ -413,9 +409,9 @@
                     <div class="spec-card-body">
                         <div class="spec-card-top">
                             <div class="spec-card-name">المدرسة الوطنية العليا للرياضيات – NHSM</div>
-                            <span class="cat-badge cat-badge--science">علوم</span>
                         </div>
                         <div class="spec-card-footer">
+            <span class="cat-badge cat-badge--science">علوم</span>
                             <button class="spec-detail-btn" onclick="showSection('NHSM');event.stopPropagation()"><i
                                     class="fas fa-arrow-left"></i> التفاصيل</button>
                         </div>
@@ -429,9 +425,9 @@
                     <div class="spec-card-body">
                         <div class="spec-card-top">
                             <div class="spec-card-name">المدرسة الوطنية متعددة التقنيات – POLYTECH</div>
-                            <span class="cat-badge cat-badge--engineering">هندسة</span>
                         </div>
                         <div class="spec-card-footer">
+            <span class="cat-badge cat-badge--engineering">هندسة</span>
                             <button class="spec-detail-btn" onclick="showSection('POLYTECH');event.stopPropagation()"><i
                                     class="fas fa-arrow-left"></i> التفاصيل</button>
                         </div>
@@ -444,9 +440,9 @@
                     <div class="spec-card-body">
                         <div class="spec-card-top">
                             <div class="spec-card-name">المدرسة متعددة التقنيات للهندسة المعمارية والعمران – EPAU</div>
-                            <span class="cat-badge cat-badge--engineering">هندسة</span>
                         </div>
                         <div class="spec-card-footer">
+            <span class="cat-badge cat-badge--engineering">هندسة</span>
                             <button class="spec-detail-btn" onclick="showSection('EPAU');event.stopPropagation()"><i
                                     class="fas fa-arrow-left"></i> التفاصيل</button>
                         </div>
@@ -460,9 +456,9 @@
                     <div class="spec-card-body">
                         <div class="spec-card-top">
                             <div class="spec-card-name">المدرسة العليا في علوم النانو وتكنولوجيا النانو – ENSSN</div>
-                            <span class="cat-badge cat-badge--science">علوم</span>
                         </div>
                         <div class="spec-card-footer">
+            <span class="cat-badge cat-badge--science">علوم</span>
                             <button class="spec-detail-btn" onclick="showSection('ENSSN');event.stopPropagation()"><i
                                     class="fas fa-arrow-left"></i> التفاصيل</button>
                         </div>
@@ -476,9 +472,9 @@
                     <div class="spec-card-body">
                         <div class="spec-card-top">
                             <div class="spec-card-name">المدرسة العليا للأنظمة المستقلة – ENSAS</div>
-                            <span class="cat-badge cat-badge--engineering">هندسة</span>
                         </div>
                         <div class="spec-card-footer">
+            <span class="cat-badge cat-badge--engineering">هندسة</span>
                             <button class="spec-detail-btn" onclick="showSection('ENSAS');event.stopPropagation()"><i
                                     class="fas fa-arrow-left"></i> التفاصيل</button>
                         </div>
@@ -491,9 +487,9 @@
                     <div class="spec-card-body">
                         <div class="spec-card-top">
                             <div class="spec-card-name">المدرسة العليا للأشغال العمومية – ENSTP</div>
-                            <span class="cat-badge cat-badge--engineering">هندسة</span>
                         </div>
                         <div class="spec-card-footer">
+            <span class="cat-badge cat-badge--engineering">هندسة</span>
                             <button class="spec-detail-btn" onclick="showSection('ENSTP');event.stopPropagation()"><i
                                     class="fas fa-arrow-left"></i> التفاصيل</button>
                         </div>
@@ -506,9 +502,9 @@
                     <div class="spec-card-body">
                         <div class="spec-card-top">
                             <div class="spec-card-name">معهد الإلكترونيك بومرداس – IGEE</div>
-                            <span class="cat-badge cat-badge--engineering">هندسة</span>
                         </div>
                         <div class="spec-card-footer">
+            <span class="cat-badge cat-badge--engineering">هندسة</span>
                             <button class="spec-detail-btn" onclick="showSection('IGEE');event.stopPropagation()"><i
                                     class="fas fa-arrow-left"></i> التفاصيل</button>
                         </div>
@@ -521,9 +517,9 @@
                     <div class="spec-card-body">
                         <div class="spec-card-top">
                             <div class="spec-card-name">المدرسة العليا للتجارة – ENSC</div>
-                            <span class="cat-badge cat-badge--business">اقتصاد</span>
                         </div>
                         <div class="spec-card-footer">
+            <span class="cat-badge cat-badge--business">اقتصاد</span>
                             <button class="spec-detail-btn" onclick="showSection('ENSC');event.stopPropagation()"><i
                                     class="fas fa-arrow-left"></i> التفاصيل</button>
                         </div>
@@ -536,9 +532,9 @@
                     <div class="spec-card-body">
                         <div class="spec-card-top">
                             <div class="spec-card-name">المدرسة العليا للدراسات التجارية – EHEC</div>
-                            <span class="cat-badge cat-badge--business">اقتصاد</span>
                         </div>
                         <div class="spec-card-footer">
+            <span class="cat-badge cat-badge--business">اقتصاد</span>
                             <button class="spec-detail-btn" onclick="showSection('EHEC');event.stopPropagation()"><i
                                     class="fas fa-arrow-left"></i> التفاصيل</button>
                         </div>
@@ -551,9 +547,9 @@
                     <div class="spec-card-body">
                         <div class="spec-card-top">
                             <div class="spec-card-name">المدرسة العليا للتسيير والاقتصاد الرقمي – ESGEN</div>
-                            <span class="cat-badge cat-badge--business">اقتصاد</span>
                         </div>
                         <div class="spec-card-footer">
+            <span class="cat-badge cat-badge--business">اقتصاد</span>
                             <button class="spec-detail-btn" onclick="showSection('ESGEN');event.stopPropagation()"><i
                                     class="fas fa-arrow-left"></i> التفاصيل</button>
                         </div>
@@ -566,9 +562,9 @@
                     <div class="spec-card-body">
                         <div class="spec-card-top">
                             <div class="spec-card-name">المدرسة الوطنية العليا للإحصاء والاقتصاد التطبيقي – ENSSEA</div>
-                            <span class="cat-badge cat-badge--business">اقتصاد</span>
                         </div>
                         <div class="spec-card-footer">
+            <span class="cat-badge cat-badge--business">اقتصاد</span>
                             <button class="spec-detail-btn" onclick="showSection('ENSSEA');event.stopPropagation()"><i
                                     class="fas fa-arrow-left"></i> التفاصيل</button>
                         </div>
@@ -581,9 +577,9 @@
                     <div class="spec-card-body">
                         <div class="spec-card-top">
                             <div class="spec-card-name">المدرسة العليا لعلوم التغذية والصناعات الغذائية – ESSAIA</div>
-                            <span class="cat-badge cat-badge--science">علوم</span>
                         </div>
                         <div class="spec-card-footer">
+            <span class="cat-badge cat-badge--science">علوم</span>
                             <button class="spec-detail-btn" onclick="showSection('ESSAIA');event.stopPropagation()"><i
                                     class="fas fa-arrow-left"></i> التفاصيل</button>
                         </div>
@@ -596,9 +592,9 @@
                     <div class="spec-card-body">
                         <div class="spec-card-top">
                             <div class="spec-card-name">المدرسة العليا للفلاحة – ENSA</div>
-                            <span class="cat-badge cat-badge--science">علوم</span>
                         </div>
                         <div class="spec-card-footer">
+            <span class="cat-badge cat-badge--science">علوم</span>
                             <button class="spec-detail-btn" onclick="showSection('ENSA');event.stopPropagation()"><i
                                     class="fas fa-arrow-left"></i> التفاصيل</button>
                         </div>
@@ -612,9 +608,9 @@
                     <div class="spec-card-body">
                         <div class="spec-card-top">
                             <div class="spec-card-name">المدارس العليا للأساتذة – ENS</div>
-                            <span class="cat-badge cat-badge--education">تربية</span>
                         </div>
                         <div class="spec-card-footer">
+            <span class="cat-badge cat-badge--education">تربية</span>
                             <button class="spec-detail-btn" onclick="showSection('ENS');event.stopPropagation()"><i
                                     class="fas fa-arrow-left"></i> التفاصيل</button>
                         </div>
@@ -627,9 +623,9 @@
                     <div class="spec-card-body">
                         <div class="spec-card-top">
                             <div class="spec-card-name">تخصص الطب – MÉDECINE</div>
-                            <span class="cat-badge cat-badge--medical">طب وصحة</span>
                         </div>
                         <div class="spec-card-footer">
+            <span class="cat-badge cat-badge--medical">طب وصحة</span>
                             <button class="spec-detail-btn" onclick="showSection('MEDCINE');event.stopPropagation()"><i
                                     class="fas fa-arrow-left"></i> التفاصيل</button>
                         </div>
@@ -644,9 +640,9 @@
                     <div class="spec-card-body">
                         <div class="spec-card-top">
                             <div class="spec-card-name">تخصص طب الأسنان – MÉDECINE DENTAIRE</div>
-                            <span class="cat-badge cat-badge--medical">طب وصحة</span>
                         </div>
                         <div class="spec-card-footer">
+            <span class="cat-badge cat-badge--medical">طب وصحة</span>
                             <button class="spec-detail-btn"
                                 onclick="showSection('MEDCINE-DENTAIRE');event.stopPropagation()"><i
                                     class="fas fa-arrow-left"></i> التفاصيل</button>
@@ -662,9 +658,9 @@
                     <div class="spec-card-body">
                         <div class="spec-card-top">
                             <div class="spec-card-name">تخصص الصيدلة – PHARMACIE</div>
-                            <span class="cat-badge cat-badge--medical">طب وصحة</span>
                         </div>
                         <div class="spec-card-footer">
+            <span class="cat-badge cat-badge--medical">طب وصحة</span>
                             <button class="spec-detail-btn"
                                 onclick="showSection('PHARMACIE');event.stopPropagation()"><i
                                     class="fas fa-arrow-left"></i> التفاصيل</button>
@@ -679,9 +675,9 @@
                     <div class="spec-card-body">
                         <div class="spec-card-top">
                             <div class="spec-card-name">تخصصات الشبه طبي – PARAMEDICAL</div>
-                            <span class="cat-badge cat-badge--medical">طب وصحة</span>
                         </div>
                         <div class="spec-card-footer">
+            <span class="cat-badge cat-badge--medical">طب وصحة</span>
                             <button class="spec-detail-btn"
                                 onclick="showSection('PARAMEDICAL');event.stopPropagation()"><i
                                     class="fas fa-arrow-left"></i> التفاصيل</button>
@@ -697,9 +693,9 @@
                     <div class="spec-card-body">
                         <div class="spec-card-top">
                             <div class="spec-card-name">تخصص الصيدلة الصناعية – PHARMACIE INDUSTRIELLE</div>
-                            <span class="cat-badge cat-badge--medical">طب وصحة</span>
                         </div>
                         <div class="spec-card-footer">
+            <span class="cat-badge cat-badge--medical">طب وصحة</span>
                             <button class="spec-detail-btn"
                                 onclick="showSection('PHARMACIE-INDUSTRIELLE');event.stopPropagation()"><i
                                     class="fas fa-arrow-left"></i> التفاصيل</button>
@@ -713,9 +709,9 @@
                     <div class="spec-card-body">
                         <div class="spec-card-top">
                             <div class="spec-card-name">تخصص الطب البيطري – Vétérinaire</div>
-                            <span class="cat-badge cat-badge--medical">طب وصحة</span>
                         </div>
                         <div class="spec-card-footer">
+            <span class="cat-badge cat-badge--medical">طب وصحة</span>
                             <button class="spec-detail-btn"
                                 onclick="showSection('vetrinaire');event.stopPropagation()"><i
                                     class="fas fa-arrow-left"></i> التفاصيل</button>
@@ -729,9 +725,9 @@
                     <div class="spec-card-body">
                         <div class="spec-card-top">
                             <div class="spec-card-name">المدرسة العليا للبيوتكنولوجيا – ENSB</div>
-                            <span class="cat-badge cat-badge--science">علوم</span>
                         </div>
                         <div class="spec-card-footer">
+            <span class="cat-badge cat-badge--science">علوم</span>
                             <button class="spec-detail-btn" onclick="showSection('ENSB');event.stopPropagation()"><i
                                     class="fas fa-arrow-left"></i> التفاصيل</button>
                         </div>
@@ -744,9 +740,9 @@
                     <div class="spec-card-body">
                         <div class="spec-card-top">
                             <div class="spec-card-name">المدرسة الوطنية العليا لعلوم البحر وتهيئة الساحل – ENSSMAL</div>
-                            <span class="cat-badge cat-badge--science">علوم</span>
                         </div>
                         <div class="spec-card-footer">
+            <span class="cat-badge cat-badge--science">علوم</span>
                             <button class="spec-detail-btn" onclick="showSection('ENSSMAL');event.stopPropagation()"><i
                                     class="fas fa-arrow-left"></i> التفاصيل</button>
                         </div>
@@ -759,9 +755,9 @@
                     <div class="spec-card-body">
                         <div class="spec-card-top">
                             <div class="spec-card-name">تخصص الشريعة الإسلامية</div>
-                            <span class="cat-badge cat-badge--education">تربية</span>
                         </div>
                         <div class="spec-card-footer">
+            <span class="cat-badge cat-badge--education">تربية</span>
                             <button class="spec-detail-btn" onclick="showSection('chari3a');event.stopPropagation()"><i
                                     class="fas fa-arrow-left"></i> التفاصيل</button>
                         </div>
@@ -775,9 +771,9 @@
                     <div class="spec-card-body">
                         <div class="spec-card-top">
                             <div class="spec-card-name">تخصص الإعلام الآلي – INFORMATIQUE</div>
-                            <span class="cat-badge cat-badge--science">علوم</span>
                         </div>
                         <div class="spec-card-footer">
+            <span class="cat-badge cat-badge--science">علوم</span>
                             <button class="spec-detail-btn"
                                 onclick="showSection('INFORMATIQUE');event.stopPropagation()"><i
                                     class="fas fa-arrow-left"></i> التفاصيل</button>
@@ -793,9 +789,9 @@
                     <div class="spec-card-body">
                         <div class="spec-card-top">
                             <div class="spec-card-name">تخصص الرياضيات – MATH</div>
-                            <span class="cat-badge cat-badge--science">علوم</span>
                         </div>
                         <div class="spec-card-footer">
+            <span class="cat-badge cat-badge--science">علوم</span>
                             <button class="spec-detail-btn" onclick="showSection('MATH');event.stopPropagation()"><i
                                     class="fas fa-arrow-left"></i> التفاصيل</button>
                         </div>
@@ -808,9 +804,9 @@
                     <div class="spec-card-body">
                         <div class="spec-card-top">
                             <div class="spec-card-name">تخصص علوم وتكنولوجيا – ST</div>
-                            <span class="cat-badge cat-badge--science">علوم</span>
                         </div>
                         <div class="spec-card-footer">
+            <span class="cat-badge cat-badge--science">علوم</span>
                             <button class="spec-detail-btn" onclick="showSection('ST');event.stopPropagation()"><i
                                     class="fas fa-arrow-left"></i> التفاصيل</button>
                         </div>
@@ -825,9 +821,9 @@
                     <div class="spec-card-body">
                         <div class="spec-card-top">
                             <div class="spec-card-name">تخصص علوم المادة – SM</div>
-                            <span class="cat-badge cat-badge--science">علوم</span>
                         </div>
                         <div class="spec-card-footer">
+            <span class="cat-badge cat-badge--science">علوم</span>
                             <button class="spec-detail-btn" onclick="showSection('SM');event.stopPropagation()"><i
                                     class="fas fa-arrow-left"></i> التفاصيل</button>
                         </div>
@@ -842,9 +838,9 @@
                     <div class="spec-card-body">
                         <div class="spec-card-top">
                             <div class="spec-card-name">تخصص البيولوجيا – BIOLOGIE</div>
-                            <span class="cat-badge cat-badge--science">علوم</span>
                         </div>
                         <div class="spec-card-footer">
+            <span class="cat-badge cat-badge--science">علوم</span>
                             <button class="spec-detail-btn" onclick="showSection('BIOLOGIE');event.stopPropagation()"><i
                                     class="fas fa-arrow-left"></i> التفاصيل</button>
                         </div>
@@ -857,9 +853,9 @@
                     <div class="spec-card-body">
                         <div class="spec-card-top">
                             <div class="spec-card-name">تخصص المحروقات – HYDROCARBURES</div>
-                            <span class="cat-badge cat-badge--science">علوم</span>
                         </div>
                         <div class="spec-card-footer">
+            <span class="cat-badge cat-badge--science">علوم</span>
                             <button class="spec-detail-btn"
                                 onclick="showSection('HYDROCARBURES');event.stopPropagation()"><i
                                     class="fas fa-arrow-left"></i> التفاصيل</button>
@@ -873,9 +869,9 @@
                     <div class="spec-card-body">
                         <div class="spec-card-top">
                             <div class="spec-card-name">تخصص البصريات وميكانيك الدقة – Optique &amp; Mécanique</div>
-                            <span class="cat-badge cat-badge--science">علوم</span>
                         </div>
                         <div class="spec-card-footer">
+            <span class="cat-badge cat-badge--science">علوم</span>
                             <button class="spec-detail-btn" onclick="showSection('Optique');event.stopPropagation()"><i
                                     class="fas fa-arrow-left"></i> التفاصيل</button>
                         </div>
@@ -1016,6 +1012,8 @@
                             <li>شعبة علوم تجرببية : 17,79</li>
                             <li>شعبة تقني رياضي : 18,15</li>
                         </ul>
+                    
+                        <div class="acceptance-calc-wrap"><a href="/tools.html#weighted-calc" class="acceptance-calc-btn"><i class="fas fa-calculator"></i> احسب معدلك الموزون</a></div>
                     </div>
 
                     <div class="detail-card large-card">
@@ -1287,6 +1285,8 @@
                             <li>شعبة علوم تجرببية : 18,95</li>
                             <li>شعبة تقني رياضي : 19,37</li>
                         </ul>
+                    
+                        <div class="acceptance-calc-wrap"><a href="/tools.html#weighted-calc" class="acceptance-calc-btn"><i class="fas fa-calculator"></i> احسب معدلك الموزون</a></div>
                     </div>
 
                     <div class="detail-card large-card">
@@ -1548,6 +1548,8 @@
                             <li>شعبة علوم تجرببية : 18,70</li>
                             <li>شعبة تقني رياضي : 19,07</li>
                         </ul>
+                    
+                        <div class="acceptance-calc-wrap"><a href="/tools.html#weighted-calc" class="acceptance-calc-btn"><i class="fas fa-calculator"></i> احسب معدلك الموزون</a></div>
                     </div>
 
                     <div class="detail-card large-card">
@@ -1804,6 +1806,8 @@
                             <li>شعبة علوم تجرببية : 17,77</li>
                             <li>شعبة تقني رياضي : 18,15</li>
                         </ul>
+                    
+                        <div class="acceptance-calc-wrap"><a href="/tools.html#weighted-calc" class="acceptance-calc-btn"><i class="fas fa-calculator"></i> احسب معدلك الموزون</a></div>
                     </div>
 
                     <div class="detail-card large-card">
@@ -2015,6 +2019,8 @@
                             <li>وهران : 16,79</li>
                             <li>قسنطينة : 16,65</li>
                         </ul>
+                    
+                        <div class="acceptance-calc-wrap"><a href="/tools.html#weighted-calc" class="acceptance-calc-btn"><i class="fas fa-calculator"></i> احسب معدلك الموزون</a></div>
                     </div>
 
                     <div class="detail-card ">
@@ -2160,6 +2166,8 @@
                         <h3><i class="fas fa-user-graduate"></i>معدلات القبول</h3>
                         <p>الأولوية متساوية بين الشعب: رياضيات، علوم تجريبية، تقني رياضي.<br>معدل القبول
                             لسنة 2024 : 16,54</p>
+                    
+                        <div class="acceptance-calc-wrap"><a href="/tools.html#weighted-calc" class="acceptance-calc-btn"><i class="fas fa-calculator"></i> احسب معدلك الموزون</a></div>
                     </div>
 
                     <div class="detail-card large-card">
@@ -2319,6 +2327,8 @@
                         <h3><i class="fas fa-user-graduate"></i>معدلات القبول</h3>
                         <p>الأولوية متساوية بين الشعب: رياضيات، علوم تجريبية، تقني رياضي.<br>معدل القبول
                             لسنة 2024 : 17.96</p>
+                    
+                        <div class="acceptance-calc-wrap"><a href="/tools.html#weighted-calc" class="acceptance-calc-btn"><i class="fas fa-calculator"></i> احسب معدلك الموزون</a></div>
                     </div>
 
                     <div class="detail-card">
@@ -2477,6 +2487,8 @@
                         <h3><i class="fas fa-user-graduate"></i>معدلات القبول</h3>
                         <p>الأولوية متساوية بين الشعب: رياضيات، علوم تجريبية، تقني رياضي.<br>معدل القبول
                             لسنة 2024 : 18,21</p>
+                    
+                        <div class="acceptance-calc-wrap"><a href="/tools.html#weighted-calc" class="acceptance-calc-btn"><i class="fas fa-calculator"></i> احسب معدلك الموزون</a></div>
                     </div>
 
                     <div class="detail-card">
@@ -2992,6 +3004,8 @@
                             تسيير و إقتصاد<br>
                             القبول حسب المعدل العام في البكالوريا و لا يوجد معدل موزون‼️
                         </p>
+                    
+                        <div class="acceptance-calc-wrap"><a href="/tools.html#weighted-calc" class="acceptance-calc-btn"><i class="fas fa-calculator"></i> احسب معدلك الموزون</a></div>
                     </div>
 
                     <div class="detail-card">
@@ -3218,6 +3232,8 @@
                             <li>🌟 الأولوية: رياضيات، تقني رياضي، علوم تجريبية، تسيير واقتصاد</li>
                             <li>🔹 القبول بالمعدل العام فقط، لا يوجد معدل موزون</li>
                         </ul>
+                    
+                        <div class="acceptance-calc-wrap"><a href="/tools.html#weighted-calc" class="acceptance-calc-btn"><i class="fas fa-calculator"></i> احسب معدلك الموزون</a></div>
                     </div>
 
                     <div class="detail-card">
@@ -3455,6 +3471,8 @@
                             <li><strong>⭐️ الوادي:</strong> علوم تجريبية: 12.81 | رياضيات/تقني رياضي:
                                 13.51</li>
                         </ul>
+                    
+                        <div class="acceptance-calc-wrap"><a href="/tools.html#weighted-calc" class="acceptance-calc-btn"><i class="fas fa-calculator"></i> احسب معدلك الموزون</a></div>
                     </div>
 
                     <div class="detail-card">
@@ -3689,6 +3707,8 @@
                         <p>
                             🌟 علوم تجريبية / رياضيات / تقني رياضي: 16.85
                         </p>
+                    
+                        <div class="acceptance-calc-wrap"><a href="/tools.html#weighted-calc" class="acceptance-calc-btn"><i class="fas fa-calculator"></i> احسب معدلك الموزون</a></div>
                     </div>
 
                     <div class="detail-card">
@@ -3851,6 +3871,8 @@
                                 </ul>
                             </li>
                         </ul>
+                    
+                        <div class="acceptance-calc-wrap"><a href="/tools.html#weighted-calc" class="acceptance-calc-btn"><i class="fas fa-calculator"></i> احسب معدلك الموزون</a></div>
                     </div>
 
                     <div class="detail-card">
@@ -4164,6 +4186,8 @@
                             التوجيه يتم حسب ولايتك: إذا كان التخصص متوفر فيها، يوجّهوك ليها، وإلا يبعثوك
                             لأقرب جامعة توفر طب الأسنان.
                         </p>
+                    
+                        <div class="acceptance-calc-wrap"><a href="/tools.html#weighted-calc" class="acceptance-calc-btn"><i class="fas fa-calculator"></i> احسب معدلك الموزون</a></div>
                     </div>
 
                     <div class="detail-card ">
@@ -4302,6 +4326,8 @@
                             التوجيه يتم حسب ولايتك: إذا كان التخصص متوفر فيها، يوجّهوك ليها، وإلا يبعثوك
                             لأقرب جامعة توفر التخصص.
                         </p>
+                    
+                        <div class="acceptance-calc-wrap"><a href="/tools.html#weighted-calc" class="acceptance-calc-btn"><i class="fas fa-calculator"></i> احسب معدلك الموزون</a></div>
                     </div>
 
                     <div class="detail-card">
@@ -4811,6 +4837,8 @@
                             (و القائمة طويلة.. المعدل يتراوح غالبا بين 12 و 17 حسب الولاية وعدد
                             المناصب).
                         </p>
+                    
+                        <div class="acceptance-calc-wrap"><a href="/tools.html#weighted-calc" class="acceptance-calc-btn"><i class="fas fa-calculator"></i> احسب معدلك الموزون</a></div>
                     </div>
 
                     <div class="detail-card">
@@ -5685,6 +5713,8 @@
                             سيدي بلعباس: علوم 13.19 / رياضيات 14.63<br>
                             📌 في الجنوب تنخفض المعدلات شوية، أما الشمال فهي توصل حتى 16 وأكثر.
                         </p>
+                    
+                        <div class="acceptance-calc-wrap"><a href="/tools.html#weighted-calc" class="acceptance-calc-btn"><i class="fas fa-calculator"></i> احسب معدلك الموزون</a></div>
                     </div>
 
                     <div class="detail-card">
@@ -5818,6 +5848,8 @@
                             باتنة: 15.83<br>
                             أغلب الولايات بين 14 و15.
                         </p>
+                    
+                        <div class="acceptance-calc-wrap"><a href="/tools.html#weighted-calc" class="acceptance-calc-btn"><i class="fas fa-calculator"></i> احسب معدلك الموزون</a></div>
                     </div>
 
                     <div class="detail-card">
@@ -5968,6 +6000,8 @@
                         <p>🏫 متوفر فقط في <strong>جامعة علوم الصحة (الزيانية – الجزائر
                                 العاصمة)</strong></p>
                         <p>👥 عدد الطلبة محدود: أقل من 450 طالب</p>
+                    
+                        <div class="acceptance-calc-wrap"><a href="/tools.html#weighted-calc" class="acceptance-calc-btn"><i class="fas fa-calculator"></i> احسب معدلك الموزون</a></div>
                     </div>
 
                     <div class="detail-card">
@@ -6084,6 +6118,8 @@
                             <li>📍جامعة الطارف: 13.30</li>
                             <li>⚠️ تقني رياضي: حتى 15.95</li>
                         </ul>
+                    
+                        <div class="acceptance-calc-wrap"><a href="/tools.html#weighted-calc" class="acceptance-calc-btn"><i class="fas fa-calculator"></i> احسب معدلك الموزون</a></div>
                     </div>
 
                     <div class="detail-card">
@@ -6421,6 +6457,8 @@
                             <br>
                             ما يتطلبش معدل عالي كيما المدارس العليا، بصح لازم تخمّم مليح في المستقبل.
                         </p>
+                    
+                        <div class="acceptance-calc-wrap"><a href="/tools.html#weighted-calc" class="acceptance-calc-btn"><i class="fas fa-calculator"></i> احسب معدلك الموزون</a></div>
                     </div>
 
                     <div class="detail-card large-card">
@@ -6576,6 +6614,8 @@
                             <br>
                             (حسب التوجيه، عدد المقاعد و الناجحين)
                         </p>
+                    
+                        <div class="acceptance-calc-wrap"><a href="/tools.html#weighted-calc" class="acceptance-calc-btn"><i class="fas fa-calculator"></i> احسب معدلك الموزون</a></div>
                     </div>
 
                     <div class="detail-card">
@@ -7017,6 +7057,8 @@
                             غالبًا يكون المعدل بين 10.00 و13.00 حسب الشعب العلمية.<br>
                             <strong>الشعب المقبولة:</strong> علوم تجريبية، رياضيات، تقني رياضي.
                         </p>
+                    
+                        <div class="acceptance-calc-wrap"><a href="/tools.html#weighted-calc" class="acceptance-calc-btn"><i class="fas fa-calculator"></i> احسب معدلك الموزون</a></div>
                     </div>
 
                     <div class="detail-card">
@@ -7155,6 +7197,8 @@
                             🔸 <strong>الأولوية الأولى:</strong> شعبة رياضيات<br>
                             🔸 <strong>الأولوية الثانية:</strong> شعبتي علوم تجريبية و تقني رياضي
                         </p>
+                    
+                        <div class="acceptance-calc-wrap"><a href="/tools.html#weighted-calc" class="acceptance-calc-btn"><i class="fas fa-calculator"></i> احسب معدلك الموزون</a></div>
                     </div>
 
                     <div class="detail-card">
@@ -7396,8 +7440,7 @@
 
                 <!-- Wrapper with fixed width same as iframe -->
                 <div class="pdf-wrapper">
-                    <a href="https://t.me/islembacdz" target="_blank" rel="noopener" style="margin-bottom: 40px;"
-                        class="search-telegram-btn">
+                    <a href="https://t.me/islembacdz" target="_blank" rel="noopener" style="margin-bottom: 40px;" class="search-telegram-btn">
                         <i class="fab fa-telegram-plane"></i>
                         <span>انضم إلينا على التلغرام</span>
                     </a>
@@ -7459,12 +7502,46 @@
     </div>
 
 
+    <div id="ministry-guide" class="resource-content">
+        <div class="container">
+            <div class="ad-card-inject"></div>
+            <div class="modern-section-header">
+                <h2>الدليل الوزاري للتخصصات</h2>
+            </div>
+
+            <section class="pdf-viewer" style="text-align: center; padding-bottom: 40px;">
+                <div class="pdf-wrapper">
+                    <a href="https://t.me/islembacdz" target="_blank" rel="noopener" style="margin-bottom: 40px;" class="search-telegram-btn">
+                        <i class="fab fa-telegram-plane"></i>
+                        <span>انضم إلينا على التلغرام</span>
+                    </a>
+
+                    <iframe src="https://drive.google.com/file/d/1XOX7XQo0ubJKw3W_yiV-TmezKgO-Xq3R/preview"
+                        class="responsive-pdf" loading="lazy" allowfullscreen>
+                    </iframe>
+
+                    <div class="pdf-buttons">
+                        <button onclick="toggleFullScreen(event)" class="full-btn"
+                            style="flex: 1; border: none; font-size: 16px; font-weight: 500; cursor: pointer;">
+                            <i class="fa-solid fa-expand"></i> تكبير الملف
+                        </button>
+                        <a href="https://drive.google.com/uc?export=download&id=1XOX7XQo0ubJKw3W_yiV-TmezKgO-Xq3R"
+                            download class="down-btn"
+                            style="flex: 1; text-decoration: none; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 500;">
+                            <i class="fa-solid fa-download"></i> تحميل الملف
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
     <div id="global-cta-placeholder"></div>
 
     <div id="footer-placeholder"></div>
     <script src="/ads-config.js?v=1.1"></script>
-    <script src="/components/shared.js?v=7.0"></script>
-    <script src="/script.js?v=5.5"></script>
+    <script src="/components/shared.js?v=7.1"></script>
+    <script src="/script.js?v=5.6"></script>
     <script defer src="/_vercel/insights/script.js"></script>
     <script defer src="/_vercel/speed-insights/script.js"></script>
 </body>
