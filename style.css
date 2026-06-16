@@ -1384,10 +1384,9 @@ body.search-active .mobile-bottom-bar,
     margin-bottom: 2px;
 }
 
-.bottom-nav-item:hover,
-.bottom-nav-item:active {
-    color: white;
-    transform: translateY(-2px);
+.bottom-nav-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
 }
 
 .dropdown {
@@ -9014,6 +9013,61 @@ body.pdf-body-lock {
     background: #1e44a8;
     transform: translateY(-3px);
     box-shadow: 0 6px 18px rgba(44, 92, 197, 0.48);
+}
+
+/* Floating tooltip for scroll-top and share buttons */
+.scroll-top-btn,
+.uni-share-btn {
+    overflow: visible;
+}
+.scroll-top-btn::after,
+.uni-share-btn::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: calc(100% + 12px);
+    top: 50%;
+    transform: translateY(-50%) translateX(6px);
+    background: var(--primary-color);
+    color: #fff;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 7px 13px;
+    border-radius: 10px;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 4px 16px rgba(44, 92, 197, 0.28);
+    z-index: 1100;
+    direction: rtl;
+}
+.scroll-top-btn::before,
+.uni-share-btn::before {
+    content: '';
+    position: absolute;
+    left: calc(100% + 6px);
+    top: 50%;
+    transform: translateY(-50%) translateX(6px);
+    width: 0;
+    height: 0;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-right: 6px solid var(--primary-color);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 1100;
+}
+.scroll-top-btn:hover::after,
+.uni-share-btn:hover::after {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+}
+.scroll-top-btn:hover::before,
+.uni-share-btn:hover::before {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
 }
 
 .uni-share-btn {
