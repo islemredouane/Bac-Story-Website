@@ -770,7 +770,6 @@ function injectAdStrip() {
     strip.className = 'ad-strip is-hidden';
     strip.innerHTML = `
         <div class="ad-strip-inner">
-            <span class="ad-strip-countdown">${BAC_ADS.getCountdownText()}</span>
             <div class="ad-strip-content">${buildContentHTML(ads[0])}</div>
             <div class="ad-strip-actions">
                 <a href="${ads[0].ctaHref}" target="${ads[0].ctaTarget || '_self'}" class="ad-strip-cta">
