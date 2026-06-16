@@ -39,11 +39,14 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="BAC STORY">    <title>أدوات البكالوريا | BAC STORY</title>
     <link rel="canonical" href="https://bacstory.vercel.app/tools">
-    <link rel="stylesheet" href="style.css?v=7.9">
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style"
-        onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="style.css?v=8.1">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/solid.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/brands.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/solid.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/brands.min.css">
     </noscript>
     <link rel="preload"
         href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Pattaya&display=swap"
@@ -1215,7 +1218,10 @@
                 <!-- Input fields -->
                 <div id="wc-inputs" style="display:none;">
                     <div class="subjects-grid" id="wc-fields-grid"></div>
-                    <div style="text-align:center; margin-top:28px;">
+                    <div style="text-align:center; margin-top:28px; display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
+                        <button class="wc-calc-btn" onclick="wcCalculate()">
+                            احسب المعدل الموزون
+                        </button>
                         <button class="wc-back-btn" onclick="wcReset()">
                             <i class="fas fa-arrow-right"></i> تغيير الميدان
                         </button>
@@ -1223,7 +1229,7 @@
                 </div>
             </div>
             <!-- Result — inside container, outside .calculator-section (same as BAC calc) -->
-            <div id="wc-result" class="result-section" style="display:none;">
+            <div id="wc-result" class="result-section">
                 <div class="result-card">
                     <div class="result-label">المعدل الموزون</div>
                     <div class="result-value" id="wc-result-value">--</div>
@@ -1391,9 +1397,10 @@
     <div id="global-cta-placeholder"></div>
     <div id="footer-placeholder"></div>
     <script src="/ads-config.js?v=1.0"></script>
-    <script src="components/shared.js?v=7.1"></script>
+    <script src="components/shared.js?v=7.2"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" crossorigin="anonymous"></script>
-    <script src="/script.js?v=5.6"></script>
+    <script src="/script.js?v=5.9"></script>
+    <script src="/components/calculator.js?v=1.1"></script>
     <script defer src="/_vercel/insights/script.js"></script>
     <script defer src="/_vercel/speed-insights/script.js"></script>
 </body>
