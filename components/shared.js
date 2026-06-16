@@ -250,7 +250,7 @@ function setupScrollToTop() {
     const btn = document.createElement('button');
     btn.id = 'scrollTopBtn';
     btn.className = 'scroll-top-btn';
-    btn.setAttribute('title', 'scroll-btn');
+    btn.setAttribute('data-tooltip', 'العودة للأعلى');
     btn.innerHTML = `
         <i class="fas fa-chevron-up"></i>
     `;
