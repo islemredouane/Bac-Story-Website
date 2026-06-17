@@ -343,6 +343,8 @@
                     <button class="filter-chip" data-filter-type="category" data-filter-val="business">اقتصاد</button>
                     <button class="filter-chip" data-filter-type="category" data-filter-val="science">علوم</button>
                     <button class="filter-chip" data-filter-type="category" data-filter-val="education">تربية</button>
+                    <button class="filter-chip" data-filter-type="category" data-filter-val="law">حقوق</button>
+                    <button class="filter-chip" data-filter-type="category" data-filter-val="humanities">علوم إنسانية</button>
                 </div>
                 <div class="spec-search-wrap">
                     <i class="fas fa-search"></i>
@@ -932,6 +934,21 @@
                     </div>
                 </div>
 
+                <div class="spec-card" data-category="engineering" data-name="ARCHITECTURE هندسة معمارية الهندسة المعمارية"
+                    onclick="showSection('ARCHITECTURE-UNI')">
+                    <div class="spec-card-img"><img loading="lazy" src="images/ARCHITECTURE.jpg" alt="ARCHITECTURE"></div>
+                    <div class="spec-card-body">
+                        <div class="spec-card-top">
+                            <div class="spec-card-name">تخصص الهندسة المعمارية – ARCHITECTURE</div>
+                        </div>
+                        <div class="spec-card-footer">
+                            <span class="cat-badge cat-badge--engineering">هندسة</span>
+                            <button class="spec-detail-btn" onclick="showSection('ARCHITECTURE-UNI');event.stopPropagation()"><i
+                                    class="fas fa-arrow-left"></i> التفاصيل</button>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="spec-card" data-category="science" data-name="MATH رياضيات mathematics"
                     onclick="showSection('MATH')">
                     <div class="spec-card-img"><img loading="lazy"
@@ -1024,6 +1041,141 @@
                         <div class="spec-card-footer">
             <span class="cat-badge cat-badge--science">علوم</span>
                             <button class="spec-detail-btn" onclick="showSection('Optique');event.stopPropagation()"><i
+                                    class="fas fa-arrow-left"></i> التفاصيل</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spec-card" data-category="science" data-name="GP هندسة طرائق كيمياء صناعية génie procédés"
+                    onclick="showSection('GP')">
+                    <div class="spec-card-img"><img loading="lazy" src="images/Gp.png" alt="Génie des procédés"></div>
+                    <div class="spec-card-body">
+                        <div class="spec-card-top">
+                            <div class="spec-card-name">تخصص هندسة الطرائق – Génie des Procédés</div>
+                        </div>
+                        <div class="spec-card-footer">
+                            <span class="cat-badge cat-badge--science">علوم</span>
+                            <button class="spec-detail-btn" onclick="showSection('GP');event.stopPropagation()"><i
+                                    class="fas fa-arrow-left"></i> التفاصيل</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spec-card" data-category="engineering" data-name="GI هندسة صناعية industrial engineering تصنيع جودة إنتاج"
+                    onclick="showSection('GI')">
+                    <div class="spec-card-img"><img loading="lazy" src="images/gi.jpg" alt="Génie Industriel"></div>
+                    <div class="spec-card-body">
+                        <div class="spec-card-top">
+                            <div class="spec-card-name">تخصص الهندسة الصناعية – Génie Industriel</div>
+                        </div>
+                        <div class="spec-card-footer">
+                            <span class="cat-badge cat-badge--engineering">هندسة</span>
+                            <button class="spec-detail-btn" onclick="showSection('GI');event.stopPropagation()"><i
+                                    class="fas fa-arrow-left"></i> التفاصيل</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spec-card" data-category="engineering" data-name="MARINE هندسة بحرية سفن ملاحة marine engineering naval"
+                    onclick="showSection('MARINE')">
+                    <div class="spec-card-img"><img loading="lazy" src="images/Marine Engineering.jpg" alt="هندسة بحرية"></div>
+                    <div class="spec-card-body">
+                        <div class="spec-card-top">
+                            <div class="spec-card-name">تخصص الهندسة البحرية – Marine Engineering</div>
+                        </div>
+                        <div class="spec-card-footer">
+                            <span class="cat-badge cat-badge--engineering">هندسة</span>
+                            <button class="spec-detail-btn" onclick="showSection('MARINE');event.stopPropagation()"><i
+                                    class="fas fa-arrow-left"></i> التفاصيل</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spec-card" data-category="engineering" data-name="GT هندسة نقل لوجستيك طرق سكك حديدية مطارات موانئ génie transport"
+                    onclick="showSection('GT')">
+                    <div class="spec-card-img"><img loading="lazy" src="images/Gt.jpg" alt="هندسة النقل"></div>
+                    <div class="spec-card-body">
+                        <div class="spec-card-top">
+                            <div class="spec-card-name">تخصص هندسة النقل – Génie du Transport</div>
+                        </div>
+                        <div class="spec-card-footer">
+                            <span class="cat-badge cat-badge--engineering">هندسة</span>
+                            <button class="spec-detail-btn" onclick="showSection('GT');event.stopPropagation()"><i
+                                    class="fas fa-arrow-left"></i> التفاصيل</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spec-card" data-category="engineering" data-name="GM هندسة تعدين مناجم معادن جيولوجيا génie minier mining engineering"
+                    onclick="showSection('GM')">
+                    <div class="spec-card-img"><img loading="lazy" src="images/Gm.jpg" alt="هندسة التعدين"></div>
+                    <div class="spec-card-body">
+                        <div class="spec-card-top">
+                            <div class="spec-card-name">تخصص هندسة التعدين – Génie Minier</div>
+                        </div>
+                        <div class="spec-card-footer">
+                            <span class="cat-badge cat-badge--engineering">هندسة</span>
+                            <button class="spec-detail-btn" onclick="showSection('GM');event.stopPropagation()"><i
+                                    class="fas fa-arrow-left"></i> التفاصيل</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spec-card" data-category="engineering" data-name="GC هندسة مدنية بناء جسور طرق سدود مباني génie civil construction bâtiment"
+                    onclick="showSection('GC')">
+                    <div class="spec-card-img"><img loading="lazy" src="images/genie_civil.jpg" alt="هندسة مدنية"></div>
+                    <div class="spec-card-body">
+                        <div class="spec-card-top">
+                            <div class="spec-card-name">تخصص الهندسة المدنية – Génie Civil</div>
+                        </div>
+                        <div class="spec-card-footer">
+                            <span class="cat-badge cat-badge--engineering">هندسة</span>
+                            <button class="spec-detail-btn" onclick="showSection('GC');event.stopPropagation()"><i
+                                    class="fas fa-arrow-left"></i> التفاصيل</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spec-card" data-category="engineering" data-name="GMEC هندسة ميكانيكية محركات طاقة تبريد صناعة génie mécanique mechanical engineering"
+                    onclick="showSection('GMEC')">
+                    <div class="spec-card-img"><img loading="lazy" src="images/Genie-Mecanique.jpg" alt="هندسة ميكانيكية"></div>
+                    <div class="spec-card-body">
+                        <div class="spec-card-top">
+                            <div class="spec-card-name">تخصص الهندسة الميكانيكية – Génie Mécanique</div>
+                        </div>
+                        <div class="spec-card-footer">
+                            <span class="cat-badge cat-badge--engineering">هندسة</span>
+                            <button class="spec-detail-btn" onclick="showSection('GMEC');event.stopPropagation()"><i
+                                    class="fas fa-arrow-left"></i> التفاصيل</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spec-card" data-category="law" data-name="DROIT حقوق قانون عدالة محاماة قضاء"
+                    onclick="showSection('DROIT')">
+                    <div class="spec-card-img"><img loading="lazy" src="images/Droit.jpg" alt="تخصص الحقوق"></div>
+                    <div class="spec-card-body">
+                        <div class="spec-card-top">
+                            <div class="spec-card-name">تخصص الحقوق – Droit</div>
+                        </div>
+                        <div class="spec-card-footer">
+                            <span class="cat-badge cat-badge--law">حقوق</span>
+                            <button class="spec-detail-btn" onclick="showSection('DROIT');event.stopPropagation()"><i
+                                    class="fas fa-arrow-left"></i> التفاصيل</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spec-card" data-category="humanities" data-name="SS علوم اجتماعية علم نفس علم اجتماع فلسفة انثروبولوجيا ديموغرافيا sciences sociales humaines"
+                    onclick="showSection('SS')">
+                    <div class="spec-card-img"><img loading="lazy" src="images/Sciences sociales.png" alt="علوم اجتماعية"></div>
+                    <div class="spec-card-body">
+                        <div class="spec-card-top">
+                            <div class="spec-card-name">تخصص العلوم الاجتماعية – Sciences Sociales</div>
+                        </div>
+                        <div class="spec-card-footer">
+                            <span class="cat-badge cat-badge--humanities">علوم إنسانية</span>
+                            <button class="spec-detail-btn" onclick="showSection('SS');event.stopPropagation()"><i
                                     class="fas fa-arrow-left"></i> التفاصيل</button>
                         </div>
                     </div>
@@ -8470,6 +8622,1182 @@
                     </div>
                 </div>
             </section>
+        </div>
+    </div>
+
+    <div id="ARCHITECTURE-UNI" class="resource-content">
+        <div class="container">
+            <div class="modern-section-header">
+                <h2>تخصص الهندسة المعمارية</h2>
+            </div>
+            <div class="school-details" style="margin-top: 70px">
+                <div class="details">
+
+                    <!-- 1. التعريف -->
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-school"></i> التعريف بالتخصص</h3>
+                        <p>تخصص الهندسة المعمارية من بين التخصصات لي يستقطبو بزاف طلبة مبدعين، ومش بس رسم وتخطيط كيما يفكر ناس! هو مزيج بين الإبداع الفني، الدقة الهندسية، والتاريخ والواقعية. يهتم بتصميم وتشييد المباني والمساحات الحضرية وتطوير بيئة مستدامة وعملية. يعني راك راح تتعلم كيفاش تصمم وتبني مباني ومساحات مريحة وجميلة ووظيفية في نفس الوقت.</p>
+                    </div>
+
+                    <!-- 2. نظام الدراسة -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-graduation-cap"></i> نظام الدراسة</h3>
+                        <p>الدراسة فيه بنظام كلاسيكي (مش LMD):</p>
+                        <ul>
+                            <li>5 سنوات دراسة متواصلة + سنة تربص ميداني.</li>
+                            <li>تتخرج بشهادة "مهندس دولة معماري".</li>
+                        </ul>
+                    </div>
+
+                    <!-- 3. معدلات القبول -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-user-graduate"></i> معدلات القبول</h3>
+                        <p>المعدل يختلف من جامعة لأخرى ومن سنة لسنة، بصح في السنوات الأخيرة كان يدور غالبا حول <strong>14.50/20</strong>. يقدر يطلع أو يهبط حسب الطلب والمقاعد المتوفرة في الجامعات (كيما سطيف، قسنطينة، وهران، بسكرة، قالمة...).</p>
+                        <div class="acceptance-calc-wrap">
+                            <a href="/tools.html#weighted-calc" class="acceptance-calc-btn">
+                                <i class="fas fa-calculator"></i> احسب معدلك الموزون
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 4. صعوبة الدراسة -->
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-puzzle-piece"></i> صعوبة الدراسة؟</h3>
+                        <p>بكل صراحة، التخصص هذا يعتبر من الأصعب عالميا حسب عدة دراسات كبرى (Oxford / Harvard)، بصح الصعوبة معنتهاش مستحيل، بل راح تكتشف قدراتك الحقيقية! علاه صعيب؟</p>
+                        <ul>
+                            <li>راك تخدم ديما على مشروع حقيقي لموقع حقيقي (Atelier de projet).</li>
+                            <li>كل مادة تقراها راح تستعملها في مشروعك.</li>
+                            <li>مطالب بالابتكار، التفكير النقدي، والتقديم الشفوي قدام الأساتذة.</li>
+                            <li>ضغط مستمر ومطالب بالعطاء والسهر والإبداع.</li>
+                        </ul>
+                    </div>
+
+                    <!-- 5. المواد المدروسة -->
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-book-open"></i> المواد المدروسة (سنة أولى)</h3>
+                        <p>أهم مادة هي <strong>الورشة (Atelier / Projet 1)</strong> بمعامل ضخم (بين 6 و 12)، وكل شي يدور حولها. باقي المواد:</p>
+                        <ul>
+                            <li><strong>Théorie de projet:</strong> نظريات المشروع (تعريفات، مقاييس، منهجيات التصميم).</li>
+                            <li><strong>HCA:</strong> التاريخ النقدي للعمارة.</li>
+                            <li><strong>Géométrie Descriptive (GDP):</strong> الهندسة الوصفية التطبيقية (رسم منظور، ظل، واجهات).</li>
+                            <li><strong>TMC:</strong> تكنولوجيا مواد البناء (دروس وتجارب مخبرية).</li>
+                            <li><strong>Dessin codifié:</strong> الرسم التقني (رسم أبواب، نوافذ، مقاطع تفصيلية).</li>
+                            <li>مواد أخرى: رياضيات (مصفوفات...)، فيزياء (ميكانيكا)، رسم فني (Art Graphique)، فرنسية/مصطلحات.</li>
+                        </ul>
+                    </div>
+
+                    <!-- 8. فرص العمل -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-briefcase"></i> فرص العمل</h3>
+                        <ul>
+                            <li>💼 فتح مكتب دراسات معمارية (بعد التربص والحصول على الاعتماد).</li>
+                            <li>💼 العمل مع شركات البناء أو مكاتب الدراسات والإنجاز.</li>
+                            <li>💼 التوظيف في مؤسسات الدولة (البلديات، مديريات التعمير) أو شركات كيما سوناطراك.</li>
+                            <li>💼 العمل الحر (Freelance) في التصميم المعماري داخليا أو دوليا.</li>
+                            <li>💼 التوجه نحو التدريس أو البحث العلمي.</li>
+                        </ul>
+                    </div>
+
+                    <!-- 12. خلاصة -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-lightbulb"></i> خلاصة</h3>
+                        <p>إذا كنت تحب التصميم وعندك نفس طويل للخدمة وتصبر للضغط، هذا هو تخصصك. أما إذا كنت باغي تخصص ساهل ولا تخير على جال التيتر برك، فكر مليح قبل ما تدخل. نصيحتي ليك: خير التخصص لي تحبه وتحس بالانتماء ليه، لأنك راح تتعب فيه بزاف... فلازم تكون مستعد تصبر وتحارب باش تفرح في الأخير. الشهادة وحدها ما تكفيش، الإبداع والمهارة هما لي يضمنولك نجاحك!</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="GP" class="resource-content">
+        <div class="container">
+            <div class="modern-section-header">
+                <h2>تخصص هندسة الطرائق – Génie des Procédés</h2>
+            </div>
+            <div class="school-details" style="margin-top: 70px">
+                <div class="details">
+
+                    <!-- 1. التعريف -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-school"></i> التعريف بالتخصص</h3>
+                        <p>هندسة الطرائق مش بس كيمياء كيما يفكرو بزاف ناس – هي فرع هندسي كامل يهتم بتصميم وتطوير العمليات الصناعية والكيميائية. يعني كيفاش نحوّلو المواد الخام لمنتجات صناعية: من الإنتاج، التكرير، التفاعلات الكيميائية، لحد انتقال الحرارة والمادة.
+                        <br>إذا كنت تحب الكيمياء والفيزياء وعندك ميول للصناعة والتطبيق الميداني، هذا التخصص يقدر يكون انطلاقتك.</p>
+                    </div>
+
+                    <!-- الجامعات -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-university"></i> أين تدرسه؟</h3>
+                        <p>📍 تبدا بجذع مشترك ST (علوم وتكنولوجيا) في السنة الأولى، وتتخصص في هندسة الطرائق من السنة الثانية. أهم الجامعات:</p>
+                        <ul>
+                            <li>💠 جامعة سطيف</li>
+                            <li>💠 جامعة الجزائر</li>
+                            <li>💠 جامعة المدية</li>
+                            <li>💠 جامعة البويرة</li>
+                            <li>💠 جامعة قسنطينة</li>
+                            <li>💠 معهد وهران</li>
+                        </ul>
+                    </div>
+
+                    <!-- 3. معدلات القبول -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-user-graduate"></i> معدلات القبول</h3>
+                        <p>المعدل يختلف من جامعة لأخرى، بصح غالبا يكون بين <strong>11.00 و 14.00</strong> حسب الجامعة والنظام (كلاسيكي أو LMD).
+                        <br>📌 الشعب المقبولة: علوم تجريبية، رياضيات، تقني رياضي.</p>
+                        <div class="acceptance-calc-wrap">
+                            <a href="/tools.html#weighted-calc" class="acceptance-calc-btn">
+                                <i class="fas fa-calculator"></i> احسب معدلك الموزون
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- نظام الدراسة -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-graduation-cap"></i> نظام الدراسة</h3>
+                        <p>كاين نظامين حسب الجامعة:</p>
+                        <ul>
+                            <li>🔸 <strong>نظام LMD:</strong> 3 سنوات ليسانس + 2 سنتين ماستر.</li>
+                            <li>🔸 <strong>نظام كلاسيكي:</strong> 5 سنوات متواصلة، تتخرج بشهادة مهندس دولة في هندسة الطرائق.</li>
+                        </ul>
+                        <p>⚠️ في نظام LMD، السنة الأولى جذع مشترك ST، ومن الثانية تدخل التخصص.</p>
+                    </div>
+
+                    <!-- المواد -->
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-book-open"></i> المواد المدروسة</h3>
+                        <p><strong>🧱 السنة الأولى (جذع مشترك ST):</strong></p>
+                        <ul>
+                            <li>رياضيات – فيزياء – كيمياء – إعلام آلي – رسم تقني – إنجليزية تقنية</li>
+                        </ul>
+                        <p><strong>🧪 السنة الثانية:</strong></p>
+                        <ul>
+                            <li>كيمياء غير عضوية – الكيمياء الحركية – الكيمياء العضوية</li>
+                            <li>الديناميكا الحرارية – التكرير والبيتروكيمياء</li>
+                            <li>الظواهر الانتقالية – تركيب صناعي</li>
+                        </ul>
+                        <p><strong>🧪 السنة الثالثة:</strong></p>
+                        <ul>
+                            <li>الكيمياء السطحية – التفاعلات والمفاعلات – التحاليل الكيميائية</li>
+                            <li>الصناعات الصيدلانية – التلوث والبيئة – التبريد العميق</li>
+                            <li>عمليات الوحدة – توازن الكتلة</li>
+                            <li>🎓 مشروع نهاية الدراسة (PFE)</li>
+                        </ul>
+                    </div>
+
+                    <!-- تخصصات الماستر -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-project-diagram"></i> تخصصات الماستر</h3>
+                        <p>بعد الليسانس، كاين بزاف خيارات في الماستر حسب الجامعة:</p>
+                        <ul>
+                            <li>🔹 هندسة كيميائية</li>
+                            <li>🔹 هندسة صيدلانية (تصنيع أدوية، مراقبة جودة، مخابر)</li>
+                            <li>🔹 هندسة البيئة</li>
+                            <li>🔹 هندسة البوليمرات</li>
+                            <li>🔹 بيتروكيمياء</li>
+                            <li>🔹 هندسة المواد</li>
+                            <li>🔹 هندسة طرائق عضوية</li>
+                        </ul>
+                    </div>
+
+                    <!-- فرص العمل -->
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-briefcase"></i> فرص العمل</h3>
+                        <p>بكل صراحة، التخصص هذا عنده فرص مليحة خاصة في القطاع الصناعي، بصح لازم تكون شاطر وتطور روحك:</p>
+                        <ul>
+                            <li>💼 الصناعات الكيمياوية والبتروكيمياوية</li>
+                            <li>💼 الصناعات الغذائية</li>
+                            <li>💼 الصيدلة ومخابر الأدوية</li>
+                            <li>💼 محطات معالجة المياه</li>
+                            <li>💼 شركات المحروقات (سوناطراك، نفطال...)</li>
+                            <li>💼 صناعة التجميل، التنظيف، المواد العضوية</li>
+                            <li>💼 إنشاء مؤسسة مصغّرة لإعادة التدوير أو الصناعات الصيدلانية</li>
+                            <li>💼 أستاذ فيزياء في التعليم الثانوي</li>
+                        </ul>
+                    </div>
+
+                    <!-- الإيجابيات -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-plus-circle"></i> الإيجابيات</h3>
+                        <ul>
+                            <li>✅ تنوع كبير في مجالات العمل (صيدلة، بترول، بيئة، غذاء...)</li>
+                            <li>✅ تخصص مطلوب في القطاع الصناعي خاصة في الجزائر</li>
+                            <li>✅ إمكانية إنشاء مشروعك الخاص (مؤسسة مصغرة)</li>
+                            <li>✅ فرص الماستر متنوعة بزاف</li>
+                        </ul>
+                    </div>
+
+                    <!-- السلبيات -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-minus-circle"></i> السلبيات</h3>
+                        <ul>
+                            <li>❌ الدراسة فيها بزاف كيمياء ورياضيات، لازم تكون تحبهم</li>
+                            <li>❌ بعض الجامعات ما عندهاش تجهيزات مخبرية كافية</li>
+                            <li>❌ الشهادة وحدها ما تكفيش، لازم تربصات وخبرة ميدانية</li>
+                        </ul>
+                    </div>
+
+                    <!-- خلاصة -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-lightbulb"></i> خلاصة</h3>
+                        <p>إذا كنت تحب الكيمياء والصناعة وعندك طموح تخدم في المصانع أو المخابر أو حتى تفتح مشروعك، هندسة الطرائق تخصص يليق بيك. أما إذا ماكانش عندك صبر للكيمياء والتجارب، فكر مليح قبل ما تدخل.
+                        <br>نصيحتي ليك: الشهادة وحدها ما تكفيش – لازم تطور روحك بالتربصات والمهارات التطبيقية باش تلقى بلاصتك في سوق العمل. المهارات لي تعلمتهم ماش الشهادة لي تديها!</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="GI" class="resource-content">
+        <div class="container">
+            <div class="modern-section-header">
+                <h2>تخصص الهندسة الصناعية – Génie Industriel</h2>
+            </div>
+            <div class="school-details" style="margin-top: 70px">
+                <div class="details">
+
+                    <!-- 1. التعريف -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-school"></i> التعريف بالتخصص</h3>
+                        <p>الهندسة الصناعية مش بس "مكانيك وورشات" كيما يفكر ناس بزاف – هي التخصص لي يجمع بين الجانب التقني والمنهجي في نفس الوقت. راك راح تتعلم كيفاش تخطط وتدير مشاريع، تتابع الجودة، وتتحكم في العمليات الإنتاجية باستخدام الرياضيات، الميكانيك، والحوسبة. يعني نتا مش بس مهندس تقني، بل مهندس يفهم كيفاش تسير المنظومة الكاملة للإنتاج.</p>
+                    </div>
+
+                    <!-- أين تدرسه -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-university"></i> أين تدرسه؟</h3>
+                        <ul>
+                            <li>💠 جامعة تلمسان (كلية التكنولوجيا)</li>
+                            <li>💠 جامعة وهران</li>
+                            <li>💠 المدرسة العليا للعلوم التطبيقية – ESSA (شهادة مهندس دولة بعد 5 سنوات)</li>
+                            <li>💠 بعض الجامعات ضمن تخصص علوم وتكنولوجيا (ST) ابتداءً من السنة الثانية</li>
+                        </ul>
+                    </div>
+
+                    <!-- معدلات القبول -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-user-graduate"></i> معدلات القبول (2024)</h3>
+                        <ul>
+                            <li>📌 جامعة تلمسان: <strong>11.81</strong></li>
+                            <li>📌 جامعة وهران – الأولوية 1 (رياضيات/تقني رياضي): <strong>13.82</strong></li>
+                            <li>📌 جامعة وهران – الأولوية 2 (علوم تجريبية): <strong>14.54</strong></li>
+                        </ul>
+                        <div class="acceptance-calc-wrap">
+                            <a href="/tools.html#weighted-calc" class="acceptance-calc-btn">
+                                <i class="fas fa-calculator"></i> احسب معدلك الموزون
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- نظام الدراسة -->
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-graduation-cap"></i> نظام الدراسة</h3>
+                        <p>نظام LMD مع بعض الخصوصيات:</p>
+                        <ul>
+                            <li>🔸 <strong>الليسانس (3 سنوات):</strong> نظام تعويض بين الفصول – يعني نقطة سداسي تعوض الأخرى.</li>
+                            <li>🔸 <strong>الماستر (سنتان):</strong> لازم تحصل على 10/20 على الأقل في كل سداسي بشكل منفصل.</li>
+                            <li>🔸 السداسي الثاني من السنة الثانية ماستر مخصص كاملاً لأطروحة التخرج.</li>
+                        </ul>
+                        <p>⚠️ البرنامج مكثف بصح ثمين: دروس تطبيقية وزيارات للمصانع من السنة الثانية مباشرة، عدد الطلبة قليل، والجو فيه تعاون وتفاهم مليح.</p>
+                    </div>
+
+                    <!-- المواد والتخصصات -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-book-open"></i> تخصصات السنة الثالثة (ليسانس)</h3>
+                        <p>من السنة الثالثة، تختار تخصصك داخل الهندسة الصناعية:</p>
+                        <ul>
+                            <li>🔹 الحوسبة الصناعية</li>
+                            <li>🔹 الأوتوماتيك الصناعي</li>
+                            <li>🔹 الميكانيك الصناعي</li>
+                            <li>🔹 هندسة الطرائق</li>
+                            <li>🔹 الإلكترونيك الصناعي</li>
+                        </ul>
+                    </div>
+
+                    <!-- تخصصات الماستر -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-project-diagram"></i> تخصصات الماستر</h3>
+                        <p>بعد الليسانس، كاين ثلاث مسارات رئيسية:</p>
+                        <ul>
+                            <li>🎓 هندسة الإنتاج</li>
+                            <li>🎓 هندسة النظم</li>
+                            <li>🎓 سلاسل اللوجستيك</li>
+                        </ul>
+                        <p>📌 ومن الممكن بعد الماستر الترشح لمنح دراسية بالخارج أو متابعة الدكتوراه.</p>
+                    </div>
+
+                    <!-- فرص العمل -->
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-briefcase"></i> فرص العمل</h3>
+                        <p>بكل صراحة، الهندسة الصناعية عندها آفاق واسعة لكن لازم تكون شاطر وتعرف تبيع مهاراتك – الشهادة وحدها ما تكفيش:</p>
+                        <ul>
+                            <li>💼 المصانع (جودة، صيانة، إنتاج...)</li>
+                            <li>💼 شركات الصناعات الثقيلة والخفيفة</li>
+                            <li>💼 القطاع الزراعي (تصنيع الآلات والمراقبة)</li>
+                            <li>💼 الشركات اللوجستية</li>
+                            <li>💼 المنشآت الصناعية والطبية</li>
+                            <li>💼 التعليم (رياضيات، فيزياء، تقني)</li>
+                        </ul>
+                        <p>🔸 الوظائف الممكنة: مهندس صناعي، مهندس تصنيع، مهندس جودة، مهندس عمليات، مهندس صيانة.</p>
+                    </div>
+
+                    <!-- الإيجابيات -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-plus-circle"></i> الإيجابيات</h3>
+                        <ul>
+                            <li>✅ تخصص يجمع بين التقني والتسييري – يفتحلك بزاف أبواب</li>
+                            <li>✅ تطبيق ميداني من السنة الثانية (زيارات مصانع)</li>
+                            <li>✅ عدد الطلبة قليل = جو أحسن وانتباه أكبر من الأساتذة</li>
+                            <li>✅ إمكانية الدكتوراه أو منح دراسية بالخارج</li>
+                            <li>✅ متنوع – تخدم في الصناعة، اللوجستيك، الصحة...</li>
+                        </ul>
+                    </div>
+
+                    <!-- السلبيات -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-minus-circle"></i> السلبيات</h3>
+                        <ul>
+                            <li>❌ التخصص مش معروف بزاف عند أصحاب العمل مقارنة بالهندسة المدنية أو الكهربائية</li>
+                            <li>❌ في الماستر لازم تعدي 10/20 في كل سداسي بشكل منفصل – ما فيهاش تعويض</li>
+                            <li>❌ الفرص في الجزائر لا تزال محدودة مقارنة بدول أخرى</li>
+                        </ul>
+                    </div>
+
+                    <!-- خلاصة -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-lightbulb"></i> خلاصة</h3>
+                        <p>إذا كنت تحب الجانب التقني والتنظيمي في نفس الوقت، وعندك طموح تشتغل في الصناعة أو تفتح آفاق دولية، الهندسة الصناعية تخصص يليق بيك. أما إذا كنت باغي تخصص مشهور مباشرة في سوق العمل الجزائري، فكر مليح قبل ما تدخل.
+                        <br>نصيحتي ليك: الشهادة وحدها ما تكفيش – لازم تطور روحك بالتربصات والمشاريع التطبيقية باش تلقى بلاصتك. اللي يخدم مليح ويتميز هو لي يوصل، مش اللي عنده الورقة برك!</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="DROIT" class="resource-content">
+        <div class="container">
+            <div class="modern-section-header">
+                <h2>تخصص الحقوق – Droit</h2>
+            </div>
+            <div class="school-details" style="margin-top: 70px">
+                <div class="details">
+
+                    <!-- التعريف -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-school"></i> التعريف بالتخصص</h3>
+                        <p>الحقوق من بين التخصصات الكلاسيكية والثقيلة في آن واحد – هي العمود الفقري لأي نظام قانوني، والمسار الأساسي نحو كل المهن القضائية والقانونية.
+                        <br>الفرق بينه وبين تخصصات أخرى: هو مش حفظ، بل فهم عميق وتحليل قانوني. كي تنجح فيه لازم تفهم كيفاش تربط النصوص بالواقع، وتعرف تحلل وتجادل.</p>
+                    </div>
+
+                    <!-- معدلات القبول -->
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-user-graduate"></i> معدلات القبول</h3>
+                        <p>التخصص كاين في كل الجامعات، والمعدل بين <strong>10.00 و 12.00</strong> حسب الجامعة وسنة التوجيه.</p>
+                        <ul>
+                            <li>📌 أولوية 1: آداب وفلسفة، لغات أجنبية، تسيير واقتصاد</li>
+                            <li>📌 أولوية 2: علوم تجريبية، رياضيات</li>
+                            <li>📌 أولوية 3: تقني رياضي</li>
+                        </ul>
+                        <div class="acceptance-calc-wrap">
+                            <a href="/tools.html#weighted-calc" class="acceptance-calc-btn">
+                                <i class="fas fa-calculator"></i> احسب معدلك الموزون
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- نظام الدراسة -->
+                    <div class="detail-card ">
+                        <h3><i class="fas fa-graduation-cap"></i> نظام الدراسة</h3>
+                        <p>نظام LMD واللغة الغالبة هي العربية، بصح بعض المراجع ومسابقات التوظيف تكون بالفرنسية أو الإنجليزية خاصة في الماستر:</p>
+                        <ul>
+                            <li>🔸 ليسانس: 3 سنوات</li>
+                            <li>🔸 ماستر: 2 سنتين</li>
+                            <li>🔸 دكتوراه: 3 سنوات أو أكثر – للبحث العلمي والتدريس الجامعي</li>
+                        </ul>
+                        <p>✅ مميزة التخصص: الأعمال الموجهة (TD) قليلة مقارنة بباقي التخصصات، ما يتيحلك وقتاً أكبر للمراجعة والتحضير للمسابقات.</p>
+                    </div>
+
+                    <!-- التخصصات الفرعية -->
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-project-diagram"></i> تخصصات الماستر</h3>
+                        <p>بعد الليسانس، تختار فرعك حسب طموحك:</p>
+                        <ul>
+                            <li>🔹 قانون خاص (عقود، مدني، عائلي)</li>
+                            <li>🔹 قانون عام (دستوري، إداري)</li>
+                            <li>🔹 قانون دولي (علاقات دولية، دبلوماسية)</li>
+                            <li>🔹 قانون الأعمال (شركات، عقود تجارية)</li>
+                            <li>🔹 القانون الجنائي</li>
+                            <li>🔹 القانون العقاري</li>
+                            <li>🔹 القانون الإداري</li>
+                        </ul>
+                    </div>
+
+                    <!-- فرص العمل -->
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-briefcase"></i> فرص العمل</h3>
+                        <p>الحقوق مافيهاش طريق واحدة – الخيارات كثيرة لكن كلها تحتاج جهد حقيقي، مسابقات وفيها منافسة شرسة:</p>
+                        <p><strong>🏙️ القطاع العام (عبر مسابقات):</strong></p>
+                        <ul>
+                            <li>⚖️ القضاء – عبر المدرسة العليا للقضاء</li>
+                            <li>📜 التوثيق (Notaire)</li>
+                            <li>👨‍⚖️ المحاماة</li>
+                            <li>📄 المحضر القضائي</li>
+                            <li>🏗️ وزارة العدل (أمين ضبط، مفتش، متصرف...)</li>
+                            <li>💰 وزارة المالية (مفتش ضرائب، مفتش أملاك الدولة...)</li>
+                            <li>🛒 وزارة التجارة (محقق رئيسي للغش)</li>
+                            <li>🏠 وزارة الداخلية (متصرف إقليمي، إدارة السجون، شرطة)</li>
+                        </ul>
+                        <p><strong>🏢 القطاع الخاص:</strong></p>
+                        <ul>
+                            <li>💼 مستشار قانوني في الشركات</li>
+                            <li>💼 العمل في البنوك وشركات التأمين</li>
+                            <li>💼 الدراسات الاستشارية</li>
+                        </ul>
+                        <p><strong>🌍 القطاع الدبلوماسي:</strong> عبر مسابقة المعهد العالي للدبلوماسية والعلاقات الدولية التابع لوزارة الشؤون الخارجية.</p>
+                    </div>
+
+                    <!-- مسابقات -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-trophy"></i> مسابقات هامة بعد الليسانس</h3>
+                        <p>واحدة من أكبر مميزات الحقوق: بعد الليسانس تقدر تترشح لمدارس وطنية تعدل مسارك كلياً:</p>
+                        <ul>
+                            <li>✅ المدرسة العليا للقضاء</li>
+                            <li>✅ المدرسة العليا للإدارة</li>
+                            <li>✅ المدرسة العليا للضمان الاجتماعي</li>
+                            <li>✅ المعهد العالي للدبلوماسية</li>
+                            <li>✅ المدرسة الوطنية للسجون</li>
+                            <li>✅ المدرسة الوطنية للشرطة (ضباط)</li>
+                        </ul>
+                        <p>⚠️ هذي المسابقات فيها منافسة شرسة – لازم تحضير جاد وتفوق مستمر باش تعدل فيهم.</p>
+                    </div>
+
+                    <!-- الإيجابيات -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-plus-circle"></i> الإيجابيات</h3>
+                        <ul>
+                            <li>✅ يعتمد على الفهم والتحليل وليس الحفظ فقط</li>
+                            <li>✅ مواد شيقة تمس الواقع اليومي (قانون جنائي، مدني، دستوري، ميراث...)</li>
+                            <li>✅ خيارات مهنية كثيرة بعد التخرج</li>
+                            <li>✅ إمكانية الوصول لمناصب عليا عبر المسابقات</li>
+                            <li>✅ TD قليل – وقت أكثر للتحضير والمراجعة</li>
+                        </ul>
+                    </div>
+
+                    <!-- السلبيات -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-minus-circle"></i> السلبيات</h3>
+                        <ul>
+                            <li>❌ كاين في كل الجامعات وعدد الطلبة كبير جداً – سوق العمل متشبع</li>
+                            <li>❌ الوصول لمناصب عليا (قضاء، توثيق) يتطلب تفوقاً مستمراً ومنافسة شرسة</li>
+                            <li>❌ شبكة العلاقات ضرورية بزاف خاصة في المحاماة والتوثيق</li>
+                            <li>❌ لازم تتقن القانون عملياً ونظرياً – الشهادة وحدها ما تكفيش</li>
+                        </ul>
+                    </div>
+
+                    <!-- خلاصة -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-lightbulb"></i> خلاصة</h3>
+                        <p>إذا كنت ترى في نفسك ميلاً للعدالة، قدرة على التحليل والصبر على التحضير الجاد، الحقوق هو طريقك. أما إذا كنت داخل بس على جال التيتر ولازم تتفوق، فكر مليح – السوق متشبع والمنافسة شرسة.
+                        <br>نصيحتي ليك: القيمة مش في العنوان، بل في الشخص لي يحمله. إذا تفوقت، تكونت شبكة علاقاتك، وما كملتش تطوير نفسك عملياً ونظرياً – هذا هو لي يضمنلك النجاح في مجال الحقوق!</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="SS" class="resource-content">
+        <div class="container">
+            <div class="modern-section-header">
+                <h2>تخصص العلوم الاجتماعية – Sciences Sociales</h2>
+            </div>
+            <div class="school-details" style="margin-top: 70px">
+                <div class="details">
+
+                    <!-- التعريف -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-school"></i> التعريف بالتخصص</h3>
+                        <p>العلوم الاجتماعية ماش تخصص "سهل" كيما يحسبو  بزاف ناس – هو تخصص واسع ومتنوع يهتم بدراسة المجتمع، سلوك الأفراد والجماعات، والعلاقات بينهم داخل بيئتهم. يندرج ضمن كلية العلوم الإنسانية والاجتماعية.
+                        <br>ما تحكمش عليه بسبب معدل القبول المنخفض – التخصصات فيه من أكلينيكي لبسيكولوجيا لحد أرطوفونيا وديموغرافيا، وكل فرع يفتحلك آفاق خاصة بيه.</p>
+                    </div>
+
+                    <!-- معدلات القبول -->
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-user-graduate"></i> معدلات القبول</h3>
+                        <p>التخصص متوفر تقريباً في جميع الجامعات، والمعدل بين <strong>10.00 و 12.00</strong>.</p>
+                        <ul>
+                            <li>✅ أولوية أولى: آداب وفلسفة – لغات أجنبية</li>
+                            <li>⚠️ مسموح لهم أيضاً: علوم تجريبية – رياضيات</li>
+                            <li>❌ غير مسموح: تقني رياضي – تسيير واقتصاد</li>
+                        </ul>
+                        <div class="acceptance-calc-wrap">
+                            <a href="/tools.html#weighted-calc" class="acceptance-calc-btn">
+                                <i class="fas fa-calculator"></i> احسب معدلك الموزون
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- نظام الدراسة -->
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-graduation-cap"></i> نظام الدراسة</h3>
+                        <p>نظام LMD، والسنة الأولى جذع مشترك في العلوم الاجتماعية قبل ما تتخصص من السنة الثانية.</p>
+                        <p><strong>📘 السداسي الأول:</strong></p>
+                        <ul>
+                            <li>الفرد والثقافة – مدخل إلى علم النفس – مدارس ومناهج</li>
+                            <li>أنثروبولوجيا – لغة أجنبية – مدخل إلى الفلسفة</li>
+                            <li>مدخل إلى علم الاجتماع – إعلام آلي – الإحصاء – اقتصاد</li>
+                        </ul>
+                        <p><strong>📘 السداسي الثاني:</strong></p>
+                        <ul>
+                            <li>مدخل إلى علوم التربية – مدخل إلى الأرطوفونيا – مدخل إلى الديموغرافيا</li>
+                            <li>مجتمع المعلومات – تاريخ الجزائر الثقافي – مدارس ومناهج</li>
+                            <li>الإحصاء – لغة أجنبية – إعلام آلي – مجالات علم الاجتماع</li>
+                        </ul>
+                        <p>📌 الأعمال الموجهة (TD) تعتمد على البحوث – لازم تحضّر مليح وتتعود على التكوين الذاتي.</p>
+                    </div>
+
+                    <!-- التخصصات -->
+                    <div class="detail-card ">
+                        <h3><i class="fas fa-project-diagram"></i> التخصصات من السنة الثانية</h3>
+                        <p>من السنة الثانية، تختار فرعك، وكل فرع في الماستر يتفرع لتخصصات دقيقة أكثر:</p>
+                        <ul>
+                            <li>🔹 علم النفس (عيادي، تنظيم وعمل، مدرسي، جنائي...)</li>
+                            <li>🔹 الأرطوفونيا (اضطرابات الكلام، التأخر الدراسي)</li>
+                            <li>🔹 علوم التربية (مناهج، إرشاد وتوجيه)</li>
+                            <li>🔹 علم الاجتماع (جريمة، عمل، عائلة...)</li>
+                            <li>🔹 الديموغرافيا</li>
+                            <li>🔹 الفلسفة</li>
+                            <li>🔹 الأنثروبولوجيا</li>
+                            <li>🔹 الموارد البشرية</li>
+                        </ul>
+                    </div>
+
+                    <!-- فرص العمل -->
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-briefcase"></i> فرص العمل</h3>
+                        <p>بكل صراحة، التخصص واسع ولكن خدمته المباشرة في سوق العمل محدودة – لازم اجتهاد وتكوين ذاتي. اللي يخدم مليح ويتخصص في فرعه يلقى بلاصته:</p>
+                        <p><strong>🏫 قطاع التعليم:</strong></p>
+                        <ul>
+                            <li>📚 التعليم الابتدائي والثانوي (فلسفة، علم نفس)</li>
+                            <li>📚 مستشار توجيه وإرشاد</li>
+                            <li>📚 أستاذ جامعي (بعد الماستر والدكتوراه)</li>
+                        </ul>
+                        <p><strong>🏥 المجال الصحي والاجتماعي:</strong></p>
+                        <ul>
+                            <li>❤️ مستشفيات، مراكز ذوي الاحتياجات الخاصة، مراكز التوحد</li>
+                            <li>❤️ أخصائي نفساني، أرطوفوني، عامل اجتماعي</li>
+                        </ul>
+                        <p><strong>🏢 الإدارة والوظيفة العمومية:</strong></p>
+                        <ul>
+                            <li>🏗️ بلديات، دوائر، ولايات، وزارة الداخلية</li>
+                            <li>🏗️ متصرف إداري، ملحق إداري، منشط جامعي</li>
+                        </ul>
+                        <p><strong>👮 الأسلاك الأمنية (عبر مسابقات):</strong></p>
+                        <ul>
+                            <li>🔵 الشرطة: علم نفس / علم اجتماع</li>
+                            <li>🔵 الجمارك: علم نفس (عيادي / تنظيم وعمل)</li>
+                            <li>🔵 الدرك الوطني: علم اجتماع (جريمة)</li>
+                            <li>🔵 الحماية المدنية: أغلب التخصصات الاجتماعية</li>
+                        </ul>
+                        <p><strong>🔬 مراكز البحوث:</strong> البحث الاجتماعي والسياسي والاقتصادي، مراكز التخطيط الاستراتيجي وتطوير المناطق.</p>
+                    </div>
+
+                    <!-- الإيجابيات -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-plus-circle"></i> الإيجابيات</h3>
+                        <ul>
+                            <li>✅ سنة أولى جذع مشترك تعطيك وقت تكتشف فيه التخصص المناسب ليك</li>
+                            <li>✅ تنوع كبير – من علم نفس لحد أرطوفونيا وديموغرافيا</li>
+                            <li>✅ يمكن خلق فرص مهنية جيدة داخلياً وخارجياً بالاجتهاد والتكوين الذاتي</li>
+                            <li>✅ بواب للأسلاك الأمنية والإدارية عبر المسابقات</li>
+                        </ul>
+                    </div>
+
+                    <!-- السلبيات -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-minus-circle"></i> السلبيات</h3>
+                        <ul>
+                            <li>❌ خدمة مباشرة في سوق العمل محدودة – لازم تكوين ذاتي</li>
+                            <li>❌ بعض الفروع (Orthophonie) تحتاج مستوى عالي وتكوين إضافي</li>
+                            <li>❌ التخصص متوفر في كل الجامعات – عدد الطلبة كبير والمنافسة على مناصب الإدارة شرسة</li>
+                            <li>❌ لازم تكون ديما متطلع ومبادر – التخصص متشبع</li>
+                        </ul>
+                    </div>
+
+                    <!-- خلاصة -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-lightbulb"></i> خلاصة</h3>
+                        <p>تخصص واسع ومتنوع يتطلب وعياً حقيقياً بأهميته. إذا كنت تحب التعامل مع الناس، تفهم سلوكهم، وتخدم في مجال يمس المجتمع مباشرة، هذا هو تخصصك. أما إذا كنت داخل بسبب سهولة القبول، فكر مليح – التخصص فيه تخصصات صعبة كالأرطوفونيا وعلم النفس العيادي.
+                        <br>نصيحتي ليك: الشهادة وحدها ما تكفيش – لازم تطور روحك بالتكوين المنهجي والمهارات العملية باش تلقى بلاصتك في سوق العمل. اللي يجتهد ويتخصص كيفاش لازم يخلق فرصته بيديه!</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="MARINE" class="resource-content">
+        <div class="container">
+            <div class="modern-section-header">
+                <h2>تخصص الهندسة البحرية – Marine Engineering</h2>
+            </div>
+            <div class="school-details" style="margin-top: 70px">
+                <div class="details">
+
+                    <!-- التعريف -->
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-school"></i> التعريف بالتخصص</h3>
+                        <p>الهندسة البحرية من التخصصات النادرة والمميزة في آن واحد – فرع هندسي يجمع بين الميكانيك، الكهرباء، المدنية، والمعلوماتية في نفس الوقت. يهتم بتصميم السفن والمنشآت البحرية، تشغيل وصيانة المحركات والأنظمة البحرية، وتطوير برمجيات الدفع والملاحة.
+                        <br>إذا كنت تحب البحر، التقنية، وعندك خلفية جيدة في الرياضيات والفيزياء، هذا التخصص قدر يكون انتلاقتك.</p>
+                    </div>
+
+                    <!-- معدلات القبول -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-user-graduate"></i> معدلات القبول</h3>
+                        <p>المعدل يتراوح بين <strong>13.00 و 14.00</strong>. الشعب المقبولة: علوم تجريبية، رياضيات، تقني رياضي.</p>
+                        <div class="acceptance-calc-wrap">
+                            <a href="/tools.html#weighted-calc" class="acceptance-calc-btn">
+                                <i class="fas fa-calculator"></i> احسب معدلك الموزون
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- أين تدرسه -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-university"></i> أين تدرسه؟</h3>
+                        <p>تخصص نادر في الجزائر – يدرس حصرياً في:</p>
+                        <ul>
+                            <li>⚓ <strong>معهد الهندسة البحرية بوهران</strong> – تابع لجامعة علوم وتكنولوجيا وهران (USTO)، أسس سنة 1982 وانتقل لنظام LMD منذ 2005/2006.</li>
+                        </ul>
+                    </div>
+
+                    <!-- نظام الدراسة -->
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-graduation-cap"></i> نظام الدراسة والتخصصات</h3>
+                        <p><strong>🟢 ليسانس (3 سنوات):</strong></p>
+                        <ul>
+                            <li>🔹 تصميم السفن بمساعدة الحاسوب</li>
+                            <li>🔹 علوم الكمبيوتر والديناميكا البحرية</li>
+                            <li>🔹 أنظمة الدفع البحري والآلات المساعدة</li>
+                        </ul>
+                        <p><strong>🟣 ماستر (سنتان):</strong></p>
+                        <ul>
+                            <li>🔹 بناء السفن والمنشآت البحرية</li>
+                            <li>🔹 إدارة أنظمة الدفع البحري</li>
+                        </ul>
+                        <p><strong>🔵 دكتوراه:</strong></p>
+                        <ul>
+                            <li>🔹 المحاكاة العددية لتدفقات السوائل (SNEF)</li>
+                            <li>🔹 حسابات الهياكل في العلوم التكنولوجية</li>
+                        </ul>
+                    </div>
+
+                    <!-- فرص العمل -->
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-briefcase"></i> فرص العمل</h3>
+                        <p>بكل صراحة، الهندسة البحرية تخصص نادر وفرصه توجد – واللي يدخله عنده عزم ومهارة، يلقى بلاصته:</p>
+                        <ul>
+                            <li>⚔️ <strong>على متن السفن:</strong> كمهندس أول، ثاني، أو كبير المهندسين</li>
+                            <li>💼 مكاتب التصميم: تصميم سفن جديدة أو تحسين تصميمات قائمة</li>
+                            <li>💼 أحواض بناء السفن: إشراف على تنفيذ التصاميم وبناء السفن</li>
+                            <li>💼 الشركات الملاحية: مهندس بحري أو مسؤول عن الأنظمة التقنية</li>
+                            <li>💼 شركات النفط والغاز: تصميم وصيانة المنصات والمنشآت البحرية</li>
+                            <li>💼 الهيئات الحكومية: النقل البحري، السلامة والملاحة</li>
+                            <li>💼 الجامعات والمعاهد: البحث العلمي والتدريس</li>
+                        </ul>
+                        <p>📌 المهندس البحري يشتغل في البحر أو في مكاتب برية حسب التخصص والخبرة.</p>
+                    </div>
+
+                    <!-- الإيجابيات -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-plus-circle"></i> الإيجابيات</h3>
+                        <ul>
+                            <li>✅ تخصص نادر = منافسة أقل وفرص أحسن</li>
+                            <li>✅ تكوين مدمج – ميكانيك + كهرباء + معلوماتية + مدنية</li>
+                            <li>✅ إمكانية العمل في البحر أو برا، خيارات واسعة</li>
+                            <li>✅ برامج محاكاة وتصميم متقدمة في التكوين</li>
+                            <li>✅ آفاق مفتوحة دولياً في الشركات الملاحية والنفطية</li>
+                        </ul>
+                    </div>
+
+                    <!-- السلبيات -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-minus-circle"></i> السلبيات</h3>
+                        <ul>
+                            <li>❌ توفر في جامعة واحدة فقط – لازم تتنقل لوهران إذا مكنتش فيها</li>
+                            <li>❌ يتطلب خلفية جيدة في رياضيات وفيزياء – مش تخصص للجميع</li>
+                            <li>❌ سوق العمل في الجزائر محدود نسبياً – الفرص الحقيقية غالباً في شركات دولية</li>
+                        </ul>
+                    </div>
+
+                    <!-- خلاصة -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-lightbulb"></i> خلاصة</h3>
+                        <p>إذا كنت تحب البحر، التقنية، وعندك نفس طويل ومعدل كافي – الهندسة البحرية تخصص نادر وثمين يليق بيك. أما إذا كنت باغي تخصص هندسي أخر معروف وسوق عمله أوسع في الجزائر، فكر مليح.
+                        <br>نصيحتي ليك: التخصص فيه محاكاة وبرامج تصميم متقدمة – لازم تطور روحك بالمهارات التقنية والتربصات باش تلقى بلاصتك في سوق العمل. في مجال كهذا الخبرة واللغات الأجنبية فارق كبير!</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="GT" class="resource-content">
+        <div class="container">
+            <div class="modern-section-header">
+                <h2>تخصص هندسة النقل – Génie du Transport</h2>
+            </div>
+            <div class="school-details" style="margin-top: 70px">
+                <div class="details">
+
+                    <!-- التعريف -->
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-school"></i> التعريف بالتخصص</h3>
+                        <p>هندسة النقل مش بس "طريق وسيارات" كيما يفكر ناس – هي تخصص هندسي متقدم يجمع بين الهندسة المدنية، الميكانيك، والإدارة اللوجستيكية – يهتم بتخطيط، تصميم، تشغيل، وصيانة البنية التحتية لكل أنواع النقل: بري، جوي، بحري، وسكك حديدية.
+                        <br>يهدف لتوفير نقل آمن، سريع، اقتصادي، وصديق للبيئة. تخصص عملي بامتياز يدمج بين التكوين النظري والتربصات الميدانية.</p>
+                    </div>
+
+                    <!-- أين تدرسه -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-university"></i> أين تدرسه؟</h3>
+                        <p>تخصص وطني – متوفر فقط في:</p>
+                        <ul>
+                            <li>🚦 <strong>جامعة قسنطينة 1 (الأمير عبد القادر)</strong> – تأسس سنة 2011، نظام LMD.</li>
+                        </ul>
+                        <p>⚠️ كونه تخصصاً وطنياً = لازم تتنقل لقسنطينة إذا مكنتش فيها.</p>
+                    </div>
+
+                    <!-- معدلات القبول -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-user-graduate"></i> معدلات القبول (2025)</h3>
+                        <p>معدل القبول <strong>11.68</strong> لجميع الشعب العلمية: علوم تجريبية، رياضيات، تقني رياضي.</p>
+                        <div class="acceptance-calc-wrap">
+                            <a href="/tools.html#weighted-calc" class="acceptance-calc-btn">
+                                <i class="fas fa-calculator"></i> احسب معدلك الموزون
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- المواد -->
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-book-open"></i> مواد السنة الأولى (جذع مشترك)</h3>
+                        <p><strong>🟡 السداسي الأول (S1):</strong></p>
+                        <ul>
+                            <li>رياضيات 1 (تحليل وجبر) – فيزياء 1 (ميكانيك النقطة) – كيمياء 1</li>
+                            <li>الإعلام الآلي والويب – لغة (فرنسية/إنجليزية)</li>
+                            <li>ترموديناميك – ميكانيك الموائع – انتقال الحرارة</li>
+                        </ul>
+                        <p><strong>🟡 السداسي الثاني (S2):</strong></p>
+                        <ul>
+                            <li>رياضيات 2 – فيزياء 2 (كهرباء ومغناطيسية) – كيمياء 2</li>
+                            <li>برمجة (Fortran) – لغة أجنبية – هندسة النقل – الرسم التقني</li>
+                        </ul>
+                        <p>📌 اللغة المعتمدة غالباً الإنجليزية حالياً، مع بعض المواد بالفرنسية – لازم تتحضّر لهذا.</p>
+                    </div>
+
+                    <!-- التخصصات -->
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-project-diagram"></i> التخصصات المتوفرة</h3>
+                        <p>حسب النظام الجديد، تختار تخصصك مباشرة بعد البكالوريا:</p>
+                        <ul>
+                            <li>⚡ الجر الكهربائي (TE)</li>
+                            <li>🛢️ نقل وتوزيع المحروقات (TDH)</li>
+                            <li>🧯 النظافة والأمن الصناعي (HSI)</li>
+                            <li>🚛 هندسة النقل واللوجستيك (ITL) – يدرس كامل السلك في هذا التخصص</li>
+                            <li>🔧 صيانة وسائل وأجهزة النقل (MIMST)</li>
+                            <li>🚦 هندسة النقل العامة – يختار فيها الطالب 4 توجهات تخصصية في السنة الثانية</li>
+                        </ul>
+                    </div>
+
+                    <!-- فرص العمل -->
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-briefcase"></i> فرص العمل</h3>
+                        <p>بكل صراحة، التخصص فيه آفاق واسعة لكن لازم تكون شاطر وتطور مهاراتك – الشهادة وحدها ما تكفيش:</p>
+                        <p><strong>🏗️ القطاعات:</strong></p>
+                        <ul>
+                            <li>✅ وزارة النقل</li>
+                            <li>✅ شركات الطرقات والسكك الحديدية</li>
+                            <li>✅ شركات الطيران والمطارات</li>
+                            <li>✅ شركات اللوجستيك والنقل البحري</li>
+                            <li>✅ شركات النفط والغاز (لنقل المحروقات)</li>
+                            <li>✅ شركات الأمن الصناعي والصيانة</li>
+                        </ul>
+                        <p><strong>👨‍💻 الوظائف الممكنة:</strong></p>
+                        <ul>
+                            <li>💼 مهندس نقل – مهندس طرق وسكك</li>
+                            <li>💼 مهندس لوجستيك – مهندس تخطيط حضري</li>
+                            <li>💼 مهندس مطارات أو موانئ</li>
+                            <li>💼 مهندس صيانة وسائل النقل</li>
+                            <li>💼 مهندس أمان صناعي</li>
+                            <li>💼 محاضر أو باحث جامعي</li>
+                        </ul>
+                    </div>
+
+                    <!-- الإيجابيات -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-plus-circle"></i> الإيجابيات</h3>
+                        <ul>
+                            <li>✅ تخصص وطني – منافسة محدودة ومستوى التكوين أحسن</li>
+                            <li>✅ 6 تخصصات مختلفة – تختار منها ما يناسبك</li>
+                            <li>✅ مدمج بين هندسة مدنية، ميكانيك، ولوجستيك</li>
+                            <li>✅ تربصات ميدانية ضمن البرنامج</li>
+                            <li>✅ آفاق واسعة – طيران، بحر، بر، سكك حديدية، محروقات...</li>
+                        </ul>
+                    </div>
+
+                    <!-- السلبيات -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-minus-circle"></i> السلبيات</h3>
+                        <ul>
+                            <li>❌ توفر في جامعة واحدة فقط – لازم تتنقل لقسنطينة</li>
+                            <li>❌ التكوين غالباً بالإنجليزية حالياً – لازم تتحضّر لهذا</li>
+                            <li>❌ سوق العمل في الجزائر لا يزال يحتاج تطويراً – الفرص الحقيقية لللي يدفع ويتطور</li>
+                        </ul>
+                    </div>
+
+                    <!-- خلاصة -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-lightbulb"></i> خلاصة</h3>
+                        <p>إذا كنت تحب الهندسة وعندك طموح تشتغل في البنية التحتية للبلد – طرق، سكك، مطارات، موانئ – هندسة النقل تخصص يليق بيك. أما إذا كنت باغي تخصص هندسي متوفر في ولايتك، فكر مليح – كونه في قسنطينة برك شي متطلب اجتماعي ومادي.
+                        <br>نصيحتي ليك: لازم تتحضّر للإنجليزية والتربصات من البداية – الخبرة الميدانية هي لي تفرقك في سوق العمل. الشهادة بوحدها ما تكفيش – لازم تطور روحك بالمهارات التطبيقية!</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="GM" class="resource-content">
+        <div class="container">
+            <div class="modern-section-header">
+                <h2>تخصص هندسة التعدين – Génie Minier</h2>
+            </div>
+            <div class="school-details" style="margin-top: 70px">
+                <div class="details">
+
+                    <!-- التعريف -->
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-school"></i> التعريف بالتخصص</h3>
+                        <p>هندسة التعدين تخصص نادر، مهم، وملي فرص استراتيجية للجزائر المستقبل – ولا كلام في هاذا. هو العلم اللي يهتم باستخراج المعادن من باطن الأرض، ومعالجتها وتحويلها لمواد قابلة للاستعمال.
+                        <br>يشمل العمليات الفنية والاقتصادية والبيئية لاستخراج الذهب، الفضة، الحديد، الفوسفات، النيكل، وغيرها من المواد التي لا تقل أهمية عن النفط والغاز.</p>
+                    </div>
+
+                    <!-- الجامعات -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-university"></i> أين تدرسه؟</h3>
+                        <ul>
+                            <li>💠 جامعة عنابة – معدل قبول <strong>أعلى من 13.00</strong></li>
+                            <li>💠 جامعة تبسة – معدل قبول <strong>10.00</strong></li>
+                            <li>💠 جامعة وهران</li>
+                            <li>💠 بعض الجامعات ضمن مسار علوم وتكنولوجيا (ST) تخصص "مناجم" في السنة الثانية</li>
+                        </ul>
+                        <div class="acceptance-calc-wrap">
+                            <a href="/tools.html#weighted-calc" class="acceptance-calc-btn">
+                                <i class="fas fa-calculator"></i> احسب معدلك الموزون
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- المواد -->
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-book-open"></i> المواد المدروسة</h3>
+                        <p>تكوين نظري وتطبيقي بالتوازي، مع مخابر وتربصات ميدانية في المناجم والمحاجر:</p>
+                        <ul>
+                            <li>⛓️ تقنية المناجم – ميكانيكا الصخور والتهوية</li>
+                            <li>⛓️ علوم الأرض (جيولوجيا – طبقات) – علوم المعادن والصخور</li>
+                            <li>⛓️ المساحة الجيولوجية – الإدارة والاقتصاد في قطاع المناجم</li>
+                            <li>⛓️ الصحة والسلامة المهنية – المبادئ البيئية في التعدين</li>
+                            <li>⛓️ معلوماتية وهندسة رقمية (CAD، GIS)</li>
+                            <li>⛓️ مختبرات وتطبيقات ميدانية</li>
+                        </ul>
+                    </div>
+
+                    <!-- مسارات الماستر -->
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-project-diagram"></i> مسارات الماستر</h3>
+                        <p>بعد الليسانس، كاين ثلاث مسارات رئيسية حسب الجامعة:</p>
+                        <ul>
+                            <li>🎓 <strong>هندسة تعدين:</strong> صناعة الحديد والصلب، تقنيات الأفران، تكنولوجيا الاستخراج والتحويل الصناعي.</li>
+                            <li>🎓 <strong>تكنولوجيا الأنابيب:</strong> تصميم وتركيب أنابيب البترول والغاز، اللحام، مقاومة التآكل، الفحص غير المتلف.</li>
+                            <li>🎓 <strong>تثمين الموارد المنجمية:</strong> تحويل المواد الخام لمنتجات صناعية، عمل مخبري ومراقبة جودة.</li>
+                        </ul>
+                    </div>
+
+                    <!-- فرص العمل -->
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-briefcase"></i> فرص العمل</h3>
+                        <p>عدد المناصب محدود، لكن الطلب النوعي يجعل الخريجين مطلوبين بقوة – الشاطر والمتطور يلقى بلاصته:</p>
+                        <p><strong>🏢 شركات وطنية ودولية:</strong></p>
+                        <ul>
+                            <li>⛏️ سوناطراك بفروعها (استكشاف، حفر، معالجة)</li>
+                            <li>⛏️ Tosyali Algérie و AQS الجزائرية-القطرية (صناعة الحديد والصلب)</li>
+                            <li>⛏️ Schlumberger وشركات أجنبية في التعدين</li>
+                            <li>⛏️ شركات صناعة السيارات (مراقبة جودة المعادن – اللحام)</li>
+                        </ul>
+                        <p><strong>⛏️ المناجم والمحاجر:</strong> إدارة مناجم مفتوحة ومغلقة، تخطيط العمليات التعدينية.</p>
+                        <p><strong>🏷️ معامل ومصانع:</strong> معالجة خامات المعادن وتنقيتها.</p>
+                        <p><strong>🧑‍🔬 مؤسسات استشارية وهيئات حكومية:</strong> دراسات جيولوجية وبيئية، تنظيم أنشطة التعدين، مراقبة تقنية.</p>
+                    </div>
+
+                    <!-- الإيجابيات -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-plus-circle"></i> الإيجابيات</h3>
+                        <ul>
+                            <li>✅ تخصص حيوي ونادر – مطلوب في مشاريع الجزائر الكبرى (المعادن الاستراتيجية)</li>
+                            <li>✅ فرص عمل جيدة محلياً ودولياً في شركات كبرى</li>
+                            <li>✅ فرص عالية للدراسات العليا بالخارج</li>
+                            <li>✅ رواتب محترمة في الشركات الكبرى</li>
+                            <li>✅ يجمع بين التقنية، الجيولوجيا، الاقتصاد، والبيئة</li>
+                        </ul>
+                    </div>
+
+                    <!-- السلبيات -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-minus-circle"></i> السلبيات</h3>
+                        <ul>
+                            <li>❌ بيئة العمل تكون صعبة وخطرة أحياناً (مناجم، أنفاق، مواقع نائية) – لازم تتعدل معها</li>
+                            <li>❌ يتطلب قدرة بدنية ومعرفية قوية – مش تخصص للجميع</li>
+                            <li>❌ عدد المناصب محدود – الفرص تجي للشاطر والمتطور فقط</li>
+                        </ul>
+                    </div>
+
+                    <!-- خلاصة -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-lightbulb"></i> خلاصة</h3>
+                        <p>إذا كنت تحب التحديات، تشتغل في مجال استراتيجي يخدم اقتصاد بلدك، وعندك خلفية جيدة في الرياضيات والفيزياء، هندسة التعدين تخصص يليق بيك. أما إذا ماكنتش مستعد تشتغل في بيئة صعبة، فكر مليح.
+                        <br>نصيحتي ليك: في مجال كهذا، المهارة واللغات الأجنبية فارق كبير – لازم تتطور روحك بالتربصات والمهارات التقنية باش تلقى بلاصتك في سوق العمل. عدد المناصب محدود – لكن النوعية والمهارة تفتح الأبواب!</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="GC" class="resource-content">
+        <div class="container">
+            <div class="modern-section-header">
+                <h2>تخصص الهندسة المدنية – Génie Civil</h2>
+            </div>
+            <div class="school-details" style="margin-top: 70px">
+                <div class="details">
+
+                    <!-- التعريف -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-school"></i> التعريف بالتخصص</h3>
+                        <p>الهندسة المدنية مش بس "خرسانة وتراب" – هي التخصص اللي تحوّل الخيال إلى واقع ملموس – من دراسة الجسور والسدود لحد تخطيط شبكات المياه والطرق. تهتم بتصميم، تنفيذ، صيانة، وتطوير البنية التحتية بجميع أنواعها.
+                        <br>تخصص حيوي وواقعي، مرتبط مباشرة بحياة الناس اليومية والتنمية الاقتصادية والعمرانية للجزائر.</p>
+                    </div>
+
+                    <!-- نظام الدراسة ومعدلات القبول -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-university"></i> نظام الدراسة و معدلات القبول</h3>
+                        <p>كاين نظامين للدراسة:</p>
+                        <ul>
+                            <li>🏛️ <strong>نظام مهندس دولة (5 سنوات) – أعمق وأشمل:</strong> جامعات البليدة، سطيف، وهران، تلمسان، الأغواط. معدل من <strong>12 إلى 14</strong>.</li>
+                            <li>📚 <strong>نظام LMD (3+2 سنوات):</strong> متوفر في أغلب الجامعات الجزائرية. معدل من <strong>10 إلى 11</strong>.</li>
+                        </ul>
+                        <div class="acceptance-calc-wrap">
+                            <a href="/tools.html#weighted-calc" class="acceptance-calc-btn">
+                                <i class="fas fa-calculator"></i> احسب معدلك الموزون
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- المواد -->
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-book-open"></i> المواد المدروسة</h3>
+                        <p><strong>📕 السنة الثانية:</strong></p>
+                        <ul>
+                            <li>رياضيات 3 و 4 (مصفوفات، أعداد مركبة) – فيزياء وتقنيات القياس (Métrologie)</li>
+                            <li>ميكانيك عقلاني – تكنولوجيا الأسس – مقاومة المواد (RDM) – ميكانيك التربة</li>
+                            <li>أوتوكاد + رسم تقني – Matlab / إعلام آلي</li>
+                        </ul>
+                        <p><strong>📗 السنة الثالثة – السداسي الأول:</strong></p>
+                        <ul>
+                            <li>خرسانة مسلحة (Béton armé) – ميكانيك التربة المتقدم – مقاومة المواد المتقدمة</li>
+                            <li>هياكل معدنية (Charpente métallique) – مواد البناء – طبوغرافيا – رسم معماري</li>
+                        </ul>
+                        <p><strong>📗 السنة الثالثة – السداسي الثاني:</strong></p>
+                        <ul>
+                            <li>Béton II – أسس ومنشآت خاصة – إنشاءات معدنية – حساب الكميات والأسعار</li>
+                            <li>تنظيم الورشة – دراسة الشبكات (Voirie &amp; Réseaux Divers) – Robot + حساب الهياكل</li>
+                            <li>مشروع التخرج + مشروع مؤسساتي</li>
+                        </ul>
+                        <p>📌 البرامج الأساسية: AutoCAD، Robot، SAP، Matlab – لازم تتعلمها مليح.</p>
+                    </div>
+
+                    <!-- مسارات الماستر -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-graduation-cap"></i> مسارات الماستر</h3>
+                        <p>بعد الليسانس، تختار تخصصك – من أكثر المسارات شيوعاً:</p>
+                        <ul>
+                            <li>🏛️ <strong>Structures:</strong> تصميم وتحليل الهياكل الكبيرة (جسور، مباني شاهقة...)</li>
+                            <li>🧬 <strong>Matériaux de construction:</strong> دراسة خصائص واستعمال مواد البناء</li>
+                            <li>🌍 <strong>Géotechnique:</strong> دراسة التربة، الأسس، السدود</li>
+                            <li>🛠️ <strong>Équipements de construction:</strong> الآلات والمعدات المستعملة في الورشات</li>
+                        </ul>
+                    </div>
+
+                    <!-- فرص العمل -->
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-briefcase"></i> فرص العمل</h3>
+                        <p>الهندسة المدنية من أكثر التخصصات طلباً في الجزائر، خصوصاً مع برامج الإسكان، الطرق، الموانئ، والسدود. من كان عنده عزم ومهارة، يلقى بلاصته:</p>
+                        <ul>
+                            <li>🧱 شركات البناء والمقاولات</li>
+                            <li>🏗️ الهيئات الحكومية (وزارة السكن، الأشغال العمومية...)</li>
+                            <li>🧪 مخابر فحص التربة ومواد البناء</li>
+                            <li>📊 مكاتب الدراسات الهندسية – المكاتب التقنية لمتابعة المشاريع</li>
+                            <li>🏫 التدريس في المتوسط والثانوي</li>
+                            <li>🛠️ العمل الحر كمقاول</li>
+                            <li>💼 شركات الاستشارة والمكاتب العقارية</li>
+                        </ul>
+                    </div>
+
+                    <!-- الإيجابيات -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-plus-circle"></i> الإيجابيات</h3>
+                        <ul>
+                            <li>✅ من أكثر التخصصات طلباً في سوق العمل الجزائري</li>
+                            <li>✅ كاين نظامين – LMD أو مهندس دولة حسب طموحك</li>
+                            <li>✅ باب مفتوح للدراسات العليا بالخارج (هندسة مستدامة، إدارة مشاريع، هندسة زلزالية)</li>
+                            <li>✅ مناسب للجنسين – مكاتب الدراسات والتدريس أخف على الإناث من الورشات</li>
+                            <li>✅ عمل حر كمقاول ممكن بعد التخرج مباشرة</li>
+                        </ul>
+                    </div>
+
+                    <!-- السلبيات -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-minus-circle"></i> السلبيات</h3>
+                        <ul>
+                            <li>❌ تخصص صعب ويتطلب جدية واجتهاد كبيرين – خصوصاً في الخرسانة والتحليل البنيوي والطبوغرافيا</li>
+                            <li>❌ العمل الميداني في الورشات صعب – خاصة للإناث</li>
+                            <li>❌ المنافسة شرسة – التخصص شائع وعدد الخريجين كبير</li>
+                        </ul>
+                    </div>
+
+                    <!-- خلاصة -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-lightbulb"></i> خلاصة</h3>
+                        <p>الهندسة المدنية تخصص الجوهر والبنية – من قلب الورشات لحد مكاتب التخطيط. إذا كنت تحب الرياضيات، الرسم، البناء، التصميم، وتحديات الواقع – هذا هو تخصصك. أما إذا كنت باغي بس شهادة، فكر مليح – تخصص صعب ويتطلب نفس طويل.
+                        <br>نصيحتي ليك: AutoCAD، Robot، SAP – هذه البرامج هي تذكرتك في سوق العمل. الشهادة بوحدها ما تكفيش – لازم تجمع بين التكوين النظري والمهارات التطبيقية!</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="GMEC" class="resource-content">
+        <div class="container">
+            <div class="modern-section-header">
+                <h2>تخصص الهندسة الميكانيكية – Génie Mécanique</h2>
+            </div>
+            <div class="school-details" style="margin-top: 70px">
+                <div class="details">
+
+                    <!-- التعريف -->
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-school"></i> التعريف بالتخصص</h3>
+                        <p>الهندسة الميكانيكية تخصص شامل، قديم، حيوي، ويمثل العمود الفقري للصناعة الحديثة. هو علم دراسة القوى والطاقة والحركة، يهتم بتصميم وتطوير وصيانة وتشغيل الأنظمة الميكانيكية والحرارية.
+                        <br>تطبيقاته من محركات السيارات والطائرات، لحد التدفئة والتبريد، وصولاً للروبوتات والطاقة المتجددة. إذا كنت تحب الرياضيات، الميكانيك، والابتكار – هذا هو تخصصك.</p>
+                    </div>
+
+                    <!-- أين تدرسه ومعدلات القبول -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-university"></i> نظام الدراسة و معدلات القبول</h3>
+                        <ul>
+                            <li>⚙️ <strong>جامعة قسنطينة (مهندس دولة):</strong> تقني رياضي <strong>13+</strong> • رياضيات / علوم تجريبية <strong>14+</strong></li>
+                            <li>⚙️ جامعات أخرى (LMD): ورقلة، تلمسان، باتنة، بجاية، سطيف، البليدة، وهران. معدل <strong>10 إلى 12</strong>.</li>
+                            <li>⚙️ بعض الجامعات: توجيه فيه في السنة الثانية ضمن مسار ST</li>
+                        </ul>
+                        <div class="acceptance-calc-wrap">
+                            <a href="/tools.html#weighted-calc" class="acceptance-calc-btn">
+                                <i class="fas fa-calculator"></i> احسب معدلك الموزون
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- المواد -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-book-open"></i> المواد المدروسة</h3>
+                        <p><strong>📘 السنة الأولى:</strong></p>
+                        <ul>
+                            <li>رياضيات – فيزياء – كيمياء – علم المواد – مقدمة في الميكانيك – رسم تقني – إعلام آلي</li>
+                        </ul>
+                        <p><strong>📗 السنوات التالية:</strong></p>
+                        <ul>
+                            <li>⚙️ علم الحركة (Cinématique) – علم السكون (Statique) – ميكانيك المواد</li>
+                            <li>⚙️ الديناميكا الحرارية (Thermodynamique) – ميكانيك الموائع – التصميم الميكانيكي</li>
+                            <li>⚙️ التحكم الآلي (Automatique) – ميكانيك الآلات – أدوات القياس (Métrologie)</li>
+                            <li>⚙️ التكييف والتبريد – الأنظمة الصناعية والنمذجة – مشاريع وتربصات تطبيقية</li>
+                        </ul>
+                    </div>
+
+                    <!-- التخصصات -->
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-project-diagram"></i> تخصصات الليسانس والماستر</h3>
+                        <p><strong>🟢 ليسانس (LMD):</strong></p>
+                        <ul>
+                            <li>🔹 <strong>Energétique:</strong> تبريد، حرارة، طاقات متجددة</li>
+                            <li>🔹 <strong>Génie des matériaux:</strong> هندسة المواد ومراقبة الجودة</li>
+                            <li>🔹 <strong>Construction mécanique:</strong> الهياكل، الآلات، التصنيع</li>
+                        </ul>
+                        <p><strong>🟣 ماستر – من أبرز التخصصات:</strong></p>
+                        <ul>
+                            <li>🌡️ Turbo Machines • Climatisation • Énergie Renouvelable • Thermique Appliquée</li>
+                            <li>🔩 Contrôle des matériaux • Technologie de fabrication • Matériaux et surfaces</li>
+                            <li>🤖 Fabrication Mécanique • Maintenance Industrielle • CAO • Robotique industrielle</li>
+                        </ul>
+                    </div>
+
+                    <!-- فرص العمل -->
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-briefcase"></i> فرص العمل</h3>
+                        <p>من أكثر التخصصات طلباً عالمياً ومحلياً – الشاطر والمتطور يلقى بلاصته:</p>
+                        <ul>
+                            <li>🏗️ شركات الإنشاءات والمقاولات</li>
+                            <li>🔧 مصانع تصنيع المعدات الثقيلة والخفيفة</li>
+                            <li>🏭 محطات توليد الطاقة التقليدية والمتجددة</li>
+                            <li>🚗 قطاع السيارات (تصميم – تصنيع – صيانة)</li>
+                            <li>✈️ صناعة الطيران</li>
+                            <li>🧊 شركات التبريد والتكييف</li>
+                            <li>🛢️ منشآت البترول والغاز</li>
+                            <li>🤖 شركات الروبوتيك والأنظمة الذكية</li>
+                            <li>🧪 مخابر مراقبة الجودة</li>
+                            <li>🎓 التعليم الثانوي والجامعي</li>
+                        </ul>
+                    </div>
+
+                    <!-- الإيجابيات -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-plus-circle"></i> الإيجابيات</h3>
+                        <ul>
+                            <li>✅ من أكثر التخصصات طلباً عالمياً ومحلياً</li>
+                            <li>✅ كاين نظامين: LMD أو مهندس دولة حسب طموحك</li>
+                            <li>✅ قابل للتطوير نحو تخصصات حديثة: ميكاترونيك، هندسة طبية</li>
+                            <li>✅ فرص جيدة جداً للدراسة بالخارج</li>
+                            <li>✅ مناسب للجنسين – الإناث يمكنهن العمل في مكاتب التصميم، التعليم، أو المتابعة التقنية</li>
+                        </ul>
+                    </div>
+
+                    <!-- السلبيات -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-minus-circle"></i> السلبيات</h3>
+                        <ul>
+                            <li>❌ تخصص صعب ويتطلب استيعاباً قوياً للفيزياء والرياضيات</li>
+                            <li>❌ العمل الميداني الثقيل أنسب للرجال – الإناث غالباً نحو المكاتب والتعليم (تقريباً 60% ذكور – 40% إناث)</li>
+                            <li>❌ المنافسة شرسة – التخصص شائع وعدد الخريجين كبير</li>
+                        </ul>
+                    </div>
+
+                    <!-- خلاصة -->
+                    <div class="detail-card">
+                        <h3><i class="fas fa-lightbulb"></i> خلاصة</h3>
+                        <p>الهندسة الميكانيكية العمود الفقري للصناعة – من تصميم المحركات لحد برمجة الروبوت. إذا كنت تحب الرياضيات، الميكانيك، والابتكار وعندك عزم تشتغل في مجال يخدم الصناعة – هذا هو تخصصك. أما إذا كنت باغي بس شهادة وتخصص سهل، فكر مليح.
+                        <br>نصيحتي ليك: التخصص قابل للتطوير نحو الميكاترونيك والهندسة الطبية – لازم تتطور روحك بالتربصات ومهارات البرمجة والتصميم (CAD/CAM) باش تلقى بلاصتك في سوق العمل!</p>
+                    </div>
+
+                </div>
+            </div>
         </div>
     </div>
 
