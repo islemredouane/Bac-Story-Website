@@ -8643,6 +8643,8 @@ body.pdf-body-lock {
 .filter-chip[data-filter-val="business"]    { background: linear-gradient(135deg, #b7770d, #f39c12); box-shadow: 0 3px 10px rgba(243,156,18,0.28); }
 .filter-chip[data-filter-val="science"]     { background: linear-gradient(135deg, #1a7a38, #28a745); box-shadow: 0 3px 10px rgba(40,167,69,0.28); }
 .filter-chip[data-filter-val="education"]   { background: linear-gradient(135deg, #7d3c98, #9b59b6); box-shadow: 0 3px 10px rgba(155,89,182,0.28); }
+.filter-chip[data-filter-val="law"]         { background: linear-gradient(135deg, #922b21, #c0392b); box-shadow: 0 3px 10px rgba(192,57,43,0.28); }
+.filter-chip[data-filter-val="humanities"]  { background: linear-gradient(135deg, #0e7490, #06b6d4); box-shadow: 0 3px 10px rgba(6,182,212,0.28); }
 
 .filter-chip:not(.active)  { filter: brightness(1) saturate(1); }
 .filter-chip:hover         { filter: brightness(1); transform: translateY(-2px); }
@@ -8719,6 +8721,18 @@ body.pdf-body-lock {
     --card-theme: #9b59b6;
     --grad-start: #7d3c98;
     --grad-end: #9b59b6;
+}
+
+.spec-card[data-category="law"] {
+    --card-theme: #c0392b;
+    --grad-start: #922b21;
+    --grad-end: #e74c3c;
+}
+
+.spec-card[data-category="humanities"] {
+    --card-theme: #06b6d4;
+    --grad-start: #0e7490;
+    --grad-end: #06b6d4;
 }
 
 .spec-card {
