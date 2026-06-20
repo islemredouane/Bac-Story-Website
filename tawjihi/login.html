@@ -137,25 +137,64 @@
         }
     }
 
-    // Listen for auth state changes (covers PKCE flow)
-    tw_supabase.auth.onAuthStateChange(async (event, session) => {
-        if (event === 'SIGNED_IN' && session) {
-            await handleSignIn(session);
-        }
-    });
-
-    // Explicitly handle implicit OAuth callback (#access_token in hash)
+    // Handle implicit OAuth callback (#access_token in hash) — bypass SDK entirely
     if (location.hash.includes('access_token')) {
-        const hashParams = new URLSearchParams(location.hash.slice(1));
-        const access_token = hashParams.get('access_token');
-        const refresh_token = hashParams.get('refresh_token');
-        if (access_token && refresh_token) {
-            tw_supabase.auth.setSession({ access_token, refresh_token })
-                .then(({ data: { session }, error }) => {
-                    if (session) handleSignIn(session);
-                    else showToast('خطأ في تسجيل الدخول: ' + (error?.message || 'unknown'));
-                });
-        }
+        (async () => {
+            try {
+                const p = new URLSearchParams(location.hash.slice(1));
+                const access_token = p.get('access_token');
+                const refresh_token = p.get('refresh_token');
+                if (!access_token) return;
+
+                // Decode JWT payload without verification
+                const payload = JSON.parse(atob(access_token.split('.')[1].replace(/-/g, '+').replace(/_/g, '/')));
+                const uid = payload.sub;
+                const meta = payload.user_metadata || {};
+
+                // Write session into Supabase's own localStorage key so SDK is aware
+                localStorage.setItem(
+                    `sb-${SUPABASE_URL.split('//')[1].split('.')[0]}-auth-token`,
+                    JSON.stringify({ access_token, refresh_token, expires_at: payload.exp, token_type: 'bearer',
+                        user: { id: uid, email: payload.email, user_metadata: meta, app_metadata: payload.app_metadata || {}, role: 'authenticated', aud: 'authenticated' }
+                    })
+                );
+                localStorage.setItem('tw-auth', JSON.stringify({ provider: 'google', uid }));
+
+                // Use raw fetch with Bearer token — no SDK dependency
+                const headers = { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${access_token}`, 'Content-Type': 'application/json' };
+                const BASE = SUPABASE_URL + '/rest/v1';
+
+                const profRes = await fetch(`${BASE}/profiles?id=eq.${uid}&select=completed,name,stream,average,wilaya`, { headers });
+                const profiles = profRes.ok ? await profRes.json() : [];
+                const profile = profiles[0];
+
+                if (profile && profile.completed) {
+                    localStorage.setItem('tw-profile', JSON.stringify({ ...profile, email: payload.email, avatar_url: meta.avatar_url }));
+                    window.location.href = 'app.html';
+                    return;
+                }
+
+                // New user — upsert profile + credits
+                await fetch(`${BASE}/profiles`, { method: 'POST', headers: { ...headers, Prefer: 'resolution=merge-duplicates' },
+                    body: JSON.stringify({ id: uid, email: payload.email, name: meta.full_name || meta.name || 'صديقي', avatar_url: meta.avatar_url }) });
+                await fetch(`${BASE}/credits`, { method: 'POST', headers: { ...headers, Prefer: 'resolution=ignore-duplicates' },
+                    body: JSON.stringify({ user_id: uid, balance: 30, total_earned: 30, total_spent: 0 }) });
+                const code = 'TW-' + Math.random().toString(36).slice(2, 7).toUpperCase();
+                await fetch(`${BASE}/referral_codes`, { method: 'POST', headers: { ...headers, Prefer: 'resolution=ignore-duplicates' },
+                    body: JSON.stringify({ owner_user_id: uid, code }) });
+
+                localStorage.setItem('tw-profile', JSON.stringify({ name: meta.full_name || meta.name || 'صديقي', email: payload.email, avatar_url: meta.avatar_url }));
+                window.location.href = 'onboarding.html';
+            } catch (e) {
+                console.error('OAuth callback error:', e);
+                showToast('خطأ في معالجة تسجيل الدخول — حاول مرة أخرى');
+            }
+        })();
+    } else {
+        // PKCE / existing session fallback
+        tw_supabase.auth.onAuthStateChange(async (event, session) => {
+            if (event === 'SIGNED_IN' && session) await handleSignIn(session);
+        });
     }
 
     // Google button click
