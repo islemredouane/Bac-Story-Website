@@ -538,8 +538,110 @@ document.addEventListener('DOMContentLoaded', () => {
 ═══════════════════════════════════════════════════ */
 
 // ── Speciality Filter ─────────────────────────────
+
+// Rich keyword aliases keyed by section ID — searched in addition to data-name
+var SPEC_KEYWORDS = {
+    'ESTIN': 'ذكاء اصطناعي أمن سيبراني انترنت الأشياء intelligence artificielle cybersécurité iot internet des objets génie informatique logiciel réseaux machine learning deep learning numérique digital بجاية مدرسة عليا رقمنة',
+    'ESI-ALGER': 'مدرسة عليا إعلام آلي isi siw irs hcd génie logiciel systèmes informatiques réseaux cybersécurité grande école informatique الجزائر العاصمة بن عكنون',
+    'ESI-SBA': 'isi siw iasd cys génie informatique intelligence artificielle sciences des données data science سيدي بلعباس وهران ingénierie systèmes information computer architecture data structures algorithms linux assembly language digital electronics linear algebra information systems digital economy ai literacy quantum computing حوسبة كمومية AI and Quantum Community Alphabet Ingeniums أمن سيبراني',
+    'ENSIA': 'ia intelligence artificielle artificial intelligence machine learning deep learning neural networks data science big data المدرسة الوطنية العليا للذكاء الاصطناعي الجزائر',
+    'ENSCS': 'cybersécurité cybersecurity sécurité informatique سيبراني سيبرانيا أمن المعلومات أمن الشبكات pentest ethical hacking هجمات حماية أنظمة المدرسة الوطنية العليا للأمن السيبراني',
+    'ENSTTIC': 'télécommunications telecom réseaux TIC technologies information communication ستيك بوزريعة haut débit fibre optique 5g',
+    'NHSM': 'mathématiques mathematics statistiques probabilités analyse algèbre analyse numérique المدرسة الوطنية العليا للرياضيات الكوليا',
+    'POLYTECH': 'polytechnique génie civil mécanique électrique chimique matériaux multidisciplinaire complexe polytechnique الجزائر',
+    'EPAU': 'architecture urbanisme design urbain habitat logement patrimoine paysage المدرسة البوليتكنيكية هندسة تعمير',
+    'ENSSN': 'nanotechnologie nanosciences matériaux optique photonique microélectronique nanostructures نانو',
+    'ENSAS': 'robotique robotics systèmes autonomes drones véhicules autonomes automation روبوت المدرسة الوطنية العليا للأنظمة المستقلة',
+    'ENSTP': 'travaux publics génie civil voirie VRD btp routes ponts barrages infrastructure أشغال المدرسة الوطنية العليا للأشغال العمومية',
+    'ENSH': 'hydraulique ressources en eau irrigation eau potable traitement des eaux barrage البليدة المدرسة الوطنية العليا للهيدروليك',
+    'IGEE': 'génie électrique électronique électrotechnique automatique systèmes électriques énergétique بومرداس كهرباء',
+    'ENSEE': 'génie électrique énergie électrotechnique puissance systèmes électriques وهران كهرباء طاقة',
+    'ESSA': 'sciences appliquées multidisciplinaire ingénierie تلمسان علوم تطبيقية',
+    'HNSRE': 'énergies renouvelables énergie solaire photovoltaïque éolien hydrogène transition énergétique green energy باتنة طاقة شمسية ريح',
+    'AERONAUTIQUE': 'aéronautique aerospace aviation pilote avion moteur espace aérospatial vol البليدة طيران مدني صواريخ',
+    'ENSC': 'commerce sciences commerciales marketing finance vente gestion وهران المدرسة الوطنية العليا للتجارة',
+    'EHEC': 'hautes études commerciales management économie commerce international entreprise mba تيجلابين المدرسة العليا للتجارة',
+    'ESGEN': 'gestion des entreprises entrepreneuriat économie numérique digital business المدرسة العليا للتسيير والاقتصاد الرقمي',
+    'ENSSEA': 'statistique économétrie démographie actuariat planification prospective الكوليا إحصاء اقتصاد تطبيقي',
+    'ESB': 'banque finance bancaire monnaie crédit islamique المدرسة العليا للبنوك الجزائر العاصمة صيرفة',
+    'ENST': 'tourisme hôtellerie restauration guide touristique patrimoine voyage المدرسة الوطنية العليا للسياحة',
+    'ESM': 'management gestion leadership entreprise stratégie المدرسة العليا للمانجمينت تلمسان إدارة',
+    'ESSAIA': 'agroalimentaire nutrition qualité alimentaire sécurité alimentaire food science industrie alimentaire المدرسة العليا للعلوم الزراعية والصناعات الغذائية',
+    'ENSA': 'agronomie agriculture agronome INA zootechnie horticulture علوم زراعية فلاحة الجزائر',
+    'ENS': 'enseignement professeur pédagogie éducation formation des enseignants école normale supérieure مدرسة عليا أساتذة أستاذ',
+    'MEDCINE': 'médecine générale CHU résidanat médecin docteur généraliste spécialiste طبيب دكتور كلية الطب حكيم',
+    'MEDCINE-DENTAIRE': 'dentiste chirurgie dentaire orthodontie implant dentaire prothèse carie أسنان دكتور أسنان طب الفم كلية طب الأسنان',
+    'PHARMACIE': 'pharmacien médicaments officine pharmacologie biochimie دواء الصيدلة صيدلاني',
+    'PARAMEDICAL': 'infirmier kinésithérapie laborantin radiologie soins aide soignant تمريض إسعاف شبه طبي صحة رعاية',
+    'Sage-Femme': 'maïeutique accouchement obstétrique gynécologie maternité sage femme قبالة ولادة توليد أمومة',
+    'PHARMACIE-INDUSTRIELLE': 'industrie pharmaceutique fabrication médicaments biotechnologie pharmaceutique bioproduction صيدلة صناعية',
+    'vetrinaire': 'vétérinaire animaux élevage zoologie équine bovine aviculture بيطري حيوانات طب بيطري',
+    'MED-BIO': 'double cursus biologie médicale biochimie microbiologie biologie moléculaire مزدوج تخصص مزدوج',
+    'MED-INFO': 'bioinformatique informatique médicale santé numérique health tech double cursus ذكاء اصطناعي طبي',
+    'ESSB': 'biologie biotechnologie microbiologie biochimie biologie cellulaire وهران',
+    'ENSB': 'biotechnologie biologie moléculaire génie biologique génétique fermentation المدرسة الوطنية العليا للبيوتكنولوجيا',
+    'ENSSMAL': 'sciences de la mer biologie marine halieutique pêche oceanographie côtier المدرسة الوطنية العليا للعلوم البحرية بحر',
+    'INFORMATIQUE': 'licence informatique génie logiciel réseaux cybersécurité systèmes web développement programmation code python java',
+    'ARCHITECTURE': 'architecture urbanisme design urbain habitat logement patrimoine bâtiment paysage هندسة معمارية',
+    'MATH': 'mathématiques mathematics statistiques probabilités analyse algèbre mathématiques appliquées رياضيات',
+    'ST': 'sciences technologies électronique mécanique chimie génie industriel technologies علوم تكنولوجيا',
+    'SM': 'sciences de la matière physique chimie thermodynamique matériaux énergie فيزياء كيمياء',
+    'BIOLOGIE': 'biologie écologie environnement génétique microbiologie zoologie botanique بيولوجيا علوم طبيعية',
+    'HYDROCARBURES': 'pétrole gaz sonatrach raffinerie exploration géologie pétrolière ingénierie pétrolière نفط غاز بترول محروقات',
+    'Optique': 'optique physique photonique instrumentation mécanique de précision lunettes lasers بصريات ضوء ليزر',
+    'GP': 'génie des procédés chimie industrielle génie chimique procédés industriels كيمياء صناعية معالجة',
+    'GI': 'génie industriel production qualité ergonomie logistique industrielle maintenance صناعة جودة إنتاج',
+    'MARINE': 'marine naval navires offshore port mer navigation maritime هندسة بحرية سفن ميناء ملاحة',
+    'GT': 'génie des transports logistique ferroviaire aérien portuaire mobilité transports سكك حديدية مطارات موانئ',
+    'GM': 'mines minéralurgie géologie minière extraction ressources minérales مناجم معادن تعدين جيولوجيا',
+    'GC': 'génie civil structures béton géotechnique VRD routes ponts bâtiment هندسة مدنية بناء جسور سدود',
+    'GMEC': 'génie mécanique mécatronique thermodynamique fluides fabrication machines moteurs هندسة ميكانيكية ميكانيك',
+    'DROIT': 'droit civil commercial public avocat notaire juriste magistrat tribunal justice loi حقوق محاماة قضاء عدالة',
+    'SS': 'psychologie sociologie anthropologie démographie philosophie travail social علم نفس علم اجتماع فلسفة',
+    'TRADUCTION': 'traduction interprétation langues linguistique traducteur interprète traduit ترجمة فورية تحريرية',
+    'COMMU': 'journalisme médias relations publiques communication digitale réseaux sociaux presse إعلام صحافة اتصال',
+    'LANGUES': 'français anglais espagnol allemand arabe langues étrangères littérature linguistique فرنسية إنجليزية إسبانية',
+    'CHARIA': 'fiqh hadith coran charia jurisprudence islamique aqida usoul الفقه علوم شرعية إسلامية دين',
+    'SCIENCES-PO': 'politique diplomatie relations internationales administration publique gouvernance دبلوماسية سياسة علاقات دولية',
+    'SCIENCES-HUM': 'histoire géographie archéologie bibliothéconomie patrimoine civilisations تاريخ جغرافيا آثار تراث',
+    'MED-AI': 'intelligence artificielle médicale santé numérique diagnostic algorithmique imagerie médicale ذكاء طبي',
+    'MED-GEN': 'génétique médicale génomique maladies héréditaires conseil génétique وراثة طبية جينوم',
+    'IT-INT': 'interopérabilité systèmes information cloud architecture SI ingénierie logicielle تشغيل بيني',
+    'ADDICT': 'addictologie addiction toxicomanie alcool drogues comportement santé mentale الإدمان مخدرات',
+    'NLP': 'traitement du langage naturel nlp ia linguistique computationnelle intelligence artificielle لغة طبيعية',
+    'PREC-MED': 'médecine de précision personnalisée thérapie ciblée génomique oncologie طب دقيق شخصي',
+    'DENT-HYG': 'hygiène dentaire soins préventifs prophylaxie dentisterie clinique صحة الفم',
+    'GEN-COUNS': 'conseil génétique maladies génétiques dépistage prénatal مستشار وراثة',
+    'IND-ENTR': 'entrepreneuriat industriel startups innovation industrie management مقاولاتية ريادة الأعمال',
+    'SPACE-TECH': 'espace spatial satellites technologie spatiale aérospatial astronomie الفضاء أقمار صناعية',
+    'DIGITAL-AGRO': 'agriculture numérique drones capteurs iot agtech smart farming هندسة زراعية رقمية',
+    'SMART-CITIES': 'villes intelligentes smart city urbanisme numérique mobilité infrastructure المدن الذكية',
+    'MED-INFORMATICS': 'informatique médicale santé numérique télémédecine dossiers médicaux e-santé المعلوماتية الطبية',
+    'QUANTUM': 'physique quantique mécanique quantique calcul quantique cryptographie كم كمومي فيزياء كمية',
+    'kiné': 'kinésithérapie rééducation physiothérapie masseur kiné rééducateur الكينيزيتيرابيا علاج طبيعي',
+    'labo': 'laboratoire analyses médicales biologie médicale examens cliniques laborantin تحاليل مخبرية مختبر',
+    'radio': 'radiologie imagerie médicale scanner IRM radiographie rayons X تصوير طبي راديو أشعة',
+    'Appareilleur-Orthopédiste': 'appareillage orthopédique prothèse orthèse handicap rééducation أطراف اصطناعية مقوّم أعضاء',
+    'Anesthésie-Réanimation': 'anesthésie réanimation urgences bloc opératoire soins intensifs تخدير إنعاش',
+    'isp': 'infirmier soins infirmiers santé publique nursing تمريض صحة ممرض',
+    'esp': 'ergothérapie occupation thérapie rééducation fonctionnelle مداواة بالعمل',
+    'Psychomotricien': 'psychomotricité développement moteur enfant rééducation حركة نفسية طفل',
+    'Pédicure-Podologue': 'pédicure podologie soins des pieds قدم أرجل',
+    'dental-prosthetist': 'prothèse dentaire prothésiste dentaire laboratoire dentaire céramique أسنان اصطناعية تركيبات',
+    'pharma-prep': 'préparateur en pharmacie médicaments ordonnance officine محضر صيدلاني دواء',
+};
+
 (function initSpecFilter() {
     var ready = false;
+
+    function normalize(s) {
+        return (s || '').toLowerCase()
+            .replace(/[أإآٱ]/g, 'ا')
+            .replace(/ة/g, 'ه')
+            .replace(/ى/g, 'ي')
+            .replace(/[ً-ٰٟ]/g, '')
+            .trim();
+    }
 
     function setup() {
         if (ready) return;
@@ -553,17 +655,28 @@ document.addEventListener('DOMContentLoaded', () => {
         var emptyState = document.getElementById('spec-empty-state');
 
         var activeCategory = 'all';
+        var activeNew = false;
         var searchText = '';
 
         function applyFilters() {
+            var normQ = normalize(searchText);
+            var words = normQ.split(/\s+/).filter(Boolean);
             var visible = 0;
             cards.forEach(function (card) {
                 var cat = card.dataset.category || '';
-                var name = (card.dataset.name || '').toLowerCase();
+                var isNew = card.dataset.new === 'true';
                 var matchCat = activeCategory === 'all' || cat === activeCategory;
-                var matchSearch = !searchText || name.indexOf(searchText) !== -1;
-                card.style.display = (matchCat && matchSearch) ? '' : 'none';
-                if (matchCat && matchSearch) visible++;
+                var matchNew = !activeNew || isNew;
+                var matchSearch = true;
+                if (words.length) {
+                    var onclick = card.getAttribute('onclick') || '';
+                    var m = onclick.match(/showSection\(['"]([^'"]+)['"]\)/);
+                    var sid = m ? m[1] : '';
+                    var haystack = normalize((card.dataset.name || '') + ' ' + (SPEC_KEYWORDS[sid] || ''));
+                    matchSearch = words.every(function (w) { return haystack.indexOf(w) !== -1; });
+                }
+                card.style.display = (matchCat && matchNew && matchSearch) ? '' : 'none';
+                if (matchCat && matchNew && matchSearch) visible++;
             });
             if (emptyState) {
                 emptyState.style.display = visible === 0 ? 'block' : 'none';
@@ -574,17 +687,23 @@ document.addEventListener('DOMContentLoaded', () => {
             chip.addEventListener('click', function () {
                 var type = chip.dataset.filterType;
                 var val = chip.dataset.filterVal;
-                document.querySelectorAll('.filter-chip[data-filter-type="' + type + '"]')
-                    .forEach(function (c) { c.classList.remove('active'); });
-                chip.classList.add('active');
-                if (type === 'category') activeCategory = val;
+                if (type === 'new') {
+                    var alreadyActive = chip.classList.contains('active');
+                    chip.classList.toggle('active');
+                    activeNew = !alreadyActive;
+                } else {
+                    document.querySelectorAll('.filter-chip[data-filter-type="' + type + '"]')
+                        .forEach(function (c) { c.classList.remove('active'); });
+                    chip.classList.add('active');
+                    if (type === 'category') activeCategory = val;
+                }
                 applyFilters();
             });
         });
 
         if (searchInput) {
             searchInput.addEventListener('input', function () {
-                searchText = searchInput.value.trim().toLowerCase();
+                searchText = searchInput.value.trim();
                 applyFilters();
             });
         }
