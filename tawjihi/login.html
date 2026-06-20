@@ -146,8 +146,9 @@
                 const refresh_token = p.get('refresh_token');
                 if (!access_token) return;
 
-                // Decode JWT payload without verification
-                const payload = JSON.parse(atob(access_token.split('.')[1].replace(/-/g, '+').replace(/_/g, '/')));
+                // Decode JWT payload without verification (add padding for atob)
+                const b64 = access_token.split('.')[1].replace(/-/g, '+').replace(/_/g, '/');
+                const payload = JSON.parse(atob(b64.padEnd(b64.length + (4 - b64.length % 4) % 4, '=')));
                 const uid = payload.sub;
                 const meta = payload.user_metadata || {};
 
@@ -187,7 +188,17 @@
                 window.location.href = 'onboarding.html';
             } catch (e) {
                 console.error('OAuth callback error:', e);
-                showToast('خطأ في معالجة تسجيل الدخول — حاول مرة أخرى');
+                // Still try to redirect — extract uid from hash param if possible
+                try {
+                    const p2 = new URLSearchParams(location.hash.slice(1));
+                    const at = p2.get('access_token');
+                    if (at) {
+                        const b = at.split('.')[1].replace(/-/g,'+').replace(/_/g,'/');
+                        const pl = JSON.parse(atob(b + '=='));
+                        localStorage.setItem('tw-auth', JSON.stringify({ provider: 'google', uid: pl.sub }));
+                    }
+                } catch(_) {}
+                window.location.href = 'onboarding.html';
             }
         })();
     } else {
