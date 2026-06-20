@@ -1,4 +1,7 @@
 {
+  "redirects": [
+    { "source": "/", "destination": "/tawjihi/index.html", "permanent": false }
+  ],
   "headers": [
     {
       "source": "/(.*)\\.jpg",
