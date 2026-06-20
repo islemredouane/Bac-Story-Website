@@ -8646,6 +8646,24 @@ body.pdf-body-lock {
 .filter-chip[data-filter-val="law"]         { background: linear-gradient(135deg, #922b21, #c0392b); box-shadow: 0 3px 10px rgba(192,57,43,0.28); }
 .filter-chip[data-filter-val="humanities"]  { background: linear-gradient(135deg, #0e7490, #06b6d4); box-shadow: 0 3px 10px rgba(6,182,212,0.28); }
 .filter-chip[data-filter-val="double"]     { background: linear-gradient(135deg, #5b21b6, #7c3aed); box-shadow: 0 3px 10px rgba(124,58,237,0.28); }
+.filter-chip[data-filter-val="new"]       { background: linear-gradient(135deg, #b45309, #f59e0b); box-shadow: 0 3px 10px rgba(245,158,11,0.28); }
+
+.spec-card-img { position: relative; }
+.new-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: linear-gradient(135deg, #b45309, #f59e0b);
+    color: white;
+    font-size: 0.68rem;
+    font-weight: 800;
+    padding: 0.22rem 0.6rem;
+    border-radius: 50px;
+    box-shadow: 0 2px 8px rgba(245,158,11,0.45);
+    z-index: 2;
+    font-family: 'Tajawal', sans-serif;
+    letter-spacing: 0.02em;
+}
 
 .filter-chip:not(.active)  { filter: brightness(1) saturate(1); }
 .filter-chip:hover         { filter: brightness(1); transform: translateY(-2px); }
