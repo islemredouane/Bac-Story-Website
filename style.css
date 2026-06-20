@@ -8645,6 +8645,7 @@ body.pdf-body-lock {
 .filter-chip[data-filter-val="education"]   { background: linear-gradient(135deg, #7d3c98, #9b59b6); box-shadow: 0 3px 10px rgba(155,89,182,0.28); }
 .filter-chip[data-filter-val="law"]         { background: linear-gradient(135deg, #922b21, #c0392b); box-shadow: 0 3px 10px rgba(192,57,43,0.28); }
 .filter-chip[data-filter-val="humanities"]  { background: linear-gradient(135deg, #0e7490, #06b6d4); box-shadow: 0 3px 10px rgba(6,182,212,0.28); }
+.filter-chip[data-filter-val="double"]     { background: linear-gradient(135deg, #5b21b6, #7c3aed); box-shadow: 0 3px 10px rgba(124,58,237,0.28); }
 
 .filter-chip:not(.active)  { filter: brightness(1) saturate(1); }
 .filter-chip:hover         { filter: brightness(1); transform: translateY(-2px); }
@@ -8733,6 +8734,12 @@ body.pdf-body-lock {
     --card-theme: #06b6d4;
     --grad-start: #0e7490;
     --grad-end: #06b6d4;
+}
+
+.spec-card[data-category="double"] {
+    --card-theme: #7c3aed;
+    --grad-start: #5b21b6;
+    --grad-end: #7c3aed;
 }
 
 .spec-card {
