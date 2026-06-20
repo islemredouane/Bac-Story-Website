@@ -89,58 +89,67 @@
         t._hide = setTimeout(() => { t.style.transform = 'translateX(-50%) translateY(80px)'; }, 3500);
     }
 
+    let _handling = false;
     async function handleSignIn(session) {
-        const user = session.user;
-        const { data: profile } = await tw_supabase
-            .from('profiles')
-            .select('*')
-            .eq('id', user.id)
-            .single();
+        if (_handling) return;
+        _handling = true;
+        try {
+            const user = session.user;
+            const { data: profile } = await tw_supabase
+                .from('profiles')
+                .select('*')
+                .eq('id', user.id)
+                .single();
 
-        if (profile && profile.completed === true) {
-            localStorage.setItem('tw-auth', JSON.stringify({ provider: 'google', uid: user.id }));
-            localStorage.setItem('tw-profile', JSON.stringify({
-                ...profile,
-                name: profile.name || user.user_metadata?.full_name || 'صديقي'
-            }));
-            window.location.href = 'app.html';
-        } else {
-            // Upsert minimal profile row
-            await tw_supabase.from('profiles').upsert({
-                id: user.id,
-                email: user.email,
-                name: user.user_metadata?.full_name || user.user_metadata?.name || 'صديقي',
-                avatar_url: user.user_metadata?.avatar_url
-            });
-
-            // Initialize credits row (ignore if already exists)
-            await tw_supabase.from('credits').upsert(
-                { user_id: user.id, balance: 30, total_earned: 30, total_spent: 0 },
-                { onConflict: 'user_id', ignoreDuplicates: true }
-            );
-
-            // Generate referral code and upsert
-            const code = 'TW-' + Math.random().toString(36).slice(2, 7).toUpperCase();
-            await tw_supabase.from('referral_codes').upsert(
-                { owner_user_id: user.id, code },
-                { ignoreDuplicates: true }
-            );
-
-            // Handle referral from URL
-            const refCode = new URLSearchParams(location.search).get('ref');
-            if (refCode) sessionStorage.setItem('tw-pending-ref', refCode);
-
-            localStorage.setItem('tw-auth', JSON.stringify({ provider: 'google', uid: user.id }));
+            if (profile && profile.completed === true) {
+                localStorage.setItem('tw-auth', JSON.stringify({ provider: 'google', uid: user.id }));
+                localStorage.setItem('tw-profile', JSON.stringify({
+                    ...profile,
+                    name: profile.name || user.user_metadata?.full_name || 'صديقي'
+                }));
+                window.location.href = 'app.html';
+            } else {
+                await tw_supabase.from('profiles').upsert({
+                    id: user.id,
+                    email: user.email,
+                    name: user.user_metadata?.full_name || user.user_metadata?.name || 'صديقي',
+                    avatar_url: user.user_metadata?.avatar_url
+                });
+                await tw_supabase.from('credits').upsert(
+                    { user_id: user.id, balance: 30, total_earned: 30, total_spent: 0 },
+                    { onConflict: 'user_id', ignoreDuplicates: true }
+                );
+                const code = 'TW-' + Math.random().toString(36).slice(2, 7).toUpperCase();
+                await tw_supabase.from('referral_codes').upsert(
+                    { owner_user_id: user.id, code },
+                    { ignoreDuplicates: true }
+                );
+                const refCode = new URLSearchParams(location.search).get('ref');
+                if (refCode) sessionStorage.setItem('tw-pending-ref', refCode);
+                localStorage.setItem('tw-auth', JSON.stringify({ provider: 'google', uid: user.id }));
+                window.location.href = 'onboarding.html';
+            }
+        } catch (err) {
+            console.error('handleSignIn error:', err);
+            // Fallback: store auth and go to onboarding regardless
+            localStorage.setItem('tw-auth', JSON.stringify({ provider: 'google', uid: session.user.id }));
             window.location.href = 'onboarding.html';
         }
     }
 
-    // Initialize Supabase auth listener
+    // Listen for auth state changes
     tw_supabase.auth.onAuthStateChange(async (event, session) => {
         if (event === 'SIGNED_IN' && session) {
             await handleSignIn(session);
         }
     });
+
+    // Explicitly handle hash-based OAuth callback (implicit flow)
+    if (location.hash.includes('access_token')) {
+        tw_supabase.auth.getSession().then(({ data: { session } }) => {
+            if (session) handleSignIn(session);
+        });
+    }
 
     // Google button click
     const gBtn = document.getElementById('googleBtn');
