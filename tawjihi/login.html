@@ -137,18 +137,25 @@
         }
     }
 
-    // Listen for auth state changes
+    // Listen for auth state changes (covers PKCE flow)
     tw_supabase.auth.onAuthStateChange(async (event, session) => {
         if (event === 'SIGNED_IN' && session) {
             await handleSignIn(session);
         }
     });
 
-    // Explicitly handle hash-based OAuth callback (implicit flow)
+    // Explicitly handle implicit OAuth callback (#access_token in hash)
     if (location.hash.includes('access_token')) {
-        tw_supabase.auth.getSession().then(({ data: { session } }) => {
-            if (session) handleSignIn(session);
-        });
+        const hashParams = new URLSearchParams(location.hash.slice(1));
+        const access_token = hashParams.get('access_token');
+        const refresh_token = hashParams.get('refresh_token');
+        if (access_token && refresh_token) {
+            tw_supabase.auth.setSession({ access_token, refresh_token })
+                .then(({ data: { session }, error }) => {
+                    if (session) handleSignIn(session);
+                    else showToast('خطأ في تسجيل الدخول: ' + (error?.message || 'unknown'));
+                });
+        }
     }
 
     // Google button click
