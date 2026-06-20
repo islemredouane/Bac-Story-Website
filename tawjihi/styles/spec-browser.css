@@ -1,0 +1,199 @@
+/* ============================================================
+   TAWJIHI — Specialities browser
+   Ported 1:1 from the BAC STORY university-section design
+   (filter bar + cards), token-ized for light/dark.
+   ============================================================ */
+
+.page-scroll { flex: 1; overflow-y: auto; }
+.page-inner { max-width: var(--content-max); margin-inline: auto; padding: var(--sp-6) var(--sp-5) var(--sp-8); }
+
+/* ---- hero strip ---- */
+.spec-hero { text-align: center; margin-bottom: var(--sp-5); animation: rise var(--t-slow) var(--ease-out) both; }
+.spec-hero .hero-icon { font-size: 2rem; color: var(--primary); margin-bottom: var(--sp-2); }
+.spec-hero h1 {
+    font-size: var(--fs-2xl);
+    background: var(--grad-brand); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+.spec-hero p { color: var(--text-muted); margin-top: var(--sp-2); max-width: 65ch; margin-inline: auto; }
+
+/* =====================================================
+   FILTER BAR  (exact BAC STORY layout)
+   ===================================================== */
+.spec-filter-bar {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+    padding: 1rem 1.4rem;
+    margin-bottom: 1.4rem;
+}
+.spec-chips-row { margin-bottom: 0.75rem; font-size: 0; line-height: 1; }
+
+.filter-chip {
+    display: inline-block;
+    width: max-content;
+    margin: 0.22rem 0.2rem;
+    padding: 0.35rem 1rem;
+    border-radius: 50px;
+    border: none;
+    color: #fff;
+    font-size: 0.82rem;
+    font-weight: 800;
+    cursor: pointer;
+    white-space: nowrap;
+    font-family: var(--font-ui);
+    user-select: none;
+    vertical-align: middle;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+.filter-chip[data-cat="all"],
+.filter-chip[data-cat="engineering"] { background: linear-gradient(135deg, #1a3a8f, #3d6ee0); box-shadow: 0 3px 10px rgba(44,92,197,0.28); }
+.filter-chip[data-cat="medical"]     { background: linear-gradient(135deg, #c0392b, #e74c3c); box-shadow: 0 3px 10px rgba(231,76,60,0.28); }
+.filter-chip[data-cat="business"]    { background: linear-gradient(135deg, #b7770d, #f39c12); box-shadow: 0 3px 10px rgba(243,156,18,0.28); }
+.filter-chip[data-cat="science"]     { background: linear-gradient(135deg, #1a7a38, #28a745); box-shadow: 0 3px 10px rgba(40,167,69,0.28); }
+.filter-chip[data-cat="education"]   { background: linear-gradient(135deg, #7d3c98, #9b59b6); box-shadow: 0 3px 10px rgba(155,89,182,0.28); }
+
+.filter-chip:not(.active) { opacity: .55; }
+.filter-chip:hover        { opacity: 1; transform: translateY(-2px); }
+.filter-chip.active       { opacity: 1; transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,0.22); }
+
+.spec-search-wrap { position: relative; width: 100%; }
+.spec-search-wrap i {
+    position: absolute; right: 0.8rem; top: 50%; transform: translateY(-50%);
+    color: var(--text-faint); font-size: 0.88rem; pointer-events: none;
+}
+.spec-search-input {
+    width: 100%;
+    padding: 0.55rem 2.1rem 0.55rem 0.85rem;
+    border: 1.5px solid var(--border-strong);
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-family: var(--font-ui);
+    outline: none;
+    transition: border 0.2s, background 0.2s;
+    box-sizing: border-box;
+    color: var(--text);
+    background: var(--surface-2);
+    direction: rtl;
+}
+.spec-search-input::placeholder { color: var(--text-faint); }
+.spec-search-input:focus { border-color: var(--primary); background: var(--surface); }
+
+/* ---- results meta ---- */
+.results-meta { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-3); margin-bottom: var(--sp-4); }
+.results-count { color: var(--text-muted); font-size: var(--fs-sm); }
+.results-count strong { color: var(--text); }
+.btn-ghost {
+    font-size: var(--fs-xs); font-weight: 700; color: var(--primary);
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 6px 12px; border-radius: var(--r-pill); transition: background var(--t-fast);
+}
+.btn-ghost:hover { background: color-mix(in srgb, var(--primary) 12%, transparent); }
+
+/* =====================================================
+   CARDS  (exact BAC STORY layout + معدل + location)
+   ===================================================== */
+.Speciality-container-new {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 0.5rem 0 2rem;
+}
+
+.spec-card[data-cat="engineering"] { --card-theme: #2c5cc5; --grad-start: #1a3a8f; --grad-end: #3d6ee0; }
+.spec-card[data-cat="medical"]     { --card-theme: #e74c3c; --grad-start: #c0392b; --grad-end: #e74c3c; }
+.spec-card[data-cat="business"]    { --card-theme: #f39c12; --grad-start: #b7770d; --grad-end: #f39c12; }
+.spec-card[data-cat="science"]     { --card-theme: #28a745; --grad-start: #1a7a38; --grad-end: #28a745; }
+.spec-card[data-cat="education"]   { --card-theme: #9b59b6; --grad-start: #7d3c98; --grad-end: #9b59b6; }
+
+.spec-card {
+    background: var(--surface);
+    border-radius: 18px;
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+    border: 1.5px solid var(--border);
+    text-align: right;
+    position: relative;
+}
+.spec-card::before {
+    content: ''; position: absolute; top: 0; right: 0; left: 0; height: 3.5px;
+    background: linear-gradient(90deg, transparent, var(--card-theme, #2c5cc5));
+    transform: scaleX(1); transform-origin: right; z-index: 2;
+}
+.spec-card:hover {
+    transform: translateY(-5px);
+    border-color: color-mix(in srgb, var(--card-theme, #2c5cc5) 35%, transparent);
+    box-shadow: 0 14px 35px color-mix(in srgb, var(--card-theme, #2c5cc5) 18%, transparent);
+}
+.spec-card:hover::before { transform: scaleX(1); }
+.spec-card.is-hidden { display: none; }
+
+.spec-card-img { width: 100%; height: 150px; flex-shrink: 0; overflow: hidden; position: relative; }
+.spec-card-img::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to left, color-mix(in srgb, var(--card-theme, #2c5cc5) 15%, transparent), transparent);
+    opacity: 0; transition: opacity 0.3s ease; z-index: 1;
+}
+.spec-card:hover .spec-card-img::after { opacity: 1; }
+.spec-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1); }
+.spec-card:hover .spec-card-img img { transform: scale(1.1) rotate(1deg); }
+
+.spec-card-body { padding: 1.1rem 1.3rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between; gap: 0.7rem; min-width: 0; }
+.spec-card-top { flex: 1; }
+.spec-card-name { font-size: 0.98rem; font-weight: 800; color: var(--text); line-height: 1.5; transition: color 0.25s ease; }
+.spec-card:hover .spec-card-name { color: var(--card-theme); }
+
+/* NEW: معدل القبول + location meta */
+.spec-card-meta { display: flex; flex-direction: column; gap: 0.4rem; margin-top: 0.6rem; }
+.spec-meta-avg, .spec-meta-loc { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; font-weight: 700; }
+.spec-meta-avg {
+    color: var(--card-theme, var(--primary));
+    background: color-mix(in srgb, var(--card-theme, var(--primary)) 12%, transparent);
+    padding: 0.28rem 0.7rem; border-radius: 50px; width: max-content;
+}
+.spec-meta-loc { color: var(--text-muted); font-weight: 600; }
+.spec-meta-loc i { color: var(--text-faint); }
+
+.cat-badge {
+    padding: 0.28rem 0.78rem; border-radius: 50px; font-size: 0.74rem; font-weight: 800;
+    white-space: nowrap; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--grad-start, #1a3a8f), var(--grad-end, #3d6ee0));
+    color: #fff; box-shadow: 0 4px 10px color-mix(in srgb, var(--card-theme, #2c5cc5) 30%, transparent);
+    transition: all 0.25s ease;
+}
+.spec-card:hover .cat-badge { transform: scale(1.05); box-shadow: 0 6px 14px color-mix(in srgb, var(--card-theme, #2c5cc5) 45%, transparent); }
+
+.spec-card-footer { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; }
+.spec-detail-btn {
+    padding: 0.45rem 1.1rem; border-radius: 50px;
+    border: 1.5px solid color-mix(in srgb, var(--card-theme, #2c5cc5) 40%, transparent);
+    background: transparent; color: var(--card-theme, #2c5cc5);
+    font-size: 0.84rem; font-weight: 800; font-family: var(--font-ui);
+    transition: all 0.28s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: inline-flex; align-items: center; gap: 0.35rem; white-space: nowrap;
+}
+.spec-detail-btn i { font-size: 0.75rem; transition: transform 0.28s cubic-bezier(0.25, 0.8, 0.25, 1); }
+.spec-card:hover .spec-detail-btn { transform: scale(1.03); border-color: var(--card-theme, #2c5cc5); box-shadow: 0 4px 12px color-mix(in srgb, var(--card-theme, #2c5cc5) 20%, transparent); }
+.spec-card:hover .spec-detail-btn i { transform: translateX(-4px); }
+
+/* ---- empty state + honesty note ---- */
+.no-results { grid-column: 1 / -1; text-align: center; color: var(--text-faint); padding: var(--sp-8) var(--sp-4); }
+.no-results i { font-size: 2rem; margin-bottom: var(--sp-2); display: block; }
+.no-results.is-hidden { display: none; }
+
+.honesty-note {
+    margin-top: var(--sp-3); display: flex; align-items: center; gap: var(--sp-3);
+    background: color-mix(in srgb, var(--accent) 10%, var(--surface));
+    border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent);
+    border-radius: var(--r-md); padding: var(--sp-3) var(--sp-4);
+    font-size: var(--fs-sm); color: var(--text-muted);
+}
+.honesty-note i { color: var(--accent); font-size: 1.1rem; flex-shrink: 0; }
+
+/* ---- responsive (match BAC STORY breakpoints) ---- */
+@media (max-width: 1024px) { .Speciality-container-new { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 620px)  { .Speciality-container-new { grid-template-columns: 1fr; } }

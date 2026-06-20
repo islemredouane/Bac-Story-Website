@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <script>!function(){var p=location.pathname.split('/').pop();if(['login.html','onboarding.html','index.html',''].indexOf(p)<0){if(!localStorage.getItem('tw-auth'))return void location.replace('login.html');if(!localStorage.getItem('tw-profile'))return void location.replace('onboarding.html')}}()</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>توجيهي · مرشدك الجامعي</title>
+    <meta name="description" content="توجيهي من BAC STORY — مرشدك الذكي لاختيار التخصص والجامعة في الجزائر.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Pattaya&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles/tokens.css">
+    <link rel="stylesheet" href="styles/app.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+    <script src="supabase.js"></script>
+</head>
+<body>
+<div class="app" id="app">
+    <!-- ===================== SIDEBAR ===================== -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-head">
+            <button class="sidebar-toggle" id="sidebarToggle" aria-label="طي القائمة"><i class="fas fa-bars"></i></button>
+            <span class="sidebar-logo">توجيهي</span>
+        </div>
+
+        <nav class="nav-group">
+            <a class="nav-item active" href="app.html"><i class="fas fa-comments"></i><span>المرشد الذكي</span></a>
+            <a class="nav-item" href="specialities.html"><i class="fas fa-compass"></i><span>دليل التخصصات</span></a>
+            <a class="nav-item" href="simulator.html"><i class="fas fa-list-check"></i><span>محاكي بطاقة الرغبات</span></a>
+            <a class="nav-item" href="dashboard.html"><i class="fas fa-gauge-high"></i><span>لوحتي</span></a>
+            <a class="nav-item" href="referral.html"><i class="fas fa-gift"></i><span>الإحالة والمكافآت</span></a>
+        </nav>
+
+        <div class="sidebar-foot">
+            <a class="nav-item" href="#" onclick="document.getElementById('themeBtn')?.click();return false;"><i class="fas fa-circle-half-stroke" id="themeIconSide"></i><span>الوضع الليلي</span></a>
+            <a class="nav-item" href="dashboard.html"><i class="fas fa-user-circle"></i><span>حسابي</span></a>
+            <a class="nav-item" href="settings.html"><i class="fas fa-gear"></i><span>الإعدادات</span></a>
+            <a class="nav-item" href="#" id="logoutBtn" onclick="if(window.twSignOut){window.twSignOut()}else{localStorage.clear();location.href='login.html'};return false;">
+              <i class="fas fa-right-from-bracket"></i>
+              <span>تسجيل الخروج</span>
+            </a>
+        </div>
+    </aside>
+    <div class="sidebar-scrim" id="scrim"></div>
+
+    <!-- ===================== MAIN ===================== -->
+    <main class="main">
+        <header class="topbar">
+            <div style="display:flex;align-items:center;gap:.5rem">
+                <button class="icon-btn mobile-only" id="drawerBtn" aria-label="القائمة"><i class="fas fa-bars"></i></button>
+                <span class="topbar-title">المرشد الذكي</span>
+            </div>
+            <div class="topbar-actions">
+                <button class="icon-btn" id="newChatBtn" aria-label="محادثة جديدة" title="محادثة جديدة"><i class="fas fa-pen-to-square"></i></button>
+                <button class="icon-btn" id="historyBtn" aria-label="المحادثات السابقة" title="المحادثات"><i class="fas fa-clock-rotate-left"></i></button>
+                <button class="icon-btn" id="themeBtn" aria-label="تبديل الوضع"><i class="fas fa-moon"></i></button>
+            </div>
+        </header>
+
+        <div class="chat-scroll" id="chatScroll">
+            <div class="chat-inner" id="chatInner">
+                <!-- empty state -->
+                <section class="chat-hero" id="chatHero">
+                    <div class="chat-hero-brand">ت</div>
+                    <h1>كيفاش نقدر نساعدك اليوم؟</h1>
+                    <p>سألني عن تخصصات الجامعة، معدلات القبول، أو ساعدني نرتّب بطاقة رغباتك.</p>
+                </section>
+                <!-- messages injected here -->
+            </div>
+        </div>
+
+        <div class="composer-wrap">
+            <form class="composer" id="composer">
+                <button type="button" class="attach-btn" id="attachBtn" aria-label="إرفاق ملف"><i class="fas fa-plus"></i></button>
+                <input type="file" id="fileInput" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg,.webp" multiple hidden>
+                <textarea id="input" rows="1" placeholder="اكتب سؤالك لمرشدك… (عربية، français، wala darija)"></textarea>
+                <button type="submit" class="send-btn" id="sendBtn" disabled aria-label="إرسال"><i class="fas fa-arrow-up"></i></button>
+            </form>
+            <div class="attach-preview" id="attachPreview"></div>
+            <p class="composer-hint">المرشد يعتمد على بيانات الدليل الوزاري — أكّد دائماً اختيارك على البوابة الرسمية.</p>
+        </div>
+    </main>
+</div>
+
+<!-- ===================== CHAT HISTORY OVERLAY ===================== -->
+<div class="hist-scrim" id="histScrim"></div>
+<aside class="hist-panel" id="histPanel" aria-label="المحادثات السابقة">
+    <div class="hist-head">
+        <span class="hist-title"><i class="fas fa-clock-rotate-left"></i> محادثاتك</span>
+        <button class="icon-btn" id="histClose" aria-label="إغلاق"><i class="fas fa-xmark"></i></button>
+    </div>
+    <button class="hist-new" id="histNewChat"><i class="fas fa-pen-to-square"></i> محادثة جديدة</button>
+    <div class="hist-list" id="histList"></div>
+</aside>
+
+<script src="shell.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <script>!function(){var p=location.pathname.split('/').pop();if(['login.html','onboarding.html','index.html',''].indexOf(p)<0){if(!localStorage.getItem('tw-auth'))return void location.replace('login.html');if(!localStorage.getItem('tw-profile'))return void location.replace('onboarding.html')}}()</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>توجيهي · لوحتي</title>
+    <meta name="description" content="لوحتك الشخصية في توجيهي — تخصصاتك المحفوظة، أهليتك، بطاقة رغباتك والعد التنازلي للنتائج.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Pattaya&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles/tokens.css">
+    <link rel="stylesheet" href="styles/app.css">
+    <link rel="stylesheet" href="styles/dashboard.css">
+    <link rel="stylesheet" href="styles/dashboard-hero.css">
+    <link rel="stylesheet" href="styles/dashboard-fx.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+    <script src="supabase.js"></script>
+</head>
+<body>
+<div class="app" id="app">
+    <!-- ===================== SIDEBAR (reused from app.html) ===================== -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-head">
+            <button class="sidebar-toggle" id="sidebarToggle" aria-label="طي القائمة"><i class="fas fa-bars"></i></button>
+            <span class="sidebar-logo">توجيهي</span>
+        </div>
+
+        <nav class="nav-group">
+            <a class="nav-item" href="app.html"><i class="fas fa-comments"></i><span>المرشد الذكي</span></a>
+            <a class="nav-item" href="specialities.html"><i class="fas fa-compass"></i><span>دليل التخصصات</span></a>
+            <a class="nav-item" href="simulator.html"><i class="fas fa-list-check"></i><span>محاكي بطاقة الرغبات</span></a>
+            <a class="nav-item active" href="dashboard.html"><i class="fas fa-gauge-high"></i><span>لوحتي</span></a>
+            <a class="nav-item" href="referral.html"><i class="fas fa-gift"></i><span>الإحالة والمكافآت</span></a>
+        </nav>
+
+        <div class="sidebar-foot">
+            <a class="nav-item" href="#" onclick="document.getElementById('themeBtn')?.click();return false;"><i class="fas fa-circle-half-stroke" id="themeIconSide"></i><span>الوضع الليلي</span></a>
+            <a class="nav-item" href="login.html"><i class="fas fa-user-circle"></i><span>حسابي</span></a>
+            <a class="nav-item" href="settings.html"><i class="fas fa-gear"></i><span>الإعدادات</span></a>
+            <a class="nav-item" href="#" id="logoutBtn" onclick="if(window.twSignOut){window.twSignOut()}else{localStorage.clear();location.href='login.html'};return false;">
+              <i class="fas fa-right-from-bracket"></i>
+              <span>تسجيل الخروج</span>
+            </a>
+        </div>
+    </aside>
+    <div class="sidebar-scrim" id="scrim"></div>
+
+    <!-- ===================== MAIN ===================== -->
+    <main class="main">
+        <header class="topbar">
+            <div style="display:flex;align-items:center;gap:.5rem">
+                <button class="icon-btn mobile-only" id="drawerBtn" aria-label="القائمة"><i class="fas fa-bars"></i></button>
+                <span class="topbar-title">لوحتي</span>
+            </div>
+            <div class="topbar-actions">
+                <button class="icon-btn" id="themeBtn" aria-label="تبديل الوضع"><i class="fas fa-moon"></i></button>
+            </div>
+        </header>
+
+        <div class="dash-scroll">
+            <div class="dash-inner">
+
+                <!-- ===== Greeting + profile chips ===== -->
+                <section class="dash-hero">
+                    <div class="dash-hero-text">
+                        <h1>مرحبا <span id="userName">صديقي</span> 👋</h1>
+                        <p>هاذي صورة سريعة عن مسارك. كمّل اللي بقى، وخلّي المرشد يعاونك في القرار.</p>
+                        <div class="dash-chips" id="profileChips">
+                            <span class="dash-chip"><i class="fas fa-flask"></i> <span data-chip="stream">علوم تجريبية</span></span>
+                            <span class="dash-chip"><i class="fas fa-percent"></i> معدل <span data-chip="average">13.75</span></span>
+                            <span class="dash-chip"><i class="fas fa-location-dot"></i> <span data-chip="wilaya">قسنطينة</span></span>
+                            <a class="dash-chip dash-chip-edit" href="onboarding.html"><i class="fas fa-pen"></i> عدّل ملفّي</a>
+                        </div>
+                    </div>
+                    <div class="dash-progress-ring" aria-label="اكتمال الملف 80٪">
+                        <div class="dash-ring">
+                            <span class="dash-ring-num">80<small>٪</small></span>
+                        </div>
+                        <span class="dash-ring-label">اكتمال ملفّك</span>
+                    </div>
+                </section>
+
+                <!-- ===== Grid of cards ===== -->
+                <div class="dash-grid">
+
+                    <!-- Saved specializations -->
+                    <section class="dash-card dash-card-wide">
+                        <header class="dash-card-head">
+                            <h2><i class="fas fa-bookmark"></i> التخصصات المحفوظة</h2>
+                            <a class="dash-link" href="simulator.html">عرض الكل <i class="fas fa-arrow-left"></i></a>
+                        </header>
+                        <div class="dash-spec-row" id="dashSpecRow"></div>
+                    </section>
+
+                    <!-- Eligibility status -->
+                    <section class="dash-card">
+                        <header class="dash-card-head">
+                            <h2><i class="fas fa-clipboard-check"></i> حالة الأهلية</h2>
+                        </header>
+                        <ul class="dash-elig-list" id="dashEligList"></ul>
+                        <p class="dash-disclaimer"><i class="fas fa-circle-info"></i> هذه تقديرات حسب معطياتك ومعدلات 2025 — أكّد على البوابة الرسمية قبل أي قرار.</p>
+                    </section>
+
+                    <!-- Countdown -->
+                    <section class="dash-card dash-card-countdown">
+                        <header class="dash-card-head">
+                            <h2><i class="fas fa-hourglass-half"></i> العد التنازلي للنتائج</h2>
+                        </header>
+                        <div class="dash-countdown" id="countdown" aria-live="polite">
+                            <div class="dash-cd-unit"><span class="dash-cd-num" data-cd="days">00</span><span class="dash-cd-label">يوم</span></div>
+                            <div class="dash-cd-unit"><span class="dash-cd-num" data-cd="hours">00</span><span class="dash-cd-label">ساعة</span></div>
+                            <div class="dash-cd-unit"><span class="dash-cd-num" data-cd="mins">00</span><span class="dash-cd-label">دقيقة</span></div>
+                            <div class="dash-cd-unit"><span class="dash-cd-num" data-cd="secs">00</span><span class="dash-cd-label">ثانية</span></div>
+                        </div>
+                        <p class="dash-cd-note">على نتائج باكالوريا 2026 (تاريخ تقديري) — رانا معاك في الانتظار.</p>
+                    </section>
+
+                    <!-- Fiche preview -->
+                    <section class="dash-card">
+                        <header class="dash-card-head">
+                            <h2><i class="fas fa-list-ol"></i> بطاقة الرغبات</h2>
+                            <a class="dash-link" href="simulator.html">حرّر الترتيب <i class="fas fa-arrow-left"></i></a>
+                        </header>
+                        <ol class="dash-fiche" id="dashFiche"></ol>
+                    </section>
+
+                    <!-- Advisor nudges -->
+                    <section class="dash-card dash-card-wide dash-card-nudges">
+                        <header class="dash-card-head">
+                            <h2><i class="fas fa-lightbulb"></i> نصائح المرشد</h2>
+                        </header>
+                        <div class="dash-nudges">
+                            <a class="dash-nudge" href="app.html">
+                                <span class="dash-nudge-ico" style="--cat:var(--cat-engineering)"><i class="fas fa-wand-magic-sparkles"></i></span>
+                                <span class="dash-nudge-body">
+                                    <span class="dash-nudge-title">رتّب بطاقة رغباتك بذكاء</span>
+                                    <span class="dash-nudge-sub">حطّينا التخصص الأقرب لمعدلك في الأول — راجعه مع المرشد.</span>
+                                </span>
+                                <i class="fas fa-arrow-left dash-nudge-arrow"></i>
+                            </a>
+                            <a class="dash-nudge" href="app.html">
+                                <span class="dash-nudge-ico" style="--cat:var(--cat-medical)"><i class="fas fa-triangle-exclamation"></i></span>
+                                <span class="dash-nudge-body">
+                                    <span class="dash-nudge-title">معدّلك على حدّ القبول في الطب</span>
+                                    <span class="dash-nudge-sub">حضّر خطة بديلة — نقترحو عليك تخصصات قريبة بنفس الميول.</span>
+                                </span>
+                                <i class="fas fa-arrow-left dash-nudge-arrow"></i>
+                            </a>
+                            <a class="dash-nudge" href="onboarding.html">
+                                <span class="dash-nudge-ico" style="--cat:var(--cat-science)"><i class="fas fa-user-pen"></i></span>
+                                <span class="dash-nudge-body">
+                                    <span class="dash-nudge-title">كمّل ملفّك (20٪ باقية)</span>
+                                    <span class="dash-nudge-sub">زيد تفاصيل على طموحك باش يولّي الترشيح أدقّ.</span>
+                                </span>
+                                <i class="fas fa-arrow-left dash-nudge-arrow"></i>
+                            </a>
+                        </div>
+                    </section>
+
+                </div>
+
+                <p class="dash-foot"><i class="fas fa-shield-halved"></i> توجيهي يقدّم تقديرات استرشادية فقط — القرار النهائي والمعدلات الرسمية تبقى على البوابة الرسمية للتسجيلات الجامعية.</p>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script src="catalog.js"></script>
+<script>
+async function loadDashboardData() {
+  let profile = JSON.parse(localStorage.getItem('tw-profile') || '{}');
+  let wishIds = JSON.parse(localStorage.getItem('tw-wishlist') || '[]');
+  let credits = JSON.parse(localStorage.getItem('tw-credits') || '{"balance":30}');
+
+  // Try to load fresh data from Supabase via API
+  if (typeof tw_supabase !== 'undefined') {
+    try {
+      const { data: { session } } = await tw_supabase.auth.getSession();
+      if (session) {
+        const token = session.access_token;
+        const headers = { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' };
+
+        const [profileRes, wishRes, creditsRes] = await Promise.allSettled([
+          fetch('/api/tawjihi-profile', { headers }),
+          fetch('/api/tawjihi-wishlist', { headers }),
+          fetch('/api/tawjihi-credits', { headers }),
+        ]);
+
+        if (profileRes.status === 'fulfilled' && profileRes.value.ok) {
+          profile = await profileRes.value.json();
+          localStorage.setItem('tw-profile', JSON.stringify(profile));
+        }
+        if (wishRes.status === 'fulfilled' && wishRes.value.ok) {
+          const w = await wishRes.value.json();
+          wishIds = w.specIds || [];
+          localStorage.setItem('tw-wishlist', JSON.stringify(wishIds));
+        }
+        if (creditsRes.status === 'fulfilled' && creditsRes.value.ok) {
+          credits = await creditsRes.value.json();
+          localStorage.setItem('tw-credits', JSON.stringify(credits));
+        }
+      }
+    } catch (e) {
+      console.warn('Dashboard: API load failed, using localStorage', e);
+    }
+  }
+
+  return { profile, wishIds, credits };
+}
+
+function calcCompletion(profile) {
+  const fields = [
+    !!profile.stream,
+    !!profile.average,
+    !!profile.wilaya,
+    !!(profile.interests && profile.interests.length > 0),
+    !!(profile.ambition || profile.ambition_text),
+    !!(profile.name && profile.name !== 'صديقي'),
+  ];
+  const filled = fields.filter(Boolean).length;
+  return Math.round((filled / fields.length) * 100);
+}
+
+function generateNudges(profile, wishIds) {
+  const nudges = [];
+  const catalog = typeof TW_CATALOG !== 'undefined' ? TW_CATALOG : [];
+  const myAvg = parseFloat(profile.average) || 12;
+
+  // Nudge: wishlist empty
+  if (!wishIds || wishIds.length === 0) {
+    nudges.push({ icon: 'fa-list-check', text: 'ما زلتش ما بنيتش بطاقة رغباتك — اذهب للمحاكي وابدأ الآن', link: 'simulator.html' });
+  }
+  // Nudge: all high-risk picks
+  else {
+    const specs = wishIds.map(id => catalog.find(s => s.id === id)).filter(Boolean);
+    const allRisk = specs.every(s => myAvg < s.avg - 1.0);
+    const noSafe = !specs.some(s => myAvg >= s.avg + 1.0);
+    const tooFew = wishIds.length < 6;
+
+    if (allRisk) nudges.push({ icon: 'fa-triangle-exclamation', text: 'كل تخصصاتك المختارة فوق معدلك — أضف تخصصاً آمناً للأمان', link: 'simulator.html' });
+    if (noSafe && !allRisk) nudges.push({ icon: 'fa-shield', text: 'ما عندك تخصص آمن في قائمتك — أضف واحد كضمان', link: 'simulator.html' });
+    if (tooFew) nudges.push({ icon: 'fa-plus-circle', text: `عندك ${wishIds.length} رغبات — الحد الأدنى 6، أكمل القائمة`, link: 'simulator.html' });
+  }
+
+  // Nudge: profile incomplete
+  if (!profile.wilaya) nudges.push({ icon: 'fa-location-dot', text: 'أضف ولايتك لتصفية التخصصات القريبة منك', link: '#' });
+
+  // Nudge: always show AI tip
+  nudges.push({ icon: 'fa-comments', text: 'جرّب تسأل المرشد: "شنو التخصص اللي يناسبني بمعدل ' + myAvg + '؟"', link: 'app.html' });
+
+  return nudges.slice(0, 3); // max 3 nudges
+}
+
+function renderNudges(profile, wishIds) {
+  const container = document.querySelector('.dash-nudges');
+  if (!container) return;
+  const nudges = generateNudges(profile, wishIds);
+  container.innerHTML = nudges.map(n => `
+    <a class="dash-nudge" href="${n.link}">
+      <span class="dash-nudge-ico"><i class="fas ${n.icon}"></i></span>
+      <span class="dash-nudge-body">
+        <span class="dash-nudge-title">${n.text}</span>
+      </span>
+      <i class="fas fa-arrow-left dash-nudge-arrow"></i>
+    </a>`).join('');
+}
+
+(async () => {
+    const { profile, wishIds, credits } = await loadDashboardData();
+
+    const $ = (s, r = document) => r.querySelector(s);
+    const app = $('#app');
+
+    /* ---- Theme ---- */
+    const root = document.documentElement;
+    root.setAttribute('data-theme', localStorage.getItem('tw-theme') || 'light');
+    const syncThemeIcon = () => {
+        const dark = root.getAttribute('data-theme') === 'dark';
+        $('#themeBtn').innerHTML = `<i class="fas fa-${dark ? 'sun' : 'moon'}"></i>`;
+    };
+    syncThemeIcon();
+    $('#themeBtn').addEventListener('click', () => {
+        const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        localStorage.setItem('tw-theme', next);
+        syncThemeIcon();
+    });
+
+    /* ---- Sidebar / drawer ---- */
+    $('#sidebarToggle').addEventListener('click', () => {
+        if (window.innerWidth <= 900) app.classList.remove('drawer-open');
+        else app.classList.toggle('sidebar-collapsed');
+    });
+    $('#drawerBtn').addEventListener('click', () => app.classList.add('drawer-open'));
+    $('#scrim').addEventListener('click', () => app.classList.remove('drawer-open'));
+
+    /* ---- Profile chips ---- */
+    if (profile.name) $('#userName').textContent = profile.name;
+    const setChip = (k, v) => { const el = document.querySelector(`[data-chip="${k}"]`); if (el && v) el.textContent = v; };
+    setChip('stream', profile.stream);
+    if (profile.average != null) setChip('average', Number(profile.average).toFixed(2));
+    setChip('wilaya', profile.wilaya);
+    const myAvg = profile.average ? +profile.average : 0;
+
+    /* ---- Completion ring ---- */
+    const pct = calcCompletion(profile);
+    const ringNumEl = document.querySelector('.dash-ring-num');
+    if (ringNumEl) ringNumEl.innerHTML = `${pct}<small>٪</small>`;
+    const ringEl = document.querySelector('.dash-progress-ring');
+    if (ringEl) ringEl.setAttribute('aria-label', `اكتمال الملف ${pct}٪`);
+
+    /* ---- Wishlist data ---- */
+    const wishSpecs = wishIds.map(id => TW_CATALOG.find(s => s.id === id)).filter(Boolean);
+
+    const riskLevel = avg => myAvg >= avg + 1 ? 'ok' : (myAvg >= avg - 1 ? 'warn' : 'no');
+    const BADGE = {
+        ok:   '<span class="dash-badge dash-badge-ok"><i class="fas fa-check"></i> مؤهّل</span>',
+        warn: '<span class="dash-badge dash-badge-warn"><i class="fas fa-triangle-exclamation"></i> على الحدّ</span>',
+        no:   '<span class="dash-badge dash-badge-no"><i class="fas fa-circle-xmark"></i> غير مؤهّل</span>',
+    };
+
+    /* ---- Saved specs card ---- */
+    const specRow = $('#dashSpecRow');
+    if (wishSpecs.length === 0) {
+        specRow.innerHTML = `
+            <div style="padding:var(--sp-6);text-align:center;color:var(--text-muted);width:100%">
+                <i class="fas fa-inbox" style="font-size:2rem;margin-bottom:var(--sp-3);opacity:.4"></i>
+                <p style="margin-bottom:var(--sp-4)">ما عندك حتى تخصص محفوظ بعد.</p>
+                <a class="btn btn-primary" href="simulator.html"><i class="fas fa-list-check"></i> ابدأ بطاقة الرغبات</a>
+            </div>`;
+    } else {
+        specRow.innerHTML = wishSpecs.slice(0, 4).map(s => `
+            <article class="dash-spec-card" style="--cat:${s.catVar}">
+                <div class="dash-spec-top">
+                    <span class="dash-spec-name">${s.name}</span>
+                </div>
+                <span class="dash-spec-meta">${s.location}${s.lmd ? ' · LMD' : ''}</span>
+                <div class="dash-spec-foot">
+                    <span class="dash-spec-avg">معدل القبول ~ ${s.avg.toFixed(2)}</span>
+                    ${myAvg > 0 ? BADGE[riskLevel(s.avg)] : ''}
+                </div>
+            </article>`).join('');
+    }
+
+    /* ---- Eligibility list ---- */
+    const eligList = $('#dashEligList');
+    if (wishSpecs.length === 0) {
+        eligList.innerHTML = `
+            <li style="color:var(--text-muted);text-align:center;padding:var(--sp-4)">
+                <i class="fas fa-inbox" style="margin-left:var(--sp-2);opacity:.4"></i>
+                أضف رغبات في المحاكي لتظهر هنا
+            </li>`;
+    } else {
+        const ELIG_BADGE = {
+            ok:   '<span class="dash-badge dash-badge-ok"><i class="fas fa-circle-check"></i> مؤهّل</span>',
+            warn: '<span class="dash-badge dash-badge-warn"><i class="fas fa-circle-exclamation"></i> على الحدّ</span>',
+            no:   '<span class="dash-badge dash-badge-no"><i class="fas fa-circle-xmark"></i> غير مؤهّل</span>',
+        };
+        eligList.innerHTML = wishSpecs.slice(0, 6).map(s => `
+            <li>
+                <span class="dash-elig-name">${s.name}</span>
+                ${myAvg > 0 ? ELIG_BADGE[riskLevel(s.avg)] : '<span class="dash-badge">—</span>'}
+            </li>`).join('');
+    }
+
+    /* ---- Fiche preview ---- */
+    const ficheEl = $('#dashFiche');
+    if (wishSpecs.length === 0) {
+        ficheEl.innerHTML = `
+            <li style="list-style:none;color:var(--text-muted);text-align:center;padding:var(--sp-4)">
+                <i class="fas fa-inbox" style="margin-left:var(--sp-2);opacity:.4"></i>
+                بطاقتك فارغة —
+                <a href="simulator.html" style="color:var(--primary)">ابدأ المحاكي</a>
+            </li>`;
+    } else {
+        const shown = wishSpecs.slice(0, 3);
+        const rest  = wishSpecs.length - shown.length;
+        ficheEl.innerHTML = shown.map((s, i) => `
+            <li>
+                <span class="dash-fiche-rank">${i + 1}</span>
+                <span class="dash-fiche-name">${s.name}</span>
+                <i class="fas fa-grip-vertical dash-fiche-grip"></i>
+            </li>`).join('') +
+            (rest > 0 ? `<li class="dash-fiche-more">+ ${rest} رغبات أخرى</li>` : '');
+    }
+
+    /* ---- Advisor nudges ---- */
+    renderNudges(profile, wishIds);
+
+    /* ---- Countdown to BAC 2026 results ---- */
+    const target = new Date('2026-07-20T10:00:00').getTime();
+    const pad = n => String(Math.max(0, n)).padStart(2, '0');
+    const cd = {
+        days:  $('[data-cd="days"]'),
+        hours: $('[data-cd="hours"]'),
+        mins:  $('[data-cd="mins"]'),
+        secs:  $('[data-cd="secs"]'),
+    };
+    function tickCountdown() {
+        let diff = Math.floor((target - Date.now()) / 1000);
+        if (diff < 0) diff = 0;
+        cd.days.textContent  = pad(Math.floor(diff / 86400));
+        cd.hours.textContent = pad(Math.floor((diff % 86400) / 3600));
+        cd.mins.textContent  = pad(Math.floor((diff % 3600) / 60));
+        cd.secs.textContent  = pad(diff % 60);
+    }
+    tickCountdown();
+    setInterval(tickCountdown, 1000);
+})();
+</script>
+<script src="shell.js"></script>
+</body>
+</html>

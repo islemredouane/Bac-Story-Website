@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <script>!function(){var p=location.pathname.split('/').pop();if(['login.html','onboarding.html','index.html',''].indexOf(p)<0){if(!localStorage.getItem('tw-auth'))return void location.replace('login.html');if(!localStorage.getItem('tw-profile'))return void location.replace('onboarding.html')}}()</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>توجيهي · دليل التخصصات والمدارس العليا</title>
+    <meta name="description" content="توجيهي من BAC STORY — تصفّح التخصصات والمدارس العليا في الجزائر حسب الشعبة والمعدل.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Pattaya&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles/tokens.css">
+    <link rel="stylesheet" href="styles/app.css">
+    <link rel="stylesheet" href="styles/spec-browser.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+    <script src="supabase.js"></script>
+    <script src="catalog.js"></script>
+    <style>
+        /* ---- stream chips row ---- */
+        .stream-chips-row { margin-bottom: 0.75rem; font-size: 0; line-height: 1; }
+        .stream-chip {
+            display: inline-block;
+            width: max-content;
+            margin: 0.22rem 0.2rem;
+            padding: 0.32rem 0.85rem;
+            border-radius: 50px;
+            border: 1.5px solid var(--border-strong);
+            background: var(--surface-2);
+            color: var(--text-muted);
+            font-size: 0.79rem;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+            font-family: var(--font-ui);
+            user-select: none;
+            vertical-align: middle;
+            transition: border-color 0.18s ease, color 0.18s ease, background 0.18s ease, transform 0.18s ease;
+        }
+        .stream-chip.active,
+        .stream-chip:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: color-mix(in srgb, var(--primary) 10%, transparent);
+            transform: translateY(-1px);
+        }
+        .stream-chip.active { font-weight: 800; }
+
+        /* ---- LMD toggle pills ---- */
+        .lmd-row { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
+        .lmd-row-label { font-size: 0.8rem; font-weight: 700; color: var(--text-muted); white-space: nowrap; margin-left: 0.2rem; }
+        .lmd-chip {
+            display: inline-block;
+            padding: 0.3rem 0.85rem;
+            border-radius: 50px;
+            border: 1.5px solid var(--border-strong);
+            background: var(--surface-2);
+            color: var(--text-muted);
+            font-size: 0.79rem;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+            font-family: var(--font-ui);
+            user-select: none;
+            transition: border-color 0.18s ease, color 0.18s ease, background 0.18s ease;
+        }
+        .lmd-chip.active,
+        .lmd-chip:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: color-mix(in srgb, var(--primary) 10%, transparent);
+        }
+        .lmd-chip.active { font-weight: 800; }
+
+        /* ---- avg range filter ---- */
+        .avg-row { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.5rem; }
+        .avg-row-label { font-size: 0.8rem; font-weight: 700; color: var(--text-muted); white-space: nowrap; }
+        .avg-input-group { display: inline-flex; align-items: center; gap: 0.35rem; }
+        .avg-input-group span { font-size: 0.8rem; color: var(--text-muted); font-weight: 600; }
+        .avg-input {
+            width: 4.2rem;
+            padding: 0.3rem 0.5rem;
+            border: 1.5px solid var(--border-strong);
+            border-radius: 8px;
+            font-size: 0.82rem;
+            font-family: var(--font-ui);
+            color: var(--text);
+            background: var(--surface-2);
+            outline: none;
+            text-align: center;
+            transition: border-color 0.2s;
+        }
+        .avg-input:focus { border-color: var(--primary); background: var(--surface); }
+
+        /* ---- filter section dividers ---- */
+        .filter-section-divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 0.65rem 0;
+        }
+    </style>
+</head>
+<body>
+<div class="app" id="app">
+    <!-- ===================== SIDEBAR ===================== -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-head">
+            <button class="sidebar-toggle" id="sidebarToggle" aria-label="طي القائمة"><i class="fas fa-bars"></i></button>
+            <span class="sidebar-logo">توجيهي</span>
+        </div>
+
+        <nav class="nav-group">
+            <a class="nav-item" href="app.html"><i class="fas fa-comments"></i><span>المرشد الذكي</span></a>
+            <a class="nav-item active" href="specialities.html"><i class="fas fa-compass"></i><span>دليل التخصصات</span></a>
+            <a class="nav-item" href="simulator.html"><i class="fas fa-list-check"></i><span>محاكي بطاقة الرغبات</span></a>
+            <a class="nav-item" href="dashboard.html"><i class="fas fa-gauge-high"></i><span>لوحتي</span></a>
+            <a class="nav-item" href="referral.html"><i class="fas fa-gift"></i><span>الإحالة والمكافآت</span></a>
+        </nav>
+
+        <div class="sidebar-foot">
+            <a class="nav-item" href="#" onclick="document.getElementById('themeBtn')?.click();return false;"><i class="fas fa-circle-half-stroke" id="themeIconSide"></i><span>الوضع الليلي</span></a>
+            <a class="nav-item" href="dashboard.html"><i class="fas fa-user-circle"></i><span>حسابي</span></a>
+            <a class="nav-item" href="settings.html"><i class="fas fa-gear"></i><span>الإعدادات</span></a>
+            <a class="nav-item" href="#" id="logoutBtn" onclick="if(window.twSignOut){window.twSignOut()}else{localStorage.clear();location.href='login.html'};return false;">
+              <i class="fas fa-right-from-bracket"></i>
+              <span>تسجيل الخروج</span>
+            </a>
+        </div>
+    </aside>
+    <div class="sidebar-scrim" id="scrim"></div>
+
+    <!-- ===================== MAIN ===================== -->
+    <main class="main">
+        <header class="topbar">
+            <div style="display:flex;align-items:center;gap:.5rem">
+                <button class="icon-btn mobile-only" id="drawerBtn" aria-label="القائمة"><i class="fas fa-bars"></i></button>
+                <span class="topbar-title">دليل التخصصات</span>
+            </div>
+            <div class="topbar-actions">
+                <button class="icon-btn" id="themeBtn" aria-label="تبديل الوضع"><i class="fas fa-moon"></i></button>
+            </div>
+        </header>
+
+        <div class="page-scroll">
+            <div class="page-inner">
+                <!-- ===== HERO STRIP ===== -->
+                <section class="spec-hero">
+                    <i class="fas fa-compass hero-icon" aria-hidden="true"></i>
+                    <h1>دليل التخصصات والمدارس العليا</h1>
+                    <p>تصفّح التخصصات الجامعية والمدارس العليا في الجزائر، واكتشف معدلات القبول وآفاق العمل قبل ما تعمّر بطاقة رغباتك.</p>
+                </section>
+
+                <!-- ===== FILTER BAR ===== -->
+                <div class="spec-filter-bar">
+
+                    <!-- Stream filter chips (visible row) -->
+                    <div class="stream-chips-row" id="streamChips">
+                        <button class="stream-chip active" data-stream="all">الكل (شعبة)</button>
+                        <button class="stream-chip" data-stream="sciexp">علوم تجريبية</button>
+                        <button class="stream-chip" data-stream="math">رياضيات</button>
+                        <button class="stream-chip" data-stream="techmath">تقني رياضي</button>
+                        <button class="stream-chip" data-stream="gestion">تسيير واقتصاد</button>
+                        <button class="stream-chip" data-stream="lettres">آداب وفلسفة</button>
+                        <button class="stream-chip" data-stream="langues">لغات أجنبية</button>
+                    </div>
+
+                    <hr class="filter-section-divider">
+
+                    <!-- Category chips -->
+                    <div class="spec-chips-row" id="catChips">
+                        <button class="filter-chip active" data-cat="all">الكل</button>
+                        <button class="filter-chip" data-cat="engineering">هندسة</button>
+                        <button class="filter-chip" data-cat="medical">طب وصحة</button>
+                        <button class="filter-chip" data-cat="business">اقتصاد</button>
+                        <button class="filter-chip" data-cat="science">علوم</button>
+                        <button class="filter-chip" data-cat="education">تربية</button>
+                    </div>
+
+                    <hr class="filter-section-divider">
+
+                    <!-- LMD / Grande École toggle -->
+                    <div class="lmd-row" id="lmdChips">
+                        <span class="lmd-row-label">نوع المؤسسة:</span>
+                        <button class="lmd-chip active" data-lmd="all">الكل</button>
+                        <button class="lmd-chip" data-lmd="lmd">جامعة (LMD)</button>
+                        <button class="lmd-chip" data-lmd="grande">مدرسة عليا</button>
+                    </div>
+
+                    <!-- Avg range filter -->
+                    <div class="avg-row">
+                        <span class="avg-row-label">نطاق المعدل:</span>
+                        <div class="avg-input-group">
+                            <span>من</span>
+                            <input class="avg-input" type="number" id="avgMin" min="0" max="20" step="0.1" value="0">
+                        </div>
+                        <div class="avg-input-group">
+                            <span>إلى</span>
+                            <input class="avg-input" type="number" id="avgMax" min="0" max="20" step="0.1" value="20">
+                        </div>
+                    </div>
+
+                    <hr class="filter-section-divider">
+
+                    <!-- Search -->
+                    <div class="spec-search-wrap">
+                        <i class="fas fa-search"></i>
+                        <input type="text" class="spec-search-input" id="searchInput" placeholder="ابحث عن مدرسة أو تخصص..." autocomplete="off">
+                    </div>
+                </div>
+
+                <!-- ===== RESULTS META ===== -->
+                <div class="results-meta">
+                    <span class="results-count" id="resultsCount"><strong>13</strong> تخصص</span>
+                    <button class="btn-ghost" id="resetBtn"><i class="fas fa-rotate-left"></i> إعادة ضبط الفلاتر</button>
+                </div>
+
+                <!-- ===== CARD GRID — rendered dynamically from TW_CATALOG ===== -->
+                <div class="Speciality-container-new" id="specGrid">
+                    <!-- empty state -->
+                    <div class="no-results is-hidden" id="noResults">
+                        <i class="fas fa-folder-open"></i>
+                        <p>ما لقينا حتى تخصص يطابق الفلاتر. جرّب تخفّف الشروط أو تعيد ضبط الفلاتر.</p>
+                    </div>
+                </div>
+
+                <!-- honesty note -->
+                <div class="honesty-note">
+                    <i class="fas fa-circle-info"></i>
+                    <span>معدلات تقديرية — أكّد على البوابة الرسمية.</span>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script src="shell.js"></script>
+<script>
+/* ============================================================
+   Specialities browser — dynamic rendering from TW_CATALOG
+   ============================================================ */
+(() => {
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+
+  /* ---- Arabic category badge labels ---- */
+  const CAT_LABEL = {
+    engineering: 'هندسة',
+    medical:     'طب وصحة',
+    business:    'اقتصاد',
+    science:     'علوم',
+    education:   'تربية',
+  };
+
+  /* ---- Stream code → Arabic name ---- */
+  const STREAM_MAP = {
+    'علوم تجريبية': 'sciexp',
+    'رياضيات':       'math',
+    'تقني رياضي':    'techmath',
+    'تسيير واقتصاد': 'gestion',
+    'آداب وفلسفة':   'lettres',
+    'لغات أجنبية':   'langues',
+  };
+
+  /* ---- Filter state ---- */
+  const state = {
+    cat:    'all',
+    q:      '',
+    stream: null,   // null = show all
+    lmd:    'all',  // 'all' | 'lmd' | 'grande'
+    avgMin: 0,
+    avgMax: 20,
+  };
+
+  /* ---- Pre-select user's stream from profile ---- */
+  const profile = JSON.parse(localStorage.getItem('tw-profile') || 'null');
+  const myStreamCode = profile && profile.stream ? STREAM_MAP[profile.stream] : null;
+  if (myStreamCode) {
+    state.stream = myStreamCode;
+    /* activate the matching chip */
+    const preChip = $(`#streamChips [data-stream="${myStreamCode}"]`);
+    if (preChip) {
+      $$('.stream-chip', $('#streamChips')).forEach(c => c.classList.remove('active'));
+      preChip.classList.add('active');
+    }
+  }
+
+  /* ---- Helpers ---- */
+  const setActiveChip = (container, activeBtn) => {
+    $$('button', container).forEach(c => c.classList.remove('active'));
+    activeBtn.classList.add('active');
+  };
+
+  /* ---- Build one card element ---- */
+  function buildCard(s) {
+    const card = document.createElement('a');
+    card.className = 'spec-card';
+    card.href = `speciality.html?id=${s.id}`;
+    card.dataset.cat     = s.cat;
+    card.dataset.avg     = s.avg;
+    card.dataset.streams = s.streamCodes.join(' ');
+    card.dataset.name    = `${s.name} ${s.nameEn}`;
+    card.dataset.lmd     = s.lmd;
+
+    /* image wrapper */
+    const imgWrap = document.createElement('div');
+    imgWrap.className = 'spec-card-img';
+    const img = document.createElement('img');
+    img.loading = 'lazy';
+    img.src = s.img;
+    img.alt = s.name;
+    imgWrap.appendChild(img);
+
+    /* body */
+    const body = document.createElement('div');
+    body.className = 'spec-card-body';
+
+    /* top section */
+    const top = document.createElement('div');
+    top.className = 'spec-card-top';
+
+    const nameEl = document.createElement('div');
+    nameEl.className = 'spec-card-name';
+    nameEl.textContent = `${s.name} – ${s.nameEn}`;
+
+    const meta = document.createElement('div');
+    meta.className = 'spec-card-meta';
+
+    const avgSpan = document.createElement('span');
+    avgSpan.className = 'spec-meta-avg';
+    avgSpan.innerHTML = `<i class="fas fa-percent"></i>`;
+    avgSpan.appendChild(document.createTextNode(` معدل القبول 2025 ~ ${s.avg.toFixed(2)}`));
+
+    const locSpan = document.createElement('span');
+    locSpan.className = 'spec-meta-loc';
+    locSpan.innerHTML = `<i class="fas fa-location-dot"></i>`;
+    locSpan.appendChild(document.createTextNode(` ${s.location}`));
+
+    meta.appendChild(avgSpan);
+    meta.appendChild(locSpan);
+    top.appendChild(nameEl);
+    top.appendChild(meta);
+
+    /* footer */
+    const footer = document.createElement('div');
+    footer.className = 'spec-card-footer';
+
+    const badge = document.createElement('span');
+    badge.className = 'cat-badge';
+    badge.textContent = CAT_LABEL[s.cat] || s.cat;
+
+    const detailBtn = document.createElement('span');
+    detailBtn.className = 'spec-detail-btn';
+    detailBtn.innerHTML = `<i class="fas fa-arrow-left"></i>`;
+    detailBtn.appendChild(document.createTextNode(' التفاصيل'));
+
+    footer.appendChild(badge);
+    footer.appendChild(detailBtn);
+
+    body.appendChild(top);
+    body.appendChild(footer);
+
+    card.appendChild(imgWrap);
+    card.appendChild(body);
+
+    return card;
+  }
+
+  /* ---- Main render function ---- */
+  const grid     = $('#specGrid');
+  const noResults = $('#noResults');
+  const countEl  = $('#resultsCount');
+
+  function renderCards() {
+    /* remove existing cards (keep #noResults in place) */
+    $$('.spec-card', grid).forEach(c => c.remove());
+
+    let visible = 0;
+
+    TW_CATALOG.forEach(s => {
+      const matchCat    = state.cat === 'all' || s.cat === state.cat;
+      const matchQ      = state.q === '' || (s.name + ' ' + s.nameEn).toLowerCase().includes(state.q.toLowerCase());
+      const matchStream = state.stream === null || s.streamCodes.includes(state.stream);
+      const matchLmd    = state.lmd === 'all'
+                          || (state.lmd === 'lmd'    &&  s.lmd)
+                          || (state.lmd === 'grande' && !s.lmd);
+      const matchAvg    = s.avg >= state.avgMin && s.avg <= state.avgMax;
+
+      if (matchCat && matchQ && matchStream && matchLmd && matchAvg) {
+        grid.insertBefore(buildCard(s), noResults);
+        visible++;
+      }
+    });
+
+    noResults.classList.toggle('is-hidden', visible !== 0);
+    countEl.innerHTML = `<strong>${visible}</strong> تخصص`;
+  }
+
+  /* ---- Event: category chips ---- */
+  $('#catChips').addEventListener('click', e => {
+    const btn = e.target.closest('.filter-chip');
+    if (!btn) return;
+    state.cat = btn.dataset.cat;
+    setActiveChip($('#catChips'), btn);
+    renderCards();
+  });
+
+  /* ---- Event: stream chips ---- */
+  $('#streamChips').addEventListener('click', e => {
+    const btn = e.target.closest('.stream-chip');
+    if (!btn) return;
+    state.stream = btn.dataset.stream === 'all' ? null : btn.dataset.stream;
+    setActiveChip($('#streamChips'), btn);
+    renderCards();
+  });
+
+  /* ---- Event: LMD chips ---- */
+  $('#lmdChips').addEventListener('click', e => {
+    const btn = e.target.closest('.lmd-chip');
+    if (!btn) return;
+    state.lmd = btn.dataset.lmd;
+    setActiveChip($('#lmdChips'), btn);
+    renderCards();
+  });
+
+  /* ---- Event: search ---- */
+  $('#searchInput').addEventListener('input', e => {
+    state.q = e.target.value.trim();
+    renderCards();
+  });
+
+  /* ---- Event: avg range ---- */
+  $('#avgMin').addEventListener('input', e => {
+    state.avgMin = parseFloat(e.target.value) || 0;
+    renderCards();
+  });
+  $('#avgMax').addEventListener('input', e => {
+    state.avgMax = parseFloat(e.target.value) || 20;
+    renderCards();
+  });
+
+  /* ---- Event: reset ---- */
+  $('#resetBtn').addEventListener('click', () => {
+    state.cat    = 'all';
+    state.q      = '';
+    state.stream = null;
+    state.lmd    = 'all';
+    state.avgMin = 0;
+    state.avgMax = 20;
+
+    $('#searchInput').value = '';
+    $('#avgMin').value = '0';
+    $('#avgMax').value = '20';
+
+    /* reset all chip groups */
+    setActiveChip($('#catChips'),    $('#catChips [data-cat="all"]'));
+    setActiveChip($('#streamChips'), $('#streamChips [data-stream="all"]'));
+    setActiveChip($('#lmdChips'),    $('#lmdChips [data-lmd="all"]'));
+
+    renderCards();
+  });
+
+  /* ---- Initial render ---- */
+  renderCards();
+})();
+</script>
+</body>
+</html>

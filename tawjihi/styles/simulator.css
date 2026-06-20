@@ -1,0 +1,526 @@
+/* ============================================================
+   TAWJIHI — Fiche-de-vœux simulator (محاكي بطاقة الرغبات)
+   Depends on tokens.css + app.css (shell). Light + dark.
+   ============================================================ */
+
+.sim-scroll { flex: 1; overflow-y: auto; }
+.sim-inner { max-width: var(--content-max); margin-inline: auto; padding: var(--sp-6) var(--sp-5) var(--sp-8); }
+
+/* ---- hero + controls ---- */
+.sim-hero {
+    position: relative; overflow: hidden;
+    background:
+        radial-gradient(120% 140% at 100% 0%, color-mix(in srgb, var(--primary) 11%, transparent) 0%, transparent 55%),
+        radial-gradient(120% 160% at 0% 100%, color-mix(in srgb, var(--accent) 8%, transparent) 0%, transparent 50%),
+        var(--surface);
+    border: 1px solid color-mix(in srgb, var(--primary) 14%, var(--border));
+    border-radius: 20px;
+    padding: var(--sp-6);
+    box-shadow: var(--shadow-md);
+    margin-bottom: var(--sp-6);
+    animation: rise var(--t-slow) var(--ease-out) both;
+}
+.sim-hero::before {
+    content: ''; position: absolute; inset: 0 0 auto 0;
+    height: 3.5px;
+    background: linear-gradient(90deg, transparent, var(--primary));
+}
+.sim-hero h1 {
+    font-size: var(--fs-2xl); font-weight: 800; line-height: 1.2;
+    background: var(--grad-brand); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+.sim-hero p { color: var(--text-muted); margin-top: var(--sp-2); max-width: 60ch; }
+/* hero layout */
+.sim-hero-body {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: var(--sp-6); flex-wrap: wrap;
+}
+.sim-hero-text { flex: 1; min-width: 0; }
+
+.sim-controls { display: flex; align-items: center; flex-wrap: wrap; gap: var(--sp-3); flex-shrink: 0; }
+.sim-field { display: flex; flex-direction: column; gap: 6px; }
+.sim-field-label { font-size: var(--fs-xs); font-weight: 700; color: var(--text-muted); }
+.sim-field input {
+    font-family: inherit; font-size: var(--fs-xl); font-weight: 800; color: var(--text);
+    background: var(--surface); border: 1.5px solid var(--border-strong); border-radius: var(--r-md);
+    padding: var(--sp-3) var(--sp-4); width: 130px; outline: none; text-align: center;
+    transition: border-color var(--t-fast), box-shadow var(--t-fast);
+}
+.sim-field input:focus { border-color: var(--primary); box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 14%, transparent); }
+
+/* stream read-only badge */
+.sim-stream-badge {
+    display: flex; align-items: center; gap: var(--sp-3);
+    background: color-mix(in srgb, var(--primary) 7%, var(--surface));
+    border: 1.5px solid color-mix(in srgb, var(--primary) 18%, transparent);
+    border-radius: var(--r-md); padding: var(--sp-3) var(--sp-4);
+}
+.sim-stream-badge > i { color: var(--primary); font-size: 1.15rem; flex-shrink: 0; }
+.sim-stream-info { display: flex; flex-direction: column; gap: 2px; }
+.sim-stream-label { font-size: var(--fs-xs); font-weight: 700; color: var(--text-muted); }
+.sim-stream-info strong { font-size: var(--fs-md); font-weight: 800; color: var(--text); white-space: nowrap; }
+.sim-stream-edit {
+    color: var(--text-faint); font-size: .85rem; margin-inline-start: var(--sp-1);
+    width: 30px; height: 30px; border-radius: var(--r-sm);
+    display: grid; place-items: center; flex-shrink: 0;
+    transition: background var(--t-fast), color var(--t-fast);
+}
+.sim-stream-edit:hover { background: var(--surface-2); color: var(--primary); }
+
+/* ---- layout ---- */
+.sim-layout { display: grid; grid-template-columns: 1fr 360px; gap: var(--sp-5); align-items: start; }
+.sim-col { display: flex; flex-direction: column; gap: var(--sp-5); min-width: 0; }
+.sim-side { position: sticky; top: var(--sp-4); }
+
+.sim-card {
+    --card-theme: var(--primary);
+    position: relative; overflow: hidden;
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 18px;
+    padding: var(--sp-5);
+    box-shadow: var(--shadow-md);
+    transition: transform .3s cubic-bezier(.25,.8,.25,1), box-shadow .3s, border-color .3s;
+    animation: rise var(--t-slow) var(--ease-out) both;
+}
+.sim-card::before {
+    content: '';
+    position: absolute; top: 0; right: 0; left: 0;
+    height: 3.5px;
+    background: linear-gradient(90deg, transparent, var(--card-theme));
+    transform: scaleX(1); transform-origin: right;
+    z-index: 1;
+}
+.sim-card:hover { transform: translateY(-4px); border-color: color-mix(in srgb, var(--card-theme) 30%, transparent); box-shadow: 0 14px 35px color-mix(in srgb, var(--card-theme) 14%, transparent); }
+.sim-card:hover::before { transform: scaleX(1); }
+
+.sim-card-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--sp-4); }
+.sim-card-head h2 { font-size: var(--fs-lg); font-weight: 800; display: flex; align-items: center; gap: var(--sp-3); color: var(--text); }
+.sim-card-head h2 i {
+    color: var(--card-theme);
+    width: 34px; height: 34px; border-radius: 10px;
+    display: grid; place-items: center; font-size: .9rem;
+    background: linear-gradient(135deg,
+        color-mix(in srgb, var(--card-theme) 22%, transparent),
+        color-mix(in srgb, var(--card-theme) 8%, transparent));
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--card-theme) 18%, transparent);
+}
+.sim-count { font-size: var(--fs-xs); font-weight: 700; color: var(--text-muted); background: var(--surface-2); padding: 4px 12px; border-radius: var(--r-pill); }
+
+/* ---- wishlist (ordered, reorderable) ---- */
+.wishlist { list-style: none; display: flex; flex-direction: column; gap: var(--sp-3); }
+.wish-item {
+    display: flex; align-items: center; gap: var(--sp-3);
+    background: var(--surface-2); border: 1px solid var(--border); border-inline-start: 4px solid var(--cat, var(--primary));
+    border-radius: var(--r-md); padding: var(--sp-3) var(--sp-4); animation: rise var(--t-mid) var(--ease-out) both;
+    transition: transform var(--t-fast) var(--ease), box-shadow var(--t-fast), border-color var(--t-fast);
+}
+.wish-item:hover {
+    transform: translateX(-3px);
+    box-shadow: var(--shadow-sm);
+    border-color: color-mix(in srgb, var(--cat, var(--primary)) 35%, transparent);
+}
+.wish-rank {
+    width: 34px; height: 34px; flex-shrink: 0; border-radius: var(--r-pill);
+    background: var(--grad-brand); color: var(--on-primary, #fff); font-weight: 800; display: grid; place-items: center;
+}
+.wish-info { flex: 1; min-width: 0; }
+.wish-name { font-weight: 700; font-size: var(--fs-sm); }
+.wish-meta { font-size: var(--fs-xs); color: var(--text-muted); margin-top: 2px; }
+.wish-badge { font-size: var(--fs-xs); font-weight: 800; padding: 4px 10px; border-radius: var(--r-pill); white-space: nowrap; }
+.wish-badge.safe   { color: var(--cat-science);  background: color-mix(in srgb, var(--cat-science) 14%, transparent); }
+.wish-badge.likely { color: var(--cat-business); background: color-mix(in srgb, var(--cat-business) 16%, transparent); }
+.wish-badge.risk   { color: var(--cat-medical);  background: color-mix(in srgb, var(--cat-medical) 14%, transparent); }
+.wish-ctrls { display: flex; gap: 2px; }
+.wish-ctrl { width: 30px; height: 30px; border-radius: var(--r-sm); color: var(--text-faint); display: grid; place-items: center; transition: background var(--t-fast), color var(--t-fast); }
+.wish-ctrl:hover { background: var(--surface); color: var(--text); }
+.wish-ctrl:disabled { opacity: .3; cursor: not-allowed; }
+.wish-ctrl.del:hover { color: var(--cat-medical); }
+
+.wish-empty { text-align: center; color: var(--text-faint); padding: var(--sp-6) var(--sp-4); }
+.wish-empty i { font-size: 2rem; margin-bottom: var(--sp-2); display: block; }
+
+/* ---- analysis ---- */
+.sim-analysis:empty { display: none; }
+.sim-analysis {
+    background: color-mix(in srgb, var(--primary) 7%, var(--surface));
+    border: 1px solid color-mix(in srgb, var(--primary) 25%, transparent);
+    border-radius: var(--r-lg); padding: var(--sp-5);
+}
+.sim-analysis h3 { display: flex; align-items: center; gap: var(--sp-2); font-size: var(--fs-md); margin-bottom: var(--sp-3); }
+.sim-analysis h3 i { color: var(--primary); }
+.sim-analysis ul { list-style: none; display: flex; flex-direction: column; gap: var(--sp-2); }
+.sim-analysis li { display: flex; gap: var(--sp-2); font-size: var(--fs-sm); }
+.sim-analysis li i { margin-top: 4px; }
+.sim-analysis li.good i { color: var(--cat-science); }
+.sim-analysis li.warn i { color: var(--cat-business); }
+.sim-analysis li.bad  i { color: var(--cat-medical); }
+
+/* ---- catalog ---- */
+.sim-search {
+    width: 100%; font-family: inherit; font-size: var(--fs-sm); color: var(--text);
+    background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--r-md);
+    padding: var(--sp-3) var(--sp-4); margin-bottom: var(--sp-3); outline: none;
+}
+.sim-search:focus { border-color: var(--primary); }
+.catalog {
+    display: flex; flex-direction: column; gap: var(--sp-2);
+    max-height: 360px; overflow-y: auto; overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in srgb, var(--accent) 45%, transparent) transparent;
+}
+.catalog::-webkit-scrollbar { width: 4px; }
+.catalog::-webkit-scrollbar-track { background: transparent; }
+.catalog::-webkit-scrollbar-thumb {
+    background: color-mix(in srgb, var(--accent) 45%, transparent);
+    border-radius: 99px;
+}
+.catalog::-webkit-scrollbar-thumb:hover {
+    background: color-mix(in srgb, var(--accent) 70%, transparent);
+}
+.cat-item {
+    display: flex; align-items: center; gap: var(--sp-3); text-align: start; width: 100%;
+    background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--r-md); padding: var(--sp-3);
+    transition: border-color var(--t-fast), transform var(--t-fast);
+}
+.cat-item:hover:not(:disabled) { border-color: var(--primary); }
+.cat-item:disabled { opacity: .45; cursor: default; }
+.cat-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; background: var(--cat, var(--primary)); }
+.cat-info { flex: 1; min-width: 0; }
+.cat-name { font-weight: 700; font-size: var(--fs-xs); }
+.cat-meta { font-size: .72rem; color: var(--text-muted); }
+.cat-add { color: var(--primary); font-size: 1rem; }
+
+/* ---- risk distribution ---- */
+.risk-legend { display: flex; flex-wrap: wrap; gap: var(--sp-3); font-size: var(--fs-xs); color: var(--text-muted); margin-bottom: var(--sp-3); }
+.risk-legend .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-inline-end: 4px; }
+.dot.safe { background: var(--cat-science); } .dot.likely { background: var(--cat-business); } .dot.risk { background: var(--cat-medical); }
+.risk-bar {
+    display: flex; height: 18px; border-radius: var(--r-pill); overflow: hidden;
+    background: var(--surface-2);
+    box-shadow: inset 0 2px 5px color-mix(in srgb, var(--text) 8%, transparent);
+}
+.risk-bar > span { transition: width var(--t-mid) var(--ease); position: relative; }
+.risk-bar .safe   { background: linear-gradient(180deg, color-mix(in srgb, var(--cat-science)  80%, #fff) 0%, var(--cat-science)  100%); }
+.risk-bar .likely { background: linear-gradient(180deg, color-mix(in srgb, var(--cat-business) 80%, #fff) 0%, var(--cat-business) 100%); }
+.risk-bar .risk   { background: linear-gradient(180deg, color-mix(in srgb, var(--cat-medical)  80%, #fff) 0%, var(--cat-medical)  100%); }
+.risk-tip { font-size: var(--fs-xs); color: var(--text-muted); margin-top: var(--sp-3); }
+
+/* ---- actions ---- */
+.sim-actions { display: flex; flex-direction: column; gap: var(--sp-2); }
+.sim-btn { display: flex; align-items: center; justify-content: center; gap: var(--sp-2); padding: var(--sp-3) var(--sp-4); border-radius: var(--r-pill); font-weight: 700; font-size: var(--fs-sm); transition: transform var(--t-fast) var(--ease), box-shadow var(--t-fast); }
+.sim-btn.primary { background: var(--grad-brand); color: #fff; }
+.sim-btn.primary:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
+.sim-btn.ghost { background: var(--surface); color: var(--text); border: 1px solid var(--border-strong); }
+.sim-btn.ghost:hover { border-color: var(--primary); color: var(--primary); }
+
+/* ---- responsive ---- */
+@media (max-width: 980px) {
+    .sim-layout { grid-template-columns: 1fr; }
+    .sim-side { position: static; }
+}
+
+/* Tablet: hero body still side-by-side but tighter */
+@media (max-width: 760px) {
+    .sim-hero { padding: var(--sp-4) var(--sp-4) var(--sp-5); }
+    .sim-hero h1 { font-size: var(--fs-xl); }
+    .sim-inner { padding-inline: var(--sp-4); }
+}
+
+@media (max-width: 480px) {
+    .sim-inner { padding-inline: var(--sp-2); }
+}
+
+/* Phone: stack controls below hero text */
+@media (max-width: 640px) {
+    .sim-hero-body { flex-direction: column; gap: var(--sp-4); }
+    .sim-hero-text { width: 100%; }
+    .sim-controls { width: 100%; flex-direction: column; }
+    /* Separator becomes horizontal */
+    .sim-controls-sep {
+        width: auto; height: 1px; align-self: stretch;
+        background: linear-gradient(to right, transparent 0%, rgba(44,92,197,0.15) 20%, rgba(44,92,197,0.15) 80%, transparent 100%);
+    }
+    /* Field becomes row: label left, value right */
+    .sim-field {
+        flex-direction: row; align-items: center;
+        justify-content: space-between; text-align: start;
+        padding: var(--sp-3) var(--sp-4); gap: var(--sp-3);
+    }
+    .sim-field-label { letter-spacing: 0; text-transform: none; font-size: var(--fs-sm); }
+    .sim-field input { width: 90px; text-align: center; font-size: var(--fs-xl); }
+    .sim-stream-badge { justify-content: flex-start; }
+}
+
+/* Phone: 3-column grid — [rank RIGHT] [name/badge MIDDLE] [controls LEFT] */
+@media (max-width: 520px) {
+    /* Card header: smaller icon on mobile */
+    .sim-card-head h2 { font-size: var(--fs-md); }
+    .sim-card-head h2 i { width: 28px; height: 28px; border-radius: 8px; font-size: .8rem; }
+
+    /* Requirements bar: tighter wrap */
+    .sim-requirements { padding: var(--sp-2) var(--sp-3); gap: var(--sp-1); }
+    .sim-req { font-size: .7rem; padding: 3px 8px; }
+
+    /* Wish items: 3-col grid (RTL: col1=right=rank, col2=middle=info, col3=left=controls) */
+    .wish-item {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        grid-template-rows: auto auto;
+        column-gap: var(--sp-2);
+        row-gap: 4px;
+        align-items: center;
+        padding: var(--sp-3);
+    }
+    .wish-rank {
+        grid-column: 1;
+        grid-row: 1 / 3;
+        align-self: center;
+    }
+    .wish-info {
+        grid-column: 2;
+        grid-row: 1;
+        min-width: 0;
+    }
+    .wish-name { font-size: var(--fs-xs); }
+    .wish-meta { display: none; }
+    .wish-badge {
+        grid-column: 2;
+        grid-row: 2;
+        justify-self: start;
+        font-size: .68rem;
+        padding: 2px 7px;
+    }
+    .wish-ctrls {
+        grid-column: 3;
+        grid-row: 1 / 3;
+        align-self: center;
+        flex-direction: column;
+        gap: 2px;
+    }
+    .wish-ctrl { width: 26px; height: 26px; }
+    .wish-ctrl.del { order: 3; }
+}
+
+/* Small phone: trim cards */
+@media (max-width: 420px) {
+    .sim-card { padding: var(--sp-4); }
+}
+
+/* ---- requirements bar ---- */
+.sim-requirements {
+    display: flex; flex-wrap: wrap; gap: var(--sp-2);
+    margin-bottom: var(--sp-4);
+    padding: var(--sp-3) var(--sp-4);
+    background: color-mix(in srgb, var(--primary) 5%, transparent);
+    border: 1px solid color-mix(in srgb, var(--primary) 15%, transparent);
+    border-radius: var(--r-md);
+}
+.sim-req {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: var(--fs-xs); font-weight: 700;
+    padding: 4px 10px; border-radius: var(--r-pill);
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    transition: background var(--t-fast), color var(--t-fast), border-color var(--t-fast);
+}
+.sim-req i { font-size: .8rem; }
+.sim-req.met     { background: color-mix(in srgb, var(--cat-science)  12%, transparent); color: var(--cat-science);  border-color: color-mix(in srgb, var(--cat-science)  25%, transparent); }
+.sim-req.unmet   { background: color-mix(in srgb, var(--cat-medical)  10%, transparent); color: var(--cat-medical);  border-color: color-mix(in srgb, var(--cat-medical)  25%, transparent); }
+.sim-req.partial { background: color-mix(in srgb, var(--cat-business) 12%, transparent); color: var(--cat-business); border-color: color-mix(in srgb, var(--cat-business) 25%, transparent); }
+.sim-req.neutral { background: color-mix(in srgb, var(--primary)      8%,  transparent); color: var(--primary);      border-color: color-mix(in srgb, var(--primary)      20%, transparent); }
+
+/* ---- LMD badge on cards and catalog ---- */
+.wish-lmd, .cat-lmd {
+    display: inline-block;
+    font-size: .65rem; font-weight: 800; letter-spacing: .04em;
+    padding: 2px 6px; border-radius: 5px; margin-inline-start: 5px;
+    background: color-mix(in srgb, var(--primary) 12%, transparent);
+    color: var(--primary);
+    border: 1px solid color-mix(in srgb, var(--primary) 22%, transparent);
+    vertical-align: middle;
+}
+
+/* ---- toast notification ---- */
+.sim-toast {
+    position: fixed; bottom: var(--sp-6); left: 50%; transform: translateX(-50%) translateY(20px);
+    background: var(--text); color: var(--bg);
+    padding: var(--sp-3) var(--sp-5); border-radius: var(--r-pill);
+    font-size: var(--fs-sm); font-weight: 700;
+    box-shadow: var(--shadow-lg);
+    z-index: 500;
+    opacity: 0; transition: opacity .25s var(--ease), transform .25s var(--ease);
+    white-space: nowrap; pointer-events: none;
+}
+.sim-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ---- staggered card entrance ---- */
+.sim-col > .sim-card:nth-child(1) { animation-delay: 0ms; }
+.sim-col > .sim-card:nth-child(2) { animation-delay: 80ms; }
+.sim-col > .sim-card:nth-child(3) { animation-delay: 160ms; }
+.sim-side > .sim-card:nth-child(1) { animation-delay: 40ms; }
+.sim-side > .sim-card:nth-child(2) { animation-delay: 120ms; }
+.sim-side > .sim-card:nth-child(3) { animation-delay: 200ms; }
+
+/* ---- side catalog card color theme ---- */
+.sim-side .sim-card:nth-child(1) { --card-theme: var(--accent); }
+.sim-side .sim-card:nth-child(2) { --card-theme: var(--cat-science); }
+.sim-side .sim-card:nth-child(3) { --card-theme: var(--primary); }
+
+/* ---- reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+    .sim-card, .sim-hero, .wish-item { animation: none; transition: none; }
+    .sim-card:hover, .wish-item:hover { transform: none; }
+}
+
+/* ============================================================
+   GLASS LAYER — sim-card only (.sim-hero intentionally excluded)
+   ============================================================ */
+
+.sim-card {
+    background:
+        radial-gradient(circle at 10% 20%, rgba(44, 92, 197, 0.06) 0%, transparent 50%),
+        rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-color: rgba(44, 92, 197, 0.1);
+    box-shadow: 0 6px 30px rgba(44, 92, 197, 0.07), 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+.sim-card::after {
+    content: '';
+    position: absolute; bottom: -40px; right: -40px;
+    width: 150px; height: 150px; border-radius: 50%;
+    filter: blur(50px); z-index: 0; opacity: 0.08;
+    background: var(--card-theme, var(--primary));
+    pointer-events: none;
+    transition: opacity .5s ease;
+}
+.sim-card:hover {
+    border-color: rgba(44, 92, 197, 0.3);
+    box-shadow: 0 20px 40px rgba(44, 92, 197, 0.12);
+}
+.sim-card:hover::after { opacity: 0.15; }
+
+[data-theme="dark"] .sim-card {
+    background:
+        radial-gradient(circle at 10% 20%, rgba(44, 92, 197, 0.12) 0%, transparent 50%),
+        rgba(23, 29, 43, 0.90);
+    border-color: rgba(91, 134, 232, 0.12);
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.25);
+}
+[data-theme="dark"] .sim-card:hover {
+    border-color: rgba(91, 134, 232, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================================
+   SIM-HERO REDESIGN — icon, glass controls panel, display font
+   ============================================================ */
+
+/* -- Branded icon -- */
+.sim-hero-icon {
+    width: 52px; height: 52px;
+    background: var(--grad-brand);
+    border-radius: 14px;
+    display: grid; place-items: center;
+    color: #fff; font-size: 1.3rem;
+    box-shadow: 0 4px 16px color-mix(in srgb, var(--primary) 35%, transparent);
+    margin-bottom: var(--sp-3);
+    animation: rise var(--t-mid) 40ms var(--ease-out) both;
+}
+
+/* -- Controls: unified glass panel -- */
+.sim-controls {
+    gap: 0;
+    background: rgba(255, 255, 255, 0.80);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1.5px solid rgba(44, 92, 197, 0.13);
+    border-radius: var(--r-lg);
+    box-shadow: 0 4px 20px rgba(44, 92, 197, 0.09), 0 1px 4px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+    align-items: stretch;
+}
+
+/* -- Average input field -- */
+.sim-field {
+    align-items: center;
+    text-align: center;
+    padding: var(--sp-4) var(--sp-5);
+    gap: 4px;
+}
+.sim-field-label {
+    font-size: var(--fs-xs); font-weight: 700;
+    color: var(--text-faint);
+    display: flex; align-items: center; gap: 5px;
+    letter-spacing: 0.04em; text-transform: uppercase;
+    white-space: nowrap;
+}
+.sim-field-label i { color: var(--primary); font-size: .8rem; }
+.sim-field input {
+    font-family: var(--font-display);
+    font-size: var(--fs-2xl); font-weight: 800;
+    color: var(--primary);
+    background: transparent;
+    border: none; border-radius: 0;
+    padding: var(--sp-1) 0;
+    width: 108px; outline: none;
+    box-shadow: none;
+    transition: color var(--t-fast);
+}
+.sim-field input:focus {
+    color: var(--brand-blue-strong);
+    box-shadow: none;
+}
+.sim-field-range {
+    font-size: .68rem; color: var(--text-faint);
+    font-weight: 700; letter-spacing: 0.05em;
+    direction: ltr; display: block;
+}
+
+/* -- Vertical separator -- */
+.sim-controls-sep {
+    width: 1px; flex-shrink: 0; align-self: stretch;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(44, 92, 197, 0.15) 20%,
+        rgba(44, 92, 197, 0.15) 80%,
+        transparent 100%
+    );
+}
+
+/* -- Stream badge -- */
+.sim-stream-badge {
+    background: transparent;
+    border: none; border-radius: 0;
+    padding: var(--sp-4) var(--sp-5);
+}
+.sim-stream-ico {
+    width: 40px; height: 40px; border-radius: var(--r-md); flex-shrink: 0;
+    background: color-mix(in srgb, var(--primary) 10%, transparent);
+    color: var(--primary);
+    display: grid; place-items: center; font-size: 1.05rem;
+}
+.sim-stream-badge > i { display: none; } /* hide old bare icon if still in DOM */
+
+/* -- Dark mode -- */
+[data-theme="dark"] .sim-controls {
+    background: rgba(23, 29, 43, 0.82);
+    border-color: rgba(91, 134, 232, 0.15);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+[data-theme="dark"] .sim-field input { color: #7da4f0; }
+[data-theme="dark"] .sim-controls-sep {
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(91, 134, 232, 0.18) 20%,
+        rgba(91, 134, 232, 0.18) 80%,
+        transparent 100%
+    );
+}
+[data-theme="dark"] .sim-stream-ico {
+    background: color-mix(in srgb, var(--primary) 15%, transparent);
+}

@@ -1,0 +1,225 @@
+/* ============================================================
+   TAWJIHI — Dashboard FX  (motion + polish layer)
+   Loaded LAST. ADDITIVE only: entrance, hover micro-interactions,
+   countdown pulse, ring shimmer. No palette changes.
+   All colors are token-based; everything respects reduced-motion.
+   Owns: this file only.
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   1) KEYFRAMES
+   ------------------------------------------------------------ */
+@keyframes fx-rise {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fx-hero-rise {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+/* gradient sweep travelling across the card top border on hover */
+@keyframes fx-sweep {
+    from { background-position: 200% 0; }
+    to   { background-position: -200% 0; }
+}
+/* gentle "alive" pulse on the countdown numbers */
+@keyframes fx-cd-pulse {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.06); }
+}
+/* slow rotating soft glow behind the progress ring */
+@keyframes fx-ring-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ------------------------------------------------------------
+   2) STAGGERED ENTRANCE
+   Hero rises first; cards cascade. dashboard.css already runs a
+   `rise` animation on .dash-card — we re-declare a fast, subtle
+   entrance here (last stylesheet wins) and stagger via delays.
+   ------------------------------------------------------------ */
+.dash-hero {
+    animation: fx-hero-rise var(--t-slow) var(--ease-out) both;
+}
+
+.dash-card {
+    animation: fx-rise 480ms var(--ease-out) both;
+}
+.dash-grid > .dash-card:nth-child(1) { animation-delay: 80ms; }
+.dash-grid > .dash-card:nth-child(2) { animation-delay: 150ms; }
+.dash-grid > .dash-card:nth-child(3) { animation-delay: 220ms; }
+.dash-grid > .dash-card:nth-child(4) { animation-delay: 290ms; }
+.dash-grid > .dash-card:nth-child(5) { animation-delay: 360ms; }
+.dash-grid > .dash-card:nth-child(6) { animation-delay: 430ms; }
+
+/* inner spec cards get a tiny cascade of their own */
+.dash-spec-row .dash-spec-card { animation: fx-rise 460ms var(--ease-out) both; }
+.dash-spec-row .dash-spec-card:nth-child(1) { animation-delay: 260ms; }
+.dash-spec-row .dash-spec-card:nth-child(2) { animation-delay: 320ms; }
+.dash-spec-row .dash-spec-card:nth-child(3) { animation-delay: 380ms; }
+
+/* ------------------------------------------------------------
+   3) CARD HOVER — animated gradient sweep on the top border
+   We layer our own ::after strip on top of the existing ::before
+   accent (we do NOT touch ::before's colors). Uses --card-theme
+   which dashboard.css already exposes; falls back to --primary.
+   ------------------------------------------------------------ */
+.dash-card::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; left: 0;
+    height: 3.5px;
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        color-mix(in srgb, var(--card-theme, var(--primary)) 85%, white) 45%,
+        #fff 50%,
+        color-mix(in srgb, var(--card-theme, var(--primary)) 85%, white) 55%,
+        transparent 100%
+    );
+    background-size: 200% 100%;
+    transition: opacity var(--t-fast) var(--ease);
+}
+.dash-card:hover::after {
+    opacity: .9;
+    animation: fx-sweep 1.6s var(--ease) infinite;
+}
+
+/* medallion/icon pop in the advisor nudges */
+.dash-nudge-ico {
+    transition: transform var(--t-mid) var(--ease-out);
+    will-change: transform;
+}
+.dash-nudge:hover .dash-nudge-ico {
+    transform: scale(1.12) rotate(-4deg);
+}
+
+/* arrow nudges a touch further (base already moves it -4px;
+   RTL → arrow points left, so push further left).
+   This refines, doesn't fight the base transition. */
+.dash-nudge:hover .dash-nudge-arrow {
+    transform: translateX(-7px);
+}
+
+/* spec-card lift gets a smoother ease (base lifts -3px) */
+.dash-spec-card {
+    transition: transform var(--t-mid) var(--ease-out),
+                box-shadow var(--t-mid) var(--ease-out);
+}
+
+/* card-head link arrow slides on hover (base already grows gap) */
+.dash-link i { transition: transform var(--t-fast) var(--ease); }
+.dash-link:hover i { transform: translateX(-4px); }
+
+/* fiche rows: subtle slide + grip reveal on hover */
+.dash-fiche li {
+    transition: transform var(--t-fast) var(--ease),
+                border-color var(--t-fast) var(--ease);
+}
+.dash-fiche li:not(.dash-fiche-more):hover {
+    transform: translateX(-4px);
+    border-color: color-mix(in srgb, var(--primary) 30%, var(--border));
+}
+.dash-fiche-grip {
+    opacity: .45;
+    transition: opacity var(--t-fast) var(--ease), transform var(--t-fast) var(--ease);
+}
+.dash-fiche li:hover .dash-fiche-grip { opacity: 1; transform: scale(1.1); }
+
+/* eligibility rows: gentle inset highlight on hover */
+.dash-elig-list li {
+    transition: background var(--t-fast) var(--ease), padding-inline var(--t-fast) var(--ease);
+    border-radius: var(--r-sm);
+}
+.dash-elig-list li:hover {
+    background: color-mix(in srgb, var(--primary) 5%, transparent);
+    padding-inline: var(--sp-2);
+}
+
+/* profile chips: lift on hover */
+.dash-chip {
+    transition: transform var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease);
+}
+.dash-chip:hover { transform: translateY(-2px); }
+
+/* ------------------------------------------------------------
+   4) COUNTDOWN — gentle "alive" pulse
+   transform-only, so the existing text-gradient is untouched.
+   Seconds pulse every tick; larger units breathe slowly.
+   ------------------------------------------------------------ */
+.dash-cd-num {
+    display: inline-block;        /* allow transform on inline text */
+    transform-origin: center;
+    will-change: transform;
+}
+.dash-cd-num[data-cd="secs"] {
+    animation: fx-cd-pulse 1s var(--ease) infinite;
+}
+.dash-cd-num[data-cd="mins"],
+.dash-cd-num[data-cd="hours"],
+.dash-cd-num[data-cd="days"] {
+    animation: fx-cd-pulse 4s var(--ease) infinite;
+}
+/* tiny lift on the whole unit when hovering the timer */
+.dash-cd-unit { transition: transform var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease); }
+.dash-card-countdown:hover .dash-cd-unit { border-color: color-mix(in srgb, var(--primary) 25%, var(--border)); }
+
+/* ------------------------------------------------------------
+   5) PROGRESS RING — soft rotating glow (additive halo)
+   Sits behind the ring; uses --primary at low alpha so it never
+   clashes with the conic gradient the hero owns.
+   ------------------------------------------------------------ */
+.dash-ring { position: relative; isolation: isolate; }
+.dash-ring::after {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    z-index: -1;
+    border-radius: 50%;
+    background: conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        color-mix(in srgb, var(--primary) 35%, transparent) 80deg,
+        transparent 160deg,
+        transparent 360deg
+    );
+    filter: blur(6px);
+    opacity: .7;
+    animation: fx-ring-spin 6s linear infinite;
+}
+
+/* ------------------------------------------------------------
+   6) REDUCED MOTION GUARD
+   tokens.css has a global rule; we add our own explicit guard and
+   neutralise hover transforms so nothing moves for these users.
+   ------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+    .dash-hero,
+    .dash-card,
+    .dash-spec-row .dash-spec-card,
+    .dash-cd-num,
+    .dash-ring::after,
+    .dash-card::after {
+        animation: none !important;
+        transition: none !important;
+    }
+    .dash-card,
+    .dash-hero,
+    .dash-spec-row .dash-spec-card {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+    .dash-card::after { opacity: 0 !important; }
+    .dash-ring::after { display: none; }
+    .dash-nudge:hover .dash-nudge-ico,
+    .dash-nudge:hover .dash-nudge-arrow,
+    .dash-link:hover i,
+    .dash-fiche li:hover,
+    .dash-chip:hover,
+    .dash-cd-num {
+        transform: none !important;
+    }
+}

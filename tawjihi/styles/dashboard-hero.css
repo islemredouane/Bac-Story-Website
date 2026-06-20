@@ -1,0 +1,213 @@
+/* ============================================================
+   Tawjihi · Dashboard HERO — PREMIUM overrides
+   Owns ONLY the .dash-hero section. Theme-token based,
+   works in both light and dark mode. Loaded after dashboard.css.
+   ============================================================ */
+
+/* ---- Banner --------------------------------------------------- */
+.dash-hero {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.75rem;
+    padding: 1.85rem 2rem;
+    border-radius: 20px;
+    overflow: hidden;
+    /* tinted brand surface that reads on light AND dark */
+    background:
+        radial-gradient(120% 140% at 100% 0%,
+            color-mix(in srgb, var(--primary) 12%, transparent) 0%,
+            transparent 55%),
+        radial-gradient(120% 160% at 0% 100%,
+            color-mix(in srgb, var(--accent) 9%, transparent) 0%,
+            transparent 50%),
+        var(--surface);
+    border: 1px solid color-mix(in srgb, var(--primary) 14%, var(--border));
+    box-shadow: var(--shadow-md);
+}
+
+/* thin gradient top accent */
+.dash-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 3.5px;
+    background: linear-gradient(90deg, transparent, var(--primary));
+}
+
+/* ---- Text column --------------------------------------------- */
+.dash-hero-text {
+    min-width: 0;
+    flex: 1 1 auto;
+}
+
+.dash-hero-text h1 {
+    margin: 0 0 .5rem;
+    font-size: clamp(1.6rem, 1.1rem + 1.6vw, 2.25rem);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -.01em;
+    color: var(--text);
+}
+
+/* subtle gradient-clip on the name only */
+.dash-hero-text h1 #userName {
+    background: var(--grad-brand);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: var(--primary); /* fallback */
+}
+
+.dash-hero-text p {
+    margin: 0 0 1.1rem;
+    max-width: 56ch;
+    color: var(--text-muted);
+    font-size: .98rem;
+    line-height: 1.7;
+}
+
+/* ---- Chips ---------------------------------------------------- */
+.dash-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .55rem;
+    align-items: center;
+}
+
+.dash-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: .45rem;
+    padding: .42rem .85rem;
+    border-radius: 999px;
+    font-size: .85rem;
+    font-weight: 600;
+    line-height: 1;
+    color: var(--text);
+    background: color-mix(in srgb, var(--primary) 10%, var(--surface));
+    border: 1px solid color-mix(in srgb, var(--primary) 22%, transparent);
+    transition: transform .18s ease, box-shadow .18s ease,
+                background-color .18s ease, border-color .18s ease;
+}
+
+.dash-chip i {
+    color: var(--primary);
+    font-size: .82em;
+}
+
+.dash-chip:hover {
+    transform: translateY(-1px);
+    background: color-mix(in srgb, var(--primary) 16%, var(--surface));
+    box-shadow: var(--shadow-md);
+}
+
+/* edit chip — distinct ghost / outline pill */
+.dash-chip.dash-chip-edit {
+    color: var(--primary);
+    background: transparent;
+    border: 1px solid color-mix(in srgb, var(--primary) 40%, var(--border));
+    text-decoration: none;
+}
+
+.dash-chip.dash-chip-edit i {
+    color: var(--primary);
+}
+
+.dash-chip.dash-chip-edit:hover {
+    transform: translateY(-1px);
+    color: var(--on-primary, #fff);
+    background: var(--primary);
+    border-color: var(--primary);
+    box-shadow: 0 6px 18px color-mix(in srgb, var(--primary) 35%, transparent);
+}
+
+.dash-chip.dash-chip-edit:hover i {
+    color: inherit;
+}
+
+/* ---- Progress ring ------------------------------------------- */
+.dash-progress-ring {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .7rem;
+}
+
+.dash-ring {
+    --ring-pct: 80%;
+    --ring-size: 128px;
+    --ring-thick: 12px;
+    position: relative;
+    width: var(--ring-size);
+    height: var(--ring-size);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    /* real conic-gradient donut */
+    background:
+        conic-gradient(
+            var(--primary) 0,
+            color-mix(in srgb, var(--primary) 60%, var(--accent)) var(--ring-pct),
+            var(--surface-2) 0
+        );
+    box-shadow:
+        0 0 0 1px color-mix(in srgb, var(--primary) 18%, transparent),
+        0 8px 26px color-mix(in srgb, var(--primary) 28%, transparent);
+}
+
+/* inner cutout -> donut */
+.dash-ring::before {
+    content: "";
+    position: absolute;
+    inset: var(--ring-thick);
+    border-radius: 50%;
+    background: var(--surface);
+    box-shadow: inset 0 1px 3px color-mix(in srgb, var(--text) 8%, transparent);
+}
+
+.dash-ring-num {
+    position: relative;
+    z-index: 1;
+    font-size: 1.85rem;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--text);
+    letter-spacing: -.02em;
+}
+
+.dash-ring-num small {
+    font-size: .55em;
+    font-weight: 700;
+    margin-inline-start: .08em;
+    color: var(--primary);
+    vertical-align: super;
+}
+
+.dash-ring-label {
+    font-size: .85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+/* ---- Responsive: stack on mobile ----------------------------- */
+@media (max-width: 700px) {
+    .dash-hero {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: start;
+        padding: 1.5rem 1.35rem;
+        gap: 1.5rem;
+    }
+
+    .dash-progress-ring {
+        align-self: center;
+    }
+
+    .dash-hero-text p {
+        margin-bottom: 1rem;
+    }
+}

@@ -1,0 +1,625 @@
+/* ============================================================
+   TAWJIHI — Shared specialty catalog (single source of truth)
+   Used by: specialities.html, speciality.html, simulator.js,
+            dashboard.html
+   ============================================================ */
+const TW_CATALOG = [
+  {
+    id: 'esi', name: 'إعلام آلي', nameEn: 'Informatique – ESI',
+    subtitle: 'هندسة وتكنولوجيا', subtitleIcon: 'fa-laptop-code',
+    cat: 'engineering', catVar: 'var(--cat-engineering)', lmd: false,
+    avg: 13.50, minAvg: 10.90,
+    streamCodes: ['math','techmath','sciexp'],
+    streams: ['رياضيات','تقني رياضي','علوم تجريبية'],
+    duration: '3 إلى 5 سنوات', language: 'فرنسية + إنجليزية',
+    degree: 'ليسانس / مهندس دولة', demand: 'مرتفع جداً',
+    img: 'images/esi.jpeg', location: 'ESI · الجزائر العاصمة',
+    description: [
+      'تخصص الإعلام الآلي يدرس البرمجة، الخوارزميات، قواعد البيانات، الشبكات وهندسة البرمجيات. يجمع بين الجانب النظري الرياضي والجانب التطبيقي العملي.',
+      'يُدرَّس في الجامعات (ليسانس LMD) وفي المدارس العليا (مسار مهندس دولة). تختلف معدلات القبول بشكل كبير بين المسارين.',
+    ],
+    avgHistory: [
+      { uni: 'ESI (المدرسة العليا للإعلام الآلي)', y2024: 13.10, y2025: 13.50 },
+      { uni: 'ESTIN · بجاية', y2024: 14.90, y2025: 15.20 },
+      { uni: 'ليسانس إعلام آلي (جامعة LMD)', y2024: 11.20, y2025: 10.90 },
+    ],
+    unis: [
+      { abbr: 'ESI',   name: 'المدرسة العليا للإعلام الآلي',                         location: 'وادي السمار · الجزائر', avg: 13.50 },
+      { abbr: 'ENSIA', name: 'المدرسة الوطنية العليا للذكاء الاصطناعي',              location: 'سيدي عبد الله · الجزائر', avg: 16.80 },
+      { abbr: 'ESTIN', name: 'المدرسة العليا في علوم وتكنولوجيات الإعلام الآلي',   location: 'أميزور · بجاية', avg: 15.20 },
+      { abbr: 'USTHB', name: 'جامعة هواري بومدين للعلوم والتكنولوجيا',              location: 'باب الزوار · الجزائر', avg: 11.40 },
+    ],
+    conditions: [
+      'الحصول على شهادة البكالوريا في إحدى الشعب المؤهلة.',
+      'معدل مادتي الرياضيات والفيزياء يُؤخذ بعين الاعتبار في ترتيب المدارس العليا.',
+      'المدارس العليا تعتمد على الترتيب الوطني والمعدل المرجّح، وليس فقط معدل البكالوريا.',
+      'لا مقابلة شخصية — التوجيه يتم آلياً عبر بطاقة الرغبات.',
+    ],
+    careers: [
+      {icon:'fa-code',label:'مطوّر برمجيات'},{icon:'fa-database',label:'محلّل بيانات'},
+      {icon:'fa-shield-halved',label:'أمن سيبراني'},{icon:'fa-network-wired',label:'مهندس شبكات'},
+      {icon:'fa-mobile-screen',label:'تطوير تطبيقات'},{icon:'fa-brain',label:'ذكاء اصطناعي'},
+      {icon:'fa-cloud',label:'هندسة سحابية'},{icon:'fa-rocket',label:'ريادة أعمال تقنية'},
+    ],
+  },
+  {
+    id: 'ensia', name: 'ذكاء اصطناعي', nameEn: 'Intelligence Artificielle – ENSIA',
+    subtitle: 'هندسة وتكنولوجيا', subtitleIcon: 'fa-brain',
+    cat: 'engineering', catVar: 'var(--cat-engineering)', lmd: false,
+    avg: 17.10, minAvg: 16.50,
+    streamCodes: ['math','techmath'],
+    streams: ['رياضيات','تقني رياضي'],
+    duration: '5 سنوات', language: 'فرنسية + إنجليزية',
+    degree: 'مهندس دولة', demand: 'مرتفع جداً',
+    img: 'images/ensia.jpg', location: 'ENSIA · سيدي عبد الله',
+    description: [
+      'ENSIA هي المدرسة الوطنية العليا للذكاء الاصطناعي، أُسِّست لتأهيل مهندسين متخصصين في الذكاء الاصطناعي، تعلم الآلة، وعلم البيانات.',
+      'تتميز بمنهج متطور يجمع الرياضيات العميقة والبرمجة والتطبيقات الذكية. تُعدّ من أصعب المدارس دخولاً في الجزائر.',
+    ],
+    avgHistory: [
+      { uni: 'ENSIA · سيدي عبد الله', y2024: 16.80, y2025: 17.10 },
+    ],
+    unis: [
+      { abbr: 'ENSIA', name: 'المدرسة الوطنية العليا للذكاء الاصطناعي', location: 'سيدي عبد الله · الجزائر', avg: 17.10 },
+    ],
+    conditions: [
+      'شعبة رياضيات أو تقني رياضي فقط.',
+      'ترتيب وطني مرتفع جداً — عادةً أعلى 1٪ من المترتبين.',
+      'أولوية لمعدلات الرياضيات والفيزياء والعلوم.',
+      'لا مقابلة — التوجيه آلي عبر بطاقة الرغبات.',
+    ],
+    careers: [
+      {icon:'fa-brain',label:'مهندس ذكاء اصطناعي'},{icon:'fa-chart-line',label:'عالم بيانات'},
+      {icon:'fa-robot',label:'باحث تعلم آلة'},{icon:'fa-eye',label:'رؤية حاسوبية'},
+      {icon:'fa-language',label:'معالجة لغة طبيعية'},{icon:'fa-rocket',label:'ريادة أعمال AI'},
+    ],
+  },
+  {
+    id: 'estin', name: 'علوم وتكنولوجيا الإعلام الآلي', nameEn: 'Informatique & Tech – ESTIN',
+    subtitle: 'هندسة وتكنولوجيا', subtitleIcon: 'fa-microchip',
+    cat: 'engineering', catVar: 'var(--cat-engineering)', lmd: false,
+    avg: 15.40, minAvg: 14.50,
+    streamCodes: ['math','techmath','sciexp'],
+    streams: ['رياضيات','تقني رياضي','علوم تجريبية'],
+    duration: '5 سنوات', language: 'فرنسية + إنجليزية',
+    degree: 'مهندس دولة', demand: 'مرتفع',
+    img: 'images/estin.jpg', location: 'ESTIN · أميزور، بجاية',
+    description: [
+      'ESTIN مدرسة عليا في علوم وتكنولوجيات الإعلام الآلي والرقمنة بأميزور ولاية بجاية. تُكوّن مهندسين في الإعلام الآلي، الرقمنة، والأنظمة الذكية.',
+      'تتميز بموقعها في المنطقة الشرقية وبمستوى علمي عالٍ يقترب من ESI.',
+    ],
+    avgHistory: [
+      { uni: 'ESTIN · بجاية', y2024: 14.90, y2025: 15.40 },
+    ],
+    unis: [
+      { abbr: 'ESTIN', name: 'المدرسة العليا في علوم وتكنولوجيات الإعلام الآلي', location: 'أميزور · بجاية', avg: 15.40 },
+    ],
+    conditions: [
+      'شعبة رياضيات، تقني رياضي، أو علوم تجريبية.',
+      'أولوية لمعدلات الرياضيات والفيزياء.',
+      'التوجيه آلي عبر بطاقة الرغبات.',
+    ],
+    careers: [
+      {icon:'fa-code',label:'مطوّر برمجيات'},{icon:'fa-network-wired',label:'مهندس أنظمة'},
+      {icon:'fa-cloud',label:'هندسة سحابية'},{icon:'fa-shield-halved',label:'أمن معلوماتي'},
+      {icon:'fa-database',label:'هندسة بيانات'},{icon:'fa-mobile-screen',label:'تطوير تطبيقات'},
+    ],
+  },
+  {
+    id: 'med', name: 'طب', nameEn: 'Médecine',
+    subtitle: 'طب وصحة', subtitleIcon: 'fa-stethoscope',
+    cat: 'medical', catVar: 'var(--cat-medical)', lmd: true,
+    avg: 16.80, minAvg: 15.50,
+    streamCodes: ['sciexp','math'],
+    streams: ['علوم تجريبية','رياضيات'],
+    duration: '7 سنوات (طبيب عام)', language: 'فرنسية',
+    degree: 'دكتوراه في الطب', demand: 'مرتفع جداً',
+    img: 'images/medecine.jpeg', location: 'كليات الطب عبر الوطن',
+    description: [
+      'دراسة الطب في الجزائر تمتد من 7 سنوات للطبيب العام إلى 11 سنة للتخصص الجراحي. تُدرَّس باللغة الفرنسية وتتطلب مستوى علمياً عالياً.',
+      'من أعلى التخصصات معدلاً للقبول، وتتوفر كلياتها في معظم ولايات الجزائر.',
+    ],
+    avgHistory: [
+      { uni: 'جامعة الجزائر 1', y2024: 16.50, y2025: 16.80 },
+      { uni: 'جامعة قسنطينة 3', y2024: 16.20, y2025: 16.50 },
+      { uni: 'جامعة وهران 1',   y2024: 15.80, y2025: 16.10 },
+    ],
+    unis: [
+      { abbr: 'UA1',   name: 'جامعة الجزائر 1 بن يوسف بن خدة',      location: 'الجزائر', avg: 16.80 },
+      { abbr: 'UCA3',  name: 'جامعة قسنطينة 3 صالح بوبنيدر',         location: 'قسنطينة', avg: 16.50 },
+      { abbr: 'UO1',   name: 'جامعة وهران 1 أحمد بن بلة',            location: 'وهران',   avg: 16.10 },
+      { abbr: 'UFAS1', name: 'جامعة فرحات عباس سطيف 1',              location: 'سطيف',    avg: 16.40 },
+    ],
+    conditions: [
+      'شعبة علوم تجريبية أو رياضيات بأولوية كاملة.',
+      'معدل مرتفع مع أهمية كبيرة لمواد العلوم الطبيعية والفيزياء.',
+      'التوجيه آلي — اختر الولاية والجامعة المفضلة في بطاقة الرغبات.',
+      'لا مقابلة شخصية.',
+    ],
+    careers: [
+      {icon:'fa-user-doctor',label:'طبيب عام'},{icon:'fa-heart-pulse',label:'طبيب متخصص'},
+      {icon:'fa-hospital',label:'طب المستشفيات'},{icon:'fa-microscope',label:'طب المختبر'},
+      {icon:'fa-globe',label:'العمل في الخارج'},{icon:'fa-graduation-cap',label:'التدريس الجامعي'},
+    ],
+  },
+  {
+    id: 'pharm', name: 'صيدلة', nameEn: 'Pharmacie',
+    subtitle: 'طب وصحة', subtitleIcon: 'fa-pills',
+    cat: 'medical', catVar: 'var(--cat-medical)', lmd: true,
+    avg: 15.10, minAvg: 14.00,
+    streamCodes: ['sciexp','math'],
+    streams: ['علوم تجريبية','رياضيات'],
+    duration: '6 سنوات', language: 'فرنسية',
+    degree: 'دكتوراه في الصيدلة', demand: 'مرتفع',
+    img: 'images/pharmacie.jpeg', location: 'كليات الصيدلة عبر الوطن',
+    description: [
+      'الصيدلة علم يدرس الأدوية: تركيبها، تصنيعها، وآليات عملها في الجسم. الدراسة 6 سنوات باللغة الفرنسية.',
+      'تفتح أمام حاملها أبواب الصيدليات الخاصة، الصناعة الدوائية، والبحث العلمي.',
+    ],
+    avgHistory: [
+      { uni: 'جامعة الجزائر 1', y2024: 15.00, y2025: 15.30 },
+      { uni: 'جامعة قسنطينة 3', y2024: 14.80, y2025: 15.10 },
+    ],
+    unis: [
+      { abbr: 'UA1',  name: 'جامعة الجزائر 1', location: 'الجزائر', avg: 15.30 },
+      { abbr: 'UCA3', name: 'جامعة قسنطينة 3', location: 'قسنطينة', avg: 15.10 },
+      { abbr: 'UO1',  name: 'جامعة وهران 1',   location: 'وهران',   avg: 14.60 },
+    ],
+    conditions: [
+      'شعبة علوم تجريبية بأولوية، رياضيات مقبول.',
+      'معدل في العلوم الطبيعية والكيمياء مهم للترتيب.',
+      'التوجيه آلي عبر بطاقة الرغبات.',
+    ],
+    careers: [
+      {icon:'fa-pills',label:'صيدلاني عام'},{icon:'fa-flask',label:'صناعة دوائية'},
+      {icon:'fa-microscope',label:'بحث علمي'},{icon:'fa-hospital',label:'صيدلة مستشفيات'},
+      {icon:'fa-chart-line',label:'تسويق دوائي'},
+    ],
+  },
+  {
+    id: 'dent', name: 'طب الأسنان', nameEn: 'Médecine dentaire',
+    subtitle: 'طب وصحة', subtitleIcon: 'fa-tooth',
+    cat: 'medical', catVar: 'var(--cat-medical)', lmd: true,
+    avg: 14.60, minAvg: 13.50,
+    streamCodes: ['sciexp','math'],
+    streams: ['علوم تجريبية','رياضيات'],
+    duration: '6 سنوات', language: 'فرنسية',
+    degree: 'دكتوراه في طب الأسنان', demand: 'مرتفع',
+    img: 'images/medecine.jpeg', location: 'كليات طب الأسنان عبر الوطن',
+    description: [
+      'طب الأسنان تخصص يدمج الطب والجراحة في منطقة الفم والأسنان والوجه. الدراسة 6 سنوات باللغة الفرنسية.',
+      'يُتيح للخريج فتح عيادة خاصة أو العمل في القطاع الصحي الحكومي.',
+    ],
+    avgHistory: [
+      { uni: 'جامعة الجزائر', y2024: 14.30, y2025: 14.60 },
+      { uni: 'جامعة قسنطينة 3', y2024: 14.00, y2025: 14.30 },
+    ],
+    unis: [
+      { abbr: 'UA1',  name: 'جامعة الجزائر 1',  location: 'الجزائر', avg: 14.60 },
+      { abbr: 'UCA3', name: 'جامعة قسنطينة 3',  location: 'قسنطينة', avg: 14.30 },
+      { abbr: 'UO1',  name: 'جامعة وهران 1',    location: 'وهران',   avg: 13.90 },
+    ],
+    conditions: [
+      'شعبة علوم تجريبية أو رياضيات.',
+      'معدل في مواد العلوم الطبيعية والكيمياء.',
+      'التوجيه آلي عبر بطاقة الرغبات.',
+    ],
+    careers: [
+      {icon:'fa-tooth',label:'طبيب أسنان عام'},{icon:'fa-hospital',label:'تجميل الأسنان'},
+      {icon:'fa-user-doctor',label:'جراح الفكين'},{icon:'fa-graduation-cap',label:'تدريس جامعي'},
+    ],
+  },
+  {
+    id: 'archi', name: 'هندسة معمارية', nameEn: 'Architecture – EPAU',
+    subtitle: 'هندسة وإبداع', subtitleIcon: 'fa-drafting-compass',
+    cat: 'engineering', catVar: 'var(--cat-engineering)', lmd: false,
+    avg: 14.30, minAvg: 13.00,
+    streamCodes: ['math','techmath','sciexp'],
+    streams: ['رياضيات','تقني رياضي','علوم تجريبية'],
+    duration: '5 سنوات', language: 'عربية + فرنسية',
+    degree: 'مهندس معماري', demand: 'متوسط',
+    img: 'images/epau.png', location: 'EPAU · الجزائر العاصمة',
+    description: [
+      'الهندسة المعمارية تجمع الفن والعلم والتقنية لتصميم المباني والفضاءات. تُدرَّس في EPAU بمدة 5 سنوات.',
+      'تتطلب موهبة إبداعية وقدرة تحليلية. تُدرَّس بالعربية والفرنسية.',
+    ],
+    avgHistory: [
+      { uni: 'EPAU · الجزائر', y2024: 14.00, y2025: 14.30 },
+      { uni: 'USTO · وهران',   y2024: 13.00, y2025: 13.20 },
+    ],
+    unis: [
+      { abbr: 'EPAU', name: 'المدرسة المتعددة التقنيات للهندسة المعمارية والعمران', location: 'الجزائر', avg: 14.30 },
+      { abbr: 'USTO', name: 'جامعة وهران للعلوم والتكنولوجيا', location: 'وهران', avg: 13.20 },
+    ],
+    conditions: [
+      'شعبة رياضيات، تقني رياضي، أو علوم تجريبية.',
+      'معدل معقول في الرياضيات والرسم التقني.',
+      'EPAU: ترتيب وطني.',
+    ],
+    careers: [
+      {icon:'fa-drafting-compass',label:'مهندس معماري'},{icon:'fa-city',label:'تخطيط عمراني'},
+      {icon:'fa-hard-hat',label:'إشراف بناء'},{icon:'fa-paint-brush',label:'تصميم داخلي'},
+      {icon:'fa-leaf',label:'عمارة خضراء'},
+    ],
+  },
+  {
+    id: 'info', name: 'إعلام آلي (LMD)', nameEn: 'Informatique – Université',
+    subtitle: 'علوم ورياضيات', subtitleIcon: 'fa-computer',
+    cat: 'engineering', catVar: 'var(--cat-engineering)', lmd: true,
+    avg: 10.90, minAvg: 10.00,
+    streamCodes: ['math','techmath','sciexp'],
+    streams: ['رياضيات','تقني رياضي','علوم تجريبية'],
+    duration: '3 سنوات (ليسانس) / 5 سنوات (ماستر)', language: 'فرنسية + عربية',
+    degree: 'ليسانس ثم ماستر', demand: 'مرتفع',
+    img: 'images/esi.jpeg', location: 'جامعات عبر الوطن',
+    description: [
+      'ليسانس الإعلام الآلي في الجامعات العادية يغطي البرمجة، الخوارزميات وهندسة البرمجيات في 3 سنوات، يتبعها ماستر تخصصي.',
+      'أقل انتقائية من المدارس العليا لكن تفتح نفس الآفاق المهنية إذا اكتسب الطالب مهارات إضافية.',
+    ],
+    avgHistory: [
+      { uni: 'USTHB باب الزوار',    y2024: 11.20, y2025: 10.90 },
+      { uni: 'جامعة قسنطينة 2',     y2024: 11.00, y2025: 11.20 },
+    ],
+    unis: [
+      { abbr: 'USTHB', name: 'جامعة هواري بومدين',   location: 'باب الزوار · الجزائر', avg: 10.90 },
+      { abbr: 'UCA2',  name: 'جامعة قسنطينة 2',      location: 'قسنطينة', avg: 11.20 },
+      { abbr: 'UO1',   name: 'جامعة وهران 1',         location: 'وهران',   avg: 10.50 },
+    ],
+    conditions: [
+      'شعبة رياضيات، تقني رياضي، أو علوم تجريبية.',
+      'معدل باكالوريا معقول — الانتقاء أقل صرامة من المدارس العليا.',
+    ],
+    careers: [
+      {icon:'fa-code',label:'مطوّر برمجيات'},{icon:'fa-database',label:'مدير قواعد بيانات'},
+      {icon:'fa-network-wired',label:'مهندس شبكات'},{icon:'fa-mobile-screen',label:'مطوّر تطبيقات'},
+      {icon:'fa-chart-bar',label:'محلل أنظمة'},
+    ],
+  },
+  {
+    id: 'esc', name: 'علوم تجارية ومالية', nameEn: 'Commerce & Finance – ESC',
+    subtitle: 'اقتصاد وتسيير', subtitleIcon: 'fa-chart-line',
+    cat: 'business', catVar: 'var(--cat-business)', lmd: false,
+    avg: 14.00, minAvg: 12.50,
+    streamCodes: ['gestion','math','techmath','sciexp','lettres'],
+    streams: ['تسيير واقتصاد','رياضيات','تقني رياضي','علوم تجريبية','آداب وفلسفة'],
+    duration: '3 سنوات', language: 'عربية + فرنسية',
+    degree: 'ليسانس في العلوم التجارية', demand: 'متوسط',
+    img: 'images/esc.jpg', location: 'ESC · القليعة، الجزائر',
+    description: [
+      'المدرسة العليا للتجارة تُكوّن إطارات في التسيير، التسويق، المالية، والتجارة الدولية. تقع في القليعة ولاية الجزائر.',
+      'من أفضل المؤسسات في مجال الاقتصاد بالجزائر مع انتقائية معتدلة.',
+    ],
+    avgHistory: [
+      { uni: 'ESC · القليعة', y2024: 13.60, y2025: 14.00 },
+    ],
+    unis: [
+      { abbr: 'ESC', name: 'المدرسة العليا للتجارة', location: 'القليعة · الجزائر', avg: 14.00 },
+    ],
+    conditions: [
+      'مفتوح لشعب التسيير، الرياضيات، تقني رياضي، علوم تجريبية، والآداب.',
+      'أفضلية لشعبة التسيير والاقتصاد.',
+    ],
+    careers: [
+      {icon:'fa-briefcase',label:'مدير مشاريع'},{icon:'fa-chart-bar',label:'محلل مالي'},
+      {icon:'fa-store',label:'مدير تسويق'},{icon:'fa-handshake',label:'تجارة دولية'},
+      {icon:'fa-building-columns',label:'مصرفية'},{icon:'fa-rocket',label:'ريادة أعمال'},
+    ],
+  },
+  {
+    id: 'eco', name: 'علوم اقتصادية وتسيير', nameEn: 'Sciences Économiques',
+    subtitle: 'اقتصاد وتسيير', subtitleIcon: 'fa-chart-pie',
+    cat: 'business', catVar: 'var(--cat-business)', lmd: true,
+    avg: 11.20, minAvg: 10.00,
+    streamCodes: ['gestion','math','techmath','sciexp','lettres','langues'],
+    streams: ['تسيير واقتصاد','رياضيات','تقني رياضي','علوم تجريبية','آداب وفلسفة','لغات أجنبية'],
+    duration: '3 سنوات (ليسانس) / 5 سنوات (ماستر)', language: 'عربية + فرنسية',
+    degree: 'ليسانس ثم ماستر', demand: 'متوسط',
+    img: 'images/esc.jpg', location: 'جامعات عبر الوطن',
+    description: [
+      'العلوم الاقتصادية والتسيير من أوسع التخصصات في الجزائر. تشمل الاقتصاد الكلي والجزئي، المحاسبة، التسيير، والمالية.',
+      'مفتوحة لجميع الشعب تقريباً وتتوفر في كل الجامعات الجزائرية.',
+    ],
+    avgHistory: [
+      { uni: 'متوسط وطني', y2024: 11.00, y2025: 11.20 },
+    ],
+    unis: [
+      { abbr: 'UABM', name: 'جامعة أبو بكر بلقايد', location: 'تلمسان',   avg: 11.20 },
+      { abbr: 'UCA2', name: 'جامعة قسنطينة 2',       location: 'قسنطينة', avg: 11.00 },
+    ],
+    conditions: [
+      'مفتوح لجميع الشعب.',
+      'يُقبل الطلاب حسب الترتيب والرغبة.',
+    ],
+    careers: [
+      {icon:'fa-chart-bar',label:'محاسب قانوني'},{icon:'fa-building-columns',label:'موظف بنكي'},
+      {icon:'fa-briefcase',label:'مستشار مالي'},{icon:'fa-file-invoice',label:'مدقق حسابات'},
+      {icon:'fa-graduation-cap',label:'أستاذ اقتصاد'},
+    ],
+  },
+  {
+    id: 'bio', name: 'علوم الطبيعة والحياة', nameEn: 'Biologie',
+    subtitle: 'علوم طبيعية', subtitleIcon: 'fa-dna',
+    cat: 'science', catVar: 'var(--cat-science)', lmd: true,
+    avg: 11.00, minAvg: 10.00,
+    streamCodes: ['sciexp'],
+    streams: ['علوم تجريبية'],
+    duration: '3 سنوات (ليسانس) / 5 سنوات (ماستر)', language: 'عربية + فرنسية',
+    degree: 'ليسانس ثم ماستر', demand: 'متوسط',
+    img: 'images/biologie.jpeg', location: 'جامعات عبر الوطن',
+    description: [
+      'علوم الطبيعة والحياة تدرس الكائنات الحية، البيئة، الكيمياء الحيوية والجينات. تُدرَّس في معظم الجامعات الجزائرية.',
+      'تُفتح أمام حاملها أبواب البحث العلمي، الصحة البيئية، الغذاء، أو التدريس.',
+    ],
+    avgHistory: [
+      { uni: 'جامعة عنابة',        y2024: 11.00, y2025: 11.00 },
+      { uni: 'جامعة قسنطينة 1',   y2024: 10.80, y2025: 11.20 },
+    ],
+    unis: [
+      { abbr: 'UBMA', name: 'جامعة باجي مختار عنابة',    location: 'عنابة',    avg: 11.00 },
+      { abbr: 'UCA1', name: 'جامعة منتوري قسنطينة 1',    location: 'قسنطينة', avg: 11.20 },
+    ],
+    conditions: [
+      'شعبة علوم تجريبية فقط.',
+      'معدل باكالوريا معقول.',
+    ],
+    careers: [
+      {icon:'fa-dna',label:'باحث جيني'},{icon:'fa-leaf',label:'بيئي'},
+      {icon:'fa-flask',label:'محلل مختبر'},{icon:'fa-chalkboard-user',label:'أستاذ علوم'},
+      {icon:'fa-wheat-awn',label:'علوم غذائية'},
+    ],
+  },
+  {
+    id: 'math', name: 'رياضيات', nameEn: 'Mathématiques',
+    subtitle: 'علوم رياضية', subtitleIcon: 'fa-square-root-variable',
+    cat: 'science', catVar: 'var(--cat-science)', lmd: true,
+    avg: 12.10, minAvg: 11.00,
+    streamCodes: ['math','techmath'],
+    streams: ['رياضيات','تقني رياضي'],
+    duration: '3 سنوات (ليسانس) / 5 سنوات (ماستر)', language: 'عربية + فرنسية',
+    degree: 'ليسانس ثم ماستر', demand: 'متوسط',
+    img: 'images/math.jpeg', location: 'جامعات عبر الوطن',
+    description: [
+      'ليسانس الرياضيات يُدرّس الجبر، التحليل، الرياضيات التطبيقية والإحصاء. بوابة للدكتوراه والبحث العلمي.',
+      'يمكن لخريجيه التوجه للتعليم، الإحصاء التطبيقي، أو القطاع المالي والتأميني.',
+    ],
+    avgHistory: [
+      { uni: 'جامعة قسنطينة 1', y2024: 11.80, y2025: 12.10 },
+    ],
+    unis: [
+      { abbr: 'UCA1', name: 'جامعة منتوري قسنطينة 1', location: 'قسنطينة', avg: 12.10 },
+      { abbr: 'UA3',  name: 'جامعة الجزائر 3',          location: 'الجزائر', avg: 12.00 },
+    ],
+    conditions: [
+      'شعبة رياضيات أو تقني رياضي.',
+      'معدل جيد في الرياضيات والعلوم.',
+    ],
+    careers: [
+      {icon:'fa-chalkboard-user',label:'أستاذ رياضيات'},{icon:'fa-graduation-cap',label:'باحث جامعي'},
+      {icon:'fa-chart-line',label:'محلل إحصائي'},{icon:'fa-building-columns',label:'أكتوار / تأمين'},
+      {icon:'fa-code',label:'مطوّر رياضي'},
+    ],
+  },
+  {
+    id: 'education', name: 'علوم التربية', nameEn: 'Sciences de l\'Éducation',
+    subtitle: 'تربية وتكوين', subtitleIcon: 'fa-chalkboard-user',
+    cat: 'education', catVar: 'var(--cat-science)', lmd: true,
+    avg: 11.00, minAvg: 10.00,
+    streamCodes: ['lettres','langues','sciexp','gestion'],
+    streams: ['آداب وفلسفة','لغات أجنبية','علوم تجريبية','تسيير واقتصاد'],
+    duration: '3 سنوات (ليسانس) / 5 سنوات (ماستر)', language: 'عربية',
+    degree: 'ليسانس ثم ماستر', demand: 'متوسط',
+    img: 'images/education.jpg', location: 'جامعات عبر الوطن',
+    description: [
+      'علوم التربية تدرس أسس التعليم والتكوين، علم النفس التربوي، وإدارة المؤسسات التعليمية.',
+      'يُمكّن حامله من العمل في التعليم، الإرشاد التربوي، وإدارة المؤسسات.',
+    ],
+    avgHistory: [
+      { uni: 'جامعة الجزائر 2 أبو القاسم سعد الله', y2024: 10.80, y2025: 11.00 },
+    ],
+    unis: [
+      { abbr: 'UA2', name: 'جامعة الجزائر 2 أبو القاسم سعد الله', location: 'الجزائر', avg: 11.00 },
+    ],
+    conditions: [
+      'مفتوح لشعب الآداب، اللغات، العلوم التجريبية، والتسيير.',
+      'لا شروط خاصة.',
+    ],
+    careers: [
+      {icon:'fa-chalkboard-user',label:'أستاذ'},{icon:'fa-brain',label:'مرشد تربوي'},
+      {icon:'fa-building-columns',label:'إدارة مدرسة'},{icon:'fa-book',label:'تصميم مناهج'},
+    ],
+  },
+  {
+    id: 'genie-civil', name: 'هندسة مدنية', nameEn: 'Génie Civil',
+    subtitle: 'هندسة وتكنولوجيا', subtitleIcon: 'fa-building',
+    cat: 'engineering', catVar: 'var(--cat-engineering)', lmd: true,
+    avg: 12.50, minAvg: 11.00, duration: '3 إلى 5 سنوات',
+    language: 'عربية + فرنسية', degree: 'ليسانس / ماستر',
+    demand: 'مرتفع', img: '',
+    location: 'USTHB · عدة جامعات',
+    description: [
+      'هندسة مدنية تجمع بين تصميم المنشآت والبنية التحتية — طرق، جسور، مبانٍ، وسدود.',
+      'تخصص مطلوب في القطاع العام والخاص، خاصةً في ظل مشاريع التطوير الوطني.'
+    ],
+    streams: ['رياضيات', 'تقني رياضي', 'علوم تجريبية'],
+    streamCodes: ['math', 'techmath', 'sciexp'],
+    conditions: ['شعبة رياضيات أو تقني رياضي بأولوية', 'معدل في الرياضيات والفيزياء'],
+    careers: [
+      { icon: 'fa-hard-hat', label: 'مهندس بناء' },
+      { icon: 'fa-road', label: 'هندسة طرق' },
+      { icon: 'fa-water', label: 'هندسة موارد مائية' },
+      { icon: 'fa-city', label: 'تخطيط عمراني' },
+      { icon: 'fa-industry', label: 'إشراف مشاريع' },
+    ],
+    avgHistory: [
+      { uni: 'USTHB', y2024: 12.30, y2025: 12.50 },
+      { uni: 'UCA2', y2024: 12.00, y2025: 12.20 },
+    ],
+    unis: [
+      { abbr: 'USTHB', name: 'جامعة هواري بومدين للعلوم والتكنولوجيا', location: 'الجزائر', avg: 12.50 },
+      { abbr: 'UCA2', name: 'جامعة قسنطينة 2', location: 'قسنطينة', avg: 12.20 },
+      { abbr: 'UO1', name: 'جامعة وهران 1', location: 'وهران', avg: 11.80 },
+    ],
+  },
+  {
+    id: 'genie-elec', name: 'هندسة كهربائية', nameEn: 'Génie Électrique',
+    subtitle: 'هندسة وتكنولوجيا', subtitleIcon: 'fa-bolt',
+    cat: 'engineering', catVar: 'var(--cat-engineering)', lmd: true,
+    avg: 13.00, minAvg: 11.50, duration: '3 إلى 5 سنوات',
+    language: 'عربية + فرنسية', degree: 'ليسانس / ماستر',
+    demand: 'مرتفع', img: '',
+    location: 'USTHB · جامعات عدة',
+    description: [
+      'الهندسة الكهربائية تغطي توليد الطاقة، الإلكترونيك، الأتمتة، ومعالجة الإشارات.',
+      'مطلوب في قطاعات الطاقة والصناعة والاتصالات.'
+    ],
+    streams: ['رياضيات', 'تقني رياضي'],
+    streamCodes: ['math', 'techmath'],
+    conditions: ['شعبة رياضيات أو تقني رياضي', 'معدل في الرياضيات والفيزياء'],
+    careers: [
+      { icon: 'fa-bolt', label: 'مهندس طاقة' },
+      { icon: 'fa-microchip', label: 'إلكترونيك' },
+      { icon: 'fa-network-wired', label: 'اتصالات' },
+      { icon: 'fa-robot', label: 'أتمتة صناعية' },
+      { icon: 'fa-solar-panel', label: 'طاقات متجددة' },
+    ],
+    avgHistory: [
+      { uni: 'USTHB', y2024: 12.80, y2025: 13.00 },
+      { uni: 'UO1', y2024: 12.40, y2025: 12.70 },
+    ],
+    unis: [
+      { abbr: 'USTHB', name: 'جامعة هواري بومدين', location: 'الجزائر', avg: 13.00 },
+      { abbr: 'UO1', name: 'جامعة وهران 1', location: 'وهران', avg: 12.70 },
+      { abbr: 'UCA1', name: 'جامعة قسنطينة 1', location: 'قسنطينة', avg: 12.50 },
+    ],
+  },
+  {
+    id: 'droit', name: 'دراسات قانونية', nameEn: 'Droit',
+    subtitle: 'قانون وعلوم سياسية', subtitleIcon: 'fa-scale-balanced',
+    cat: 'business', catVar: 'var(--cat-business)', lmd: true,
+    avg: 11.50, minAvg: 10.00, duration: '3 إلى 5 سنوات',
+    language: 'عربية + فرنسية', degree: 'ليسانس / ماستر',
+    demand: 'متوسط', img: '',
+    location: 'جامعات عدة',
+    description: [
+      'تعلّم القانون الجزائري والدولي — العقود، العمل، الأسرة، الشركات، والقضاء.',
+      'يفتح الباب لمهن القضاء والمحاماة والوظيف العمومي.'
+    ],
+    streams: ['آداب وفلسفة', 'تسيير واقتصاد', 'لغات أجنبية', 'علوم تجريبية', 'رياضيات'],
+    streamCodes: ['lettres', 'gestion', 'langues', 'sciexp', 'math'],
+    conditions: ['مفتوح لأغلب الشعب', 'تُفضَّل شعبة الآداب والتسيير'],
+    careers: [
+      { icon: 'fa-scale-balanced', label: 'محامٍ' },
+      { icon: 'fa-gavel', label: 'قاضٍ' },
+      { icon: 'fa-file-contract', label: 'مستشار قانوني' },
+      { icon: 'fa-building-columns', label: 'وظيف عمومي' },
+      { icon: 'fa-handshake', label: 'تحكيم تجاري' },
+    ],
+    avgHistory: [
+      { uni: 'UA2', y2024: 11.20, y2025: 11.50 },
+      { uni: 'UCA2', y2024: 11.00, y2025: 11.30 },
+    ],
+    unis: [
+      { abbr: 'UA2', name: 'جامعة الجزائر 2 أبو القاسم سعد الله', location: 'الجزائر', avg: 11.50 },
+      { abbr: 'UCA2', name: 'جامعة قسنطينة 2', location: 'قسنطينة', avg: 11.30 },
+      { abbr: 'UO1', name: 'جامعة وهران 1', location: 'وهران', avg: 11.20 },
+    ],
+  },
+  {
+    id: 'langues', name: 'لغة فرنسية', nameEn: 'Langue Française',
+    subtitle: 'آداب ولغات', subtitleIcon: 'fa-language',
+    cat: 'education', catVar: 'var(--cat-education)', lmd: true,
+    avg: 10.50, minAvg: 10.00, duration: '3 إلى 5 سنوات',
+    language: 'فرنسية', degree: 'ليسانس / ماستر',
+    demand: 'متوسط', img: '',
+    location: 'جامعات عدة',
+    description: [
+      'دراسة متعمقة للغة الفرنسية وآدابها — لغويات، ترجمة، وأدب مقارن.',
+      'يفتح مجالات التعليم والترجمة والصحافة والعمل الدبلوماسي.'
+    ],
+    streams: ['لغات أجنبية', 'آداب وفلسفة', 'تسيير واقتصاد'],
+    streamCodes: ['langues', 'lettres', 'gestion'],
+    conditions: ['أولوية لشعبة اللغات الأجنبية', 'مستوى جيد في الفرنسية'],
+    careers: [
+      { icon: 'fa-chalkboard-teacher', label: 'أستاذ فرنسية' },
+      { icon: 'fa-language', label: 'مترجم' },
+      { icon: 'fa-pen', label: 'صحفي' },
+      { icon: 'fa-globe', label: 'دبلوماسية' },
+      { icon: 'fa-book', label: 'ناشر' },
+    ],
+    avgHistory: [
+      { uni: 'UA2', y2024: 10.30, y2025: 10.50 },
+    ],
+    unis: [
+      { abbr: 'UA2', name: 'جامعة الجزائر 2', location: 'الجزائر', avg: 10.50 },
+      { abbr: 'UCA3', name: 'جامعة قسنطينة 3', location: 'قسنطينة', avg: 10.30 },
+    ],
+  },
+  {
+    id: 'psych', name: 'علم النفس', nameEn: 'Psychologie',
+    subtitle: 'علوم اجتماعية', subtitleIcon: 'fa-brain',
+    cat: 'science', catVar: 'var(--cat-science)', lmd: true,
+    avg: 11.00, minAvg: 10.00, duration: '3 إلى 5 سنوات',
+    language: 'عربية + فرنسية', degree: 'ليسانس / ماستر',
+    demand: 'متوسط', img: '',
+    location: 'جامعات عدة',
+    description: [
+      'دراسة السلوك الإنساني والعمليات الذهنية — علم نفس إكلينيكي، تربوي، وتنظيمي.',
+      'تخصص متنامٍ مع ازدياد الوعي بالصحة النفسية في الجزائر.'
+    ],
+    streams: ['آداب وفلسفة', 'علوم تجريبية', 'لغات أجنبية', 'تسيير واقتصاد'],
+    streamCodes: ['lettres', 'sciexp', 'langues', 'gestion'],
+    conditions: ['مفتوح لأغلب الشعب', 'أولوية للآداب والعلوم التجريبية'],
+    careers: [
+      { icon: 'fa-brain', label: 'معالج نفسي' },
+      { icon: 'fa-school', label: 'مستشار تربوي' },
+      { icon: 'fa-users', label: 'علم نفس تنظيمي' },
+      { icon: 'fa-hospital', label: 'إكلينيكي' },
+      { icon: 'fa-chalkboard', label: 'أستاذ باحث' },
+    ],
+    avgHistory: [
+      { uni: 'UA2', y2024: 10.80, y2025: 11.00 },
+      { uni: 'UCA3', y2024: 10.60, y2025: 10.80 },
+    ],
+    unis: [
+      { abbr: 'UA2', name: 'جامعة الجزائر 2', location: 'الجزائر', avg: 11.00 },
+      { abbr: 'UCA3', name: 'جامعة قسنطينة 3', location: 'قسنطينة', avg: 10.80 },
+      { abbr: 'UO2', name: 'جامعة وهران 2', location: 'وهران', avg: 10.60 },
+    ],
+  },
+  {
+    id: 'genie-meca', name: 'هندسة ميكانيكية', nameEn: 'Génie Mécanique',
+    subtitle: 'هندسة وتكنولوجيا', subtitleIcon: 'fa-gear',
+    cat: 'engineering', catVar: 'var(--cat-engineering)', lmd: true,
+    avg: 12.80, minAvg: 11.50, duration: '3 إلى 5 سنوات',
+    language: 'عربية + فرنسية', degree: 'ليسانس / ماستر',
+    demand: 'مرتفع', img: '',
+    location: 'USTHB · USTO · جامعات عدة',
+    description: [
+      'الهندسة الميكانيكية تشمل تصميم الآلات، ديناميكيا الموائع، الطاقة الحرارية، والتصنيع.',
+      'قطاع متنوع يمتد من الصناعة النفطية إلى تصنيع السيارات والطاقات المتجددة.'
+    ],
+    streams: ['رياضيات', 'تقني رياضي'],
+    streamCodes: ['math', 'techmath'],
+    conditions: ['شعبة رياضيات أو تقني رياضي', 'معدل في الرياضيات والفيزياء مهم'],
+    careers: [
+      { icon: 'fa-gear', label: 'مهندس ميكانيك' },
+      { icon: 'fa-oil-can', label: 'صناعة نفطية' },
+      { icon: 'fa-car', label: 'صناعة سيارات' },
+      { icon: 'fa-fire', label: 'هندسة حرارية' },
+      { icon: 'fa-wind', label: 'طاقات متجددة' },
+    ],
+    avgHistory: [
+      { uni: 'USTHB', y2024: 12.60, y2025: 12.80 },
+      { uni: 'USTO', y2024: 12.30, y2025: 12.50 },
+    ],
+    unis: [
+      { abbr: 'USTHB', name: 'جامعة هواري بومدين', location: 'الجزائر', avg: 12.80 },
+      { abbr: 'USTO', name: 'جامعة وهران للعلوم والتكنولوجيا', location: 'وهران', avg: 12.50 },
+      { abbr: 'UCA1', name: 'جامعة قسنطينة 1', location: 'قسنطينة', avg: 12.20 },
+    ],
+  },
+];
+
+/* helpers */
+const twById    = id  => TW_CATALOG.find(s => s.id === id);
+const twByCat   = cat => TW_CATALOG.filter(s => cat === 'all' || s.cat === cat);
