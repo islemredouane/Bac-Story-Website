@@ -164,7 +164,7 @@
     <meta name="apple-mobile-web-app-title" content="BAC STORY">    <title>دليل الجامعة | BAC STORY</title>
     <link rel="canonical" href="https://bacstory.vercel.app/university">
     <meta name="author" content="redouane mohamed islem">
-    <link rel="stylesheet" href="/style.css?v=8.5">
+    <link rel="stylesheet" href="/style.css?v=8.7">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/solid.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/brands.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -410,6 +410,7 @@
                     <button class="filter-chip" data-filter-type="category" data-filter-val="education">تربية</button>
                     <button class="filter-chip" data-filter-type="category" data-filter-val="law">حقوق</button>
                     <button class="filter-chip" data-filter-type="category" data-filter-val="humanities">علوم إنسانية</button>
+                    <button class="filter-chip" data-filter-type="category" data-filter-val="double">تخصصات مزدوجة</button>
                 </div>
                 <div class="spec-search-wrap">
                     <i class="fas fa-search"></i>
@@ -681,6 +682,21 @@
                     </div>
                 </div>
 
+                <div class="spec-card" data-category="engineering" data-name="AERONAUTIQUE طيران هندسة aviation aéronautique بليدة فضاء"
+                    onclick="showSection('AERONAUTIQUE')">
+                    <div class="spec-card-img"><img loading="lazy" src="images/aeronautique.png" alt="هندسة الطيران"></div>
+                    <div class="spec-card-body">
+                        <div class="spec-card-top">
+                            <div class="spec-card-name">تخصص هندسة الطيران – Aéronautique</div>
+                        </div>
+                        <div class="spec-card-footer">
+                            <span class="cat-badge cat-badge--engineering">هندسة</span>
+                            <button class="spec-detail-btn" onclick="showSection('AERONAUTIQUE');event.stopPropagation()"><i
+                                    class="fas fa-arrow-left"></i> التفاصيل</button>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="spec-card" data-category="business" data-name="ENSC تجارة اقتصاد"
                     onclick="showSection('ENSC')">
                     <div class="spec-card-img"><img loading="lazy" src="images/esc2024.jpg" alt="ENSC"></div>
@@ -947,6 +963,36 @@
             <span class="cat-badge cat-badge--medical">طب وصحة</span>
                             <button class="spec-detail-btn"
                                 onclick="showSection('vetrinaire');event.stopPropagation()"><i
+                                    class="fas fa-arrow-left"></i> التفاصيل</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spec-card" data-category="double" data-name="MED-BIO طب بيولوجيا تخصص مزدوج double médecine biologie"
+                    onclick="showSection('MED-BIO')">
+                    <div class="spec-card-img"><img loading="lazy" src="images/med-bio.png" alt="Médecine + Biologie"></div>
+                    <div class="spec-card-body">
+                        <div class="spec-card-top">
+                            <div class="spec-card-name">تخصص مزدوج طب + بيولوجيا – Médecine + Biologie</div>
+                        </div>
+                        <div class="spec-card-footer">
+                            <span class="cat-badge cat-badge--double">تخصص مزدوج</span>
+                            <button class="spec-detail-btn" onclick="showSection('MED-BIO');event.stopPropagation()"><i
+                                    class="fas fa-arrow-left"></i> التفاصيل</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spec-card" data-category="double" data-name="MED-INFO طب اعلام آلي تخصص مزدوج double cursus médecine informatique ذكاء اصطناعي bioinformatique"
+                    onclick="showSection('MED-INFO')">
+                    <div class="spec-card-img"><img loading="lazy" src="images/Med + info.png" alt="Médecine + Informatique"></div>
+                    <div class="spec-card-body">
+                        <div class="spec-card-top">
+                            <div class="spec-card-name">تخصص مزدوج طب + إعلام آلي – Médecine + Informatique</div>
+                        </div>
+                        <div class="spec-card-footer">
+                            <span class="cat-badge cat-badge--double">تخصص مزدوج</span>
+                            <button class="spec-detail-btn" onclick="showSection('MED-INFO');event.stopPropagation()"><i
                                     class="fas fa-arrow-left"></i> التفاصيل</button>
                         </div>
                     </div>
@@ -3880,6 +3926,145 @@
     </div>
 
 
+    <div id="AERONAUTIQUE" class="resource-content">
+        <div class="container">
+            <div class="modern-section-header">
+                <h2>تخصص هندسة الطيران – Aéronautique</h2>
+            </div>
+
+            <div style="margin: 24px auto 0; text-align: center;">
+                <a href="https://t.me/islembacdz" target="_blank" rel="noopener" class="search-telegram-btn floating">
+                    <i class="fab fa-telegram-plane"></i>
+                    <span>انضم إلينا على التلغرام</span>
+                </a>
+            </div>
+
+            <div class="school-details" style="margin-top: 40px">
+                <div class="details">
+
+                    <div class="detail-card">
+                        <h3><i class="fas fa-map-marker-alt"></i> الجامعات الموفرة</h3>
+                        <ul>
+                            <li>🏆 <strong>الرائدة:</strong> معهد علوم الطيران والدراسات الفضائية – جامعة البليدة 1 (سعد دحلب)</li>
+                            <li>💠 جامعة باتنة 2 | جامعة قسنطينة 1</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-card">
+                        <h3><i class="fas fa-clock"></i> مدة الدراسة والشهادات</h3>
+                        <ul>
+                            <li>📚 نظام LMD — ليسانس 3 سنوات + ماستر سنتين</li>
+                            <li>🎓 شهادات: ليسانس + ماستر في هندسة الطيران</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-card">
+                        <h3><i class="fas fa-language"></i> لغة التدريس</h3>
+                        <p>فرنسية + إنجليزية — الإنجليزية ضرورية للبرمجيات، الكتالوجات، والأنظمة التقنية الحديثة. طوّر مستواك فيها خارج الجامعة.</p>
+                    </div>
+
+                    <div class="detail-card">
+                        <h3><i class="fas fa-user-graduate"></i> معدل القبول 2025</h3>
+                        <ul>
+                            <li>📐 رياضيات: 15.74</li>
+                            <li>🛠️ تقني رياضي: 15.74</li>
+                            <li>🧪 علوم تجريبية: 15.74</li>
+                        </ul>
+                        <p>📌 الأولوية متساوية للشعب الثلاثة — المعدل الموزون يحدد التوجيه.</p>
+                        <div class="acceptance-calc-wrap">
+                            <a href="/tools.html#weighted-calc" class="acceptance-calc-btn">
+                                <i class="fas fa-calculator"></i> احسب معدلك الموزون
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-laptop-code"></i> نظام الدراسة</h3>
+                        <p><strong>السنة الأولى (L1) — جذع مشترك هندسي:</strong> بناء الأساس العلمي قبل التخصص.</p>
+                        <ul>
+                            <li>📌 <strong>S1:</strong> Chemistry 1، Physics 1، Analysis 1، Algebra 1، Aeronautical Science، Fortran (S1-S2)، Ethics</li>
+                            <li>📌 <strong>S2:</strong> Chemistry 2، Physics 2، Analysis 2، Algebra 2، Linux</li>
+                        </ul>
+                        <p><strong>من L2 إلى L3 — تشعب التخصص (7 مسارات):</strong> يبدأ التوجيه نحو أحد التخصصات السبعة حسب الرغبة والترتيب.</p>
+                        <p><strong>الماستر (سنتان):</strong> تعمق في التخصص + مشروع بحثي أو صناعي.</p>
+                    </div>
+
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-project-diagram"></i> التخصصات السبعة (من L2)</h3>
+                        <ul>
+                            <li>✈️ <strong>Avionic (إلكترونيات الطيران):</strong> أنظمة الطيار الآلي (Autopilot)، الملاحة والاتصالات، أجهزة القياس، وأنظمة المراقبة الأرضية للمركبات الجوية والفضائية.</li>
+                            <li>📡 <strong>CNS/ATM (إدارة الحركة الجوية):</strong> تكنولوجيا تخطيط الرحلات، أنظمة الرادار، اتخاذ القرار التعاوني بين مراكز المراقبة الأرضية.</li>
+                            <li>🏢 <strong>Air Exploitation (الاستغلال الجوي):</strong> إدارة الطيران التجاري والشحن (Cargo)، لوائح السلامة الدولية، وتنسيق أنشطة شركات الطيران.</li>
+                            <li>⚙️ <strong>Air Operations (العمليات الجوية):</strong> تحليل بيانات الطيران والسلامة، تطوير أداء الطائرات، وتقليص التكاليف التشغيلية.</li>
+                            <li>🏗️ <strong>Structure (هياكل الطائرات):</strong> التصميم الإنشائي للبدن، الأجنحة، ومعدات الهبوط — قوة هائلة مع أخف وزن ممكن.</li>
+                            <li>🚀 <strong>Propulsion (أنظمة الدفع):</strong> المحركات النفاثة والتوربينية، احتراق الوقود، وتوليد قوة الدفع (Thrust) بناءً على قوانين الديناميكا الحرارية والهوائية.</li>
+                            <li>🛰️ <strong>Spatial Telecommunications (الاتصالات الفضائية):</strong> تصميم وبناء شبكات الاتصال التي تربط الأرض بالأقمار الصناعية والمركبات الفضائية.</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-code"></i> المقاييس الأساسية حسب التخصص</h3>
+                        <p><strong>Avionic:</strong></p>
+                        <ul>
+                            <li>Radio Navigation، Avionic، Automatic، ARINC، Signal Processing، Microprocessor، Electronics، Digital Electronics، Antenna، Inertial Navigation، Embedded Avionics، Communication، C++، MATLAB</li>
+                        </ul>
+                        <p><strong>CNS/ATM:</strong></p>
+                        <ul>
+                            <li>Air Navigation، Radio Navigation، Signal Processing، Microprocessor، Electronics، Digital Electronics، Communication، Antenna، Radar، Radar Signal Processing، Inertial Navigation، Satellite، Satellite Signal Processing، CNS/ATM، C++، MATLAB</li>
+                        </ul>
+                        <p><strong>Air Operations:</strong></p>
+                        <ul>
+                            <li>Air Traffic Services، Aerial Operations، Applied Air Navigation، ATFM، Search and Rescue، Flight Mechanics، Air Transport Security، Aircraft Identification، Radionavigation، Database (SQL)، PAN-OPS، Management of Companies</li>
+                        </ul>
+                        <p><strong>Air Exploitation:</strong></p>
+                        <ul>
+                            <li>Aerial Operations، Aeronautical Meteorology، Radio Navigation، Flight Traffic، Approach Procedures، Flight Quality and Performance، Noise and Environment، Air Transportation Regulations، Aeronautical Information، Aircraft Identification، Safety Management System، Flight Mechanics</li>
+                        </ul>
+                        <p><strong>Structure:</strong></p>
+                        <ul>
+                            <li>Resistance of Materials، MMC Continuous Media Mechanics، Composite Materials، Fluid Mechanics، Structural Dynamics، Structural Analysis، Theory of Structures، Fatigue of Structures and Materials، Fracture Mechanics، Finite Elements، Computational Fluid Dynamics (ANSYS) + Applied Maths</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-card">
+                        <h3><i class="fas fa-network-wired"></i> فرص العمل</h3>
+                        <ul>
+                            <li>✈️ مهندس صيانة أو عمليات في Air Algérie أو Tassili Airlines</li>
+                            <li>🗼 مهندس ملاحة جوية في المؤسسة الوطنية للملاحة الجوية (ENNA) والمطارات</li>
+                            <li>🚀 باحث أو مهندس في الوكالة الفضائية الجزائرية (ASAL)</li>
+                            <li>🌍 شركات طيران دولية ومكاتب دراسات هندسية في الخارج</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-card">
+                        <h3><i class="fas fa-star"></i> مميزات التخصص</h3>
+                        <ul>
+                            <li>✔️ مكانة هندسية نخبوية ومرموقة</li>
+                            <li>✔️ دراسة تطبيقية تجمع الميكانيكا، البرمجة، والإلكترونيات</li>
+                            <li>✔️ شهادة تفتح أبواباً واسعة للدراسات العليا في الخارج</li>
+                            <li>✔️ مطلوب دولياً خاصة في الخليج، أوروبا، وكندا</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-card">
+                        <h3><i class="fas fa-minus-circle"></i> التحديات</h3>
+                        <ul>
+                            <li>❌ ضغط دراسي مكثف — الرياضيات والميكانيكا والفيزياء على أعلى مستوى</li>
+                            <li>❌ البرمجة بلغة Fortran القديمة في L1 — تحتاج صبراً</li>
+                            <li>❌ سوق الشغل المحلي محدود — المنافسة شديدة على مناصب المؤسسات الوطنية</li>
+                            <li>❌ إذا ما طورتش إنجليزيتك بنفسك، رح تعاني مع الكتالوجات والأنظمة التقنية</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-card">
+                        <h3><i class="fas fa-lightbulb"></i> خلاصة</h3>
+                        <p>هندسة الطيران تخصص نخبوي ممتع — إذا كان حلمك من صغرك هو فهم كيف تطير الطائرات وتتحرك المركبات في الفضاء، وعندك القاعدة في الرياضيات والفيزياء والشجاعة لمواجهة التحديات، هذا مدرج الإقلاع الخاص بك. بصح خلي بالك: لغة الطيران العالمية هي الإنجليزية — طورها خارج الجامعة، وحاول تكون من الأوائل (Major de promo) باش تضمن رعاية الشركات الكبرى.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
     <div id="ENSC" class="resource-content">
         <div class="container">
             <div class="modern-section-header">
@@ -5977,6 +6162,257 @@
     </div>
 
 
+    <div id="MED-BIO" class="resource-content">
+        <div class="container">
+            <div class="modern-section-header">
+                <h2>تخصص مزدوج طب + بيولوجيا – Médecine + Biologie</h2>
+            </div>
+
+
+            <div style="margin: 24px auto 0; text-align: center;">
+                <a href="https://t.me/islembacdz" target="_blank" rel="noopener" class="search-telegram-btn floating">
+                    <i class="fab fa-telegram-plane"></i>
+                    <span>انضم إلينا على التلغرام</span>
+                </a>
+            </div>
+
+            <div class="school-details" style="margin-top: 40px">
+                <div class="details">
+
+                    <div class="detail-card">
+                        <h3><i class="fas fa-map-marker-alt"></i> الموقع</h3>
+                        <p>جامعة علوم الصحة المجاهد الدكتور يوسف الخطيب (الزيانية) + جامعة الجزائر 1 (لابيرين)</p>
+                    </div>
+
+                    <div class="detail-card">
+                        <h3><i class="fas fa-clock"></i> مدة الدراسة والشهادات</h3>
+                        <ul>
+                            <li>🏥 <strong>الطب:</strong> 7 سنوات ← دكتور في الطب</li>
+                            <li>🧬 <strong>البيولوجيا:</strong> 3 سنوات (ليسانس) أو 5 سنوات (ماستر) ← شهادة في العلوم البيولوجية</li>
+                            <li>🔬 <strong>دكتوراه:</strong> اختيارية لمن أراد مواصلة البحث العلمي</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-card">
+                        <h3><i class="fas fa-language"></i> لغة التدريس</h3>
+                        <ul>
+                            <li>🏥 <strong>الطب:</strong> فرنسية + إنجليزية (الإنجليزية أُدرجت رسمياً هذا العام — الدروس والامتحانات باللغتين)</li>
+                            <li>🧬 <strong>البيولوجيا:</strong> إنجليزية 100٪</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-card">
+                        <h3><i class="fas fa-user-graduate"></i> معدلات القبول</h3>
+                        <ul>
+                            <li>📅 <strong>أول دفعة (2024):</strong> 18.54</li>
+                            <li>📅 <strong>ثاني دفعة (2025):</strong> 18.19</li>
+                        </ul>
+                        <p>📌 المعدل في انخفاض تدريجي مع توسّع الدفعات — لكن يبقى من بين أعلى المعدلات.</p>
+                        <div class="acceptance-calc-wrap">
+                            <a href="/tools.html#weighted-calc" class="acceptance-calc-btn">
+                                <i class="fas fa-calculator"></i> احسب معدلك الموزون
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-laptop-code"></i> نظام الدراسة</h3>
+                        <p><strong>الطب (7 سنوات):</strong></p>
+                        <ul>
+                            <li>🔹 <strong>3 سنوات Cycle pré-clinique</strong> — دراسة نظرية وعلوم أساسية</li>
+                            <li>🔹 <strong>3 سنوات Cycle clinique</strong> — تربصات سريرية في المستشفيات</li>
+                            <li>🔹 <strong>السنة السابعة: Internat</strong> — تخرج بشهادة دكتور في الطب العام | اختبار التخصص (Résidanat) اختياري</li>
+                        </ul>
+                        <p><strong>البيولوجيا (نظام LMD):</strong></p>
+                        <ul>
+                            <li>🔹 <strong>3 سنوات:</strong> شهادة ليسانس في العلوم البيولوجية</li>
+                            <li>🔹 <strong>5 سنوات:</strong> شهادة ماستر في العلوم البيولوجية</li>
+                            <li>🔹 <strong>دكتوراه:</strong> اختيارية لمن أراد مواصلة البحث العلمي</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-card ">
+                        <h3><i class="fas fa-question-circle"></i> لماذا تختار طب + بيولوجيا بدل الطب وحده؟</h3>
+                        <p>باختصار — إذا كان معدلك عالي وحبيت تكوين أفضل في مجال الطب، هذا التخصص المزدوج هو الأنسب لك. جامعة علوم الصحة (الزيانية) فيها نخبة الأساتذة في جميع المقاييس ومستوى تدريس عالٍ، بالإضافة إلى تربصات (stages) أفضل بفضل كثرة المستشفيات الجامعية في الجزائر العاصمة التي تستوعب العدد الكبير من الطلبة.</p>
+                        <p>وعلى رأس كل هذا — شهادة إضافية في البيولوجيا تفتح لك أبواباً في البحث العلمي وتطوير الأدوية والمجالات الحديثة.</p>
+                    </div>
+
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-brain"></i> كيفاش تتعامل مع الضغط؟</h3>
+                        <p>الضغط موجود — الطب معروف بكثرة دروسه والمطلوب منك تكون <strong>à jour</strong> كل يوم. لكن الجزء المبشّر هو أن بيولوجيا أخف بكثير:</p>
+                        <ul>
+                            <li>📚 مقاييس زي <strong>TCE، WMT</strong> — تقدر تحضّرها في يومين أو ثلاثة قبل الاختبار</li>
+                            <li>📚 مقاييس زي <strong>Animal biology، Vegetal biology، Geology</strong> — تحتاج أسبوع تقريباً لأن دروسها أطول وتحتاج فهم + حفظ + حل اختبارات سابقة</li>
+                            <li>✅ في بعض الأحيان الأساتذة يعطوكم مشاريع بدل امتحانات — هذا يخفف عليكم بزاف</li>
+                            <li>✅ أغلب دروس البيولوجيا تُدرَّس en ligne — اليوم الحضوري الوحيد تقريباً هو السبت (TP)</li>
+                        </ul>
+                        <p>النجاح ممكن — المهم التنظيم الجيد للوقت من اليوم الأول.</p>
+                    </div>
+
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-book-open"></i> المقاييس المشتركة بين الطب والبيولوجيا</h3>
+                        <p>ميزة كبيرة — كاين مقاييس مشتركة بين التخصصين، ومعاملاتها تطلع في الاثنين:</p>
+                        <ul>
+                            <li>📌 <strong>S1:</strong> Cytology — Chemistry — Biostatistics</li>
+                            <li>📌 <strong>S2:</strong> Biophysics — Histology — Chemistry</li>
+                        </ul>
+                        <p>يعني إذا تحصّلت على نقاط من جيدة إلى ممتازة في هذه المقاييس في الطب، راح يكون سهل جداً عليك تبلع السنة الأولى في بيولوجيا بمعدلات جيدة. وكمان نقاط TD et TP تساعدك في رفع المعدل حتى لو ما جاءتش نتيجة الامتحان زوينة بزاف.</p>
+                    </div>
+
+                    <div class="detail-card">
+                        <h3><i class="fas fa-project-diagram"></i> التخصص القادم في البيولوجيا</h3>
+                        <p>حسب الدفعة الأولى، أغلب الطلبة يُوجَّهون في السنة الثانية نحو تخصص <strong>Bioinformatique</strong> — مجال يجمع بين علوم البيولوجيا وعلوم الحاسوب والإحصاء، مطلوب كثيراً في البحث العلمي وتطوير الأدوية والتشخيص الجيني.</p>
+                    </div>
+
+                    <div class="detail-card">
+                        <h3><i class="fas fa-minus-circle"></i> السلبيات</h3>
+                        <ul>
+                            <li>❌ <strong>البُعد الجغرافي:</strong> معظم الطلبة جايين من خارج ولاية العاصمة — فترة الإقامة الجامعية طويلة نوعاً ما</li>
+                            <li>❌ <strong>تعارض الجداول:</strong> أحياناً يحدث تصادم في المواعيد بين بيولوجيا والطب — لكن عادة يتم تعديله بسرعة</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-comments"></i> آراء طلبة الدفعة الأولى (2024/2025)</h3>
+                        <p>🗣️ <strong>الطالب الأول:</strong> اختار التخصص المزدوج تفادياً للدراسة في "الملحقة". يرى أن الدراسة في الزيانية أفضل من حيث جودة الأساتذة وصرامة الامتحانات التي تُبرز المستوى الحقيقي للطالب. يُضيف أن آفاق التكوين في مستشفيات العاصمة ستكون أغنى وأفضل.</p>
+                        <p>🗣️ <strong>الطالب الثاني:</strong> اعتبر أن دراسة تخصصين في آن واحد تتطلب تنظيماً وتضحية كبيرين، لكن أكّد وجود جوانب إيجابية تستحق العناء — الجانب التطبيقي الجيد في البيولوجيا، ووحدات مثل TCE وMTT مكّنته من التعرف على تقنيات البحث العلمي. أثنى على مجهودات إدارة التخصصين لتقليص الضغط، وعبّر عن فخره بالانتماء إلى دفعة استثنائية.</p>
+                    </div>
+
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-lightbulb"></i> خلاصة</h3>
+                        <p>تخصص طب + بيولوجيا تخصص نبيل ويستحق الجهد — راح يطور من نفسك، يعلمك تشتغل تحت الضغط، ويلزمك بتنظيم الوقت. بصح هذا ما يعنيش وقتك يروح في الدراسة فقط — اعرف تنظم وقتك وتقدر تمارس نشاطات كثيرة خاصة في فترة ما بعد الامتحانات (post-exam). إذا كنت شغوفاً بالطب وعندك المعدل، هذا هو مكانك.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="MED-INFO" class="resource-content">
+        <div class="container">
+            <div class="modern-section-header">
+                <h2>التخصص المزدوج: طب + إعلام آلي – Double Cursus Médecine + Informatique</h2>
+            </div>
+
+
+            <div style="margin: 24px auto 0; text-align: center;">
+                <a href="https://t.me/islembacdz" target="_blank" rel="noopener" class="search-telegram-btn floating">
+                    <i class="fab fa-telegram-plane"></i>
+                    <span>انضم إلينا على التلغرام</span>
+                </a>
+            </div>
+
+            <div class="school-details" style="margin-top: 40px">
+                <div class="details">
+
+                    <div class="detail-card">
+                        <h3><i class="fas fa-university"></i> الجامعات المعتمدة</h3>
+                        <p>8 كليات طب على المستوى الوطني بالتنسيق مع مدارس وجامعات الإعلام الآلي:</p>
+                        <ul>
+                            <li>💠 <strong>بجاية</strong> — ESTIN Amizour</li>
+                            <li>💠 <strong>الجزائر 1</strong> — USTHB / ESI Algiers</li>
+                            <li>💠 قسنطينة 3 | سطيف 1 | باتنة 2 | عنابة | ورقلة | تلمسان</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-card">
+                        <h3><i class="fas fa-clock"></i> مدة الدراسة والشهادات</h3>
+                        <ul>
+                            <li>🏥 <strong>الطب:</strong> 7 سنوات ← دكتور في الطب (مع الحق الكامل في الريزيدانا مستقبلاً)</li>
+                            <li>💻 <strong>الإعلام الآلي:</strong> 3 سنوات بالتوازي ← ليسانس في الإعلام الآلي</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-card">
+                        <h3><i class="fas fa-project-diagram"></i> المسارات المتاحة حسب الجامعة</h3>
+                        <ul>
+                            <li>🤖 ذكاء اصطناعي (بجاية حصراً)</li>
+                            <li>📊 Big Data (بجاية، عنابة، باتنة 2، سطيف 1، ورقلة)</li>
+                            <li>🧬 Bioinformatique (الجزائر 1)</li>
+                            <li>💰 اقتصاد الصحة (قسنطينة 3، سطيف 1، ورقلة)</li>
+                            <li>🧠 علم النفس الطبي (تلمسان)</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-card">
+                        <h3><i class="fas fa-user-graduate"></i> معدلات القبول</h3>
+                        <ul>
+                            <li>📋 <strong>الشرط الأدنى الرسمي (الوزارة):</strong> معدل ≥ 16.00</li>
+                            <li>📈 <strong>المعدل الحقيقي — جامعة بجاية:</strong> 18.54</li>
+                            <li>📈 <strong>المعدل الحقيقي — باتنة / عنابة / سطيف:</strong> بين 17.50 و18.00</li>
+                        </ul>
+                        <p>📌 المقاعد محدودة جداً في كل ولاية — التنافسية شديدة بين صفوة الطلبة.</p>
+                        <div class="acceptance-calc-wrap">
+                            <a href="/tools.html#weighted-calc" class="acceptance-calc-btn">
+                                <i class="fas fa-calculator"></i> احسب معدلك الموزون
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-laptop-code"></i> نظام الدراسة</h3>
+                        <p>تدرس تخصصين في آنٍ واحد بشهادة باكالوريا واحدة:</p>
+                        <ul>
+                            <li>🏥 <strong>الطب (7 سنوات):</strong> نفس المسار الطبي الكامل المعتمد — 3 سنوات Cycle pré-clinique + 3 سنوات Cycle clinique + Internat (السنة 7). التكوين الطبي مطابق تماماً للطلبة العاديين مع الحق الكامل في الريزيدانا مستقبلاً.</li>
+                            <li>💻 <strong>الإعلام الآلي المدمج (3 سنوات):</strong> برنامج مكيّف يُدرَّس بالتوازي — يشمل Algorithme، Base de données، Architecture، Maths-Algèbre، وتخصصات دقيقة حسب الجامعة.</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-project-diagram"></i> المسارات الفرعية حسب الجامعة</h3>
+                        <ul>
+                            <li>🤖 <strong>طب + ذكاء اصطناعي (AI):</strong> متاح حصرياً في <strong>بجاية</strong> — خوارزميات التعلم العميق لتشخيص الأمراض وتطوير البرمجيات الذكية للمستشفيات.</li>
+                            <li>📊 <strong>طب + Big Data:</strong> متاح في <strong>بجاية، عنابة، باتنة 2، سطيف 1، ورقلة</strong> — معالجة قواعد البيانات الاستشفائية الضخمة والإحصاء الحيوي المتقدم.</li>
+                            <li>🧬 <strong>طب + Bioinformatique:</strong> متاح في <strong>الجزائر 1</strong> — برمجة تحليل الجينوم البشري وسلاسل DNA.</li>
+                            <li>💰 <strong>طب + اقتصاد الصحة:</strong> متاح في <strong>قسنطينة 3، سطيف 1، ورقلة</strong>.</li>
+                            <li>🧠 <strong>طب + علم النفس الطبي:</strong> متاح في <strong>تلمسان</strong>.</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-card">
+                        <h3><i class="fas fa-brain"></i> كيفاش تتعامل مع الضغط؟</h3>
+                        <p>الحقيقة — العبء مضاعف حقاً. في السنة الأولى تقرا بالتوازي مقاييس الطب الضخمة + مقاييس الإعلام الآلي الصلبة (Algorithme، Base de données، Architecture، Maths). هذا يتطلب تضحية تامة بالوقت الحر وتنظيماً صارماً من اليوم الأول.</p>
+                        <p>💡 <strong>نصيحة ذهبية:</strong> لا تعتمد على الحفظ فقط — استخدم منطق البرمجة والإعلام الآلي لتسهيل استيعاب المقاييس المشتركة كـ Biostatistique. ونسّق دائماً مع الإدارة بخصوص جداول الامتحانات لتفادي أي تداخل.</p>
+                    </div>
+
+                    <div class="detail-card">
+                        <h3><i class="fas fa-network-wired"></i> فرص العمل والآفاق</h3>
+                        <ul>
+                            <li>🏥 طبيب باحث في الهندسة الطبية الحيوية والنظم الصحية الذكية</li>
+                            <li>💡 خبير ذكاء اصطناعي في شركات HealthTech العالمية</li>
+                            <li>🧬 مهندس بيانات طبية ومحلل جيني في مراكز البحوث الدولية</li>
+                            <li>🚀 مؤسس Startup في الحلول الرقمية الطبية</li>
+                            <li>🌍 أولوية قصوى في البحث العلمي والدراسات العليا في الخارج</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-card">
+                        <h3><i class="fas fa-plus-circle"></i> الإيجابيات</h3>
+                        <ul>
+                            <li>✔️ شهادتان مرموقتان في نفس الوقت من كبريات المدارس والجامعات</li>
+                            <li>✔️ مطلوب جداً دولياً في مجالات البحث الطبي الحديث</li>
+                            <li>✔️ مرونة مهنية مطلقة — عيادة، برمجة، أو بحث علمي</li>
+                            <li>✔️ الحق الكامل في الريزيدانا لمن أراد التخصص الطبي</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-card">
+                        <h3><i class="fas fa-minus-circle"></i> التحديات</h3>
+                        <ul>
+                            <li>❌ ضغط نفسي ودراسي مضاعف خاصة في فترات الامتحانات</li>
+                            <li>❌ نظام حديث يعتمد على العصامية — قد يكون التنسيق بين الكليتين غير مثالي في بعض الجامعات</li>
+                            <li>❌ المقاعد محدودة جداً — المنافسة شرسة</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-lightbulb"></i> خلاصة</h3>
+                        <p>جامعة بجاية تثبت ريادتها بتقديم التوليفة الأكثر طلباً (طب + ذكاء اصطناعي أو Big Data). إذا كنت تملك معدل النخبة وعندك شغف بالبرمجة، هذا هو المسار الذي سيصنع منك طبيب المستقبل بمواصفات عالمية. مسار نخبوي ثوري — بصح يتطلب من يدرسه أن يكون أكثر من مجرد مجتهد.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
     <div id="MEDCINE-DENTAIRE" class="resource-content">
         <div class="container">
             <div class="modern-section-header">
