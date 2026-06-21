@@ -448,6 +448,69 @@
 .avg-table .trend-up { color: var(--cat-medical); font-weight: 700; }
 .avg-table .trend-down { color: var(--cat-science); font-weight: 700; }
 
+/* ============================================================
+   Eligibility section (detail page)
+   ============================================================ */
+:root {
+    --acc-safe:   #1a9d4e;
+    --acc-likely: #d98a07;
+    --acc-risk:   #d8413a;
+    --acc-inelig: #8a93a6;
+    --acc-unknown:#6c757d;
+}
+[data-theme="dark"] {
+    --acc-safe:   #34c977;
+    --acc-likely: #f0a93a;
+    --acc-risk:   #f0635c;
+    --acc-inelig: #8a93a6;
+    --acc-unknown:#9aa6bd;
+}
+
+.elig-block { display: flex; flex-direction: column; gap: var(--sp-4); }
+.elig-line { display: flex; align-items: center; gap: var(--sp-2); flex-wrap: wrap; font-size: var(--fs-sm); }
+.elig-line .elig-key { font-weight: 800; color: var(--text); }
+.elig-line .elig-val { color: var(--text-muted); font-weight: 700; }
+
+.elig-scope-chip {
+    display: inline-flex; align-items: center; gap: 0.35rem;
+    padding: 0.24rem 0.7rem; border-radius: 50px;
+    font-size: var(--fs-xs); font-weight: 800;
+    border: 1.5px solid transparent;
+}
+.elig-scope-chip[data-scope="regional"] { color: var(--acc-likely); background: color-mix(in srgb, var(--acc-likely) 12%, transparent); border-color: color-mix(in srgb, var(--acc-likely) 30%, transparent); }
+.elig-scope-chip[data-scope="national"] { color: var(--acc-safe);   background: color-mix(in srgb, var(--acc-safe) 12%, transparent);   border-color: color-mix(in srgb, var(--acc-safe) 30%, transparent); }
+
+/* eligible wilayas list */
+.elig-wilayas { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-top: var(--sp-2); }
+.elig-wilaya-tag {
+    font-size: var(--fs-xs); font-weight: 700; color: var(--text-muted);
+    background: var(--surface-2); border: 1px solid var(--border);
+    padding: 0.2rem 0.6rem; border-radius: 50px;
+}
+
+/* personalized verdict pill */
+.elig-verdict {
+    display: flex; align-items: center; gap: var(--sp-3);
+    padding: var(--sp-3) var(--sp-4); border-radius: var(--r-md);
+    border: 1.5px solid transparent; font-weight: 800;
+}
+.elig-verdict i { font-size: 1.3rem; flex-shrink: 0; }
+.elig-verdict .ev-text { display: flex; flex-direction: column; gap: 2px; }
+.elig-verdict .ev-sub { font-size: var(--fs-xs); font-weight: 700; opacity: 0.9; }
+.elig-verdict[data-status="safe"]       { color: var(--acc-safe);   background: color-mix(in srgb, var(--acc-safe) 12%, transparent);   border-color: color-mix(in srgb, var(--acc-safe) 30%, transparent); }
+.elig-verdict[data-status="likely"]     { color: var(--acc-likely); background: color-mix(in srgb, var(--acc-likely) 12%, transparent); border-color: color-mix(in srgb, var(--acc-likely) 30%, transparent); }
+.elig-verdict[data-status="risk"]       { color: var(--acc-risk);   background: color-mix(in srgb, var(--acc-risk) 12%, transparent);   border-color: color-mix(in srgb, var(--acc-risk) 30%, transparent); }
+.elig-verdict[data-status="ineligible"] { color: var(--acc-inelig); background: color-mix(in srgb, var(--acc-inelig) 14%, transparent); border-color: color-mix(in srgb, var(--acc-inelig) 32%, transparent); }
+.elig-verdict[data-status="unknown"]    { color: var(--acc-unknown);background: color-mix(in srgb, var(--acc-unknown) 10%, transparent);border-color: color-mix(in srgb, var(--acc-unknown) 26%, transparent); }
+
+.elig-basis-tag {
+    font-size: var(--fs-xs); font-weight: 700;
+    padding: 0.1rem 0.5rem; border-radius: 50px;
+    background: color-mix(in srgb, currentColor 14%, transparent);
+}
+
+.elig-empty { color: var(--text-muted); font-size: var(--fs-sm); font-weight: 700; }
+
 /* universities list */
 .uni-list { display: flex; flex-direction: column; gap: var(--sp-3); }
 .uni-item {

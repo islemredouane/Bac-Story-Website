@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="styles/onboarding.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
     <script src="supabase.js"></script>
+    <script src="eligibility.js"></script>
+    <script src="averages-transport.js"></script>
 </head>
 <body class="ob-body">
     <header class="ob-topbar">
@@ -50,6 +52,26 @@
                 <p class="ob-kicker"><i class="fas fa-percent"></i> المعدل المتوقع</p>
                 <h1 class="ob-q">شحال تتوقع معدلك؟</h1>
                 <p class="ob-hint">ما تكونش قاسي على روحك — تقدير تقريبي يكفي، نقدرو نبدلوه من بعد.</p>
+
+                <!-- استيراد المعدلات من BAC Story -->
+                <details class="ob-import" id="obImport">
+                    <summary class="ob-import-summary">
+                        <i class="fas fa-file-import"></i>
+                        <span>عندك معدلاتك من حاسبة BAC Story؟ استوردها</span>
+                        <i class="fas fa-chevron-down ob-import-chevron"></i>
+                    </summary>
+                    <div class="ob-import-body">
+                        <p class="ob-import-hint">الصق رمز المعدلات اللي نسختو من حاسبة BAC Story، ولا حمّل ملف <code>.json</code>.</p>
+                        <textarea id="obImportCode" class="ob-import-input" rows="3" placeholder="الصق رمز معدلاتك هنا…"></textarea>
+                        <div class="ob-import-actions">
+                            <button type="button" class="ob-btn ob-btn-primary ob-btn-sm" id="obImportBtn"><i class="fas fa-check"></i> استيراد</button>
+                            <label class="ob-btn ob-btn-ghost ob-btn-sm" for="obImportFile"><i class="fas fa-upload"></i> من ملف</label>
+                            <input type="file" id="obImportFile" accept=".json,.bacstory,application/json" hidden>
+                        </div>
+                        <p class="ob-import-msg" id="obImportMsg" role="status"></p>
+                    </div>
+                </details>
+
                 <div class="ob-range-card">
                     <div class="ob-range-value"><span id="avgValue">12.00</span><small>/ 20</small></div>
                     <input type="range" class="ob-range" id="avgRange" min="8" max="20" step="0.25" value="12" data-field="average">
@@ -66,22 +88,6 @@
                     <i class="fas fa-map-location-dot"></i>
                     <select class="ob-select" id="wilayaSelect" data-field="wilaya">
                         <option value="">اختر ولايتك…</option>
-                        <option>أدرار</option><option>الشلف</option><option>الأغواط</option>
-                        <option>أم البواقي</option><option>باتنة</option><option>بجاية</option>
-                        <option>بسكرة</option><option>بشار</option><option>البليدة</option>
-                        <option>البويرة</option><option>تمنراست</option><option>تبسة</option>
-                        <option>تلمسان</option><option>تيارت</option><option>تيزي وزو</option>
-                        <option>الجزائر</option><option>الجلفة</option><option>جيجل</option>
-                        <option>سطيف</option><option>سعيدة</option><option>سكيكدة</option>
-                        <option>سيدي بلعباس</option><option>عنابة</option><option>قالمة</option>
-                        <option>قسنطينة</option><option>المدية</option><option>مستغانم</option>
-                        <option>المسيلة</option><option>معسكر</option><option>ورقلة</option>
-                        <option>وهران</option><option>البيض</option><option>إليزي</option>
-                        <option>برج بوعريريج</option><option>بومرداس</option><option>الطارف</option>
-                        <option>تندوف</option><option>تيسمسيلت</option><option>الوادي</option>
-                        <option>خنشلة</option><option>سوق أهراس</option><option>تيبازة</option>
-                        <option>ميلة</option><option>عين الدفلى</option><option>النعامة</option>
-                        <option>عين تموشنت</option><option>غرداية</option><option>غليزان</option>
                     </select>
                     <i class="fas fa-chevron-down ob-select-arrow"></i>
                 </div>

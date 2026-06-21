@@ -162,7 +162,7 @@
                 localStorage.setItem('tw-auth', JSON.stringify({ provider: 'google', uid }));
 
                 // Use raw fetch with Bearer token — no SDK dependency
-                const headers = { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${access_token}`, 'Content-Type': 'application/json' };
+                const headers = { apikey: SUPABASE_PUBLISHABLE_KEY, Authorization: `Bearer ${access_token}`, 'Content-Type': 'application/json' };
                 const BASE = SUPABASE_URL + '/rest/v1';
 
                 const profRes = await fetch(`${BASE}/profiles?id=eq.${uid}&select=completed,name,stream,average,wilaya`, { headers });

@@ -321,6 +321,44 @@
 .ob-btn-finish { display: none; }
 .ob-btn-finish i { color: #ffe08a; }
 
+/* ---- import averages from BAC Story ---- */
+.ob-import {
+    background: var(--surface);
+    border: 1px dashed var(--border);
+    border-radius: var(--r-md);
+    margin-bottom: var(--sp-5);
+    overflow: hidden;
+}
+.ob-import[open] { border-style: solid; border-color: color-mix(in srgb, var(--primary) 35%, var(--border)); }
+.ob-import-summary {
+    display: flex; align-items: center; gap: var(--sp-3);
+    padding: var(--sp-4);
+    cursor: pointer; list-style: none;
+    font-weight: 700; font-size: var(--fs-sm); color: var(--text);
+}
+.ob-import-summary::-webkit-details-marker { display: none; }
+.ob-import-summary > i:first-child { color: var(--primary); }
+.ob-import-chevron { margin-inline-start: auto; transition: transform var(--t-fast) var(--ease-out); color: var(--text-muted); }
+.ob-import[open] .ob-import-chevron { transform: rotate(180deg); }
+.ob-import-body { padding: 0 var(--sp-4) var(--sp-4); }
+.ob-import-hint { font-size: var(--fs-xs); color: var(--text-muted); margin-bottom: var(--sp-3); }
+.ob-import-hint code { background: var(--surface-2); padding: 0 4px; border-radius: 4px; }
+.ob-import-input {
+    width: 100%;
+    border: 2px solid var(--border); border-radius: var(--r-md);
+    background: var(--bg); color: var(--text);
+    font-family: inherit; font-size: var(--fs-sm);
+    padding: var(--sp-3); resize: vertical;
+    direction: ltr; text-align: left;
+}
+.ob-import-input:focus { outline: none; border-color: var(--primary); }
+.ob-import-actions { display: flex; gap: var(--sp-3); margin-top: var(--sp-3); flex-wrap: wrap; }
+.ob-btn-sm { padding: var(--sp-2) var(--sp-4); font-size: var(--fs-sm); margin: 0; }
+.ob-import-msg { display: none; margin-top: var(--sp-3); font-size: var(--fs-sm); font-weight: 700; }
+.ob-import-msg.is-shown { display: block; animation: rise var(--t-fast) var(--ease-out) both; }
+.ob-import-msg.is-ok { color: var(--cat-science, #1a9d6a); }
+.ob-import-msg.is-err { color: var(--cat-medical); }
+
 /* ---- responsive ---- */
 @media (max-width: 640px) {
     .ob-grid-3 { grid-template-columns: repeat(2, 1fr); }

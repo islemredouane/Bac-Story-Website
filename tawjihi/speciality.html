@@ -91,6 +91,12 @@
                             <div class="tag-list" style="margin-top:var(--sp-3)" id="specStreams"></div>
                         </section>
 
+                        <!-- الأهلية والقبول (eligibility engine) -->
+                        <section class="detail-section" id="eligSection" style="display:none">
+                            <h2><i class="fas fa-circle-check"></i> الأهلية والقبول</h2>
+                            <div id="eligBody"></div>
+                        </section>
+
                         <!-- معدلات القبول -->
                         <section class="detail-section">
                             <h2><i class="fas fa-chart-column"></i> معدلات القبول</h2>
@@ -154,6 +160,7 @@
 
 <script src="shell.js"></script>
 <script src="catalog.js"></script>
+<script src="eligibility.js"></script>
 <script>
 /* ---- Data-driven speciality renderer ---- */
 (() => {
@@ -228,6 +235,173 @@
     streams.length
       ? streams.map(s => `<span class="stream-tag">${s}</span>`).join('')
       : '<span style="color:var(--text-muted);font-size:var(--fs-sm)">غير محدد</span>';
+
+  /* ============================================================
+     ELIGIBILITY SECTION (eligibility engine)
+     ============================================================ */
+  (function renderEligibility() {
+    const section = document.getElementById('eligSection');
+    const body    = document.getElementById('eligBody');
+    if (!section || !body) return;
+    if (typeof window.twElig !== 'function') return;   // engine absent → keep hidden
+
+    const rec = window.twElig(spec.id);
+    if (!rec) return;   // no record → keep hidden
+
+    /* ---- canonical stream maps ---- */
+    const STREAM_AR = {
+      sciexp: 'علوم تجريبية', math: 'رياضيات', techmath: 'تقني رياضي',
+      gestion: 'تسيير واقتصاد', lettres: 'آداب وفلسفة', langues: 'لغات أجنبية', arts: 'فنون',
+    };
+    const STREAM_CODES = ['sciexp','math','techmath','gestion','lettres','langues','arts'];
+    const STREAM_MAP = {
+      'علوم تجريبية':'sciexp','رياضيات':'math','تقني رياضي':'techmath',
+      'تسيير واقتصاد':'gestion','اقتصاد وتسيير':'gestion','آداب وفلسفة':'lettres',
+      'لغات أجنبية':'langues','فنون':'arts',
+    };
+    const normalizeStream = (raw) => {
+      if (!raw) return null;
+      const v = String(raw).trim();
+      if (STREAM_CODES.includes(v)) return v;
+      if (STREAM_MAP[v]) return STREAM_MAP[v];
+      if (String(v).toLowerCase().startsWith('techmath')) return 'techmath';
+      return null;
+    };
+
+    const esc = (t) => String(t).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+    /* ---- profile (defensive) ---- */
+    const profile = JSON.parse(localStorage.getItem('tw-profile') || 'null') || {};
+    const myStream = normalizeStream(profile.stream);
+    const myAverage = (typeof profile.average === 'number' && isFinite(profile.average))
+      ? profile.average : (parseFloat(profile.average) || null);
+    const myWeighted = (profile.weightedAverages && typeof profile.weightedAverages === 'object')
+      ? profile.weightedAverages : null;
+
+    const effectiveAverage = (streamCode) => {
+      if (myWeighted) {
+        const keys = [streamCode, STREAM_AR[streamCode]].filter(Boolean);
+        for (const k of keys) {
+          const w = myWeighted[k];
+          const n = (typeof w === 'number') ? w : parseFloat(w);
+          if (typeof n === 'number' && isFinite(n)) return { value: n, basis: 'موزون' };
+        }
+      }
+      if (typeof myAverage === 'number' && isFinite(myAverage)) return { value: myAverage, basis: 'عام' };
+      return { value: null, basis: 'تقديري' };
+    };
+
+    const parts = [];
+    const isRegional = rec.scope === 'regional';
+    const knownScope = rec.scope && rec.scope !== 'unknown';
+    const thresholds = rec.thresholdsByStream || {};
+    const thrCodes   = Object.keys(thresholds).filter(k => typeof thresholds[k] === 'number');
+    const hasThresholds = thrCodes.length > 0;
+
+    /* ===== 1) scope + allowed streams ===== */
+    parts.push('<div class="elig-block">');
+
+    if (knownScope) {
+      parts.push(`
+        <div class="elig-line">
+          <span class="elig-key">نطاق التخصص:</span>
+          <span class="elig-scope-chip" data-scope="${isRegional ? 'regional' : 'national'}">
+            <i class="fas fa-${isRegional ? 'map-pin' : 'flag'}"></i> ${isRegional ? 'جهوي' : 'وطني'}
+          </span>
+        </div>`);
+    }
+
+    const allowed = Array.isArray(rec.allowedStreams) ? rec.allowedStreams : [];
+    if (allowed.length) {
+      const tags = allowed.map(c => `<span class="stream-tag">${esc(STREAM_AR[c] || c)}</span>`).join('');
+      parts.push(`
+        <div>
+          <div class="elig-line" style="margin-bottom:var(--sp-2)"><span class="elig-key">الشعب المؤهلة للقبول:</span></div>
+          <div class="tag-list">${tags}</div>
+        </div>`);
+    }
+
+    /* ===== 2) eligible wilayas (regional only) ===== */
+    if (isRegional && typeof window.twWilayaName === 'function') {
+      const nums = Array.isArray(rec.circleWilayaNums) ? rec.circleWilayaNums : [];
+      if (nums.length) {
+        const tags = nums.map(n => {
+          const nm = window.twWilayaName(n);
+          return `<span class="elig-wilaya-tag">${esc(nm || ('ولاية ' + n))}</span>`;
+        }).join('');
+        parts.push(`
+          <div>
+            <div class="elig-line" style="margin-bottom:var(--sp-2)"><span class="elig-key">الولايات المؤهلة:</span></div>
+            <div class="elig-wilayas">${tags}</div>
+          </div>`);
+      }
+    } else if (knownScope && !isRegional) {
+      parts.push(`<div class="elig-line"><span class="elig-val"><i class="fas fa-globe"></i> متاح في كل الولايات</span></div>`);
+    }
+
+    /* ===== 3) thresholds table (per stream) ===== */
+    if (hasThresholds) {
+      const rows = thrCodes
+        .sort((a, b) => thresholds[a] - thresholds[b])
+        .map(c => `
+          <tr>
+            <td>${esc(STREAM_AR[c] || c)}</td>
+            <td><span class="val">${thresholds[c].toFixed(2)}</span></td>
+          </tr>`).join('');
+      parts.push(`
+        <div>
+          <div class="elig-line" style="margin-bottom:var(--sp-2)"><span class="elig-key">عتبات القبول حسب الشعبة (2025–2026):</span></div>
+          <table class="avg-table">
+            <thead><tr><th>الشعبة</th><th>أدنى معدل</th></tr></thead>
+            <tbody>${rows}</tbody>
+          </table>
+        </div>`);
+    } else {
+      parts.push(`<div class="elig-empty"><i class="fas fa-circle-info"></i> بيانات القبول غير متوفرة بعد لهذا التخصص.</div>`);
+    }
+
+    /* ===== 4) personalized verdict ===== */
+    if (typeof window.twAccessibility === 'function') {
+      const VERDICT = {
+        safe:       { ar: 'في المتناول',      icon: 'fa-circle-check' },
+        likely:     { ar: 'على الحدّ',         icon: 'fa-scale-balanced' },
+        risk:       { ar: 'طموح',              icon: 'fa-bolt' },
+        ineligible: { ar: 'غير متاح لشعبتك',   icon: 'fa-ban' },
+        unknown:    { ar: 'بيانات غير متوفرة', icon: 'fa-circle-question' },
+      };
+      const eff = effectiveAverage(myStream);
+      const acc = window.twAccessibility(spec.id, eff.value, myStream);
+      const v = VERDICT[acc.status] || VERDICT.unknown;
+      const scored = (acc.status === 'safe' || acc.status === 'likely' || acc.status === 'risk');
+
+      let sub = '';
+      if (acc.status === 'ineligible') {
+        sub = 'شعبتك غير مدرجة ضمن الشعب المؤهلة لهذا التخصص.';
+      } else if (typeof acc.threshold === 'number') {
+        sub = `العتبة لشعبتك ~ ${acc.threshold.toFixed(2)}` + (eff.value != null ? ` · معدلك ${Number(eff.value).toFixed(2)}` : '');
+      } else if (!myStream) {
+        sub = 'أكمل ملفك (الشعبة والمعدل) للحصول على تقييم شخصي.';
+      } else {
+        sub = 'لا توجد عتبة منشورة لشعبتك في هذا التخصص.';
+      }
+
+      const basisTag = scored ? `<span class="elig-basis-tag">${eff.basis}</span>` : '';
+
+      parts.push(`
+        <div class="elig-verdict" data-status="${acc.status}">
+          <i class="fas ${v.icon}"></i>
+          <div class="ev-text">
+            <span>تقييمك: ${v.ar} ${basisTag}</span>
+            <span class="ev-sub">${esc(sub)}</span>
+          </div>
+        </div>`);
+    }
+
+    parts.push('</div>'); /* .elig-block */
+
+    body.innerHTML = parts.join('');
+    section.style.display = '';
+  })();
 
   /* ---- AVG HISTORY TABLE ---- */
   const avgHistory = Array.isArray(spec.avgHistory) ? spec.avgHistory : [];

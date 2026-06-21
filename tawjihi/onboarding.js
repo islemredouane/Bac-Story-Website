@@ -26,9 +26,25 @@
   /* ---- State ---- */
   const STORE_KEY = 'tw-profile';
   const profile = Object.assign({
-    stream: '', average: 12, wilaya: '',
+    stream: '', average: 12, wilaya: null,
     interests: [], ambition: '', ambitionText: ''
   }, JSON.parse(localStorage.getItem(STORE_KEY) || '{}'));
+
+  /* ---- Stream code <-> Arabic label maps ----
+     The wizard's stream buttons carry Arabic labels (data-value), but
+     `tw-profile.stream` MUST be a canonical code (sciexp/math/…).
+     `normalizeStream` (from averages-transport.js) converts label → code;
+     STREAM_LABELS converts code → label for hydration + the profiles API. */
+  const STREAM_LABELS = {
+    sciexp: 'علوم تجريبية', math: 'رياضيات', techmath: 'تقني رياضي',
+    gestion: 'تسيير واقتصاد', lettres: 'آداب وفلسفة', langues: 'لغات أجنبية', arts: 'فنون'
+  };
+  const normalizeStream = (s) =>
+    (window.twAvg && window.twAvg.normalizeStream) ? window.twAvg.normalizeStream(s) : (s || '');
+  // Migrate any legacy label stored in profile.stream → canonical code
+  if (profile.stream && STREAM_LABELS[profile.stream] === undefined) {
+    profile.stream = normalizeStream(profile.stream) || profile.stream;
+  }
 
   const steps = $$('.ob-step');
   const total = steps.length;
@@ -47,8 +63,11 @@
     // single-choice groups
     $$('[data-mode="single"]').forEach(group => {
       const field = group.dataset.field;
+      const isStream = field === 'stream';
       group.querySelectorAll('.ob-choice').forEach(btn => {
-        btn.classList.toggle('is-selected', btn.dataset.value === profile[field]);
+        // stream stores a canonical code; buttons carry Arabic labels
+        const btnVal = isStream ? normalizeStream(btn.dataset.value) : btn.dataset.value;
+        btn.classList.toggle('is-selected', btnVal === profile[field]);
       });
     });
     // multi chips
@@ -62,8 +81,9 @@
     const range = $('#avgRange');
     range.value = profile.average;
     $('#avgValue').textContent = Number(profile.average).toFixed(2);
-    // select
-    $('#wilayaSelect').value = profile.wilaya;
+    // select (wilaya stored as {num, ar})
+    $('#wilayaSelect').value = profile.wilaya && profile.wilaya.num != null
+      ? String(profile.wilaya.num) : '';
     // text
     $('#ambitionText').value = profile.ambitionText || '';
   }
@@ -75,7 +95,10 @@
       btn.addEventListener('click', () => {
         group.querySelectorAll('.ob-choice').forEach(b => b.classList.remove('is-selected'));
         btn.classList.add('is-selected');
-        profile[field] = btn.dataset.value;
+        // stream is stored as a canonical code; other groups store raw value
+        profile[field] = field === 'stream'
+          ? (normalizeStream(btn.dataset.value) || btn.dataset.value)
+          : btn.dataset.value;
         clearError(group.closest('.ob-step'));
         save();
       });
@@ -120,10 +143,26 @@
     save();
   });
 
-  /* ---- Select ---- */
+  /* ---- Select (wilaya) — populated from the clean 58-wilaya master list ---- */
   const wilayaSelect = $('#wilayaSelect');
+  // Populate options from eligibility.js (window.twWilayaList) when available.
+  (function populateWilayas() {
+    const list = (window.twWilayaList ? window.twWilayaList() : []) || [];
+    if (!list.length) return; // keep static fallback if list unavailable
+    const frag = document.createDocumentFragment();
+    list.forEach(w => {
+      const opt = document.createElement('option');
+      opt.value = String(w.num);
+      opt.textContent = w.ar;
+      frag.appendChild(opt);
+    });
+    wilayaSelect.appendChild(frag);
+  })();
+  const wilayaName = (num) =>
+    window.twWilayaName ? window.twWilayaName(num) : (wilayaSelect.selectedOptions[0]?.textContent || '');
   wilayaSelect.addEventListener('change', () => {
-    profile.wilaya = wilayaSelect.value;
+    const num = parseInt(wilayaSelect.value, 10);
+    profile.wilaya = isNaN(num) ? null : { num, ar: wilayaName(num) || wilayaSelect.selectedOptions[0]?.textContent || '' };
     clearError(steps[2]);
     save();
   });
@@ -140,7 +179,7 @@
   function validate(step) {
     switch (step) {
       case 0: return !!profile.stream;
-      case 2: return !!profile.wilaya;
+      case 2: return !!(profile.wilaya && profile.wilaya.num != null);
       case 3: return profile.interests.length > 0;
       case 4: return !!profile.ambition || !!profile.ambitionText;
       default: return true; // step 1 (range) + step 5 (summary) always valid
@@ -159,9 +198,9 @@
   /* ---- Summary render ---- */
   function renderSummary() {
     const map = {
-      stream: profile.stream || '—',
+      stream: (profile.stream && STREAM_LABELS[profile.stream]) || profile.stream || '—',
       average: Number(profile.average).toFixed(2) + ' / 20',
-      wilaya: profile.wilaya || '—',
+      wilaya: (profile.wilaya && profile.wilaya.ar) || '—',
       interests: profile.interests.length ? profile.interests.join('، ') : '—',
       ambition: profile.ambitionText || profile.ambition || '—'
     };
@@ -211,9 +250,11 @@
               'Authorization': `Bearer ${token}`
             },
             body: JSON.stringify({
-              stream: profile.stream,
+              // The profiles API/table store Arabic labels (not canonical codes)
+              // and wilaya as a string — convert from the local canonical shape.
+              stream: STREAM_LABELS[profile.stream] || profile.stream,
               average: profile.average,
-              wilaya: profile.wilaya,
+              wilaya: (profile.wilaya && profile.wilaya.ar) || '',
               interests: profile.interests,
               ambition: profile.ambition,
               ambition_text: profile.ambitionText,
@@ -243,6 +284,60 @@
     }
     window.location.href = 'app.html';
   });
+
+  /* ---- Import averages from BAC Story (paste code or file) ---- */
+  const importCode = $('#obImportCode');
+  const importBtn = $('#obImportBtn');
+  const importFile = $('#obImportFile');
+  const importMsg = $('#obImportMsg');
+
+  function showImportMsg(text, kind) {
+    if (!importMsg) return;
+    importMsg.textContent = text;
+    importMsg.className = 'ob-import-msg is-shown ' + (kind === 'ok' ? 'is-ok' : 'is-err');
+  }
+
+  function applyImport(code) {
+    if (!window.twAvg) { showImportMsg('تعذّر تحميل أداة الاستيراد.', 'err'); return; }
+    const res = window.twAvg.decode(code);
+    if (!res.ok) { showImportMsg(res.error || 'الرمز غير صالح.', 'err'); return; }
+    window.twAvg.mergeIntoProfile(profile, res.payload);
+    save();
+    hydrate(); // reflect new average + stream selection in the UI
+    const parts = [];
+    if (res.payload.generalAverage !== undefined) parts.push('المعدل العام');
+    const wCount = Object.keys(res.payload.weightedAverages || {}).length;
+    if (wCount) parts.push(wCount + ' معدلات موزونة');
+    showImportMsg('تم الاستيراد بنجاح ✓ (' + (parts.join(' و ') || 'المعطيات') + ').', 'ok');
+  }
+
+  if (importBtn) {
+    importBtn.addEventListener('click', () => applyImport((importCode && importCode.value) || ''));
+  }
+  if (importFile) {
+    importFile.addEventListener('change', () => {
+      const f = importFile.files && importFile.files[0];
+      if (!f) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        const raw = String(reader.result || '').trim();
+        // File may hold raw JSON OR the base64 code; twAvg.decode expects the
+        // code, so if it looks like JSON, re-encode it to a code first.
+        if (raw.charAt(0) === '{') {
+          try {
+            const code = btoa(unescape(encodeURIComponent(raw))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+            if (importCode) importCode.value = code;
+            applyImport(code);
+            return;
+          } catch (e) { /* fall through */ }
+        }
+        if (importCode) importCode.value = raw;
+        applyImport(raw);
+      };
+      reader.onerror = () => showImportMsg('تعذّر قراءة الملف.', 'err');
+      reader.readAsText(f);
+    });
+  }
 
   hydrate();
   render();

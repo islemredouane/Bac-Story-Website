@@ -19,6 +19,9 @@
     --cat-business:    #f39c12;
     --cat-science:     #28a745;
     --cat-education:   #9b59b6;
+    --cat-law:         #0d7a85;
+    --cat-humanities:  #c01890;
+    --cat-double:      #c8960c;
 
     /* ---- Semantic surfaces (LIGHT) ---- */
     --bg:            #f6f8fc;
