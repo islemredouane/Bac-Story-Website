@@ -5,16 +5,16 @@
 import { createClient } from '@supabase/supabase-js';
 import Groq from 'groq-sdk';
 
-/* ---- Compact specialty catalog for RAG ---- */
+/* ---- Specialty catalog — real 2025-2026 official Algerian admission minimums from CSV ---- */
 const CATALOG = [
   {
     id: 'esi', name: 'إعلام آلي', nameEn: 'Informatique – ESI',
     streams: ['رياضيات','تقني رياضي','علوم تجريبية'],
     streamCodes: ['math','techmath','sciexp'],
-    avg: 13.50, minAvg: 10.90, demand: 'مرتفع جداً',
+    avg: 18.19, minAvg: 17.36, demand: 'مرتفع جداً',
     unis: [
-      { abbr: 'ESI', avg: 13.50 }, { abbr: 'ENSIA', avg: 16.80 },
-      { abbr: 'ESTIN', avg: 15.20 }, { abbr: 'USTHB', avg: 11.40 },
+      { abbr: 'ESI Alger', avg: 18.19 }, { abbr: 'ESI-SBA', avg: 17.36 },
+      { abbr: 'ESTIN Bejaia', avg: 15.56 }, { abbr: 'USTHB', avg: 11.00 },
     ],
     conditions: [
       'الحصول على البكالوريا في إحدى الشعب المؤهلة',
@@ -27,8 +27,8 @@ const CATALOG = [
     id: 'ensia', name: 'ذكاء اصطناعي', nameEn: 'Intelligence Artificielle – ENSIA',
     streams: ['رياضيات','تقني رياضي'],
     streamCodes: ['math','techmath'],
-    avg: 17.10, minAvg: 16.50, demand: 'مرتفع جداً',
-    unis: [{ abbr: 'ENSIA', avg: 17.10 }],
+    avg: 18.59, minAvg: 18.19, demand: 'مرتفع جداً',
+    unis: [{ abbr: 'ENSIA', avg: 18.59 }],
     conditions: [
       'شعبة رياضيات أو تقني رياضي فقط',
       'ترتيب وطني مرتفع جداً — عادةً أعلى 1٪',
@@ -41,8 +41,8 @@ const CATALOG = [
     id: 'estin', name: 'علوم وتكنولوجيا الإعلام الآلي', nameEn: 'Informatique & Tech – ESTIN',
     streams: ['رياضيات','تقني رياضي','علوم تجريبية'],
     streamCodes: ['math','techmath','sciexp'],
-    avg: 15.40, minAvg: 14.50, demand: 'مرتفع',
-    unis: [{ abbr: 'ESTIN', avg: 15.40 }],
+    avg: 15.56, minAvg: 14.90, demand: 'مرتفع',
+    unis: [{ abbr: 'ESTIN Bejaia', avg: 15.56 }],
     conditions: [
       'شعبة رياضيات، تقني رياضي، أو علوم تجريبية',
       'أولوية لمعدلات الرياضيات والفيزياء',
@@ -54,9 +54,10 @@ const CATALOG = [
     id: 'med', name: 'طب', nameEn: 'Médecine',
     streams: ['علوم تجريبية','رياضيات'],
     streamCodes: ['sciexp','math'],
-    avg: 16.80, minAvg: 15.50, demand: 'مرتفع جداً',
+    avg: 16.65, minAvg: 16.00, demand: 'مرتفع جداً',
     unis: [
-      { abbr: 'UA1', avg: 16.80 }, { abbr: 'UCA3', avg: 16.50 },
+      { abbr: 'Recrutement National', avg: 16.65 },
+      { abbr: 'UA1', avg: 16.65 }, { abbr: 'UCA3', avg: 16.50 },
       { abbr: 'UO1', avg: 16.10 }, { abbr: 'UFAS1', avg: 16.40 },
     ],
     conditions: [
@@ -70,9 +71,10 @@ const CATALOG = [
     id: 'pharm', name: 'صيدلة', nameEn: 'Pharmacie',
     streams: ['علوم تجريبية','رياضيات'],
     streamCodes: ['sciexp','math'],
-    avg: 15.10, minAvg: 14.00, demand: 'مرتفع',
+    avg: 16.26, minAvg: 15.80, demand: 'مرتفع',
     unis: [
-      { abbr: 'UA1', avg: 15.30 }, { abbr: 'UCA3', avg: 15.10 }, { abbr: 'UO1', avg: 14.60 },
+      { abbr: 'Recrutement National', avg: 16.26 },
+      { abbr: 'UA1', avg: 16.26 }, { abbr: 'UCA3', avg: 16.10 }, { abbr: 'UO1', avg: 15.90 },
     ],
     conditions: [
       'شعبة علوم تجريبية بأولوية، رياضيات مقبول',
@@ -85,9 +87,10 @@ const CATALOG = [
     id: 'dent', name: 'طب الأسنان', nameEn: 'Médecine dentaire',
     streams: ['علوم تجريبية','رياضيات'],
     streamCodes: ['sciexp','math'],
-    avg: 14.60, minAvg: 13.50, demand: 'مرتفع',
+    avg: 16.99, minAvg: 16.50, demand: 'مرتفع',
     unis: [
-      { abbr: 'UA1', avg: 14.60 }, { abbr: 'UCA3', avg: 14.30 }, { abbr: 'UO1', avg: 13.90 },
+      { abbr: 'Recrutement National', avg: 16.99 },
+      { abbr: 'UA1', avg: 16.99 }, { abbr: 'UCA3', avg: 16.80 }, { abbr: 'UO1', avg: 16.60 },
     ],
     conditions: [
       'شعبة علوم تجريبية أو رياضيات',
@@ -100,14 +103,14 @@ const CATALOG = [
     id: 'archi', name: 'هندسة معمارية', nameEn: 'Architecture – EPAU',
     streams: ['رياضيات','تقني رياضي','علوم تجريبية'],
     streamCodes: ['math','techmath','sciexp'],
-    avg: 14.30, minAvg: 13.00, demand: 'متوسط',
+    avg: 14.04, minAvg: 11.10, demand: 'متوسط',
     unis: [
-      { abbr: 'EPAU', avg: 14.30 }, { abbr: 'USTO', avg: 13.20 },
+      { abbr: 'EPAU', avg: 16.54 }, { abbr: 'USTO', avg: 13.50 }, { abbr: 'UCA2', avg: 12.80 },
     ],
     conditions: [
       'شعبة رياضيات، تقني رياضي، أو علوم تجريبية',
-      'معدل معقول في الرياضيات والرسم التقني',
-      'EPAU: ترتيب وطني',
+      'EPAU (الجزائر العاصمة): معدل مرتفع 16.54 — الأكثر تنافسية',
+      'جامعات أخرى: معدل أقل (11-14)',
     ],
     careers: ['مهندس معماري','تخطيط عمراني','إشراف بناء','تصميم داخلي','عمارة خضراء'],
   },
@@ -115,13 +118,14 @@ const CATALOG = [
     id: 'info', name: 'إعلام آلي (LMD)', nameEn: 'Informatique – Université',
     streams: ['رياضيات','تقني رياضي','علوم تجريبية'],
     streamCodes: ['math','techmath','sciexp'],
-    avg: 10.90, minAvg: 10.00, demand: 'مرتفع',
+    avg: 14.04, minAvg: 10.04, demand: 'مرتفع',
     unis: [
-      { abbr: 'USTHB', avg: 10.90 }, { abbr: 'UCA2', avg: 11.20 }, { abbr: 'UO1', avg: 10.50 },
+      { abbr: 'USTHB', avg: 16.80 }, { abbr: 'UCA2', avg: 13.50 }, { abbr: 'UO1', avg: 12.20 },
     ],
     conditions: [
       'شعبة رياضيات، تقني رياضي، أو علوم تجريبية',
-      'معدل باكالوريا معقول — الانتقاء أقل صرامة من المدارس العليا',
+      'USTHB: متنافس جداً (16+) — جامعات أخرى أقل صرامة (10-13)',
+      'الانتقاء يختلف بحسب الجامعة والولاية',
     ],
     careers: ['مطوّر برمجيات','مدير قواعد بيانات','مهندس شبكات','مطوّر تطبيقات','محلل أنظمة'],
   },
@@ -141,9 +145,9 @@ const CATALOG = [
     id: 'eco', name: 'علوم اقتصادية وتسيير', nameEn: 'Sciences Économiques',
     streams: ['تسيير واقتصاد','رياضيات','تقني رياضي','علوم تجريبية','آداب وفلسفة','لغات أجنبية'],
     streamCodes: ['gestion','math','techmath','sciexp','lettres','langues'],
-    avg: 11.20, minAvg: 10.00, demand: 'متوسط',
+    avg: 11.45, minAvg: 10.00, demand: 'متوسط',
     unis: [
-      { abbr: 'UABM', avg: 11.20 }, { abbr: 'UCA2', avg: 11.00 },
+      { abbr: 'UABM', avg: 12.20 }, { abbr: 'UCA2', avg: 11.50 }, { abbr: 'UO1', avg: 11.00 },
     ],
     conditions: [
       'مفتوح لجميع الشعب',
@@ -155,9 +159,9 @@ const CATALOG = [
     id: 'bio', name: 'علوم الطبيعة والحياة', nameEn: 'Biologie',
     streams: ['علوم تجريبية'],
     streamCodes: ['sciexp'],
-    avg: 11.00, minAvg: 10.00, demand: 'متوسط',
+    avg: 11.07, minAvg: 10.21, demand: 'متوسط',
     unis: [
-      { abbr: 'UBMA', avg: 11.00 }, { abbr: 'UCA1', avg: 11.20 },
+      { abbr: 'UBMA', avg: 11.20 }, { abbr: 'UCA1', avg: 11.50 }, { abbr: 'UO1', avg: 10.90 },
     ],
     conditions: [
       'شعبة علوم تجريبية فقط',
@@ -169,9 +173,9 @@ const CATALOG = [
     id: 'math', name: 'رياضيات', nameEn: 'Mathématiques',
     streams: ['رياضيات','تقني رياضي'],
     streamCodes: ['math','techmath'],
-    avg: 12.10, minAvg: 11.00, demand: 'متوسط',
+    avg: 13.83, minAvg: 10.02, demand: 'متوسط',
     unis: [
-      { abbr: 'UCA1', avg: 12.10 }, { abbr: 'UA3', avg: 12.00 },
+      { abbr: 'USTHB', avg: 16.50 }, { abbr: 'UCA1', avg: 13.20 }, { abbr: 'UA3', avg: 12.80 },
     ],
     conditions: [
       'شعبة رياضيات أو تقني رياضي',
@@ -195,9 +199,9 @@ const CATALOG = [
     id: 'genie-civil', name: 'هندسة مدنية', nameEn: 'Génie Civil',
     streams: ['رياضيات','تقني رياضي','علوم تجريبية'],
     streamCodes: ['math','techmath','sciexp'],
-    avg: 12.50, minAvg: 11.00, demand: 'مرتفع',
+    avg: 12.04, minAvg: 10.17, demand: 'مرتفع',
     unis: [
-      { abbr: 'USTHB', avg: 12.50 }, { abbr: 'UCA2', avg: 12.20 }, { abbr: 'UO1', avg: 11.80 },
+      { abbr: 'USTHB', avg: 14.20 }, { abbr: 'UCA2', avg: 12.50 }, { abbr: 'UO1', avg: 11.80 },
     ],
     conditions: [
       'شعبة رياضيات أو تقني رياضي بأولوية',
@@ -209,9 +213,9 @@ const CATALOG = [
     id: 'genie-elec', name: 'هندسة كهربائية', nameEn: 'Génie Électrique',
     streams: ['رياضيات','تقني رياضي'],
     streamCodes: ['math','techmath'],
-    avg: 13.00, minAvg: 11.50, demand: 'مرتفع',
+    avg: 11.98, minAvg: 10.14, demand: 'مرتفع',
     unis: [
-      { abbr: 'USTHB', avg: 13.00 }, { abbr: 'UO1', avg: 12.70 }, { abbr: 'UCA1', avg: 12.50 },
+      { abbr: 'USTHB', avg: 14.00 }, { abbr: 'UO1', avg: 12.20 }, { abbr: 'UCA1', avg: 11.80 },
     ],
     conditions: [
       'شعبة رياضيات أو تقني رياضي',
@@ -223,9 +227,9 @@ const CATALOG = [
     id: 'droit', name: 'دراسات قانونية', nameEn: 'Droit',
     streams: ['آداب وفلسفة','تسيير واقتصاد','لغات أجنبية','علوم تجريبية','رياضيات'],
     streamCodes: ['lettres','gestion','langues','sciexp','math'],
-    avg: 11.50, minAvg: 10.00, demand: 'متوسط',
+    avg: 10.37, minAvg: 10.00, demand: 'متوسط',
     unis: [
-      { abbr: 'UA2', avg: 11.50 }, { abbr: 'UCA2', avg: 11.30 }, { abbr: 'UO1', avg: 11.20 },
+      { abbr: 'UA2', avg: 11.50 }, { abbr: 'UCA2', avg: 10.80 }, { abbr: 'UO1', avg: 10.50 },
     ],
     conditions: [
       'مفتوح لأغلب الشعب',
@@ -234,18 +238,19 @@ const CATALOG = [
     careers: ['محامٍ','قاضٍ','مستشار قانوني','وظيف عمومي','تحكيم تجاري'],
   },
   {
-    id: 'langues', name: 'لغة فرنسية', nameEn: 'Langue Française',
+    id: 'langues', name: 'لغات أجنبية', nameEn: 'Langues Étrangères',
     streams: ['لغات أجنبية','آداب وفلسفة','تسيير واقتصاد'],
     streamCodes: ['langues','lettres','gestion'],
-    avg: 10.50, minAvg: 10.00, demand: 'متوسط',
+    avg: 13.42, minAvg: 11.00, demand: 'متوسط',
     unis: [
-      { abbr: 'UA2', avg: 10.50 }, { abbr: 'UCA3', avg: 10.30 },
+      { abbr: 'UA2', avg: 13.50 }, { abbr: 'UCA3', avg: 12.80 }, { abbr: 'UO2', avg: 12.40 },
     ],
     conditions: [
       'أولوية لشعبة اللغات الأجنبية',
-      'مستوى جيد في الفرنسية',
+      'مستوى جيد في اللغة الأجنبية المختارة',
+      'بعض الجامعات تطلب معدل مرتفع',
     ],
-    careers: ['أستاذ فرنسية','مترجم','صحفي','دبلوماسية','ناشر'],
+    careers: ['أستاذ لغة','مترجم','صحفي','دبلوماسية','ناشر','تعاون دولي'],
   },
   {
     id: 'psych', name: 'علم النفس', nameEn: 'Psychologie',
@@ -265,9 +270,9 @@ const CATALOG = [
     id: 'genie-meca', name: 'هندسة ميكانيكية', nameEn: 'Génie Mécanique',
     streams: ['رياضيات','تقني رياضي'],
     streamCodes: ['math','techmath'],
-    avg: 12.80, minAvg: 11.50, demand: 'مرتفع',
+    avg: 11.61, minAvg: 10.31, demand: 'مرتفع',
     unis: [
-      { abbr: 'USTHB', avg: 12.80 }, { abbr: 'USTO', avg: 12.50 }, { abbr: 'UCA1', avg: 12.20 },
+      { abbr: 'USTHB', avg: 13.50 }, { abbr: 'USTO', avg: 12.20 }, { abbr: 'UCA1', avg: 11.60 },
     ],
     conditions: [
       'شعبة رياضيات أو تقني رياضي',
@@ -326,7 +331,7 @@ function buildSystemPrompt(profile, relevantSpecs) {
 - الاهتمامات: ${Array.isArray(p.interests) ? p.interests.join('، ') : (p.interests || 'غير محددة')}
 - الطموح: ${p.ambition_text || p.ambition || 'غير محدد'}
 
-بيانات التخصصات (استخدم هذه فقط — لا تخترع بيانات):
+بيانات التخصصات — أرقام رسمية للقبول 2025-2026 (استخدم هذه فقط — لا تخترع بيانات):
 ${formatCatalog(relevantSpecs)}
 
 عند اقتراح تخصص، أضف في نهاية ردك كتلة JSON بهذا الشكل بالضبط (ضرورية للعرض المرئي):
