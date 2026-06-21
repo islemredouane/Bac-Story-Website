@@ -54,12 +54,14 @@
 
   /* ---- render catalog (filtered by user's stream + search query) ---- */
   function renderCatalog() {
-    const q = $('#catSearch').value.trim();
+    const q = $('#catSearch').value.trim().toLowerCase();
     const box = $('#catalog');
     const atMax = wish.length >= MAX_WISH;
     const list = TW_CATALOG.filter(c => {
+      // If searching, show all matching regardless of stream
+      if (q) return (c.name + ' ' + c.streams.join(' ')).toLowerCase().includes(q);
+      // Otherwise, filter by user's stream (show all if stream unknown)
       if (myStreamCode && !c.streamCodes.includes(myStreamCode)) return false;
-      if (q) return (c.name + ' ' + c.streams.join(' ')).includes(q);
       return true;
     });
     box.innerHTML = list.map(c => {
@@ -163,7 +165,7 @@
     if (lmd < MIN_LMD) {
       const need = MIN_LMD - lmd;
       items.push(['bad', 'building-columns',
-        `يجب تزيد ${need} تخصص من الجامعات العادية (LMD) — ابحث "LMD" في القائمة على اليمين.`]);
+        `يجب تزيد ${need} تخصص من الجامعات LMD — ابحث "LMD" في خانة البحث لإيجادهم.`]);
     } else {
       items.push(['good', 'building-columns',
         `عندك ${lmd} تخصص من الجامعات LMD — البطاقة متوازنة بين الكبريات والجامعات.`]);
@@ -212,7 +214,7 @@
   $('#catSearch').addEventListener('input', renderCatalog);
 
   /* ---- save button ---- */
-  const saveBtn = document.querySelector('.sim-btn.primary');
+  const saveBtn = document.querySelector('#saveBtn');
   if (saveBtn) {
     saveBtn.removeAttribute('onclick');
     saveBtn.addEventListener('click', () => {
@@ -249,18 +251,35 @@
 
   /* ---- init: load saved wishlist or seed default ---- */
   function getDefaultSeed(avg) {
-    const sorted = [...TW_CATALOG]
-      .filter(s => s.avg >= avg - 2.5 && s.avg <= avg + 2.5)
-      .sort((a, b) => Math.abs(a.avg - avg) - Math.abs(b.avg - avg));
-    // Take up to 6, ensure at least 2 are lmd
-    const picks = sorted.slice(0, 6).map(s => s.id);
-    // Pad with lmd entries if needed
-    if (picks.length < 6) {
-      const extras = TW_CATALOG.filter(s => !picks.includes(s.id))
-        .sort((a, b) => Math.abs(a.avg - avg) - Math.abs(b.avg - avg))
-        .slice(0, 6 - picks.length).map(s => s.id);
-      picks.push(...extras);
-    }
+    // Only seed from specialties the student can actually apply to
+    const eligible = myStreamCode
+      ? TW_CATALOG.filter(s => s.streamCodes.includes(myStreamCode))
+      : TW_CATALOG;
+
+    const byProximity = (a, b) => Math.abs(a.avg - avg) - Math.abs(b.avg - avg);
+
+    // Candidates within ±3 points of the student's average
+    const nearAvg = [...eligible]
+      .filter(s => s.avg >= avg - 3 && s.avg <= avg + 3)
+      .sort(byProximity);
+
+    // Separate LMD from grandes écoles in the near-avg pool
+    const lmdNear = nearAvg.filter(s => s.lmd);
+    const nonLmdNear = nearAvg.filter(s => !s.lmd);
+
+    // Build picks: guarantee at least MIN_LMD=2 LMD entries
+    const picks = [];
+    // Add up to 2 LMD picks (or fall back to any LMD if not enough near avg)
+    const lmdPool = lmdNear.length >= MIN_LMD ? lmdNear : [...eligible].filter(s => s.lmd).sort(byProximity);
+    lmdPool.slice(0, MIN_LMD).forEach(s => picks.push(s.id));
+
+    // Fill remaining 4 slots from non-LMD near-avg (then any non-LMD)
+    const nonLmdPool = nonLmdNear.length ? nonLmdNear : [...eligible].filter(s => !s.lmd).sort(byProximity);
+    nonLmdPool.forEach(s => { if (picks.length < 6 && !picks.includes(s.id)) picks.push(s.id); });
+
+    // If still under 6 (edge case: very limited catalog for stream), fill with anything
+    eligible.slice().sort(byProximity).forEach(s => { if (picks.length < 6 && !picks.includes(s.id)) picks.push(s.id); });
+
     return picks.slice(0, 6);
   }
 

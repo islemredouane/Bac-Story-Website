@@ -116,7 +116,7 @@
     transition: transform var(--t-fast) var(--ease), box-shadow var(--t-fast), border-color var(--t-fast);
 }
 .wish-item:hover {
-    transform: translateX(-3px);
+    transform: translateX(3px); /* RTL: move right (away from left edge) toward inline-start border */
     box-shadow: var(--shadow-sm);
     border-color: color-mix(in srgb, var(--cat, var(--primary)) 35%, transparent);
 }
