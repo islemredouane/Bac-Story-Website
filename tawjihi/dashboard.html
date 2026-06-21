@@ -85,6 +85,22 @@
                 <!-- ===== Grid of cards ===== -->
                 <div class="dash-grid">
 
+                    <!-- Import averages from BAC Story -->
+                    <section class="dash-card dash-card-wide dash-card-import" id="dashImportCard">
+                        <header class="dash-card-head">
+                            <h2><i class="fas fa-file-import"></i> استورد معدلاتك من BAC Story</h2>
+                            <span class="dash-import-state" id="dashImportState" hidden>معدلاتك مستوردة ✓ — يمكنك التحديث</span>
+                        </header>
+                        <p class="dash-import-help">احسبت معدلك في BAC Story؟ الصق الرمز هنا لتحديث فرصك في كل التخصصات.</p>
+                        <textarea id="dashImportCode" class="dash-import-input" rows="3" placeholder="الصق رمز معدلاتك هنا…"></textarea>
+                        <div class="dash-import-actions">
+                            <button type="button" class="btn btn-primary dash-import-btn" id="dashImportBtn"><i class="fas fa-check"></i> استيراد</button>
+                            <label class="btn dash-import-file-label" for="dashImportFile"><i class="fas fa-upload"></i> من ملف</label>
+                            <input type="file" id="dashImportFile" accept=".json,.bacstory,application/json" hidden>
+                        </div>
+                        <p class="dash-import-msg" id="dashImportMsg" role="status"></p>
+                    </section>
+
                     <!-- Saved specializations -->
                     <section class="dash-card dash-card-wide">
                         <header class="dash-card-head">
@@ -297,6 +313,8 @@ function renderNudges(profile, wishIds) {
     $('#drawerBtn').addEventListener('click', () => app.classList.add('drawer-open'));
     $('#scrim').addEventListener('click', () => app.classList.remove('drawer-open'));
 
+    /* ---- Render all profile/average-dependent widgets (re-runnable) ---- */
+    function renderProfileWidgets() {
     /* ---- Profile chips ---- */
     if (profile.name) $('#userName').textContent = profile.name;
     const setChip = (k, v) => { const el = document.querySelector(`[data-chip="${k}"]`); if (el && v) el.textContent = v; };
@@ -389,6 +407,95 @@ function renderNudges(profile, wishIds) {
 
     /* ---- Advisor nudges ---- */
     renderNudges(profile, wishIds);
+    }
+    renderProfileWidgets();
+
+    /* ---- Import averages from BAC Story (paste code or file) ---- */
+    const importCode = $('#dashImportCode');
+    const importBtn = $('#dashImportBtn');
+    const importFile = $('#dashImportFile');
+    const importMsg = $('#dashImportMsg');
+    const importState = $('#dashImportState');
+
+    function refreshImportState() {
+        if (importState) importState.hidden = profile.averagesSource !== 'bacstory-import';
+    }
+    refreshImportState();
+
+    function showImportMsg(text, kind) {
+        if (!importMsg) return;
+        importMsg.textContent = text;
+        importMsg.className = 'dash-import-msg is-shown ' + (kind === 'ok' ? 'is-ok' : 'is-err');
+    }
+
+    // Stream code -> Arabic label (the profiles API stores Arabic labels)
+    const IMPORT_STREAM_LABELS = {
+        sciexp: 'علوم تجريبية', math: 'رياضيات', techmath: 'تقني رياضي',
+        gestion: 'تسيير واقتصاد', lettres: 'آداب وفلسفة', langues: 'لغات أجنبية', arts: 'فنون'
+    };
+
+    async function persistToSupabase() {
+        if (typeof tw_supabase === 'undefined') return;
+        try {
+            const { data: { session } } = await tw_supabase.auth.getSession();
+            if (!session) return;
+            const token = session.access_token;
+            const body = { average: profile.average };
+            const label = IMPORT_STREAM_LABELS[profile.stream];
+            if (label) body.stream = label; // API only accepts Arabic labels
+            await fetch('/api/tawjihi-profile', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+                body: JSON.stringify(body)
+            });
+        } catch (e) {
+            console.warn('Import: Supabase persist failed, kept locally', e);
+        }
+    }
+
+    function applyImport(code) {
+        if (!window.twAvg) { showImportMsg('تعذّر تحميل أداة الاستيراد.', 'err'); return; }
+        const res = window.twAvg.decode(code);
+        if (!res.ok) { showImportMsg(res.error || 'الرمز غير صالح.', 'err'); return; }
+        window.twAvg.mergeIntoProfile(profile, res.payload);
+        localStorage.setItem('tw-profile', JSON.stringify(profile));
+        persistToSupabase(); // fire and forget; local data already saved
+        renderProfileWidgets(); // refresh chips, ring, specs, eligibility, fiche, nudges
+        refreshImportState();
+        const parts = [];
+        if (res.payload.generalAverage !== undefined) parts.push('المعدل العام');
+        const wCount = Object.keys(res.payload.weightedAverages || {}).length;
+        if (wCount) parts.push(wCount + ' معدلات موزونة');
+        showImportMsg('تم الاستيراد بنجاح ✓ (' + (parts.join(' و ') || 'المعطيات') + ').', 'ok');
+    }
+
+    if (importBtn) {
+        importBtn.addEventListener('click', () => applyImport((importCode && importCode.value) || ''));
+    }
+    if (importFile) {
+        importFile.addEventListener('change', () => {
+            const f = importFile.files && importFile.files[0];
+            if (!f) return;
+            const reader = new FileReader();
+            reader.onload = () => {
+                const raw = String(reader.result || '').trim();
+                // File may hold raw JSON OR the base64 code; twAvg.decode expects the
+                // code, so if it looks like JSON, re-encode it to a code first.
+                if (raw.charAt(0) === '{') {
+                    try {
+                        const code = btoa(unescape(encodeURIComponent(raw))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+                        if (importCode) importCode.value = code;
+                        applyImport(code);
+                        return;
+                    } catch (e) { /* fall through */ }
+                }
+                if (importCode) importCode.value = raw;
+                applyImport(raw);
+            };
+            reader.onerror = () => showImportMsg('تعذّر قراءة الملف.', 'err');
+            reader.readAsText(f);
+        });
+    }
 
     /* ---- Countdown to BAC 2026 results ---- */
     const target = new Date('2026-07-20T10:00:00').getTime();

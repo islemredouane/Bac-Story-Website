@@ -726,13 +726,18 @@
       "lettres",
       "sciexp"
     ],
-    "scope": "unknown",
+    "scope": "national",
     "circleWilayaNums": [],
     "rankingBasis": "weighted_or_general",
-    "thresholdsByStream": {},
-    "sourceConfidence": "low",
-    "_note": "allowedStreams fallback to card.streamCodes (no program link); no program/admissions link; using card.streamCodes only",
-    "_method": "unlinked_fallback"
+    "thresholdsByStream": {
+      "gestion": 10.0,
+      "langues": 10.0,
+      "lettres": 10.0,
+      "sciexp": 10.0
+    },
+    "sourceConfidence": "card-derived",
+    "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
+    "_method": "card_derived"
   },
   "genie-civil": {
     "linkedProgramCodes": [
@@ -808,7 +813,7 @@
       57,
       58
     ],
-    "rankingBasis": "weighted",
+    "rankingBasis": "weighted_or_general",
     "thresholdsByStream": {
       "sciexp": 10.17,
       "math": 13.78
@@ -1091,13 +1096,18 @@
       "lettres",
       "sciexp"
     ],
-    "scope": "unknown",
+    "scope": "national",
     "circleWilayaNums": [],
     "rankingBasis": "weighted_or_general",
-    "thresholdsByStream": {},
-    "sourceConfidence": "low",
-    "_note": "allowedStreams fallback to card.streamCodes (no program link); no program/admissions link; using card.streamCodes only",
-    "_method": "unlinked_fallback"
+    "thresholdsByStream": {
+      "gestion": 10.0,
+      "langues": 10.0,
+      "lettres": 10.0,
+      "sciexp": 10.0
+    },
+    "sourceConfidence": "card-derived",
+    "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
+    "_method": "card_derived"
   },
   "genie-meca": {
     "linkedProgramCodes": [
@@ -1375,13 +1385,17 @@
       "sciexp",
       "techmath"
     ],
-    "scope": "unknown",
+    "scope": "national",
     "circleWilayaNums": [],
     "rankingBasis": "weighted_or_general",
-    "thresholdsByStream": {},
-    "sourceConfidence": "low",
-    "_note": "allowedStreams fallback to card.streamCodes (no program link); no program/admissions link; using card.streamCodes only",
-    "_method": "unlinked_fallback"
+    "thresholdsByStream": {
+      "math": 12.5,
+      "sciexp": 12.5,
+      "techmath": 12.5
+    },
+    "sourceConfidence": "card-derived",
+    "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
+    "_method": "card_derived"
   },
   "ensas": {
     "linkedProgramCodes": [
@@ -1548,13 +1562,13 @@
     ],
     "rankingBasis": "weighted_or_general",
     "thresholdsByStream": {
+      "math": 10.0,
       "sciexp": 10.0,
-      "math": 17.79,
-      "techmath": 18.15
+      "techmath": 10.0
     },
-    "sourceConfidence": "high",
-    "_note": "linked via admissions catalog_averages filiere_key=SCIENCES ET TECHNOLOGIES",
-    "_method": "catalog_averages"
+    "sourceConfidence": "card-derived",
+    "_note": "streams+threshold corrected to card (threshold=card.minAvg; math/techmath from a single grande-ecole row; using card minAvg across streams); previous registry-inherited values were unreliable",
+    "_method": "card_derived_correction"
   },
   "hydrocarbures": {
     "linkedProgramCodes": [
@@ -1727,13 +1741,17 @@
       "sciexp",
       "techmath"
     ],
-    "scope": "unknown",
+    "scope": "national",
     "circleWilayaNums": [],
     "rankingBasis": "weighted_or_general",
-    "thresholdsByStream": {},
-    "sourceConfidence": "low",
-    "_note": "allowedStreams fallback to card.streamCodes (no program link); no program/admissions link; using card.streamCodes only",
-    "_method": "unlinked_fallback"
+    "thresholdsByStream": {
+      "math": 11.5,
+      "sciexp": 11.5,
+      "techmath": 11.5
+    },
+    "sourceConfidence": "card-derived",
+    "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
+    "_method": "card_derived"
   },
   "gmec": {
     "linkedProgramCodes": [
@@ -1748,11 +1766,13 @@
     "circleWilayaNums": [],
     "rankingBasis": "weighted_or_general",
     "thresholdsByStream": {
-      "sciexp": 14.09
+      "math": 11.8,
+      "sciexp": 11.8,
+      "techmath": 11.8
     },
-    "sourceConfidence": "medium",
-    "_note": "linked via admissions by_filiere filiere_key=GENIE MARITIME; thresholds from grande-ecole code_fil records",
-    "_method": "extra_filiere_key"
+    "sourceConfidence": "card-derived",
+    "_note": "streams+threshold corrected to card (threshold=card.minAvg; GENIE MARITIME proxy bar replaced by card's materials/mechatronics minAvg); previous registry-inherited values were unreliable",
+    "_method": "card_derived_correction"
   },
   "marine-eng": {
     "linkedProgramCodes": [
@@ -1760,18 +1780,18 @@
     ],
     "allowedStreams": [
       "math",
-      "sciexp",
       "techmath"
     ],
     "scope": "national",
     "circleWilayaNums": [],
     "rankingBasis": "weighted_or_general",
     "thresholdsByStream": {
-      "sciexp": 14.09
+      "math": 12.0,
+      "techmath": 12.0
     },
-    "sourceConfidence": "medium",
-    "_note": "linked via admissions by_filiere filiere_key=GENIE MARITIME; thresholds from grande-ecole code_fil records",
-    "_method": "extra_filiere_key"
+    "sourceConfidence": "card-derived",
+    "_note": "streams+threshold corrected to card (threshold=card.minAvg; GENIE MARITIME proxy bar replaced by card's marine-eng minAvg); previous registry-inherited values were unreliable",
+    "_method": "card_derived_correction"
   },
   "vet": {
     "linkedProgramCodes": [
@@ -1860,13 +1880,16 @@
       "math",
       "sciexp"
     ],
-    "scope": "unknown",
+    "scope": "national",
     "circleWilayaNums": [],
     "rankingBasis": "weighted_or_general",
-    "thresholdsByStream": {},
-    "sourceConfidence": "low",
-    "_note": "allowedStreams fallback to card.streamCodes (no program link); no program/admissions link; using card.streamCodes only",
-    "_method": "unlinked_fallback"
+    "thresholdsByStream": {
+      "math": 13.0,
+      "sciexp": 13.0
+    },
+    "sourceConfidence": "card-derived",
+    "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
+    "_method": "card_derived"
   },
   "med-bio": {
     "linkedProgramCodes": [],
@@ -1874,13 +1897,16 @@
       "math",
       "sciexp"
     ],
-    "scope": "unknown",
+    "scope": "national",
     "circleWilayaNums": [],
     "rankingBasis": "weighted_or_general",
-    "thresholdsByStream": {},
-    "sourceConfidence": "low",
-    "_note": "allowedStreams fallback to card.streamCodes (no program link); no program/admissions link; using card.streamCodes only",
-    "_method": "unlinked_fallback"
+    "thresholdsByStream": {
+      "math": 14.5,
+      "sciexp": 14.5
+    },
+    "sourceConfidence": "card-derived",
+    "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
+    "_method": "card_derived"
   },
   "med-info": {
     "linkedProgramCodes": [],
@@ -1888,13 +1914,16 @@
       "math",
       "sciexp"
     ],
-    "scope": "unknown",
+    "scope": "national",
     "circleWilayaNums": [],
     "rankingBasis": "weighted_or_general",
-    "thresholdsByStream": {},
-    "sourceConfidence": "low",
-    "_note": "allowedStreams fallback to card.streamCodes (no program link); no program/admissions link; using card.streamCodes only",
-    "_method": "unlinked_fallback"
+    "thresholdsByStream": {
+      "math": 13.5,
+      "sciexp": 13.5
+    },
+    "sourceConfidence": "card-derived",
+    "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
+    "_method": "card_derived"
   },
   "ensb": {
     "linkedProgramCodes": [
@@ -1921,78 +1950,90 @@
     "allowedStreams": [
       "sciexp"
     ],
-    "scope": "unknown",
+    "scope": "national",
     "circleWilayaNums": [],
     "rankingBasis": "weighted_or_general",
-    "thresholdsByStream": {},
-    "sourceConfidence": "low",
-    "_note": "allowedStreams fallback to card.streamCodes (no program link); no program/admissions link; using card.streamCodes only",
-    "_method": "unlinked_fallback"
+    "thresholdsByStream": {
+      "sciexp": 12.0
+    },
+    "sourceConfidence": "card-derived",
+    "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
+    "_method": "card_derived"
   },
   "kine": {
     "linkedProgramCodes": [],
     "allowedStreams": [
       "sciexp"
     ],
-    "scope": "unknown",
+    "scope": "national",
     "circleWilayaNums": [],
     "rankingBasis": "weighted_or_general",
-    "thresholdsByStream": {},
-    "sourceConfidence": "low",
-    "_note": "allowedStreams fallback to card.streamCodes (no program link); no program/admissions link; using card.streamCodes only",
-    "_method": "unlinked_fallback"
+    "thresholdsByStream": {
+      "sciexp": 12.0
+    },
+    "sourceConfidence": "card-derived",
+    "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
+    "_method": "card_derived"
   },
   "labo": {
     "linkedProgramCodes": [],
     "allowedStreams": [
       "sciexp"
     ],
-    "scope": "unknown",
+    "scope": "national",
     "circleWilayaNums": [],
     "rankingBasis": "weighted_or_general",
-    "thresholdsByStream": {},
-    "sourceConfidence": "low",
-    "_note": "allowedStreams fallback to card.streamCodes (no program link); no program/admissions link; using card.streamCodes only",
-    "_method": "unlinked_fallback"
+    "thresholdsByStream": {
+      "sciexp": 11.0
+    },
+    "sourceConfidence": "card-derived",
+    "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
+    "_method": "card_derived"
   },
   "radio": {
     "linkedProgramCodes": [],
     "allowedStreams": [
       "sciexp"
     ],
-    "scope": "unknown",
+    "scope": "national",
     "circleWilayaNums": [],
     "rankingBasis": "weighted_or_general",
-    "thresholdsByStream": {},
-    "sourceConfidence": "low",
-    "_note": "allowedStreams fallback to card.streamCodes (no program link); no program/admissions link; using card.streamCodes only",
-    "_method": "unlinked_fallback"
+    "thresholdsByStream": {
+      "sciexp": 11.0
+    },
+    "sourceConfidence": "card-derived",
+    "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
+    "_method": "card_derived"
   },
   "sage-femme": {
     "linkedProgramCodes": [],
     "allowedStreams": [
       "sciexp"
     ],
-    "scope": "unknown",
+    "scope": "national",
     "circleWilayaNums": [],
     "rankingBasis": "weighted_or_general",
-    "thresholdsByStream": {},
-    "sourceConfidence": "low",
-    "_note": "allowedStreams fallback to card.streamCodes (no program link); no program/admissions link; using card.streamCodes only",
-    "_method": "unlinked_fallback"
+    "thresholdsByStream": {
+      "sciexp": 11.5
+    },
+    "sourceConfidence": "card-derived",
+    "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
+    "_method": "card_derived"
   },
   "paramedical": {
     "linkedProgramCodes": [],
     "allowedStreams": [
       "sciexp"
     ],
-    "scope": "unknown",
+    "scope": "national",
     "circleWilayaNums": [],
     "rankingBasis": "weighted_or_general",
-    "thresholdsByStream": {},
-    "sourceConfidence": "low",
-    "_note": "allowedStreams fallback to card.streamCodes (no program link); no program/admissions link; using card.streamCodes only",
-    "_method": "unlinked_fallback"
+    "thresholdsByStream": {
+      "sciexp": 10.5
+    },
+    "sourceConfidence": "card-derived",
+    "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
+    "_method": "card_derived"
   },
   "ehec": {
     "linkedProgramCodes": [
@@ -2194,10 +2235,7 @@
     ],
     "allowedStreams": [
       "gestion",
-      "langues",
-      "lettres",
       "math",
-      "sciexp",
       "techmath"
     ],
     "scope": "mixed",
@@ -2263,13 +2301,13 @@
     ],
     "rankingBasis": "general",
     "thresholdsByStream": {
-      "sciexp": 10.0,
-      "math": 10.0,
-      "techmath": 10.08
+      "gestion": 13.2,
+      "math": 13.2,
+      "techmath": 13.2
     },
-    "sourceConfidence": "medium",
-    "_note": "linked via explicit grande-ecole code_fil; linked via admissions by_filiere filiere_key=SCIENCES ECONOMIQUES; thresholds from grande-ecole code_fil records",
-    "_method": "explicit_codefil"
+    "sourceConfidence": "card-derived",
+    "_note": "streams+threshold corrected to card (threshold=card.minAvg; inherited SCIENCES ECONOMIQUES bar (~10.0) too generous for elite stats school); previous registry-inherited values were unreliable",
+    "_method": "card_derived_correction"
   },
   "esb": {
     "linkedProgramCodes": [
@@ -2653,13 +2691,18 @@
       "math",
       "sciexp"
     ],
-    "scope": "unknown",
+    "scope": "national",
     "circleWilayaNums": [],
     "rankingBasis": "weighted_or_general",
-    "thresholdsByStream": {},
-    "sourceConfidence": "low",
-    "_note": "allowedStreams fallback to card.streamCodes (no program link); no program/admissions link; using card.streamCodes only",
-    "_method": "unlinked_fallback"
+    "thresholdsByStream": {
+      "langues": 12.5,
+      "lettres": 12.5,
+      "math": 12.5,
+      "sciexp": 12.5
+    },
+    "sourceConfidence": "card-derived",
+    "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
+    "_method": "card_derived"
   },
   "sciences-po": {
     "linkedProgramCodes": [
@@ -2829,13 +2872,17 @@
       "langues",
       "lettres"
     ],
-    "scope": "unknown",
+    "scope": "national",
     "circleWilayaNums": [],
     "rankingBasis": "weighted_or_general",
-    "thresholdsByStream": {},
-    "sourceConfidence": "low",
-    "_note": "allowedStreams fallback to card.streamCodes (no program link); no program/admissions link; using card.streamCodes only",
-    "_method": "unlinked_fallback"
+    "thresholdsByStream": {
+      "gestion": 10.0,
+      "langues": 10.0,
+      "lettres": 10.0
+    },
+    "sourceConfidence": "card-derived",
+    "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
+    "_method": "card_derived"
   },
   "charia": {
     "linkedProgramCodes": [
@@ -3014,13 +3061,13 @@
       "math",
       "sciexp"
     ],
-    "scope": "unknown",
+    "scope": "national",
     "circleWilayaNums": [],
     "rankingBasis": "weighted_or_general",
     "thresholdsByStream": {},
-    "sourceConfidence": "low",
-    "_note": "allowedStreams fallback to card.streamCodes (no program link); no program/admissions link; using card.streamCodes only",
-    "_method": "unlinked_fallback"
+    "sourceConfidence": "card-derived",
+    "_note": "streams from curated catalog.js card; no admission data (future/pilot track) - thresholds intentionally empty",
+    "_method": "card_derived"
   },
   "it-int": {
     "linkedProgramCodes": [],
@@ -3029,13 +3076,13 @@
       "sciexp",
       "techmath"
     ],
-    "scope": "unknown",
+    "scope": "national",
     "circleWilayaNums": [],
     "rankingBasis": "weighted_or_general",
     "thresholdsByStream": {},
-    "sourceConfidence": "low",
-    "_note": "allowedStreams fallback to card.streamCodes (no program link); no program/admissions link; using card.streamCodes only",
-    "_method": "unlinked_fallback"
+    "sourceConfidence": "card-derived",
+    "_note": "streams from curated catalog.js card; no admission data (future/pilot track) - thresholds intentionally empty",
+    "_method": "card_derived"
   },
   "space-tech": {
     "linkedProgramCodes": [],
@@ -3043,13 +3090,13 @@
       "math",
       "techmath"
     ],
-    "scope": "unknown",
+    "scope": "national",
     "circleWilayaNums": [],
     "rankingBasis": "weighted_or_general",
     "thresholdsByStream": {},
-    "sourceConfidence": "low",
-    "_note": "allowedStreams fallback to card.streamCodes (no program link); no program/admissions link; using card.streamCodes only",
-    "_method": "unlinked_fallback"
+    "sourceConfidence": "card-derived",
+    "_note": "streams from curated catalog.js card; no admission data (future/pilot track) - thresholds intentionally empty",
+    "_method": "card_derived"
   },
   "quantum": {
     "linkedProgramCodes": [],
@@ -3057,13 +3104,13 @@
       "math",
       "techmath"
     ],
-    "scope": "unknown",
+    "scope": "national",
     "circleWilayaNums": [],
     "rankingBasis": "weighted_or_general",
     "thresholdsByStream": {},
-    "sourceConfidence": "low",
-    "_note": "allowedStreams fallback to card.streamCodes (no program link); no program/admissions link; using card.streamCodes only",
-    "_method": "unlinked_fallback"
+    "sourceConfidence": "card-derived",
+    "_note": "streams from curated catalog.js card; no admission data (future/pilot track) - thresholds intentionally empty",
+    "_method": "card_derived"
   },
   "digital-agro": {
     "linkedProgramCodes": [],
@@ -3071,13 +3118,13 @@
       "math",
       "sciexp"
     ],
-    "scope": "unknown",
+    "scope": "national",
     "circleWilayaNums": [],
     "rankingBasis": "weighted_or_general",
     "thresholdsByStream": {},
-    "sourceConfidence": "low",
-    "_note": "allowedStreams fallback to card.streamCodes (no program link); no program/admissions link; using card.streamCodes only",
-    "_method": "unlinked_fallback"
+    "sourceConfidence": "card-derived",
+    "_note": "streams from curated catalog.js card; no admission data (future/pilot track) - thresholds intentionally empty",
+    "_method": "card_derived"
   }
 };
 

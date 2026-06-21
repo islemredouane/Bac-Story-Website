@@ -16,11 +16,15 @@ No source file was modified.
 
 | Confidence | Count | Meaning |
 |-----------|-------|---------|
-| **high**   | 21 | curated admissions data + scope + per-stream threshold |
-| **medium** | 26 | linked to programs/admissions (scope and/or threshold present) |
-| **low**    | 20 | no official link found; falls back to the card's own `streamCodes` |
+| **high**        | 20 | curated admissions data + scope + per-stream threshold |
+| **medium**      | 23 | linked to programs/admissions (scope and/or threshold present) |
+| **card-derived**| 24 | no official registry row; streams + thresholds backfilled from the curated `catalog.js` card |
+| **low**         | 0  | (none remain — every card now has streams; all but 5 pilot tracks have a threshold) |
 
-**Linked (high+medium): 47 / 67.**
+**Cards with a usable accessibility badge (non-empty streams + >=1 threshold): 62 / 67.**
+The remaining 5 (`med-ai`, `it-int`, `space-tech`, `quantum`, `digital-agro`) are pilot/future tracks: they have allowedStreams but intentionally **no** threshold, so the UI shows "بيانات القبول غير متوفرة بعد".
+
+> **Update (card-derived backfill pass):** The original 20 "low" cards have been backfilled from `catalog.js` (JOB 1). All 67 cards now have non-empty `allowedStreams`. See §7.
 
 ### Coverage by linking method
 | Method | Count | How |
@@ -78,9 +82,9 @@ No source file was modified.
 
 ---
 
-## 4. Cards needing director attention (the 20 "low")
+## 4. Cards formerly needing director attention (the 20 "low") — NOW BACKFILLED
 
-These have **no matching official program** in admissions/registry, so they fall back to the card's own `streamCodes` (the JS still works; only thresholds are missing). Grouped by reason:
+> These had **no matching official program** in admissions/registry. They are now backfilled from the curated `catalog.js` card (see §7). Original grouping kept below for reference.
 
 - **Health institutes admitted via Ministry of Health (separate from the orientation card):**
   `paramedical`, `kine`, `labo`, `radio`, `sage-femme`, `pharm-ind`, `med-bio`, `med-info`, `enssn`, `enssmal`.
@@ -110,3 +114,40 @@ These have **no matching official program** in admissions/registry, so they fall
 python tawjihi/data/_scratch/gen_eligibility.py
 ```
 Re-reads the three sources and rewrites `catalog-eligibility.json` + `eligibility.js`. Safe to delete `_scratch/` if regeneration is not needed.
+
+---
+
+## 7. Card-derived backfill (JOB 1) + ligature normalization (JOB 2)
+
+### JOB 1 — weak cards backfilled
+The generator now parses `avg` and `minAvg` out of each `catalog.js` card and runs a backfill pass (`gen_eligibility.py` §7b/§7c) over every card that was `low` confidence or had empty `allowedStreams`.
+
+- **allowedStreams** ← card's `streamCodes` (canonical codes).
+- **thresholdsByStream** ← one threshold per allowed stream = **card.minAvg** (falls back to `avg` only if `minAvg` is absent).
+- **Threshold rule chosen: `minAvg`.** Rationale: the registry-derived thresholds are the *lowest admission bar across universities*; `minAvg` is the card's admission floor and matches that semantics, whereas `avg` is the headline/typical average and would overstate the cutoff.
+- **scope** ← kept if known; else defaulted `national` (paramedical / ENS / pilot are nationally accessible).
+- **sourceConfidence** ← `"card-derived"`, with a `_note` stating the threshold came from `catalog.js` (`threshold=card.minAvg`), no official registry row.
+
+**20 cards backfilled** (`card_derived`): `education, psych, enssn, gm, pharm-ind, med-bio, med-info, enssmal, kine, labo, radio, sage-femme, paramedical, ens, commu` + the 5 pilot tracks.
+
+**Pilot / future tracks** (`med-ai, it-int, space-tech, quantum, digital-agro`): allowedStreams set from `streamCodes`; **thresholds intentionally left empty** (their `catalog.js` averages are aspirational, not admission data). `_note` says "no admission data (future/pilot track)". `twAccessibility` returns `status:"unknown"` / `threshold:null` for these → UI shows "بيانات القبول غير متوفرة بعد".
+
+**3 flagged cards corrected** (`card_derived_correction`, 4 entries incl. both `marine-eng`/`gmec`):
+| Card | Was | Now (card.minAvg) | Why |
+|------|-----|------|-----|
+| `enssea` | sciexp/math/techmath/gestion/langues/lettres @ ~10.0 | gestion/math/techmath @ **13.2** | inherited broad SCIENCES ECONOMIQUES bar far too generous for an elite stats school; streams tightened to card's own codes |
+| `gmec` | sciexp @ 14.09 (GENIE MARITIME proxy) | math/sciexp/techmath @ **11.8** | proxy bar replaced by card's materials/mechatronics floor |
+| `marine-eng` | sciexp @ 14.09 (GENIE MARITIME proxy) | math/techmath @ **12.0** | proxy bar replaced by card's marine-eng floor |
+| `st` | sciexp 10.0 / math 17.79 / techmath 18.15 | all streams @ **10.0** | math/techmath came from a single grande-ecole row; card minAvg is the representative LMD bar |
+
+**Result:** all 67 cards have non-empty `allowedStreams`; 62/67 have ≥1 threshold (only the 5 pilot tracks omit thresholds, by design).
+
+### JOB 2 — Arabic ligature normalization
+`NORMALIZE_MAP` in the generator was extended with the recurring lam-alef / definite-article collapse artifacts:
+`أملانية→ألمانية`, `اتصاالت→اتصالات`, `استغالل→استغلال`, `اآلداب→الآداب`, `اجلزائر→الجزائر`, `اخلدمات→الخدمات`, `اسرتاتيجية→استراتيجية`, `اآلثار→الآثار`, `اآللية→الآلية` (plus the existing `إعالم→إعلام`, `األغواط→الأغواط`, `اسالمية→إسلامية`, `املادة→المادة`, etc.).
+An explicit replacement map is used (not an aggressive `لا`↔`ال` regex) to avoid corrupting correct words. `programs.json` itself was **not** modified (it is the raw extraction; it still contains e.g. `إعالم`×9, `األغواط`×62); normalization is only applied to strings copied into the generated outputs. Verified: **0 artifacts** remain in `eligibility.js` and `catalog-eligibility.json`; `geographic-circles.json` was already clean.
+
+### Validation
+- `python -c "json.load(...catalog-eligibility.json)"` → OK.
+- `node --check tawjihi/eligibility.js` → OK.
+- Functional: `twAccessibility('med',15,'sciexp')`→risk@16.65, `('paramedical',11,'sciexp')`→likely@10.5, `('kine',13,'sciexp')`→safe@12, `('enssea',14,'math')`→likely@13.2, `('med-ai',16,'sciexp')`→unknown/null (pilot). `twIsStreamAllowed('enssea','lettres')`→false. `twWilayaList().length`→58. All API helpers preserved.

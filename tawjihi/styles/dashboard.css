@@ -333,6 +333,41 @@
 .dash-nudge-arrow { color: var(--text-faint); margin-inline-start: auto; transition: transform var(--t-fast); }
 .dash-nudge:hover .dash-nudge-arrow { transform: translateX(-4px); color: var(--primary); }
 
+/* ---- Import averages from BAC Story ---- */
+.dash-card-import { --card-theme: var(--primary); }
+.dash-import-state {
+    display: inline-flex; align-items: center;
+    font-size: var(--fs-xs); font-weight: 800;
+    color: var(--cat-science, #1a9d6a);
+    background: color-mix(in srgb, var(--cat-science, #1a9d6a) 14%, transparent);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--cat-science, #1a9d6a) 22%, transparent);
+    padding: 5px 11px; border-radius: var(--r-pill);
+    white-space: nowrap;
+}
+.dash-import-help { color: var(--text-muted); font-size: var(--fs-sm); margin-bottom: var(--sp-3); line-height: 1.6; }
+.dash-import-input {
+    width: 100%;
+    border: 2px solid var(--border); border-radius: var(--r-md);
+    background: var(--surface-2); color: var(--text);
+    padding: var(--sp-3) var(--sp-4);
+    font-family: inherit; font-size: var(--fs-sm); line-height: 1.6;
+    resize: vertical; min-height: 64px;
+    transition: border-color var(--t-fast);
+}
+.dash-import-input:focus { outline: none; border-color: var(--primary); }
+.dash-import-actions { display: flex; gap: var(--sp-3); margin-top: var(--sp-3); flex-wrap: wrap; align-items: center; }
+.dash-import-file-label {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    cursor: pointer;
+}
+.dash-import-file-label:hover { border-color: var(--primary); color: var(--primary); }
+.dash-import-msg { display: none; margin-top: var(--sp-3); font-size: var(--fs-sm); font-weight: 700; }
+.dash-import-msg.is-shown { display: block; animation: rise var(--t-fast) var(--ease-out) both; }
+.dash-import-msg.is-ok { color: var(--cat-science, #1a9d6a); }
+.dash-import-msg.is-err { color: var(--cat-medical); }
+
 /* ---- Footer disclaimer ---- */
 .dash-foot {
     margin-top: var(--sp-6);
