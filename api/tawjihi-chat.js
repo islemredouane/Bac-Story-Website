@@ -1,344 +1,301 @@
 /* ============================================================
    TAWJIHI — AI Chat API (Vercel Serverless Function)
    ESM module — package.json has "type": "module"
+   v2 output contract — see tawjihi/CHAT-CONTRACT.md
    ============================================================ */
 import { createClient } from '@supabase/supabase-js';
 import Groq from 'groq-sdk';
 
-/* ---- Specialty catalog — real 2025-2026 official Algerian admission minimums from CSV ---- */
-const CATALOG = [
-  {
-    id: 'esi', name: 'إعلام آلي', nameEn: 'Informatique – ESI',
-    streams: ['رياضيات','تقني رياضي','علوم تجريبية'],
-    streamCodes: ['math','techmath','sciexp'],
-    avg: 18.19, minAvg: 17.36, demand: 'مرتفع جداً',
-    unis: [
-      { abbr: 'ESI Alger', avg: 18.19 }, { abbr: 'ESI-SBA', avg: 17.36 },
-      { abbr: 'ESTIN Bejaia', avg: 15.56 }, { abbr: 'USTHB', avg: 11.00 },
-    ],
-    conditions: [
-      'الحصول على البكالوريا في إحدى الشعب المؤهلة',
-      'معدل الرياضيات والفيزياء مهم في ترتيب المدارس العليا',
-      'التوجيه آلي عبر بطاقة الرغبات — لا مقابلة',
-    ],
-    careers: ['مطوّر برمجيات','محلّل بيانات','أمن سيبراني','مهندس شبكات','تطوير تطبيقات','ذكاء اصطناعي','هندسة سحابية'],
-  },
-  {
-    id: 'ensia', name: 'ذكاء اصطناعي', nameEn: 'Intelligence Artificielle – ENSIA',
-    streams: ['رياضيات','تقني رياضي'],
-    streamCodes: ['math','techmath'],
-    avg: 18.59, minAvg: 18.19, demand: 'مرتفع جداً',
-    unis: [{ abbr: 'ENSIA', avg: 18.59 }],
-    conditions: [
-      'شعبة رياضيات أو تقني رياضي فقط',
-      'ترتيب وطني مرتفع جداً — عادةً أعلى 1٪',
-      'أولوية لمعدلات الرياضيات والفيزياء والعلوم',
-      'لا مقابلة — التوجيه آلي',
-    ],
-    careers: ['مهندس ذكاء اصطناعي','عالم بيانات','باحث تعلم آلة','رؤية حاسوبية','معالجة لغة طبيعية','ريادة أعمال AI'],
-  },
-  {
-    id: 'estin', name: 'علوم وتكنولوجيا الإعلام الآلي', nameEn: 'Informatique & Tech – ESTIN',
-    streams: ['رياضيات','تقني رياضي','علوم تجريبية'],
-    streamCodes: ['math','techmath','sciexp'],
-    avg: 15.56, minAvg: 14.90, demand: 'مرتفع',
-    unis: [{ abbr: 'ESTIN Bejaia', avg: 15.56 }],
-    conditions: [
-      'شعبة رياضيات، تقني رياضي، أو علوم تجريبية',
-      'أولوية لمعدلات الرياضيات والفيزياء',
-      'التوجيه آلي عبر بطاقة الرغبات',
-    ],
-    careers: ['مطوّر برمجيات','مهندس أنظمة','هندسة سحابية','أمن معلوماتي','هندسة بيانات','تطوير تطبيقات'],
-  },
-  {
-    id: 'med', name: 'طب', nameEn: 'Médecine',
-    streams: ['علوم تجريبية','رياضيات'],
-    streamCodes: ['sciexp','math'],
-    avg: 16.65, minAvg: 16.00, demand: 'مرتفع جداً',
-    unis: [
-      { abbr: 'Recrutement National', avg: 16.65 },
-      { abbr: 'UA1', avg: 16.65 }, { abbr: 'UCA3', avg: 16.50 },
-      { abbr: 'UO1', avg: 16.10 }, { abbr: 'UFAS1', avg: 16.40 },
-    ],
-    conditions: [
-      'شعبة علوم تجريبية أو رياضيات بأولوية كاملة',
-      'معدل مرتفع مع أهمية كبيرة لمواد العلوم الطبيعية والفيزياء',
-      'التوجيه آلي — لا مقابلة شخصية',
-    ],
-    careers: ['طبيب عام','طبيب متخصص','طب المستشفيات','طب المختبر','العمل في الخارج','التدريس الجامعي'],
-  },
-  {
-    id: 'pharm', name: 'صيدلة', nameEn: 'Pharmacie',
-    streams: ['علوم تجريبية','رياضيات'],
-    streamCodes: ['sciexp','math'],
-    avg: 16.26, minAvg: 15.80, demand: 'مرتفع',
-    unis: [
-      { abbr: 'Recrutement National', avg: 16.26 },
-      { abbr: 'UA1', avg: 16.26 }, { abbr: 'UCA3', avg: 16.10 }, { abbr: 'UO1', avg: 15.90 },
-    ],
-    conditions: [
-      'شعبة علوم تجريبية بأولوية، رياضيات مقبول',
-      'معدل العلوم الطبيعية والكيمياء مهم للترتيب',
-      'التوجيه آلي عبر بطاقة الرغبات',
-    ],
-    careers: ['صيدلاني عام','صناعة دوائية','بحث علمي','صيدلة مستشفيات','تسويق دوائي'],
-  },
-  {
-    id: 'dent', name: 'طب الأسنان', nameEn: 'Médecine dentaire',
-    streams: ['علوم تجريبية','رياضيات'],
-    streamCodes: ['sciexp','math'],
-    avg: 16.99, minAvg: 16.50, demand: 'مرتفع',
-    unis: [
-      { abbr: 'Recrutement National', avg: 16.99 },
-      { abbr: 'UA1', avg: 16.99 }, { abbr: 'UCA3', avg: 16.80 }, { abbr: 'UO1', avg: 16.60 },
-    ],
-    conditions: [
-      'شعبة علوم تجريبية أو رياضيات',
-      'معدل في مواد العلوم الطبيعية والكيمياء',
-      'التوجيه آلي عبر بطاقة الرغبات',
-    ],
-    careers: ['طبيب أسنان عام','تجميل الأسنان','جراح الفكين','تدريس جامعي'],
-  },
-  {
-    id: 'archi', name: 'هندسة معمارية', nameEn: 'Architecture – EPAU',
-    streams: ['رياضيات','تقني رياضي','علوم تجريبية'],
-    streamCodes: ['math','techmath','sciexp'],
-    avg: 14.04, minAvg: 11.10, demand: 'متوسط',
-    unis: [
-      { abbr: 'EPAU', avg: 16.54 }, { abbr: 'USTO', avg: 13.50 }, { abbr: 'UCA2', avg: 12.80 },
-    ],
-    conditions: [
-      'شعبة رياضيات، تقني رياضي، أو علوم تجريبية',
-      'EPAU (الجزائر العاصمة): معدل مرتفع 16.54 — الأكثر تنافسية',
-      'جامعات أخرى: معدل أقل (11-14)',
-    ],
-    careers: ['مهندس معماري','تخطيط عمراني','إشراف بناء','تصميم داخلي','عمارة خضراء'],
-  },
-  {
-    id: 'info', name: 'إعلام آلي (LMD)', nameEn: 'Informatique – Université',
-    streams: ['رياضيات','تقني رياضي','علوم تجريبية'],
-    streamCodes: ['math','techmath','sciexp'],
-    avg: 14.04, minAvg: 10.04, demand: 'مرتفع',
-    unis: [
-      { abbr: 'USTHB', avg: 16.80 }, { abbr: 'UCA2', avg: 13.50 }, { abbr: 'UO1', avg: 12.20 },
-    ],
-    conditions: [
-      'شعبة رياضيات، تقني رياضي، أو علوم تجريبية',
-      'USTHB: متنافس جداً (16+) — جامعات أخرى أقل صرامة (10-13)',
-      'الانتقاء يختلف بحسب الجامعة والولاية',
-    ],
-    careers: ['مطوّر برمجيات','مدير قواعد بيانات','مهندس شبكات','مطوّر تطبيقات','محلل أنظمة'],
-  },
-  {
-    id: 'esc', name: 'علوم تجارية ومالية', nameEn: 'Commerce & Finance – ESC',
-    streams: ['تسيير واقتصاد','رياضيات','تقني رياضي','علوم تجريبية','آداب وفلسفة'],
-    streamCodes: ['gestion','math','techmath','sciexp','lettres'],
-    avg: 14.00, minAvg: 12.50, demand: 'متوسط',
-    unis: [{ abbr: 'ESC', avg: 14.00 }],
-    conditions: [
-      'مفتوح لشعب التسيير، الرياضيات، تقني رياضي، علوم تجريبية، والآداب',
-      'أفضلية لشعبة التسيير والاقتصاد',
-    ],
-    careers: ['مدير مشاريع','محلل مالي','مدير تسويق','تجارة دولية','مصرفية','ريادة أعمال'],
-  },
-  {
-    id: 'eco', name: 'علوم اقتصادية وتسيير', nameEn: 'Sciences Économiques',
-    streams: ['تسيير واقتصاد','رياضيات','تقني رياضي','علوم تجريبية','آداب وفلسفة','لغات أجنبية'],
-    streamCodes: ['gestion','math','techmath','sciexp','lettres','langues'],
-    avg: 11.45, minAvg: 10.00, demand: 'متوسط',
-    unis: [
-      { abbr: 'UABM', avg: 12.20 }, { abbr: 'UCA2', avg: 11.50 }, { abbr: 'UO1', avg: 11.00 },
-    ],
-    conditions: [
-      'مفتوح لجميع الشعب',
-      'يُقبل الطلاب حسب الترتيب والرغبة',
-    ],
-    careers: ['محاسب قانوني','موظف بنكي','مستشار مالي','مدقق حسابات','أستاذ اقتصاد'],
-  },
-  {
-    id: 'bio', name: 'علوم الطبيعة والحياة', nameEn: 'Biologie',
-    streams: ['علوم تجريبية'],
-    streamCodes: ['sciexp'],
-    avg: 11.07, minAvg: 10.21, demand: 'متوسط',
-    unis: [
-      { abbr: 'UBMA', avg: 11.20 }, { abbr: 'UCA1', avg: 11.50 }, { abbr: 'UO1', avg: 10.90 },
-    ],
-    conditions: [
-      'شعبة علوم تجريبية فقط',
-      'معدل باكالوريا معقول',
-    ],
-    careers: ['باحث جيني','بيئي','محلل مختبر','أستاذ علوم','علوم غذائية'],
-  },
-  {
-    id: 'math', name: 'رياضيات', nameEn: 'Mathématiques',
-    streams: ['رياضيات','تقني رياضي'],
-    streamCodes: ['math','techmath'],
-    avg: 13.83, minAvg: 10.02, demand: 'متوسط',
-    unis: [
-      { abbr: 'USTHB', avg: 16.50 }, { abbr: 'UCA1', avg: 13.20 }, { abbr: 'UA3', avg: 12.80 },
-    ],
-    conditions: [
-      'شعبة رياضيات أو تقني رياضي',
-      'معدل جيد في الرياضيات والعلوم',
-    ],
-    careers: ['أستاذ رياضيات','باحث جامعي','محلل إحصائي','أكتوار / تأمين','مطوّر رياضي'],
-  },
-  {
-    id: 'education', name: 'علوم التربية', nameEn: "Sciences de l'Éducation",
-    streams: ['آداب وفلسفة','لغات أجنبية','علوم تجريبية','تسيير واقتصاد'],
-    streamCodes: ['lettres','langues','sciexp','gestion'],
-    avg: 11.00, minAvg: 10.00, demand: 'متوسط',
-    unis: [{ abbr: 'UA2', avg: 11.00 }],
-    conditions: [
-      'مفتوح لشعب الآداب، اللغات، العلوم التجريبية، والتسيير',
-      'لا شروط خاصة',
-    ],
-    careers: ['أستاذ','مرشد تربوي','إدارة مدرسة','تصميم مناهج'],
-  },
-  {
-    id: 'genie-civil', name: 'هندسة مدنية', nameEn: 'Génie Civil',
-    streams: ['رياضيات','تقني رياضي','علوم تجريبية'],
-    streamCodes: ['math','techmath','sciexp'],
-    avg: 12.04, minAvg: 10.17, demand: 'مرتفع',
-    unis: [
-      { abbr: 'USTHB', avg: 14.20 }, { abbr: 'UCA2', avg: 12.50 }, { abbr: 'UO1', avg: 11.80 },
-    ],
-    conditions: [
-      'شعبة رياضيات أو تقني رياضي بأولوية',
-      'معدل في الرياضيات والفيزياء',
-    ],
-    careers: ['مهندس بناء','هندسة طرق','هندسة موارد مائية','تخطيط عمراني','إشراف مشاريع'],
-  },
-  {
-    id: 'genie-elec', name: 'هندسة كهربائية', nameEn: 'Génie Électrique',
-    streams: ['رياضيات','تقني رياضي'],
-    streamCodes: ['math','techmath'],
-    avg: 11.98, minAvg: 10.14, demand: 'مرتفع',
-    unis: [
-      { abbr: 'USTHB', avg: 14.00 }, { abbr: 'UO1', avg: 12.20 }, { abbr: 'UCA1', avg: 11.80 },
-    ],
-    conditions: [
-      'شعبة رياضيات أو تقني رياضي',
-      'معدل في الرياضيات والفيزياء',
-    ],
-    careers: ['مهندس طاقة','إلكترونيك','اتصالات','أتمتة صناعية','طاقات متجددة'],
-  },
-  {
-    id: 'droit', name: 'دراسات قانونية', nameEn: 'Droit',
-    streams: ['آداب وفلسفة','تسيير واقتصاد','لغات أجنبية','علوم تجريبية','رياضيات'],
-    streamCodes: ['lettres','gestion','langues','sciexp','math'],
-    avg: 10.37, minAvg: 10.00, demand: 'متوسط',
-    unis: [
-      { abbr: 'UA2', avg: 11.50 }, { abbr: 'UCA2', avg: 10.80 }, { abbr: 'UO1', avg: 10.50 },
-    ],
-    conditions: [
-      'مفتوح لأغلب الشعب',
-      'تُفضَّل شعبة الآداب والتسيير',
-    ],
-    careers: ['محامٍ','قاضٍ','مستشار قانوني','وظيف عمومي','تحكيم تجاري'],
-  },
-  {
-    id: 'langues', name: 'لغات أجنبية', nameEn: 'Langues Étrangères',
-    streams: ['لغات أجنبية','آداب وفلسفة','تسيير واقتصاد'],
-    streamCodes: ['langues','lettres','gestion'],
-    avg: 13.42, minAvg: 11.00, demand: 'متوسط',
-    unis: [
-      { abbr: 'UA2', avg: 13.50 }, { abbr: 'UCA3', avg: 12.80 }, { abbr: 'UO2', avg: 12.40 },
-    ],
-    conditions: [
-      'أولوية لشعبة اللغات الأجنبية',
-      'مستوى جيد في اللغة الأجنبية المختارة',
-      'بعض الجامعات تطلب معدل مرتفع',
-    ],
-    careers: ['أستاذ لغة','مترجم','صحفي','دبلوماسية','ناشر','تعاون دولي'],
-  },
-  {
-    id: 'psych', name: 'علم النفس', nameEn: 'Psychologie',
-    streams: ['آداب وفلسفة','علوم تجريبية','لغات أجنبية','تسيير واقتصاد'],
-    streamCodes: ['lettres','sciexp','langues','gestion'],
-    avg: 11.00, minAvg: 10.00, demand: 'متوسط',
-    unis: [
-      { abbr: 'UA2', avg: 11.00 }, { abbr: 'UCA3', avg: 10.80 }, { abbr: 'UO2', avg: 10.60 },
-    ],
-    conditions: [
-      'مفتوح لأغلب الشعب',
-      'أولوية للآداب والعلوم التجريبية',
-    ],
-    careers: ['معالج نفسي','مستشار تربوي','علم نفس تنظيمي','إكلينيكي','أستاذ باحث'],
-  },
-  {
-    id: 'genie-meca', name: 'هندسة ميكانيكية', nameEn: 'Génie Mécanique',
-    streams: ['رياضيات','تقني رياضي'],
-    streamCodes: ['math','techmath'],
-    avg: 11.61, minAvg: 10.31, demand: 'مرتفع',
-    unis: [
-      { abbr: 'USTHB', avg: 13.50 }, { abbr: 'USTO', avg: 12.20 }, { abbr: 'UCA1', avg: 11.60 },
-    ],
-    conditions: [
-      'شعبة رياضيات أو تقني رياضي',
-      'معدل في الرياضيات والفيزياء مهم',
-    ],
-    careers: ['مهندس ميكانيك','صناعة نفطية','صناعة سيارات','هندسة حرارية','طاقات متجددة'],
-  },
+/* ---- Knowledge base (static JSON, bundled by Vercel via import attributes) ---- */
+import specialitiesKb from '../tawjihi/data/kb/specialities-kb.json' with { type: 'json' };
+import admissionsFull from '../tawjihi/data/kb/admissions-full.json' with { type: 'json' };
+import filiereIndex from '../tawjihi/data/kb/filiere-index.json' with { type: 'json' };
+
+const SPECIALITIES = specialitiesKb.specialities || [];
+const ADM_ROWS = admissionsFull.rows || [];
+const FILIERES = filiereIndex.filieres || {};
+
+/* ---- Stream mapping (KB averages are min1/min2/min3) ----
+   min1 = علوم تجريبية (sciexp), min2 = رياضيات (math), min3 = تقني رياضي (techmath) */
+const STREAM_TO_MIN = {
+  sciexp: 'min1',
+  math: 'min2',
+  techmath: 'min3',
+};
+const STREAM_AR = {
+  sciexp: 'علوم تجريبية',
+  math: 'رياضيات',
+  techmath: 'تقني رياضي',
+  gestion: 'تسيير واقتصاد',
+  lettres: 'آداب وفلسفة',
+  langues: 'لغات أجنبية',
+};
+const AR_STREAM_TO_CODE = {
+  'علوم تجريبية': 'sciexp',
+  'رياضيات': 'math',
+  'تقني رياضي': 'techmath',
+  'تسيير واقتصاد': 'gestion',
+  'آداب وفلسفة': 'lettres',
+  'لغات أجنبية': 'langues',
+};
+
+function streamCode(streamRaw) {
+  if (!streamRaw) return null;
+  if (AR_STREAM_TO_CODE[streamRaw]) return AR_STREAM_TO_CODE[streamRaw];
+  const s = String(streamRaw).toLowerCase();
+  if (STREAM_TO_MIN[s]) return s;
+  return null;
+}
+
+/* Format the three per-stream thresholds; null => "لا يقبل". */
+function formatAverages(resolved) {
+  if (!resolved) return 'غير متوفرة';
+  const fmt = (v) => (v === null || v === undefined ? 'لا يقبل' : String(v));
+  return `علوم تجريبية: ${fmt(resolved.min1)} · رياضيات: ${fmt(resolved.min2)} · تقني رياضي: ${fmt(resolved.min3)}`;
+}
+
+/* ---- Section excerpting -------------------------------------------------- */
+/* Pull the most useful sections by fuzzy title keywords, trim each chunk. */
+const SECTION_WANTS = [
+  { label: 'تعريف', keys: ['تعريف', 'التعريف', 'real talk', 'فلسفة'] },
+  { label: 'فرص العمل', keys: ['فرص العمل', 'الآفاق', 'تعمل', 'العمل في'] },
+  { label: 'مدة/نظام الدراسة', keys: ['نظام الدراسة', 'مدة الدراسة', 'تنظيم الأسبوع'] },
+  { label: 'التوجيه/الشعب', keys: ['الشعب المقبولة', 'التوجيه', 'معدلات القبول', 'معلومات المدرسة'] },
 ];
 
-/* ---- RAG helpers ---- */
-function getRelevantSpecialties(catalog, profile) {
-  const streamMap = {
-    'علوم تجريبية': 'sciexp', 'رياضيات': 'math',
-    'تقني رياضي': 'techmath', 'تسيير واقتصاد': 'gestion',
-    'آداب وفلسفة': 'lettres', 'لغات أجنبية': 'langues',
-  };
-  const userStreamCode = streamMap[profile?.stream] || null;
-  const userAvg = parseFloat(profile?.average) || 12;
+function trim(text, max = 400) {
+  if (!text) return '';
+  const t = String(text).replace(/\s+/g, ' ').trim();
+  return t.length > max ? t.slice(0, max).trim() + '…' : t;
+}
 
-  const relevant = catalog.filter(s => {
-    const streamMatch = !userStreamCode || s.streamCodes.includes(userStreamCode);
-    const avgMatch = Math.abs(s.avg - userAvg) <= 3.5;
-    return streamMatch || avgMatch;
+function pickSections(sections) {
+  if (!sections) return [];
+  const titles = Object.keys(sections);
+  const out = [];
+  const used = new Set();
+  for (const want of SECTION_WANTS) {
+    const match = titles.find((title) => {
+      if (used.has(title)) return false;
+      const lower = title.toLowerCase();
+      return want.keys.some((k) => lower.includes(k.toLowerCase()) || title.includes(k));
+    });
+    if (match) {
+      used.add(match);
+      const body = trim(sections[match], 400);
+      if (body) out.push(`${want.label} (${match}): ${body}`);
+    }
+  }
+  return out;
+}
+
+/* ---- Establishment resolution ------------------------------------------- */
+function rowsForSpec(spec, limit = 6) {
+  const rows = [];
+  const seen = new Set();
+
+  // 1) Direct linked establishment rows (indices into ADM_ROWS).
+  for (const idx of spec.linkedEtabRows || []) {
+    const r = ADM_ROWS[idx];
+    if (!r) continue;
+    const key = `${r.codeEtb}|${r.codeFil}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    rows.push(r);
+    if (rows.length >= limit) return rows;
+  }
+
+  // 2) Fall back to filiere-index "best" thresholds for linked filiere keys.
+  for (const fk of spec.linkedFiliereKeys || []) {
+    const fil = FILIERES[fk];
+    if (!fil || !fil.best) continue;
+    const key = `fil|${fk}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    rows.push({
+      etab: fil.label || fk,
+      min1: fil.best.min1,
+      min2: fil.best.min2,
+      min3: fil.best.min3,
+      wilaya: null,
+      _fromFiliere: true,
+    });
+    if (rows.length >= limit) return rows;
+  }
+  return rows;
+}
+
+function formatRow(r) {
+  const fmt = (v) => (v === null || v === undefined ? '—' : v);
+  const loc = r.wilaya ? ` [${r.wilaya}]` : '';
+  return `${r.etab}${loc} — تجريبية:${fmt(r.min1)} رياضيات:${fmt(r.min2)} تقني:${fmt(r.min3)}`;
+}
+
+/* ---- Retrieval (RAG) ---------------------------------------------------- */
+function tokenize(str) {
+  return String(str || '')
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}\s]/gu, ' ')
+    .split(/\s+/)
+    .filter((w) => w.length >= 2);
+}
+
+function specText(spec) {
+  const sectionText = Object.values(spec.sections || {}).join(' ');
+  return `${spec.name_ar} ${spec.name_fr} ${spec.dataName} ${spec.id} ${sectionText}`;
+}
+
+/* Score every speciality against the user's message; return top selection. */
+function retrieve(message, conversation, profile, k = 6) {
+  const userCode = streamCode(profile?.stream);
+  const minKey = userCode ? STREAM_TO_MIN[userCode] : null;
+
+  // Build the query from the latest message plus a little recent context.
+  const recent = (conversation || [])
+    .slice(-4)
+    .map((m) => m.content || '')
+    .join(' ');
+  const queryTokens = new Set(tokenize(`${message} ${recent}`));
+  const rawQuery = `${message} ${recent}`.toLowerCase();
+
+  const scored = SPECIALITIES.map((spec) => {
+    const haystack = specText(spec).toLowerCase();
+    const hayTokens = tokenize(haystack);
+    const hayTokenSet = new Set(hayTokens);
+
+    let score = 0;
+    // Keyword overlap (token-level).
+    for (const t of queryTokens) {
+      if (hayTokenSet.has(t)) score += 1;
+    }
+    // Strong boost for explicit name / id substring mentions.
+    const names = [spec.id, spec.name_fr, spec.name_ar, spec.dataName].filter(Boolean);
+    let named = false;
+    for (const n of names) {
+      const nl = String(n).toLowerCase();
+      if (nl.length >= 2 && rawQuery.includes(nl)) {
+        score += 12;
+        named = true;
+      }
+    }
+    // Stream-fit boost: speciality accepts the student's stream.
+    if (minKey && spec.resolvedAverages) {
+      const v = spec.resolvedAverages[minKey];
+      if (v !== null && v !== undefined) score += 2;
+    }
+
+    return { spec, score, named };
   });
-  return relevant.length >= 4 ? relevant : catalog;
+
+  scored.sort((a, b) => b.score - a.score);
+
+  // Always include any explicitly-named speciality, then fill with top scorers.
+  const selected = [];
+  const chosen = new Set();
+  for (const s of scored) {
+    if (s.named) {
+      selected.push(s.spec);
+      chosen.add(s.spec.id);
+    }
+  }
+  for (const s of scored) {
+    if (selected.length >= k) break;
+    if (chosen.has(s.spec.id)) continue;
+    selected.push(s.spec);
+    chosen.add(s.spec.id);
+  }
+  // Guarantee grounding even if everything scored 0.
+  if (selected.length === 0) {
+    return SPECIALITIES.slice(0, k);
+  }
+  return selected.slice(0, Math.max(k, selected.length));
 }
 
-function formatCatalog(specs) {
-  return specs.map(s =>
-    `[${s.id}] ${s.name} | Avg:${s.avg} Min:${s.minAvg} | Demand:${s.demand}\n` +
-    `Streams: ${s.streams.join(', ')}\n` +
-    `Unis: ${s.unis.map(u => `${u.abbr}(${u.avg})`).join(', ')}\n` +
-    `Careers: ${s.careers.join(', ')}\n` +
-    `Conditions: ${s.conditions.join('; ')}`
-  ).join('\n\n');
+/* Render the selected specialities into a compact, bounded context string. */
+function buildContext(specs) {
+  return specs
+    .map((spec) => {
+      const sections = pickSections(spec.sections);
+      const rows = rowsForSpec(spec, 6).map(formatRow);
+      const parts = [
+        `### [${spec.id}] ${spec.name_ar} / ${spec.name_fr}`,
+        `التصنيف: ${spec.category}`,
+        `معدلات القبول حسب الشعبة: ${formatAverages(spec.resolvedAverages)}`,
+      ];
+      if (sections.length) parts.push(sections.join('\n'));
+      if (rows.length) parts.push('مؤسسات مرجعية:\n- ' + rows.join('\n- '));
+      return parts.join('\n');
+    })
+    .join('\n\n---\n\n');
 }
 
-function buildSystemPrompt(profile, relevantSpecs) {
+/* ---- System prompt (CHAT-CONTRACT.md §4) -------------------------------- */
+function buildSystemPrompt(profile, contextBlock) {
   const p = profile || {};
-  return `أنت توجيهي، مرشد ذكي لطلاب الجزائر في التوجيه الجامعي بعد البكالوريا. تتبع لـ BAC STORY.
+  const code = streamCode(p.stream);
+  const streamLabel = code ? STREAM_AR[code] || p.stream : p.stream || 'غير محددة';
 
-شخصيتك: أخ كبير محب وصادق، تتحدث بالدارجة الجزائرية الدافئة. تفهم العربية والفرنسية والدارجة وترد بنفس لغة السؤال.
+  return `أنت "توجيهي"، مرشد ذكي لطلاب الجزائر في التوجيه الجامعي بعد البكالوريا، تابع لـ BAC STORY.
 
-قواعد صارمة:
-1. لا تذكر معدلات قبول لتخصصات غير موجودة في البيانات المزودة.
-2. دائماً اذكر المعدل والمصدر عند الاقتراح.
-3. اختم كل توصية بـ "أكّد على البوابة الرسمية".
-4. كن صادقاً بشأن الأهلية — لا تبالغ في التفاؤل.
-5. إذا ذكر الطالب تخصصاً غير موجود في البيانات، اعترف أن معلوماتك محدودة لهذا التخصص.
+# شخصيتك ولغتك
+- أخ كبير محبّ وصادق، بالدارجة الجزائرية الدافئة.
+- ترد بنفس لغة السؤال (عربية / فرنسية / دارجة).
 
-ملف الطالب:
+# قواعد الكتابة (إلزامية)
+- استعمل بنية Markdown: سطر تمهيد قصير، ثم عناوين \`###\` أو قوائم نقطية \`- \` و**عريض**.
+- ممنوع منعاً باتاً كتابة جدار نص واحد بلا تنسيق.
+- أسند كل رقم (معدل، مؤسسة، ولاية) إلى البيانات المزودة أسفله فقط — لا تخترع أي معدل أو جامعة أو رقم.
+- إذا سُئلت عن تخصص غير موجود في البيانات، اعترف بأن معلوماتك محدودة عنه ولا تخمّن أرقامه.
+- اختم التوصيات الجوهرية بسطر صدق قصير حول تأكيد المعلومة على البوابة الرسمية.
+
+# الكتل التوجيهية (Directive blocks)
+أضِفها في **نهاية** الرد فقط عند الحاجة، كل واحدة في كتلة محصورة بثلاث علامات (fenced) و JSON صحيح، وفقط لتخصصات لها id ضمن البيانات المزودة:
+
+1) عند اقتراح تخصص/تخصصات:
+\`\`\`spec-cards
+[{"id":"<id>","name":"<الاسم>","meta":"<التصنيف> · <الشعبة>","avg":"<المعدل>","color":"var(--cat-medical)"}]
+\`\`\`
+
+2) عند مقارنة تخصصين أو أكثر:
+\`\`\`compare
+{"title":"مقارنة بين ...","fields":[{"key":"avg","label":"معدل القبول"},{"key":"streams","label":"الشعب المقبولة"},{"key":"duration","label":"مدة الدراسة"},{"key":"careers","label":"أبرز فرص العمل"}],"items":[{"id":"<id>","name":"<الاسم>","avg":"<المعدل>","streams":"...","duration":"...","careers":"..."}]}
+\`\`\`
+
+3) عندما يسأل "هل أُقبل / واش نقدر ندخل في X / am I eligible":
+\`\`\`verdict
+{"id":"<id>"}
+\`\`\`
+في كتلة verdict اكتب **فقط** \`{"id":"..."}\` — الواجهة الأمامية تحسب القرار النهائي بنفسها، لا تكتب أنت الحالة أو العتبة.
+
+# مثال قصير على الأسلوب الجيد
+> سؤال: "نحب نقرا إعلام آلي، واش تنصحني؟"
+>
+> رد:
+> واش راك خويا! الإعلام الآلي خيار ممتاز ومطلوب بزاف. 👇
+>
+> ### ليه تختار الإعلام الآلي
+> - مجال واسع وفرص شغل كثيرة داخل وخارج الوطن.
+> - يقبل عدة شعب حسب المؤسسة.
+>
+> ### المعدلات (رسمية 2025)
+> - المدارس العليا تطلب معدل مرتفع، الجامعة أكثر مرونة.
+>
+> أكّد دائماً على البوابة الرسمية قبل بطاقة الرغبات.
+>
+> \`\`\`spec-cards
+> [{"id":"ESI-ALGER","name":"إعلام آلي ESI","meta":"engineering · رياضيات","avg":"18.19","color":"var(--cat-engineering)"}]
+> \`\`\`
+
+# ملف الطالب
 - الاسم: ${p.name || 'صديقي'}
-- الشعبة: ${p.stream || 'غير محددة'}
+- الشعبة: ${streamLabel}
 - المعدل: ${p.average || '—'}/20
 - الولاية: ${p.wilaya || 'غير محددة'}
-- الاهتمامات: ${Array.isArray(p.interests) ? p.interests.join('، ') : (p.interests || 'غير محددة')}
+- الاهتمامات: ${Array.isArray(p.interests) ? p.interests.join('، ') : p.interests || 'غير محددة'}
 - الطموح: ${p.ambition_text || p.ambition || 'غير محدد'}
 
-بيانات التخصصات — أرقام رسمية للقبول 2025-2026 (استخدم هذه فقط — لا تخترع بيانات):
-${formatCatalog(relevantSpecs)}
-
-عند اقتراح تخصص، أضف في نهاية ردك كتلة JSON بهذا الشكل بالضبط (ضرورية للعرض المرئي):
-\`\`\`spec-cards
-[{"id":"<id>","name":"<name>","meta":"<category> · <stream>","avg":"<avg>","color":"var(--cat-<engineering|medical|business|science|education>)"}]
-\`\`\`
-أذكر فقط التخصصات التي لها id في البيانات المزودة. إذا لا تقترح تخصصاً، لا تضف الكتلة.`;
+# قاعدة المعرفة (المصدر الوحيد للأرقام — استعملها فقط)
+${contextBlock}`;
 }
 
 /* ---- Supabase admin client (module-level — reused across invocations) ---- */
@@ -389,9 +346,10 @@ export default async function handler(req, res) {
   // Parse request body
   const { message, messages = [], profile, sessionId } = req.body;
 
-  // Build RAG context
-  const relevantSpecs = getRelevantSpecialties(CATALOG, profile);
-  const systemPrompt = buildSystemPrompt(profile, relevantSpecs);
+  // Build RAG context from the real knowledge base
+  const selected = retrieve(message, messages, profile, 6);
+  const contextBlock = buildContext(selected);
+  const systemPrompt = buildSystemPrompt(profile, contextBlock);
 
   // Call Groq with streaming
   const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
@@ -400,8 +358,8 @@ export default async function handler(req, res) {
     model: 'llama-3.3-70b-versatile',
     messages: [{ role: 'system', content: systemPrompt }, ...messages.slice(-12)],
     stream: true,
-    max_tokens: 1024,
-    temperature: 0.7,
+    max_tokens: 1200,
+    temperature: 0.6,
   });
 
   // Stream as SSE
@@ -440,3 +398,6 @@ export default async function handler(req, res) {
     }).then(() => {});
   }
 }
+
+/* ---- Exports for local verification harness (no side effects) ---- */
+export { retrieve, buildContext, buildSystemPrompt, formatAverages, SPECIALITIES };

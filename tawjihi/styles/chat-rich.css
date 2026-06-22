@@ -1,0 +1,295 @@
+/* ============================================================
+   TAWJIHI — Chat rich output styles (output contract v2)
+   Markdown prose · compare table · verdict box
+   All colors via design tokens (tokens.css). RTL-first.
+   ============================================================ */
+
+/* ---- Markdown prose container ---- */
+.tw-md {
+  font-size: var(--fs-md, 0.97rem);
+  line-height: 1.75;
+  color: var(--text);
+}
+
+.tw-md p {
+  margin: 0 0 0.65em;
+}
+.tw-md p:last-child { margin-bottom: 0; }
+
+.tw-md-h2 {
+  font-size: 1.08rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin: 1.1em 0 0.45em;
+  padding-bottom: 0.2em;
+  border-bottom: 2px solid color-mix(in srgb, var(--primary) 18%, transparent);
+}
+.tw-md-h3 {
+  font-size: 0.97rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0.9em 0 0.35em;
+}
+
+.tw-md hr {
+  border: none;
+  border-top: 1.5px solid var(--border, #e2e8f0);
+  margin: 0.9em 0;
+}
+
+.tw-md-ul,
+.tw-md-ol {
+  margin: 0.35em 0 0.65em;
+  padding-inline-start: 1.35em;
+}
+.tw-md-ul li,
+.tw-md-ol li {
+  margin-bottom: 0.3em;
+}
+
+.tw-callout {
+  border-inline-start: 3px solid var(--accent, #f59e0b);
+  background: color-mix(in srgb, var(--accent, #f59e0b) 8%, transparent);
+  border-radius: 0 8px 8px 0;
+  margin: 0.6em 0;
+  padding: 0.55em 0.9em;
+  color: var(--text);
+  font-style: normal;
+}
+
+.tw-code {
+  background: color-mix(in srgb, var(--primary) 9%, var(--surface));
+  color: var(--primary);
+  border-radius: 4px;
+  padding: 0.1em 0.38em;
+  font-family: 'Fira Code', 'Consolas', monospace;
+  font-size: 0.88em;
+}
+
+.tw-link {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.tw-link:hover { opacity: 0.8; }
+
+/* ---- Disclaimer line ---- */
+.tw-disclaimer {
+  margin-top: 0.85em;
+  font-size: var(--fs-sm, 0.82rem);
+  color: var(--text-muted);
+  padding-top: 0.6em;
+  border-top: 1px solid var(--border, #e2e8f0);
+}
+
+/* ============================================================
+   COMPARE TABLE (output contract v2 §3b)
+   ============================================================ */
+.tw-compare {
+  margin: 0.9em 0 0.5em;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1.5px solid var(--border, #e2e8f0);
+  background: var(--surface);
+}
+
+.tw-compare-title {
+  padding: 0.65em 1em;
+  font-weight: 800;
+  font-size: 0.97rem;
+  color: var(--primary);
+  background: color-mix(in srgb, var(--primary) 7%, var(--surface));
+  border-bottom: 1.5px solid color-mix(in srgb, var(--primary) 16%, transparent);
+}
+
+.tw-compare-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tw-compare-table {
+  width: 100%;
+  min-width: 340px;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  direction: rtl;
+}
+
+.tw-compare-table thead tr th {
+  padding: 0.55em 0.9em;
+  font-weight: 800;
+  color: var(--primary);
+  background: color-mix(in srgb, var(--primary) 5%, var(--surface));
+  text-align: center;
+  border-bottom: 1.5px solid var(--border, #e2e8f0);
+}
+.tw-compare-table thead tr th:first-child {
+  text-align: right;
+  width: 38%;
+}
+
+.tw-compare-table tbody tr:nth-child(even) {
+  background: color-mix(in srgb, var(--primary) 3%, var(--surface));
+}
+
+.tw-compare-table tbody td {
+  padding: 0.5em 0.9em;
+  border-bottom: 1px solid var(--border, #e2e8f0);
+  text-align: center;
+  color: var(--text);
+}
+.tw-compare-table tbody td:last-child { border-bottom: none; }
+.tw-compare-table tbody tr:last-child td { border-bottom: none; }
+
+.tw-compare-label {
+  text-align: right !important;
+  font-weight: 600;
+  color: var(--text-muted) !important;
+  white-space: nowrap;
+}
+
+/* ============================================================
+   VERDICT BOX (output contract v2 §3c)
+   ============================================================ */
+.tw-verdict {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9em;
+  margin: 0.9em 0 0.5em;
+  padding: 0.85em 1.1em;
+  border-radius: 14px;
+  border: 2px solid transparent;
+  background: var(--surface);
+  transition: background 0.2s;
+}
+
+.tw-verdict[data-status="safe"] {
+  background: color-mix(in srgb, var(--acc-safe, #22c55e) 10%, var(--surface));
+  border-color: color-mix(in srgb, var(--acc-safe, #22c55e) 30%, transparent);
+}
+.tw-verdict[data-status="likely"] {
+  background: color-mix(in srgb, var(--acc-likely, #f59e0b) 10%, var(--surface));
+  border-color: color-mix(in srgb, var(--acc-likely, #f59e0b) 30%, transparent);
+}
+.tw-verdict[data-status="risk"] {
+  background: color-mix(in srgb, var(--acc-risk, #ef4444) 10%, var(--surface));
+  border-color: color-mix(in srgb, var(--acc-risk, #ef4444) 25%, transparent);
+}
+.tw-verdict[data-status="inelig"],
+.tw-verdict[data-status="unknown"] {
+  background: color-mix(in srgb, var(--acc-inelig, #94a3b8) 10%, var(--surface));
+  border-color: color-mix(in srgb, var(--acc-inelig, #94a3b8) 22%, transparent);
+}
+
+.tw-verdict-icon {
+  font-size: 1.45rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 0.05em;
+}
+.tw-verdict[data-status="safe"]   .tw-verdict-icon { color: var(--acc-safe,   #22c55e); }
+.tw-verdict[data-status="likely"] .tw-verdict-icon { color: var(--acc-likely, #f59e0b); }
+.tw-verdict[data-status="risk"]   .tw-verdict-icon { color: var(--acc-risk,   #ef4444); }
+.tw-verdict[data-status="inelig"] .tw-verdict-icon,
+.tw-verdict[data-status="unknown"] .tw-verdict-icon { color: var(--acc-inelig, #94a3b8); }
+
+.tw-verdict-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.18em;
+}
+
+.tw-verdict-label {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--text);
+}
+.tw-verdict[data-status="safe"]   .tw-verdict-label { color: var(--acc-safe,   #16a34a); }
+.tw-verdict[data-status="likely"] .tw-verdict-label { color: var(--acc-likely, #b45309); }
+.tw-verdict[data-status="risk"]   .tw-verdict-label { color: var(--acc-risk,   #dc2626); }
+
+.tw-verdict-threshold,
+.tw-verdict-avg {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.tw-verdict-note {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 0.1em;
+}
+
+/* ============================================================
+   SPEC CARDS ROW — kept from existing, polish only
+   ============================================================ */
+.chat-spec-row {
+  display: flex;
+  gap: 0.7em;
+  margin-top: 0.85em;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.chat-spec-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+  min-width: 160px;
+  max-width: 190px;
+  padding: 0.85em 1em;
+  border-radius: 14px;
+  border: 2px solid color-mix(in srgb, var(--cat, var(--primary)) 28%, transparent);
+  background: color-mix(in srgb, var(--cat, var(--primary)) 7%, var(--surface));
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.18s, box-shadow 0.18s;
+  flex-shrink: 0;
+}
+.chat-spec-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px color-mix(in srgb, var(--cat, var(--primary)) 22%, transparent);
+}
+.csc-name {
+  font-weight: 800;
+  font-size: 0.93rem;
+  color: var(--text);
+  line-height: 1.2;
+}
+.csc-meta {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+.csc-avg {
+  font-size: 0.83rem;
+  font-weight: 700;
+  color: var(--cat, var(--primary));
+  margin-top: 0.15em;
+}
+.csc-link {
+  font-size: 0.78rem;
+  color: var(--cat, var(--primary));
+  margin-top: 0.25em;
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+}
+
+/* ============================================================
+   DARK THEME adjustments
+   ============================================================ */
+[data-theme="dark"] .tw-callout {
+  background: color-mix(in srgb, var(--accent, #f59e0b) 12%, transparent);
+}
+[data-theme="dark"] .tw-compare {
+  border-color: var(--border, #334155);
+}
+[data-theme="dark"] .tw-compare-title {
+  background: color-mix(in srgb, var(--primary) 12%, var(--surface));
+  border-bottom-color: color-mix(in srgb, var(--primary) 20%, transparent);
+}
+[data-theme="dark"] .tw-compare-table thead tr th {
+  background: color-mix(in srgb, var(--primary) 10%, var(--surface));
+}
