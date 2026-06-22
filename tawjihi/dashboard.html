@@ -68,15 +68,15 @@
                         <h1>مرحبا <span id="userName">صديقي</span> 👋</h1>
                         <p>هاذي صورة سريعة عن مسارك. كمّل اللي بقى، وخلّي المرشد يعاونك في القرار.</p>
                         <div class="dash-chips" id="profileChips">
-                            <span class="dash-chip"><i class="fas fa-flask"></i> <span data-chip="stream">علوم تجريبية</span></span>
-                            <span class="dash-chip"><i class="fas fa-percent"></i> معدل <span data-chip="average">13.75</span></span>
-                            <span class="dash-chip"><i class="fas fa-location-dot"></i> <span data-chip="wilaya">قسنطينة</span></span>
+                            <span class="dash-chip"><i class="fas fa-flask"></i> <span data-chip="stream">—</span></span>
+                            <span class="dash-chip"><i class="fas fa-percent"></i> معدل <span data-chip="average">—</span></span>
+                            <span class="dash-chip"><i class="fas fa-location-dot"></i> <span data-chip="wilaya">—</span></span>
                             <a class="dash-chip dash-chip-edit" href="onboarding.html"><i class="fas fa-pen"></i> عدّل ملفّي</a>
                         </div>
                     </div>
                     <div class="dash-progress-ring" aria-label="اكتمال الملف 80٪">
                         <div class="dash-ring">
-                            <span class="dash-ring-num">80<small>٪</small></span>
+                            <span class="dash-ring-num">—</span>
                         </div>
                         <span class="dash-ring-label">اكتمال ملفّك</span>
                     </div>
@@ -344,11 +344,12 @@ function renderNudges(profile, wishIds) {
     const specRow = $('#dashSpecRow');
     if (wishSpecs.length === 0) {
         specRow.innerHTML = `
-            <div style="padding:var(--sp-6);text-align:center;color:var(--text-muted);width:100%">
-                <i class="fas fa-inbox" style="font-size:2rem;margin-bottom:var(--sp-3);opacity:.4"></i>
-                <p style="margin-bottom:var(--sp-4)">ما عندك حتى تخصص محفوظ بعد.</p>
-                <a class="btn btn-primary" href="simulator.html"><i class="fas fa-list-check"></i> ابدأ بطاقة الرغبات</a>
-            </div>`;
+  <div class="tw-empty">
+    <div class="tw-empty-icon"><i class="fas fa-bookmark"></i></div>
+    <p class="tw-empty-title">ما عندك حتى تخصص محفوظ</p>
+    <p class="tw-empty-body">أضف رغباتك في المحاكي وستظهر هنا تلقائياً مع تحليل فرص قبولك.</p>
+    <a class="tw-empty-cta" href="simulator.html"><i class="fas fa-list-check"></i> ابدأ بطاقة الرغبات</a>
+  </div>`;
     } else {
         specRow.innerHTML = wishSpecs.slice(0, 4).map(s => `
             <article class="dash-spec-card" style="--cat:${s.catVar}">
@@ -367,10 +368,12 @@ function renderNudges(profile, wishIds) {
     const eligList = $('#dashEligList');
     if (wishSpecs.length === 0) {
         eligList.innerHTML = `
-            <li style="color:var(--text-muted);text-align:center;padding:var(--sp-4)">
-                <i class="fas fa-inbox" style="margin-left:var(--sp-2);opacity:.4"></i>
-                أضف رغبات في المحاكي لتظهر هنا
-            </li>`;
+  <li class="tw-empty" style="list-style:none">
+    <div class="tw-empty-icon"><i class="fas fa-clipboard-check"></i></div>
+    <p class="tw-empty-title">لا توجد رغبات للتقييم</p>
+    <p class="tw-empty-body">أضف تخصصاتك في المحاكي وستظهر هنا أهليتك في كل واحد.</p>
+    <a class="tw-empty-cta" href="simulator.html"><i class="fas fa-plus"></i> أضف رغبات</a>
+  </li>`;
     } else {
         const ELIG_BADGE = {
             ok:   '<span class="dash-badge dash-badge-ok"><i class="fas fa-circle-check"></i> مؤهّل</span>',
@@ -388,11 +391,12 @@ function renderNudges(profile, wishIds) {
     const ficheEl = $('#dashFiche');
     if (wishSpecs.length === 0) {
         ficheEl.innerHTML = `
-            <li style="list-style:none;color:var(--text-muted);text-align:center;padding:var(--sp-4)">
-                <i class="fas fa-inbox" style="margin-left:var(--sp-2);opacity:.4"></i>
-                بطاقتك فارغة —
-                <a href="simulator.html" style="color:var(--primary)">ابدأ المحاكي</a>
-            </li>`;
+  <li class="tw-empty" style="list-style:none">
+    <div class="tw-empty-icon"><i class="fas fa-list-ol"></i></div>
+    <p class="tw-empty-title">بطاقتك فارغة</p>
+    <p class="tw-empty-body">لم تحدد تخصصاتك بعد — اذهب للمحاكي وابنِ قائمتك.</p>
+    <a class="tw-empty-cta" href="simulator.html"><i class="fas fa-arrow-left"></i> افتح المحاكي</a>
+  </li>`;
     } else {
         const shown = wishSpecs.slice(0, 3);
         const rest  = wishSpecs.length - shown.length;

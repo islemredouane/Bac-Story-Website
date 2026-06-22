@@ -524,3 +524,72 @@
 [data-theme="dark"] .sim-stream-ico {
     background: color-mix(in srgb, var(--primary) 15%, transparent);
 }
+
+/* ---- Wishlist empty state ---- */
+.sim-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-4, 1rem);
+  padding: var(--sp-10, 2.5rem) var(--sp-6, 1.5rem);
+  text-align: center;
+}
+.sim-empty-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--primary) 10%, var(--surface));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: var(--primary);
+  flex-shrink: 0;
+}
+.sim-empty-title {
+  font-size: 1.08rem;
+  font-weight: 800;
+  color: var(--text);
+  margin: 0;
+}
+.sim-empty-body {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  max-width: 280px;
+  line-height: 1.6;
+  margin: 0;
+}
+.sim-empty-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3, 0.75rem);
+  justify-content: center;
+  margin-top: var(--sp-2, 0.5rem);
+}
+.sim-empty-actions .btn {
+  font-family: 'Tajawal', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 0.55em 1.2em;
+  border-radius: 50px;
+  border: 2px solid var(--primary);
+  cursor: pointer;
+  transition: background 0.16s, color 0.16s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.sim-empty-actions .btn-primary {
+  background: var(--primary);
+  color: #fff;
+}
+.sim-empty-actions .btn-primary:hover { opacity: 0.88; }
+.sim-empty-actions .btn-ghost {
+  background: transparent;
+  color: var(--primary);
+}
+.sim-empty-actions .btn-ghost:hover {
+  background: color-mix(in srgb, var(--primary) 8%, var(--surface));
+}

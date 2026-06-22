@@ -98,9 +98,16 @@
                             </div>
                             <div class="sim-requirements" id="simRequirements"></div>
                             <ol class="wishlist" id="wishlist"></ol>
-                            <div class="wish-empty" id="wishEmpty">
-                                <i class="fas fa-inbox"></i>
-                                <p>بطاقتك فارغة — زيد تخصصات من القائمة على اليسار باش نبداو نحللو فرصك.</p>
+                            <div class="sim-empty" id="wishEmpty">
+                                <div class="sim-empty-icon">
+                                    <i class="fas fa-compass"></i>
+                                </div>
+                                <p class="sim-empty-title">ابدأ بإضافة تخصصاتك</p>
+                                <p class="sim-empty-body">اختر التخصصات اللي تهمك من القائمة على اليمين، وسنحسب فرص قبولك تلقائياً.</p>
+                                <div class="sim-empty-actions">
+                                    <a class="btn btn-primary" href="specialities.html"><i class="fas fa-compass"></i> استكشف التخصصات</a>
+                                    <button class="btn btn-ghost" id="discoverFromEmpty" onclick="sessionStorage.setItem('tw-pending-q', 'اقترح علي تخصصات مناسبة بناءً على ملفي'); location.href='app.html';"><i class="fas fa-robot"></i> اسألني المرشد يقترح عليك</button>
+                                </div>
                             </div>
                         </div>
 

@@ -284,7 +284,7 @@
   }
 
   const savedWish = JSON.parse(localStorage.getItem('tw-wishlist') || 'null');
-  wish = (savedWish && savedWish.length) ? savedWish : getDefaultSeed(myAvg);
+  wish = (savedWish && savedWish.length) ? savedWish : [];
   renderAll();
 
   // Try to load wishlist from Supabase
