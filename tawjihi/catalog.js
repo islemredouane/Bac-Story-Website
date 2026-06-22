@@ -19,16 +19,16 @@ const TW_CATALOG = [
       'يُدرَّس في الجامعات (ليسانس LMD) وفي المدارس العليا (مسار مهندس دولة). تختلف معدلات القبول بشكل كبير بين المسارين.',
     ],
     avgHistory: [
-      { uni: 'ESI (المدرسة العليا للإعلام الآلي)', y2024: 17.80, y2025: 18.19 },
+      { uni: 'ESI (المدرسة الوطنية العليا للإعلام الآلي)', y2024: 17.80, y2025: 18.19 },
       { uni: 'ESI-SBA · سيدي بلعباس', y2024: 17.00, y2025: 17.36 },
       { uni: 'ESTIN · بجاية', y2024: 15.20, y2025: 15.56 },
       { uni: 'ليسانس إعلام آلي (جامعة LMD)', y2024: 11.20, y2025: 14.04 },
     ],
     unis: [
-      { abbr: 'ESI',   name: 'المدرسة العليا للإعلام الآلي',                         location: 'وادي السمار · الجزائر', avg: 18.19 },
+      { abbr: 'ESI',   name: 'المدرسة الوطنية العليا للإعلام الآلي',                 location: 'وادي السمار · الجزائر', avg: 18.19 },
       { abbr: 'ENSIA', name: 'المدرسة الوطنية العليا للذكاء الاصطناعي',              location: 'سيدي عبد الله · الجزائر', avg: 18.59 },
-      { abbr: 'ESI-SBA', name: 'المدرسة العليا في الإعلام الآلي',                  location: 'سيدي بلعباس', avg: 17.36 },
-      { abbr: 'ESTIN', name: 'المدرسة العليا في علوم وتكنولوجيات الإعلام الآلي',   location: 'أميزور · بجاية', avg: 15.56 },
+      { abbr: 'ESI-SBA', name: 'المدرسة العليا للإعلام الآلي بسيدي بلعباس',         location: 'سيدي بلعباس', avg: 17.36 },
+      { abbr: 'ESTIN', name: 'المدرسة العليا في علوم وتكنولوجيات الإعلام الآلي والرقمنة ببجاية', location: 'أميزور · بجاية', avg: 15.56 },
       { abbr: 'USTHB', name: 'جامعة هواري بومدين للعلوم والتكنولوجيا',              location: 'باب الزوار · الجزائر', avg: 14.04 },
     ],
     conditions: [
@@ -77,7 +77,7 @@ const TW_CATALOG = [
     ],
   },
   {
-    id: 'estin', name: 'علوم وتكنولوجيا الإعلام الآلي', nameEn: 'Informatique & Tech – ESTIN',
+    id: 'estin', name: 'علوم وتكنولوجيات الإعلام الآلي والرقمنة', nameEn: 'Informatique & Numérique – ESTIN',
     subtitle: 'هندسة وتكنولوجيا', subtitleIcon: 'fa-microchip',
     cat: 'engineering', catVar: 'var(--cat-engineering)', lmd: false,
     avg: 17.45, minAvg: 17.45,
@@ -214,10 +214,10 @@ const TW_CATALOG = [
     ],
   },
   {
-    id: 'archi', name: 'هندسة معمارية', nameEn: 'Architecture – EPAU',
+    id: 'archi', name: 'هندسة معمارية وعمران', nameEn: 'Architecture – EPAU',
     subtitle: 'هندسة وإبداع', subtitleIcon: 'fa-drafting-compass',
     cat: 'engineering', catVar: 'var(--cat-engineering)', lmd: false,
-    avg: 11.1, minAvg: 11.1,
+    avg: 16.54, minAvg: 16.54,
     streamCodes: ['math','techmath','sciexp'],
     streams: ['رياضيات','تقني رياضي','علوم تجريبية'],
     duration: '5 سنوات', language: 'عربية + فرنسية',
@@ -625,7 +625,7 @@ const TW_CATALOG = [
   },
   /* ========== ENGINEERING — GRANDES ÉCOLES ========== */
   {
-    id: 'esi-sba', name: 'مدرسة عليا في الإعلام الآلي — سيدي بلعباس', nameEn: 'Informatique – ESI-SBA',
+    id: 'esi-sba', name: 'المدرسة العليا للإعلام الآلي بسيدي بلعباس', nameEn: 'Informatique – ESI-SBA',
     subtitle: 'هندسة ومعلوماتية', subtitleIcon: 'fa-server',
     cat: 'engineering', catVar: 'var(--cat-engineering)', lmd: false,
     avg: 17.36, minAvg: 17.00,
@@ -645,7 +645,7 @@ const TW_CATALOG = [
     ],
   },
   {
-    id: 'enscs', name: 'مدرسة عليا في الأمن السيبراني', nameEn: 'Cybersécurité – ENSCS',
+    id: 'enscs', name: 'المدرسة الوطنية العليا للأمن السيبراني', nameEn: 'Cybersécurité – ENSCS',
     subtitle: 'هندسة ومعلوماتية', subtitleIcon: 'fa-shield-halved',
     cat: 'engineering', catVar: 'var(--cat-engineering)', lmd: false,
     avg: 18.34, minAvg: 18.34,
@@ -665,7 +665,7 @@ const TW_CATALOG = [
     ],
   },
   {
-    id: 'ensttic', name: 'مدرسة عليا في تكنولوجيا الإعلام والاتصال — تلمسان', nameEn: 'TIC – ENSTTIC Tlemcen',
+    id: 'ensttic', name: 'المدرسة الوطنية العليا لتكنولوجيات الإعلام والاتصال والبريد', nameEn: 'TIC & Poste – ENSTTIC Tlemcen',
     subtitle: 'هندسة واتصالات', subtitleIcon: 'fa-tower-broadcast',
     cat: 'engineering', catVar: 'var(--cat-engineering)', lmd: false,
     avg: 16.69, minAvg: 16.69,
@@ -811,15 +811,15 @@ const TW_CATALOG = [
     ],
   },
   {
-    id: 'enssn', name: 'علوم البحر والصيد البحري', nameEn: 'Sciences Marines – ENSSN',
-    subtitle: 'هندسة بحرية', subtitleIcon: 'fa-fish',
+    id: 'enssn', name: 'المدرسة الوطنية العليا لعلوم النانو والنانوتكنولوجيا', nameEn: 'Nanosciences & Nanotechnologies – ENSSN',
+    subtitle: 'هندسة نانو وعلوم متقدمة', subtitleIcon: 'fa-atom',
     cat: 'engineering', catVar: 'var(--cat-engineering)', lmd: false,
     avg: 17.96, minAvg: 17.96,
     streamCodes: ['math','sciexp','techmath'], streams: ['رياضيات','علوم تجريبية','تقني رياضي'],
-    duration: '5 سنوات', language: 'فرنسية', degree: 'مهندس دولة', demand: 'متوسط',
-    img: 'images/biologie.jpeg', location: 'ENSSN · وهران',
+    duration: '5 سنوات', language: 'فرنسية + إنجليزية', degree: 'مهندس دولة', demand: 'مرتفع',
+    img: 'images/placeholder.jpeg', location: 'ENSSN · الجزائر العاصمة',
     description: [
-      'المدرسة الوطنية العليا لعلوم البحر والصيد البحري تُكوّن مهندسين متخصصين في إدارة الثروة السمكية، علوم المحيطات والهندسة البحرية.',
+      'المدرسة الوطنية العليا لعلوم النانو والنانوتكنولوجيا (ENSSN) تُكوّن مهندسين في علوم المواد على المستوى النانومتري، التكنولوجيا الحيوية، وأجهزة الاستشعار الدقيقة.، علوم المحيطات والهندسة البحرية.',
       'فرصة فريدة لمن يهوى العلوم البحرية في الجزائر.',
     ],
     avgHistory: [{ uni: 'ENSSN · وهران', y2024: 12.90, y2025: 13.20 }],
@@ -831,15 +831,15 @@ const TW_CATALOG = [
     ],
   },
   {
-    id: 'ensas', name: 'المدرسة الوطنية العليا للزراعة — سطيف', nameEn: 'Agronomie – ENSAS',
-    subtitle: 'هندسة زراعية', subtitleIcon: 'fa-wheat-awn',
+    id: 'ensas', name: 'المدرسة الوطنية العليا للأنظمة المستقلة', nameEn: 'Systèmes Autonomes – ENSAS',
+    subtitle: 'هندسة روبوتيكا وذكاء', subtitleIcon: 'fa-robot',
     cat: 'engineering', catVar: 'var(--cat-engineering)', lmd: false,
     avg: 18.21, minAvg: 18.21,
-    streamCodes: ['sciexp','math'], streams: ['علوم تجريبية','رياضيات'],
-    duration: '5 سنوات', language: 'عربية + فرنسية', degree: 'مهندس دولة', demand: 'متوسط',
-    img: 'images/biologie.jpeg', location: 'ENSAS · سطيف',
+    streamCodes: ['math','sciexp'], streams: ['رياضيات','علوم تجريبية'],
+    duration: '5 سنوات', language: 'فرنسية + إنجليزية', degree: 'مهندس دولة', demand: 'مرتفع جداً',
+    img: 'images/placeholder.jpeg', location: 'ENSAS · القطب التكنولوجي سيدي عبد الله',
     description: [
-      'المدرسة الوطنية العليا للزراعة بسطيف تُكوّن مهندسين في الإنتاج الزراعي، الري، وإدارة الموارد الطبيعية.',
+      'المدرسة الوطنية العليا للأنظمة المستقلة (ENSAS) تتخصص في هندسة الروبوتيكا والأنظمة الذكية المستقلة. تقع في القطب التكنولوجي بسيدي عبد الله مع مدارس النخبة الأخرى.ة.',
       'تخصص مطلوب في ضوء استراتيجية الجزائر لتحقيق الأمن الغذائي.',
     ],
     avgHistory: [{ uni: 'ENSAS · سطيف', y2024: 13.20, y2025: 13.50 }],
@@ -1655,7 +1655,7 @@ const TW_CATALOG = [
 
   /* ========== ENGINEERING — GRANDES ÉCOLES (continued) ========== */
   {
-    id: 'ensta', name: 'المدرسة الوطنية العليا للتكنولوجيات المتقدمة – ENSTA', nameEn: 'Technologies Avancées – ENSTA',
+    id: 'ensta', name: 'المدرسة الوطنية العليا للتكنولوجيا المتقدمة – ENSTA', nameEn: 'Technologies Avancées – ENSTA',
     subtitle: 'هندسة ومعلوماتية', subtitleIcon: 'fa-laptop-code',
     cat: 'engineering', catVar: 'var(--cat-engineering)', lmd: false,
     avg: 17.15, minAvg: 17.15,
