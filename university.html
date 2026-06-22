@@ -178,7 +178,12 @@
         المدرسة الوطنية العليا للتكنولوجيات المتقدمة وهران, ensta oran technologies avancées, طب واقتصاد اقتصاد صحي, médecine économie santé publique,
         إعلام آلي وآلية سيارات ذاتية القيادة, informatique automatique véhicules autonomes, لغات أجنبية ومالية, langues étrangères finance,
         إعلام آلي وتسيير أنظمة معلومات, informatique gestion systèmes d'information, إدارة أعمال وهندسة, management ingénierie,
-        حقوق وإعلام آلي قانون رقمي, droit informatique cyberdroit, طب وعلم نفس الطب النفسي, médecine psychologie psychiatrie">
+        حقوق وإعلام آلي قانون رقمي, droit informatique cyberdroit, طب وعلم نفس الطب النفسي, médecine psychologie psychiatrie,
+        جيولوجيا علوم الأرض, géologie algérie, جغرافيا, géographie algérie, علوم زراعية, sciences agronomiques algérie,
+        علوم الغذاء والتغذية, sciences alimentaires algérie, علوم اجتماعية, sciences sociales algérie, علم الآثار, archéologie algérie,
+        علم الاجتماع سياحة ورفاهية, sociologie du loisir algérie, رياضة وعلوم وتقنيات الأنشطة البدنية, staps algérie,
+        فنون تشكيلية, arts plastiques algérie, سينما وفنون العرض, cinéma algérie, لغة وأدب عربي, littérature arabe algérie,
+        لغة وثقافة أمازيغية, tamazight algérie">
     <link rel="icon" href="/favicon.ico">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -190,7 +195,7 @@
     <meta name="apple-mobile-web-app-title" content="BAC STORY">    <title>دليل الجامعة | BAC STORY</title>
     <link rel="canonical" href="https://bacstory.vercel.app/university">
     <meta name="author" content="redouane mohamed islem">
-    <link rel="stylesheet" href="/style.css?v=8.8">
+    <link rel="stylesheet" href="/style.css?v=8.9">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/solid.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/brands.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -436,6 +441,7 @@
                     <button class="filter-chip" data-filter-type="category" data-filter-val="education">تربية</button>
                     <button class="filter-chip" data-filter-type="category" data-filter-val="law">حقوق</button>
                     <button class="filter-chip" data-filter-type="category" data-filter-val="humanities">علوم إنسانية</button>
+                    <button class="filter-chip" data-filter-type="category" data-filter-val="arts">فنون</button>
                     <button class="filter-chip" data-filter-type="category" data-filter-val="double">تخصصات مزدوجة</button>
                     <button class="filter-chip" data-filter-type="new" data-filter-val="new">تخصصات جديدة</button>
                 </div>
@@ -1532,6 +1538,171 @@
                         <div class="spec-card-footer">
                             <span class="cat-badge cat-badge--humanities">علوم إنسانية</span>
                             <button class="spec-detail-btn" onclick="showSection('SCIENCES-HUM');event.stopPropagation()"><i
+                                    class="fas fa-arrow-left"></i> التفاصيل</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spec-card" data-category="science" data-name="GEOLOGIE جيولوجيا géologie علوم الأرض"
+                    onclick="showSection('GEOLOGIE')">
+                    <div class="spec-card-img"><img loading="lazy" src="images/geologie.png" alt="جيولوجيا"></div>
+                    <div class="spec-card-body">
+                        <div class="spec-card-top">
+                            <div class="spec-card-name">تخصص الجيولوجيا – Géologie</div>
+                        </div>
+                        <div class="spec-card-footer">
+                            <span class="cat-badge cat-badge--science">علوم</span>
+                            <button class="spec-detail-btn" onclick="showSection('GEOLOGIE');event.stopPropagation()"><i
+                                    class="fas fa-arrow-left"></i> التفاصيل</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spec-card" data-category="humanities" data-name="GEOGRAPHIE جغرافيا géographie"
+                    onclick="showSection('GEOGRAPHIE')">
+                    <div class="spec-card-img"><img loading="lazy" src="images/geographie.png" alt="جغرافيا"></div>
+                    <div class="spec-card-body">
+                        <div class="spec-card-top">
+                            <div class="spec-card-name">تخصص الجغرافيا – Géographie</div>
+                        </div>
+                        <div class="spec-card-footer">
+                            <span class="cat-badge cat-badge--humanities">علوم إنسانية</span>
+                            <button class="spec-detail-btn" onclick="showSection('GEOGRAPHIE');event.stopPropagation()"><i
+                                    class="fas fa-arrow-left"></i> التفاصيل</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spec-card" data-category="science" data-name="AGRONOMIE علوم زراعية agronomique sciences agronomiques"
+                    onclick="showSection('AGRONOMIE')">
+                    <div class="spec-card-img"><img loading="lazy" src="images/agronomie.png" alt="علوم زراعية"></div>
+                    <div class="spec-card-body">
+                        <div class="spec-card-top">
+                            <div class="spec-card-name">تخصص العلوم الزراعية – Sciences Agronomiques</div>
+                        </div>
+                        <div class="spec-card-footer">
+                            <span class="cat-badge cat-badge--science">علوم</span>
+                            <button class="spec-detail-btn" onclick="showSection('AGRONOMIE');event.stopPropagation()"><i
+                                    class="fas fa-arrow-left"></i> التفاصيل</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spec-card" data-category="science" data-name="AGROALIMENTAIRE علوم غذاء تغذية sciences alimentaires"
+                    onclick="showSection('AGROALIMENTAIRE')">
+                    <div class="spec-card-img"><img loading="lazy" src="images/agroalimentaire.png" alt="علوم الغذاء"></div>
+                    <div class="spec-card-body">
+                        <div class="spec-card-top">
+                            <div class="spec-card-name">تخصص علوم الغذاء والتغذية – Sciences Alimentaires</div>
+                        </div>
+                        <div class="spec-card-footer">
+                            <span class="cat-badge cat-badge--science">علوم</span>
+                            <button class="spec-detail-btn" onclick="showSection('AGROALIMENTAIRE');event.stopPropagation()"><i
+                                    class="fas fa-arrow-left"></i> التفاصيل</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spec-card" data-category="humanities" data-name="ARCHEOLOGIE علم الآثار archéologie"
+                    onclick="showSection('ARCHEOLOGIE')">
+                    <div class="spec-card-img"><img loading="lazy" src="images/archeologie.png" alt="علم الآثار"></div>
+                    <div class="spec-card-body">
+                        <div class="spec-card-top">
+                            <div class="spec-card-name">تخصص علم الآثار – Archéologie</div>
+                        </div>
+                        <div class="spec-card-footer">
+                            <span class="cat-badge cat-badge--humanities">علوم إنسانية</span>
+                            <button class="spec-detail-btn" onclick="showSection('ARCHEOLOGIE');event.stopPropagation()"><i
+                                    class="fas fa-arrow-left"></i> التفاصيل</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spec-card" data-category="humanities" data-name="LOISIR علم الاجتماع سياحة رفاهية sociologie du loisir"
+                    onclick="showSection('LOISIR')">
+                    <div class="spec-card-img"><img loading="lazy" src="images/loisir.png" alt="سياحة ورفاهية"></div>
+                    <div class="spec-card-body">
+                        <div class="spec-card-top">
+                            <div class="spec-card-name">علم الاجتماع – السياحة والرفاهية – Sociologie du Loisir</div>
+                        </div>
+                        <div class="spec-card-footer">
+                            <span class="cat-badge cat-badge--humanities">علوم إنسانية</span>
+                            <button class="spec-detail-btn" onclick="showSection('LOISIR');event.stopPropagation()"><i
+                                    class="fas fa-arrow-left"></i> التفاصيل</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spec-card" data-category="education" data-name="STAPS رياضة علوم تقنيات أنشطة بدنية sports"
+                    onclick="showSection('STAPS')">
+                    <div class="spec-card-img"><img loading="lazy" src="images/staps.png" alt="STAPS"></div>
+                    <div class="spec-card-body">
+                        <div class="spec-card-top">
+                            <div class="spec-card-name">STAPS – علوم وتقنيات الأنشطة البدنية والرياضية</div>
+                        </div>
+                        <div class="spec-card-footer">
+                            <span class="cat-badge cat-badge--education">تربية</span>
+                            <button class="spec-detail-btn" onclick="showSection('STAPS');event.stopPropagation()"><i
+                                    class="fas fa-arrow-left"></i> التفاصيل</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spec-card" data-category="arts" data-name="ARTS فنون تشكيلية Beaux arts"
+                    onclick="showSection('ARTS')">
+                    <div class="spec-card-img"><img loading="lazy" src="images/arts.png" alt="فنون تشكيلية"></div>
+                    <div class="spec-card-body">
+                        <div class="spec-card-top">
+                            <div class="spec-card-name">تخصص الفنون التشكيلية – Beaux arts</div>
+                        </div>
+                        <div class="spec-card-footer">
+                            <span class="cat-badge cat-badge--arts">فنون</span>
+                            <button class="spec-detail-btn" onclick="showSection('ARTS');event.stopPropagation()"><i
+                                    class="fas fa-arrow-left"></i> التفاصيل</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spec-card" data-category="arts" data-name="CINEMA سينما cinéma arts du spectacle"
+                    onclick="showSection('CINEMA')">
+                    <div class="spec-card-img"><img loading="lazy" src="images/cinema.png" alt="سينما"></div>
+                    <div class="spec-card-body">
+                        <div class="spec-card-top">
+                            <div class="spec-card-name">تخصص السينما وفنون العرض – CINÉMA ET ARTS DU SPECTACLE</div>
+                        </div>
+                        <div class="spec-card-footer">
+                            <span class="cat-badge cat-badge--arts">فنون</span>
+                            <button class="spec-detail-btn" onclick="showSection('CINEMA');event.stopPropagation()"><i
+                                    class="fas fa-arrow-left"></i> التفاصيل</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spec-card" data-category="humanities" data-name="ARABE لغة وأدب عربي langue littérature arabes"
+                    onclick="showSection('ARABE')">
+                    <div class="spec-card-img"><img loading="lazy" src="images/arabe.png" alt="لغة وأدب عربي"></div>
+                    <div class="spec-card-body">
+                        <div class="spec-card-top">
+                            <div class="spec-card-name">تخصص اللغة والأدب العربي – Langue et Littérature Arabes</div>
+                        </div>
+                        <div class="spec-card-footer">
+                            <span class="cat-badge cat-badge--humanities">علوم إنسانية</span>
+                            <button class="spec-detail-btn" onclick="showSection('ARABE');event.stopPropagation()"><i
+                                    class="fas fa-arrow-left"></i> التفاصيل</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spec-card" data-category="humanities" data-name="AMAZIGH لغة وثقافة أمازيغية tamazight berbère amazighe"
+                    onclick="showSection('AMAZIGH')">
+                    <div class="spec-card-img"><img loading="lazy" src="images/amazigh.png" alt="لغة أمازيغية"></div>
+                    <div class="spec-card-body">
+                        <div class="spec-card-top">
+                            <div class="spec-card-name">تخصص اللغة والثقافة الأمازيغية – Langue et Culture Amazighes</div>
+                        </div>
+                        <div class="spec-card-footer">
+                            <span class="cat-badge cat-badge--humanities">علوم إنسانية</span>
+                            <button class="spec-detail-btn" onclick="showSection('AMAZIGH');event.stopPropagation()"><i
                                     class="fas fa-arrow-left"></i> التفاصيل</button>
                         </div>
                     </div>
@@ -16887,13 +17058,1462 @@
             </div>
         </div>
     </div>
+
+    <!-- ══════════════════════════════════════════════
+         E03 ─ جيولوجيا
+    ══════════════════════════════════════════════ -->
+    <div id="GEOLOGIE" class="resource-content">
+        <div class="container">
+            <div class="modern-section-header">
+                <h2>تخصص الجيولوجيا – Géologie</h2>
+            </div>
+            <div style="margin: 24px auto 0; text-align: center;">
+                <a href="https://t.me/islembacdz" target="_blank" rel="noopener" class="search-telegram-btn floating">
+                    <i class="fab fa-telegram-plane"></i>
+                    <span>انضم إلينا على التلغرام</span>
+                </a>
+            </div>
+            <div class="school-details" style="margin-top: 70px">
+                <div class="details">
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-comments"></i> فلسفة التخصص</h3>
+                        <p>الجيولوجيا هي "علم الأرض من الجوف للسطح". مش بس حجارة وتراب — راهي قراءة تاريخ الكوكب اللي كتبه بالطبقات والصخور والزلازل والبراكين. الجيولوجي هو المحقق اللي يقرأ الأرض ويعرف وين الثروات المعدنية، وين تخزن المياه الجوفية، وكيف تتشكل الكوارث الطبيعية.</p>
+                        <p>في الجزائر، هذا التخصص عنده وزن كبير — البلاد فيها ثروات معدنية ضخمة (حديد، فوسفات، ذهب، نفط) وسونطراك ما تزال تبحث على الكفاءات اللي تفهم باطن الأرض. إذا كنت صبور، تحب الميدان والطبيعة، وتقدر تقرأ خرائط وتحلل بيانات… الجيولوجيا بلادك محتاجاها.</p>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-university"></i> الجامعات التي تدرّس الجيولوجيا</h3>
+                        <ul style="list-style:none;">
+                            <li>💠 USTHB (جامعة هواري بومدين)</li>
+                            <li>💠 جامعة الشلف | جامعة أم البواقي | جامعة باتنة 2</li>
+                            <li>💠 جامعة بسكرة | جامعة تبسة | جامعة تلمسان</li>
+                            <li>💠 جامعة تيارت | جامعة تيزي وزو | جامعة الجلفة</li>
+                            <li>💠 جامعة سطيف 1 | جامعة عنابة | جامعة قالمة</li>
+                            <li>💠 جامعة قسنطينة 1 | جامعة مسيلة | جامعة معسكر</li>
+                            <li>💠 جامعة وهران 2 | جامعة ورقلة | جامعة خميس مليانة</li>
+                            <li>💠 المركز الجامعي تندوف | المركز الجامعي ميلة</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-user-graduate"></i> الشعب المقبولة ومعدلات القبول</h3>
+                        <ul>
+                            <li>🔹 <strong>الأولوية 1</strong> — رياضيات، علوم تجريبية، تقني رياضي</li>
+                            <li>🔹 <strong>الأولوية 2</strong> — جميع الشعب العلمية</li>
+                            <li>📌 <strong>شرط الحد الأدنى:</strong> ≥ 10/20 (USTHB: ≥ 12/20)</li>
+                            <li>📊 <strong>معدلات القبول الفعلية 2025 (الجامعات التي نشرت أرقاماً):</strong>
+                                <ul>
+                                    <li>USTHB — الأولوية 1: <strong>10.00</strong> / الأولوية 2: <strong>10.68</strong></li>
+                                    <li>باقي الجامعات: لم تُنشر أرقام فعلية (NC) — سيُعلن رسمياً في أوت</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="acceptance-calc-wrap">
+                            <a href="/tools.html#weighted-calc" class="acceptance-calc-btn">
+                                <i class="fas fa-calculator"></i> احسب معدلك الموزون
+                            </a>
+                        </div>
+                    </div>
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-graduation-cap"></i> نظام الدراسة</h3>
+                        <ul>
+                            <li>🎓 نظام LMD: ليسانس 3 سنوات + ماستر 2 سنوات + دكتوراه</li>
+                            <li>📚 السنة 1–2: رياضيات، فيزياء، كيمياء، جيولوجيا عامة، علم المعادن والصخور</li>
+                            <li>🔬 السنة 3: جيولوجيا هيكلية، طبقات الأرض، جيوفيزياء، خرجات ميدانية</li>
+                            <li>🗺️ الميدان إجباري — خرجات منتظمة للمواقع الجيولوجية</li>
+                            <li>💻 برامج متخصصة: ArcGIS، PETREL، Surfer، RockWorks</li>
+                            <li>🌍 التكوين بالفرنسية في أغلب الجامعات</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-project-diagram"></i> تخصصات الماستر</h3>
+                        <ul>
+                            <li>🛢️ جيولوجيا البترول والمحروقات</li>
+                            <li>💎 بحث معدني وجيوكيمياء</li>
+                            <li>💧 هيدروجيولوجيا وموارد مائية</li>
+                            <li>🌋 جيوديناميك وجيولوجيا هيكلية</li>
+                            <li>🏗️ جيوتقنية وميكانيك الصخور</li>
+                            <li>🌍 جيولوجيا البيئة والأخطار الطبيعية</li>
+                            <li>🔬 بتروغرافيا وعلم المعادن التطبيقي</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-briefcase"></i> فرص العمل</h3>
+                        <ul>
+                            <li>🛢️ <strong>سونطراك وشركات البترول</strong> — أعلى الرواتب في القطاع، خاصة جيولوجيا البترول</li>
+                            <li>⛏️ <strong>سوناريم</strong> وشركات التعدين — التنقيب عن المعادن والثروات الباطنية</li>
+                            <li>🏗️ مكاتب الدراسات الجيوتقنية — دراسات التربة للبناء والمشاريع الكبرى</li>
+                            <li>💧 الوكالة الوطنية للموارد المائية (ANRH) — المياه الجوفية</li>
+                            <li>🌋 المركز الوطني للبحث في الجيوفيزياء (CRAAG) — رصد الزلازل</li>
+                            <li>🎓 التعليم الجامعي والبحث في المراكز الجيولوجية</li>
+                            <li>🌿 وزارة البيئة — دراسات الأخطار الطبيعية</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-comments"></i> آراء الطلبة</h3>
+                        <ul style="list-style:none;">
+                            <li>📍 "الخرجات الميدانية هي روح التخصص — تتعلم أكثر من شهر في القاعة"</li>
+                            <li>📍 "الكيمياء والرياضيات في السنوات الأولى صعبة، بصح بعدها يهون"</li>
+                            <li>📍 "الخريج الجيد راح يلقى خدمة، خاصة لي قصد سونطراك أو الجيوتقنية"</li>
+                            <li>📍 "التكوين بالفرنسية ثقيل في البداية لكن يصير عادي"</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-plus-circle"></i> الإيجابيات</h3>
+                        <ul style="list-style:none;">
+                            <li>✅ تخصص نادر نسبياً = منافسة أقل من البيولوجيا والكيمياء</li>
+                            <li>✅ الجزائر دولة غنية بثرواتها الباطنية — السوق موجود</li>
+                            <li>✅ خرجات ميدانية — دراسة حية مش نظرية فقط</li>
+                            <li>✅ إمكانية العمل في القطاع الخاص (مكاتب الدراسات) والعام</li>
+                            <li>✅ ماستر جيولوجيا البترول = بوابة لسونطراك والشركات الأجنبية</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-minus-circle"></i> السلبيات</h3>
+                        <ul style="list-style:none;">
+                            <li>❌ الميدان الجغرافي صعب أحياناً — حرارة، جبال، مناطق نائية</li>
+                            <li>❌ المواد صعبة في السنوات الأولى (رياضيات، فيزياء، كيمياء)</li>
+                            <li>❌ التكوين بالفرنسية بالكامل تقريباً</li>
+                            <li>❌ فرص العمل المباشرة بعد الليسانس محدودة — الماستر شبه إجباري</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════
+         E01 ─ جغرافيا
+    ══════════════════════════════════════════════ -->
+    <div id="GEOGRAPHIE" class="resource-content">
+        <div class="container">
+            <div class="modern-section-header">
+                <h2>تخصص الجغرافيا – Géographie</h2>
+            </div>
+            <div style="margin: 24px auto 0; text-align: center;">
+                <a href="https://t.me/islembacdz" target="_blank" rel="noopener" class="search-telegram-btn floating">
+                    <i class="fab fa-telegram-plane"></i>
+                    <span>انضم إلينا على التلغرام</span>
+                </a>
+            </div>
+            <div class="school-details" style="margin-top: 70px">
+                <div class="details">
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-comments"></i> فلسفة التخصص</h3>
+                        <p>الجغرافيا مش مجرد حفظ أسماء العواصم والأنهار — راهي تحليل الفضاء البشري والطبيعي. الجغرافي يفهم كيف يتوزع السكان، ليش تتركز الصناعة في مناطق دون غيرها، وكيف يتغير المناخ ويأثر على التنمية والهجرة والموارد.</p>
+                        <p>في الجزائر، تخصص مطلوب في التخطيط العمراني، تهيئة الإقليم، والجماعات المحلية. الخريج يقدر يدخل الدواوين والبلديات ويكون له دور فعلي في تطوير مناطقه، أو يتجه لنظم المعلومات الجغرافية (GIS) لي صارت صناعة قائمة بذاتها.</p>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-university"></i> الجامعات التي تدرّس الجغرافيا</h3>
+                        <ul style="list-style:none;">
+                            <li>💠 USTHB | جامعة الشلف | جامعة أم البواقي | جامعة باتنة 2</li>
+                            <li>💠 جامعة بسكرة | جامعة تبسة | جامعة تيارت | جامعة تيزي وزو</li>
+                            <li>💠 جامعة الجلفة | جامعة سطيف 1 | جامعة عنابة | جامعة قسنطينة 1</li>
+                            <li>💠 جامعة وهران 2 | جامعة ورقلة | جامعة أدرار</li>
+                            <li>💠 المركز الجامعي أم البواقي | مراكز جامعية أخرى عبر الوطن</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-user-graduate"></i> الشعب المقبولة ومعدلات القبول</h3>
+                        <ul>
+                            <li>🔹 <strong>الأولوية 1</strong> — آداب وفلسفة، علوم اجتماعية، تاريخ وجغرافيا</li>
+                            <li>🔹 <strong>الأولوية 2</strong> — باقي شعب البكالوريا</li>
+                            <li>📌 <strong>شرط الحد الأدنى:</strong> ≥ 10/20</li>
+                            <li>📊 <strong>معدلات القبول الفعلية 2025:</strong> أغلب الجامعات لم تنشر أرقاماً فعلية (NC) — المعدل المتوقع بين 10.00 و11.50 حسب الجامعة — سيُعلن رسمياً في أوت</li>
+                        </ul>
+                        <div class="acceptance-calc-wrap">
+                            <a href="/tools.html#weighted-calc" class="acceptance-calc-btn">
+                                <i class="fas fa-calculator"></i> احسب معدلك الموزون
+                            </a>
+                        </div>
+                    </div>
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-graduation-cap"></i> نظام الدراسة</h3>
+                        <ul>
+                            <li>🎓 نظام LMD: ليسانس 3 سنوات + ماستر 2 سنوات + دكتوراه</li>
+                            <li>🗺️ جغرافيا بشرية وجغرافيا طبيعية في السنوات الأولى</li>
+                            <li>📡 GIS — نظم المعلومات الجغرافية والخرائط الرقمية</li>
+                            <li>📊 مناهج كمية ونوعية لتحليل الظواهر المكانية</li>
+                            <li>🏙️ جغرافيا حضرية، تخطيط إقليمي، ديموغرافيا</li>
+                            <li>🌿 جغرافيا البيئة والمناخ وإدارة الكوارث الطبيعية</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-project-diagram"></i> تخصصات الماستر</h3>
+                        <ul>
+                            <li>🏙️ جغرافيا حضرية وتهيئة الإقليم</li>
+                            <li>🌿 جغرافيا البيئة والتنمية المستدامة</li>
+                            <li>📡 نظم المعلومات الجغرافية GIS/SIG</li>
+                            <li>🌾 جغرافيا ريفية وتنمية محلية</li>
+                            <li>🌍 جغرافيا المخاطر والأزمات البيئية</li>
+                            <li>📊 ديموغرافيا وتحليل الديناميكيات السكانية</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-briefcase"></i> فرص العمل</h3>
+                        <ul>
+                            <li>🏛️ البلديات والولايات — مخططات تهيئة الإقليم والتعمير</li>
+                            <li>🏗️ ديوان الترقية والتسيير العقاري (OPGI)</li>
+                            <li>📡 المركز الوطني للاستشعار عن بعد (CNTS) — عمل بالصور الفضائية</li>
+                            <li>📊 الديوان الوطني للإحصاء (ONS) — تحليل التعداد السكاني</li>
+                            <li>🌿 وزارة البيئة وتهيئة الإقليم</li>
+                            <li>🎓 التعليم والبحث في أقسام الجغرافيا الجامعية</li>
+                            <li>🌍 شركات الاستشعار عن بعد ونظم GIS الخاصة</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-comments"></i> آراء الطلبة</h3>
+                        <ul style="list-style:none;">
+                            <li>📍 "GIS صار الزين في التخصص — كل شركة ومؤسسة تحتاج متخصص فيه"</li>
+                            <li>📍 "الدراسة مريحة نسبياً مقارنة بالعلوم الصرفة"</li>
+                            <li>📍 "لي يحب الخرائط والتحليل المكاني راح يحب التخصص"</li>
+                            <li>📍 "فرص العمل تتحسن خاصة في مجال التخطيط والتعمير"</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-plus-circle"></i> الإيجابيات</h3>
+                        <ul style="list-style:none;">
+                            <li>✅ تخصص متعدد التوجهات — بيئة، مدينة، ريف، مناخ، سكان</li>
+                            <li>✅ مهارات GIS مطلوبة جداً في سوق العمل الحديث</li>
+                            <li>✅ قبول من شعب مختلفة — مش محصور في العلوم</li>
+                            <li>✅ إمكانية العمل في القطاع الخاص والعام والدولي</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-minus-circle"></i> السلبيات</h3>
+                        <ul style="list-style:none;">
+                            <li>❌ بدون ماستر متخصص (خاصة GIS) الفرص تبقى محدودة</li>
+                            <li>❌ أقسام بعض الجامعات ضعيفة التجهيز</li>
+                            <li>❌ التكوين نظري أكثر من التطبيقي في بعض الجامعات</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════
+         D03 ─ علوم زراعية
+    ══════════════════════════════════════════════ -->
+    <div id="AGRONOMIE" class="resource-content">
+        <div class="container">
+            <div class="modern-section-header">
+                <h2>تخصص العلوم الزراعية – Sciences Agronomiques</h2>
+            </div>
+            <div style="margin: 24px auto 0; text-align: center;">
+                <a href="https://t.me/islembacdz" target="_blank" rel="noopener" class="search-telegram-btn floating">
+                    <i class="fab fa-telegram-plane"></i>
+                    <span>انضم إلينا على التلغرام</span>
+                </a>
+            </div>
+            <div class="school-details" style="margin-top: 70px">
+                <div class="details">
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-comments"></i> فلسفة التخصص</h3>
+                        <p>العلوم الزراعية هي تخصص "أمن الغذاء". في بلد مثل الجزائر تستورد جزءاً كبيراً من غذائها، المهندس الزراعي هو شخص حاسم — يعمل على تحسين المحاصيل، مقاومة الجفاف، تطوير الري والتربة، وضمان الإنتاج المستدام.</p>
+                        <p>التخصص عملي بالكامل — خرجات ميدانية، مختبرات، ومزارع تجريبية. إذا كنت تحب الطبيعة وما تخوفكش الشغل في الميدان، هذا التخصص يصنع منك مهندس فلاحي "بلاد محتاجاه بصح".</p>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-university"></i> الجامعات التي تدرّس العلوم الزراعية</h3>
+                        <ul style="list-style:none;">
+                            <li>💠 جامعة البليدة 1 | جامعة الشلف | جامعة الأغواط | جامعة أم البواقي</li>
+                            <li>💠 جامعة باتنة 1 | جامعة بسكرة | جامعة بشار | جامعة البويرة</li>
+                            <li>💠 جامعة تبسة | جامعة تيارت | جامعة تيزي وزو | جامعة الجلفة</li>
+                            <li>💠 جامعة جيجل | جامعة سطيف 1 | جامعة سعيدة | جامعة سكيكدة</li>
+                            <li>💠 جامعة سيدي بلعباس | جامعة عنابة | جامعة قالمة | جامعة قسنطينة 1</li>
+                            <li>💠 جامعة المدية | جامعة مستغانم | جامعة المسيلة | جامعة معسكر</li>
+                            <li>💠 جامعة ورقلة | جامعة وهران 1 | جامعة البيض | جامعة برج بوعريريج</li>
+                            <li>💠 جامعة بومرداس | جامعة الطارف | جامعة تيسمسيلت | جامعة الوادي</li>
+                            <li>💠 جامعة خنشلة | جامعة سوق أهراس | المركز الجامعي تيبازة | جامعة تلمسان</li>
+                            <li>💠 جامعة رليزان | جامعة خميس مليانة | جامعة عين تموشنت | جامعة غرداية</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-user-graduate"></i> الشعب المقبولة ومعدلات القبول</h3>
+                        <ul>
+                            <li>🔹 <strong>الأولوية 1</strong> — علوم تجريبية، رياضيات</li>
+                            <li>🔹 <strong>الأولوية 2</strong> — تقني رياضي</li>
+                            <li>📌 <strong>شرط الحد الأدنى:</strong> ≥ 10/20</li>
+                            <li>📊 <strong>معدلات القبول الفعلية 2025 (الجامعات التي نشرت أرقاماً):</strong>
+                                <ul>
+                                    <li>جامعة البليدة 1 — الأولوية 1: <strong>11.75</strong> / الأولوية 2: <strong>12.59</strong></li>
+                                    <li>جامعة الجلفة — الأولوية 1: <strong>10.01</strong> / الأولوية 2: <strong>11.13</strong></li>
+                                    <li>جامعة سطيف 1 (LAN02): <strong>10.22</strong></li>
+                                    <li>جامعة تلمسان (LAN01): <strong>10.04</strong></li>
+                                    <li>جامعة الشلف: <strong>10.56</strong> / <strong>12.36</strong></li>
+                                    <li>جامعة قسنطينة 1: <strong>10.39</strong> / <strong>11.31</strong></li>
+                                    <li>جامعة المدية: <strong>10.31</strong> / <strong>11.25</strong></li>
+                                    <li>جامعة مستغانم: <strong>10.87</strong> / <strong>11.53</strong></li>
+                                    <li>جامعة الطارف: <strong>10.10</strong> / <strong>10.81</strong></li>
+                                    <li>جامعة رليزان: <strong>10.00</strong> / <strong>10.29</strong></li>
+                                    <li>وهران 1 (FPN02): <strong>11.27</strong></li>
+                                    <li>باقي الجامعات: لم تُنشر أرقام (NC)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="acceptance-calc-wrap">
+                            <a href="/tools.html#weighted-calc" class="acceptance-calc-btn">
+                                <i class="fas fa-calculator"></i> احسب معدلك الموزون
+                            </a>
+                        </div>
+                    </div>
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-graduation-cap"></i> نظام الدراسة</h3>
+                        <ul>
+                            <li>🎓 نظام LMD: ليسانس 3 سنوات + ماستر 2 سنوات + دكتوراه</li>
+                            <li>🌱 السنوات الأولى: بيولوجيا نباتية، علوم التربة، كيمياء زراعية، إحصاء</li>
+                            <li>🚜 إنتاج نباتي وحيواني، وقاية النبات، تقنيات الري والصرف</li>
+                            <li>🧪 مختبرات: علم الوراثة التطبيقي، تحليل التربة والمياه</li>
+                            <li>🌿 خرجات ميدانية دورية إلى المزارع والمؤسسات الفلاحية</li>
+                            <li>💻 التكوين يجمع بين العربية والفرنسية حسب الجامعة</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-project-diagram"></i> تخصصات الماستر</h3>
+                        <ul>
+                            <li>🌾 تحسين النبات والتكنولوجيا الحيوية الزراعية</li>
+                            <li>💧 اقتصاد المياه وتقنيات الري الحديث</li>
+                            <li>🐄 إنتاج حيواني ومربى الماشية والدواجن</li>
+                            <li>🌱 علم التربة والتسميد وإصلاح الأراضي</li>
+                            <li>🏭 الصناعات الغذائية الزراعية (Agro-alimentaire)</li>
+                            <li>🌿 الزراعة العضوية والمستدامة</li>
+                            <li>🦠 وقاية النبات ومكافحة الآفات</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-briefcase"></i> فرص العمل</h3>
+                        <ul>
+                            <li>🏛️ وزارة الفلاحة — المديريات الولائية للفلاحة</li>
+                            <li>🏗️ مكاتب دراسات زراعية ومشاريع الري الكبرى</li>
+                            <li>🌾 المجمع الجزائري للحبوب (OAIC) والمجمعات الفلاحية</li>
+                            <li>🧬 مراكز البحث الزراعي (INRAA, ITCMI, ITAF…)</li>
+                            <li>💊 شركات البيطرة ومدخلات الفلاحة (أسمدة، مبيدات)</li>
+                            <li>🚜 الاستثمار الخاص في الضيعات الفلاحية والزراعة الصحراوية</li>
+                            <li>🌿 المشاريع الدولية للتنمية الريفية (FAO, IFAD)</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-comments"></i> آراء الطلبة</h3>
+                        <ul style="list-style:none;">
+                            <li>📍 "الخرجات الميدانية والمزارع التجريبية تميز التخصص — دراسة حية"</li>
+                            <li>📍 "الكيمياء الزراعية والإحصاء صعبين في البداية"</li>
+                            <li>📍 "الزراعة الصحراوية في الجنوب تفتح آفاق جديدة"</li>
+                            <li>📍 "لي يصبر ويكمل ماستر، فرصه في القطاع الخاص ممتازة"</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-plus-circle"></i> الإيجابيات</h3>
+                        <ul style="list-style:none;">
+                            <li>✅ تخصص استراتيجي — الجزائر تستثمر كثيراً في الفلاحة</li>
+                            <li>✅ موجود في جامعات كثيرة — إمكانية التسجيل في ولايتك</li>
+                            <li>✅ دراسة ميدانية ومختبرية — مش نظرية فقط</li>
+                            <li>✅ إمكانية المشاريع الخاصة في الزراعة (startup فلاحي)</li>
+                            <li>✅ طلب متزايد من الدولة لتحقيق الأمن الغذائي</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-minus-circle"></i> السلبيات</h3>
+                        <ul style="list-style:none;">
+                            <li>❌ الراتب في القطاع العام ليس مرتفعاً في البداية</li>
+                            <li>❌ العمل الميداني قد يكون شاقاً (حرارة، بُعد عن المدينة)</li>
+                            <li>❌ بعض الجامعات تفتقر للمزارع التجريبية والتجهيزات</li>
+                            <li>❌ الماستر شبه ضروري للحصول على منصب جيد</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════
+         D07 ─ علوم الغذاء والتغذية
+    ══════════════════════════════════════════════ -->
+    <div id="AGROALIMENTAIRE" class="resource-content">
+        <div class="container">
+            <div class="modern-section-header">
+                <h2>تخصص علوم الغذاء والتغذية – Sciences Alimentaires</h2>
+            </div>
+            <div style="margin: 24px auto 0; text-align: center;">
+                <a href="https://t.me/islembacdz" target="_blank" rel="noopener" class="search-telegram-btn floating">
+                    <i class="fab fa-telegram-plane"></i>
+                    <span>انضم إلينا على التلغرام</span>
+                </a>
+            </div>
+            <div class="school-details" style="margin-top: 70px">
+                <div class="details">
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-comments"></i> فلسفة التخصص</h3>
+                        <p>علوم الغذاء والتغذية هو التخصص اللي يجمع بين "ما تاكله" و"كيف يُنتج". الدراسة تغطي سلامة الغذاء، التحليل الكيميائي والميكروبيولوجي، تقنيات التحويل الصناعي، وعلم التغذية السريري.</p>
+                        <p>في ظل التوسع الكبير في الصناعات الغذائية بالجزائر وضرورات مراقبة الجودة، الخريج راه "مطلوب مباشرة" في المصانع ومخابر التحليل ومؤسسات الصحة العمومية. تخصص فيه ميزة عملية واضحة.</p>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-university"></i> الجامعات التي تدرّس علوم الغذاء</h3>
+                        <ul style="list-style:none;">
+                            <li>💠 جامعة بجاية (كلية الطبيعة والحياة + IAN)</li>
+                            <li>💠 جامعة البليدة 1 — ISTA (المعهد العالي للتقنيات)</li>
+                            <li>💠 جامعة تلمسان — ISTA</li>
+                            <li>💠 جامعة أم البواقي — ISTA</li>
+                            <li>💠 جامعة قالمة (كلية الطبيعة والحياة)</li>
+                            <li>💠 جامعة قسنطينة 1 (LAN01)</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-user-graduate"></i> الشعب المقبولة ومعدلات القبول</h3>
+                        <ul>
+                            <li>🔹 <strong>الأولوية 1</strong> — علوم تجريبية، رياضيات</li>
+                            <li>🔹 <strong>الأولوية 2</strong> — تقني رياضي</li>
+                            <li>📌 <strong>شرط الحد الأدنى:</strong> ≥ 10/20</li>
+                            <li>📊 <strong>معدلات القبول الفعلية 2025:</strong>
+                                <ul>
+                                    <li>جامعة بجاية (IAN): <strong>12.49</strong></li>
+                                    <li>جامعة بجاية (FPN): <strong>10.75</strong></li>
+                                    <li>جامعة البليدة 1 — ISTA — الأولوية 1: <strong>13.97</strong> / الأولوية 2: <strong>14.69</strong></li>
+                                    <li>جامعة تلمسان — ISTA: <strong>13.94</strong></li>
+                                    <li>جامعة أم البواقي — ISTA — الأولوية 1: <strong>12.05</strong> / الأولوية 2: <strong>12.71</strong></li>
+                                    <li>جامعة قالمة: <strong>12.57</strong></li>
+                                    <li>جامعة قسنطينة 1 (LAN01): <strong>13.91</strong></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="acceptance-calc-wrap">
+                            <a href="/tools.html#weighted-calc" class="acceptance-calc-btn">
+                                <i class="fas fa-calculator"></i> احسب معدلك الموزون
+                            </a>
+                        </div>
+                    </div>
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-graduation-cap"></i> نظام الدراسة</h3>
+                        <ul>
+                            <li>🎓 نظام LMD: ليسانس 3 سنوات + ماستر 2 سنوات</li>
+                            <li>🧪 كيمياء غذائية، ميكروبيولوجيا الأغذية، تقنيات الحفظ والتعليب</li>
+                            <li>🏭 تقنيات التحويل الصناعي للأغذية (مطاحن، مصبرات، ألبان…)</li>
+                            <li>⚗️ مراقبة الجودة وسلامة الأغذية (HACCP، ISO 22000)</li>
+                            <li>🥗 علم التغذية السريرية، الحميات الغذائية، التغذية الرياضية</li>
+                            <li>💻 مخابر متخصصة للتحليل الغذائي الكيميائي والميكروبيولوجي</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-project-diagram"></i> تخصصات الماستر</h3>
+                        <ul>
+                            <li>🏭 تكنولوجيا الصناعات الغذائية</li>
+                            <li>🔬 مراقبة الجودة وسلامة الأغذية</li>
+                            <li>🥗 تغذية سريرية وصحة عامة</li>
+                            <li>🌾 تحويل المنتجات الزراعية والنباتية</li>
+                            <li>🧬 تقنيات حيوية في الغذاء (Food Biotech)</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-briefcase"></i> فرص العمل</h3>
+                        <ul>
+                            <li>🏭 شركات الصناعات الغذائية الكبرى (Cevital، NCA Rouiba، Ifri، Hamoud…)</li>
+                            <li>🔬 مخابر تحليل الأغذية — الخاصة والعمومية</li>
+                            <li>🏛️ مديريات الصحة — مراقبة جودة الأغذية وحماية المستهلك</li>
+                            <li>🏥 مستشفيات وعيادات — أخصائي تغذية سريرية</li>
+                            <li>📜 مصالح مراقبة واعتماد الشهادات الصحية للتصدير</li>
+                            <li>🛒 التجزئة الكبرى — تقنيي ضمان الجودة في السلاسل الغذائية</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-comments"></i> آراء الطلبة</h3>
+                        <ul style="list-style:none;">
+                            <li>📍 "معدلات القبول مرتفعة نسبياً خاصة في ISTA — يستاهل الجهد"</li>
+                            <li>📍 "المختبرات والتحليل الغذائي ممتعان جداً"</li>
+                            <li>📍 "فرص العمل في المصانع الغذائية حقيقية ومباشرة بعد الليسانس"</li>
+                            <li>📍 "الكيمياء والميكروبيولوجيا ثقيلتان في السنوات الأولى"</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-plus-circle"></i> الإيجابيات</h3>
+                        <ul style="list-style:none;">
+                            <li>✅ تخصص عملي — فرص عمل مباشرة حتى بالليسانس</li>
+                            <li>✅ صناعة غذائية جزائرية في نمو مستمر</li>
+                            <li>✅ يجمع الكيمياء، البيولوجيا، والجانب الصحي</li>
+                            <li>✅ مخابر التحليل الخاصة سوق واعد</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-minus-circle"></i> السلبيات</h3>
+                        <ul style="list-style:none;">
+                            <li>❌ معدلات القبول في ISTA مرتفعة (13–15) — تنافسي</li>
+                            <li>❌ الجامعات التي تدرسه محدودة مقارنة بالتخصصات الأخرى</li>
+                            <li>❌ المواد الكيميائية والميكروبيولوجية كثيرة وصعبة</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="SOCIALES" class="resource-content">
+        <div class="container">
+            <div class="modern-section-header">
+                <h2>تخصص العلوم الاجتماعية – Sciences Sociales</h2>
+            </div>
+            <div style="margin: 24px auto 0; text-align: center;">
+                <a href="https://t.me/islembacdz" target="_blank" rel="noopener" class="search-telegram-btn floating">
+                    <i class="fab fa-telegram-plane"></i>
+                    <span>انضم إلينا على التلغرام</span>
+                </a>
+            </div>
+            <div class="school-details" style="margin-top: 70px">
+                <div class="details">
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-comments"></i> فلسفة التخصص</h3>
+                        <p>العلوم الاجتماعية هي "علم المجتمع بالمقاربة الشاملة". هنا ما تختارش تخصصاً واحداً — تأخذ من علم الاجتماع، الأنثروبولوجيا، الديموغرافيا، وعلم النفس الاجتماعي في آنٍ واحد. الهدف: تكوين باحث قادر على فهم الظواهر الاجتماعية المعقدة، تحليل السلوك الجماعي، وقراءة ديناميكيات المجتمعات.</p>
+                        <p>التخصص يناسب من يحب التفكير النقدي، القراءة العلمية، والبحث الميداني. الخريج يقدر يكون باحثاً اجتماعياً، مستشاراً في السياسات العامة، أستاذاً جامعياً — أو يتجه للتعليم عبر مسابقة CAPES. الواقعية تقول: الغالبية تنتهي في التعليم، والفرص الأخرى تحتاج جهداً إضافياً وشهادة ماستر أو دكتوراه.</p>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-university"></i> الجامعات التي تدرّس العلوم الاجتماعية</h3>
+                        <ul style="list-style:none;">
+                            <li>💠 جامعة أدرار | جامعة الأغواط | جامعة أم البواقي</li>
+                            <li>💠 جامعة باتنة 1 | جامعة بجاية | جامعة بسكرة | جامعة تبسة</li>
+                            <li>💠 جامعة تيزي وزو | جامعة الجلفة | جامعة جيجل | جامعة سطيف 2</li>
+                            <li>💠 جامعة سكيكدة | جامعة سيدي بلعباس | جامعة عنابة | جامعة قسنطينة 2</li>
+                            <li>💠 جامعة المدية | جامعة مستغانم | جامعة المسيلة | جامعة معسكر</li>
+                            <li>💠 جامعة ورقلة | جامعة وهران 2 | جامعة تلمسان | جامعة الجزائر 2</li>
+                            <li>💠 جامعة برج بوعريريج | جامعة بومرداس | جامعة الطارف | جامعة الوادي</li>
+                            <li>💠 جامعة خنشلة | جامعة سوق أهراس | المركز الجامعي تيبازة</li>
+                            <li>💠 جامعة خميس مليانة | جامعة عين تموشنت | جامعة غرداية | جامعة رليزان</li>
+                            <li>💠 المركز الجامعي مغنية | المركز الجامعي نعامة | المركز الجامعي باريكة | المركز الجامعي إيليزي</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-user-graduate"></i> الشعب المقبولة ومعدلات القبول</h3>
+                        <ul>
+                            <li>🔹 <strong>الأولوية 1</strong> — آداب وفلسفة، علوم اجتماعية</li>
+                            <li>🔹 <strong>الأولوية 2</strong> — علوم إنسانية، باقي الشعب الأدبية</li>
+                            <li>🔹 <strong>الأولوية 3</strong> — باقي شعب البكالوريا</li>
+                            <li>📌 <strong>شرط الحد الأدنى:</strong> ≥ 10/20</li>
+                            <li>📊 <strong>معدلات القبول الفعلية 2025 (الجامعات التي نشرت أرقاماً):</strong>
+                                <ul>
+                                    <li>جامعة أدرار — الأولوية 1: <strong>10.33</strong> / الأولوية 2: <strong>11.11</strong></li>
+                                    <li>جامعة بجاية — الأولوية 1: <strong>10.52</strong> / الأولوية 2: <strong>11.29</strong></li>
+                                    <li>جامعة تلمسان — الأولوية 1: <strong>10.45</strong> / الأولوية 2: <strong>11.18</strong></li>
+                                    <li>جامعة سكيكدة — الأولوية 1: <strong>10.00</strong> / الأولوية 2: <strong>10.72</strong></li>
+                                    <li>جامعة مغنية — الأولوية 1: <strong>10.00</strong> / الأولوية 2: <strong>10.74</strong></li>
+                                    <li>جامعة قسنطينة 2 — الأولوية 1: <strong>10.00</strong> / الأولوية 2: <strong>10.71</strong></li>
+                                    <li>جامعة المدية — الأولوية 1: <strong>10.12</strong> / الأولوية 2: <strong>10.82</strong></li>
+                                    <li>جامعة مستغانم — الأولوية 1: <strong>10.06</strong> / الأولوية 2: <strong>10.84</strong></li>
+                                    <li>جامعة ورقلة — الأولوية 1: <strong>10.01</strong> / الأولوية 2: <strong>10.75</strong></li>
+                                    <li>جامعة معسكر: <strong>10.00</strong> / <strong>10.08</strong> | جامعة تيبازة: <strong>10.00</strong> / <strong>10.32</strong></li>
+                                    <li>جامعة الطارف: <strong>10.12</strong> / <strong>10.90</strong> | جامعة خميس مليانة: <strong>10.04</strong> / <strong>10.76</strong></li>
+                                    <li>جامعة نعامة: <strong>10.00</strong> / <strong>11.49</strong></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="acceptance-calc-wrap">
+                            <a href="/tools.html#weighted-calc" class="acceptance-calc-btn">
+                                <i class="fas fa-calculator"></i> احسب معدلك الموزون
+                            </a>
+                        </div>
+                    </div>
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-graduation-cap"></i> نظام الدراسة</h3>
+                        <ul>
+                            <li>🎓 نظام LMD: ليسانس 3 سنوات + ماستر 2 سنوات + دكتوراه</li>
+                            <li>📚 علم الاجتماع العام، الأنثروبولوجيا الاجتماعية، الديموغرافيا</li>
+                            <li>📊 مناهج البحث الاجتماعي — كمي ونوعي (SPSS, R)</li>
+                            <li>🌍 سوسيولوجيا المنظمات، التنمية، الأسرة والمجتمع</li>
+                            <li>📝 تقنيات التحقيق الميداني والمقابلة العلمية</li>
+                            <li>🌐 اللغة العربية هي لغة الدراسة الرئيسية في الجامعات الجزائرية</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-project-diagram"></i> تخصصات الماستر</h3>
+                        <ul>
+                            <li>🏙️ سوسيولوجيا التنمية والتغير الاجتماعي</li>
+                            <li>👨‍👩‍👧 سوسيولوجيا الأسرة والشباب</li>
+                            <li>🏭 سوسيولوجيا العمل والمنظمات</li>
+                            <li>🌿 أنثروبولوجيا اجتماعية وثقافية</li>
+                            <li>📊 ديموغرافيا وإحصاء سكاني</li>
+                            <li>🏥 سوسيولوجيا الصحة والطب</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-briefcase"></i> فرص العمل</h3>
+                        <p>بكل صراحة، الغالبية تتجه نحو التعليم — بصح كاين فرص أخرى لمن يجتهد:</p>
+                        <ul>
+                            <li>📚 أستاذ في التعليم المتوسط والثانوي عبر مسابقة CAPES (العلوم الاجتماعية)</li>
+                            <li>📊 مراكز البحث الاجتماعي (CREAD, INAS, CRASC)</li>
+                            <li>🏛️ الديوان الوطني للإحصاء (ONS) — تحليل البيانات السكانية</li>
+                            <li>🏥 قطاع الصحة — مكتب الدراسات الاجتماعية والنفسية</li>
+                            <li>🏛️ الوزارات والمؤسسات الحكومية — مستشار في الشؤون الاجتماعية</li>
+                            <li>🎓 التعليم الجامعي والبحث العلمي (بعد الدكتوراه)</li>
+                            <li>🌍 المنظمات الدولية والمجتمع المدني (UNICEF, UNHCR, ONG…)</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-comments"></i> آراء الطلبة</h3>
+                        <ul style="list-style:none;">
+                            <li>📍 "تخصص يطور تفكيرك النقدي وفهمك للمجتمع — بصح استعد للقراءة الكثيرة"</li>
+                            <li>📍 "الكتابة العلمية والبحث الميداني ثقيلان في البداية، لكن يصير عندك ملكة"</li>
+                            <li>📍 "الدكتوراه هي المسار الملكي — بدونها الفرص محدودة خارج التعليم"</li>
+                            <li>📍 "لي يحب القراءة والتحليل راح يستمتع — لي يدور راتب سريع يختار غيره"</li>
+                            <li>📍 "الأنثروبولوجيا ميدانياً جميلة جداً — تنزل للمجتمع وتحلله بعيون علمية"</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-plus-circle"></i> الإيجابيات</h3>
+                        <ul style="list-style:none;">
+                            <li>✅ موجود في جامعات كثيرة جداً — قبول سهل نسبياً</li>
+                            <li>✅ معدلات قبول منخفضة — يناسب طيفاً واسعاً من الطلبة</li>
+                            <li>✅ يفتح للبحث، التعليم، والمجال الدولي</li>
+                            <li>✅ الدراسة باللغة العربية في أغلب الجامعات</li>
+                            <li>✅ تكوين فكري عميق يصلح لأي مسار أكاديمي لاحق</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-minus-circle"></i> السلبيات</h3>
+                        <ul style="list-style:none;">
+                            <li>❌ الغالبية تنتهي بالتعليم — الفرص خارجه محدودة بدون ماستر أو دكتوراه</li>
+                            <li>❌ سوق العمل الخاص لا يعرف هذا التخصص بشكل كافٍ</li>
+                            <li>❌ مسابقة CAPES تنافسية وتحتاج تحضيراً مستقلاً</li>
+                            <li>❌ الرواتب في المسارات الحكومية والتعليمية ليست مرتفعة في البداية</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-lightbulb"></i> خلاصة ونصيحة</h3>
+                        <p>العلوم الاجتماعية تخصص لمن يحب العمق الفكري وفهم الإنسان في سياقه الجماعي. بصح كن صريحاً مع نفسك: الطريق الأكثر واقعية هو التعليم، والفرص الأخرى تحتاج مجهوداً إضافياً.</p>
+                        <p>نصيحتي: إذا اخترت هذا التخصص، تعلم برامج التحليل الكمي (SPSS, R) من السنة الأولى — هذا ما يميزك في مراكز البحث والوزارات. وإذا كان هدفك التعليم، حضّر لـ CAPES من السنة الثانية ولا تنتظر.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="ARCHEOLOGIE" class="resource-content">
+        <div class="container">
+            <div class="modern-section-header">
+                <h2>تخصص علم الآثار – Archéologie</h2>
+            </div>
+            <div style="margin: 24px auto 0; text-align: center;">
+                <a href="https://t.me/islembacdz" target="_blank" rel="noopener" class="search-telegram-btn floating">
+                    <i class="fab fa-telegram-plane"></i>
+                    <span>انضم إلينا على التلغرام</span>
+                </a>
+            </div>
+            <div class="school-details" style="margin-top: 70px">
+                <div class="details">
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-comments"></i> فلسفة التخصص</h3>
+                        <p>علم الآثار هو "قراءة التاريخ من تحت الأرض". الجزائر بلد بحضارات متعاقبة — من تيبازة الرومانية وجميلة (دجميلة) إلى تيمقاد البيزنطية والحضارة الأمازيغية القديمة. كل هذا التراث يحتاج متخصصين يحفظونه ويفسرونه للأجيال القادمة.</p>
+                        <p>التخصص يجمع التاريخ، الأنثروبولوجيا، والعلوم التطبيقية. الطالب يتعلم التنقيب، التصنيف، الترميم، والتحليل. إذا كنت مفتون بالتاريخ القديم وعندك صبر وحب للتفاصيل — هنا مكانك.</p>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-university"></i> الجامعات التي تدرّس علم الآثار</h3>
+                        <ul style="list-style:none;">
+                            <li>💠 <strong>جامعة الجزائر 2</strong> — المرجع الرئيسي لعلم الآثار في الجزائر</li>
+                            <li>💠 التخصص محدود جداً — لا يُدرَّس إلا في عدد قليل من الجامعات</li>
+                            <li>⚠️ يُنصح التحقق من الجامعات المفتوحة سنوياً في دليل المسابقة</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-user-graduate"></i> الشعب المقبولة ومعدلات القبول</h3>
+                        <ul>
+                            <li>🔹 <strong>الأولوية 1</strong> — آداب وفلسفة، علوم اجتماعية، تاريخ</li>
+                            <li>🔹 <strong>الأولوية 2</strong> — باقي شعب البكالوريا</li>
+                            <li>📌 <strong>شرط الحد الأدنى:</strong> ≥ 10/20</li>
+                            <li>📊 <strong>معدل القبول الفعلي 2025:</strong> جامعة الجزائر 2 — بيانات لم تُنشر (NC) — سيُعلن رسمياً في أوت</li>
+                            <li>⚠️ <strong>تنبيه:</strong> عدد المقاعد محدود جداً — التسجيل يكون تنافسياً</li>
+                        </ul>
+                        <div class="acceptance-calc-wrap">
+                            <a href="/tools.html#weighted-calc" class="acceptance-calc-btn">
+                                <i class="fas fa-calculator"></i> احسب معدلك الموزون
+                            </a>
+                        </div>
+                    </div>
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-graduation-cap"></i> نظام الدراسة</h3>
+                        <ul>
+                            <li>🎓 نظام LMD: ليسانس 3 سنوات + ماستر 2 سنوات + دكتوراه</li>
+                            <li>🏛️ تاريخ قديم وتاريخ الحضارات الجزائرية والمتوسطية</li>
+                            <li>⛏️ تقنيات التنقيب الأثري، الرسم والتوثيق الأثري</li>
+                            <li>🔬 علم المواد: تحليل وترميم القطع الأثرية (سيراميك، معادن، عظام…)</li>
+                            <li>🗺️ خرائط أثرية ونظم GIS المطبقة على التراث</li>
+                            <li>📜 نقوش وكتابات قديمة (اللاتينية، البونيقية، التيفيناغ)</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-project-diagram"></i> تخصصات الماستر</h3>
+                        <ul>
+                            <li>🏛️ آثار ما قبل التاريخ والعصور القديمة</li>
+                            <li>🏺 ترميم وصيانة التراث المادي</li>
+                            <li>🌿 آثار إسلامية وتراث أمازيغي</li>
+                            <li>🗺️ علم الآثار الرقمي والجوي</li>
+                            <li>📚 إدارة التراث الثقافي</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-briefcase"></i> فرص العمل</h3>
+                        <ul>
+                            <li>🏛️ الديوان الوطني لتسيير واستغلال الممتلكات الثقافية المحمية (OGMC)</li>
+                            <li>🏺 المتاحف الوطنية والولائية — قيّم مجموعات أثرية</li>
+                            <li>📜 وزارة الثقافة — مديرية الممتلكات الثقافية</li>
+                            <li>🌍 منظمة اليونسكو ومشاريع التراث العالمي</li>
+                            <li>🎓 البحث والتعليم الجامعي في أقسام التاريخ والآثار</li>
+                            <li>🏗️ مكاتب دراسات المواقع الأثرية قبل مشاريع البناء الكبرى</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-comments"></i> آراء الطلبة</h3>
+                        <ul style="list-style:none;">
+                            <li>📍 "تخصص نادر وجميل — تحس روعة التاريخ في كل درس"</li>
+                            <li>📍 "المواقع الأثرية في الجزائر كثيرة — الميدان غني"</li>
+                            <li>📍 "فرص العمل قليلة في القطاع الخاص — الدولة هي المشغل الرئيسي"</li>
+                            <li>📍 "الدكتوراه مهمة جداً لمن يريد مسيرة أكاديمية"</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-plus-circle"></i> الإيجابيات</h3>
+                        <ul style="list-style:none;">
+                            <li>✅ تخصص فريد ونادر — منافسة أقل من التخصصات الشائعة</li>
+                            <li>✅ الجزائر غنية بالتراث الأثري — الميدان متاح</li>
+                            <li>✅ إمكانية العمل في مشاريع دولية مع اليونسكو</li>
+                            <li>✅ يجمع التاريخ والعلوم التطبيقية</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-minus-circle"></i> السلبيات</h3>
+                        <ul style="list-style:none;">
+                            <li>❌ عدد مقاعد محدود جداً — يصعب التسجيل</li>
+                            <li>❌ فرص العمل في القطاع الخاص شبه معدومة</li>
+                            <li>❌ الدكتوراه شبه إلزامية للحصول على منصب محترم</li>
+                            <li>❌ التمويل الحكومي للبعثات الأثرية محدود</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="LOISIR" class="resource-content">
+        <div class="container">
+            <div class="modern-section-header">
+                <h2>علم الاجتماع – السياحة والرفاهية – Sociologie du Loisir</h2>
+            </div>
+            <div style="margin: 24px auto 0; text-align: center;">
+                <a href="https://t.me/islembacdz" target="_blank" rel="noopener" class="search-telegram-btn floating">
+                    <i class="fab fa-telegram-plane"></i>
+                    <span>انضم إلينا على التلغرام</span>
+                </a>
+            </div>
+            <div class="school-details" style="margin-top: 70px">
+                <div class="details">
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-comments"></i> فلسفة التخصص</h3>
+                        <p>تخصص نادر ومستقبلي — يدرس السياحة والرفاهية من منظور اجتماعي وثقافي. مش بس تسيير فندق أو تنظيم رحلة، بل فهم كيف يقضي الناس وقت فراغهم، ما الذي يدفع الحركة السياحية، وكيف تنعكس على المجتمع والاقتصاد والهوية الثقافية.</p>
+                        <p>الجزائر تسعى لتطوير قطاع السياحة (الجنوب الصحراوي، الطبيعة، السياحة التراثية). المتخصصون في هذا المجال سيكونون من يضع السياسات السياحية ويسير المؤسسات الكبرى مستقبلاً.</p>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-university"></i> الجامعات التي تدرّس هذا التخصص</h3>
+                        <ul style="list-style:none;">
+                            <li>💠 جامعة الأغواط | جامعة باتنة 1 | جامعة بسكرة</li>
+                            <li>💠 جامعة تبسة | جامعة الجزائر 2 | جامعة البليدة 2</li>
+                            <li>💠 جامعة جيجل | جامعة سوق أهراس | جامعة ورقلة</li>
+                            <li>💠 جامعة البيض | المركز الجامعي رليزان</li>
+                            <li>⚠️ التخصص محدود — تحقق من الجامعات المفتوحة في دليل المسابقة</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-user-graduate"></i> الشعب المقبولة ومعدلات القبول</h3>
+                        <ul>
+                            <li>🔹 <strong>الأولوية 1</strong> — آداب وفلسفة، علوم اجتماعية</li>
+                            <li>🔹 <strong>الأولوية 2</strong> — باقي شعب البكالوريا</li>
+                            <li>📌 <strong>شرط الحد الأدنى:</strong> ≥ 10/20</li>
+                            <li>📊 <strong>معدل القبول الفعلي 2025:</strong> بيانات لم تُنشر في أغلب الجامعات (NC) — المعدل المتوقع بين 10.00 و11.00 — سيُعلن رسمياً في أوت</li>
+                        </ul>
+                        <div class="acceptance-calc-wrap">
+                            <a href="/tools.html#weighted-calc" class="acceptance-calc-btn">
+                                <i class="fas fa-calculator"></i> احسب معدلك الموزون
+                            </a>
+                        </div>
+                    </div>
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-graduation-cap"></i> نظام الدراسة</h3>
+                        <ul>
+                            <li>🎓 نظام LMD: ليسانس 3 سنوات + ماستر 2 سنوات</li>
+                            <li>🌍 سوسيولوجيا السياحة والترفيه وأوقات الفراغ</li>
+                            <li>🏨 تسيير مؤسسات السياحة والضيافة</li>
+                            <li>📊 اقتصاد السياحة وتحليل الطلب السياحي</li>
+                            <li>🗺️ تطوير المواقع السياحية والتراثية والطبيعية</li>
+                            <li>🌿 سياحة بيئية وسياحة ثقافية ومجتمعية</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-project-diagram"></i> تخصصات الماستر</h3>
+                        <ul>
+                            <li>🌿 سياحة مستدامة وإيكوتوريزم</li>
+                            <li>🏛️ سياحة ثقافية وتراثية</li>
+                            <li>🏨 إدارة مؤسسات الضيافة والفندقة</li>
+                            <li>📊 تسويق سياحي وترويج المقاصد</li>
+                            <li>🎭 سياحة فعاليات وترفيه</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-briefcase"></i> فرص العمل</h3>
+                        <ul>
+                            <li>🏨 الفنادق والمجمعات السياحية (خاصة في الجنوب والشمال)</li>
+                            <li>✈️ وكالات السفر والسياحة الوطنية والدولية</li>
+                            <li>🏛️ وزارة السياحة والصناعة التقليدية — برامج التطوير السياحي</li>
+                            <li>🌿 محميات طبيعية ومواقع أثرية — تسيير سياحي</li>
+                            <li>📊 مكاتب الدراسات والتخطيط السياحي للولايات</li>
+                            <li>🌍 منظمات دولية للسياحة المستدامة</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-comments"></i> آراء الطلبة</h3>
+                        <ul style="list-style:none;">
+                            <li>📍 "تخصص مستقبلي والسياحة الجزائرية في بداية انطلاقتها"</li>
+                            <li>📍 "المنهج يجمع بين الجانب الاجتماعي والاقتصادي — ثري فكرياً"</li>
+                            <li>📍 "سوق العمل لم ينضج بعد بشكل كامل — لكنه في نمو"</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-plus-circle"></i> الإيجابيات</h3>
+                        <ul style="list-style:none;">
+                            <li>✅ تخصص مستقبلي مع الاهتمام المتزايد بالسياحة الجزائرية</li>
+                            <li>✅ نادر = منافسة أقل وإمكانية التميز</li>
+                            <li>✅ يفتح لقطاعات متعددة: فنادق، وكالات، وزارة، منظمات</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-minus-circle"></i> السلبيات</h3>
+                        <ul style="list-style:none;">
+                            <li>❌ سوق العمل المحلي لم يتطور بعد بشكل كافٍ</li>
+                            <li>❌ بعض الجامعات تفتقر للمواضيع التطبيقية والتكوين العملي</li>
+                            <li>❌ قطاع السياحة الجزائري ما يزال في طور التطوير</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="STAPS" class="resource-content">
+        <div class="container">
+            <div class="modern-section-header">
+                <h2>STAPS – علوم وتقنيات الأنشطة البدنية والرياضية</h2>
+            </div>
+            <div style="margin: 24px auto 0; text-align: center;">
+                <a href="https://t.me/islembacdz" target="_blank" rel="noopener" class="search-telegram-btn floating">
+                    <i class="fab fa-telegram-plane"></i>
+                    <span>انضم إلينا على التلغرام</span>
+                </a>
+            </div>
+            <div class="school-details" style="margin-top: 70px">
+                <div class="details">
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-comments"></i> فلسفة التخصص</h3>
+                        <p>STAPS هو تخصص الرياضة العلمية — مش بس مدرب يعطي تمارين، بل عالم يفهم الجسم البشري، الفسيولوجيا، الحركة، والتربية البدنية. التخصص يجمع بين العلوم (بيولوجيا، علم الأعصاب، بيوميكانيك) والجانب التطبيقي الميداني.</p>
+                        <p>⚠️ <strong>مهم جداً:</strong> للقبول في المعهد الوطني للتكوين العالي للرياضة (INFS — بوزريعة الجزائر) والمدارس العليا للأساتذة، يوجد اختبار بدني إلزامي قبل التسجيل. مهما كان معدلك، لازم تعدي الاختبار. في الجامعات الأخرى القبول بالمعدل مباشرة.</p>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-university"></i> الجامعات التي تدرّس STAPS</h3>
+                        <ul style="list-style:none;">
+                            <li>💠 <strong>جامعة الجزائر 3 (INFS بوزريعة)</strong> — المرجع الوطني</li>
+                            <li>💠 جامعة الشلف | جامعة الأغواط | جامعة أم البواقي</li>
+                            <li>💠 جامعة باتنة 2 | جامعة بجاية | جامعة بسكرة | جامعة البويرة</li>
+                            <li>💠 جامعة تبسة | جامعة الجلفة | جامعة جيجل | جامعة سطيف 2</li>
+                            <li>💠 جامعة سوق أهراس | جامعة مستغانم | جامعة المسيلة</li>
+                            <li>💠 جامعة ورقلة | USTO (وهران) | جامعة قسنطينة 2</li>
+                            <li>💠 جامعة خميس مليانة | المركز الجامعي البيض | جامعة تيسمسيلت</li>
+                            <li>💠 المركز الجامعي تمنغست | المركز الجامعي البويرة</li>
+                            <li>💠 <strong>المدارس العليا للأساتذة:</strong> ENS مستغانم (ملحق الشلف)، ENS الأغواط، ENS بوزريعة (ملحق الجزائر 3)</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-user-graduate"></i> الشعب المقبولة ومعدلات القبول</h3>
+                        <ul>
+                            <li>🔹 <strong>الأولوية 1</strong> — جميع شعب البكالوريا (الرياضة مفتوحة)</li>
+                            <li>⚠️ <strong>شرط اختبار بدني:</strong> إلزامي في INFS ومسابقات التأهيل الخاصة</li>
+                            <li>📌 <strong>شرط الحد الأدنى:</strong> ≥ 10/20</li>
+                            <li>📊 <strong>معدلات القبول الفعلية 2025 (الجامعات التي نشرت):</strong>
+                                <ul>
+                                    <li>جامعة الجزائر 3 (وطني/LAN01): <strong>12.40</strong></li>
+                                    <li>جامعة الشلف: <strong>10.64</strong> | جامعة باتنة 2: <strong>10.69</strong></li>
+                                    <li>جامعة بجاية: <strong>11.23</strong> | جامعة البويرة: <strong>10.29</strong></li>
+                                    <li>جامعة سطيف 2: <strong>11.01</strong> | جامعة جيجل: <strong>11.11</strong></li>
+                                    <li>جامعة ورقلة: <strong>10.22</strong> | جامعة مستغانم: <strong>12.66</strong></li>
+                                    <li>USTO وهران: <strong>12.65</strong> | جامعة قسنطينة 2: <strong>11.98</strong></li>
+                                    <li>جامعة سوق أهراس: <strong>10.46</strong> | جامعة خميس مليانة: <strong>10.49</strong></li>
+                                    <li>المركز الجامعي البيض: <strong>12.44</strong> | جامعة تيسمسيلت: <strong>11.63</strong></li>
+                                    <li><strong>ENS مستغانم (ملحق الشلف — تأهيل أساتذة):</strong> 12.41 إلى 15.32</li>
+                                    <li><strong>ENS الأغواط (تأهيل أساتذة):</strong> 13.40 إلى 15.16</li>
+                                    <li><strong>ENS بوزريعة (ملحق الجزائر 3 — تأهيل أساتذة):</strong> 10.00 إلى 14.86</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="acceptance-calc-wrap">
+                            <a href="/tools.html#weighted-calc" class="acceptance-calc-btn">
+                                <i class="fas fa-calculator"></i> احسب معدلك الموزون
+                            </a>
+                        </div>
+                    </div>
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-graduation-cap"></i> نظام الدراسة</h3>
+                        <ul>
+                            <li>🎓 نظام LMD: ليسانس 3 سنوات + ماستر 2 سنوات + دكتوراه</li>
+                            <li>🏃 تقنيات الأنشطة البدنية والرياضية المختلفة (ألعاب قوى، كرة، سباحة…)</li>
+                            <li>🔬 فيزيولوجيا الجهد البدني، بيوميكانيك الحركة، علم النفس الرياضي</li>
+                            <li>📊 علوم التدريب الرياضي وطرق تحسين الأداء</li>
+                            <li>🏥 إسعافات أولية وتقنيات الوقاية والتعافي الرياضي</li>
+                            <li>🏫 التربية البدنية والرياضية المدرسية ومناهج التدريس</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-project-diagram"></i> تخصصات الماستر</h3>
+                        <ul>
+                            <li>🏆 تدريب رياضي وأداء عالٍ (Performance Sportive)</li>
+                            <li>🏫 التربية البدنية والرياضية المدرسية</li>
+                            <li>🏥 نشاط بدني علاجي وإعادة تأهيل (APA)</li>
+                            <li>📊 تسيير رياضي وإدارة المرافق الرياضية</li>
+                            <li>🧠 علم النفس الرياضي والتحفيز</li>
+                            <li>🌿 الصحة والنشاط البدني (Health & Fitness)</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-briefcase"></i> فرص العمل</h3>
+                        <ul>
+                            <li>🏫 <strong>أستاذ TPS في التعليم</strong> — أعلى توظيف لخريجي STAPS</li>
+                            <li>🏆 مدرب رياضي في الأندية والاتحاديات الوطنية والدولية</li>
+                            <li>🏥 مختص في إعادة التأهيل الرياضي (Kinésithérapie الرياضية)</li>
+                            <li>🏋️ تسيير مراكز رياضية وقاعات اللياقة البدنية (الاستثمار الخاص)</li>
+                            <li>🎽 وزارة الشباب والرياضة — مفتش رياضي ومدير مدرسة متخصصة</li>
+                            <li>🌍 الاتحادات الرياضية الوطنية والدولية</li>
+                            <li>📺 تحليل رياضي وإعلام رياضي</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-comments"></i> آراء الطلبة</h3>
+                        <ul style="list-style:none;">
+                            <li>📍 "التخصص حيوي جداً — لا تشوف روتين في يوم دراسي"</li>
+                            <li>📍 "المواد العلمية (فسيولوجيا، بيوميكانيك) صعبة بشكل مفاجئ"</li>
+                            <li>📍 "الاختبار البدني في INFS شرط حقيقي — لازم تتحضر له"</li>
+                            <li>📍 "فرص العمل في التعليم مضمونة تقريباً لكل خريج"</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-plus-circle"></i> الإيجابيات</h3>
+                        <ul style="list-style:none;">
+                            <li>✅ توظيف مضمون تقريباً في التعليم العمومي</li>
+                            <li>✅ دراسة ميدانية وعملية — مش نظرية فقط</li>
+                            <li>✅ متوفر في جامعات كثيرة عبر الوطن</li>
+                            <li>✅ قطاع خاص (قاعات رياضية، تدريب) في نمو مستمر</li>
+                            <li>✅ يناسب كل الشعب — مش مقيد بشعبة معينة</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-minus-circle"></i> السلبيات</h3>
+                        <ul style="list-style:none;">
+                            <li>❌ الاختبار البدني في بعض المؤسسات عائق لغير الرياضيين</li>
+                            <li>❌ المواد العلمية أصعب مما يتوقعه كثيرون</li>
+                            <li>❌ الراتب في التعليم العمومي ليس مرتفعاً في البداية</li>
+                            <li>❌ بعض الجامعات تفتقر للملاعب والمنشآت الرياضية الكافية</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="ARTS" class="resource-content">
+        <div class="container">
+            <div class="modern-section-header">
+                <h2>تخصص الفنون التشكيلية – Arts Plastiques</h2>
+            </div>
+            <div style="margin: 24px auto 0; text-align: center;">
+                <a href="https://t.me/islembacdz" target="_blank" rel="noopener" class="search-telegram-btn floating">
+                    <i class="fab fa-telegram-plane"></i>
+                    <span>انضم إلينا على التلغرام</span>
+                </a>
+            </div>
+            <div class="school-details" style="margin-top: 70px">
+                <div class="details">
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-comments"></i> فلسفة التخصص</h3>
+                        <p>الفنون التشكيلية في الجامعة مش "مدرسة رسم" — راهي دراسة أكاديمية عميقة للتعبير الفني، تاريخ الفن، نقد الأعمال، وتقنيات الإبداع البصري. الطالب يتعلم كيف يحلل، ينقد، ويبدع في نفس الوقت.</p>
+                        <p>⚠️ <strong>مهم:</strong> القبول في بعض الجامعات والمدارس العليا للأساتذة (ENS كوبا) يشترط ملف فني أو اختبار موهبة. المعدل وحده ما يكفيش — لازم تثبت موهبتك الفنية.</p>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-university"></i> الجامعات التي تدرّس الفنون التشكيلية</h3>
+                        <ul style="list-style:none;">
+                            <li>💠 <strong>جامعة الجزائر 2</strong> — كلية الفنون والعلوم الإنسانية</li>
+                            <li>💠 جامعة أم البواقي | جامعة تيارت | جامعة الجلفة</li>
+                            <li>💠 جامعة سيدي بلعباس | جامعة سعيدة | جامعة معسكر</li>
+                            <li>💠 جامعة مستغانم | جامعة ورقلة | جامعة قسنطينة 3</li>
+                            <li>💠 <strong>ENS كوبا</strong> — المدرسة العليا للأساتذة في الفنون (تكوين أساتذة الفنون)</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-user-graduate"></i> الشعب المقبولة ومعدلات القبول</h3>
+                        <ul>
+                            <li>🔹 <strong>الأولوية 1</strong> — جميع شعب البكالوريا</li>
+                            <li>⚠️ <strong>شرط اختبار موهبة / ملف فني:</strong> إلزامي في بعض المؤسسات</li>
+                            <li>📌 <strong>شرط الحد الأدنى:</strong> ≥ 10/20</li>
+                            <li>📊 <strong>معدلات القبول الفعلية 2025:</strong>
+                                <ul>
+                                    <li>جامعة الجزائر 2 — الأولوية 1: <strong>10.02</strong> / الأولوية 2: <strong>10.19</strong></li>
+                                    <li>جامعة مستغانم — الأولوية 2: <strong>10.50</strong></li>
+                                    <li>باقي الجامعات: لم تُنشر أرقام (NC)</li>
+                                    <li><strong>ENS كوبا (تأهيل أساتذة فنون):</strong> 11.41 إلى 16.15 (تنافسي جداً)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="acceptance-calc-wrap">
+                            <a href="/tools.html#weighted-calc" class="acceptance-calc-btn">
+                                <i class="fas fa-calculator"></i> احسب معدلك الموزون
+                            </a>
+                        </div>
+                    </div>
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-graduation-cap"></i> نظام الدراسة</h3>
+                        <ul>
+                            <li>🎓 نظام LMD: ليسانس 3 سنوات + ماستر 2 سنوات + دكتوراه</li>
+                            <li>🖼️ تاريخ الفن العالمي والجزائري من العصور القديمة إلى المعاصرة</li>
+                            <li>✏️ رسم أكاديمي، تصوير زيتي، نحت، تقنيات مختلطة</li>
+                            <li>🎨 نظرية اللون والتصميم والجماليات (Esthétique)</li>
+                            <li>💻 فنون رقمية وتصميم بصري حديث</li>
+                            <li>📝 نقد فني أكاديمي وتحليل الأعمال الفنية</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-project-diagram"></i> تخصصات الماستر</h3>
+                        <ul>
+                            <li>🖼️ رسم وتصوير تشكيلي</li>
+                            <li>🗿 نحت وفنون بلاستيكية</li>
+                            <li>💻 فنون رقمية وإعلام بصري</li>
+                            <li>📚 نقد فني وتاريخ الفن المعاصر</li>
+                            <li>🎨 تصميم غرافيكي وهوية بصرية</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-briefcase"></i> فرص العمل</h3>
+                        <ul>
+                            <li>🏫 أستاذ تربية فنية في التعليم الابتدائي والمتوسط والثانوي</li>
+                            <li>🎨 فنان تشكيلي مستقل — معارض، إقامات فنية، مبيعات</li>
+                            <li>🏛️ المتاحف والمراكز الثقافية — قيّم فني وأمين مجموعات</li>
+                            <li>📺 وسائل الإعلام — مخرج فني، مصمم بصري، مصور</li>
+                            <li>🏢 شركات الإعلانات والتسويق الإبداعي</li>
+                            <li>📜 وزارة الثقافة — صندوق دعم الفنون (FDAL)</li>
+                            <li>🌍 مشاريع التعاون الثقافي الدولي</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-comments"></i> آراء الطلبة</h3>
+                        <ul style="list-style:none;">
+                            <li>📍 "تخصص يطور الحس الجمالي والتعبير الإبداعي بشكل عميق"</li>
+                            <li>📍 "اختبار الموهبة في ENS كوبا يصفي الراغبين الجديين"</li>
+                            <li>📍 "التعليم هو الباب الأمن اقتصادياً لخريج الفنون"</li>
+                            <li>📍 "الفنان المستقل يحتاج صبراً طويلاً قبل يعيش من فنه"</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-plus-circle"></i> الإيجابيات</h3>
+                        <ul style="list-style:none;">
+                            <li>✅ تخصص يبني هوية إبداعية حقيقية</li>
+                            <li>✅ ENS كوبا = تكوين راقٍ لأساتذة الفنون</li>
+                            <li>✅ التصميم الرقمي يفتح أبواب العمل الحر الدولي</li>
+                            <li>✅ معدلات قبول منخفضة في الجامعات العادية</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-minus-circle"></i> السلبيات</h3>
+                        <ul style="list-style:none;">
+                            <li>❌ سوق العمل للفنانين التشكيليين محدود في الجزائر</li>
+                            <li>❌ ENS كوبا تنافسية جداً ومعدلاتها عالية</li>
+                            <li>❌ بعض الجامعات تفتقر للمراسم والمعدات الكافية</li>
+                            <li>❌ العيش من الفن يتطلب وقتاً وشبكة علاقات</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="CINEMA" class="resource-content">
+        <div class="container">
+            <div class="modern-section-header">
+                <h2>تخصص السينما وفنون العرض – Cinéma</h2>
+            </div>
+            <div style="margin: 24px auto 0; text-align: center;">
+                <a href="https://t.me/islembacdz" target="_blank" rel="noopener" class="search-telegram-btn floating">
+                    <i class="fab fa-telegram-plane"></i>
+                    <span>انضم إلينا على التلغرام</span>
+                </a>
+            </div>
+            <div class="school-details" style="margin-top: 70px">
+                <div class="details">
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-comments"></i> فلسفة التخصص</h3>
+                        <p>السينما الجزائرية عندها إرث كبير — من محمد لخضر حامينا صاحب السعفة الذهبية إلى روائع الفيلم الثوري. اليوم، تخصص السينما في الجامعة يسعى لبناء جيل جديد من صناع الأفلام والمخرجين والنقاد السينمائيين الجزائريين.</p>
+                        <p>الدراسة تجمع بين النظري (تاريخ السينما، نظرية الصورة، السيناريو) والتطبيقي (إنتاج أفلام قصيرة، تصوير، مونتاج). إذا كنت تحلم بكاميرا وقصة تحكيها — هنا تبدأ.</p>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-university"></i> الجامعات التي تدرّس السينما</h3>
+                        <ul style="list-style:none;">
+                            <li>💠 <strong>جامعة الجزائر 2</strong> — التخصص الرئيسي (K01LAL01 و K01LPL01)</li>
+                            <li>💠 <strong>جامعة قسنطينة 3</strong> — K01LPL01 و K02LAN01</li>
+                            <li>💠 <strong>جامعة سيدي بلعباس</strong> — K01LAL01</li>
+                            <li>💠 <strong>جامعة الجلفة</strong> — K02LAN02 (السينما والمقاولاتية — مستحدث)</li>
+                            <li>💠 <strong>جامعة مستغانم</strong> — K01LPN01</li>
+                            <li>⚠️ التخصص محدود — عدد قليل جداً من الجامعات الوطنية</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-user-graduate"></i> الشعب المقبولة ومعدلات القبول</h3>
+                        <ul>
+                            <li>🔹 <strong>الأولوية 1</strong> — جميع شعب البكالوريا</li>
+                            <li>⚠️ <strong>ملف إبداعي / مقابلة:</strong> مطلوب في بعض المؤسسات</li>
+                            <li>📌 <strong>شرط الحد الأدنى:</strong> ≥ 10/20</li>
+                            <li>📊 <strong>معدلات القبول الفعلية 2025:</strong>
+                                <ul>
+                                    <li>جامعة الجزائر 2 (K01LPL01): <strong>10.48</strong></li>
+                                    <li>جامعة قسنطينة 3 (K01LPL01): <strong>10.22</strong></li>
+                                    <li>جامعة الجزائر 2 (K01LAL01): NC — لم تُنشر</li>
+                                    <li>سيدي بلعباس، مستغانم: NC — لم تُنشر</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="acceptance-calc-wrap">
+                            <a href="/tools.html#weighted-calc" class="acceptance-calc-btn">
+                                <i class="fas fa-calculator"></i> احسب معدلك الموزون
+                            </a>
+                        </div>
+                    </div>
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-graduation-cap"></i> نظام الدراسة</h3>
+                        <ul>
+                            <li>🎓 نظام LMD: ليسانس 3 سنوات + ماستر 2 سنوات</li>
+                            <li>🎬 تاريخ السينما العالمية والعربية والجزائرية</li>
+                            <li>📝 كتابة السيناريو والسرد البصري</li>
+                            <li>📷 تقنيات التصوير والإضاءة السينمائية</li>
+                            <li>🎞️ المونتاج وما بعد الإنتاج (Post-production)</li>
+                            <li>🎭 إخراج وإنتاج أفلام قصيرة كمشاريع تطبيقية</li>
+                            <li>🔍 سيميولوجيا الصورة ونقد الأفلام</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-project-diagram"></i> تخصصات الماستر</h3>
+                        <ul>
+                            <li>🎬 إخراج سينمائي وتلفزيوني</li>
+                            <li>📝 كتابة إبداعية وسيناريو</li>
+                            <li>🎞️ تقنيات الإنتاج والمونتاج والتصوير</li>
+                            <li>📚 نقد سينمائي وسيميولوجيا الصورة</li>
+                            <li>🎭 فنون العرض والمسرح البصري</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-briefcase"></i> فرص العمل</h3>
+                        <ul>
+                            <li>📺 التلفزيون الجزائري (ENTV, Canal Algérie…) — مخرج، منتج، سيناريست</li>
+                            <li>🎬 شركات الإنتاج السينمائي والتلفزيوني الخاصة</li>
+                            <li>🎭 مراكز الفنون الدرامية والمسرح الوطني</li>
+                            <li>🎓 التدريس في معاهد الفنون والإعلام والتواصل</li>
+                            <li>📱 إنتاج المحتوى الرقمي والإعلانات التجارية</li>
+                            <li>🏛️ وزارة الثقافة — صندوق تطوير الفنون (FDAL) ودعم الأفلام</li>
+                            <li>🌍 شركات الإنتاج الدولية والمشاريع العربية المشتركة</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-comments"></i> آراء الطلبة</h3>
+                        <ul style="list-style:none;">
+                            <li>📍 "تخصص فيه شغف — كل يوم دراسي مختلف"</li>
+                            <li>📍 "الجانب النظري (تاريخ السينما، السيميولوجيا) أثقل مما تتوقع"</li>
+                            <li>📍 "المعدات والكاميرات في بعض الجامعات غير كافية"</li>
+                            <li>📍 "السينما الجزائرية تحتاج دماء جديدة — الفرصة موجودة"</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-plus-circle"></i> الإيجابيات</h3>
+                        <ul style="list-style:none;">
+                            <li>✅ تخصص نادر ومميز — تبرز بين آلاف الخريجين</li>
+                            <li>✅ سوق المحتوى الرقمي ينمو بسرعة — يوتيوب، TikTok، إنتاج</li>
+                            <li>✅ السينما الجزائرية في مرحلة نهضة حقيقية</li>
+                            <li>✅ مهارات المونتاج والتصوير مطلوبة في كل مجال</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-minus-circle"></i> السلبيات</h3>
+                        <ul style="list-style:none;">
+                            <li>❌ جامعات قليلة جداً تدرسه — تنافسية على المقاعد</li>
+                            <li>❌ المعدات السينمائية في بعض الجامعات غير كافية</li>
+                            <li>❌ سوق العمل السينمائي الجزائري لا يزال محدوداً</li>
+                            <li>❌ بناء مسيرة سينمائية يتطلب وقتاً وشبكة علاقات</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="ARABE" class="resource-content">
+        <div class="container">
+            <div class="modern-section-header">
+                <h2>تخصص اللغة والأدب العربي – Langue et Littérature Arabes</h2>
+            </div>
+            <div style="margin: 24px auto 0; text-align: center;">
+                <a href="https://t.me/islembacdz" target="_blank" rel="noopener" class="search-telegram-btn floating">
+                    <i class="fab fa-telegram-plane"></i>
+                    <span>انضم إلينا على التلغرام</span>
+                </a>
+            </div>
+            <div class="school-details" style="margin-top: 70px">
+                <div class="details">
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-comments"></i> فلسفة التخصص</h3>
+                        <p>اللغة والأدب العربي هو "تخصص من يحب اللغة بعمق". مش مجرد قواعد وإملاء — بل دراسة الشعر العربي من الجاهلية إلى الحداثة، النقد الأدبي، البلاغة، اللغويات، وتاريخ الفكر العربي والإسلامي.</p>
+                        <p>في الجزائر، كل إدارة ومؤسسة تحتاج محترفين في اللغة العربية. الترجمة، الإعلام، التعليم، القضاء — كلها أبواب مفتوحة. والأهم: مسار تكوين الأساتذة عبر المدارس العليا (ENS) يمنح وظيفة شبه مضمونة في التعليم.</p>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-university"></i> الجامعات التي تدرّس اللغة والأدب العربي</h3>
+                        <ul style="list-style:none;">
+                            <li>💠 <strong>موجود في معظم جامعات الوطن</strong> — أحد أوسع التخصصات انتشاراً</li>
+                            <li>💠 جامعة البليدة 2 | بشار | سعيدة | تلمسان | سطيف 2</li>
+                            <li>💠 جامعة بجاية | باتنة 1 | بسكرة | تبسة | تيارت | تيزي وزو</li>
+                            <li>💠 جامعة الجلفة | جيجل | سكيكدة | سيدي بلعباس | عنابة</li>
+                            <li>💠 جامعة قالمة | قسنطينة 1 | الجزائر 2 | وهران 1 | مستغانم</li>
+                            <li>💠 جامعة المسيلة | معسكر | ورقلة | المدية | موستغانم</li>
+                            <li>💠 جامعة الوادي | خنشلة | سوق أهراس | بومرداس | غرداية</li>
+                            <li>💠 جامعة رليزان | خميس مليانة | عين تموشنت | الطارف</li>
+                            <li>💠 المراكز الجامعية: أفلو، مغنية، باريكة، ميلة، تيبازة، تيندوف…</li>
+                            <li>💠 <strong>المدارس العليا للأساتذة:</strong> ENS الأغواط، ENS بوزريعة (ملحقات)، ENS سطيف، ENS بشار، ENS قسنطينة، ENS تلمسان، ENS تيزي وزو</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-user-graduate"></i> الشعب المقبولة ومعدلات القبول</h3>
+                        <ul>
+                            <li>🔹 <strong>الأولوية 1</strong> — آداب وفلسفة، لغة عربية وأدب</li>
+                            <li>🔹 <strong>الأولوية 2</strong> — علوم اجتماعية، باقي شعب الآداب</li>
+                            <li>🔹 <strong>الأولوية 3</strong> — باقي الشعب</li>
+                            <li>📌 <strong>شرط الحد الأدنى:</strong> ≥ 10/20 (الجامعات) | أعلى في ENS</li>
+                            <li>📊 <strong>معدلات القبول الفعلية 2025 (جامعات مختارة):</strong>
+                                <ul>
+                                    <li>جامعة البليدة 2 — الأولوية 1: <strong>10.00</strong> / الأولوية 2: <strong>10.38</strong></li>
+                                    <li>جامعة بشار: <strong>10.33</strong> / <strong>11.16</strong></li>
+                                    <li>جامعة سعيدة: <strong>10.44</strong> / <strong>11.17</strong></li>
+                                    <li>جامعة تلمسان: <strong>10.00</strong> / <strong>10.34</strong></li>
+                                    <li>جامعة سطيف 2: <strong>10.11</strong> / <strong>10.89</strong></li>
+                                    <li>جامعة قسنطينة 1: <strong>10.00</strong> / <strong>10.07</strong></li>
+                                    <li>جامعة مستغانم: <strong>10.19</strong> / <strong>11.02</strong></li>
+                                    <li>جامعة معسكر: <strong>10.19</strong> / <strong>10.93</strong></li>
+                                    <li>جامعة بومرداس: <strong>10.33</strong> / <strong>11.13</strong></li>
+                                    <li>جامعة تيبازة: <strong>10.01</strong> / <strong>10.64</strong></li>
+                                    <li>جامعة الوادي: <strong>10.25</strong> / <strong>11.01</strong></li>
+                                    <li>جامعة خميس مليانة: <strong>10.35</strong> / <strong>11.16</strong></li>
+                                    <li>جامعة عين تموشنت: <strong>10.05</strong> / <strong>10.76</strong></li>
+                                    <li>جامعة رليزان: <strong>10.19</strong> / <strong>10.90</strong></li>
+                                    <li>جامعة الطارف: لم تُنشر (NC)</li>
+                                    <li><strong>ENS الأغواط (تأهيل أساتذة عربية):</strong> 14.02 إلى 15.23</li>
+                                    <li><strong>ENS بوزريعة ملحق بوزريعة:</strong> 14.35 إلى NC</li>
+                                    <li><strong>ENS سطيف ملحقات:</strong> 13.17 إلى 14.89</li>
+                                    <li><strong>ENS بشار:</strong> 14.02 إلى 15.45</li>
+                                    <li><strong>ENS قسنطينة ملحق تبسة:</strong> 14.38 إلى NC</li>
+                                    <li><strong>ENS تلمسان ملحقات:</strong> 13.35 إلى 15.10</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="acceptance-calc-wrap">
+                            <a href="/tools.html#weighted-calc" class="acceptance-calc-btn">
+                                <i class="fas fa-calculator"></i> احسب معدلك الموزون
+                            </a>
+                        </div>
+                    </div>
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-graduation-cap"></i> نظام الدراسة</h3>
+                        <ul>
+                            <li>🎓 نظام LMD: ليسانس 3 سنوات + ماستر 2 سنوات + دكتوراه</li>
+                            <li>📚 نحو وصرف وبلاغة وعروض — الأسس اللغوية الكلاسيكية</li>
+                            <li>📖 الأدب العربي القديم (جاهلي، إسلامي، عباسي) والحديث والمعاصر</li>
+                            <li>🔬 اللسانيات العامة وفقه اللغة العربية</li>
+                            <li>🖊️ النقد الأدبي ومناهجه الحديثة (بنيوية، سيميائية، تفكيكية)</li>
+                            <li>🌍 الأدب المقارن والترجمة الأدبية</li>
+                            <li>🌐 الدراسة تكون باللغة العربية بالكامل</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-project-diagram"></i> تخصصات الماستر</h3>
+                        <ul>
+                            <li>📖 الأدب العربي الحديث والمعاصر</li>
+                            <li>🔬 اللسانيات التطبيقية وتعليمية اللغة العربية</li>
+                            <li>🌍 الترجمة وعلوم الترجمة (عربي-فرنسي-إنجليزي)</li>
+                            <li>🖊️ النقد الأدبي والسيميائيات</li>
+                            <li>📜 الفكر الإسلامي والتراث العربي</li>
+                            <li>💻 اللغويات الحاسوبية ومعالجة اللغة العربية</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-briefcase"></i> فرص العمل</h3>
+                        <ul>
+                            <li>🏫 <strong>أستاذ اللغة العربية في التعليم</strong> — التوظيف الأكثر ضماناً</li>
+                            <li>📺 الإعلام المكتوب والمسموع والمرئي — محرر، مقدم، كاتب</li>
+                            <li>🌍 الترجمة الرسمية والدبلوماسية والقانونية</li>
+                            <li>🏛️ الإدارة الحكومية — صياغة النصوص القانونية والمراسيم</li>
+                            <li>📜 تحقيق المخطوطات وصون التراث العربي الإسلامي</li>
+                            <li>🎓 البحث العلمي والتعليم الجامعي</li>
+                            <li>📚 التأليف والنشر والصحافة الثقافية</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-comments"></i> آراء الطلبة</h3>
+                        <ul style="list-style:none;">
+                            <li>📍 "لي يحب الأدب والكتابة راح يحس بالتخصص كأنه مصمم له"</li>
+                            <li>📍 "النحو والصرف صعبان في البداية لكنهما يصيران طبيعيين"</li>
+                            <li>📍 "ENS = مسار التوظيف المضمون لكن معدلاتها مرتفعة"</li>
+                            <li>📍 "الدكتوراه تفتح باب التدريس الجامعي والبحث الأكاديمي"</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-plus-circle"></i> الإيجابيات</h3>
+                        <ul style="list-style:none;">
+                            <li>✅ موجود في جامعات كثيرة جداً — خيارات لا تُعد</li>
+                            <li>✅ الدراسة باللغة العربية — لا عوائق لغوية</li>
+                            <li>✅ ENS = توظيف شبه مضمون كأستاذ لغة عربية</li>
+                            <li>✅ الترجمة والإعلام يفتحان للقطاع الخاص</li>
+                            <li>✅ الدكتوراه = منصب رفيع في الجامعات والمراكز الثقافية</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-minus-circle"></i> السلبيات</h3>
+                        <ul style="list-style:none;">
+                            <li>❌ سوق العمل للكاتب الأدبي محدود في الجزائر</li>
+                            <li>❌ النحو والصرف يصعبان على كثير من الطلبة</li>
+                            <li>❌ التنافس شديد على مناصب التعليم في المدارس الكبرى</li>
+                            <li>❌ بدون ENS أو ماستر جيد، الفرص محدودة</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="AMAZIGH" class="resource-content">
+        <div class="container">
+            <div class="modern-section-header">
+                <h2>تخصص اللغة والثقافة الأمازيغية – Langue et Culture Amazighes</h2>
+            </div>
+            <div style="margin: 24px auto 0; text-align: center;">
+                <a href="https://t.me/islembacdz" target="_blank" rel="noopener" class="search-telegram-btn floating">
+                    <i class="fab fa-telegram-plane"></i>
+                    <span>انضم إلينا على التلغرام</span>
+                </a>
+            </div>
+            <div class="school-details" style="margin-top: 70px">
+                <div class="details">
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-comments"></i> فلسفة التخصص</h3>
+                        <p>تخصص اللغة والثقافة الأمازيغية هو "تخصص الهوية الأصيلة". بعد أن نالت الأمازيغية مكانة الوطنية والرسمية في الدستور الجزائري 2016، أصبح الطلب على متخصصين في هذا المجال حقيقياً ومتزايداً.</p>
+                        <p>الدراسة تشمل اللغويات الأمازيغية، الأدب الشفهي والمكتوب، الثقافة والتاريخ، التراث، وتعليمية اللغة. إذا كنت من القبائل أو الشاوية أو أي منطقة ناطقة بالأمازيغية وتحب لغتك وتريد خدمتها أكاديمياً — هذا مسارك الطبيعي.</p>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-university"></i> الجامعات التي تدرّس اللغة الأمازيغية</h3>
+                        <ul style="list-style:none;">
+                            <li>💠 <strong>جامعة بجاية</strong> — الرائدة في التخصص</li>
+                            <li>💠 جامعة تيزي وزو | جامعة باتنة 1 | جامعة البويرة</li>
+                            <li>💠 جامعة تمنغست | جامعة بوزريعة الجزائر</li>
+                            <li>💠 <strong>ENS بوزريعة (ملحق تيزي وزو)</strong> — تكوين أساتذة الأمازيغية</li>
+                            <li>⚠️ التخصص مركّز في مناطق ناطقة بالأمازيغية خاصة</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-user-graduate"></i> الشعب المقبولة ومعدلات القبول</h3>
+                        <ul>
+                            <li>🔹 <strong>الأولوية 1</strong> — آداب وفلسفة، اللغة الأمازيغية (مادة في الباك)</li>
+                            <li>🔹 <strong>الأولوية 2</strong> — علوم اجتماعية، باقي الشعب الأدبية</li>
+                            <li>📌 <strong>شرط الحد الأدنى:</strong> ≥ 10/20</li>
+                            <li>📊 <strong>معدلات القبول الفعلية 2025:</strong>
+                                <ul>
+                                    <li>جامعة بجاية — الأولوية 1: <strong>10.31</strong> / الأولوية 2: <strong>11.23</strong></li>
+                                    <li>جامعات أخرى: لم تُنشر أرقام (NC)</li>
+                                    <li><strong>ENS بوزريعة ملحق تيزي وزو (تأهيل أساتذة):</strong>
+                                        <ul>
+                                            <li>M00PMN01 (ذكور): من 10.13 إلى 15.47</li>
+                                            <li>M00PPL01 (إناث): من 13.05 إلى 14.60</li>
+                                            <li>M00PSN01 (رياضيات): من 10.39 إلى 15.14</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="acceptance-calc-wrap">
+                            <a href="/tools.html#weighted-calc" class="acceptance-calc-btn">
+                                <i class="fas fa-calculator"></i> احسب معدلك الموزون
+                            </a>
+                        </div>
+                    </div>
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-graduation-cap"></i> نظام الدراسة</h3>
+                        <ul>
+                            <li>🎓 نظام LMD: ليسانس 3 سنوات + ماستر 2 سنوات + دكتوراه</li>
+                            <li>🔤 اللغويات الأمازيغية — النحو والصرف والمعجم</li>
+                            <li>📚 الأدب الأمازيغي الشفهي: الشعر (القصيدة القبائلية)، الحكاية، الأمثال</li>
+                            <li>🗿 التاريخ الأمازيغي وحضارة الشمال الأفريقي القديمة والمعاصرة</li>
+                            <li>🌍 تيفيناغ — الكتابة الأمازيغية الأصيلة وتحديثاتها</li>
+                            <li>📊 علم اللهجات الأمازيغية: تقبيلت، شاوية، مزابية، توارق…</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-project-diagram"></i> تخصصات الماستر</h3>
+                        <ul>
+                            <li>🔬 لسانيات أمازيغية وتوثيق اللهجات</li>
+                            <li>📚 أدب وثقافة أمازيغية</li>
+                            <li>🏫 تعليمية اللغة الأمازيغية ومناهج التدريس</li>
+                            <li>🗿 التراث الأمازيغي المادي وغير المادي وصونه</li>
+                            <li>🌍 اللسانيات الأمازيغية المقارنة</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card large-card">
+                        <h3><i class="fas fa-briefcase"></i> فرص العمل</h3>
+                        <ul>
+                            <li>🏫 <strong>أستاذ اللغة الأمازيغية في المدارس الجزائرية</strong> — توظيف متزايد بقرار حكومي</li>
+                            <li>📺 الإذاعة والتلفزيون الأمازيغي (TV4 Tamazight، Radio Chaîne 2)</li>
+                            <li>🏛️ الهيئة العليا للغة الأمازيغية (HCA) — الجهة الرسمية</li>
+                            <li>📜 توثيق التراث اللغوي والثقافي الأمازيغي</li>
+                            <li>🌍 مراكز البحث (CNPLET — المركز الوطني للبيداغوجيا واللسانيات)</li>
+                            <li>🎓 التعليم الجامعي وبحث اللسانيات الأمازيغية</li>
+                            <li>🌿 مشاريع التراث الدولية مع اليونسكو</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-comments"></i> آراء الطلبة</h3>
+                        <ul style="list-style:none;">
+                            <li>📍 "تخصص فيه انتماء وهوية — مش بس دراسة"</li>
+                            <li>📍 "في بجاية وتيزي وزو تجد البيئة المناسبة لهذا التخصص"</li>
+                            <li>📍 "توظيف أساتذة الأمازيغية في تزايد مستمر بقرار وزاري"</li>
+                            <li>📍 "البحث الأكاديمي في اللغويات الأمازيغية فيه مستقبل دولي"</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-plus-circle"></i> الإيجابيات</h3>
+                        <ul style="list-style:none;">
+                            <li>✅ توظيف مضمون كأستاذ أمازيغية بفعل القرار الوطني</li>
+                            <li>✅ تخصص نادر = منافسة أقل وإمكانية التميز</li>
+                            <li>✅ الاعتراف الدستوري بالأمازيغية يعطي التخصص مكانة رسمية</li>
+                            <li>✅ يحافظ على إرث ثقافي أصيل ويطوره</li>
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h3><i class="fas fa-minus-circle"></i> السلبيات</h3>
+                        <ul style="list-style:none;">
+                            <li>❌ التخصص مركّز جغرافياً — جامعات محدودة</li>
+                            <li>❌ سوق العمل خارج التعليم والإعلام ضيق جداً</li>
+                            <li>❌ المراجع والكتب الأكاديمية الأمازيغية لا تزال شحيحة</li>
+                            <li>❌ بعض المناطق لا تزال تُشكك في قيمة التخصص</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
     <div id="global-cta-placeholder"></div>
 
 
     <div id="footer-placeholder"></div>
     <script src="/ads-config.js?v=1.2"></script>
     <script src="/components/shared.js?v=7.4"></script>
-    <script src="/script.js?v=6.9"></script>
+    <script src="/script.js?v=7.0"></script>
     <script>
     (function () {
         // Sections that are NOT shareable (main nav sections)
