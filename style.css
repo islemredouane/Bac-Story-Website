@@ -8760,6 +8760,12 @@ body.pdf-body-lock {
     --grad-end: #7c3aed;
 }
 
+.spec-card[data-category="arts"] {
+    --card-theme: #e91e8c;
+    --grad-start: #c2185b;
+    --grad-end: #e91e8c;
+}
+
 .spec-card {
     background: white;
     border-radius: 18px;
