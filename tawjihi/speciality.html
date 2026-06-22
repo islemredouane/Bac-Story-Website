@@ -512,6 +512,16 @@
     setWish(wish);
     syncWishBtn();
   });
+
+  /* ---- "Ask AI" cross-link: pre-fill chat with spec name ---- */
+  document.querySelectorAll('a[href="app.html"]').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const q = `أعطني معلومات تفصيلية عن ${spec.name}${spec.nameEn ? ' (' + spec.nameEn + ')' : ''}`;
+      sessionStorage.setItem('tw-pending-q', q);
+      location.href = 'app.html';
+    });
+  });
 })();
 </script>
 </body>

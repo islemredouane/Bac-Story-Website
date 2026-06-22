@@ -1100,10 +1100,10 @@
     "circleWilayaNums": [],
     "rankingBasis": "weighted_or_general",
     "thresholdsByStream": {
-      "gestion": 10.0,
-      "langues": 10.0,
-      "lettres": 10.0,
-      "sciexp": 10.0
+      "gestion": 16.65,
+      "langues": 16.65,
+      "lettres": 16.65,
+      "sciexp": 16.65
     },
     "sourceConfidence": "card-derived",
     "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
@@ -1389,9 +1389,9 @@
     "circleWilayaNums": [],
     "rankingBasis": "weighted_or_general",
     "thresholdsByStream": {
-      "math": 12.5,
-      "sciexp": 12.5,
-      "techmath": 12.5
+      "math": 17.96,
+      "sciexp": 17.96,
+      "techmath": 17.96
     },
     "sourceConfidence": "card-derived",
     "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
@@ -1745,9 +1745,9 @@
     "circleWilayaNums": [],
     "rankingBasis": "weighted_or_general",
     "thresholdsByStream": {
-      "math": 11.5,
-      "sciexp": 11.5,
-      "techmath": 11.5
+      "math": 12.45,
+      "sciexp": 12.45,
+      "techmath": 12.45
     },
     "sourceConfidence": "card-derived",
     "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
@@ -1766,9 +1766,9 @@
     "circleWilayaNums": [],
     "rankingBasis": "weighted_or_general",
     "thresholdsByStream": {
-      "math": 11.8,
-      "sciexp": 11.8,
-      "techmath": 11.8
+      "math": 10.31,
+      "sciexp": 10.31,
+      "techmath": 10.31
     },
     "sourceConfidence": "card-derived",
     "_note": "streams+threshold corrected to card (threshold=card.minAvg; GENIE MARITIME proxy bar replaced by card's materials/mechatronics minAvg); previous registry-inherited values were unreliable",
@@ -1884,8 +1884,8 @@
     "circleWilayaNums": [],
     "rankingBasis": "weighted_or_general",
     "thresholdsByStream": {
-      "math": 13.0,
-      "sciexp": 13.0
+      "math": 12.8,
+      "sciexp": 12.8
     },
     "sourceConfidence": "card-derived",
     "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
@@ -1901,8 +1901,8 @@
     "circleWilayaNums": [],
     "rankingBasis": "weighted_or_general",
     "thresholdsByStream": {
-      "math": 14.5,
-      "sciexp": 14.5
+      "math": 16.65,
+      "sciexp": 16.65
     },
     "sourceConfidence": "card-derived",
     "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
@@ -1918,8 +1918,8 @@
     "circleWilayaNums": [],
     "rankingBasis": "weighted_or_general",
     "thresholdsByStream": {
-      "math": 13.5,
-      "sciexp": 13.5
+      "math": 10.04,
+      "sciexp": 10.04
     },
     "sourceConfidence": "card-derived",
     "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
@@ -1954,7 +1954,7 @@
     "circleWilayaNums": [],
     "rankingBasis": "weighted_or_general",
     "thresholdsByStream": {
-      "sciexp": 12.0
+      "sciexp": 14.45
     },
     "sourceConfidence": "card-derived",
     "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
@@ -2301,9 +2301,9 @@
     ],
     "rankingBasis": "general",
     "thresholdsByStream": {
-      "gestion": 13.2,
-      "math": 13.2,
-      "techmath": 13.2
+      "gestion": 15.41,
+      "math": 15.41,
+      "techmath": 15.41
     },
     "sourceConfidence": "card-derived",
     "_note": "streams+threshold corrected to card (threshold=card.minAvg; inherited SCIENCES ECONOMIQUES bar (~10.0) too generous for elite stats school); previous registry-inherited values were unreliable",
@@ -2876,9 +2876,9 @@
     "circleWilayaNums": [],
     "rankingBasis": "weighted_or_general",
     "thresholdsByStream": {
-      "gestion": 10.0,
-      "langues": 10.0,
-      "lettres": 10.0
+      "gestion": 10.02,
+      "langues": 10.02,
+      "lettres": 10.02
     },
     "sourceConfidence": "card-derived",
     "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
@@ -3235,10 +3235,10 @@
     "circleWilayaNums": [],
     "rankingBasis": "weighted_or_general",
     "thresholdsByStream": {
-      "gestion": 14.71,
-      "math": 14.71,
-      "sciexp": 14.71,
-      "techmath": 14.71
+      "gestion": 10.0,
+      "math": 10.0,
+      "sciexp": 10.0,
+      "techmath": 10.0
     },
     "sourceConfidence": "card-derived",
     "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
@@ -3374,9 +3374,9 @@
     "circleWilayaNums": [],
     "rankingBasis": "weighted_or_general",
     "thresholdsByStream": {
-      "math": 16.31,
-      "sciexp": 16.31,
-      "techmath": 16.31
+      "math": 13.74,
+      "sciexp": 13.74,
+      "techmath": 13.74
     },
     "sourceConfidence": "card-derived",
     "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
@@ -3392,8 +3392,8 @@
     "circleWilayaNums": [],
     "rankingBasis": "weighted_or_general",
     "thresholdsByStream": {
-      "math": 17.67,
-      "sciexp": 17.67
+      "math": 16.65,
+      "sciexp": 16.65
     },
     "sourceConfidence": "card-derived",
     "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
@@ -3430,10 +3430,10 @@
     "circleWilayaNums": [],
     "rankingBasis": "weighted_or_general",
     "thresholdsByStream": {
-      "gestion": 10.02,
-      "math": 10.02,
-      "sciexp": 10.02,
-      "techmath": 10.02
+      "gestion": 10.0,
+      "math": 10.0,
+      "sciexp": 10.0,
+      "techmath": 10.0
     },
     "sourceConfidence": "card-derived",
     "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",

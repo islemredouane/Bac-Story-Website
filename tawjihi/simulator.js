@@ -307,4 +307,29 @@
     } catch {}
   }
   loadWishlist(); // non-blocking, will re-render if data comes back
+
+  /* ---- "Ask AI" cross-link: pre-fill chat with current wishlist ---- */
+  document.getElementById('askAiBtn')?.addEventListener('click', e => {
+    e.preventDefault();
+    const names = wish.map(id => {
+      const s = TW_CATALOG.find(c => c.id === id);
+      return s ? s.name : id;
+    }).join('، ');
+    const q = `ساعدني في تحليل وتحسين بطاقة رغباتي. رغباتي الحالية هي: ${names}`;
+    sessionStorage.setItem('tw-pending-q', q);
+    location.href = 'app.html';
+  });
+
+  /* ---- Export wishlist as plain-text file ---- */
+  document.getElementById('exportBtn')?.addEventListener('click', () => {
+    const lines = wish.map((id, i) => {
+      const s = TW_CATALOG.find(c => c.id === id);
+      return s ? `${i+1}. ${s.name} — معدل القبول ~ ${s.avg}` : `${i+1}. ${id}`;
+    });
+    const text = `بطاقة رغباتي (توجيهي)\n\n${lines.join('\n')}\n\nتم التصدير من تطبيق توجيهي`;
+    const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a'); a.href = url; a.download = 'بطاقة-رغباتي.txt';
+    a.click(); URL.revokeObjectURL(url);
+  });
 })();

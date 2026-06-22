@@ -739,6 +739,17 @@
   $('#newChatBtn')?.addEventListener('click', resetChat);
   $('#histNewChat')?.addEventListener('click', resetChat);
 
+  /* ---- Pre-fill from cross-page "Ask AI" navigation ---- */
+  const pendingQ = sessionStorage.getItem('tw-pending-q');
+  if (pendingQ) {
+    sessionStorage.removeItem('tw-pending-q');
+    // Pre-fill without sending — user can edit first
+    input.value = pendingQ;
+    input.dispatchEvent(new Event('input')); // triggers autosize + enables sendBtn
+    input.focus();
+    setTimeout(() => input.setSelectionRange(0, 0), 50); // cursor at start (RTL)
+  }
+
   /* ---- Load a past chat session from Supabase ---- */
   async function loadChatSession(sessionId) {
     if (typeof tw_supabase === 'undefined') return;
