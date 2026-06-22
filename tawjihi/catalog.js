@@ -5,7 +5,7 @@
    ============================================================ */
 const TW_CATALOG = [
   {
-    id: 'esi', name: 'إعلام آلي', nameEn: 'Informatique – ESI',
+    id: 'esi', name: 'المدرسة الوطنية العليا للإعلام الآلي — الجزائر', nameEn: 'Informatique – ESI',
     subtitle: 'هندسة وتكنولوجيا', subtitleIcon: 'fa-laptop-code',
     cat: 'engineering', catVar: 'var(--cat-engineering)', lmd: false,
     avg: 18.19, minAvg: 17.36,
@@ -45,7 +45,7 @@ const TW_CATALOG = [
     ],
   },
   {
-    id: 'ensia', name: 'ذكاء اصطناعي', nameEn: 'Intelligence Artificielle – ENSIA',
+    id: 'ensia', name: 'المدرسة الوطنية العليا للذكاء الاصطناعي — سيدي عبد الله', nameEn: 'Intelligence Artificielle – ENSIA',
     subtitle: 'هندسة وتكنولوجيا', subtitleIcon: 'fa-brain',
     cat: 'engineering', catVar: 'var(--cat-engineering)', lmd: false,
     avg: 18.59, minAvg: 18.19,
@@ -77,7 +77,7 @@ const TW_CATALOG = [
     ],
   },
   {
-    id: 'estin', name: 'علوم وتكنولوجيات الإعلام الآلي والرقمنة', nameEn: 'Informatique & Numérique – ESTIN',
+    id: 'estin', name: 'المدرسة العليا في علوم وتكنولوجيات الإعلام الآلي والرقمنة — بجاية', nameEn: 'Informatique & Numérique – ESTIN',
     subtitle: 'هندسة وتكنولوجيا', subtitleIcon: 'fa-microchip',
     cat: 'engineering', catVar: 'var(--cat-engineering)', lmd: false,
     avg: 17.45, minAvg: 17.45,
@@ -214,7 +214,7 @@ const TW_CATALOG = [
     ],
   },
   {
-    id: 'archi', name: 'هندسة معمارية وعمران', nameEn: 'Architecture – EPAU',
+    id: 'archi', name: 'المدرسة البوليتكنيكية للعمارة والتعمير — الجزائر', nameEn: 'Architecture – EPAU',
     subtitle: 'هندسة وإبداع', subtitleIcon: 'fa-drafting-compass',
     cat: 'engineering', catVar: 'var(--cat-engineering)', lmd: false,
     avg: 16.54, minAvg: 16.54,
@@ -625,7 +625,7 @@ const TW_CATALOG = [
   },
   /* ========== ENGINEERING — GRANDES ÉCOLES ========== */
   {
-    id: 'esi-sba', name: 'المدرسة العليا للإعلام الآلي بسيدي بلعباس', nameEn: 'Informatique – ESI-SBA',
+    id: 'esi-sba', name: 'المدرسة العليا للإعلام الآلي — سيدي بلعباس', nameEn: 'Informatique – ESI-SBA',
     subtitle: 'هندسة ومعلوماتية', subtitleIcon: 'fa-server',
     cat: 'engineering', catVar: 'var(--cat-engineering)', lmd: false,
     avg: 17.36, minAvg: 17.00,
@@ -645,7 +645,7 @@ const TW_CATALOG = [
     ],
   },
   {
-    id: 'enscs', name: 'المدرسة الوطنية العليا للأمن السيبراني', nameEn: 'Cybersécurité – ENSCS',
+    id: 'enscs', name: 'المدرسة الوطنية العليا للأمن السيبراني — سيدي عبد الله', nameEn: 'Cybersécurité – ENSCS',
     subtitle: 'هندسة ومعلوماتية', subtitleIcon: 'fa-shield-halved',
     cat: 'engineering', catVar: 'var(--cat-engineering)', lmd: false,
     avg: 18.34, minAvg: 18.34,
@@ -665,7 +665,7 @@ const TW_CATALOG = [
     ],
   },
   {
-    id: 'ensttic', name: 'المدرسة الوطنية العليا لتكنولوجيات الإعلام والاتصال والبريد', nameEn: 'TIC & Poste – ENSTTIC Tlemcen',
+    id: 'ensttic', name: 'المدرسة الوطنية العليا لتكنولوجيات الإعلام والاتصال والبريد — تلمسان', nameEn: 'TIC & Poste – ENSTTIC Tlemcen',
     subtitle: 'هندسة واتصالات', subtitleIcon: 'fa-tower-broadcast',
     cat: 'engineering', catVar: 'var(--cat-engineering)', lmd: false,
     avg: 16.69, minAvg: 16.69,
@@ -685,7 +685,7 @@ const TW_CATALOG = [
     ],
   },
   {
-    id: 'nhsm', name: 'المدرسة الوطنية العليا للرياضيات', nameEn: 'Mathématiques – NHSM',
+    id: 'nhsm', name: 'المدرسة الوطنية العليا للرياضيات — الجزائر', nameEn: 'Mathématiques – NHSM',
     subtitle: 'علوم ورياضيات', subtitleIcon: 'fa-infinity',
     cat: 'engineering', catVar: 'var(--cat-engineering)', lmd: false,
     avg: 17.43, minAvg: 17.43,
@@ -705,7 +705,7 @@ const TW_CATALOG = [
     ],
   },
   {
-    id: 'polytech', name: 'مدارس بوليتكنيك الجهوية', nameEn: 'Polytechnique Régionale',
+    id: 'polytech', name: 'المدرسة الوطنية المتعددة التقنيات', nameEn: 'Polytechnique Régionale',
     subtitle: 'هندسة متعددة التخصصات', subtitleIcon: 'fa-cogs',
     cat: 'engineering', catVar: 'var(--cat-engineering)', lmd: false,
     avg: 16.65, minAvg: 16.65,
@@ -731,7 +731,7 @@ const TW_CATALOG = [
     ],
   },
   {
-    id: 'enstp', name: 'مدرسة الأشغال العمومية', nameEn: 'Travaux Publics – ENSTP',
+    id: 'enstp', name: 'المدرسة الوطنية العليا للأشغال العمومية — الجزائر', nameEn: 'Travaux Publics – ENSTP',
     subtitle: 'هندسة بنية تحتية', subtitleIcon: 'fa-road',
     cat: 'engineering', catVar: 'var(--cat-engineering)', lmd: false,
     avg: 16.12, minAvg: 16.12,
@@ -751,7 +751,7 @@ const TW_CATALOG = [
     ],
   },
   {
-    id: 'ensh', name: 'مدرسة الهيدروليك', nameEn: 'Hydraulique – ENSH',
+    id: 'ensh', name: 'المدرسة الوطنية العليا للهيدروليك — البليدة', nameEn: 'Hydraulique – ENSH',
     subtitle: 'هندسة موارد مائية', subtitleIcon: 'fa-droplet',
     cat: 'engineering', catVar: 'var(--cat-engineering)', lmd: false,
     avg: 14.64, minAvg: 14.64,
@@ -771,7 +771,7 @@ const TW_CATALOG = [
     ],
   },
   {
-    id: 'igee', name: 'معهد الكهرباء والإلكترونيك', nameEn: 'Électronique – IGEE',
+    id: 'igee', name: 'معهد الكهرباء والإلكترونيك — بومرداس', nameEn: 'Électronique – IGEE',
     subtitle: 'هندسة كهربائية وإلكترونية', subtitleIcon: 'fa-microchip',
     cat: 'engineering', catVar: 'var(--cat-engineering)', lmd: false,
     avg: 14.00, minAvg: 13.30,
@@ -811,7 +811,7 @@ const TW_CATALOG = [
     ],
   },
   {
-    id: 'enssn', name: 'المدرسة الوطنية العليا لعلوم النانو والنانوتكنولوجيا', nameEn: 'Nanosciences & Nanotechnologies – ENSSN',
+    id: 'enssn', name: 'المدرسة الوطنية العليا لعلوم النانو والنانوتكنولوجيا — الجزائر', nameEn: 'Nanosciences & Nanotechnologies – ENSSN',
     subtitle: 'هندسة نانو وعلوم متقدمة', subtitleIcon: 'fa-atom',
     cat: 'engineering', catVar: 'var(--cat-engineering)', lmd: false,
     avg: 17.96, minAvg: 17.96,
@@ -831,7 +831,7 @@ const TW_CATALOG = [
     ],
   },
   {
-    id: 'ensas', name: 'المدرسة الوطنية العليا للأنظمة المستقلة', nameEn: 'Systèmes Autonomes – ENSAS',
+    id: 'ensas', name: 'المدرسة الوطنية العليا للأنظمة المستقلة — سيدي عبد الله', nameEn: 'Systèmes Autonomes – ENSAS',
     subtitle: 'هندسة روبوتيكا وذكاء', subtitleIcon: 'fa-robot',
     cat: 'engineering', catVar: 'var(--cat-engineering)', lmd: false,
     avg: 18.21, minAvg: 18.21,
@@ -1133,7 +1133,7 @@ const TW_CATALOG = [
     ],
   },
   {
-    id: 'ensb', name: 'المدرسة الوطنية العليا للتكنولوجيا الحيوية', nameEn: 'Biotechnologie – ENSB',
+    id: 'ensb', name: 'المدرسة الوطنية العليا للتكنولوجيا الحيوية — قسنطينة', nameEn: 'Biotechnologie – ENSB',
     subtitle: 'علوم حياة تطبيقية', subtitleIcon: 'fa-seedling',
     cat: 'medical', catVar: 'var(--cat-medical)', lmd: false,
     avg: 15.67, minAvg: 15.67,
@@ -1153,7 +1153,7 @@ const TW_CATALOG = [
     ],
   },
   {
-    id: 'enssmal', name: 'علوم البحر وتربية الأحياء المائية', nameEn: 'Sciences Marines – ENSSMAL',
+    id: 'enssmal', name: 'المدرسة الوطنية العليا للعلوم البحرية وتهيئة الساحل — الجزائر', nameEn: 'Sciences Marines – ENSSMAL',
     subtitle: 'علوم بحرية', subtitleIcon: 'fa-water',
     cat: 'medical', catVar: 'var(--cat-medical)', lmd: false,
     avg: 14.45, minAvg: 14.45,
@@ -1275,7 +1275,7 @@ const TW_CATALOG = [
 
   /* ========== BUSINESS — GRANDES ÉCOLES ========== */
   {
-    id: 'ehec', name: 'المدرسة العليا للدراسات التجارية', nameEn: 'Commerce – EHEC',
+    id: 'ehec', name: 'مدرسة الدراسات العليا التجارية — القليعة', nameEn: 'Commerce – EHEC',
     subtitle: 'اقتصاد وتسيير', subtitleIcon: 'fa-building-columns',
     cat: 'business', catVar: 'var(--cat-business)', lmd: false,
     avg: 15.78, minAvg: 15.78,
@@ -1295,7 +1295,7 @@ const TW_CATALOG = [
     ],
   },
   {
-    id: 'enssea', name: 'مدرسة الإحصاء والاقتصاد التطبيقي', nameEn: 'Statistiques – ENSSEA',
+    id: 'enssea', name: 'المدرسة الوطنية العليا للإحصاء والاقتصاد التطبيقي — القليعة', nameEn: 'Statistiques – ENSSEA',
     subtitle: 'اقتصاد وإحصاء', subtitleIcon: 'fa-chart-pie',
     cat: 'business', catVar: 'var(--cat-business)', lmd: false,
     avg: 15.41, minAvg: 15.41,
@@ -1315,7 +1315,7 @@ const TW_CATALOG = [
     ],
   },
   {
-    id: 'esb', name: 'المدرسة العليا للبنوك', nameEn: 'Banque & Finance – ESB',
+    id: 'esb', name: 'المدرسة العليا للبنوك — الجزائر', nameEn: 'Banque & Finance – ESB',
     subtitle: 'مالية ومصرفية', subtitleIcon: 'fa-landmark',
     cat: 'business', catVar: 'var(--cat-business)', lmd: false,
     avg: 13.50, minAvg: 12.50,
@@ -1335,7 +1335,7 @@ const TW_CATALOG = [
     ],
   },
   {
-    id: 'esm', name: 'مدرسة التسيير والإدارة', nameEn: 'Management – ESM',
+    id: 'esm', name: 'المدرسة الوطنية العليا للمناجمنت — الجزائر', nameEn: 'Management – ESM',
     subtitle: 'إدارة وتسيير', subtitleIcon: 'fa-users-gear',
     cat: 'business', catVar: 'var(--cat-business)', lmd: false,
     avg: 15.18, minAvg: 15.18,
@@ -1355,7 +1355,7 @@ const TW_CATALOG = [
     ],
   },
   {
-    id: 'ensa-agro', name: 'المدرسة الوطنية العليا للزراعة — الحراش', nameEn: 'Agronomie – ENSA',
+    id: 'ensa-agro', name: 'المدرسة الوطنية العليا الزراعية — الحراش', nameEn: 'Agronomie – ENSA',
     subtitle: 'هندسة زراعية', subtitleIcon: 'fa-tractor',
     cat: 'engineering', catVar: 'var(--cat-engineering)', lmd: false,
     avg: 13.50, minAvg: 12.50,
@@ -1655,7 +1655,7 @@ const TW_CATALOG = [
 
   /* ========== ENGINEERING — GRANDES ÉCOLES (continued) ========== */
   {
-    id: 'ensta', name: 'المدرسة الوطنية العليا للتكنولوجيا المتقدمة – ENSTA', nameEn: 'Technologies Avancées – ENSTA',
+    id: 'ensta', name: 'المدرسة الوطنية العليا للتكنولوجيا المتقدمة — الجزائر', nameEn: 'Technologies Avancées – ENSTA',
     subtitle: 'هندسة ومعلوماتية', subtitleIcon: 'fa-laptop-code',
     cat: 'engineering', catVar: 'var(--cat-engineering)', lmd: false,
     avg: 17.15, minAvg: 17.15,
@@ -1680,7 +1680,7 @@ const TW_CATALOG = [
     ],
   },
   {
-    id: 'ensee', name: 'المدرسة العليا للهندسة الكهربائية والطاقوية – ENSEE', nameEn: 'Génie Électrique & Énergie – ENSEE',
+    id: 'ensee', name: 'المدرسة الوطنية العليا للطاقات المتجددة والبيئة والتنمية المستدامة — باتنة', nameEn: 'Génie Électrique & Énergie – ENSEE',
     subtitle: 'هندسة طاقة وكهرباء', subtitleIcon: 'fa-bolt',
     cat: 'engineering', catVar: 'var(--cat-engineering)', lmd: false,
     avg: 16.15, minAvg: 16.15,
@@ -1704,7 +1704,7 @@ const TW_CATALOG = [
     ],
   },
   {
-    id: 'hnsre', name: 'المدرسة الوطنية العليا للطاقات المتجددة – HNSRE', nameEn: 'Énergies Renouvelables – HNSRE',
+    id: 'hnsre', name: 'المدرسة الوطنية العليا للطاقات المتجددة — حاسي مسعود', nameEn: 'Énergies Renouvelables – HNSRE',
     subtitle: 'هندسة طاقة مستدامة', subtitleIcon: 'fa-solar-panel',
     cat: 'engineering', catVar: 'var(--cat-engineering)', lmd: false,
     avg: 15.64, minAvg: 15.64,
@@ -1728,7 +1728,7 @@ const TW_CATALOG = [
     ],
   },
   {
-    id: 'aeronautique', name: 'هندسة الطيران', nameEn: 'Génie Aéronautique',
+    id: 'aeronautique', name: 'هندسة الطيران — جامعي', nameEn: 'Génie Aéronautique',
     subtitle: 'هندسة طيران وفضاء', subtitleIcon: 'fa-plane',
     cat: 'engineering', catVar: 'var(--cat-engineering)', lmd: true,
     avg: 15.45, minAvg: 15.45,
@@ -1758,7 +1758,7 @@ const TW_CATALOG = [
 
   /* ========== BUSINESS — GRANDES ÉCOLES (continued) ========== */
   {
-    id: 'esgen', name: 'المدرسة العليا للتسيير والاقتصاد الرقمي – ESGEN', nameEn: 'Gestion & Économie Numérique – ESGEN',
+    id: 'esgen', name: 'المدرسة العليا للتسيير والاقتصاد الرقمي — القليعة', nameEn: 'Gestion & Économie Numérique – ESGEN',
     subtitle: 'إدارة رقمية', subtitleIcon: 'fa-laptop',
     cat: 'business', catVar: 'var(--cat-business)', lmd: false,
     avg: 15.51, minAvg: 15.51,
@@ -1782,7 +1782,7 @@ const TW_CATALOG = [
     ],
   },
   {
-    id: 'essg', name: 'المدرسة العليا لعلوم التسيير – ESSG عنابة', nameEn: 'Sciences de Gestion – ESSG',
+    id: 'essg', name: 'المدرسة العليا لعلوم التسيير — عنابة', nameEn: 'Sciences de Gestion – ESSG',
     subtitle: 'إدارة وتسيير', subtitleIcon: 'fa-briefcase',
     cat: 'business', catVar: 'var(--cat-business)', lmd: false,
     avg: 10.00, minAvg: 10.00,
@@ -1806,7 +1806,7 @@ const TW_CATALOG = [
     ],
   },
   {
-    id: 'escf', name: 'المدرسة العليا للمحاسبة والمالية – ESCF', nameEn: 'Comptabilité & Finance – ESCF',
+    id: 'escf', name: 'المدرسة العليا في المحاسبة والمالية — قسنطينة', nameEn: 'Comptabilité & Finance – ESCF',
     subtitle: 'محاسبة ومالية', subtitleIcon: 'fa-file-invoice-dollar',
     cat: 'business', catVar: 'var(--cat-business)', lmd: false,
     avg: 12.50, minAvg: 12.50,
@@ -1830,7 +1830,7 @@ const TW_CATALOG = [
     ],
   },
   {
-    id: 'ese', name: 'المدرسة العليا للاقتصاد – ESE وهران', nameEn: 'Sciences Économiques – ESE',
+    id: 'ese', name: 'المدرسة العليا للاقتصاد — وهران', nameEn: 'Sciences Économiques – ESE',
     subtitle: 'اقتصاد تحليلي', subtitleIcon: 'fa-chart-area',
     cat: 'business', catVar: 'var(--cat-business)', lmd: false,
     avg: 13.74, minAvg: 13.74,
@@ -1856,7 +1856,7 @@ const TW_CATALOG = [
 
   /* ========== SCIENCE — GRANDES ÉCOLES ========== */
   {
-    id: 'essaia', name: 'المدرسة العليا لعلوم التغذية والصناعات الغذائية – ESSAIA', nameEn: 'Sciences Alimentaires – ESSAIA',
+    id: 'essaia', name: 'المدرسة العليا لعلوم التغذية والصناعات الغذائية — الجزائر', nameEn: 'Sciences Alimentaires – ESSAIA',
     subtitle: 'علوم غذائية وتغذية', subtitleIcon: 'fa-wheat-awn',
     cat: 'science', catVar: 'var(--cat-science)', lmd: false,
     avg: 15.40, minAvg: 15.40,
@@ -1877,7 +1877,7 @@ const TW_CATALOG = [
     ],
   },
   {
-    id: 'essb', name: 'المدرسة العليا للعلوم البيولوجية – ESSB وهران', nameEn: 'Sciences Biologiques – ESSB',
+    id: 'essb', name: 'المدرسة العليا للعلوم البيولوجية — وهران', nameEn: 'Sciences Biologiques – ESSB',
     subtitle: 'علوم حياة تطبيقية', subtitleIcon: 'fa-dna',
     cat: 'science', catVar: 'var(--cat-science)', lmd: false,
     avg: 15.05, minAvg: 15.05,
@@ -1900,7 +1900,7 @@ const TW_CATALOG = [
 
   /* ========== MEDICAL — PARAMEDICAL (continued) ========== */
   {
-    id: 'isp', name: 'ممرض الصحة العمومية', nameEn: 'Infirmier de Santé Publique',
+    id: 'isp', name: 'ممرض الصحة العمومية — وطني', nameEn: 'Infirmier de Santé Publique',
     subtitle: 'شبه طبي', subtitleIcon: 'fa-kit-medical',
     cat: 'medical', catVar: 'var(--cat-medical)', lmd: false,
     avg: 11.27, minAvg: 11.27,
@@ -1921,7 +1921,7 @@ const TW_CATALOG = [
     ],
   },
   {
-    id: 'dental-prosthetist', name: 'مرمم الأسنان للصحة العمومية', nameEn: 'Prothésiste Dentaire',
+    id: 'dental-prosthetist', name: 'مرمم الأسنان للصحة العمومية — وطني', nameEn: 'Prothésiste Dentaire',
     subtitle: 'شبه طبي — أسنان', subtitleIcon: 'fa-tooth',
     cat: 'medical', catVar: 'var(--cat-medical)', lmd: false,
     avg: 16.99, minAvg: 16.99,
@@ -1941,7 +1941,7 @@ const TW_CATALOG = [
     ],
   },
   {
-    id: 'psychomotricien', name: 'مقوم الحركة النفسية للصحة العمومية', nameEn: 'Psychomotricien',
+    id: 'psychomotricien', name: 'مقوم الحركة النفسية — وطني', nameEn: 'Psychomotricien',
     subtitle: 'شبه طبي — تأهيل', subtitleIcon: 'fa-person-running',
     cat: 'medical', catVar: 'var(--cat-medical)', lmd: false,
     avg: 11.27, minAvg: 11.27,
