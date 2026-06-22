@@ -185,7 +185,7 @@
      DIRECTIVE BLOCK PARSER (output contract v2 §5)
      Extracts fenced directive blocks and removes them from prose.
      ============================================================ */
-  const BLOCK_RE = /```(spec-cards|compare|verdict)[ \t]*\n([\s\S]*?)\n?```/g;
+  const BLOCK_RE = /```(spec-cards|compare|verdict|question)[ \t]*\n([\s\S]*?)\n?```/g;
 
   function parseDirectives(text) {
     const blocks = [];
@@ -335,21 +335,110 @@
     return box;
   }
 
+  /* ---- Orientation mode state ---- */
+  let orientationMode = false;
+
+  /* ============================================================
+     QUESTION DIRECTIVE RENDERER (output contract §3d)
+     Renders a Claude-style chip question with optional free-text input.
+     Clicking a chip sends it as a chat message automatically.
+     ============================================================ */
+  function renderQuestionBlock(data) {
+    if (!data) return null;
+
+    const options = data.options || [];
+    const card = document.createElement('div');
+    card.className = 'tw-question';
+
+    if (data.text) {
+      const qText = document.createElement('div');
+      qText.className = 'tw-question-text';
+      qText.textContent = data.text;
+      card.appendChild(qText);
+    }
+
+    const chips = document.createElement('div');
+    chips.className = 'tw-question-chips';
+
+    const lockCard = () => {
+      card.querySelectorAll('.tw-q-chip').forEach(b => { b.disabled = true; });
+      const ci = card.querySelector('.tw-q-custom-input');
+      const cb = card.querySelector('.tw-q-custom-btn');
+      if (ci) ci.disabled = true;
+      if (cb) cb.disabled = true;
+    };
+
+    const sendAnswer = (text) => {
+      lockCard();
+      input.value = text;
+      autosize();
+      sendBtn.disabled = false;
+      form.requestSubmit();
+    };
+
+    options.forEach(opt => {
+      const btn = document.createElement('button');
+      btn.className = 'tw-q-chip';
+      btn.type = 'button';
+      btn.textContent = typeof opt === 'string' ? opt : (opt.label || String(opt));
+      btn.addEventListener('click', () => {
+        btn.classList.add('selected');
+        sendAnswer(btn.textContent);
+      });
+      chips.appendChild(btn);
+    });
+    card.appendChild(chips);
+
+    if (data.allowCustom !== false) {
+      const customWrap = document.createElement('div');
+      customWrap.className = 'tw-question-custom';
+      const customInput = document.createElement('input');
+      customInput.type = 'text';
+      customInput.className = 'tw-q-custom-input';
+      customInput.placeholder = 'اكتب إجابتك...';
+      customInput.setAttribute('dir', 'rtl');
+      const customBtn = document.createElement('button');
+      customBtn.type = 'button';
+      customBtn.className = 'tw-q-custom-btn';
+      customBtn.innerHTML = '<i class="fas fa-arrow-left"></i>';
+      customBtn.addEventListener('click', () => {
+        const val = customInput.value.trim();
+        if (!val) return;
+        sendAnswer(val);
+      });
+      customInput.addEventListener('keydown', e => {
+        if (e.key === 'Enter') { e.preventDefault(); customBtn.click(); }
+      });
+      customWrap.appendChild(customInput);
+      customWrap.appendChild(customBtn);
+      card.appendChild(customWrap);
+    }
+
+    return card;
+  }
+
   /* Render a complete AI message (markdown + components) into a textEl container. */
   function renderAiMessage(textEl, fullText) {
     const { clean, blocks } = parseDirectives(fullText);
     textEl.innerHTML = '';
     textEl.appendChild(twMd(clean));
+    let hasSpecCards = false;
     for (const blk of blocks) {
       if (blk.type === 'spec-cards' && Array.isArray(blk.data)) {
         textEl.appendChild(specCards(blk.data));
+        hasSpecCards = true;
       } else if (blk.type === 'compare') {
         textEl.appendChild(renderCompareBlock(blk.data));
       } else if (blk.type === 'verdict') {
         const v = renderVerdictBlock(blk.data);
         if (v) textEl.appendChild(v);
+      } else if (blk.type === 'question') {
+        const q = renderQuestionBlock(blk.data);
+        if (q) textEl.appendChild(q);
       }
     }
+    /* End orientation mode once the AI gives final spec-card recommendations */
+    if (hasSpecCards && orientationMode) orientationMode = false;
   }
 
   /* ============================================================
@@ -553,6 +642,7 @@
           messages: conversationMessages.slice(-12),
           profile,
           sessionId: currentChatId,
+          orientationMode,
         }),
       });
 
@@ -596,6 +686,15 @@
     }
   }
 
+  /* ---- Discover button (orientation mode trigger) ---- */
+  $('#discoverBtn')?.addEventListener('click', () => {
+    orientationMode = true;
+    input.value = 'نحب نعرف التخصص المناسب ليا، ساعدني نكتشف مجالي';
+    autosize();
+    sendBtn.disabled = false;
+    form.requestSubmit();
+  });
+
   /* ---- Form submit ---- */
   form.addEventListener('submit', e => {
     e.preventDefault();
@@ -632,6 +731,7 @@
     input.value = ''; autosize(); sendBtn.disabled = true;
     currentChatId = null;
     conversationMessages = [];
+    orientationMode = false;
     closeHist();
     renderHistory();
     input.focus();
