@@ -372,6 +372,14 @@ export default async function handler(req, res) {
     return res.status(401).json({ error: 'Unauthorized' });
   }
 
+  // Ensure credits row exists for new users (insert 30 free credits; no-op if row already exists)
+  await adminSupabase
+    .from('credits')
+    .upsert(
+      { user_id: user.id, balance: 30, total_earned: 30, total_spent: 0 },
+      { onConflict: 'user_id', ignoreDuplicates: true }
+    );
+
   // Decrement credit atomically BEFORE calling Groq
   const { data: credited } = await adminSupabase.rpc('decrement_credit', { uid: user.id });
   if (!credited) {

@@ -406,18 +406,7 @@
     pill.className = 'acc-pill';
     pill.dataset.status = acc.status;
     const lbl = ACC_LABEL[acc.status] || ACC_LABEL.unknown;
-    let pillHtml = `<i class="fas ${lbl.icon}"></i> ${lbl.ar}`;
-    if (typeof acc.threshold === 'number') {
-      pillHtml += ` · العتبة ${acc.threshold.toFixed(2)}`;
-    }
-    pill.innerHTML = pillHtml;
-    /* basis tag — only meaningful when we actually scored against a threshold */
-    if (acc.status === 'safe' || acc.status === 'likely' || acc.status === 'risk') {
-      const basis = document.createElement('span');
-      basis.className = 'acc-basis';
-      basis.textContent = eff.basis;
-      pill.appendChild(basis);
-    }
+    pill.innerHTML = `<i class="fas ${lbl.icon}"></i> ${lbl.ar}`;
     wrap.appendChild(pill);
 
     /* scope chip */
