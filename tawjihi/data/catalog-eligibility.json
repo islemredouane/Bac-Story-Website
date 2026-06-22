@@ -3107,6 +3107,319 @@
       "sourceConfidence": "card-derived",
       "_note": "streams from curated catalog.js card; no admission data (future/pilot track) - thresholds intentionally empty",
       "_method": "card_derived"
+    },
+    "ensta": {
+      "linkedProgramCodes": [],
+      "allowedStreams": [
+        "math",
+        "sciexp",
+        "techmath"
+      ],
+      "scope": "national",
+      "circleWilayaNums": [],
+      "rankingBasis": "weighted_or_general",
+      "thresholdsByStream": {
+        "math": 17.15,
+        "sciexp": 17.15,
+        "techmath": 17.15
+      },
+      "sourceConfidence": "card-derived",
+      "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
+      "_method": "card_derived"
+    },
+    "ensee": {
+      "linkedProgramCodes": [],
+      "allowedStreams": [
+        "math",
+        "sciexp",
+        "techmath"
+      ],
+      "scope": "national",
+      "circleWilayaNums": [],
+      "rankingBasis": "weighted_or_general",
+      "thresholdsByStream": {
+        "math": 16.15,
+        "sciexp": 16.15,
+        "techmath": 16.15
+      },
+      "sourceConfidence": "card-derived",
+      "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
+      "_method": "card_derived"
+    },
+    "hnsre": {
+      "linkedProgramCodes": [],
+      "allowedStreams": [
+        "math",
+        "sciexp",
+        "techmath"
+      ],
+      "scope": "national",
+      "circleWilayaNums": [],
+      "rankingBasis": "weighted_or_general",
+      "thresholdsByStream": {
+        "math": 15.64,
+        "sciexp": 15.64,
+        "techmath": 15.64
+      },
+      "sourceConfidence": "card-derived",
+      "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
+      "_method": "card_derived"
+    },
+    "aeronautique": {
+      "linkedProgramCodes": [],
+      "allowedStreams": [
+        "math",
+        "sciexp",
+        "techmath"
+      ],
+      "scope": "national",
+      "circleWilayaNums": [],
+      "rankingBasis": "weighted_or_general",
+      "thresholdsByStream": {
+        "math": 15.45,
+        "sciexp": 15.45,
+        "techmath": 15.45
+      },
+      "sourceConfidence": "card-derived",
+      "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
+      "_method": "card_derived"
+    },
+    "esgen": {
+      "linkedProgramCodes": [],
+      "allowedStreams": [
+        "gestion",
+        "math",
+        "sciexp",
+        "techmath"
+      ],
+      "scope": "national",
+      "circleWilayaNums": [],
+      "rankingBasis": "weighted_or_general",
+      "thresholdsByStream": {
+        "gestion": 15.51,
+        "math": 15.51,
+        "sciexp": 15.51,
+        "techmath": 15.51
+      },
+      "sourceConfidence": "card-derived",
+      "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
+      "_method": "card_derived"
+    },
+    "essg": {
+      "linkedProgramCodes": [],
+      "allowedStreams": [
+        "gestion",
+        "math",
+        "sciexp",
+        "techmath"
+      ],
+      "scope": "national",
+      "circleWilayaNums": [],
+      "rankingBasis": "weighted_or_general",
+      "thresholdsByStream": {
+        "gestion": 14.71,
+        "math": 14.71,
+        "sciexp": 14.71,
+        "techmath": 14.71
+      },
+      "sourceConfidence": "card-derived",
+      "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
+      "_method": "card_derived"
+    },
+    "escf": {
+      "linkedProgramCodes": [],
+      "allowedStreams": [
+        "gestion",
+        "math",
+        "techmath"
+      ],
+      "scope": "national",
+      "circleWilayaNums": [],
+      "rankingBasis": "weighted_or_general",
+      "thresholdsByStream": {
+        "gestion": 12.5,
+        "math": 12.5,
+        "techmath": 12.5
+      },
+      "sourceConfidence": "card-derived",
+      "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
+      "_method": "card_derived"
+    },
+    "ese": {
+      "linkedProgramCodes": [],
+      "allowedStreams": [
+        "gestion",
+        "math",
+        "sciexp",
+        "techmath"
+      ],
+      "scope": "national",
+      "circleWilayaNums": [],
+      "rankingBasis": "weighted_or_general",
+      "thresholdsByStream": {
+        "gestion": 13.74,
+        "math": 13.74,
+        "sciexp": 13.74,
+        "techmath": 13.74
+      },
+      "sourceConfidence": "card-derived",
+      "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
+      "_method": "card_derived"
+    },
+    "essaia": {
+      "linkedProgramCodes": [],
+      "allowedStreams": [
+        "math",
+        "sciexp"
+      ],
+      "scope": "national",
+      "circleWilayaNums": [],
+      "rankingBasis": "weighted_or_general",
+      "thresholdsByStream": {
+        "math": 15.4,
+        "sciexp": 15.4
+      },
+      "sourceConfidence": "card-derived",
+      "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
+      "_method": "card_derived"
+    },
+    "essb": {
+      "linkedProgramCodes": [],
+      "allowedStreams": [
+        "math",
+        "sciexp"
+      ],
+      "scope": "national",
+      "circleWilayaNums": [],
+      "rankingBasis": "weighted_or_general",
+      "thresholdsByStream": {
+        "math": 15.05,
+        "sciexp": 15.05
+      },
+      "sourceConfidence": "card-derived",
+      "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
+      "_method": "card_derived"
+    },
+    "isp": {
+      "linkedProgramCodes": [],
+      "allowedStreams": [
+        "sciexp"
+      ],
+      "scope": "national",
+      "circleWilayaNums": [],
+      "rankingBasis": "weighted_or_general",
+      "thresholdsByStream": {
+        "sciexp": 11.27
+      },
+      "sourceConfidence": "card-derived",
+      "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
+      "_method": "card_derived"
+    },
+    "dental-prosthetist": {
+      "linkedProgramCodes": [],
+      "allowedStreams": [
+        "sciexp"
+      ],
+      "scope": "national",
+      "circleWilayaNums": [],
+      "rankingBasis": "weighted_or_general",
+      "thresholdsByStream": {
+        "sciexp": 16.99
+      },
+      "sourceConfidence": "card-derived",
+      "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
+      "_method": "card_derived"
+    },
+    "psychomotricien": {
+      "linkedProgramCodes": [],
+      "allowedStreams": [
+        "sciexp"
+      ],
+      "scope": "national",
+      "circleWilayaNums": [],
+      "rankingBasis": "weighted_or_general",
+      "thresholdsByStream": {
+        "sciexp": 11.27
+      },
+      "sourceConfidence": "card-derived",
+      "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
+      "_method": "card_derived"
+    },
+    "med-eco": {
+      "linkedProgramCodes": [],
+      "allowedStreams": [
+        "math",
+        "sciexp",
+        "techmath"
+      ],
+      "scope": "national",
+      "circleWilayaNums": [],
+      "rankingBasis": "weighted_or_general",
+      "thresholdsByStream": {
+        "math": 16.31,
+        "sciexp": 16.31,
+        "techmath": 16.31
+      },
+      "sourceConfidence": "card-derived",
+      "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
+      "_method": "card_derived"
+    },
+    "med-psy": {
+      "linkedProgramCodes": [],
+      "allowedStreams": [
+        "math",
+        "sciexp"
+      ],
+      "scope": "national",
+      "circleWilayaNums": [],
+      "rankingBasis": "weighted_or_general",
+      "thresholdsByStream": {
+        "math": 17.67,
+        "sciexp": 17.67
+      },
+      "sourceConfidence": "card-derived",
+      "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
+      "_method": "card_derived"
+    },
+    "tech-media": {
+      "linkedProgramCodes": [],
+      "allowedStreams": [
+        "math",
+        "sciexp",
+        "techmath"
+      ],
+      "scope": "national",
+      "circleWilayaNums": [],
+      "rankingBasis": "weighted_or_general",
+      "thresholdsByStream": {
+        "math": 16.69,
+        "sciexp": 16.69,
+        "techmath": 16.69
+      },
+      "sourceConfidence": "card-derived",
+      "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
+      "_method": "card_derived"
+    },
+    "math-eco": {
+      "linkedProgramCodes": [],
+      "allowedStreams": [
+        "gestion",
+        "math",
+        "sciexp",
+        "techmath"
+      ],
+      "scope": "national",
+      "circleWilayaNums": [],
+      "rankingBasis": "weighted_or_general",
+      "thresholdsByStream": {
+        "gestion": 10.02,
+        "math": 10.02,
+        "sciexp": 10.02,
+        "techmath": 10.02
+      },
+      "sourceConfidence": "card-derived",
+      "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
+      "_method": "card_derived"
     }
   },
   "_meta": {
@@ -3117,15 +3430,15 @@
       "guide/geographic-circles.json",
       "guide/eligibility-matrix.json"
     ],
-    "catalogIdCount": 67,
-    "linkedCount": 62,
+    "catalogIdCount": 84,
+    "linkedCount": 79,
     "unlinkedIds": [],
     "methodCounts": {
       "explicit_codefil": 18,
       "nationale": 3,
       "catalog_averages": 17,
       "extra_filiere_key": 5,
-      "card_derived": 20,
+      "card_derived": 37,
       "card_derived_correction": 4
     },
     "streamCodeLegend": {
