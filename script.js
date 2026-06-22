@@ -657,6 +657,18 @@ var SPEC_KEYWORDS = {
     'MGMT-ENG': 'إدارة أعمال وهندسة management ingénierie',
     'DROIT-INFO': 'حقوق وإعلام آلي قانون رقمي droit informatique cyberdroit',
     'MED-PSY': 'طب وعلم نفس الطب النفسي médecine psychologie psychiatrie',
+    'GEOLOGIE': 'جيولوجيا géologie علوم الأرض',
+    'GEOGRAPHIE': 'جغرافيا géographie',
+    'AGRONOMIE': 'علوم زراعية agronomique sciences agronomiques',
+    'AGROALIMENTAIRE': 'علوم غذاء تغذية sciences alimentaires',
+    'SOCIALES': 'علوم اجتماعية sciences sociales',
+    'ARCHEOLOGIE': 'علم الآثار archéologie',
+    'LOISIR': 'علم الاجتماع سياحة رفاهية sociologie du loisir',
+    'STAPS': 'رياضة علوم تقنيات أنشطة بدنية staps sports',
+    'ARTS': 'فنون تشكيلية arts plastiques',
+    'CINEMA': 'سينما cinéma arts du spectacle',
+    'ARABE': 'لغة وأدب عربي langue littérature arabes',
+    'AMAZIGH': 'لغة وثقافة أمازيغية tamazight berbère amazighe',
 };
 
 (function initSpecFilter() {
