@@ -24,53 +24,116 @@
   const allowMotionFx = !reduceMotion && !coarsePointer;
 
   /* ------------------------------------------------------------
-     1) THEME TOGGLE (persisted, key 'tw-theme' — shared mechanism)
+     1) THEME TOGGLE (persisted, key 'tw-theme' — drives every
+        .js-theme-toggle: header icon button + sheet labelled button)
      ------------------------------------------------------------ */
   (() => {
     const saved = localStorage.getItem('tw-theme') || 'light';
     root.setAttribute('data-theme', saved);
 
-    const btn = $('#themeBtn');
-    const syncIcon = () => {
-      if (!btn) return;
-      const dark = root.getAttribute('data-theme') === 'dark';
-      btn.innerHTML = `<i class="fas fa-${dark ? 'sun' : 'moon'}"></i>`;
-    };
-    syncIcon();
+    const toggles = $$('.js-theme-toggle');
 
-    if (btn) {
-      btn.addEventListener('click', () => {
+    const sync = () => {
+      const dark = root.getAttribute('data-theme') === 'dark';
+      toggles.forEach((el) => {
+        const icon = el.querySelector('i');
+        if (icon) icon.className = `fas fa-${dark ? 'sun' : 'moon'}`;
+        const label = el.querySelector('.js-theme-label');
+        if (label) label.textContent = dark ? 'الوضع النهاري' : 'الوضع الليلي';
+      });
+    };
+    sync();
+
+    toggles.forEach((el) => {
+      el.addEventListener('click', () => {
         const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
         root.setAttribute('data-theme', next);
         localStorage.setItem('tw-theme', next);
-        syncIcon();
+        sync();
       });
-    }
+    });
   })();
 
   /* ------------------------------------------------------------
-     2) MOBILE MENU
+     2) MOBILE SHEET (full-screen overlay)
+        burger morph · body scroll lock · Esc / link / backdrop close
      ------------------------------------------------------------ */
   (() => {
-    const btn  = $('#lpMenuBtn');
-    const menu = $('#lpMobileMenu');
-    if (!btn || !menu) return;
+    const btn   = $('#lpMenuBtn');
+    const sheet = $('#lpMobileMenu');
+    if (!btn || !sheet) return;
 
     const setOpen = (open) => {
-      menu.classList.toggle('is-open', open);
+      sheet.classList.toggle('is-open', open);
+      btn.classList.toggle('is-open', open);
       btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      menu.setAttribute('aria-hidden', open ? 'false' : 'true');
+      btn.setAttribute('aria-label', open ? 'إغلاق القائمة' : 'فتح القائمة');
+      sheet.setAttribute('aria-hidden', open ? 'false' : 'true');
+      document.body.classList.toggle('lp-no-scroll', open);
     };
     setOpen(false);
 
-    btn.addEventListener('click', () => {
-      setOpen(!menu.classList.contains('is-open'));
+    const isOpen = () => sheet.classList.contains('is-open');
+
+    btn.addEventListener('click', () => setOpen(!isOpen()));
+
+    // Close on Escape.
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isOpen()) setOpen(false);
     });
 
-    // Close when any link inside the menu is clicked.
-    $$('a', menu).forEach((a) =>
-      a.addEventListener('click', () => setOpen(false))
-    );
+    // Close on backdrop tap (click on the sheet itself, not its inner content).
+    sheet.addEventListener('click', (e) => {
+      if (e.target === sheet) setOpen(false);
+    });
+
+    // Close on any navigation link (theme button is excluded — keep sheet open).
+    $$('a', sheet).forEach((a) => a.addEventListener('click', () => setOpen(false)));
+  })();
+
+  /* ------------------------------------------------------------
+     3) SCROLL-AWARE NAVBAR + SCROLL-SPY active link
+     ------------------------------------------------------------ */
+  (() => {
+    const nav = $('#lpNav');
+    const links = $$('.lp-nav-center [data-nav]');
+
+    // condensed glass state after a small scroll
+    if (nav) {
+      let ticking = false;
+      const onScroll = () => {
+        if (ticking) return;
+        ticking = true;
+        window.requestAnimationFrame(() => {
+          nav.classList.toggle('scrolled', window.scrollY > 12);
+          ticking = false;
+        });
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    }
+
+    // scroll-spy: highlight the link whose section is in view
+    if (links.length && 'IntersectionObserver' in window) {
+      const byId = {};
+      const sections = [];
+      links.forEach((l) => {
+        const id = (l.getAttribute('href') || '').replace('#', '');
+        const sec = id && document.getElementById(id);
+        if (sec) { byId[id] = l; sections.push(sec); }
+      });
+      if (sections.length) {
+        const spy = new IntersectionObserver((entries) => {
+          entries.forEach((e) => {
+            if (!e.isIntersecting) return;
+            links.forEach((l) => l.classList.remove('active'));
+            const active = byId[e.target.id];
+            if (active) active.classList.add('active');
+          });
+        }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+        sections.forEach((s) => spy.observe(s));
+      }
+    }
   })();
 
   /* ------------------------------------------------------------

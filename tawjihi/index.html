@@ -52,29 +52,50 @@
 </div>
 
 <!-- ===================== NAVBAR ===================== -->
-<header class="lp-nav">
+<header class="lp-nav" id="lpNav">
     <div class="tw-container lp-nav-inner">
-        <a href="index.html" class="lp-logo">توجيهي</a>
-        <nav class="lp-nav-actions">
-            <a href="#features" class="lp-link hide-sm">المميزات</a>
-            <a href="#how" class="lp-link hide-sm">كيفاش يخدم؟</a>
-            <a href="#faq" class="lp-link hide-sm">أسئلة شائعة</a>
-            <button class="theme-toggle" id="themeBtn" aria-label="تبديل الوضع الليلي"><i class="fas fa-moon"></i></button>
-            <a href="login.html" class="lp-link">دخول</a>
-            <a href="app.html" class="btn btn-primary"><i class="fas fa-arrow-left"></i> ابدأ مجاناً</a>
-            <button class="lp-hamburger" id="lpMenuBtn" aria-label="فتح القائمة" aria-expanded="false">
-              <i class="fas fa-bars"></i>
-            </button>
+        <a href="index.html" class="lp-logo" aria-label="توجيهي — الصفحة الرئيسية">
+            <span class="lp-logo-mark">ت</span>
+            <span class="lp-logo-text">توجيهي</span>
+        </a>
+
+        <nav class="lp-nav-center" aria-label="التنقل الرئيسي">
+            <a href="#how" class="lp-link" data-nav>كيفاش يخدم؟</a>
+            <a href="#features" class="lp-link" data-nav>المميزات</a>
+            <a href="#cats" class="lp-link" data-nav>المجالات</a>
+            <a href="#faq" class="lp-link" data-nav>أسئلة شائعة</a>
         </nav>
-    </div>
-    <div class="lp-mobile-menu" id="lpMobileMenu" aria-hidden="true">
-      <a href="#features" class="lp-mobile-link">المميزات</a>
-      <a href="#how" class="lp-mobile-link">كيف يعمل؟</a>
-      <a href="#faq" class="lp-mobile-link">الأسئلة الشائعة</a>
-      <a href="login.html" class="lp-mobile-link">دخول</a>
-      <a href="login.html" class="lp-mobile-link lp-mobile-cta">ابدأ مجاناً</a>
+
+        <div class="lp-nav-actions">
+            <button class="lp-icon-btn js-theme-toggle" id="themeBtn" aria-label="تبديل الوضع الليلي"><i class="fas fa-moon"></i></button>
+            <a href="login.html" class="lp-login">دخول</a>
+            <a href="app.html" class="btn btn-primary lp-cta"><i class="fas fa-arrow-left"></i> ابدأ مجاناً</a>
+            <button class="lp-burger" id="lpMenuBtn" aria-label="فتح القائمة" aria-expanded="false" aria-controls="lpMobileMenu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
     </div>
 </header>
+
+<!-- ===================== MOBILE SHEET ===================== -->
+<div class="lp-sheet" id="lpMobileMenu" role="dialog" aria-modal="true" aria-label="القائمة" aria-hidden="true">
+    <div class="lp-sheet-glow" aria-hidden="true"></div>
+    <div class="lp-sheet-inner">
+        <nav class="lp-sheet-nav" aria-label="قائمة الجوّال">
+            <a href="#how" class="lp-sheet-link"><span class="lp-sheet-idx">01</span> كيفاش يخدم؟</a>
+            <a href="#features" class="lp-sheet-link"><span class="lp-sheet-idx">02</span> المميزات</a>
+            <a href="#cats" class="lp-sheet-link"><span class="lp-sheet-idx">03</span> المجالات</a>
+            <a href="#faq" class="lp-sheet-link"><span class="lp-sheet-idx">04</span> أسئلة شائعة</a>
+            <a href="login.html" class="lp-sheet-link"><span class="lp-sheet-idx">05</span> تسجيل الدخول</a>
+        </nav>
+        <div class="lp-sheet-foot">
+            <button class="lp-sheet-theme js-theme-toggle" type="button" aria-label="تبديل الوضع الليلي">
+                <i class="fas fa-moon"></i> <span class="js-theme-label">الوضع الليلي</span>
+            </button>
+            <a href="app.html" class="btn btn-primary btn-lg lp-sheet-cta"><i class="fas fa-arrow-left"></i> ابدأ مجاناً</a>
+        </div>
+    </div>
+</div>
 
 <main>
     <!-- ===================== HERO ===================== -->
