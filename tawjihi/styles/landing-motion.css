@@ -128,18 +128,16 @@
    the keyframe so it works even outside an .lp-stage container.
    ============================================================ */
 @keyframes lm-card-drift {
-    0%   { transform: perspective(1000px) translate3d(0, 0, 0)    rotateX(0deg)    rotateY(0deg);    }
-    25%  { transform: perspective(1000px) translate3d(0, -7px, 0) rotateX(2.2deg)  rotateY(-2.6deg); }
-    50%  { transform: perspective(1000px) translate3d(0, -3px, 0) rotateX(-1.6deg) rotateY(2.2deg);  }
-    75%  { transform: perspective(1000px) translate3d(0, -8px, 0) rotateX(1.6deg)  rotateY(1.6deg);  }
-    100% { transform: perspective(1000px) translate3d(0, 0, 0)    rotateX(0deg)    rotateY(0deg);    }
+    0%   { transform: perspective(900px) rotateY(-7deg) rotateX(2deg);  }
+    50%  { transform: perspective(900px) rotateY(7deg)  rotateX(-2deg); }
+    100% { transform: perspective(900px) rotateY(-7deg) rotateX(2deg);  }
 }
 
 .stat-card.in,
 .step-card.in,
 .feat-card.in,
 .testimonial.in {
-    animation: lm-card-drift 9s var(--ease) infinite;
+    animation: lm-card-drift 7s ease-in-out infinite;
     animation-delay: .7s;
 }
 /* organic stagger so neighbours don't drift in lockstep */
@@ -153,8 +151,8 @@
 .proof-grid .testimonial.in:nth-child(3) { animation-duration: 8s;    animation-delay: 1.3s; }
 .stat-card.in:nth-child(4)               { animation-duration: 11s;   animation-delay: .9s;  }
 
-/* the chat demo drifts too, gentler + slower */
-.hero-demo.in { animation: lm-card-drift 12s var(--ease) infinite; animation-delay: .8s; }
+/* the chat demo tilts too, gentler + slower */
+.hero-demo.in { animation: lm-card-drift 9s ease-in-out infinite; animation-delay: .8s; }
 
 /* ============================================================
    9. REDUCED MOTION — mandatory kill switch
