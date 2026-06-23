@@ -668,7 +668,7 @@ var SPEC_KEYWORDS = {
     'ARTS': 'Ã™ÂÃ™â€ Ã™Ë†Ã™â€  Ã˜ÂªÃ˜Â´Ã™Æ’Ã™Å Ã™â€žÃ™Å Ã˜Â© arts plastiques',
     'CINEMA': 'Ã˜Â³Ã™Å Ã™â€ Ã™â€¦Ã˜Â§ cinÃƒÂ©ma arts du spectacle',
     'ARABE': 'Ã™â€žÃ˜ÂºÃ˜Â© Ã™Ë†Ã˜Â£Ã˜Â¯Ã˜Â¨ Ã˜Â¹Ã˜Â±Ã˜Â¨Ã™Å  langue littÃƒÂ©rature arabes',
-    'AMAZIGH': 'Ã™â€žÃ˜ÂºÃ˜Â© Ã™Ë†Ã˜Â«Ã™â€šÃ˜Â§Ã™ÂÃ˜Â© Ã˜Â£Ã™â€¦Ã˜Â§Ã˜Â²Ã™Å Ã˜ÂºÃ™Å Ã˜Â© tamazight berbÃƒÂ¨re amazighe',
+    'TAMAZIGHT': 'Ã™â€žÃ˜ÂºÃ˜Â© Ã™Ë†Ã˜Â«Ã™â€šÃ˜Â§Ã™ÂÃ˜Â© Ã˜Â£Ã™â€¦Ã˜Â§Ã˜Â²Ã™Å Ã˜ÂºÃ™Å Ã˜Â© tamazight berbÃƒÂ¨re tamazighte',
 };
 
 (function initSpecFilter() {
