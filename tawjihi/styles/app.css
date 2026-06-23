@@ -716,23 +716,36 @@
 ::-webkit-scrollbar-button:horizontal:decrement { display: none !important; width: 0 !important; }
 ::-webkit-scrollbar-button:horizontal:increment { display: none !important; width: 0 !important; }
 
-::-webkit-scrollbar { width: 3px; height: 3px; }
+/* Small, refined floating thumb — transparent border + clip gives it breathing
+   room so it reads as a slim rounded pill, not a full-height bar. */
+::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb {
-    background: rgba(44, 92, 197, 0.2);
+    background: rgba(100, 116, 139, 0.35);
     border-radius: 99px;
-    min-height: 20px;   /* short thumb */
-    max-height: 48px;   /* cap it so it never looks too tall */
+    border: 3px solid transparent;   /* padding around the visible thumb */
+    background-clip: padding-box;     /* clip bg so the border stays clear */
+    min-height: 36px;
 }
-::-webkit-scrollbar-thumb:hover { background: rgba(44, 92, 197, 0.45); }
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(100, 116, 139, 0.55);
+    background-clip: padding-box;
+}
 ::-webkit-scrollbar-corner { background: transparent; }
 
 /* Firefox */
-* { scrollbar-width: thin; scrollbar-color: rgba(44, 92, 197, 0.2) transparent; }
+* { scrollbar-width: thin; scrollbar-color: rgba(100, 116, 139, 0.35) transparent; }
 
-[data-theme="dark"] ::-webkit-scrollbar-thumb { background: rgba(91, 134, 232, 0.22); }
-[data-theme="dark"] ::-webkit-scrollbar-thumb:hover { background: rgba(91, 134, 232, 0.48); }
-[data-theme="dark"] * { scrollbar-color: rgba(91, 134, 232, 0.22) transparent; }
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, 0.30);
+    border: 3px solid transparent;
+    background-clip: padding-box;
+}
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+    background: rgba(148, 163, 184, 0.50);
+    background-clip: padding-box;
+}
+[data-theme="dark"] * { scrollbar-color: rgba(148, 163, 184, 0.30) transparent; }
 
 /* ============================================================
    GLASS LAYER — sidebar, topbar, chat cards, composer
