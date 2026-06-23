@@ -6,19 +6,26 @@
 /* Overlay with Glassmorphism Backdrop */
 .islamic-overlay {
     position: fixed;
-    inset: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 100dvh;
     z-index: 99990; /* Sits right below the main page loader but above everything else */
     background: radial-gradient(circle at center, rgba(8, 14, 36, 0.82) 0%, rgba(3, 6, 18, 0.93) 100%);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
-    padding: 1.5rem 1rem;
+    padding: 1rem;
+    box-sizing: border-box;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.5s ease;
-    overflow-y: auto; /* Enable scroll if height overflows */
+    overflow-y: auto; /* Enable scroll if card overflows on small screens */
 }
 
 .islamic-overlay.is-visible {
@@ -44,7 +51,7 @@
     opacity: 0;
     transition: transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease;
     overflow: hidden;
-    margin: auto; /* Centering and scroll support within flex container */
+    flex-shrink: 0;
 }
 
 .islamic-overlay.is-visible .islamic-card {
