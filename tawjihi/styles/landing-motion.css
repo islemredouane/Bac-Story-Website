@@ -121,9 +121,53 @@
 }
 
 /* ============================================================
-   8. REDUCED MOTION — mandatory kill switch
+   8. AUTO-FLOAT CARDS — the hover look, always on + always moving
+   Gentle infinite 3D drift. Scoped to .in so it starts only AFTER
+   the reveal entrance (and after a delay, so the slide-up finishes
+   before the drift takes over the transform). perspective() is in
+   the keyframe so it works even outside an .lp-stage container.
+   ============================================================ */
+@keyframes lm-card-drift {
+    0%   { transform: perspective(1000px) translate3d(0, 0, 0)    rotateX(0deg)    rotateY(0deg);    }
+    25%  { transform: perspective(1000px) translate3d(0, -7px, 0) rotateX(2.2deg)  rotateY(-2.6deg); }
+    50%  { transform: perspective(1000px) translate3d(0, -3px, 0) rotateX(-1.6deg) rotateY(2.2deg);  }
+    75%  { transform: perspective(1000px) translate3d(0, -8px, 0) rotateX(1.6deg)  rotateY(1.6deg);  }
+    100% { transform: perspective(1000px) translate3d(0, 0, 0)    rotateX(0deg)    rotateY(0deg);    }
+}
+
+.stat-card.in,
+.step-card.in,
+.feat-card.in,
+.testimonial.in {
+    animation: lm-card-drift 9s var(--ease) infinite;
+    animation-delay: .7s;
+}
+/* organic stagger so neighbours don't drift in lockstep */
+.stat-card.in:nth-child(2),
+.step-card.in:nth-child(2),
+.feat-card.in:nth-child(2),
+.proof-grid .testimonial.in:nth-child(2) { animation-duration: 10.5s; animation-delay: 1s;   }
+.stat-card.in:nth-child(3),
+.step-card.in:nth-child(3),
+.feat-card.in:nth-child(3),
+.proof-grid .testimonial.in:nth-child(3) { animation-duration: 8s;    animation-delay: 1.3s; }
+.stat-card.in:nth-child(4)               { animation-duration: 11s;   animation-delay: .9s;  }
+
+/* the chat demo drifts too, gentler + slower */
+.hero-demo.in { animation: lm-card-drift 12s var(--ease) infinite; animation-delay: .8s; }
+
+/* ============================================================
+   9. REDUCED MOTION — mandatory kill switch
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {
+    .stat-card,
+    .step-card,
+    .feat-card,
+    .testimonial,
+    .hero-demo {
+        animation: none !important;
+    }
+
     .reveal {
         opacity: 1 !important;
         transform: none !important;

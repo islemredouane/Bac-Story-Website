@@ -390,10 +390,10 @@
         radial-gradient(circle at 50% 0%, color-mix(in srgb, var(--brand-blue) 7%, transparent), transparent 60%),
         color-mix(in srgb, var(--surface) 85%, transparent);
     backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-    border: 1px solid color-mix(in srgb, var(--border) 90%, transparent);
+    border: 1px solid color-mix(in srgb, var(--primary) 38%, var(--border));
     box-shadow:
-        var(--shadow-md),
-        0 14px 34px color-mix(in srgb, var(--brand-blue) 12%, transparent);
+        var(--shadow-lg),
+        0 20px 46px color-mix(in srgb, var(--brand-blue) 22%, transparent);
     transition: box-shadow var(--t-mid) var(--ease), border-color var(--t-fast);
     transform-style: preserve-3d;
 }
@@ -435,9 +435,11 @@
         radial-gradient(circle at 12% 16%, color-mix(in srgb, var(--cat, var(--primary)) 6%, transparent), transparent 55%),
         color-mix(in srgb, var(--surface) 88%, transparent);
     backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-    border: 1px solid color-mix(in srgb, var(--border) 90%, transparent);
+    border: 1px solid color-mix(in srgb, var(--primary) 32%, var(--border));
     border-radius: var(--r-lg); padding: var(--sp-6) var(--sp-5); text-align: center;
-    box-shadow: var(--shadow-sm);
+    box-shadow:
+        var(--shadow-md),
+        0 16px 38px color-mix(in srgb, var(--primary) 18%, transparent);
     transition: box-shadow var(--t-mid) var(--ease), border-color var(--t-fast);
     transform-style: preserve-3d;
 }
@@ -481,10 +483,12 @@
         radial-gradient(circle at 14% 14%, color-mix(in srgb, var(--cat, var(--primary)) 6%, transparent), transparent 55%),
         color-mix(in srgb, var(--surface) 88%, transparent);
     backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-    border: 1px solid color-mix(in srgb, var(--border) 90%, transparent);
+    border: 1px solid color-mix(in srgb, var(--cat, var(--primary)) 36%, var(--border));
     border-radius: var(--r-lg);
     padding: var(--sp-6) var(--sp-5);
-    box-shadow: var(--shadow-sm);
+    box-shadow:
+        var(--shadow-md),
+        0 16px 40px color-mix(in srgb, var(--cat, var(--primary)) 22%, transparent);
     transition: box-shadow var(--t-mid) var(--ease), border-color var(--t-fast);
     transform-style: preserve-3d;
 }
@@ -575,9 +579,11 @@
         radial-gradient(circle at 14% 14%, color-mix(in srgb, var(--brand-orange) 5%, transparent), transparent 55%),
         color-mix(in srgb, var(--surface) 88%, transparent);
     backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-    border: 1px solid color-mix(in srgb, var(--border) 90%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent) 30%, var(--border));
     border-radius: var(--r-lg); padding: var(--sp-5);
-    box-shadow: var(--shadow-sm);
+    box-shadow:
+        var(--shadow-md),
+        0 16px 38px color-mix(in srgb, var(--brand-orange) 16%, transparent);
     transition: box-shadow var(--t-mid) var(--ease), border-color var(--t-fast);
     transform-style: preserve-3d;
 }
