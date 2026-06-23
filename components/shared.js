@@ -275,6 +275,42 @@ function setupScrollToTop() {
     window.addEventListener('scroll', updateProgress, { passive: true });
 }
 
+// ─── BAC 2026 GLOBAL SHARE BUTTON ───────────────────────────────────────────
+function buildBac2026ShareBtn() {
+    if (document.getElementById('bacShareBtn')) return;
+    const btn = document.createElement('button');
+    btn.id = 'bacShareBtn';
+    btn.className = 'uni-share-btn visible';
+    btn.setAttribute('data-tooltip', 'مشاركة الصفحة');
+    btn.innerHTML = '<i class="fas fa-share"></i>';
+    btn.addEventListener('click', handleBac2026Share);
+    document.body.appendChild(btn);
+}
+
+function handleBac2026Share() {
+    const url = location.href;
+    const title = document.title;
+    if (navigator.share) {
+        navigator.share({ title, url }).catch(() => {});
+    } else {
+        navigator.clipboard.writeText(url).then(() => showBac2026ShareToast('تم نسخ الرابط ✓')).catch(() => {});
+    }
+}
+
+function showBac2026ShareToast(msg) {
+    let t = document.getElementById('bacShareToast');
+    if (!t) {
+        t = document.createElement('div');
+        t.id = 'bacShareToast';
+        t.className = 'uni-share-toast';
+        document.body.appendChild(t);
+    }
+    t.textContent = msg;
+    t.classList.add('visible');
+    clearTimeout(t._timer);
+    t._timer = setTimeout(() => t.classList.remove('visible'), 2200);
+}
+
 // ─── WITHIN-PAGE SECTION NAVIGATION ─────────────────────────────────────────
 // showSection is defined in script.js, but for pages that don't need it,
 // this is a no-op fallback.
@@ -923,6 +959,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     injectAdStrip();
     injectAdCards();
     setupScrollToTop();
+
+    // Add share button to all bac-2026 pages
+    if (window.location.pathname.includes('bac-2026')) {
+        buildBac2026ShareBtn();
+    }
 
     // Handle hash-based section
     handleHashNav();
