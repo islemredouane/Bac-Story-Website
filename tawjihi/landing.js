@@ -105,7 +105,7 @@
         if (ticking) return;
         ticking = true;
         window.requestAnimationFrame(() => {
-          nav.classList.toggle('scrolled', window.scrollY > 12);
+          nav.classList.toggle('scrolled', window.scrollY > 20);
           ticking = false;
         });
       };
