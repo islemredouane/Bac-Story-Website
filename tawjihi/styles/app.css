@@ -189,10 +189,7 @@
 
 /* messages */
 .msg { display: flex; gap: var(--sp-3); padding: var(--sp-4) 0; animation: rise var(--t-mid) var(--ease-out) both; }
-.msg-avatar {
-    width: 36px; height: 36px; border-radius: var(--r-pill); flex-shrink: 0;
-    display: grid; place-items: center; font-weight: 800;
-}
+.msg-avatar { display: none; }
 .msg.ai .msg-avatar { background: var(--grad-brand); color: #fff; }
 .msg.user .msg-avatar {
     background: color-mix(in srgb, var(--primary) 12%, var(--surface-2));
