@@ -1,8 +1,8 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>توجيهي · مرشدك الذكي لاختيار التخصص الجامعي في الجزائر</title>
     <meta name="description" content="منصة ذكاء اصطناعي للتوجيه الجامعي في الجزائر — اكتشف تخصصاتك ومعدلات القبول مع مرشد ذكي.">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
@@ -19,8 +19,37 @@
     <link rel="stylesheet" href="styles/tokens.css">
     <link rel="stylesheet" href="styles/motion.css">
     <link rel="stylesheet" href="styles/landing.css">
+    <link rel="stylesheet" href="styles/landing-motion.css">
+    <!-- Reveal failsafe: never let a JS hiccup leave the page blank.
+         No JS at all → :not(.js) keeps content visible. JS on but landing.js
+         failed to load → the timeout reveals everything. -->
+    <style>
+      html:not(.js) .reveal{opacity:1 !important;transform:none !important;}
+      /* Move the page background to <html> so the fixed z-index:-1 aurora
+         isn't painted over by the body's opaque background. */
+      html{background:var(--bg);transition:background var(--t-mid) var(--ease);}
+      body{background:transparent;}
+    </style>
+    <script>
+      document.documentElement.classList.add('js');
+      window.addEventListener('load', function () {
+        setTimeout(function () {
+          if (!window.__landingReady) {
+            document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+          }
+        }, 1200);
+      });
+    </script>
 </head>
 <body>
+
+<!-- ===================== AMBIENT AURORA (fixed parallax background) ===================== -->
+<div class="lp-aurora" aria-hidden="true">
+    <span class="aurora-orb orb-blue"   data-parallax="0.10"></span>
+    <span class="aurora-orb orb-orange" data-parallax="0.18"></span>
+    <span class="aurora-orb orb-violet" data-parallax="0.14"></span>
+    <span class="aurora-grid"></span>
+</div>
 
 <!-- ===================== NAVBAR ===================== -->
 <header class="lp-nav">
@@ -49,28 +78,37 @@
 
 <main>
     <!-- ===================== HERO ===================== -->
-    <section class="hero">
+    <section class="hero lp-stage" id="top">
+        <!-- floating depth badges (parallax + pointer drift) -->
+        <div class="hero-floaters" aria-hidden="true">
+            <span class="hero-float float-1" data-parallax="0.25" style="--cat:var(--cat-engineering)"><i class="fas fa-microchip"></i> إعلام آلي</span>
+            <span class="hero-float float-2" data-parallax="0.40" style="--cat:var(--cat-medical)"><i class="fas fa-stethoscope"></i> طب</span>
+            <span class="hero-float float-3" data-parallax="0.32" style="--cat:var(--cat-science)"><i class="fas fa-flask"></i> علوم</span>
+            <span class="hero-float float-4" data-parallax="0.50" style="--cat:var(--cat-business)"><i class="fas fa-chart-line"></i> اقتصاد</span>
+        </div>
+
         <div class="tw-container hero-grid">
             <div class="hero-copy">
-                <span class="hero-badge"><i class="fas fa-graduation-cap"></i> مرشدك الجامعي · مجاناً</span>
-                <h1 class="hero-title">معدلك بيدك،<br><span class="grad">والتوجيه عند توجيهي</span></h1>
-                <p class="hero-sub">
+                <span class="hero-badge reveal" data-reveal="up"><i class="fas fa-graduation-cap"></i> مرشدك الجامعي · مجاناً</span>
+                <h1 class="hero-title reveal" data-reveal="up">معدلك بيدك،<br><span class="grad">والتوجيه عند توجيهي</span></h1>
+                <p class="hero-sub reveal" data-reveal="up">
                     مرشد ذكي يفهم شعبتك ومعدلك، يرشّحلك التخصصات اللي تناسبك، ويعاونك ترتّب بطاقة الرغبات تاعك —
                     بلغتك، وبثقة، واعتماداً على بيانات الدليل الوزاري الرسمي.
                 </p>
-                <div class="hero-cta">
+                <div class="hero-cta reveal" data-reveal="up">
                     <a href="app.html" class="btn btn-primary btn-lg"><i class="fas fa-comments"></i> ابدأ مجاناً</a>
                     <a href="#how" class="btn btn-ghost btn-lg"><i class="fas fa-circle-play"></i> كيفاش يخدم؟</a>
                 </div>
-                <div class="hero-trust">
+                <div class="hero-trust reveal" data-reveal="up">
                     <span><i class="fas fa-circle-check"></i> بيانات رسمية محيّنة</span>
                     <span><i class="fas fa-circle-check"></i> بدون دفع</span>
                     <span><i class="fas fa-circle-check"></i> بالعربية والدارجة</span>
                 </div>
             </div>
 
-            <!-- embedded chat demo -->
-            <div class="hero-demo" aria-label="عرض توضيحي لمحادثة مع المرشد">
+            <!-- embedded chat demo (3D tilt) -->
+            <div class="hero-demo reveal" data-reveal="right" data-tilt data-tilt-max="8" aria-label="عرض توضيحي لمحادثة مع المرشد">
+                <div class="demo-glow" aria-hidden="true"></div>
                 <div class="demo-bar">
                     <div class="demo-avatar">ت</div>
                     <div>
@@ -105,30 +143,54 @@
                 </div>
             </div>
         </div>
+
+        <a href="#stats" class="hero-scroll-cue" aria-label="انزل للأسفل"><span></span></a>
+    </section>
+
+    <!-- ===================== STATS / TRUST COUNTERS ===================== -->
+    <section class="lp-stats" id="stats">
+        <div class="tw-container stats-grid">
+            <div class="stat-card reveal" data-reveal="up" data-tilt data-tilt-max="6">
+                <div class="stat-num" data-count="300" data-suffix="+">0</div>
+                <div class="stat-label"><i class="fas fa-layer-group"></i> تخصص ومدرسة عليا</div>
+            </div>
+            <div class="stat-card reveal" data-reveal="up" data-tilt data-tilt-max="6">
+                <div class="stat-num" data-count="6" data-suffix="">0</div>
+                <div class="stat-label"><i class="fas fa-graduation-cap"></i> شعب مدعومة</div>
+            </div>
+            <div class="stat-card reveal" data-reveal="up" data-tilt data-tilt-max="6">
+                <div class="stat-num" data-count="58" data-suffix=" ولاية">0</div>
+                <div class="stat-label"><i class="fas fa-location-dot"></i> تغطية وطنية</div>
+            </div>
+            <div class="stat-card reveal" data-reveal="up" data-tilt data-tilt-max="6">
+                <div class="stat-num" data-count="100" data-suffix="%">0</div>
+                <div class="stat-label"><i class="fas fa-circle-check"></i> مجاني تماماً</div>
+            </div>
+        </div>
     </section>
 
     <!-- ===================== HOW IT WORKS ===================== -->
-    <section class="section" id="how">
+    <section class="section lp-stage" id="how">
         <div class="tw-container">
-            <div class="section-head reveal">
+            <div class="section-head reveal" data-reveal="up">
                 <span class="section-eyebrow">في 3 خطوات</span>
                 <h2 class="section-title">كيفاش يخدم؟</h2>
                 <p class="section-sub">من تسجيل الدخول حتى التوجيه الشخصي — كامل في دقائق.</p>
             </div>
             <div class="steps-grid">
-                <div class="step-card reveal">
+                <div class="step-card reveal" data-reveal="up" data-tilt data-tilt-max="7">
                     <div class="step-num">①</div>
                     <div class="step-icon"><i class="fab fa-google"></i></div>
                     <h3>سجّل دخول بقوقل</h3>
                     <p>كبسة وحدة بحساب Google — بلا تسجيل طويل ولا كلمات سر تنساها.</p>
                 </div>
-                <div class="step-card reveal">
+                <div class="step-card reveal" data-reveal="up" data-reveal-delay="120" data-tilt data-tilt-max="7">
                     <div class="step-num">②</div>
                     <div class="step-icon"><i class="fas fa-clipboard-question"></i></div>
                     <h3>جاوب على أسئلة بسيطة</h3>
                     <p>شعبتك، معدلك، وميولاتك — نطرحو عليك أسئلة خفيفة باش نفهموك مليح.</p>
                 </div>
-                <div class="step-card reveal">
+                <div class="step-card reveal" data-reveal="up" data-reveal-delay="240" data-tilt data-tilt-max="7">
                     <div class="step-num">③</div>
                     <div class="step-icon"><i class="fas fa-compass"></i></div>
                     <h3>احصل على توجيه شخصي</h3>
@@ -139,15 +201,15 @@
     </section>
 
     <!-- ===================== FEATURES ===================== -->
-    <section class="section" id="features">
+    <section class="section lp-stage" id="features">
         <div class="tw-container">
-            <div class="section-head reveal">
+            <div class="section-head reveal" data-reveal="up">
                 <span class="section-eyebrow">المميزات</span>
                 <h2 class="section-title">كل اللي تحتاجو باش تختار بثقة</h2>
                 <p class="section-sub">أدوات مبنية خصيصاً لطالب البكالوريا الجزائري.</p>
             </div>
             <div class="feat-grid">
-                <div class="feat-card reveal">
+                <div class="feat-card reveal" data-reveal="up" data-tilt data-tilt-max="7" style="--cat:var(--cat-engineering)">
                     <div class="feat-icon"><i class="fas fa-robot"></i></div>
                     <h3>المرشد الذكي</h3>
                     <p>اسأل أي سؤال على التخصصات والجامعات — يجاوبك بالعربية والدارجة وحتى بالفرنسية.</p>
@@ -156,7 +218,7 @@
                         <li><i class="fas fa-check"></i> مقارنة بين تخصصين</li>
                     </ul>
                 </div>
-                <div class="feat-card reveal">
+                <div class="feat-card reveal" data-reveal="up" data-reveal-delay="120" data-tilt data-tilt-max="7" style="--cat:var(--cat-science)">
                     <div class="feat-icon"><i class="fas fa-layer-group"></i></div>
                     <h3>دليل التخصصات</h3>
                     <p>تصفّح كل التخصصات والمدارس العليا مع معدلات القبول، المدة، وفرص العمل.</p>
@@ -165,7 +227,7 @@
                         <li><i class="fas fa-check"></i> بحث وتصفية سريعة</li>
                     </ul>
                 </div>
-                <div class="feat-card hero-feat reveal">
+                <div class="feat-card hero-feat reveal" data-reveal="up" data-reveal-delay="240" data-tilt data-tilt-max="7" style="--cat:var(--accent)">
                     <span class="feat-tag">الميزة النجمة</span>
                     <div class="feat-icon"><i class="fas fa-list-check"></i></div>
                     <h3>محاكي بطاقة الرغبات</h3>
@@ -179,27 +241,54 @@
         </div>
     </section>
 
+    <!-- ===================== CATEGORIES SHOWCASE (marquee) ===================== -->
+    <section class="lp-cats" id="cats" aria-label="مجالات التخصصات">
+        <div class="section-head reveal" data-reveal="up">
+            <span class="section-eyebrow">كل المجالات</span>
+            <h2 class="section-title">من الطب للهندسة — كلّش موجود</h2>
+        </div>
+        <div class="cats-marquee" aria-hidden="false">
+            <div class="cats-track">
+                <span class="cat-badge" style="--cat:var(--cat-engineering)"><i class="fas fa-gears"></i> هندسة وإعلام آلي</span>
+                <span class="cat-badge" style="--cat:var(--cat-medical)"><i class="fas fa-stethoscope"></i> علوم طبية</span>
+                <span class="cat-badge" style="--cat:var(--cat-science)"><i class="fas fa-flask"></i> علوم وتكنولوجيا</span>
+                <span class="cat-badge" style="--cat:var(--cat-business)"><i class="fas fa-chart-line"></i> اقتصاد وتسيير</span>
+                <span class="cat-badge" style="--cat:var(--cat-law)"><i class="fas fa-scale-balanced"></i> حقوق وعلوم سياسية</span>
+                <span class="cat-badge" style="--cat:var(--cat-humanities)"><i class="fas fa-feather"></i> آداب ولغات</span>
+                <span class="cat-badge" style="--cat:var(--cat-education)"><i class="fas fa-chalkboard-user"></i> علوم اجتماعية</span>
+                <!-- duplicate set for seamless marquee loop -->
+                <span class="cat-badge" style="--cat:var(--cat-engineering)" aria-hidden="true"><i class="fas fa-gears"></i> هندسة وإعلام آلي</span>
+                <span class="cat-badge" style="--cat:var(--cat-medical)" aria-hidden="true"><i class="fas fa-stethoscope"></i> علوم طبية</span>
+                <span class="cat-badge" style="--cat:var(--cat-science)" aria-hidden="true"><i class="fas fa-flask"></i> علوم وتكنولوجيا</span>
+                <span class="cat-badge" style="--cat:var(--cat-business)" aria-hidden="true"><i class="fas fa-chart-line"></i> اقتصاد وتسيير</span>
+                <span class="cat-badge" style="--cat:var(--cat-law)" aria-hidden="true"><i class="fas fa-scale-balanced"></i> حقوق وعلوم سياسية</span>
+                <span class="cat-badge" style="--cat:var(--cat-humanities)" aria-hidden="true"><i class="fas fa-feather"></i> آداب ولغات</span>
+                <span class="cat-badge" style="--cat:var(--cat-education)" aria-hidden="true"><i class="fas fa-chalkboard-user"></i> علوم اجتماعية</span>
+            </div>
+        </div>
+    </section>
+
     <!-- ===================== SOCIAL PROOF + FAQ ===================== -->
-    <section class="section" id="faq">
+    <section class="section lp-stage" id="faq">
         <div class="tw-container">
-            <div class="section-head reveal">
+            <div class="section-head reveal" data-reveal="up">
                 <span class="section-eyebrow">طلبة قبلك</span>
                 <h2 class="section-title">ثقة طلبة عاشوا نفس الحيرة</h2>
                 <p class="section-sub">شوف كيفاش عاونهم توجيهي يقرّروا.</p>
             </div>
 
             <div class="proof-grid">
-                <a href="app.html" class="proof-card-link testimonial reveal">
+                <a href="app.html" class="proof-card-link testimonial reveal" data-reveal="up" data-tilt data-tilt-max="6">
                     <div class="t-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                     <p class="t-text">"كنت ضايع بمعدل 13.20، توجيهي ورّاني تخصصات ما كنتش نعرفها أصلاً. ولّيت نختار بثقة."</p>
                     <div class="t-who"><div class="t-ava">أ</div><div><div class="t-name">أمين ب.</div><div class="t-meta">علوم تجريبية · باتنة</div></div></div>
                 </a>
-                <a href="app.html" class="proof-card-link testimonial reveal">
+                <a href="app.html" class="proof-card-link testimonial reveal" data-reveal="up" data-reveal-delay="120" data-tilt data-tilt-max="6">
                     <div class="t-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                     <p class="t-text">"محاكي بطاقة الرغبات بدّلّي الترتيب كامل — فهمت وين عندي فرصة قبول أكبر بزاف."</p>
                     <div class="t-who"><div class="t-ava">ل</div><div><div class="t-name">لينة م.</div><div class="t-meta">رياضيات · الجزائر العاصمة</div></div></div>
                 </a>
-                <a href="app.html" class="proof-card-link testimonial reveal">
+                <a href="app.html" class="proof-card-link testimonial reveal" data-reveal="up" data-reveal-delay="240" data-tilt data-tilt-max="6">
                     <div class="t-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-stroke"></i></div>
                     <p class="t-text">"يجاوبني بالدارجة وكأنه صاحبي عارف بالموضوع. ساعات نسقسيه في الليل وهو موجود."</p>
                     <div class="t-who"><div class="t-ava">ي</div><div><div class="t-name">ياسين ح.</div><div class="t-meta">تقني رياضي · وهران</div></div></div>
@@ -207,7 +296,8 @@
             </div>
 
             <!-- telegram CTA -->
-            <div class="tg-cta reveal">
+            <div class="tg-cta reveal" data-reveal="up">
+                <div class="tg-glow" aria-hidden="true"></div>
                 <div class="tg-text">
                     <h3><i class="fab fa-telegram"></i> انضم لمجتمع طلبة البكالوريا</h3>
                     <p>أخبار التوجيه، معدلات القبول، ونصائح يومية — كامل على قناة التيليغرام.</p>
@@ -216,27 +306,27 @@
             </div>
 
             <!-- FAQ accordion -->
-            <div class="section-head reveal" style="margin-bottom:var(--sp-5)">
+            <div class="section-head reveal" data-reveal="up" style="margin-bottom:var(--sp-5)">
                 <h2 class="section-title">أسئلة شائعة</h2>
             </div>
             <div class="faq">
-                <details class="faq-item reveal" open>
+                <details class="faq-item reveal" data-reveal="up" open>
                     <summary>واش توجيهي مجاني فعلاً؟ <i class="fas fa-chevron-down faq-chev"></i></summary>
                     <div class="faq-body">إيه، الاستعمال مجاني تماماً. كل اللي تحتاجو حساب Google باش تبدأ. هذا نموذج أولي (prototype) لمنصة توجيه طلابي.</div>
                 </details>
-                <details class="faq-item reveal">
+                <details class="faq-item reveal" data-reveal="up">
                     <summary>من وين تجيبو المعدلات والبيانات؟ <i class="fas fa-chevron-down faq-chev"></i></summary>
                     <div class="faq-body">نعتمدو على بيانات الدليل الوزاري الرسمي ومعدلات السنوات الفايتة. المعدلات تقديرية وتتبدّل كل سنة — لازم دائماً تأكّد اختيارك على البوابة الرسمية قبل الإرسال.</div>
                 </details>
-                <details class="faq-item reveal">
+                <details class="faq-item reveal" data-reveal="up">
                     <summary>واش يخدم مع كل الشعب؟ <i class="fas fa-chevron-down faq-chev"></i></summary>
                     <div class="faq-body">إيه — علوم تجريبية، رياضيات، تقني رياضي، تسيير واقتصاد، آداب وفلسفة، لغات أجنبية. قولّي شعبتك ومعدلك ونرشدك.</div>
                 </details>
-                <details class="faq-item reveal">
+                <details class="faq-item reveal" data-reveal="up">
                     <summary>واش يقرّر بلاصتي في بطاقة الرغبات؟ <i class="fas fa-chevron-down faq-chev"></i></summary>
                     <div class="faq-body">لا. توجيهي يعطيك ترشيحات ويوضّحلك فرص القبول، بصّح القرار الأخير راه بيدك دائماً. هو مرشد يعاونك تفهم خياراتك، ماشي بديل عن البوابة الرسمية.</div>
                 </details>
-                <details class="faq-item reveal">
+                <details class="faq-item reveal" data-reveal="up">
                     <summary>واش يقدر يجاوبني بالدارجة؟ <i class="fas fa-chevron-down faq-chev"></i></summary>
                     <div class="faq-body">طبعاً. تقدر تكتبلو بالعربية، بالدارجة، ولا بالفرنسية — ويفهمك ويجاوبك بنفس الطريقة اللي ترتاحلها.</div>
                 </details>
@@ -278,54 +368,6 @@
     </div>
 </footer>
 
-<script>
-(() => {
-    /* ---- Theme (persisted) — same mechanism as app.js ---- */
-    const root = document.documentElement;
-    const themeBtn = document.getElementById('themeBtn');
-    const saved = localStorage.getItem('tw-theme') || 'light';
-    root.setAttribute('data-theme', saved);
-    const syncIcon = () => {
-        const dark = root.getAttribute('data-theme') === 'dark';
-        themeBtn.innerHTML = `<i class="fas fa-${dark ? 'sun' : 'moon'}"></i>`;
-    };
-    syncIcon();
-    themeBtn.addEventListener('click', () => {
-        const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        root.setAttribute('data-theme', next);
-        localStorage.setItem('tw-theme', next);
-        syncIcon();
-    });
-
-    /* ---- Scroll reveal (respects reduced motion) ---- */
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const reveals = document.querySelectorAll('.reveal');
-    if (reduce || !('IntersectionObserver' in window)) {
-        reveals.forEach(el => el.classList.add('in'));
-    } else {
-        const io = new IntersectionObserver((entries) => {
-            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-        }, { threshold: 0.12 });
-        reveals.forEach(el => io.observe(el));
-    }
-})();
-</script>
-
-<script>
-  const menuBtn = document.getElementById('lpMenuBtn');
-  const mobileMenu = document.getElementById('lpMobileMenu');
-  if (menuBtn && mobileMenu) {
-    menuBtn.addEventListener('click', () => {
-      const open = mobileMenu.classList.toggle('is-open');
-      menuBtn.setAttribute('aria-expanded', open);
-      mobileMenu.setAttribute('aria-hidden', !open);
-    });
-    // Close on link click
-    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      mobileMenu.classList.remove('is-open');
-      menuBtn.setAttribute('aria-expanded', false);
-    }));
-  }
-</script>
+<script src="landing.js" defer></script>
 </body>
 </html>

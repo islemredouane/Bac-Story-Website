@@ -1,0 +1,299 @@
+/* ============================================================
+   TAWJIHI — Landing page interactions
+   Theme · mobile menu · scroll reveals · parallax · pointer
+   drift · 3D tilt · animated counters.
+   Vanilla ES, single IIFE, zero dependencies, runs on defer.
+   ============================================================ */
+(() => {
+  'use strict';
+
+  /* Signal that landing.js parsed and ran — the HTML failsafe checks this to
+     reveal all content if the script ever fails to load (avoids a blank page). */
+  window.__landingReady = true;
+
+  const $  = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+  const root = document.documentElement;
+
+  const reduceMotion = window.matchMedia
+    ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    : false;
+  const coarsePointer = window.matchMedia
+    ? window.matchMedia('(pointer: coarse)').matches
+    : ('ontouchstart' in window);
+  const allowMotionFx = !reduceMotion && !coarsePointer;
+
+  /* ------------------------------------------------------------
+     1) THEME TOGGLE (persisted, key 'tw-theme' — shared mechanism)
+     ------------------------------------------------------------ */
+  (() => {
+    const saved = localStorage.getItem('tw-theme') || 'light';
+    root.setAttribute('data-theme', saved);
+
+    const btn = $('#themeBtn');
+    const syncIcon = () => {
+      if (!btn) return;
+      const dark = root.getAttribute('data-theme') === 'dark';
+      btn.innerHTML = `<i class="fas fa-${dark ? 'sun' : 'moon'}"></i>`;
+    };
+    syncIcon();
+
+    if (btn) {
+      btn.addEventListener('click', () => {
+        const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        localStorage.setItem('tw-theme', next);
+        syncIcon();
+      });
+    }
+  })();
+
+  /* ------------------------------------------------------------
+     2) MOBILE MENU
+     ------------------------------------------------------------ */
+  (() => {
+    const btn  = $('#lpMenuBtn');
+    const menu = $('#lpMobileMenu');
+    if (!btn || !menu) return;
+
+    const setOpen = (open) => {
+      menu.classList.toggle('is-open', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      menu.setAttribute('aria-hidden', open ? 'false' : 'true');
+    };
+    setOpen(false);
+
+    btn.addEventListener('click', () => {
+      setOpen(!menu.classList.contains('is-open'));
+    });
+
+    // Close when any link inside the menu is clicked.
+    $$('a', menu).forEach((a) =>
+      a.addEventListener('click', () => setOpen(false))
+    );
+  })();
+
+  /* ------------------------------------------------------------
+     3) SCROLL REVEALS
+     ------------------------------------------------------------ */
+  (() => {
+    const els = $$('.reveal');
+    if (!els.length) return;
+
+    const reveal = (el) => {
+      const delay = parseInt(el.getAttribute('data-reveal-delay'), 10) || 0;
+      el.style.setProperty('--reveal-delay', delay + 'ms');
+      el.classList.add('in');
+    };
+
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(reveal);
+      return;
+    }
+
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        reveal(entry.target);
+        obs.unobserve(entry.target);
+      });
+    }, { threshold: 0.15 });
+
+    els.forEach((el) => io.observe(el));
+  })();
+
+  /* ------------------------------------------------------------
+     SHARED rAF SCROLL LOOP (parallax + pointer-drift base)
+     Each registered subscriber gets the latest scrollY.
+     ------------------------------------------------------------ */
+  const scrollSubs = [];
+  let scrollY = window.pageYOffset || 0;
+  let scrollTicking = false;
+
+  const runScrollSubs = () => {
+    scrollSubs.forEach((fn) => fn(scrollY));
+    scrollTicking = false;
+  };
+  const onScroll = () => {
+    scrollY = window.pageYOffset || 0;
+    if (!scrollTicking) {
+      scrollTicking = true;
+      window.requestAnimationFrame(runScrollSubs);
+    }
+  };
+  const startScrollLoop = () => {
+    if (!scrollSubs.length) return;
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.requestAnimationFrame(runScrollSubs); // initial position
+  };
+
+  /* ------------------------------------------------------------
+     4) PARALLAX  +  5) POINTER DRIFT (hero floaters)
+     ------------------------------------------------------------ */
+  (() => {
+    if (!allowMotionFx) return;
+
+    const nodes = $$('[data-parallax]');
+    if (!nodes.length) return;
+
+    // Each item keeps a scroll-derived base translate; hero-floaters
+    // additionally receive a pointer-driven offset combined on top.
+    const items = nodes.map((el) => {
+      const factor = parseFloat(el.getAttribute('data-parallax')) || 0;
+      const isFloat = el.classList.contains('hero-float');
+      el.style.willChange = 'transform';
+      return { el, factor, isFloat, baseY: 0, dx: 0, dy: 0 };
+    });
+
+    const apply = (item) => {
+      // RTL-safe: vertical drift is direction-agnostic; pointer dx is
+      // applied in raw pixel space (no horizontal mirroring needed).
+      const x = item.dx;
+      const y = item.baseY + item.dy;
+      item.el.style.transform = `translate3d(${x.toFixed(2)}px, ${y.toFixed(2)}px, 0)`;
+    };
+
+    scrollSubs.push((y) => {
+      items.forEach((item) => {
+        // Gentle depth drift: scrollY mapped into the -0.1 .. -0.3
+        // px-per-px band (subtle, upward as you scroll).
+        const depth = -(0.1 + item.factor * 0.2);
+        item.baseY = y * depth;
+        apply(item);
+      });
+    });
+
+    // Pointer drift — hero only, combined onto the scroll base.
+    const hero = $('.hero');
+    const floats = items.filter((i) => i.isFloat);
+    if (hero && floats.length) {
+      let pointerTicking = false;
+      let pendingX = 0, pendingY = 0;
+
+      const applyPointer = () => {
+        floats.forEach((item) => {
+          // Stronger factor floaters drift a touch more.
+          const strength = 14 * (0.5 + item.factor);
+          item.dx = pendingX * strength;
+          item.dy = pendingY * strength;
+          apply(item);
+        });
+        pointerTicking = false;
+      };
+
+      hero.addEventListener('mousemove', (e) => {
+        const r = hero.getBoundingClientRect();
+        if (!r.width || !r.height) return;
+        // Offset of cursor from hero center, normalized to -0.5 .. 0.5
+        pendingX = (e.clientX - (r.left + r.width / 2)) / r.width;
+        pendingY = (e.clientY - (r.top + r.height / 2)) / r.height;
+        if (!pointerTicking) {
+          pointerTicking = true;
+          window.requestAnimationFrame(applyPointer);
+        }
+      }, { passive: true });
+
+      hero.addEventListener('mouseleave', () => {
+        pendingX = 0; pendingY = 0;
+        if (!pointerTicking) {
+          pointerTicking = true;
+          window.requestAnimationFrame(applyPointer);
+        }
+      }, { passive: true });
+    }
+
+    startScrollLoop();
+  })();
+
+  /* ------------------------------------------------------------
+     6) 3D TILT
+     Tilt targets are also .reveal — only active once revealed (.in).
+     ------------------------------------------------------------ */
+  (() => {
+    if (!allowMotionFx) return;
+
+    const nodes = $$('[data-tilt]');
+    if (!nodes.length) return;
+
+    nodes.forEach((el) => {
+      const max = parseFloat(el.getAttribute('data-tilt-max')) || 8;
+      const isRevealTarget = el.classList.contains('reveal');
+      const ready = () => !isRevealTarget || el.classList.contains('in');
+
+      el.addEventListener('pointerenter', (e) => {
+        if (e.pointerType === 'touch' || !ready()) return;
+        el.style.transition = 'transform .12s ease-out';
+      });
+
+      el.addEventListener('pointermove', (e) => {
+        if (e.pointerType === 'touch' || !ready()) return;
+        const r = el.getBoundingClientRect();
+        if (!r.width || !r.height) return;
+        const px = (e.clientX - r.left) / r.width;   // 0 .. 1
+        const py = (e.clientY - r.top) / r.height;   // 0 .. 1
+        // rotateX from vertical pos (top tilts back), rotateY from horizontal.
+        const rotX = (0.5 - py) * 2 * max;
+        const rotY = (px - 0.5) * 2 * max;
+        el.style.transform =
+          `perspective(900px) rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(2)}deg) scale(1.01)`;
+      });
+
+      el.addEventListener('pointerleave', () => {
+        el.style.transform = '';
+        el.style.transition = '';
+      });
+    });
+  })();
+
+  /* ------------------------------------------------------------
+     7) COUNTERS
+     ------------------------------------------------------------ */
+  (() => {
+    const nodes = $$('[data-count]');
+    if (!nodes.length) return;
+
+    const finalText = (el) => {
+      const target = parseInt(el.getAttribute('data-count'), 10) || 0;
+      const suffix = el.getAttribute('data-suffix') || '';
+      return { target, suffix };
+    };
+
+    const setFinal = (el) => {
+      const { target, suffix } = finalText(el);
+      el.textContent = target + suffix;
+    };
+
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      nodes.forEach(setFinal);
+      return;
+    }
+
+    const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+
+    const animate = (el) => {
+      const { target, suffix } = finalText(el);
+      const duration = 1400;
+      let start = null;
+
+      const step = (ts) => {
+        if (start === null) start = ts;
+        const t = Math.min((ts - start) / duration, 1);
+        const value = Math.round(easeOutCubic(t) * target);
+        el.textContent = value + (t >= 1 ? suffix : '');
+        if (t < 1) window.requestAnimationFrame(step);
+      };
+      window.requestAnimationFrame(step);
+    };
+
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        animate(entry.target);
+        obs.unobserve(entry.target);
+      });
+    }, { threshold: 0.4 });
+
+    nodes.forEach((el) => io.observe(el));
+  })();
+
+})();

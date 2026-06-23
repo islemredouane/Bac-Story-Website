@@ -1,0 +1,149 @@
+/* ============================================================
+   TAWJIHI — Landing Motion (landing-motion.css)
+   Depends on tokens.css. Loaded AFTER landing.css.
+   OWNS: all @keyframes, scroll/idle/marquee/float/aurora
+   animations, and the .reveal entrance system.
+   Does NOT set color/background/layout/shadow/size.
+   RTL-aware. Transform/opacity only where possible.
+   ============================================================ */
+
+/* ============================================================
+   1. REVEAL ENTRANCE SYSTEM
+   JS toggles .in when element enters viewport and sets
+   --reveal-delay from data-reveal-delay. Premium 3D feel via
+   a slight rotateX on "up".
+   ============================================================ */
+.reveal {
+    opacity: 0;
+    transition:
+        opacity .7s var(--ease-out),
+        transform .7s var(--ease-out);
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+}
+
+.reveal[data-reveal="up"]    { transform: translateY(30px) rotateX(6deg); }
+.reveal[data-reveal="right"] { transform: translateX(40px) rotateY(-6deg); }
+.reveal[data-reveal="left"]  { transform: translateX(-40px) rotateY(6deg); }
+.reveal[data-reveal="scale"] { transform: scale(.92); }
+
+.reveal.in { opacity: 1; transform: none; }
+
+/* ============================================================
+   2. AMBIENT AURORA ORBS — very gentle, slow looping drift
+   Decorative only (not [data-tilt]); JS owns parallax offset
+   via translate on a separate axis, so we keep these subtle.
+   ============================================================ */
+@keyframes lm-orb-blue {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    50%      { transform: translate3d(3%, 4%, 0) scale(1.08); }
+}
+@keyframes lm-orb-orange {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1.05); }
+    50%      { transform: translate3d(-4%, -3%, 0) scale(0.94); }
+}
+@keyframes lm-orb-violet {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(0.98); }
+    50%      { transform: translate3d(2%, -5%, 0) scale(1.1); }
+}
+
+.aurora-orb { will-change: transform; }
+.orb-blue   { animation: lm-orb-blue   34s var(--ease) infinite; }
+.orb-orange { animation: lm-orb-orange 28s var(--ease) infinite; }
+.orb-violet { animation: lm-orb-violet 40s var(--ease) infinite; }
+
+/* ============================================================
+   3. HERO FLOATING BADGES — gentle idle bob + tiny rotate
+   Decorative (.hero-float, not [data-tilt]); staggered.
+   ============================================================ */
+@keyframes lm-float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50%      { transform: translateY(-12px) rotate(-1.5deg); }
+}
+
+.hero-float { will-change: transform; }
+.float-1 { animation: lm-float 7s   var(--ease) infinite;        }
+.float-2 { animation: lm-float 8.5s var(--ease) infinite -1.2s;  }
+.float-3 { animation: lm-float 6.5s var(--ease) infinite -2.4s;  }
+.float-4 { animation: lm-float 9s   var(--ease) infinite -0.6s;  }
+
+/* ============================================================
+   4. HERO SCROLL CUE — soft infinite bounce
+   ============================================================ */
+@keyframes lm-scroll-cue {
+    0%, 100% { transform: translateY(0);   opacity: 1;   }
+    50%      { transform: translateY(8px); opacity: .55; }
+}
+
+.hero-scroll-cue { animation: lm-scroll-cue 1.8s var(--ease) infinite; }
+
+/* ============================================================
+   5. CATEGORIES MARQUEE — seamless horizontal loop (RTL)
+   Track holds the badge set duplicated once; translate
+   0 -> -50% moves content toward inline-start.
+   ============================================================ */
+@keyframes lm-marquee {
+    from { transform: translateX(0);     }
+    to   { transform: translateX(-50%);  }
+}
+
+.cats-track {
+    will-change: transform;
+    animation: lm-marquee 30s linear infinite;
+}
+.cats-marquee:hover .cats-track { animation-play-state: paused; }
+
+/* ============================================================
+   6. CHAT DEMO MESSAGES — entrance fade-rise (typed-in feel)
+   Existing delays 300ms / 700ms staggered.
+   ============================================================ */
+@keyframes lm-demo-msg {
+    from { opacity: 0; transform: translateY(14px) scale(.98); }
+    to   { opacity: 1; transform: translateY(0)    scale(1);   }
+}
+
+.demo-msg-1 { animation: lm-demo-msg .55s var(--ease-out) both 300ms; }
+.demo-msg-2 { animation: lm-demo-msg .55s var(--ease-out) both 700ms; }
+
+/* ============================================================
+   7. SUBTLE GRADIENT SHIMMER — hero title accent + primary CTA
+   Animates background-position only; Visual agent owns the
+   gradient itself. Tasteful, slow.
+   ============================================================ */
+@keyframes lm-shimmer {
+    0%   { background-position: 0% 50%;   }
+    100% { background-position: 200% 50%; }
+}
+
+.hero-title .grad {
+    background-size: 200% auto;
+    animation: lm-shimmer 6s linear infinite;
+}
+
+/* ============================================================
+   8. REDUCED MOTION — mandatory kill switch
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+
+    .aurora-orb,
+    .orb-blue,
+    .orb-orange,
+    .orb-violet,
+    .hero-float,
+    .float-1,
+    .float-2,
+    .float-3,
+    .float-4,
+    .hero-scroll-cue,
+    .cats-track,
+    .demo-msg-1,
+    .demo-msg-2,
+    .hero-title .grad {
+        animation: none !important;
+    }
+}
