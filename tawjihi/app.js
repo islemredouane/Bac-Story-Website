@@ -638,14 +638,11 @@
       <div class="msg-body">
         <div class="msg-name">مرشد توجيهي</div>
         <div class="msg-text">
-          <div class="tw-thinking-bubble">
-            <div class="tw-thinking-bar"></div>
-            <div class="tw-thinking-body">
-              <span class="tw-thinking-icon">ت</span>
-              <div class="tw-thinking-text">
-                <span class="tw-thinking-label">جاري التفكير...</span>
-                <div class="tw-thinking-dots"><span></span><span></span><span></span></div>
-              </div>
+          <div class="tw-thinking">
+            <div class="tw-thinking-pill">
+              <span class="tw-thinking-glyph">ت</span>
+              <span class="tw-thinking-label">تفكير...</span>
+              <div class="tw-thinking-eq"><span></span><span></span><span></span><span></span><span></span></div>
             </div>
           </div>
         </div>

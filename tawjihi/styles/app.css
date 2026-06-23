@@ -212,75 +212,90 @@
 .msg-text p { margin-bottom: var(--sp-2); }
 .msg-text p:last-child { margin-bottom: 0; }
 
-/* ---- THINKING STATE ---- */
-.tw-thinking-bubble {
+/* ---- THINKING STATE — spinning halo pill ---- */
+.tw-thinking {
+    padding: var(--sp-1) 0 var(--sp-2);
+}
+
+.tw-thinking-pill {
     position: relative;
-    overflow: hidden;
-    background: var(--surface-2);
-    border: 1px solid var(--border);
-    border-radius: var(--r-lg);
-    padding: 0 0 var(--sp-3) 0;
+    isolation: isolate;
     display: inline-flex;
-    flex-direction: column;
-    min-width: 200px;
-    max-width: 280px;
-}
-
-.tw-thinking-bar {
-    height: 3px;
-    background: var(--grad-brand);
-    background-size: 300% 100%;
-    width: 100%;
-    flex-shrink: 0;
-}
-
-.tw-thinking-body {
-    display: flex;
     align-items: center;
-    gap: var(--sp-3);
-    padding: var(--sp-3) var(--sp-4) 0;
+    gap: 10px;
+    padding: 9px 18px 9px 14px;
+    border-radius: 99px;
+    background: var(--surface);
 }
 
-.tw-thinking-icon {
-    width: 30px;
-    height: 30px;
-    border-radius: var(--r-pill);
-    background: var(--grad-brand);
-    color: #fff;
+/* Spinning arc border — transparent conic-gradient rotated by motion.css */
+.tw-thinking-pill::before {
+    content: '';
+    position: absolute;
+    inset: -1.5px;
+    border-radius: inherit;
+    z-index: -1;
+    background: conic-gradient(
+        from 0deg,
+        transparent 0%,
+        transparent 42%,
+        var(--brand-blue-soft) 55%,
+        var(--brand-blue-strong) 65%,
+        var(--brand-blue-soft) 78%,
+        transparent 90%
+    );
+}
+
+/* Inner surface mask — clips the border to just 1.5px */
+.tw-thinking-pill::after {
+    content: '';
+    position: absolute;
+    inset: 1.5px;
+    border-radius: inherit;
+    background: var(--surface);
+    z-index: -1;
+}
+
+/* ت brand glyph — gradient text */
+.tw-thinking-glyph {
     font-family: 'Pattaya', cursive;
-    font-size: 14px;
-    display: grid;
-    place-items: center;
+    font-size: 17px;
+    line-height: 1;
     flex-shrink: 0;
-    box-shadow: 0 2px 8px color-mix(in srgb, var(--primary) 30%, transparent);
-}
-
-.tw-thinking-text {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+    background: var(--grad-brand);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .tw-thinking-label {
     font-size: var(--fs-sm);
     font-weight: 600;
     color: var(--text);
-    line-height: 1.4;
+    white-space: nowrap;
 }
 
-.tw-thinking-dots {
+/* Equalizer bars — animated by motion.css */
+.tw-thinking-eq {
     display: flex;
-    align-items: center;
-    gap: 4px;
+    align-items: flex-end;
+    gap: 3px;
+    height: 16px;
+    padding-inline-start: 2px;
 }
 
-.tw-thinking-dots span {
-    width: 5px;
-    height: 5px;
-    border-radius: var(--r-pill);
-    background: var(--primary);
-    opacity: .45;
+.tw-thinking-eq span {
     display: inline-block;
+    width: 3px;
+    height: 4px;
+    background: var(--primary);
+    border-radius: 99px;
+    opacity: .55;
+}
+
+/* Dark mode: surface mask must also flip */
+[data-theme="dark"] .tw-thinking-pill::after {
+    background: var(--surface);
 }
 
 .msg-actions {
@@ -579,12 +594,24 @@
         backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
     }
     .mobile-only { display: grid; }
-    .chat-hero h1 { font-size: var(--fs-2xl); }
-    .chat-hero p { font-size: var(--fs-md); }
-    .msg.user .msg-body { max-width: 86%; }
+    .hero-suggestions { gap: 0.35em; }
+    .chat-hero h1 { font-size: var(--fs-xl); }
+    .chat-hero p { font-size: var(--fs-sm); }
+    .chat-inner { padding: var(--sp-3) var(--sp-3) var(--sp-6); }
+    .msg.user .msg-body { max-width: 88%; }
+    .tw-thinking-pill { max-width: calc(100vw - 2rem); }
     .msg-actions { opacity: 1; }
     .composer-wrap { padding: var(--sp-2) var(--sp-3) calc(var(--sp-4) + env(safe-area-inset-bottom, 0px)); }
-    .chat-inner { padding: var(--sp-4) var(--sp-3) var(--sp-6); }
+}
+
+@media (max-width: 480px) {
+    .chat-hero h1 { font-size: var(--fs-lg); }
+    .chat-hero p { font-size: var(--fs-xs); max-width: 280px; }
+    .hero-chip { font-size: .78rem; padding: 0.35em 0.75em; }
+    .hero-discover-btn { font-size: .85rem; padding: 0.6em 1.2em; }
+    .msg.user .msg-body { max-width: 92%; }
+    .chat-inner { padding: var(--sp-2) var(--sp-2) var(--sp-5); }
+    .composer-wrap { padding: var(--sp-2) var(--sp-2) calc(var(--sp-3) + env(safe-area-inset-bottom, 0px)); }
 }
 
 /* ---------------- ANIMATIONS ---------------- */
