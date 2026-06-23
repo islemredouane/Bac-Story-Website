@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ar" dir="rtl" data-theme="light">
 <head>
     <meta charset="UTF-8">
@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Pattaya&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles/tokens.css">
+    <link rel="stylesheet" href="styles/motion.css">
     <link rel="stylesheet" href="styles/app.css">
     <link rel="stylesheet" href="styles/simulator.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
@@ -70,7 +71,10 @@
                         <div class="sim-controls">
                             <label class="sim-field">
                                 <span class="sim-field-label"><i class="fas fa-chart-line"></i> معدلك المتوقع</span>
-                                <input type="number" id="avgInput" min="8" max="20" step="0.01" value="13.50">
+                                <div class="avg-input-wrap">
+                                    <input type="range" id="avgSlider" min="8" max="20" step="0.25" value="13.50" class="sim-avg-slider">
+                                    <span id="avgDisplay" class="sim-avg-display">13.50</span>
+                                </div>
                                 <span class="sim-field-range">8 — 20</span>
                             </label>
                             <div class="sim-controls-sep"></div>

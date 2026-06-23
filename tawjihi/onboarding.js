@@ -282,6 +282,12 @@
     } catch (e) {
       console.warn('Profile sync failed, using local data:', e);
     }
+    // Show completion overlay
+    const overlay = document.getElementById('obCompleteOverlay');
+    if (overlay) {
+      overlay.classList.add('is-visible');
+      await new Promise(r => setTimeout(r, 1600));
+    }
     window.location.href = 'app.html';
   });
 

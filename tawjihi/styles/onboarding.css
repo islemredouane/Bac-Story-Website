@@ -14,7 +14,8 @@
 
 /* ---- topbar ---- */
 .ob-topbar {
-    height: var(--topbar-h);
+    height: calc(var(--topbar-h) + env(safe-area-inset-top, 0px));
+    padding-top: env(safe-area-inset-top, 0px);
     display: flex; align-items: center; justify-content: space-between;
     padding-inline: var(--sp-5);
 }
@@ -303,6 +304,7 @@
     padding: var(--sp-3) var(--sp-5);
     border-radius: var(--r-pill);
     font-size: var(--fs-md); font-weight: 700;
+    min-height: 44px;
     transition: transform var(--t-fast) var(--ease), box-shadow var(--t-fast), background var(--t-fast), opacity var(--t-fast);
 }
 .ob-btn-primary {
@@ -368,5 +370,66 @@
 }
 @media (max-width: 420px) {
     .ob-btn { padding: var(--sp-3) var(--sp-4); font-size: var(--fs-sm); }
-    .ob-step-count { display: none; }
+    .ob-step-count { font-size: var(--fs-xs); padding: var(--sp-1) var(--sp-2); }
+    .ob-grid-3 { grid-template-columns: 1fr; }
+}
+
+@keyframes ob-step-exit {
+    from { opacity: 1; transform: translateX(0); }
+    to   { opacity: 0; transform: translateX(20px); }
+}
+.ob-step.is-exiting {
+    display: block;
+    animation: ob-step-exit var(--t-fast) var(--ease-in) both;
+    pointer-events: none;
+}
+
+/* ---- completion overlay (MOT-7) ---- */
+.ob-complete-overlay {
+    position: fixed; inset: 0; z-index: 9999;
+    background: var(--bg);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none;
+    transition: opacity var(--t-mid) var(--ease-out);
+}
+.ob-complete-overlay.is-visible {
+    opacity: 1; pointer-events: auto;
+}
+.ob-complete-card {
+    display: flex; flex-direction: column; align-items: center; gap: var(--sp-4);
+    animation: rise var(--t-slow) var(--ease-spring) both;
+}
+.ob-complete-check {
+    width: 90px; height: 90px;
+}
+.ob-checkmark-svg {
+    width: 100%; height: 100%;
+    stroke: var(--primary);
+    stroke-width: 3;
+}
+.ob-check-circle {
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    stroke-linecap: round;
+    animation: ob-circle-draw 0.6s var(--ease-out) 0.1s forwards;
+}
+.ob-check-tick {
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 4;
+    animation: ob-tick-draw 0.4s var(--ease-out) 0.65s forwards;
+}
+@keyframes ob-circle-draw {
+    to { stroke-dashoffset: 0; }
+}
+@keyframes ob-tick-draw {
+    to { stroke-dashoffset: 0; }
+}
+.ob-complete-msg {
+    font-size: var(--fs-lg);
+    font-weight: 700;
+    color: var(--text-muted);
+    animation: rise var(--t-slow) var(--ease-out) 0.9s both;
 }

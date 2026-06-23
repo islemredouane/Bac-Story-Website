@@ -189,6 +189,10 @@ function retrieve(message, conversation, profile, k = 6) {
 
   scored.sort((a, b) => b.score - a.score);
 
+  // AI-2: If every score is 0, return empty — don't inject misleading CS-heavy defaults.
+  const allZero = scored.every((s) => s.score === 0);
+  if (allZero) return [];
+
   // Always include any explicitly-named speciality, then fill with top scorers.
   const selected = [];
   const chosen = new Set();
@@ -203,10 +207,6 @@ function retrieve(message, conversation, profile, k = 6) {
     if (chosen.has(s.spec.id)) continue;
     selected.push(s.spec);
     chosen.add(s.spec.id);
-  }
-  // Guarantee grounding even if everything scored 0.
-  if (selected.length === 0) {
-    return SPECIALITIES.slice(0, k);
   }
   return selected.slice(0, Math.max(k, selected.length));
 }
@@ -230,7 +230,7 @@ function buildContext(specs) {
 }
 
 /* ---- System prompt (CHAT-CONTRACT.md §4) -------------------------------- */
-function buildSystemPrompt(profile, contextBlock, orientationMode = false) {
+function buildSystemPrompt(profile, contextBlock, orientationMode = false, emptyContext = false) {
   const p = profile || {};
   const code = streamCode(p.stream);
   const streamLabel = code ? STREAM_AR[code] || p.stream : p.stream || 'غير محددة';
@@ -240,6 +240,9 @@ function buildSystemPrompt(profile, contextBlock, orientationMode = false) {
 # شخصيتك ولغتك
 - أخ كبير محبّ وصادق، بالدارجة الجزائرية الدافئة.
 - ترد بنفس لغة السؤال (عربية / فرنسية / دارجة).
+
+# حدود اختصاصك (AI-15)
+إذا سأل المستخدم عن موضوع لا علاقة له بالتوجيه الجامعي الجزائري (هجرة، منح خارجية، أسئلة شخصية...)، اعتذر بأدب وأخبره أنك متخصص في التوجيه الجامعي الجزائري فقط.
 
 # قواعد الكتابة (إلزامية)
 - استعمل بنية Markdown: سطر تمهيد قصير، ثم عناوين \`###\` أو قوائم نقطية \`- \` و**عريض**.
@@ -286,6 +289,7 @@ function buildSystemPrompt(profile, contextBlock, orientationMode = false) {
 
 ${orientationMode ? `
 # وضع الاستكشاف (مُفعَّل — الطالب لا يعرف مجاله)
+${p.stream ? `ملاحظة أهليّة (AI-10): المستخدم في شعبة ${streamLabel}، معدله ${p.average || 'غير محدد'}. تأكد أن توصياتك ضمن الشعبة ومعدل القبول.` : ''}
 اتبع هذا المسار بدقة تامة:
 1. اسأل سؤالاً واحداً فقط في كل رد — لا تجمع أسئلة.
 2. استعمل دائماً كتلة \`\`\`question\`\`\` لكل سؤال (لا تكتب الخيارات في النص).
@@ -301,7 +305,9 @@ ${orientationMode ? `
 س5: "كيف تتخيل روحك بعد 10 سنين؟" | خيارات: ["طبيب أو مختص في الصحة","مهندس أو خبير تقني","رجل/سيدة أعمال أو مدير","باحث أو أستاذ جامعي","محامٍ أو قانوني","مبرمج أو خبير رقمي","في مجال إبداعي أو فني"]
 ` : ''}
 # قاعدة المعرفة (المصدر الوحيد للأرقام — استعملها فقط)
-${contextBlock}`;
+${emptyContext
+  ? 'لا توجد تخصصات مطابقة في قاعدة بياناتك. اطلب من المستخدم توضيح سؤاله أو اذكر أن المعلومة غير متوفرة لديك.'
+  : contextBlock}`;
 }
 
 /* ---- Supabase admin client (module-level — reused across invocations) ---- */
@@ -335,27 +341,32 @@ export default async function handler(req, res) {
     return res.status(401).json({ error: 'Unauthorized' });
   }
 
-  // Ensure credits row exists for new users (insert 30 free credits; no-op if row already exists)
-  await adminSupabase
-    .from('credits')
-    .upsert(
-      { user_id: user.id, balance: 30, total_earned: 30, total_spent: 0 },
-      { onConflict: 'user_id', ignoreDuplicates: true }
-    );
+  // Parse request body (profile is NOT trusted from client — fetched from DB below)
+  const { message, messages = [], sessionId, orientationMode = false } = req.body;
 
-  // Decrement credit atomically BEFORE calling Groq
-  const { data: credited } = await adminSupabase.rpc('decrement_credit', { uid: user.id });
-  if (!credited) {
+  // SEC-2: Fetch real profile from DB — prevents prompt-injection via crafted profile fields
+  const { data: profileFromDB } = await adminSupabase
+    .from('profiles')
+    .select('stream, average, wilaya, interests, ambition_text, weightedAverages, name')
+    .eq('user_id', user.id)
+    .single();
+  const profile = profileFromDB || {};
+
+  // SEC-5: Check credit balance BEFORE Groq call (read-only check; decrement happens after)
+  const { data: creditRow } = await adminSupabase
+    .from('credits')
+    .select('balance')
+    .eq('user_id', user.id)
+    .single();
+  if (!creditRow || creditRow.balance <= 0) {
     return res.status(402).json({ error: 'insufficient_credits' });
   }
 
-  // Parse request body
-  const { message, messages = [], profile, sessionId, orientationMode = false } = req.body;
-
   // Build RAG context from the real knowledge base
+  // AI-2: retrieve() returns [] when all scores are 0 — avoids misleading CS-heavy defaults
   const selected = retrieve(message, messages, profile, 6);
   const contextBlock = buildContext(selected);
-  const systemPrompt = buildSystemPrompt(profile, contextBlock, orientationMode);
+  const systemPrompt = buildSystemPrompt(profile, contextBlock, orientationMode, selected.length === 0);
 
   // Call Groq with streaming
   const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
@@ -364,8 +375,8 @@ export default async function handler(req, res) {
     model: 'llama-3.3-70b-versatile',
     messages: [{ role: 'system', content: systemPrompt }, ...messages.slice(-12)],
     stream: true,
-    max_tokens: 1200,
-    temperature: 0.6,
+    max_tokens: 2048,      // AI-8: was 1200 — prevents mid-sentence cutoff
+    temperature: 0.4,      // AI-16: was 0.6 — reduces variance in factual citations
   });
 
   // Stream as SSE
@@ -375,34 +386,47 @@ export default async function handler(req, res) {
   res.setHeader('Connection', 'keep-alive');
 
   let fullResponse = '';
+  let streamSucceeded = false;
 
-  for await (const chunk of stream) {
-    const content = chunk.choices[0]?.delta?.content || '';
-    if (content) {
-      fullResponse += content;
-      res.write(`data: ${JSON.stringify({ content })}\n\n`);
+  try {
+    for await (const chunk of stream) {
+      const content = chunk.choices[0]?.delta?.content || '';
+      if (content) {
+        fullResponse += content;
+        res.write(`data: ${JSON.stringify({ content })}\n\n`);
+      }
     }
+    streamSucceeded = true;
+  } catch (groqError) {
+    // Stream failed — do NOT decrement credit; propagate error to client
+    res.write(`data: ${JSON.stringify({ error: 'stream_error' })}\n\n`);
+    res.write('data: [DONE]\n\n');
+    res.end();
+    return;
   }
 
-  res.write('data: [DONE]\n\n');
-  res.end();
+  // SEC-5: Decrement credit AFTER successful stream — credit is never lost on Groq failure
+  await adminSupabase.rpc('decrement_credit', { uid: user.id });
 
-  // Save messages to Supabase (fire and forget, after streaming completes)
+  // SEC-9: All Supabase writes BEFORE res.end() — Vercel terminates execution after res.end()
   if (sessionId) {
-    adminSupabase.from('chat_messages').insert({
+    await adminSupabase.from('chat_messages').insert({
       session_id: sessionId,
       user_id: user.id,
       role: 'user',
       content: message,
-    }).then(() => {});
+    });
 
-    adminSupabase.from('chat_messages').insert({
+    await adminSupabase.from('chat_messages').insert({
       session_id: sessionId,
       user_id: user.id,
       role: 'assistant',
       content: fullResponse,
-    }).then(() => {});
+    });
   }
+
+  res.write('data: [DONE]\n\n');
+  res.end();
 }
 
 /* ---- Exports for local verification harness (no side effects) ---- */

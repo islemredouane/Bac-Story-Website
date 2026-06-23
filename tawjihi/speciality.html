@@ -1,9 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ar" dir="rtl" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <script>!function(){var p=location.pathname.split('/').pop();if(['login.html','onboarding.html','index.html',''].indexOf(p)<0){if(!localStorage.getItem('tw-auth'))return void location.replace('login.html');if(!localStorage.getItem('tw-profile'))return void location.replace('onboarding.html')}}()</script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <title>توجيهي · تفاصيل التخصص</title>
     <meta name="description" content="توجيهي من BAC STORY — معدلات القبول، الشعب المؤهلة، الجامعات، وآفاق العمل.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Pattaya&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles/tokens.css">
+    <link rel="stylesheet" href="styles/motion.css">
     <link rel="stylesheet" href="styles/app.css">
     <link rel="stylesheet" href="styles/specialities.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
@@ -60,7 +62,7 @@
         <div class="page-scroll">
             <div class="page-inner" id="pageInner" style="--cat:var(--cat-engineering)">
 
-                <a class="detail-back" href="specialities.html"><i class="fas fa-arrow-right"></i> رجوع لدليل التخصصات</a>
+                <a class="detail-back" href="specialities.html" onclick="event.preventDefault(); history.length > 1 ? history.back() : location.href='specialities.html'"><i class="fas fa-arrow-right"></i> رجوع لدليل التخصصات</a>
 
                 <!-- ===== HEADER ===== -->
                 <header class="detail-header" id="specHeader">
@@ -174,7 +176,7 @@
     const pageInner = document.getElementById('pageInner');
     if (pageInner) {
       pageInner.innerHTML = `
-        <a class="detail-back" href="specialities.html"><i class="fas fa-arrow-right"></i> رجوع لدليل التخصصات</a>
+        <a class="detail-back" href="specialities.html" onclick="event.preventDefault(); history.length > 1 ? history.back() : location.href='specialities.html'"><i class="fas fa-arrow-right"></i> رجوع لدليل التخصصات</a>
         <div style="text-align:center;padding:60px 20px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow-sm);margin-top:var(--sp-4)">
           <i class="fas fa-search" style="font-size:3rem;color:var(--primary);margin-bottom:16px;display:block"></i>
           <h2 style="font-size:var(--fs-xl);margin-bottom:var(--sp-3)">التخصص غير موجود</h2>

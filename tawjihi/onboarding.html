@@ -1,15 +1,20 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ar" dir="rtl" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>توجيهي · لنتعرّف عليك</title>
     <meta name="description" content="جاوب على بعض الأسئلة باش يفهمك المرشد ويرشدك أحسن.">
+    <meta property="og:title" content="توجيهي · لنتعرّف عليك">
+    <meta property="og:description" content="جاوب على بعض الأسئلة باش يفهمك المرشد ويرشدك أحسن.">
+    <meta property="og:type" content="website">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Pattaya&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles/tokens.css">
+    <link rel="stylesheet" href="styles/motion.css">
     <link rel="stylesheet" href="styles/app.css">
     <link rel="stylesheet" href="styles/onboarding.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
@@ -156,6 +161,17 @@
         </form>
     </main>
 
+<div class="ob-complete-overlay" id="obCompleteOverlay" aria-hidden="true">
+    <div class="ob-complete-card">
+        <div class="ob-complete-check" id="obCompleteCheck">
+            <svg viewBox="0 0 52 52" class="ob-checkmark-svg" aria-hidden="true">
+                <circle class="ob-check-circle" cx="26" cy="26" r="25" fill="none"/>
+                <path class="ob-check-tick" fill="none" d="M14 27 l8 8 l16-16"/>
+            </svg>
+        </div>
+        <p class="ob-complete-msg">بدأت رحلتك — ننتقل للمرشد الذكي</p>
+    </div>
+</div>
     <script src="onboarding.js"></script>
 </body>
 </html>

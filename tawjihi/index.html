@@ -1,15 +1,23 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ar" dir="rtl" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>توجيهي · مرشدك الذكي لاختيار التخصص الجامعي في الجزائر</title>
-    <meta name="description" content="توجيهي من BAC STORY — مرشد ذكي يساعد طلبة البكالوريا في الجزائر على اختيار التخصص والجامعة وترتيب بطاقة الرغبات، اعتماداً على بيانات الدليل الوزاري الرسمي.">
+    <meta name="description" content="منصة ذكاء اصطناعي للتوجيه الجامعي في الجزائر — اكتشف تخصصاتك ومعدلات القبول مع مرشد ذكي.">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon-32.png" type="image/png" sizes="32x32">
+    <meta property="og:title" content="توجيهي — مرشدك للجامعة في الجزائر">
+    <meta property="og:description" content="منصة ذكاء اصطناعي للتوجيه الجامعي — اكتشف تخصصك، ابنِ بطاقة الرغبات، واسأل المرشد.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="توجيهي — مرشدك للجامعة في الجزائر">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Pattaya&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles/tokens.css">
+    <link rel="stylesheet" href="styles/motion.css">
     <link rel="stylesheet" href="styles/landing.css">
 </head>
 <body>
@@ -25,7 +33,17 @@
             <button class="theme-toggle" id="themeBtn" aria-label="تبديل الوضع الليلي"><i class="fas fa-moon"></i></button>
             <a href="login.html" class="lp-link">دخول</a>
             <a href="app.html" class="btn btn-primary"><i class="fas fa-arrow-left"></i> ابدأ مجاناً</a>
+            <button class="lp-hamburger" id="lpMenuBtn" aria-label="فتح القائمة" aria-expanded="false">
+              <i class="fas fa-bars"></i>
+            </button>
         </nav>
+    </div>
+    <div class="lp-mobile-menu" id="lpMobileMenu" aria-hidden="true">
+      <a href="#features" class="lp-mobile-link">المميزات</a>
+      <a href="#how" class="lp-mobile-link">كيف يعمل؟</a>
+      <a href="#faq" class="lp-mobile-link">الأسئلة الشائعة</a>
+      <a href="login.html" class="lp-mobile-link">دخول</a>
+      <a href="login.html" class="lp-mobile-link lp-mobile-cta">ابدأ مجاناً</a>
     </div>
 </header>
 
@@ -171,21 +189,21 @@
             </div>
 
             <div class="proof-grid">
-                <div class="testimonial reveal">
+                <a href="app.html" class="proof-card-link testimonial reveal">
                     <div class="t-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                     <p class="t-text">"كنت ضايع بمعدل 13.20، توجيهي ورّاني تخصصات ما كنتش نعرفها أصلاً. ولّيت نختار بثقة."</p>
                     <div class="t-who"><div class="t-ava">أ</div><div><div class="t-name">أمين ب.</div><div class="t-meta">علوم تجريبية · باتنة</div></div></div>
-                </div>
-                <div class="testimonial reveal">
+                </a>
+                <a href="app.html" class="proof-card-link testimonial reveal">
                     <div class="t-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                     <p class="t-text">"محاكي بطاقة الرغبات بدّلّي الترتيب كامل — فهمت وين عندي فرصة قبول أكبر بزاف."</p>
                     <div class="t-who"><div class="t-ava">ل</div><div><div class="t-name">لينة م.</div><div class="t-meta">رياضيات · الجزائر العاصمة</div></div></div>
-                </div>
-                <div class="testimonial reveal">
+                </a>
+                <a href="app.html" class="proof-card-link testimonial reveal">
                     <div class="t-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-stroke"></i></div>
                     <p class="t-text">"يجاوبني بالدارجة وكأنه صاحبي عارف بالموضوع. ساعات نسقسيه في الليل وهو موجود."</p>
                     <div class="t-who"><div class="t-ava">ي</div><div><div class="t-name">ياسين ح.</div><div class="t-meta">تقني رياضي · وهران</div></div></div>
-                </div>
+                </a>
             </div>
 
             <!-- telegram CTA -->
@@ -238,8 +256,8 @@
             <div class="footer-col">
                 <h4>المنصة</h4>
                 <a href="app.html">المرشد الذكي</a>
-                <a href="app.html">دليل التخصصات</a>
-                <a href="app.html">محاكي بطاقة الرغبات</a>
+                <a href="specialities.html">دليل التخصصات</a>
+                <a href="simulator.html">محاكي بطاقة الرغبات</a>
             </div>
             <div class="footer-col">
                 <h4>روابط</h4>
@@ -291,6 +309,23 @@
         reveals.forEach(el => io.observe(el));
     }
 })();
+</script>
+
+<script>
+  const menuBtn = document.getElementById('lpMenuBtn');
+  const mobileMenu = document.getElementById('lpMobileMenu');
+  if (menuBtn && mobileMenu) {
+    menuBtn.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('is-open');
+      menuBtn.setAttribute('aria-expanded', open);
+      mobileMenu.setAttribute('aria-hidden', !open);
+    });
+    // Close on link click
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      mobileMenu.classList.remove('is-open');
+      menuBtn.setAttribute('aria-expanded', false);
+    }));
+  }
 </script>
 </body>
 </html>

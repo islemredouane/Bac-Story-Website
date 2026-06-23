@@ -16,7 +16,7 @@
   },
   "specialities": [
     {
-      "id": "ESTIN",
+      "id": "estin",
       "category": "engineering",
       "dataName": "ESTIN اعلام آلي رقمنة بجاية",
       "name_ar": "المدرسة العليا لعلوم وتكنولوجيات الإعلام الآلي والرقمنة – ESTIN",
@@ -56,7 +56,7 @@
       }
     },
     {
-      "id": "ESI-ALGER",
+      "id": "esi",
       "category": "engineering",
       "dataName": "ESI Alger المدرسة العليا للإعلام الآلي الجزائر العاصمة",
       "name_ar": "المدرسة العليا للإعلام الآلي – ESI الجزائر العاصمة",
@@ -95,7 +95,7 @@
       }
     },
     {
-      "id": "ESI-SBA",
+      "id": "esi-sba",
       "category": "engineering",
       "dataName": "ESI SBA سيدي بلعباس المدرسة العليا للإعلام الآلي",
       "name_ar": "المدرسة العليا للإعلام الآلي – ESI سيدي بلعباس",
@@ -136,7 +136,7 @@
       }
     },
     {
-      "id": "ENSIA",
+      "id": "ensia",
       "category": "engineering",
       "dataName": "ENSIA ذكاء اصطناعي الجزائر",
       "name_ar": "المدرسة العليا للذكاء الإصطناعي – ENSIA",
@@ -174,7 +174,7 @@
       }
     },
     {
-      "id": "ENSCS",
+      "id": "enscs",
       "category": "engineering",
       "dataName": "ENSCS امن سيبيراني",
       "name_ar": "المدرسة العليا للأمن السيبيراني – ENSCS",
@@ -210,7 +210,7 @@
       }
     },
     {
-      "id": "ENSTA",
+      "id": "ensta",
       "category": "engineering",
       "dataName": "ENSTA اعلام آلي ذكاء اصطناعي تكنولوجيات متقدمة درقانة الجزائر",
       "name_ar": "المدرسة الوطنية العليا للتكنولوجيات المتقدمة – ENSTA درقانة",
@@ -247,7 +247,7 @@
       }
     },
     {
-      "id": "ENSTTIC",
+      "id": "ensttic",
       "category": "engineering",
       "dataName": "ENSTTIC اتصالات تكنولوجيا",
       "name_ar": "المدرسة الوطنية العليا للاتصالات وتكنولوجيا الإعلام – ENSTTIC",
@@ -282,7 +282,7 @@
       }
     },
     {
-      "id": "NHSM",
+      "id": "nhsm",
       "category": "engineering",
       "dataName": "NHSM رياضيات",
       "name_ar": "المدرسة الوطنية العليا للرياضيات – NHSM",
@@ -317,7 +317,7 @@
       }
     },
     {
-      "id": "POLYTECH",
+      "id": "polytech",
       "category": "engineering",
       "dataName": "POLYTECH متعددة تقنيات هندسة",
       "name_ar": "المدرسة الوطنية متعددة التقنيات – POLYTECH",
@@ -355,7 +355,7 @@
       }
     },
     {
-      "id": "EPAU",
+      "id": "epau",
       "category": "engineering",
       "dataName": "EPAU هندسة معمارية عمران",
       "name_ar": "المدرسة متعددة التقنيات للهندسة المعمارية والعمران – EPAU",
@@ -388,7 +388,7 @@
       }
     },
     {
-      "id": "ENSSN",
+      "id": "enssn",
       "category": "science",
       "dataName": "ENSSN نانو تكنولوجيا",
       "name_ar": "المدرسة العليا في علوم النانو وتكنولوجيا النانو – ENSSN",
@@ -421,7 +421,7 @@
       }
     },
     {
-      "id": "ENSAS",
+      "id": "ensas",
       "category": "engineering",
       "dataName": "ENSAS انظمة مستقلة روبوتيك",
       "name_ar": "المدرسة العليا للأنظمة المستقلة – ENSAS",
@@ -454,7 +454,7 @@
       }
     },
     {
-      "id": "ENPEI",
+      "id": "enpei",
       "category": "engineering",
       "dataName": "ENPEI رويبة عسكري مهندس جيش وطني شعبي",
       "name_ar": "المدرسة الوطنية التحضيرية لدراسات مهندس – ENPEI رويبة",
@@ -478,7 +478,7 @@
       "resolvedAverages": null
     },
     {
-      "id": "ENSTP",
+      "id": "enstp",
       "category": "engineering",
       "dataName": "ENSTP اشغال عمومية",
       "name_ar": "المدرسة العليا للأشغال العمومية – ENSTP",
@@ -509,7 +509,7 @@
       }
     },
     {
-      "id": "ENSH",
+      "id": "ensh",
       "category": "engineering",
       "dataName": "ENSH ري هيدروليك مياه البليدة",
       "name_ar": "المدرسة الوطنية العليا للهيدروليك – ENSH البليدة",
@@ -539,7 +539,7 @@
       }
     },
     {
-      "id": "IGEE",
+      "id": "igee",
       "category": "engineering",
       "dataName": "IGEE الكترونيك بومرداس",
       "name_ar": "معهد الإلكترونيك بومرداس – IGEE",
@@ -567,7 +567,7 @@
       "resolvedAverages": null
     },
     {
-      "id": "ENSEE",
+      "id": "ensee",
       "category": "engineering",
       "dataName": "ENSEE هندسة كهربائية طاقوية وهران",
       "name_ar": "المدرسة العليا للهندسة الكهربائية والطاقوية – ENSEE وهران",
@@ -597,7 +597,7 @@
       }
     },
     {
-      "id": "ESSA",
+      "id": "essa",
       "category": "engineering",
       "dataName": "ESSA علوم تطبيقية تلمسان الجزائر هندسة",
       "name_ar": "المدرسة العليا للعلوم التطبيقية – ESSA",
@@ -627,7 +627,7 @@
       }
     },
     {
-      "id": "HNSRE",
+      "id": "hnsre",
       "category": "engineering",
       "dataName": "HNSRE طاقات متجددة باتنة هيدروجين",
       "name_ar": "المدرسة الوطنية العليا للطاقات المتجددة – HNSRE باتنة",
@@ -658,7 +658,7 @@
       }
     },
     {
-      "id": "AERONAUTIQUE",
+      "id": "aeronautique",
       "category": "engineering",
       "dataName": "AERONAUTIQUE طيران هندسة aviation aéronautique بليدة فضاء",
       "name_ar": "تخصص هندسة الطيران – Aéronautique",
@@ -690,7 +690,7 @@
       "_linkNote": "linked via filiere label tokens (1 filiere keys)"
     },
     {
-      "id": "ENSC",
+      "id": "ensc",
       "category": "business",
       "dataName": "ENSC تجارة اقتصاد",
       "name_ar": "المدرسة العليا للتجارة – ENSC",
@@ -722,7 +722,7 @@
       }
     },
     {
-      "id": "EHEC",
+      "id": "ehec",
       "category": "business",
       "dataName": "EHEC دراسات تجارية",
       "name_ar": "المدرسة العليا للدراسات التجارية – EHEC",
@@ -755,7 +755,7 @@
       }
     },
     {
-      "id": "ESGEN",
+      "id": "esgen",
       "category": "business",
       "dataName": "ESGEN تسيير اقتصاد رقمي",
       "name_ar": "المدرسة العليا للتسيير والاقتصاد الرقمي – ESGEN",
@@ -787,7 +787,7 @@
       }
     },
     {
-      "id": "ENSSEA",
+      "id": "enssea",
       "category": "business",
       "dataName": "ENSSEA احصاء اقتصاد تطبيقي",
       "name_ar": "المدرسة الوطنية العليا للإحصاء والاقتصاد التطبيقي – ENSSEA",
@@ -820,7 +820,7 @@
       }
     },
     {
-      "id": "ENSM",
+      "id": "ensm",
       "category": "business",
       "dataName": "ENSM مناجمنت إدارة أعمال القليعة تيبازة",
       "name_ar": "المدرسة الوطنية العليا للمناجمنت – ENSM القليعة",
@@ -844,7 +844,7 @@
       "resolvedAverages": null
     },
     {
-      "id": "ESB",
+      "id": "esb",
       "category": "business",
       "dataName": "ESB مصرفة بنوك الجزائر العاصمة",
       "name_ar": "المدرسة العليا للمصرفة والبنوك – ESB الجزائر",
@@ -866,7 +866,7 @@
       "resolvedAverages": null
     },
     {
-      "id": "ESM",
+      "id": "esm",
       "category": "business",
       "dataName": "ESM إدارة أعمال تلمسان",
       "name_ar": "المدرسة العليا لإدارة الأعمال – ESM تلمسان",
@@ -898,7 +898,7 @@
       }
     },
     {
-      "id": "ESSG",
+      "id": "essg",
       "category": "business",
       "dataName": "ESSG علوم التسيير عنابة gestion annaba",
       "name_ar": "المدرسة العليا لعلوم التسيير – ESSG عنابة",
@@ -943,7 +943,7 @@
       "_linkNote": "linked via filiere label tokens (16 filiere keys)"
     },
     {
-      "id": "ESCF",
+      "id": "escf",
       "category": "business",
       "dataName": "ESCF محاسبة مالية قسنطينة comptabilite finance constantine",
       "name_ar": "المدرسة العليا للمحاسبة والمالية – ESCF قسنطينة",
@@ -977,7 +977,7 @@
       "_linkNote": "linked via filiere label tokens (5 filiere keys)"
     },
     {
-      "id": "ESE",
+      "id": "ese",
       "category": "business",
       "dataName": "ESE اقتصاد وهران economie oran",
       "name_ar": "المدرسة العليا للاقتصاد – ESE وهران",
@@ -1012,7 +1012,7 @@
       "_linkNote": "linked via filiere label tokens (6 filiere keys)"
     },
     {
-      "id": "ENST",
+      "id": "enst",
       "category": "business",
       "dataName": "ENST سياحة فندقة الجزائر",
       "name_ar": "المدرسة العليا للسياحة – ENST الجزائر",
@@ -1035,7 +1035,7 @@
       "resolvedAverages": null
     },
     {
-      "id": "ESSAIA",
+      "id": "essaia",
       "category": "science",
       "dataName": "ESSAIA علوم تغذية صناعات غذائية",
       "name_ar": "المدرسة العليا لعلوم التغذية والصناعات الغذائية – ESSAIA",
@@ -1069,7 +1069,7 @@
       }
     },
     {
-      "id": "ENSA",
+      "id": "ensa",
       "category": "science",
       "dataName": "ENSA فلاحة زراعة",
       "name_ar": "المدرسة العليا للفلاحة – ENSA",
@@ -1103,7 +1103,7 @@
       }
     },
     {
-      "id": "ENS",
+      "id": "ens",
       "category": "education",
       "dataName": "ENS أساتذة تربية تعليم",
       "name_ar": "المدارس العليا للأساتذة – ENS",
@@ -1130,7 +1130,7 @@
       "resolvedAverages": null
     },
     {
-      "id": "MEDCINE",
+      "id": "medcine",
       "category": "medical",
       "dataName": "MEDCINE طب medicine",
       "name_ar": "تخصص الطب – MÉDECINE",
@@ -1167,7 +1167,7 @@
       "_linkNote": "linked via filiere label tokens (6 filiere keys)"
     },
     {
-      "id": "MEDCINE-DENTAIRE",
+      "id": "medcine-dentaire",
       "category": "medical",
       "dataName": "طب الاسنان dentaire",
       "name_ar": "تخصص طب الأسنان – MÉDECINE DENTAIRE",
@@ -1208,7 +1208,7 @@
       "_linkNote": "linked via filiere label tokens (6 filiere keys)"
     },
     {
-      "id": "PHARMACIE",
+      "id": "pharmacie",
       "category": "medical",
       "dataName": "PHARMACIE صيدلة",
       "name_ar": "تخصص الصيدلة – PHARMACIE",
@@ -1238,7 +1238,7 @@
       "_linkNote": "linked via filiere label tokens (1 filiere keys)"
     },
     {
-      "id": "PARAMEDICAL",
+      "id": "paramedical",
       "category": "medical",
       "dataName": "PARAMEDICAL شبه طبي",
       "name_ar": "تخصصات الشبه طبي – PARAMEDICAL",
@@ -1264,7 +1264,7 @@
       "resolvedAverages": null
     },
     {
-      "id": "Sage-Femme",
+      "id": "sage-femme",
       "category": "medical",
       "dataName": "قابلة صحة عمومية Sage Femme",
       "name_ar": "قابلة الصحة العمومية – Sage Femme",
@@ -1324,7 +1324,7 @@
       "_linkNote": "linked via filiere label tokens (30 filiere keys)"
     },
     {
-      "id": "PHARMACIE-INDUSTRIELLE",
+      "id": "pharmacie-industrielle",
       "category": "medical",
       "dataName": "PHARMACIE INDUSTRIELLE صيدلة صناعية",
       "name_ar": "تخصص الصيدلة الصناعية – PHARMACIE INDUSTRIELLE",
@@ -1390,7 +1390,7 @@
       "_linkNote": "linked via filiere label tokens (1 filiere keys)"
     },
     {
-      "id": "MED-BIO",
+      "id": "med-bio",
       "category": "double",
       "dataName": "MED-BIO طب بيولوجيا تخصص مزدوج double médecine biologie",
       "name_ar": "تخصص مزدوج طب + بيولوجيا – Médecine & Biologie",
@@ -1428,7 +1428,7 @@
       "_linkNote": "linked via filiere label tokens (6 filiere keys)"
     },
     {
-      "id": "MED-INFO",
+      "id": "med-info",
       "category": "double",
       "dataName": "MED-INFO طب اعلام آلي تخصص مزدوج double cursus médecine informatique ذكاء اصطناعي bioinformatique",
       "name_ar": "تخصص مزدوج طب + إعلام آلي – Médecine & Informatique",
@@ -1466,7 +1466,7 @@
       "_linkNote": "linked via filiere label tokens (7 filiere keys)"
     },
     {
-      "id": "MED-ECO",
+      "id": "med-eco",
       "category": "double",
       "dataName": "MED-ECO طب اقتصاد الصحة médecine économie de la santé تخصص مزدوج double degree health economics",
       "name_ar": "تخصص مزدوج: الطب + اقتصاد الصحة – MÉDECINE & ÉCONOMIE DE LA SANTÉ",
@@ -1511,7 +1511,7 @@
       "_linkNote": "linked via filiere label tokens (12 filiere keys)"
     },
     {
-      "id": "MED-PSY",
+      "id": "med-psy",
       "category": "double",
       "dataName": "MED-PSY طب علم النفس العيادي médecine psychologie clinique تخصص مزدوج double degree psychology",
       "name_ar": "تخصص مزدوج: الطب + علم النفس العيادي – MÉDECINE & PSYCHOLOGIE CLINIQUE",
@@ -1549,7 +1549,7 @@
       "_linkNote": "linked via filiere label tokens (7 filiere keys)"
     },
     {
-      "id": "ESSB",
+      "id": "essb",
       "category": "science",
       "dataName": "ESSB علوم بيولوجية وهران بيوتكنولوجي",
       "name_ar": "المدرسة العليا للعلوم البيولوجية – ESSB وهران",
@@ -1580,7 +1580,7 @@
       }
     },
     {
-      "id": "ENSB",
+      "id": "ensb",
       "category": "science",
       "dataName": "ENSB بيوتكنولوجيا biotechnologie",
       "name_ar": "المدرسة العليا للبيوتكنولوجيا – ENSB",
@@ -1611,7 +1611,7 @@
       "_linkNote": "linked via filiere label tokens (1 filiere keys)"
     },
     {
-      "id": "ENSSMAL",
+      "id": "enssmal",
       "category": "science",
       "dataName": "ENSSMAL علوم بحر ساحل",
       "name_ar": "المدرسة الوطنية العليا لعلوم البحر وتهيئة الساحل – ENSSMAL",
@@ -1642,7 +1642,7 @@
       }
     },
     {
-      "id": "INFORMATIQUE",
+      "id": "informatique",
       "category": "engineering",
       "dataName": "INFORMATIQUE اعلام آلي برمجة",
       "name_ar": "تخصص الإعلام الآلي – INFORMATIQUE",
@@ -1674,7 +1674,7 @@
       "_linkNote": "linked via filiere label tokens (1 filiere keys)"
     },
     {
-      "id": "ARCHITECTURE-UNI",
+      "id": "architecture-uni",
       "category": "engineering",
       "dataName": "ARCHITECTURE هندسة معمارية الهندسة المعمارية",
       "name_ar": "تخصص الهندسة المعمارية – ARCHITECTURE",
@@ -1707,7 +1707,7 @@
       "_linkNote": "linked via filiere label tokens (6 filiere keys)"
     },
     {
-      "id": "MATH",
+      "id": "math",
       "category": "science",
       "dataName": "MATH رياضيات mathematics",
       "name_ar": "تخصص الرياضيات – MATH",
@@ -1739,7 +1739,7 @@
       "_linkNote": "linked via filiere label tokens (1 filiere keys)"
     },
     {
-      "id": "ST",
+      "id": "st",
       "category": "science",
       "dataName": "ST علوم تكنولوجيا",
       "name_ar": "تخصص علوم وتكنولوجيا – ST",
@@ -1776,7 +1776,7 @@
       "_linkNote": "linked via filiere label tokens (6 filiere keys)"
     },
     {
-      "id": "SM",
+      "id": "sm",
       "category": "science",
       "dataName": "SM علوم المادة physique chimie",
       "name_ar": "تخصص علوم المادة – SM",
@@ -1807,7 +1807,7 @@
       "_linkNote": "linked via filiere label tokens (2 filiere keys)"
     },
     {
-      "id": "BIOLOGIE",
+      "id": "biologie",
       "category": "science",
       "dataName": "BIOLOGIE بيولوجيا biology",
       "name_ar": "تخصص البيولوجيا – BIOLOGIE",
@@ -1840,7 +1840,7 @@
       "_linkNote": "linked via filiere label tokens (3 filiere keys)"
     },
     {
-      "id": "HYDROCARBURES",
+      "id": "hydrocarbures",
       "category": "science",
       "dataName": "HYDROCARBURES محروقات طاقة نفط",
       "name_ar": "تخصص المحروقات – HYDROCARBURES",
@@ -1873,7 +1873,7 @@
       "_linkNote": "linked via filiere label tokens (3 filiere keys)"
     },
     {
-      "id": "Optique",
+      "id": "optique",
       "category": "science",
       "dataName": "Optique بصريات ميكانيك دقة",
       "name_ar": "تخصص البصريات وميكانيك الدقة – Optique & Mécanique",
@@ -1907,7 +1907,7 @@
       "_linkNote": "linked via filiere label tokens (4 filiere keys)"
     },
     {
-      "id": "GP",
+      "id": "gp",
       "category": "science",
       "dataName": "GP هندسة طرائق كيمياء صناعية génie procédés",
       "name_ar": "تخصص هندسة الطرائق – Génie des Procédés",
@@ -1967,7 +1967,7 @@
       "_linkNote": "linked via filiere label tokens (30 filiere keys)"
     },
     {
-      "id": "GI",
+      "id": "gi",
       "category": "engineering",
       "dataName": "GI هندسة صناعية industrial engineering تصنيع جودة إنتاج",
       "name_ar": "تخصص الهندسة الصناعية – Génie Industriel",
@@ -2000,7 +2000,7 @@
       "_linkNote": "linked via filiere label tokens (3 filiere keys)"
     },
     {
-      "id": "MARINE",
+      "id": "marine",
       "category": "engineering",
       "dataName": "MARINE هندسة بحرية سفن ملاحة marine engineering naval",
       "name_ar": "تخصص الهندسة البحرية – Marine Engineering",
@@ -2025,7 +2025,7 @@
       "_linkNote": "linked to filiere(s) ['HYDROBIOLOGIE MARINE ET CONTINENTALE (FORMATIONS PROFESSIONNALISANTES)'] but resolvedAverages null: matched row(s) have no published 2025 thresholds"
     },
     {
-      "id": "GT",
+      "id": "gt",
       "category": "engineering",
       "dataName": "GT هندسة نقل لوجستيك طرق سكك حديدية مطارات موانئ génie transport",
       "name_ar": "تخصص هندسة النقل – Génie du Transport",
@@ -2056,7 +2056,7 @@
       "_linkNote": "linked via filiere label tokens (2 filiere keys)"
     },
     {
-      "id": "GM",
+      "id": "gm",
       "category": "engineering",
       "dataName": "GM هندسة تعدين مناجم معادن جيولوجيا génie minier mining engineering",
       "name_ar": "تخصص هندسة التعدين – Génie Minier",
@@ -2085,7 +2085,7 @@
       "_linkNote": "linked via filiere label tokens (1 filiere keys)"
     },
     {
-      "id": "GC",
+      "id": "gc",
       "category": "engineering",
       "dataName": "GC هندسة مدنية بناء جسور طرق سدود مباني génie civil construction bâtiment",
       "name_ar": "تخصص الهندسة المدنية – Génie Civil",
@@ -2143,7 +2143,7 @@
       "_linkNote": "linked via filiere label tokens (30 filiere keys)"
     },
     {
-      "id": "GMEC",
+      "id": "gmec",
       "category": "engineering",
       "dataName": "GMEC هندسة ميكانيكية محركات طاقة تبريد صناعة génie mécanique mechanical engineering",
       "name_ar": "تخصص الهندسة الميكانيكية – Génie Mécanique",
@@ -2201,7 +2201,7 @@
       "_linkNote": "linked via filiere label tokens (30 filiere keys)"
     },
     {
-      "id": "DROIT",
+      "id": "droit",
       "category": "law",
       "dataName": "DROIT حقوق قانون عدالة محاماة قضاء",
       "name_ar": "تخصص الحقوق – Droit",
@@ -2238,7 +2238,7 @@
       "_linkNote": "linked via filiere label tokens (6 filiere keys)"
     },
     {
-      "id": "SS",
+      "id": "ss",
       "category": "humanities",
       "dataName": "SS علوم اجتماعية علم نفس علم اجتماع فلسفة انثروبولوجيا ديموغرافيا sciences sociales humaines",
       "name_ar": "تخصص العلوم الاجتماعية – Sciences Sociales",
@@ -2276,7 +2276,7 @@
       "_linkNote": "linked via filiere label tokens (9 filiere keys)"
     },
     {
-      "id": "TRADUCTION",
+      "id": "traduction",
       "category": "humanities",
       "dataName": "TRADUCTION ترجمة فورية تحريرية لغات traduction interprétation",
       "name_ar": "تخصص الترجمة – Traduction",
@@ -2309,7 +2309,7 @@
       "_linkNote": "linked via filiere label tokens (4 filiere keys)"
     },
     {
-      "id": "COMMU",
+      "id": "commu",
       "category": "humanities",
       "dataName": "COMMU علوم الإعلام والاتصال صحافة علاقات عامة إعلام رقمي sciences information communication",
       "name_ar": "تخصص علوم الإعلام والاتصال – Communication",
@@ -2349,7 +2349,7 @@
       "_linkNote": "linked via filiere label tokens (11 filiere keys)"
     },
     {
-      "id": "LANGUES",
+      "id": "langues",
       "category": "humanities",
       "dataName": "LANGUES لغات أجنبية فرنسية إنجليزية إسبانية ألمانية langues étrangères",
       "name_ar": "تخصص اللغات الأجنبية – Langues Étrangères",
@@ -2408,7 +2408,7 @@
       "_linkNote": "linked via filiere label tokens (30 filiere keys)"
     },
     {
-      "id": "CHARIA",
+      "id": "charia",
       "category": "humanities",
       "dataName": "CHARIA شريعة إسلامية فقه حديث قرآن علوم إسلامية charia islamique",
       "name_ar": "تخصص العلوم الإسلامية – Sciences Islamiques",
@@ -2439,7 +2439,7 @@
       "_linkNote": "linked via filiere label tokens (1 filiere keys)"
     },
     {
-      "id": "SCIENCES-PO",
+      "id": "sciences-po",
       "category": "law",
       "dataName": "SCIENCES-PO علوم سياسية دبلوماسية علاقات دولية sciences politiques",
       "name_ar": "تخصص العلوم السياسية – Sciences Politiques",
@@ -2474,7 +2474,7 @@
       "_linkNote": "linked via filiere label tokens (6 filiere keys)"
     },
     {
-      "id": "SCIENCES-HUM",
+      "id": "sciences-hum",
       "category": "humanities",
       "dataName": "SCIENCES-HUM علوم إنسانية تاريخ جغرافيا آثار علم المكتبات sciences humaines",
       "name_ar": "تخصص العلوم الإنسانية – Sciences Humaines",
@@ -2508,7 +2508,7 @@
       "_linkNote": "linked via filiere label tokens (6 filiere keys)"
     },
     {
-      "id": "MED-AI",
+      "id": "med-ai",
       "category": "engineering",
       "dataName": "MED-AI ذكاء اصطناعي طبي medical ai artificial intelligence",
       "name_ar": "الذكاء الاصطناعي الطبي – Medical AI",
@@ -2539,7 +2539,7 @@
       "_linkNote": "linked via filiere label tokens (4 filiere keys)"
     },
     {
-      "id": "MED-GEN",
+      "id": "med-gen",
       "category": "medical",
       "dataName": "MED-GEN علم الوراثة الطبية medical genetics",
       "name_ar": "علم الوراثة الطبية – Medical Genetics",
@@ -2561,7 +2561,7 @@
       "resolvedAverages": null
     },
     {
-      "id": "IT-INT",
+      "id": "it-int",
       "category": "engineering",
       "dataName": "IT-INT التشغيل البيني لأنظمة المعلومات interoperability information systems",
       "name_ar": "التشغيل البيني لأنظمة المعلومات – Interoperability",
@@ -2596,7 +2596,7 @@
       "_linkNote": "linked via filiere label tokens (8 filiere keys)"
     },
     {
-      "id": "ADDICT",
+      "id": "addict",
       "category": "medical",
       "dataName": "ADDICT علم الإدمان addictology",
       "name_ar": "علم الإدمان – Addictology",
@@ -2617,7 +2617,7 @@
       "resolvedAverages": null
     },
     {
-      "id": "PREC-MED",
+      "id": "prec-med",
       "category": "medical",
       "dataName": "PREC-MED طب دقيق precision medicine",
       "name_ar": "الطب الدقيق – Precision Medicine",
@@ -2648,7 +2648,7 @@
       "_linkNote": "linked via filiere label tokens (4 filiere keys)"
     },
     {
-      "id": "DENT-HYG",
+      "id": "dent-hyg",
       "category": "medical",
       "dataName": "DENT-HYG أخصائي صحة أسنان dental hygienist",
       "name_ar": "صحة الأسنان – Dental Hygienist",
@@ -2669,7 +2669,7 @@
       "resolvedAverages": null
     },
     {
-      "id": "GEN-COUNS",
+      "id": "gen-couns",
       "category": "medical",
       "dataName": "GEN-COUNS مستشار علم وراثة genetic counselor",
       "name_ar": "مستشار الوراثة – Genetic Counselor",
@@ -2690,7 +2690,7 @@
       "resolvedAverages": null
     },
     {
-      "id": "IND-ENTR",
+      "id": "ind-entr",
       "category": "business",
       "dataName": "IND-ENTR سينما مقاولاتية cinéma entrepreneuriat صناعة المحتوى إخراج سيناريو شركات ناشئة ثقافية",
       "name_ar": "السينما والمقاولاتية – CINÉMA & ENTREPRENEURIAT",
@@ -2714,7 +2714,7 @@
       "_linkNote": "linked to filiere(s) ['CINEMA ET MEDIA NUMERIQUE'] but resolvedAverages null: matched row(s) have no published 2025 thresholds"
     },
     {
-      "id": "SPACE-TECH",
+      "id": "space-tech",
       "category": "engineering",
       "dataName": "SPACE-TECH تكنولوجيا فضاء space technology",
       "name_ar": "تكنولوجيا الفضاء – Space Technology",
@@ -2736,7 +2736,7 @@
       "resolvedAverages": null
     },
     {
-      "id": "DIGITAL-AGRO",
+      "id": "digital-agro",
       "category": "engineering",
       "dataName": "DIGITAL-AGRO الهندسة الزراعية الرقمية digital agronomy smart agriculture iot drones",
       "name_ar": "الهندسة الزراعية الرقمية – Digital Agronomy",
@@ -2765,7 +2765,7 @@
       "_linkNote": "linked via filiere label tokens (2 filiere keys)"
     },
     {
-      "id": "SMART-CITIES",
+      "id": "smart-cities",
       "category": "engineering",
       "dataName": "SMART-CITIES المدن الذكية smart cities urban planning ai technology",
       "name_ar": "المدن الذكية – Smart Cities",
@@ -2787,7 +2787,7 @@
       "resolvedAverages": null
     },
     {
-      "id": "MED-INFORMATICS",
+      "id": "med-informatics",
       "category": "medical",
       "dataName": "MED-INFORMATICS المعلوماتية الطبية medical informatics health information systems telemedicine",
       "name_ar": "المعلوماتية الطبية – Medical Informatics",
@@ -2822,7 +2822,7 @@
       "_linkNote": "linked via filiere label tokens (8 filiere keys)"
     },
     {
-      "id": "QUANTUM",
+      "id": "quantum",
       "category": "science",
       "dataName": "QUANTUM الفيزياء الكمومية ميكانيك الكم quantum physics computing encryption",
       "name_ar": "الفيزياء الكمومية – Quantum Physics",
@@ -2850,7 +2850,7 @@
       "_linkNote": "linked via filiere label tokens (1 filiere keys)"
     },
     {
-      "id": "MATH-ECO",
+      "id": "math-eco",
       "category": "double",
       "dataName": "MATH-ECO رياضيات تطبيقية علوم اقتصادية applied mathematics economics مالية بنوك actuariat تخصص مزدوج double degree",
       "name_ar": "تخصص مزدوج: رياضيات تطبيقية + علوم اقتصادية – APPLIED MATHEMATICS & ECONOMICS",
@@ -2885,7 +2885,7 @@
       "_linkNote": "linked via filiere label tokens (4 filiere keys)"
     },
     {
-      "id": "DROIT-INFO",
+      "id": "droit-info",
       "category": "double",
       "dataName": "DROIT-INFO حقوق إعلام آلي law computer science droit informatique جرائم سيبرانية عقود ذكية تخصص مزدوج double degree",
       "name_ar": "تخصص مزدوج: حقوق + إعلام آلي – LAW & COMPUTER SCIENCE",
@@ -2923,7 +2923,7 @@
       "_linkNote": "linked via filiere label tokens (7 filiere keys)"
     },
     {
-      "id": "MGMT-ENG",
+      "id": "mgmt-eng",
       "category": "double",
       "dataName": "MGMT-ENG تسيير لغة إنجليزية management english علوم التسيير بيزنس دولي شركات متعددة الجنسيات تخصص مزدوج double degree",
       "name_ar": "تخصص مزدوج: علوم التسيير + لغة إنجليزية – MANAGEMENT & ENGLISH",
@@ -2963,7 +2963,7 @@
       "_linkNote": "linked via filiere label tokens (9 filiere keys)"
     },
     {
-      "id": "INFO-GEST",
+      "id": "info-gest",
       "category": "double",
       "dataName": "INFO-GEST إعلام آلي علوم التسيير computer science management IT consultant product manager ERP تخصص مزدوج double degree",
       "name_ar": "تخصص مزدوج: إعلام آلي + علوم التسيير – COMPUTER SCIENCE & MANAGEMENT",
@@ -3003,7 +3003,7 @@
       "_linkNote": "linked via filiere label tokens (9 filiere keys)"
     },
     {
-      "id": "LANG-FIN",
+      "id": "lang-fin",
       "category": "double",
       "dataName": "LANG-FIN آداب لغات أجنبية محاسبة علوم مالية languages financial accounting auditor مترجم تقني تخصص مزدوج double degree",
       "name_ar": "تخصص مزدوج: آداب ولغات أجنبية + محاسبة وعلوم مالية – LANGUAGES & FINANCIAL ACCOUNTING",
@@ -3064,7 +3064,7 @@
       "_linkNote": "linked via filiere label tokens (30 filiere keys)"
     },
     {
-      "id": "INFO-AUTO",
+      "id": "info-auto",
       "category": "double",
       "dataName": "INFO-AUTO إعلام آلي آلية robotics automation embedded systems روبوتكس أنظمة مدمجة تخصص مزدوج double degree",
       "name_ar": "تخصص مزدوج: إعلام آلي + آلية – COMPUTER SCIENCE & AUTOMATIC (ROBOTICS)",
@@ -3090,7 +3090,7 @@
       "resolvedAverages": null
     },
     {
-      "id": "LAW-POL",
+      "id": "law-pol",
       "category": "double",
       "dataName": "LAW-POL حقوق علوم سياسية law political science مزدوج",
       "name_ar": "تخصص مزدوج: حقوق + علوم سياسية – LAW & POLITICAL SCIENCE",
@@ -3116,7 +3116,7 @@
       "resolvedAverages": null
     },
     {
-      "id": "CS-ECO",
+      "id": "cs-eco",
       "category": "double",
       "dataName": "CS-ECO إعلام آلي علوم اقتصادية computer science economics fintech مزدوج",
       "name_ar": "إعلام آلي واقتصاد - COMPUTER SCIENCE & ECONOMICS",
@@ -3142,7 +3142,7 @@
       "resolvedAverages": null
     },
     {
-      "id": "ARCH-SOC",
+      "id": "arch-soc",
       "category": "double",
       "dataName": "ARCH-SOC هندسة معمارية علم الاجتماع architecture urban sociology مزدوج",
       "name_ar": "هندسة معمارية + علم الاجتماع - ARCHITECTURE & URBAN SOCIOLOGY",
@@ -3179,7 +3179,7 @@
       "_linkNote": "linked via filiere label tokens (6 filiere keys)"
     },
     {
-      "id": "TECH-MEDIA",
+      "id": "tech-media",
       "category": "double",
       "dataName": "TECH-MEDIA إعلام آلي علوم الإعلام والاتصال tech media digital communications مزدوج",
       "name_ar": "إعلام آلي + علوم الإعلام والاتصال - TECH-MEDIA & DIGITAL COMMUNICATIONS",
@@ -3212,7 +3212,7 @@
       "_linkNote": "linked via filiere label tokens (2 filiere keys)"
     },
     {
-      "id": "ENG-POL",
+      "id": "eng-pol",
       "category": "double",
       "dataName": "ENG-POL لغة إنجليزية علوم سياسية english political science global diplomacy مزدوج",
       "name_ar": "لغة إنجليزية + علوم سياسية - ENGLISH & POLITICAL SCIENCE",
@@ -3238,7 +3238,7 @@
       "resolvedAverages": null
     },
     {
-      "id": "ECO-MEDIA",
+      "id": "eco-media",
       "category": "double",
       "dataName": "ECO-MEDIA علوم اقتصادية علوم الإعلام والاتصال economic journalism marketing مزدوج",
       "name_ar": "علوم اقتصادية + علوم الإعلام والاتصال - ECONOMIC JOURNALISM & MARKETING",
@@ -3271,7 +3271,7 @@
       "_linkNote": "linked via filiere label tokens (2 filiere keys)"
     },
     {
-      "id": "MEDIA-POL",
+      "id": "media-pol",
       "category": "double",
       "dataName": "MEDIA-POL علوم الإعلام والاتصال علوم سياسية political communication public relations pr مزدوج",
       "name_ar": "علوم الإعلام والاتصال + علوم سياسية - POLITICAL COMMUNICATION & PUBLIC RELATIONS",
@@ -3315,7 +3315,7 @@
       "_linkNote": "linked via filiere label tokens (13 filiere keys)"
     },
     {
-      "id": "SPORTS-MEDIA",
+      "id": "sports-media",
       "category": "double",
       "dataName": "SPORTS-MEDIA علوم الإعلام والاتصال تدريب رياضي sports journalism performance analytics مزدوج",
       "name_ar": "علوم الإعلام والاتصال + تدريب رياضي - SPORTS JOURNALISM & PERFORMANCE ANALYTICS",
@@ -3343,7 +3343,7 @@
       "_linkNote": "linked to filiere(s) ['CINEMA ET MEDIA NUMERIQUE'] but resolvedAverages null: matched row(s) have no published 2025 thresholds"
     },
     {
-      "id": "DIGITAL-ENG",
+      "id": "digital-eng",
       "category": "double",
       "dataName": "DIGITAL-ENG إدارة رقمية وإلكترونية إنجليزية digital administration global management مزدوج",
       "name_ar": "إدارة رقمية وإلكترونية + إنجليزية - DIGITAL AND ELECTRONIC ADMINISTRATION & ENGLISH",
@@ -3383,7 +3383,7 @@
       "_linkNote": "linked via filiere label tokens (9 filiere keys)"
     },
     {
-      "id": "DIP-LAW",
+      "id": "dip-law",
       "category": "double",
       "dataName": "DIP-LAW قانون دبلوماسي تعاون دولي diplomatic law international cooperation مزدوج",
       "name_ar": "قانون دبلوماسي + تعاون دولي - DIPLOMATIC LAW & INTERNATIONAL COOPERATION",
@@ -3409,7 +3409,7 @@
       "resolvedAverages": null
     },
     {
-      "id": "SPORTS-PSYCH",
+      "id": "sports-psych",
       "category": "double",
       "dataName": "SPORTS-PSYCH تدريب رياضي علم النفس العيادي Sports training clinical psychology مزدوج",
       "name_ar": "تدريب رياضي + علم النفس العيادي - Sports training & clinical psychology",
@@ -3435,7 +3435,7 @@
       "resolvedAverages": null
     },
     {
-      "id": "ARCHI-CIVIL",
+      "id": "archi-civil",
       "category": "double",
       "dataName": "ARCHI-CIVIL هندسة معمارية هندسة مدنية architectural engineering archi civil مزدوج",
       "name_ar": "هندسة معمارية + هندسة مدنية - Architecture & Civil Engineering",
@@ -3613,7 +3613,7 @@
       "_linkNote": "linked via filiere label tokens (30 filiere keys)"
     },
     {
-      "id": "Appareilleur-Orthopédiste",
+      "id": "appareilleur-orthopédiste",
       "category": "medical",
       "dataName": "مقوم أعضاء اصطناعية appareilleur orthopédiste",
       "name_ar": "مقوم الأعضاء الاصطناعية للصحة العمومية – Appareilleur Orthopédiste",
@@ -3635,7 +3635,7 @@
       "resolvedAverages": null
     },
     {
-      "id": "Anesthésie-Réanimation",
+      "id": "anesthésie-réanimation",
       "category": "medical",
       "dataName": "تخدير إنعاش anesthésie réanimation",
       "name_ar": "التخدير والإنعاش – Anesthésie-Réanimation",
@@ -3742,7 +3742,7 @@
       "resolvedAverages": null
     },
     {
-      "id": "Psychomotricien",
+      "id": "psychomotricien",
       "category": "medical",
       "dataName": "مقوم حركة نفسية psychomotricien",
       "name_ar": "مقومو الحركة النفسية للصحة العمومية – Psychomotricien",
@@ -3799,7 +3799,7 @@
       "_linkNote": "linked via filiere label tokens (30 filiere keys)"
     },
     {
-      "id": "Pédicure-Podologue",
+      "id": "pédicure-podologue",
       "category": "medical",
       "dataName": "مطبب أرجل pédicure podologue",
       "name_ar": "مطبب الأرجل للصحة العمومية – Pédicure Podologue",

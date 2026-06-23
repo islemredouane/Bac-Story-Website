@@ -4,6 +4,14 @@
    ============================================================ */
 import { readFileSync } from 'fs';
 import { resolve } from 'path';
+import { createClient } from '@supabase/supabase-js';
+
+const adminSupabase = createClient(
+  process.env.SUPABASE_URL,
+  process.env.SUPABASE_SERVICE_ROLE_KEY
+);
+
+// TODO: Add rate limiting (e.g., 60 req/min per user) using Upstash Redis or Vercel rate limiter
 
 // Load index once at cold start (deployed alongside function)
 let _index = null;
@@ -24,9 +32,22 @@ const STREAM_FIELD = {
   techmath: 'min3',
 };
 
-export default function handler(req, res) {
+export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   if (req.method === 'OPTIONS') return res.status(200).end();
+
+  // Auth check — search requires a valid session
+  const authHeader = req.headers.authorization;
+  const token = authHeader?.replace('Bearer ', '');
+  if (!token) {
+    return res.status(401).json({ error: 'مطلوب تسجيل الدخول' });
+  }
+
+  // Verify the token with Supabase
+  const { data: { user }, error: authError } = await adminSupabase.auth.getUser(token);
+  if (authError || !user) {
+    return res.status(401).json({ error: 'جلسة منتهية — سجّل دخولك مجدداً' });
+  }
 
   const index = getIndex();
   const { avg, stream, filiere, type, limit = '30' } = req.query;

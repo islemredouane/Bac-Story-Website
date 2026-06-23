@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    TAWJIHI — Specialities browser + detail (page-specific)
    Depends on tokens.css + app.css. Reuses the app shell.
    Only uses existing tokens — no new colors invented.
@@ -430,7 +430,8 @@
 .tag-list { display: flex; flex-wrap: wrap; gap: var(--sp-2); }
 
 /* acceptance table */
-.avg-table { width: 100%; border-collapse: collapse; margin-top: var(--sp-2); font-size: var(--fs-sm); }
+.avg-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-top: var(--sp-2); }
+.avg-table { width: 100%; min-width: 360px; border-collapse: collapse; font-size: var(--fs-sm); }
 .avg-table th, .avg-table td {
     text-align: start;
     padding: var(--sp-3);
@@ -451,21 +452,6 @@
 /* ============================================================
    Eligibility section (detail page)
    ============================================================ */
-:root {
-    --acc-safe:   #1a9d4e;
-    --acc-likely: #d98a07;
-    --acc-risk:   #d8413a;
-    --acc-inelig: #8a93a6;
-    --acc-unknown:#6c757d;
-}
-[data-theme="dark"] {
-    --acc-safe:   #34c977;
-    --acc-likely: #f0a93a;
-    --acc-risk:   #f0635c;
-    --acc-inelig: #8a93a6;
-    --acc-unknown:#9aa6bd;
-}
-
 .elig-block { display: flex; flex-direction: column; gap: var(--sp-4); }
 .elig-line { display: flex; align-items: center; gap: var(--sp-2); flex-wrap: wrap; font-size: var(--fs-sm); }
 .elig-line .elig-key { font-weight: 800; color: var(--text); }
@@ -654,7 +640,7 @@
     position: absolute; bottom: -50px; right: -50px;
     width: 180px; height: 180px; border-radius: 50%;
     filter: blur(55px); z-index: 0; opacity: 0.07;
-    background: #3b82f6;
+    background: var(--primary);
     pointer-events: none;
 }
 
@@ -682,7 +668,7 @@
     position: absolute; bottom: -40px; right: -40px;
     width: 160px; height: 160px; border-radius: 50%;
     filter: blur(50px); z-index: 0; opacity: 0.06;
-    background: #3b82f6;
+    background: var(--primary);
     pointer-events: none;
 }
 
@@ -710,7 +696,7 @@
     position: absolute; bottom: -40px; right: -40px;
     width: 160px; height: 160px; border-radius: 50%;
     filter: blur(50px); z-index: 0; opacity: 0.06;
-    background: #3b82f6;
+    background: var(--primary);
     pointer-events: none;
 }
 

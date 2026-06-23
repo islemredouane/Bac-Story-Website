@@ -6,7 +6,7 @@
 .app {
     display: grid;
     grid-template-columns: var(--sidebar-w) 1fr;
-    min-height: 100vh;
+    min-height: 100dvh;
     transition: grid-template-columns var(--t-mid) var(--ease);
 }
 .app.sidebar-collapsed { grid-template-columns: var(--sidebar-w-collapsed) 1fr; }
@@ -21,7 +21,7 @@
     gap: var(--sp-2);
     position: sticky;
     top: 0;
-    height: 100vh;
+    height: 100dvh;
     overflow: hidden;
 }
 .sidebar-head {
@@ -72,17 +72,34 @@
 .sidebar-history { margin-top: var(--sp-4); overflow-y: auto; flex: 1; }
 .sidebar-foot { margin-top: auto; padding-top: var(--sp-3); border-top: 1px solid var(--border); }
 
-/* collapse: hide labels, center icons */
+/* collapse: animate labels out with opacity + max-width instead of display:none */
+.sidebar .sidebar-logo,
+.sidebar .nav-item span,
+.sidebar .new-chat-btn span,
+.sidebar .nav-group-label {
+    opacity: 1;
+    max-width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: opacity var(--t-mid) var(--ease), max-width var(--t-mid) var(--ease);
+}
 .app.sidebar-collapsed .sidebar-logo,
 .app.sidebar-collapsed .nav-item span,
 .app.sidebar-collapsed .new-chat-btn span,
-.app.sidebar-collapsed .nav-group-label,
+.app.sidebar-collapsed .nav-group-label {
+    opacity: 0;
+    max-width: 0;
+    overflow: hidden;
+    pointer-events: none;
+    transition: opacity var(--t-mid) var(--ease), max-width var(--t-mid) var(--ease);
+}
+/* History list still uses display:none — no content to animate */
 .app.sidebar-collapsed .sidebar-history { display: none; }
 .app.sidebar-collapsed .new-chat-btn,
 .app.sidebar-collapsed .nav-item { justify-content: center; }
 
 /* ---------------- MAIN ---------------- */
-.main { display: flex; flex-direction: column; min-width: 0; height: 100vh; }
+.main { display: flex; flex-direction: column; min-width: 0; height: 100dvh; }
 .topbar {
     height: var(--topbar-h); display: flex; align-items: center;
     justify-content: space-between; padding-inline: var(--sp-5);
@@ -427,7 +444,7 @@
 
 /* ---------------- COMPOSER ---------------- */
 .composer-wrap {
-    padding: var(--sp-4) var(--sp-5) var(--sp-5);
+    padding: var(--sp-4) var(--sp-5) calc(var(--sp-5) + env(safe-area-inset-bottom, 0px));
     background: linear-gradient(to bottom, transparent 0%, var(--bg) 60%);
 }
 .composer {
@@ -498,7 +515,7 @@
     .chat-hero p { font-size: var(--fs-md); }
     .msg.user .msg-body { max-width: 86%; }
     .msg-actions { opacity: 1; }
-    .composer-wrap { padding: var(--sp-2) var(--sp-3) var(--sp-4); }
+    .composer-wrap { padding: var(--sp-2) var(--sp-3) calc(var(--sp-4) + env(safe-area-inset-bottom, 0px)); }
     .chat-inner { padding: var(--sp-4) var(--sp-3) var(--sp-6); }
 }
 
@@ -534,7 +551,7 @@
 .hist-scrim.open { opacity: 1; visibility: visible; }
 
 .hist-panel {
-    position: fixed; top: 0; right: 0; height: 100vh; z-index: 201;
+    position: fixed; top: 0; inset-inline-end: 0; height: 100dvh; z-index: 201;
     width: 320px; max-width: 86vw;
     background: var(--surface);
     border-inline-start: 1px solid var(--border);
@@ -931,6 +948,13 @@
         z-index: 1;
     }
 
+    /* RES-8: Custom active state replaces removed tap highlight */
+    .mnav-item:active {
+        background: color-mix(in srgb, var(--primary) 10%, transparent);
+        transform: scale(0.96);
+        transition: none;
+    }
+
     .mnav-icon {
         height: 34px;
         min-width: 34px;
@@ -1000,5 +1024,11 @@
     }
     [data-theme="dark"] .mnav-center .mnav-icon {
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    /* RES-4: Reduce backdrop-filter blur on mobile for mid-range GPU performance */
+    .sidebar, .topbar, .mobile-topbar, .mobile-nav, .composer-wrap {
+        backdrop-filter: blur(8px) !important;
+        -webkit-backdrop-filter: blur(8px) !important;
     }
 }

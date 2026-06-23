@@ -92,8 +92,7 @@
       ],
       "allowedStreams": [
         "math",
-        "sciexp",
-        "techmath"
+        "sciexp"
       ],
       "scope": "national",
       "circleWilayaNums": [],
@@ -537,75 +536,13 @@
         "D00LAL04"
       ],
       "allowedStreams": [
-        "math",
-        "sciexp",
-        "techmath"
+        "sciexp"
       ],
-      "scope": "regional",
-      "circleWilayaNums": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13,
-        14,
-        15,
-        16,
-        17,
-        18,
-        19,
-        20,
-        21,
-        22,
-        23,
-        24,
-        25,
-        26,
-        27,
-        28,
-        29,
-        30,
-        31,
-        32,
-        33,
-        34,
-        35,
-        36,
-        37,
-        38,
-        39,
-        40,
-        41,
-        42,
-        43,
-        44,
-        45,
-        46,
-        47,
-        48,
-        49,
-        50,
-        51,
-        52,
-        53,
-        54,
-        55,
-        56,
-        57,
-        58
-      ],
+      "scope": "national",
+      "circleWilayaNums": [],
       "rankingBasis": "weighted",
       "thresholdsByStream": {
-        "sciexp": 10.21,
-        "math": 11.05
+        "sciexp": 10.21
       },
       "sourceConfidence": "high",
       "_note": "linked via admissions catalog_averages filiere_key=SCIENCES DE LA NATURE ET DE LA VIE",
@@ -1230,7 +1167,7 @@
         "sciexp",
         "techmath"
       ],
-      "scope": "unknown",
+      "scope": "national",
       "circleWilayaNums": [],
       "rankingBasis": "weighted",
       "thresholdsByStream": {
@@ -2839,10 +2776,7 @@
         58
       ],
       "rankingBasis": "weighted_or_general",
-      "thresholdsByStream": {
-        "sciexp": 13.16,
-        "math": 13.99
-      },
+      "thresholdsByStream": {},
       "sourceConfidence": "high",
       "_note": "linked via admissions catalog_averages filiere_key=TRADUCTION",
       "_method": "catalog_averages"

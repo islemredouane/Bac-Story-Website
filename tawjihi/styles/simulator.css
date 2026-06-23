@@ -132,7 +132,7 @@
 .wish-badge.likely { color: var(--cat-business); background: color-mix(in srgb, var(--cat-business) 16%, transparent); }
 .wish-badge.risk   { color: var(--cat-medical);  background: color-mix(in srgb, var(--cat-medical) 14%, transparent); }
 .wish-ctrls { display: flex; gap: 2px; }
-.wish-ctrl { width: 30px; height: 30px; border-radius: var(--r-sm); color: var(--text-faint); display: grid; place-items: center; transition: background var(--t-fast), color var(--t-fast); }
+.wish-ctrl { width: 44px; height: 44px; border-radius: var(--r-sm); color: var(--text-faint); display: flex; align-items: center; justify-content: center; transition: background var(--t-fast), color var(--t-fast); }
 .wish-ctrl:hover { background: var(--surface); color: var(--text); }
 .wish-ctrl:disabled { opacity: .3; cursor: not-allowed; }
 .wish-ctrl.del:hover { color: var(--cat-medical); }
@@ -218,6 +218,14 @@
 @media (max-width: 980px) {
     .sim-layout { grid-template-columns: 1fr; }
     .sim-side { position: static; }
+    /* UI-16: catalog/controls panel above wishlist on mobile */
+    .sim-side { order: 1; }
+    .sim-col:not(.sim-side) { order: 2; }
+    /* RES-9: remove fixed height on catalog — no scroll-within-scroll on mobile */
+    .catalog {
+        max-height: none;
+        overflow-y: visible;
+    }
 }
 
 /* Tablet: hero body still side-by-side but tighter */
@@ -241,14 +249,17 @@
         width: auto; height: 1px; align-self: stretch;
         background: linear-gradient(to right, transparent 0%, rgba(44,92,197,0.15) 20%, rgba(44,92,197,0.15) 80%, transparent 100%);
     }
-    /* Field becomes row: label left, value right */
+    /* Field becomes column with slider spanning full width */
     .sim-field {
-        flex-direction: row; align-items: center;
-        justify-content: space-between; text-align: start;
+        flex-direction: column; align-items: stretch;
+        text-align: start;
         padding: var(--sp-3) var(--sp-4); gap: var(--sp-3);
+        width: 100%;
     }
     .sim-field-label { letter-spacing: 0; text-transform: none; font-size: var(--fs-sm); }
     .sim-field input { width: 90px; text-align: center; font-size: var(--fs-xl); }
+    .avg-input-wrap { width: 100%; }
+    .sim-avg-display { font-size: var(--fs-2xl); }
     .sim-stream-badge { justify-content: flex-start; }
 }
 
@@ -298,7 +309,7 @@
         flex-direction: column;
         gap: 2px;
     }
-    .wish-ctrl { width: 26px; height: 26px; }
+    .wish-ctrl { width: 40px; height: 40px; }
     .wish-ctrl.del { order: 3; }
 }
 
@@ -344,7 +355,9 @@
 
 /* ---- toast notification ---- */
 .sim-toast {
-    position: fixed; bottom: var(--sp-6); left: 50%; transform: translateX(-50%) translateY(20px);
+    position: fixed;
+    bottom: calc(14px + 64px + var(--sp-4) + env(safe-area-inset-bottom, 0px));
+    left: 50%; transform: translateX(-50%) translateY(20px);
     background: var(--text); color: var(--bg);
     padding: var(--sp-3) var(--sp-5); border-radius: var(--r-pill);
     font-size: var(--fs-sm); font-weight: 700;
@@ -367,6 +380,40 @@
 .sim-side .sim-card:nth-child(1) { --card-theme: var(--accent); }
 .sim-side .sim-card:nth-child(2) { --card-theme: var(--cat-science); }
 .sim-side .sim-card:nth-child(3) { --card-theme: var(--primary); }
+
+/* ---- MOT-8: wish item entrance animation ---- */
+.wish-item--new {
+    animation: wish-spring 350ms var(--ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1)) both;
+}
+@keyframes wish-spring {
+    from { opacity: 0; transform: scale(0.85) translateY(8px); }
+    to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* ---- UI-17: avg range slider ---- */
+.avg-input-wrap {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    width: 100%;
+}
+.sim-avg-slider {
+    flex: 1;
+    height: 6px;
+    accent-color: var(--primary);
+    cursor: pointer;
+    min-width: 0;
+}
+.sim-avg-display {
+    font-family: var(--font-display);
+    font-weight: 800;
+    color: var(--primary);
+    min-width: 3.5rem;
+    text-align: center;
+    font-size: var(--fs-xl);
+    line-height: 1;
+}
+[data-theme="dark"] .sim-avg-display { color: #7da4f0; }
 
 /* ---- reduced motion ---- */
 @media (prefers-reduced-motion: reduce) {

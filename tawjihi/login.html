@@ -1,15 +1,20 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ar" dir="rtl" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <title>توجيهي · تسجيل الدخول</title>
     <meta name="description" content="ادخل إلى توجيهي من BAC STORY — مرشدك الذكي لاختيار التخصص والجامعة في الجزائر.">
+    <meta property="og:title" content="توجيهي · تسجيل الدخول">
+    <meta property="og:description" content="ادخل إلى توجيهي من BAC STORY — مرشدك الذكي لاختيار التخصص والجامعة في الجزائر.">
+    <meta property="og:type" content="website">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Pattaya&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles/tokens.css">
+    <link rel="stylesheet" href="styles/motion.css">
     <link rel="stylesheet" href="styles/app.css">
     <link rel="stylesheet" href="styles/auth.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
@@ -46,7 +51,7 @@
                 <i class="fas fa-spinner google-spin" aria-hidden="true"></i>
             </button>
 
-            <p class="auth-terms">بالمتابعة، أنت توافق على <a href="#">شروط الاستخدام</a> و <a href="#">سياسة الخصوصية</a>.</p>
+            <p class="auth-terms">بالمتابعة، أنت توافق على <a href="terms.html">شروط الاستخدام</a> و <a href="privacy.html">سياسة الخصوصية</a>.</p>
 
         </section>
 
@@ -79,14 +84,14 @@
         if (!t) {
             t = document.createElement('div');
             t.id = '_twToast';
-            t.style.cssText = 'position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(80px);background:#ef4444;color:#fff;padding:10px 22px;border-radius:999px;font-family:var(--font-ui,sans-serif);font-weight:800;font-size:.9rem;box-shadow:0 8px 24px rgba(0,0,0,.2);transition:transform .3s ease;z-index:9999;white-space:nowrap;';
+            t.className = 'auth-toast';
             document.body.appendChild(t);
         }
         t.textContent = msg;
-        t.style.background = color || '#ef4444';
-        t.style.transform = 'translateX(-50%) translateY(0)';
+        t.classList.toggle('is-error', !color || color === '#ef4444');
+        t.classList.add('is-visible');
         clearTimeout(t._hide);
-        t._hide = setTimeout(() => { t.style.transform = 'translateX(-50%) translateY(80px)'; }, 3500);
+        t._hide = setTimeout(() => { t.classList.remove('is-visible'); }, 3500);
     }
 
     let _handling = false;

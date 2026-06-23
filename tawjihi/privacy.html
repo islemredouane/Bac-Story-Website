@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <script>!function(){var p=location.pathname.split('/').pop();if(['login.html','onboarding.html','index.html',''].indexOf(p)<0){if(!localStorage.getItem('tw-auth'))return void location.replace('login.html');if(!localStorage.getItem('tw-profile'))return void location.replace('onboarding.html')}}()</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>توجيهي · سياسة الخصوصية</title>
+    <meta name="description" content="سياسة خصوصية توجيهي من BAC STORY.">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Pattaya&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles/tokens.css">
+    <link rel="stylesheet" href="styles/motion.css">
+    <link rel="stylesheet" href="styles/app.css">
+    <link rel="stylesheet" href="styles/specialities.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+    <script src="supabase.js"></script>
+</head>
+<body>
+<div class="app" id="app">
+    <!-- ===================== SIDEBAR ===================== -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-head">
+            <button class="sidebar-toggle" id="sidebarToggle" aria-label="طي القائمة"><i class="fas fa-bars"></i></button>
+            <span class="sidebar-logo">توجيهي</span>
+        </div>
+        <nav class="nav-group">
+            <a class="nav-item" href="app.html"><i class="fas fa-comments"></i><span>المرشد الذكي</span></a>
+            <a class="nav-item" href="specialities.html"><i class="fas fa-compass"></i><span>دليل التخصصات</span></a>
+            <a class="nav-item" href="simulator.html"><i class="fas fa-list-check"></i><span>محاكي بطاقة الرغبات</span></a>
+            <a class="nav-item" href="dashboard.html"><i class="fas fa-gauge-high"></i><span>لوحتي</span></a>
+            <a class="nav-item" href="referral.html"><i class="fas fa-gift"></i><span>الإحالة والمكافآت</span></a>
+        </nav>
+        <div class="sidebar-foot">
+            <a class="nav-item" href="#" onclick="document.getElementById('themeBtn')?.click();return false;"><i class="fas fa-circle-half-stroke" id="themeIconSide"></i><span>الوضع الليلي</span></a>
+            <a class="nav-item" href="dashboard.html"><i class="fas fa-user-circle"></i><span>حسابي</span></a>
+            <a class="nav-item" href="#" id="logoutBtn" onclick="if(window.twSignOut){window.twSignOut()}else{localStorage.clear();location.href='login.html'};return false;">
+              <i class="fas fa-right-from-bracket"></i><span>تسجيل الخروج</span>
+            </a>
+        </div>
+    </aside>
+    <div class="sidebar-scrim" id="scrim"></div>
+
+    <!-- ===================== MAIN ===================== -->
+    <main class="main">
+        <header class="topbar">
+            <div style="display:flex;align-items:center;gap:.5rem">
+                <button class="icon-btn mobile-only" id="drawerBtn" aria-label="القائمة"><i class="fas fa-bars"></i></button>
+                <span class="topbar-title">سياسة الخصوصية</span>
+            </div>
+            <div class="topbar-actions">
+                <button class="icon-btn" id="themeBtn" aria-label="تبديل الوضع"><i class="fas fa-moon"></i></button>
+            </div>
+        </header>
+
+        <div class="page-scroll">
+            <div class="page-inner" style="max-width:780px">
+                <a class="detail-back" href="javascript:history.back()"><i class="fas fa-arrow-right"></i> رجوع</a>
+
+                <div class="detail-section" style="margin-top:var(--sp-4)">
+                    <h2><i class="fas fa-shield-halved"></i> سياسة الخصوصية</h2>
+                    <p style="color:var(--text-muted);font-size:var(--fs-sm);margin-bottom:var(--sp-5)">آخر تحديث: يونيو 2026</p>
+
+                    <div style="display:flex;flex-direction:column;gap:var(--sp-5);line-height:1.85">
+
+                        <div>
+                            <h3 style="font-size:var(--fs-lg);margin-bottom:var(--sp-3)">1. ما المعلومات التي نجمعها؟</h3>
+                            <p>عند استخدامك لتوجيهي، نجمع المعلومات التالية:</p>
+                            <ul style="margin-top:var(--sp-3);padding-inline-start:1.5rem;display:flex;flex-direction:column;gap:var(--sp-2)">
+                                <li><strong>معلومات الحساب:</strong> الاسم، البريد الإلكتروني، صورة الملف الشخصي من حساب Google.</li>
+                                <li><strong>الملف الدراسي:</strong> الشعبة، المعدل المتوقع، الولاية، الاهتمامات، الطموح المهني.</li>
+                                <li><strong>بيانات الاستخدام:</strong> المحادثات مع المرشد الذكي، التخصصات المضافة لبطاقة الرغبات.</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 style="font-size:var(--fs-lg);margin-bottom:var(--sp-3)">2. كيف نستخدم معلوماتك؟</h3>
+                            <p>نستخدم معلوماتك حصرياً من أجل:</p>
+                            <ul style="margin-top:var(--sp-3);padding-inline-start:1.5rem;display:flex;flex-direction:column;gap:var(--sp-2)">
+                                <li>تقديم توصيات مخصصة تتناسب مع ملفك الدراسي.</li>
+                                <li>تحسين دقة المرشد الذكي بناءً على تفاعلاتك.</li>
+                                <li>إدارة نظام الإحالة والمكافآت.</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 style="font-size:var(--fs-lg);margin-bottom:var(--sp-3)">3. هل نشارك بياناتك؟</h3>
+                            <p>لا نبيع ولا نشارك بياناتك الشخصية مع أي طرف ثالث لأغراض تجارية. نستخدم خدمات موثوقة (Supabase للتخزين، Groq للذكاء الاصطناعي، Vercel للاستضافة) وفق سياسات خصوصيتها الخاصة.</p>
+                        </div>
+
+                        <div>
+                            <h3 style="font-size:var(--fs-lg);margin-bottom:var(--sp-3)">4. حقوقك</h3>
+                            <p>يحق لك في أي وقت:</p>
+                            <ul style="margin-top:var(--sp-3);padding-inline-start:1.5rem;display:flex;flex-direction:column;gap:var(--sp-2)">
+                                <li>طلب حذف حسابك وبياناتك بالكامل.</li>
+                                <li>تحديث أو تصحيح معلوماتك من لوحة التحكم.</li>
+                                <li>تصدير بيانات ملفك الشخصي.</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 style="font-size:var(--fs-lg);margin-bottom:var(--sp-3)">5. التواصل معنا</h3>
+                            <p>لأي استفسار حول خصوصيتك، تواصل معنا عبر البريد الإلكتروني أو من خلال صفحة التواصل في موقع BAC STORY.</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<script src="shell.js"></script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    TAWJIHI — Averages transport (import side, shared)
    Browser global script (plain <script src>, no modules/imports).
 
@@ -17,12 +17,12 @@
        "bacYear": 2025,                  // optional
        "weightedAverages": {             // optional map, keys mirror wcConfig types
          "math": 14.9, "math-physics": 15.1, "math-tech": 0,
-         "bio": 15.8, "lang": 13.0, "translation": 0
+         "bio": 15.8, "lang": 13.0, "translation": 0, "arts": 0
        }
      }
 
    weightedAverages keys (the SAME ids used by BAC Story wcConfig):
-     math | math-physics | math-tech | bio | lang | translation
+     math | math-physics | math-tech | bio | lang | translation | arts
 
    Validation: schemaVersion must be 1; every average present must be a
    finite number in [0, 20]; at least one of generalAverage / a weighted
@@ -39,7 +39,7 @@
   "use strict";
 
   var STREAM_CODES = ['sciexp', 'math', 'techmath', 'gestion', 'lettres', 'langues', 'arts'];
-  var WEIGHTED_KEYS = ['math', 'math-physics', 'math-tech', 'bio', 'lang', 'translation'];
+  var WEIGHTED_KEYS = ['math', 'math-physics', 'math-tech', 'bio', 'lang', 'translation', 'arts'];
 
   // Arabic label / legacy value → canonical stream code.
   // Covers onboarding option text, BAC Story calculator field names, and
@@ -144,8 +144,14 @@
       if (!isNaN(y) && y >= 2000 && y <= 2100) bacYear = y;
     }
 
+    var warnings = [];
+    if (bacYear && bacYear < 2025) {
+      warnings.push('المعدلات من دفعة ' + bacYear + ' — عتبات القبول الحالية لسنة 2025، قد تكون المقارنة غير دقيقة.');
+    }
+
     return {
       ok: true,
+      warnings: warnings,
       payload: {
         schemaVersion: 1,
         source: p.source || 'bacstory',

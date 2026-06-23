@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ar" dir="rtl" data-theme="light">
 <head>
     <meta charset="UTF-8">
@@ -11,10 +11,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Pattaya&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles/tokens.css">
+    <link rel="stylesheet" href="styles/motion.css">
     <link rel="stylesheet" href="styles/app.css">
     <link rel="stylesheet" href="styles/dashboard.css">
     <link rel="stylesheet" href="styles/dashboard-hero.css">
     <link rel="stylesheet" href="styles/dashboard-fx.css">
+    <link rel="stylesheet" href="styles/skeleton.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
     <script src="supabase.js"></script>
 </head>
@@ -92,7 +94,7 @@
                             <span class="dash-import-state" id="dashImportState" hidden>معدلاتك مستوردة ✓ — يمكنك التحديث</span>
                         </header>
                         <p class="dash-import-help">احسبت معدلك في BAC Story؟ الصق الرمز هنا لتحديث فرصك في كل التخصصات.</p>
-                        <textarea id="dashImportCode" class="dash-import-input" rows="3" placeholder="الصق رمز معدلاتك هنا…"></textarea>
+                        <textarea id="dashImportCode" dir="ltr" class="dash-import-input" rows="3" placeholder="الصق رمز معدلاتك هنا…"></textarea>
                         <div class="dash-import-actions">
                             <button type="button" class="btn btn-primary dash-import-btn" id="dashImportBtn"><i class="fas fa-check"></i> استيراد</button>
                             <label class="btn dash-import-file-label" for="dashImportFile"><i class="fas fa-upload"></i> من ملف</label>
@@ -325,10 +327,18 @@ function renderNudges(profile, wishIds) {
 
     /* ---- Completion ring ---- */
     const pct = calcCompletion(profile);
+    const ringEl = document.querySelector('.dash-ring');
     const ringNumEl = document.querySelector('.dash-ring-num');
-    if (ringNumEl) ringNumEl.innerHTML = `${pct}<small>٪</small>`;
-    const ringEl = document.querySelector('.dash-progress-ring');
-    if (ringEl) ringEl.setAttribute('aria-label', `اكتمال الملف ${pct}٪`);
+    const ringWrapEl = document.querySelector('.dash-progress-ring');
+    if (ringWrapEl) ringWrapEl.setAttribute('aria-label', `اكتمال الملف ${pct}٪`);
+    // Reset to 0 first, then animate to real value on next frame (MOT-5)
+    if (ringEl) ringEl.style.setProperty('--ring-pct', '0%');
+    requestAnimationFrame(() => {
+        setTimeout(() => {
+            if (ringEl) ringEl.style.setProperty('--ring-pct', pct + '%');
+            if (ringNumEl) ringNumEl.innerHTML = `${pct}<small>٪</small>`;
+        }, 100);
+    });
 
     /* ---- Wishlist data ---- */
     const wishSpecs = wishIds.map(id => TW_CATALOG.find(s => s.id === id)).filter(Boolean);
@@ -502,7 +512,9 @@ function renderNudges(profile, wishIds) {
     }
 
     /* ---- Countdown to BAC 2026 results ---- */
-    const target = new Date('2026-07-20T10:00:00').getTime();
+    // BAC results announcement date — update each year
+    const BAC_RESULTS_DATE = new Date('2026-07-20T10:00:00');
+    const target = BAC_RESULTS_DATE.getTime();
     const pad = n => String(Math.max(0, n)).padStart(2, '0');
     const cd = {
         days:  $('[data-cd="days"]'),

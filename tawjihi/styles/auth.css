@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    TAWJIHI — Auth / Sign-in page
    Depends on tokens.css + app.css. Light + dark.
    ============================================================ */
@@ -40,7 +40,7 @@
 
 /* theme toggle pinned corner */
 .auth-theme {
-    position: fixed; top: var(--sp-4); inset-inline-start: var(--sp-4);
+    position: fixed; top: var(--sp-4); inset-inline-end: var(--sp-4);
     background: var(--surface); border: 1px solid var(--border);
     box-shadow: var(--shadow-sm); z-index: 5;
 }
@@ -165,4 +165,30 @@
 @media (max-width: 480px) {
     .auth-card { padding: var(--sp-6) var(--sp-5) var(--sp-5); }
     .auth-logo { font-size: var(--fs-2xl); }
+}
+
+/* ---- unified toast (UI-11) ---- */
+.auth-toast {
+    position: fixed;
+    bottom: calc(var(--sp-6) + env(safe-area-inset-bottom, 0px));
+    left: 50%;
+    transform: translateX(-50%) translateY(80px);
+    background: var(--primary);
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: var(--r-pill);
+    font-family: var(--font-ui);
+    font-weight: 800;
+    font-size: var(--fs-sm);
+    box-shadow: var(--shadow-md);
+    transition: transform var(--t-mid) var(--ease-out);
+    z-index: var(--z-toast, 9999);
+    white-space: nowrap;
+    pointer-events: none;
+}
+.auth-toast.is-visible {
+    transform: translateX(-50%) translateY(0);
+}
+.auth-toast.is-error {
+    background: #ef4444;
 }

@@ -258,7 +258,7 @@
         const td = document.createElement('td');
         /* Defensive override for avg from authoritative catalog */
         if (field.key === 'avg' && typeof TW_CATALOG !== 'undefined') {
-          const cat = TW_CATALOG.find(c => c.id === item.id);
+          const cat = TW_CATALOG.find(c => c.id === (item.id?.toLowerCase()));
           td.textContent = cat ? String(cat.avg) : String(item[field.key] || '—');
         } else {
           td.textContent = String(item[field.key] || '—');
@@ -282,16 +282,55 @@
     unknown: { icon: 'fa-circle-question',     ar: 'بيانات غير متوفرة' },
   };
 
+  /* AI-9: Pick the right weighted average based on speciality type */
+  function getRelevantAvg(profile, specId) {
+    const id = specId?.toLowerCase() || '';
+    const wa = profile?.weightedAverages || {};
+    // Medical fields use bio weighted average
+    if (['med','pharm','dent','vet','med-bio','med-info'].includes(id)) {
+      return parseFloat(wa.bio || profile?.average || 0);
+    }
+    // Computer science / math schools use math-physics or math
+    if (['esi','estin','esi-sba','ensia','nhsm','enscs','ensta','enssn','ensas'].includes(id)) {
+      return parseFloat(wa['math-physics'] || wa.math || profile?.average || 0);
+    }
+    // Engineering schools
+    if (['essa','igee','enstp','ensttic','polytech'].includes(id)) {
+      return parseFloat(wa['math-tech'] || wa['math-physics'] || profile?.average || 0);
+    }
+    // Language/translation
+    if (['traduction','langues'].includes(id)) {
+      return parseFloat(wa.lang || wa.translation || profile?.average || 0);
+    }
+    // Default: general average
+    return parseFloat(profile?.average || 0);
+  }
+
   function renderVerdictBlock(data) {
     const id = data?.id;
     if (!id || typeof window.twAccessibility !== 'function') return null;
 
+    const specId = id?.toLowerCase(); // AI-1: normalize to lowercase
+
     const profile = getProfile();
-    const avg = parseFloat(profile.weightedAverage || profile.average) || 0;
+    const avg = getRelevantAvg(profile, specId); // AI-9: use correct weighted average
     const stream = profile.stream || '';
 
+    // DATA-10: Handle aspirational/future programs before calling twAccessibility
+    const aspirational = ['med-ai','it-int','space-tech','quantum','digital-agro'];
+    if (aspirational.includes(specId)) {
+      const box = document.createElement('div');
+      box.className = 'tw-verdict';
+      box.dataset.status = 'unknown';
+      box.innerHTML = `<div class="tw-verdict-icon"><i class="fas fa-flask"></i></div>
+        <div class="tw-verdict-body">
+          <div class="tw-verdict-label"><strong>برنامج مستقبلي</strong> — هذا التخصص لم يُفتح بعد للتسجيل، لا تتوفر بيانات قبول رسمية.</div>
+        </div>`;
+      return box;
+    }
+
     let acc;
-    try { acc = window.twAccessibility(id, avg, stream); }
+    try { acc = window.twAccessibility(specId, avg, stream); } // AI-1: normalized id
     catch { return null; }
 
     const lbl = ACC_VERDICT[acc.status] || ACC_VERDICT.unknown;
@@ -328,6 +367,19 @@
       note.className = 'tw-verdict-note';
       note.textContent = acc.note;
       body.appendChild(note);
+    }
+
+    // AI-6: Check wilaya eligibility if wilaya is set and function exists
+    const userWilayaNum = parseInt(profile?.wilaya?.num || profile?.wilaya || 0);
+    let wilayaEligible = true;
+    if (userWilayaNum > 0 && typeof window.twWilayaEligible === 'function') {
+      wilayaEligible = window.twWilayaEligible(specId, userWilayaNum);
+    }
+    if (!wilayaEligible) {
+      const wilayaWarn = document.createElement('div');
+      wilayaWarn.className = 'tw-verdict-wilaya-warn';
+      wilayaWarn.innerHTML = `<i class="fas fa-map-marker-alt"></i> هذا التخصص غير متاح لولايتك (برنامج جهوي)`;
+      body.appendChild(wilayaWarn);
     }
 
     box.appendChild(iconEl);
@@ -531,14 +583,52 @@
       <button class="msg-action" title="إعادة"><i class="fas fa-rotate-right"></i></button>
       <button class="msg-action" title="مفيد"><i class="fas fa-thumbs-up"></i></button>
       <button class="msg-action" title="غير مفيد"><i class="fas fa-thumbs-down"></i></button>`;
+
+    // Copy button
     bar.querySelector('[title="نسخ"]').addEventListener('click', e => {
       const btn = e.currentTarget;
       navigator.clipboard?.writeText(btn.closest('.msg-body').querySelector('.msg-text').innerText);
       btn.innerHTML = '<i class="fas fa-check"></i>';
       setTimeout(() => { btn.innerHTML = '<i class="fas fa-copy"></i>'; }, 1800);
     });
+
+    // AI-3: Retry button — remove last AI message and re-send last user message
+    const retryBtn = bar.querySelector('[title="إعادة"]');
+    retryBtn.addEventListener('click', () => {
+      // Find and remove the AI message that contains this actions bar
+      const lastAiMsg = retryBtn.closest('.msg');
+      if (lastAiMsg) lastAiMsg.remove();
+      // Remove last assistant message from conversation history
+      const lastAssistantIdx = conversationMessages.map(m => m.role).lastIndexOf('assistant');
+      if (lastAssistantIdx !== -1) conversationMessages.splice(lastAssistantIdx, 1);
+      // Re-send the last user message
+      const lastUserMsg = conversationMessages.filter(m => m.role === 'user').pop();
+      if (lastUserMsg) sendToAI(lastUserMsg.content);
+    });
+
+    // AI-13: Feedback buttons — toggle + send to Supabase
     bar.querySelectorAll('[title="مفيد"],[title="غير مفيد"]').forEach(b =>
-      b.addEventListener('click', () => b.classList.toggle('liked')));
+      b.addEventListener('click', async () => {
+        b.classList.toggle('liked');
+        const isLiked = b.classList.contains('liked');
+        try {
+          const profile = getProfile();
+          const sessionInfo = JSON.parse(localStorage.getItem('tw-auth') || '{}');
+          await fetch('/api/tawjihi-feedback', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${sessionInfo.token || ''}`
+            },
+            body: JSON.stringify({
+              messageId: b.closest('.msg')?.dataset?.msgId || Date.now().toString(),
+              rating: isLiked ? 1 : -1,
+              sessionId: currentChatId
+            })
+          });
+        } catch {} // Non-critical — don't show error to user
+      }));
+
     return bar;
   };
 
@@ -631,6 +721,20 @@
     conversationMessages.push({ role: 'user', content: q });
 
     try {
+      // AI-4: Include wishlist in request
+      const wishlist = JSON.parse(localStorage.getItem('tw-wishlist') || '[]');
+
+      // AI-5: Read file contents before sending
+      const fileContents = await Promise.all(
+        (files || []).map(async f => ({
+          name: f.name,
+          type: f.type,
+          content: f.type.startsWith('text/')
+            ? await f.text()
+            : `[ملف مرفق: ${f.name}]`
+        }))
+      );
+
       const response = await fetch('/api/tawjihi-chat', {
         method: 'POST',
         headers: {
@@ -643,6 +747,8 @@
           profile,
           sessionId: currentChatId,
           orientationMode,
+          wishlist,        // AI-4
+          files: fileContents, // AI-5
         }),
       });
 

@@ -23,8 +23,10 @@
   };
   const myStreamCode = profile && profile.stream ? STREAM_MAP[profile.stream] : null;
 
-  const avgInput = $('#avgInput');
-  avgInput.value = myAvg.toFixed(2);
+  const avgSlider = $('#avgSlider');
+  const avgDisplay = $('#avgDisplay');
+  avgSlider.value = myAvg.toFixed(2);
+  if (avgDisplay) avgDisplay.textContent = myAvg.toFixed(2);
 
   const streamDisplay = $('#streamDisplay');
   if (streamDisplay) streamDisplay.textContent = (profile && profile.stream) || 'غير محدد';
@@ -82,7 +84,9 @@
     box.querySelectorAll('[data-add]:not(:disabled)').forEach(b =>
       b.addEventListener('click', () => {
         if (wish.length >= MAX_WISH) { showToast('وصلت للحد الأقصى — احذف رغبة باش تزيد أخرى (الحد 10).'); return; }
-        wish.push(b.dataset.add);
+        const newId = b.dataset.add;
+        wish.push(newId);
+        window._newWishId = newId;
         renderAll();
       })
     );
@@ -119,7 +123,7 @@
       const c = byId(id); if (!c) return '';
       const r = riskOf(c.avg);
       const lmdTag = c.lmd ? '<span class="wish-lmd">LMD</span>' : '';
-      return `<li class="wish-item" style="--cat:${c.catVar}">
+      return `<li class="wish-item" data-id="${id}" style="--cat:${c.catVar}">
         <span class="wish-rank">${i + 1}</span>
         <span class="wish-info">
           <span class="wish-name">${c.name}${lmdTag}</span>
@@ -137,6 +141,14 @@
     ol.querySelectorAll('[data-up]').forEach(b   => b.addEventListener('click', () => { const i=+b.dataset.up;   [wish[i-1],wish[i]]=[wish[i],wish[i-1]]; renderAll(); }));
     ol.querySelectorAll('[data-down]').forEach(b => b.addEventListener('click', () => { const i=+b.dataset.down; [wish[i+1],wish[i]]=[wish[i],wish[i+1]]; renderAll(); }));
     ol.querySelectorAll('[data-del]').forEach(b  => b.addEventListener('click', () => { wish.splice(+b.dataset.del, 1); renderAll(); }));
+
+    /* MOT-8: spring entrance for newly added item */
+    if (window._newWishId) {
+      const newEl = ol.querySelector(`[data-id="${window._newWishId}"]`);
+      if (newEl) newEl.classList.add('wish-item--new');
+      window._newWishId = null;
+    }
+
     renderRequirements();
   }
 
@@ -202,14 +214,10 @@
   }
 
   /* ---- events ---- */
-  avgInput.addEventListener('input', () => {
-    const v = parseFloat(avgInput.value);
-    if (!isNaN(v)) {
-      const clamped = Math.min(20, Math.max(0, v));
-      if (clamped !== v) avgInput.value = clamped.toFixed(2);
-      myAvg = clamped;
-      renderAll();
-    }
+  avgSlider.addEventListener('input', () => {
+    myAvg = parseFloat(avgSlider.value);
+    if (avgDisplay) avgDisplay.textContent = myAvg.toFixed(2);
+    renderAll();
   });
   $('#catSearch').addEventListener('input', renderCatalog);
 

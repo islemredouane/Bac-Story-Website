@@ -16,33 +16,46 @@
 
   const twAuth = localStorage.getItem('tw-auth');
 
+  // Hide content until auth is confirmed — prevents flash of protected content
+  document.body.classList.add('auth-checking');
+
   if (!twAuth) {
     // No local session — try recovering from Supabase
     if (typeof tw_supabase !== 'undefined') {
       const { data: { session } } = await tw_supabase.auth.getSession();
       if (session) {
         localStorage.setItem('tw-auth', JSON.stringify({ provider: 'google', uid: session.user.id }));
+        document.body.classList.remove('auth-checking');
         if (!localStorage.getItem('tw-profile')) { location.replace('onboarding.html'); return; }
       } else {
+        localStorage.removeItem('tw-auth');
+        localStorage.removeItem('tw-profile');
         location.replace('login.html'); return;
       }
     } else {
+      localStorage.removeItem('tw-auth');
+      localStorage.removeItem('tw-profile');
       location.replace('login.html'); return;
+    }
+  } else {
+    // tw-auth exists — confirm the Supabase session is still valid before revealing content
+    if (typeof tw_supabase !== 'undefined') {
+      const { data: { session } } = await tw_supabase.auth.getSession();
+      if (session) {
+        document.body.classList.remove('auth-checking');
+      } else {
+        // Session expired — clear local state and redirect
+        localStorage.removeItem('tw-auth');
+        localStorage.removeItem('tw-profile');
+        location.replace('login.html'); return;
+      }
+    } else {
+      // Supabase unavailable — allow render but clear class
+      document.body.classList.remove('auth-checking');
     }
   }
 
   if (!localStorage.getItem('tw-profile')) { location.replace('onboarding.html'); return; }
-
-  // Background session health check (don't block render)
-  if (typeof tw_supabase !== 'undefined') {
-    tw_supabase.auth.getSession().then(({ data: { session } }) => {
-      if (!session) {
-        // Session expired — clear local state and redirect
-        ['tw-auth','tw-profile','tw-wishlist','tw-history','tw-credits','tw-referral'].forEach(k => localStorage.removeItem(k));
-        location.replace('login.html');
-      }
-    });
-  }
 }());
 
 (() => {
@@ -171,22 +184,56 @@
     const navRect = nav.getBoundingClientRect();
     const iconRect = iconEl.getBoundingClientRect();
 
-    if (!animate) {
-      slider.style.transition = 'none';
-      slider.getBoundingClientRect(); /* force reflow */
-    } else {
-      slider.style.transition = '';
-    }
     /* Centre the fixed-size pill over the icon — width/height stay constant (set in CSS) */
     const PILL_W = 52;
     const PILL_H = 34;
-    slider.style.left = (iconRect.left + iconRect.width  / 2 - navRect.left - PILL_W / 2) + 'px';
-    slider.style.top  = (iconRect.top  + iconRect.height / 2 - navRect.top  - PILL_H / 2) + 'px';
+    const dx = iconRect.left + iconRect.width  / 2 - navRect.left - PILL_W / 2;
+    const dy = iconRect.top  + iconRect.height / 2 - navRect.top  - PILL_H / 2;
+
+    if (!animate) {
+      /* Initial placement — no animation to avoid FLIP glitch */
+      slider.style.transition = 'none';
+      slider.style.transform = `translate(${dx}px, ${dy}px)`;
+      slider.getBoundingClientRect(); /* force reflow */
+      /* Enable animation for subsequent moves */
+      slider.style.transition = 'transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1)';
+    } else {
+      slider.style.transition = 'transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1)';
+      slider.style.transform = `translate(${dx}px, ${dy}px)`;
+    }
     slider.style.opacity = '1';
   }
 
   /* Snap to initial active item with no animation */
   setTimeout(() => placeSlider(nav.querySelector('.mnav-item.active'), false), 0);
+
+  /* ── View Transitions: inject CSS for cross-page animations ── */
+  const transitionStyle = document.createElement('style');
+  transitionStyle.textContent = `
+    ::view-transition-old(root) {
+      animation: 200ms ease-out both tw-fade-out-scale;
+    }
+    ::view-transition-new(root) {
+      animation: 300ms ease-out both tw-fade-in-scale;
+    }
+    @keyframes tw-fade-out-scale {
+      to { opacity: 0; transform: scale(0.98); }
+    }
+    @keyframes tw-fade-in-scale {
+      from { opacity: 0; transform: scale(1.02); }
+    }
+  `;
+  document.head.appendChild(transitionStyle);
+
+  function navigateTo(href) {
+    if (!document.startViewTransition) {
+      window.location.href = href;
+      return;
+    }
+    document.startViewTransition(() => {
+      window.location.href = href;
+    });
+  }
 
   /* Animate slider then navigate on tab click */
   nav.querySelectorAll('.mnav-item').forEach(item => {
@@ -197,7 +244,7 @@
       nav.querySelectorAll('.mnav-item').forEach(i => i.classList.remove('active'));
       item.classList.add('active');
       placeSlider(item, true);
-      setTimeout(() => { window.location.href = href; }, 240);
+      setTimeout(() => navigateTo(href), 240);
     });
   });
 })();

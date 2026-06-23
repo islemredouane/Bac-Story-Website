@@ -1,4 +1,4 @@
-// DEPENDENCY: This file requires the following Supabase RPC function to exist:
+// DEPENDENCY: This file requires the following Supabase RPC functions to exist:
 //
 //   create or replace function increment_credits(uid uuid, amount integer)
 //   returns void language plpgsql security definer as $$
@@ -12,6 +12,12 @@
 //   $$;
 //
 // If the RPC is not available, the fallback path below performs a manual read+update.
+//
+// Required Supabase RPC: increment_referral_count(code_id uuid, amount int)
+// CREATE OR REPLACE FUNCTION increment_referral_count(code_id uuid, amount int)
+// RETURNS void AS $$ UPDATE referral_codes SET refs_count = refs_count + amount, earned_credits = earned_credits + (amount * 30) WHERE id = code_id; $$ LANGUAGE sql SECURITY DEFINER;
+//
+// NOTE: Create table 'referral_redemptions' with columns: id (uuid pk), redeemer_id (uuid fk users), code (text), redeemed_at (timestamptz). Add unique constraint on redeemer_id.
 
 import { createClient } from '@supabase/supabase-js';
 
@@ -135,10 +141,21 @@ export default async function handler(req, res) {
 
       const normalizedCode = code.trim().toUpperCase();
 
+      // Check if user already redeemed any code (SEC-4: per-user redemption limit)
+      const { data: existingRedemption } = await adminSupabase
+        .from('referral_redemptions')
+        .select('id')
+        .eq('redeemer_id', user.id)
+        .single();
+
+      if (existingRedemption) {
+        return res.status(409).json({ error: 'لقد استخدمت رمز إحالة من قبل' });
+      }
+
       // Look up the referral code — must belong to someone else
       const { data: referral, error: lookupError } = await adminSupabase
         .from('referral_codes')
-        .select('id, owner_user_id, refs_count, earned_credits')
+        .select('id, owner_user_id')
         .eq('code', normalizedCode)
         .neq('owner_user_id', user.id)
         .single();
@@ -149,23 +166,29 @@ export default async function handler(req, res) {
 
       const referrerId = referral.owner_user_id;
 
-      // Credit both users (+30 each)
-      await incrementCredits(referrerId, 30);
-      await incrementCredits(user.id, 30);
+      // Atomic idempotency guard: insert redemption record first.
+      // The unique constraint on redeemer_id prevents double-redemption under race conditions (SEC-3, SEC-4).
+      const { error: redemptionError } = await adminSupabase
+        .from('referral_redemptions')
+        .insert({ redeemer_id: user.id, code: normalizedCode, redeemed_at: new Date().toISOString() });
 
-      // Update refs_count and earned_credits on the referral record
+      if (redemptionError) {
+        // Unique constraint violated — another concurrent request already redeemed
+        return res.status(409).json({ error: 'لقد استخدمت رمز إحالة من قبل' });
+      }
+
+      // Atomically increment refs_count and earned_credits via DB-level RPC (SEC-3: no read-modify-write)
       const { error: refUpdateError } = await adminSupabase
-        .from('referral_codes')
-        .update({
-          refs_count: (referral.refs_count || 0) + 1,
-          earned_credits: (referral.earned_credits || 0) + 30,
-        })
-        .eq('id', referral.id);
+        .rpc('increment_referral_count', { code_id: referral.id, amount: 1 });
 
       if (refUpdateError) {
-        // Non-fatal: credits already awarded — log but don't fail the request
-        console.error('Referral stats update error:', refUpdateError);
+        // Non-fatal: redemption record is already committed; log but don't fail
+        console.error('Referral stats increment error:', refUpdateError);
       }
+
+      // Credit both users AFTER redemption record is committed (prevents double-grant on retry)
+      await incrementCredits(referrerId, 30);
+      await incrementCredits(user.id, 30);
 
       return res.status(200).json({ ok: true, credited: 30 });
     } catch (err) {

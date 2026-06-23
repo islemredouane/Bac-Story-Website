@@ -1,9 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ar" dir="rtl" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <script>!function(){var p=location.pathname.split('/').pop();if(['login.html','onboarding.html','index.html',''].indexOf(p)<0){if(!localStorage.getItem('tw-auth'))return void location.replace('login.html');if(!localStorage.getItem('tw-profile'))return void location.replace('onboarding.html')}}()</script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <title>توجيهي · دليل التخصصات والمدارس العليا</title>
     <meta name="description" content="توجيهي من BAC STORY — تصفّح التخصصات والمدارس العليا في الجزائر حسب الشعبة والمعدل.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,95 +12,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Pattaya&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles/tokens.css">
+    <link rel="stylesheet" href="styles/motion.css">
     <link rel="stylesheet" href="styles/app.css">
     <link rel="stylesheet" href="styles/spec-browser.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
     <script src="supabase.js"></script>
     <script src="catalog.js"></script>
     <script src="eligibility.js"></script>
-    <style>
-        /* ---- stream chips row ---- */
-        .stream-chips-row { margin-bottom: 0.75rem; font-size: 0; line-height: 1; }
-        .stream-chip {
-            display: inline-block;
-            width: max-content;
-            margin: 0.22rem 0.2rem;
-            padding: 0.32rem 0.85rem;
-            border-radius: 50px;
-            border: 1.5px solid var(--border-strong);
-            background: var(--surface-2);
-            color: var(--text-muted);
-            font-size: 0.79rem;
-            font-weight: 700;
-            cursor: pointer;
-            white-space: nowrap;
-            font-family: var(--font-ui);
-            user-select: none;
-            vertical-align: middle;
-            transition: border-color 0.18s ease, color 0.18s ease, background 0.18s ease, transform 0.18s ease;
-        }
-        .stream-chip.active,
-        .stream-chip:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-            background: color-mix(in srgb, var(--primary) 10%, transparent);
-            transform: translateY(-1px);
-        }
-        .stream-chip.active { font-weight: 800; }
-
-        /* ---- LMD toggle pills ---- */
-        .lmd-row { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
-        .lmd-row-label { font-size: 0.8rem; font-weight: 700; color: var(--text-muted); white-space: nowrap; margin-left: 0.2rem; }
-        .lmd-chip {
-            display: inline-block;
-            padding: 0.3rem 0.85rem;
-            border-radius: 50px;
-            border: 1.5px solid var(--border-strong);
-            background: var(--surface-2);
-            color: var(--text-muted);
-            font-size: 0.79rem;
-            font-weight: 700;
-            cursor: pointer;
-            white-space: nowrap;
-            font-family: var(--font-ui);
-            user-select: none;
-            transition: border-color 0.18s ease, color 0.18s ease, background 0.18s ease;
-        }
-        .lmd-chip.active,
-        .lmd-chip:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-            background: color-mix(in srgb, var(--primary) 10%, transparent);
-        }
-        .lmd-chip.active { font-weight: 800; }
-
-        /* ---- avg range filter ---- */
-        .avg-row { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.5rem; }
-        .avg-row-label { font-size: 0.8rem; font-weight: 700; color: var(--text-muted); white-space: nowrap; }
-        .avg-input-group { display: inline-flex; align-items: center; gap: 0.35rem; }
-        .avg-input-group span { font-size: 0.8rem; color: var(--text-muted); font-weight: 600; }
-        .avg-input {
-            width: 4.2rem;
-            padding: 0.3rem 0.5rem;
-            border: 1.5px solid var(--border-strong);
-            border-radius: 8px;
-            font-size: 0.82rem;
-            font-family: var(--font-ui);
-            color: var(--text);
-            background: var(--surface-2);
-            outline: none;
-            text-align: center;
-            transition: border-color 0.2s;
-        }
-        .avg-input:focus { border-color: var(--primary); background: var(--surface); }
-
-        /* ---- filter section dividers ---- */
-        .filter-section-divider {
-            border: none;
-            border-top: 1px solid var(--border);
-            margin: 0.65rem 0;
-        }
-    </style>
 </head>
 <body>
 <div class="app" id="app">
@@ -240,6 +159,7 @@
                     <div class="no-results is-hidden" id="noResults">
                         <i class="fas fa-folder-open"></i>
                         <p>ما لقينا حتى تخصص يطابق الفلاتر. جرّب تخفّف الشروط أو تعيد ضبط الفلاتر.</p>
+                        <button class="no-results-reset" id="noResultsReset"><i class="fas fa-rotate-left"></i> صفّر الفلاتر</button>
                     </div>
                 </div>
 
@@ -691,6 +611,11 @@
 
     renderCards();
   });
+
+  const noResultsResetBtn = $('#noResultsReset');
+  if (noResultsResetBtn) {
+    noResultsResetBtn.addEventListener('click', () => $('#resetBtn').click());
+  }
 
   /* ---- Initial render ---- */
   renderCards();

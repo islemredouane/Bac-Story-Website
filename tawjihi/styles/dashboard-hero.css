@@ -4,6 +4,13 @@
    works in both light and dark mode. Loaded after dashboard.css.
    ============================================================ */
 
+/* Register --ring-pct so CSS transitions animate the conic-gradient */
+@property --ring-pct {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 0%;
+}
+
 /* ---- Banner --------------------------------------------------- */
 .dash-hero {
     position: relative;
@@ -138,7 +145,7 @@
 }
 
 .dash-ring {
-    --ring-pct: 80%;
+    --ring-pct: 0%;  /* default 0%; JS will set the real value */
     --ring-size: 128px;
     --ring-thick: 12px;
     position: relative;
@@ -147,7 +154,7 @@
     border-radius: 50%;
     display: grid;
     place-items: center;
-    /* real conic-gradient donut */
+    /* real conic-gradient donut — animates via @property */
     background:
         conic-gradient(
             var(--primary) 0,
@@ -157,6 +164,7 @@
     box-shadow:
         0 0 0 1px color-mix(in srgb, var(--primary) 18%, transparent),
         0 8px 26px color-mix(in srgb, var(--primary) 28%, transparent);
+    transition: --ring-pct var(--t-slow, 600ms) var(--ease-out, ease);
 }
 
 /* inner cutout -> donut */
