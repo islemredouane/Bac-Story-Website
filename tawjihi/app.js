@@ -185,7 +185,7 @@
      DIRECTIVE BLOCK PARSER (output contract v2 §5)
      Extracts fenced directive blocks and removes them from prose.
      ============================================================ */
-  const BLOCK_RE = /```(spec-cards|compare|verdict|question)[ \t]*\n([\s\S]*?)\n?```/g;
+  const BLOCK_RE = /```(spec-cards|compare|verdict|question|followups)[ \t]*\n([\s\S]*?)\n?```/g;
 
   function parseDirectives(text) {
     const blocks = [];
@@ -469,12 +469,14 @@
     return card;
   }
 
-  /* Render a complete AI message (markdown + components) into a textEl container. */
+  /* Render a complete AI message (markdown + components) into a textEl container.
+     Returns an array of follow-up question strings if the AI provided them, else null. */
   function renderAiMessage(textEl, fullText) {
     const { clean, blocks } = parseDirectives(fullText);
     textEl.innerHTML = '';
     textEl.appendChild(twMd(clean));
     let hasSpecCards = false;
+    let followups = null;
     for (const blk of blocks) {
       if (blk.type === 'spec-cards' && Array.isArray(blk.data)) {
         textEl.appendChild(specCards(blk.data));
@@ -487,10 +489,12 @@
       } else if (blk.type === 'question') {
         const q = renderQuestionBlock(blk.data);
         if (q) textEl.appendChild(q);
+      } else if (blk.type === 'followups' && Array.isArray(blk.data)) {
+        followups = blk.data.filter(q => typeof q === 'string' && q.trim());
       }
     }
-    /* End orientation mode once the AI gives final spec-card recommendations */
     if (hasSpecCards && orientationMode) orientationMode = false;
+    return followups;
   }
 
   /* ============================================================
@@ -876,7 +880,7 @@
           saveMessageToSession('assistant', fullText);
 
           /* Replace streaming raw text with properly rendered markdown + components */
-          renderAiMessage(textEl, fullText);
+          const followups = renderAiMessage(textEl, fullText);
 
           /* Disclaimer */
           const note = document.createElement('p');
@@ -885,11 +889,10 @@
           textEl.appendChild(note);
 
           shell.querySelector('.msg-body').appendChild(actionsBar());
-          shell.querySelector('.msg-body').appendChild(followupChips([
-            'شنو معدل القبول لهاذا التخصص؟',
-            'قارن بين تخصصين',
-            'كيفاش نرتّب بطاقة الرغبات؟',
-          ]));
+          /* Only show follow-up chips when the AI explicitly provided them */
+          if (followups && followups.length > 0) {
+            shell.querySelector('.msg-body').appendChild(followupChips(followups));
+          }
           scrollDown();
         }
       );
