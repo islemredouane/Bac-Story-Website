@@ -192,7 +192,9 @@
 }
 
 /* messages */
-.msg { display: flex; gap: var(--sp-3); padding: var(--sp-4) 0; animation: rise var(--t-mid) var(--ease-out) both; }
+.msg { display: flex; gap: var(--sp-3); padding: var(--sp-4) 0; animation: rise var(--t-mid) var(--ease-out) both; align-items: flex-start; }
+.msg.user { justify-content: flex-end; }
+.msg.ai { justify-content: flex-start; }
 .msg-avatar { display: none; }
 .msg.ai .msg-avatar { background: var(--grad-brand); color: #fff; }
 .msg.user .msg-avatar {
