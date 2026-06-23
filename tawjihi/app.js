@@ -1002,21 +1002,37 @@
     scroll.scrollTo({ top: scroll.scrollHeight });
   }
 
+  /* Small centered notice shown inside the chat when a session has no content. */
+  function showChatNotice(text) {
+    const note = document.createElement('div');
+    note.className = 'chat-notice';
+    note.textContent = text;
+    inner.appendChild(note);
+  }
+
   /* ---- Load a past chat session (localStorage first, Supabase fallback) ---- */
   async function loadChatSession(sessionId) {
+    /* Tear the overlay down and reset the view FIRST — before any branch below
+       can return early. Otherwise the history scrim stays up and blocks the
+       whole window ("cannot access"). resetChat() also closes the panel,
+       clears messages and resets currentChatId. */
+    resetChat();
+    closeHist();
+    currentChatId = sessionId;
+    renderHistory(); // highlight the now-active item
+
+    /* Fast path: messages cached locally. */
     const saved = JSON.parse(localStorage.getItem(`tw-sess-${sessionId}`) || '[]');
     if (saved.length > 0) {
-      resetChat();
-      currentChatId = sessionId;
       renderSessionMessages(saved);
-      renderHistory(); // re-render to show active highlight
       return;
     }
 
-    /* Supabase fallback for sessions from before localStorage storage was added */
-    if (typeof tw_supabase === 'undefined') return;
-    resetChat();
-    currentChatId = sessionId;
+    /* No local copy (session predates local persistence). Try Supabase. */
+    if (typeof tw_supabase === 'undefined') {
+      showChatNotice('ما لقيناش محتوى هذه المحادثة. ابدأ محادثة جديدة.');
+      return;
+    }
 
     const loadEl = document.createElement('div');
     loadEl.className = 'msg ai';
@@ -1028,7 +1044,7 @@
 
     try {
       const { data: { session } } = await tw_supabase.auth.getSession();
-      if (!session) { loadEl.remove(); return; }
+      if (!session) { loadEl.remove(); showChatNotice('ما لقيناش محتوى هذه المحادثة. ابدأ محادثة جديدة.'); return; }
 
       const { data: messages, error } = await tw_supabase
         .from('chat_messages')
@@ -1037,17 +1053,20 @@
         .order('created_at', { ascending: true });
 
       loadEl.remove();
-      if (error || !messages || messages.length === 0) { renderHistory(); return; }
+      if (error || !messages || messages.length === 0) {
+        showChatNotice('ما لقيناش محتوى هذه المحادثة. ابدأ محادثة جديدة.');
+        return;
+      }
 
       renderSessionMessages(messages);
       /* Back-fill localStorage so future loads are instant */
       localStorage.setItem(`tw-sess-${sessionId}`, JSON.stringify(
         messages.map(m => ({ role: m.role, content: m.content, ts: new Date(m.created_at).getTime() }))
       ));
-      renderHistory();
     } catch (err) {
       loadEl.remove();
       console.error('Failed to load chat session:', err);
+      showChatNotice('تعذّر تحميل المحادثة — حاول مرة أخرى.');
     }
   }
 })();

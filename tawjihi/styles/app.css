@@ -217,6 +217,12 @@
 }
 .msg.user .msg-name { display: none; }
 .msg.user .msg-actions { display: none; }
+.chat-notice {
+    align-self: center; margin: var(--sp-6) auto; max-width: 320px;
+    text-align: center; color: var(--text-faint); font-size: var(--fs-sm);
+    line-height: 1.6; padding: var(--sp-4); border-radius: var(--r-lg);
+    background: color-mix(in srgb, var(--surface-2) 60%, transparent);
+}
 .msg-text { font-size: var(--fs-md); line-height: 1.75; }
 .msg-text p { margin-bottom: var(--sp-2); }
 .msg-text p:last-child { margin-bottom: 0; }
@@ -655,9 +661,10 @@
     position: fixed; inset: 0; z-index: 200;
     background: var(--overlay);
     opacity: 0; visibility: hidden;
+    pointer-events: none;   /* instant — never intercept clicks while closed/closing */
     transition: opacity var(--t-mid) var(--ease), visibility var(--t-mid) var(--ease);
 }
-.hist-scrim.open { opacity: 1; visibility: visible; }
+.hist-scrim.open { opacity: 1; visibility: visible; pointer-events: auto; }
 
 .hist-panel {
     position: fixed; top: 0; inset-inline-end: 0; height: 100dvh; z-index: 201;
@@ -666,11 +673,12 @@
     border-inline-start: 1px solid var(--border);
     box-shadow: var(--shadow-lg);
     transform: translateX(-100%);         /* hidden off the inline-end edge (left in RTL) */
+    pointer-events: none;                 /* off-screen panel must not block clicks */
     transition: transform var(--t-mid) var(--ease);
     display: flex; flex-direction: column;
     padding: var(--sp-3);
 }
-.hist-panel.open { transform: translateX(0); }
+.hist-panel.open { transform: translateX(0); pointer-events: auto; }
 
 .hist-head {
     display: flex; align-items: center; justify-content: space-between;
