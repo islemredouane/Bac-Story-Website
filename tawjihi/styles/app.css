@@ -552,19 +552,23 @@
 
 .hist-panel {
     position: fixed; top: 0; inset-inline-end: 0; height: 100dvh; z-index: 201;
-    width: 320px; max-width: 86vw;
+    width: 300px; max-width: 86vw;
     background: var(--surface);
     border-inline-start: 1px solid var(--border);
     box-shadow: var(--shadow-lg);
-    transform: translateX(100%);          /* hidden off the right edge */
+    transform: translateX(-100%);         /* hidden off the inline-end edge (left in RTL) */
     transition: transform var(--t-mid) var(--ease);
     display: flex; flex-direction: column;
     padding: var(--sp-3);
 }
 .hist-panel.open { transform: translateX(0); }
 
-.hist-head { display: flex; align-items: center; justify-content: space-between; padding: var(--sp-2) var(--sp-2) var(--sp-4); }
-.hist-title { font-weight: 800; display: flex; align-items: center; gap: var(--sp-2); }
+.hist-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: var(--sp-2) var(--sp-2) var(--sp-4);
+    border-bottom: 1px solid var(--border); margin-bottom: var(--sp-2);
+}
+.hist-title { font-weight: 800; display: flex; align-items: center; gap: var(--sp-2); font-size: var(--fs-base); }
 .hist-title i { color: var(--primary); }
 
 .hist-new {
@@ -575,15 +579,21 @@
 }
 .hist-new:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
 
-.hist-list { display: flex; flex-direction: column; gap: 2px; overflow-y: auto; }
+.hist-list { display: flex; flex-direction: column; gap: 2px; overflow-y: auto; flex: 1; }
 .hist-item {
-    display: flex; align-items: center; gap: var(--sp-3);
+    display: flex; align-items: flex-start; gap: var(--sp-3);
     padding: var(--sp-3); border-radius: var(--r-md);
     color: var(--text-muted); font-size: var(--fs-sm); font-weight: 600;
     transition: background var(--t-fast), color var(--t-fast);
+    cursor: pointer;
 }
-.hist-item i { color: var(--text-faint); width: 18px; text-align: center; }
+.hist-item i { color: var(--text-faint); width: 18px; text-align: center; flex-shrink: 0; margin-top: 2px; }
 .hist-item:hover { background: var(--surface-2); color: var(--text); }
+.hist-item.active { background: var(--primary-alpha, rgba(44,92,197,.1)); color: var(--primary); }
+.hist-item.active i { color: var(--primary); }
+.hist-item-body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.hist-item-title { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.hist-item-time { font-size: var(--fs-xs, .75rem); color: var(--text-faint); font-weight: 400; }
 
 /* ============================================================
    SCROLLBAR — minimal, Gemini-style

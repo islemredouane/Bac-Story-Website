@@ -502,6 +502,19 @@
   let conversationMessages = [];
 
   /* ---- History panel: localStorage-backed ---- */
+  function relativeTime(ts) {
+    const diff = Date.now() - ts;
+    const mins = Math.floor(diff / 60000);
+    if (mins < 1) return 'الآن';
+    if (mins < 60) return `منذ ${mins} د`;
+    const hrs = Math.floor(mins / 60);
+    if (hrs < 24) return `منذ ${hrs} س`;
+    const days = Math.floor(hrs / 24);
+    if (days === 1) return 'أمس';
+    if (days < 7) return `منذ ${days} أيام`;
+    return new Date(ts).toLocaleDateString('ar-DZ', { month: 'short', day: 'numeric' });
+  }
+
   function renderHistory() {
     const listEl = document.getElementById('histList');
     if (!listEl) return;
@@ -513,16 +526,21 @@
     listEl.innerHTML = '';
     history.slice().reverse().forEach(h => {
       const a = document.createElement('a');
-      a.className = 'hist-item';
+      a.className = 'hist-item' + (h.id === currentChatId ? ' active' : '');
       a.href = '#';
       a.dataset.histId = h.id;
-      const icon = document.createElement('i');
-      icon.className = 'fas fa-message';
-      const span = document.createElement('span');
-      span.textContent = h.title;
-      a.appendChild(icon);
-      a.appendChild(span);
-      a.addEventListener('click', e => { e.preventDefault(); closeHist(); loadChatSession(h.id); });
+      a.innerHTML = `
+        <i class="fas fa-message"></i>
+        <div class="hist-item-body">
+          <span class="hist-item-title">${esc(h.title)}</span>
+          <span class="hist-item-time">${relativeTime(h.ts)}</span>
+        </div>`;
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        listEl.querySelectorAll('.hist-item').forEach(el => el.classList.remove('active'));
+        a.classList.add('active');
+        loadChatSession(h.id);
+      });
       listEl.appendChild(a);
     });
   }
@@ -535,9 +553,21 @@
       title: title.length > 46 ? title.slice(0, 46) + '…' : title,
       ts: Date.now(),
     });
-    if (history.length > 20) history.shift();
+    if (history.length > 20) {
+      const removed = history.shift();
+      localStorage.removeItem(`tw-sess-${removed.id}`);
+    }
     localStorage.setItem('tw-history', JSON.stringify(history));
+    localStorage.setItem(`tw-sess-${currentChatId}`, JSON.stringify([]));
     renderHistory();
+  }
+
+  function saveMessageToSession(role, content) {
+    if (!currentChatId) return;
+    const key = `tw-sess-${currentChatId}`;
+    const msgs = JSON.parse(localStorage.getItem(key) || '[]');
+    msgs.push({ role, content, ts: Date.now() });
+    localStorage.setItem(key, JSON.stringify(msgs));
   }
 
   /* Smart scroll: don't hijack if user scrolled up to read */
@@ -766,6 +796,7 @@
         (fullText) => {
           conversationMessages.push({ role: 'assistant', content: fullText });
           if (conversationMessages.length > 20) conversationMessages.splice(0, 2);
+          saveMessageToSession('assistant', fullText);
 
           /* Replace streaming raw text with properly rendered markdown + components */
           renderAiMessage(textEl, fullText);
@@ -813,6 +844,7 @@
     const files = [...attachedFiles];
     attachedFiles = []; renderAttachChips();
     userMsg(q, files);
+    saveMessageToSession('user', q);
     input.value = ''; autosize(); sendBtn.disabled = true;
     sendToAI(q, files);
   });
@@ -856,8 +888,52 @@
     setTimeout(() => input.setSelectionRange(0, 0), 50); // cursor at start (RTL)
   }
 
-  /* ---- Load a past chat session from Supabase ---- */
+  /* ---- Render a list of {role,content} messages into the chat ---- */
+  function renderSessionMessages(messages) {
+    if (hero && mainEl && !mainEl.classList.contains('chat-started')) {
+      mainEl.classList.add('chat-started');
+      setTimeout(() => { if (hero) hero.style.display = 'none'; }, 420);
+    }
+    conversationMessages = [];
+    messages.forEach(msg => {
+      if (msg.role === 'user') {
+        userMsg(msg.content);
+      } else if (msg.role === 'assistant') {
+        const shell = document.createElement('div');
+        shell.className = 'msg ai';
+        const textEl = document.createElement('div');
+        textEl.className = 'msg-text';
+        renderAiMessage(textEl, msg.content);
+        shell.innerHTML = `<div class="msg-avatar">ت</div>`;
+        const body = document.createElement('div');
+        body.className = 'msg-body';
+        const nameEl = document.createElement('div');
+        nameEl.className = 'msg-name';
+        nameEl.textContent = 'مرشد توجيهي';
+        body.appendChild(nameEl);
+        body.appendChild(textEl);
+        body.appendChild(actionsBar());
+        shell.appendChild(body);
+        inner.appendChild(shell);
+      }
+      conversationMessages.push({ role: msg.role, content: msg.content });
+    });
+    if (conversationMessages.length > 20) conversationMessages = conversationMessages.slice(-20);
+    scroll.scrollTo({ top: scroll.scrollHeight });
+  }
+
+  /* ---- Load a past chat session (localStorage first, Supabase fallback) ---- */
   async function loadChatSession(sessionId) {
+    const saved = JSON.parse(localStorage.getItem(`tw-sess-${sessionId}`) || '[]');
+    if (saved.length > 0) {
+      resetChat();
+      currentChatId = sessionId;
+      renderSessionMessages(saved);
+      renderHistory(); // re-render to show active highlight
+      return;
+    }
+
+    /* Supabase fallback for sessions from before localStorage storage was added */
     if (typeof tw_supabase === 'undefined') return;
     resetChat();
     currentChatId = sessionId;
@@ -881,44 +957,14 @@
         .order('created_at', { ascending: true });
 
       loadEl.remove();
-      if (error || !messages || messages.length === 0) return;
+      if (error || !messages || messages.length === 0) { renderHistory(); return; }
 
-      if (hero && mainEl && !mainEl.classList.contains('chat-started')) {
-        mainEl.classList.add('chat-started');
-        setTimeout(() => { if (hero) hero.style.display = 'none'; }, 420);
-      }
-
-      conversationMessages = [];
-      messages.forEach(msg => {
-        if (msg.role === 'user') {
-          userMsg(msg.content);
-        } else if (msg.role === 'assistant') {
-          const shell = document.createElement('div');
-          shell.className = 'msg ai';
-
-          const textEl = document.createElement('div');
-          textEl.className = 'msg-text';
-          renderAiMessage(textEl, msg.content);
-
-          shell.innerHTML = `<div class="msg-avatar">ت</div>`;
-          const body = document.createElement('div');
-          body.className = 'msg-body';
-          const nameEl = document.createElement('div');
-          nameEl.className = 'msg-name';
-          nameEl.textContent = 'مرشد توجيهي';
-          body.appendChild(nameEl);
-          body.appendChild(textEl);
-          body.appendChild(actionsBar());
-          shell.appendChild(body);
-          inner.appendChild(shell);
-        }
-        conversationMessages.push({ role: msg.role, content: msg.content });
-      });
-
-      if (conversationMessages.length > 20) {
-        conversationMessages = conversationMessages.slice(-20);
-      }
-      scroll.scrollTo({ top: scroll.scrollHeight });
+      renderSessionMessages(messages);
+      /* Back-fill localStorage so future loads are instant */
+      localStorage.setItem(`tw-sess-${sessionId}`, JSON.stringify(
+        messages.map(m => ({ role: m.role, content: m.content, ts: new Date(m.created_at).getTime() }))
+      ));
+      renderHistory();
     } catch (err) {
       loadEl.remove();
       console.error('Failed to load chat session:', err);
