@@ -108,10 +108,19 @@ function injectGlobalCTA() {
             </div>
             <div class="gcta-btn">تفقد العد التنازلي <i class="fas fa-arrow-left"></i></div>
         </a>
+        <a href="/bac-2026.html" class="gcta-card gcta-card--correct">
+            <div class="gcta-icon-circle"><i class="fas fa-check-double"></i></div>
+            <div class="gcta-text">
+                <strong>تصحيحات بكالوريا 2026</strong>
+                <span>شاهد مواضيع وحلول البكالوريا لجميع الشعب فور توفرها</span>
+            </div>
+            <div class="gcta-btn">تصفح الحلول <i class="fas fa-arrow-left"></i></div>
+        </a>
     </div>
     <!-- Mobile-only rotation dots -->
     <div class="gcta-dots" id="gcta-dots">
         <span class="gcta-dot gcta-dot--active"></span>
+        <span class="gcta-dot"></span>
         <span class="gcta-dot"></span>
         <span class="gcta-dot"></span>
         <span class="gcta-dot"></span>
@@ -331,125 +340,30 @@ if (typeof window.showSection === 'undefined') {
     };
 }
 
-// ─── TELEGRAM ANNOUNCEMENT CARD ────────────────────────────────────────────────────
-const WELCOME_KEY = 'bs_seen_telegram_announce_v20';
+// ─── BAC 2026 ANNOUNCEMENT MODAL ──────────────────────────────────────────────────
+const BAC2026_ANNOUNCE_KEY = 'bs_seen_bac2026_announce_v1';
 
-function showTelegramWelcomeModal() {
-    if (localStorage.getItem(WELCOME_KEY)) return;
+function showBac2026AnnouncementModal() {
+    if (localStorage.getItem(BAC2026_ANNOUNCE_KEY)) return;
 
-    // Dynamic Loading of the CSS stylesheet
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = '/islamic-welcome.css?v=2.9';
-    document.head.appendChild(link);
-
-    // Create the HTML overlay structure
+    // Create the overlay container
     const overlay = document.createElement('div');
-    overlay.id = 'islamic-welcome-overlay';
-    overlay.className = 'islamic-overlay';
-
-    // Golden Lantern SVGs with elegant designs
-    const lanternSVGLeft = `
-        <svg class="islamic-lantern islamic-lantern-left" viewBox="0 0 100 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <line x1="50" y1="0" x2="50" y2="40" stroke="#bf953f" stroke-width="2.5"/>
-            <!-- Ring -->
-            <circle cx="50" cy="46" r="6" stroke="#bf953f" stroke-width="2.5"/>
-            <!-- Top Cap -->
-            <path d="M50 56 L35 76 L65 76 Z" fill="url(#gold-grad)"/>
-            <!-- Glass Body -->
-            <path d="M35 76 L40 126 L60 126 L65 76 Z" fill="rgba(255, 215, 0, 0.15)" stroke="#bf953f" stroke-width="2.5"/>
-            <!-- Inner Light Glow -->
-            <circle cx="50" cy="101" r="14" fill="#ffd54f" opacity="0.35" filter="blur(4px)"/>
-            <circle cx="50" cy="101" r="6" fill="#ffffff" opacity="0.9"/>
-            <!-- Bottom Cap -->
-            <path d="M38 126 L30 136 L70 136 L62 126 Z" fill="url(#gold-grad)"/>
-            <!-- Tassel hanging -->
-            <line x1="50" y1="136" x2="50" y2="166" stroke="#bf953f" stroke-width="2"/>
-            <circle cx="50" cy="170" r="4" fill="#bf953f"/>
-        </svg>
-    `;
-
-    const lanternSVGRight = `
-        <svg class="islamic-lantern islamic-lantern-right" viewBox="0 0 100 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <line x1="50" y1="0" x2="50" y2="40" stroke="#bf953f" stroke-width="2.5"/>
-            <!-- Ring -->
-            <circle cx="50" cy="46" r="6" stroke="#bf953f" stroke-width="2.5"/>
-            <!-- Top Cap -->
-            <path d="M50 56 L35 76 L65 76 Z" fill="url(#gold-grad)"/>
-            <!-- Glass Body -->
-            <path d="M35 76 L40 126 L60 126 L65 76 Z" fill="rgba(255, 215, 0, 0.15)" stroke="#bf953f" stroke-width="2.5"/>
-            <!-- Inner Light Glow -->
-            <circle cx="50" cy="101" r="14" fill="#ffd54f" opacity="0.35" filter="blur(4px)"/>
-            <circle cx="50" cy="101" r="6" fill="#ffffff" opacity="0.9"/>
-            <!-- Bottom Cap -->
-            <path d="M38 126 L30 136 L70 136 L62 126 Z" fill="url(#gold-grad)"/>
-            <!-- Tassel hanging -->
-            <line x1="50" y1="136" x2="50" y2="166" stroke="#bf953f" stroke-width="2"/>
-            <circle cx="50" cy="170" r="4" fill="#bf953f"/>
-        </svg>
-    `;
-
-    // Islamic Ornamental Divider SVG
-    const dividerSVG = `
-        <svg viewBox="0 0 200 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stop-color="#ff6b35" />
-                    <stop offset="25%" stop-color="#ff9f43" />
-                    <stop offset="50%" stop-color="#ffebbc" />
-                    <stop offset="75%" stop-color="#ff9f43" />
-                    <stop offset="100%" stop-color="#ff6b35" />
-                </linearGradient>
-            </defs>
-            <!-- Left scroll line -->
-            <path d="M15 10 Q 55 2, 90 10" stroke="url(#gold-grad)" stroke-width="1.5" fill="none"/>
-            <!-- Right scroll line -->
-            <path d="M185 10 Q 145 2, 110 10" stroke="url(#gold-grad)" stroke-width="1.5" fill="none"/>
-            <!-- Central Simple Ornament -->
-            <path d="M100 6 L104 10 L100 14 L96 10 Z" fill="url(#gold-grad)"/>
-            <circle cx="83" cy="10" r="2.5" fill="url(#gold-grad)"/>
-            <circle cx="117" cy="10" r="2.5" fill="url(#gold-grad)"/>
-            <circle cx="73" cy="10" r="1.5" fill="url(#gold-grad)"/>
-            <circle cx="127" cy="10" r="1.5" fill="url(#gold-grad)"/>
-        </svg>
-    `;
+    overlay.className = 'bac2026-overlay';
 
     overlay.innerHTML = `
-        <div class="islamic-card">
-            <button class="islamic-close-btn" id="islamicCloseBtn" aria-label="إغلاق">
-                <i class="fas fa-times"></i>
-            </button>
-            <div class="islamic-card-pattern"></div>
-
-            <div class="islamic-decor-top"><i class="fa-solid fa-graduation-cap"></i></div>
-
-            <h3 class="islamic-welcome-title">تحديث جديد وحصري لمرحلة ما بعد الباك!</h3>
-
-            <div class="islamic-divider-ornament">
-                ${dividerSVG}
+        <div class="welcome-announcement-card modal-version">
+            <button class="announcement-modal-close" aria-label="إغلاق">&times;</button>
+            <div class="welcome-badge-pill">
+                <i class="fas fa-bullhorn"></i> جديد بكالوريا 2026
             </div>
-
-            <div style="display: flex; flex-direction: column; gap: 0.8rem; margin: 0.6rem 0 1.2rem 0; direction: rtl; text-align: right; z-index: 1; position: relative; padding: 0 15px;">
-                <div style="font-size: 0.98rem; color: #fff; line-height: 1.6;">
-                    <strong>حاسبة المعدل:</strong> كيف سيبدو كشف نقاطك أو اسمك في الجريدة الرسمية؟
-                </div>
-                <div style="font-size: 0.98rem; color: #fff; line-height: 1.6;">
-                    <strong>دليل الجامعة:</strong> تصفح شروط ومعدلات القبول لجميع التخصصات.
-                </div>
-                <div style="font-size: 0.98rem; color: #fff; line-height: 1.6;">
-                    <strong>التصحيحات و الأخبار:</strong> تحصل على التصحيحات النموذجية في الموقع فور توفرها، و تابع أخبار الجوائز الحصرية على قناتنا في التلغرام.
-                </div>
-            </div>
-
-            <div class="islamic-btn-group">
-                <a href="/tools.html#calculator" class="islamic-welcome-btn btn-orange" id="islamicWelcomeBtn">
-                    <i class="fas fa-calculator"></i> جرب حاسبة المعدل وكشف النقاط
+            <h3>تصحيحات مواضيع بكالوريا 2026 📝</h3>
+            <p>ترقبوا نشر مواضيع وتصحيحات بكالوريا 2026 النموذجية والمقترحة لجميع الشعب بدءاً من الغد فور توفرها!</p>
+            <div class="card-cta-group">
+                <a href="/bac-2026.html" class="card-cta-btn card-cta-primary">
+                    <i class="fas fa-list-ul"></i>  استكشف الحلول الآن حسب شعبتك
                 </a>
-                <a href="/university.html" class="islamic-welcome-btn btn-navy">
-                    <i class="fas fa-university"></i> تصفح دليل التخصصات الجامعية
-                </a>
-                <a href="https://t.me/islembacdz" target="_blank" class="islamic-welcome-btn btn-blue">
-                    <i class="fab fa-telegram-plane"></i> تابع أخبار النتائج والجوائز
+                <a href="https://t.me/islembacdz" target="_blank" class="card-cta-btn card-cta-telegram">
+                    <i class="fab fa-telegram-plane"></i> تابعنا على التلغرام للإشعارات
                 </a>
             </div>
         </div>
@@ -457,48 +371,38 @@ function showTelegramWelcomeModal() {
 
     document.body.appendChild(overlay);
 
-    // Prevent body scrolling
-    document.body.style.overflow = 'hidden';
+    // Prevent scroll — set on <html> not <body> to avoid breaking position:fixed containing block
+    document.documentElement.style.overflow = 'hidden';
 
     // Fade in
     requestAnimationFrame(() => {
         requestAnimationFrame(() => {
-            overlay.classList.add('is-visible');
+            overlay.classList.add('active');
         });
     });
 
     const dismissModal = () => {
-        // Write to localStorage so they don't see it again immediately
-        localStorage.setItem(WELCOME_KEY, '1');
-        
-        // Fade out
-        overlay.classList.add('fade-out');
-        
-        // Restore scrolling
-        document.body.style.overflow = '';
-        
-        // Clean up DOM after transition
+        localStorage.setItem(BAC2026_ANNOUNCE_KEY, '1');
+        overlay.classList.remove('active');
+        document.documentElement.style.overflow = '';
         setTimeout(() => {
             if (overlay.parentNode) overlay.remove();
-        }, 600);
-        
-        // Clean up key listener
+        }, 500);
         document.removeEventListener('keydown', handleEsc);
     };
 
-    // Close on button clicks
-    overlay.querySelectorAll('.islamic-welcome-btn, .islamic-close-btn').forEach(btn => {
-        btn.addEventListener('click', dismissModal);
-    });
+    // Close buttons click events
+    overlay.querySelector('.announcement-modal-close').addEventListener('click', dismissModal);
+    overlay.querySelector('.card-cta-primary').addEventListener('click', dismissModal);
 
-    // Close on clicking outside the card (overlay background)
+    // Close on click outside the card
     overlay.addEventListener('click', (e) => {
         if (e.target === overlay) {
             dismissModal();
         }
     });
 
-    // Close on ESC key press
+    // Close on ESC
     const handleEsc = (e) => {
         if (e.key === 'Escape') {
             dismissModal();
@@ -506,7 +410,6 @@ function showTelegramWelcomeModal() {
     };
     document.addEventListener('keydown', handleEsc);
 }
-
 
 // ─── HASH-BASED NAVIGATION ON LOAD ───────────────────────────────────────────
 function handleHashNav() {
@@ -981,8 +884,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Hide loader
     hideLoader();
 
-    // Show premium one-time Islamic welcome modal (800ms after loader)
-    setTimeout(showTelegramWelcomeModal, 800);
+    // Show premium one-time Bac 2026 Announcement modal (900ms after loader)
+    if (!localStorage.getItem(BAC2026_ANNOUNCE_KEY)) {
+        setTimeout(showBac2026AnnouncementModal, 900);
+    }
 
     // Register Service Worker for PWA / Shortcut functionality
     if ('serviceWorker' in navigator) {
