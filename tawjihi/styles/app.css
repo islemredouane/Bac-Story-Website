@@ -212,6 +212,77 @@
 .msg-text p { margin-bottom: var(--sp-2); }
 .msg-text p:last-child { margin-bottom: 0; }
 
+/* ---- THINKING STATE ---- */
+.tw-thinking-bubble {
+    position: relative;
+    overflow: hidden;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    padding: 0 0 var(--sp-3) 0;
+    display: inline-flex;
+    flex-direction: column;
+    min-width: 200px;
+    max-width: 280px;
+}
+
+.tw-thinking-bar {
+    height: 3px;
+    background: var(--grad-brand);
+    background-size: 300% 100%;
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.tw-thinking-body {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    padding: var(--sp-3) var(--sp-4) 0;
+}
+
+.tw-thinking-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: var(--r-pill);
+    background: var(--grad-brand);
+    color: #fff;
+    font-family: 'Pattaya', cursive;
+    font-size: 14px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px color-mix(in srgb, var(--primary) 30%, transparent);
+}
+
+.tw-thinking-text {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.tw-thinking-label {
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.4;
+}
+
+.tw-thinking-dots {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.tw-thinking-dots span {
+    width: 5px;
+    height: 5px;
+    border-radius: var(--r-pill);
+    background: var(--primary);
+    opacity: .45;
+    display: inline-block;
+}
+
 .msg-actions {
     display: flex; gap: var(--sp-1); margin-top: var(--sp-2);
     opacity: 0; transition: opacity var(--t-fast);

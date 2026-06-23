@@ -595,13 +595,83 @@
     inner.appendChild(el); scrollDown();
   };
 
+  function liveRender(text) {
+    const lines = text.split('\n');
+    let html = '';
+    let inCode = false;
+    let codeBuffer = '';
+
+    for (const line of lines) {
+        if (line.startsWith('```')) {
+            if (!inCode) {
+                inCode = true; codeBuffer = '';
+            } else {
+                html += `<pre><code>${esc(codeBuffer.trimEnd())}</code></pre>`;
+                inCode = false; codeBuffer = '';
+            }
+            continue;
+        }
+        if (inCode) { codeBuffer += line + '\n'; continue; }
+
+        const e = esc(line); // HTML-escape the line
+        const inline = s => s
+            .replace(/\*\*([^*\n]+)\*\*/g, '<strong>$1</strong>')
+            .replace(/\*([^*\n]+)\*/g,   '<em>$1</em>')
+            .replace(/`([^`\n]+)`/g,     '<code>$1</code>');
+
+        if (line.startsWith('### '))     { html += `<h3>${inline(esc(line.slice(4)))}</h3>`; continue; }
+        if (line.startsWith('## '))      { html += `<h2>${inline(esc(line.slice(3)))}</h2>`; continue; }
+        if (line.startsWith('# '))       { html += `<h1>${inline(esc(line.slice(2)))}</h1>`; continue; }
+        if (line.match(/^[-*]\s/))       { html += `<li>${inline(esc(line.slice(2)))}</li>`; continue; }
+        if (line.match(/^\d+\.\s/))      { html += `<li>${inline(esc(line.replace(/^\d+\.\s/, '')))}</li>`; continue; }
+        if (!line.trim())                { html += '<br>'; continue; }
+        html += `<p>${inline(e)}</p>`;
+    }
+    if (inCode) html += `<pre><code>${esc(codeBuffer)}</code></pre>`;
+    return html || '<p></p>';
+  }
+
   const aiShell = () => {
     const el = document.createElement('div');
     el.className = 'msg ai';
     el.innerHTML = `<div class="msg-avatar">ت</div>
-      <div class="msg-body"><div class="msg-name">مرشد توجيهي</div>
-      <div class="msg-text"><span class="typing"><span></span><span></span><span></span></span></div></div>`;
-    inner.appendChild(el); scrollDown();
+      <div class="msg-body">
+        <div class="msg-name">مرشد توجيهي</div>
+        <div class="msg-text">
+          <div class="tw-thinking-bubble">
+            <div class="tw-thinking-bar"></div>
+            <div class="tw-thinking-body">
+              <span class="tw-thinking-icon">ت</span>
+              <div class="tw-thinking-text">
+                <span class="tw-thinking-label">جاري التفكير...</span>
+                <div class="tw-thinking-dots"><span></span><span></span><span></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>`;
+    inner.appendChild(el);
+    scrollDown();
+
+    const STATES = [
+        'جاري التفكير...',
+        'أبحث في دليل التخصصات...',
+        'أراجع معدلات القبول...',
+        'أحلل ملفك الدراسي...',
+        'أجهّز إجابتك...',
+    ];
+    let stateIdx = 0;
+    el._thinkingInterval = setInterval(() => {
+        const label = el.querySelector('.tw-thinking-label');
+        if (!label) return clearInterval(el._thinkingInterval);
+        label.classList.add('is-cycling');
+        setTimeout(() => {
+            stateIdx = (stateIdx + 1) % STATES.length;
+            label.textContent = STATES[stateIdx];
+            label.classList.remove('is-cycling');
+        }, 140);
+    }, 1800);
+
     return el;
   };
 
@@ -678,12 +748,15 @@
     const decoder = new TextDecoder();
     let buffer = '';
     let fullText = '';
-    const p = document.createElement('p');
-    const cursor = document.createElement('span');
-    cursor.className = 'stream-cursor';
-    textEl.innerHTML = '';
-    textEl.appendChild(p);
-    p.appendChild(cursor);
+    let firstToken = true;
+
+    const updateLive = () => {
+        textEl.innerHTML = liveRender(fullText);
+        const cursor = document.createElement('span');
+        cursor.className = 'stream-cursor';
+        const last = textEl.lastElementChild;
+        (last || textEl).appendChild(cursor);
+    };
 
     while (true) {
       const { done: streamDone, value } = await reader.read();
@@ -695,21 +768,28 @@
         if (!line.startsWith('data: ')) continue;
         const raw = line.slice(6).trim();
         if (raw === '[DONE]') {
-          cursor.remove();
           done && done(fullText);
           return;
         }
         try {
           const { content } = JSON.parse(raw);
           if (content) {
+            if (firstToken) {
+              firstToken = false;
+              const shell = textEl.closest('.msg');
+              if (shell?._thinkingInterval) {
+                clearInterval(shell._thinkingInterval);
+                delete shell._thinkingInterval;
+              }
+              textEl.innerHTML = '';
+            }
             fullText += content;
-            p.insertBefore(document.createTextNode(content), cursor);
+            updateLive();
             onToken && onToken();
           }
         } catch {}
       }
     }
-    cursor.remove();
     done && done(fullText);
   }
 

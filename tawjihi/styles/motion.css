@@ -90,10 +90,71 @@ a:active,
     to { transform: rotate(360deg); }
 }
 
+/* ============================================================
+   MOT-20: Thinking Bubble + Stream Cursor Animations
+   Classes applied by tawjihi-chat.js to .tw-thinking-bubble
+   ============================================================ */
+
+/* --- Keyframes --- */
+
+/* Shimmer sweeps across the brand gradient bar */
+@keyframes tw-bar-shimmer {
+    0%   { background-position: 200% center; }
+    100% { background-position: -200% center; }
+}
+
+/* Gentle pulse on the ت icon circle */
+@keyframes tw-icon-pulse {
+    0%, 100% { transform: scale(1);    opacity: 1;   }
+    50%       { transform: scale(1.07); opacity: .85; }
+}
+
+/* Staggered bounce for each loading dot */
+@keyframes tw-dot-bounce {
+    0%, 100% { transform: translateY(0);    opacity: .45; }
+    40%       { transform: translateY(-5px); opacity: 1;  }
+}
+
+/* --- Selectors --- */
+
+/* Brand bar: continuous shimmer */
+.tw-thinking-bar {
+    animation: tw-bar-shimmer 2s linear infinite;
+}
+
+/* Icon: subtle breathe */
+.tw-thinking-icon {
+    animation: tw-icon-pulse 2.6s ease-in-out infinite;
+}
+
+/* Dots: staggered bouncing (0ms / 200ms / 400ms delays) */
+.tw-thinking-dots span:nth-child(1) { animation: tw-dot-bounce 1.2s ease-in-out infinite 0ms; }
+.tw-thinking-dots span:nth-child(2) { animation: tw-dot-bounce 1.2s ease-in-out infinite 200ms; }
+.tw-thinking-dots span:nth-child(3) { animation: tw-dot-bounce 1.2s ease-in-out infinite 400ms; }
+
+/* Label: needs inline-block so transform works; transition handles fade+slide */
+.tw-thinking-label {
+    display: inline-block;
+    transition: opacity var(--t-fast) var(--ease), transform var(--t-fast) var(--ease);
+}
+
+/* .is-cycling = JS is swapping text out — fade and slide downward */
+.tw-thinking-label.is-cycling {
+    opacity: 0;
+    transform: translateY(5px);
+}
+
 /* ---- Reduced motion: disable all animations ---- */
 @media (prefers-reduced-motion: reduce) {
     ::view-transition-old(root),
     ::view-transition-new(root) {
         animation: none;
     }
+
+    /* Thinking bubble + stream cursor overrides */
+    .tw-thinking-bar,
+    .tw-thinking-icon,
+    .tw-thinking-dots span,
+    .stream-cursor { animation: none !important; }
+    .tw-thinking-label { transition: none !important; }
 }
