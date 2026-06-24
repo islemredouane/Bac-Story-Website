@@ -341,7 +341,7 @@ if (typeof window.showSection === 'undefined') {
 }
 
 // ─── BAC 2026 ANNOUNCEMENT MODAL ──────────────────────────────────────────────────
-const BAC2026_ANNOUNCE_KEY = 'bs_seen_bac2026_announce_v1';
+const BAC2026_ANNOUNCE_KEY = 'bs_seen_bac2026_announce_v2';
 
 function showBac2026AnnouncementModal() {
     if (localStorage.getItem(BAC2026_ANNOUNCE_KEY)) return;
@@ -354,16 +354,22 @@ function showBac2026AnnouncementModal() {
         <div class="welcome-announcement-card modal-version">
             <button class="announcement-modal-close" aria-label="إغلاق">&times;</button>
             <div class="welcome-badge-pill">
-                <i class="fas fa-bullhorn"></i> جديد بكالوريا 2026
+                <i class="fas fa-check-circle"></i> التصحيحات النموذجية متوفرة
             </div>
-            <h3>تصحيحات مواضيع بكالوريا 2026 📝</h3>
-            <p>ترقبوا نشر مواضيع وتصحيحات بكالوريا 2026 النموذجية والمقترحة لجميع الشعب بدءاً من الغد فور توفرها!</p>
+            <h3>ماذا يجب عليك فعله الآن؟ 🎓</h3>
+            <p style="margin-bottom: 1rem;">صحح لنفسك، احسب معدلك واكتشف تخصصك الجامعي من خلال موقعنا و قناتنا على التلغرام</p>
             <div class="card-cta-group">
                 <a href="/bac-2026.html" class="card-cta-btn card-cta-primary">
-                    <i class="fas fa-list-ul"></i>  استكشف الحلول الآن حسب شعبتك
+                    <i class="fas fa-check-double"></i> التصحيحات النموذجية
+                </a>
+                <a href="/tools.html#calculator" class="card-cta-btn card-cta-secondary">
+                    <i class="fas fa-calculator"></i> احسب معدلك
+                </a>
+                <a href="/university.html#university-section" class="card-cta-btn card-cta-secondary">
+                    <i class="fas fa-university"></i> اكتشف تخصصك الجامعي
                 </a>
                 <a href="https://t.me/islembacdz" target="_blank" class="card-cta-btn card-cta-telegram">
-                    <i class="fab fa-telegram-plane"></i> تابعنا على التلغرام للإشعارات
+                    <i class="fab fa-telegram-plane"></i> قناتنا على التلغرام
                 </a>
             </div>
         </div>
@@ -393,7 +399,9 @@ function showBac2026AnnouncementModal() {
 
     // Close buttons click events
     overlay.querySelector('.announcement-modal-close').addEventListener('click', dismissModal);
-    overlay.querySelector('.card-cta-primary').addEventListener('click', dismissModal);
+    overlay.querySelectorAll('.card-cta-btn').forEach(btn => {
+        btn.addEventListener('click', dismissModal);
+    });
 
     // Close on click outside the card
     overlay.addEventListener('click', (e) => {
