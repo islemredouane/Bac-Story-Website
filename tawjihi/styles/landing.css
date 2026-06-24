@@ -476,6 +476,33 @@
 .step-card h3 { font-size: var(--fs-lg); }
 .step-card p { color: var(--text-muted); font-size: var(--fs-sm); margin-top: var(--sp-2); }
 
+/* ── SCROLL STACK — step cards pile up on top of each other as you scroll.
+   Each card is sticky with a slightly lower top, so the cards behind peek
+   through like a deck. Cards are made opaque so they cover the ones below. */
+.steps-grid.lp-stack {
+    display: block;
+    max-width: 600px;
+    margin-inline: auto;
+}
+.lp-stack .step-card {
+    position: sticky;
+    margin-bottom: var(--sp-6);
+    /* opaque enough that each card hides the ones stacked behind it */
+    background:
+        radial-gradient(circle at 12% 16%, color-mix(in srgb, var(--cat, var(--primary)) 7%, transparent), transparent 55%),
+        color-mix(in srgb, var(--surface) 97%, transparent);
+    animation: none !important;   /* no tilt drift while stacking */
+}
+.lp-stack .step-card:nth-child(1) { top: 92px;  }
+.lp-stack .step-card:nth-child(2) { top: 112px; }
+.lp-stack .step-card:nth-child(3) { top: 132px; }
+.lp-stack .step-card:last-child { margin-bottom: 0; }
+[data-theme="dark"] .lp-stack .step-card {
+    background:
+        radial-gradient(circle at 14% 16%, color-mix(in srgb, var(--primary) 16%, transparent), transparent 55%),
+        rgba(23, 29, 43, 0.97);
+}
+
 /* ============================================================
    FEATURES
    ============================================================ */
