@@ -13,21 +13,25 @@
    --reveal-delay from data-reveal-delay. Premium 3D feel via
    a slight rotateX on "up".
    ============================================================ */
+/* ReactBits-style entrance: rise + scale-up + blur-in (matches the
+   sibling project's lp-card-in). The blur sharpening is what makes it
+   feel premium. Staggered via --reveal-delay (JS sets it per element). */
 .reveal {
     opacity: 0;
     transition:
         opacity .7s var(--ease-out),
-        transform .7s var(--ease-out);
+        transform .7s var(--ease-out),
+        filter .7s var(--ease-out);
     transition-delay: var(--reveal-delay, 0ms);
-    will-change: opacity, transform;
+    will-change: opacity, transform, filter;
 }
 
-.reveal[data-reveal="up"]    { transform: translateY(30px) rotateX(6deg); }
-.reveal[data-reveal="right"] { transform: translateX(40px) rotateY(-6deg); }
-.reveal[data-reveal="left"]  { transform: translateX(-40px) rotateY(6deg); }
-.reveal[data-reveal="scale"] { transform: scale(.92); }
+.reveal[data-reveal="up"]    { transform: translateY(34px) scale(.96); filter: blur(6px); }
+.reveal[data-reveal="right"] { transform: translateX(44px) scale(.97); filter: blur(6px); }
+.reveal[data-reveal="left"]  { transform: translateX(-44px) scale(.97); filter: blur(6px); }
+.reveal[data-reveal="scale"] { transform: scale(.9);  filter: blur(6px); }
 
-.reveal.in { opacity: 1; transform: none; }
+.reveal.in { opacity: 1; transform: none; filter: blur(0); }
 
 /* ============================================================
    2. AMBIENT AURORA ORBS — very gentle, slow looping drift
@@ -181,15 +185,18 @@
     display: inline-block;
     opacity: 0;
     transform: translateY(0.6em) rotate(3deg);
+    filter: blur(8px);
     transition:
         opacity .55s var(--ease-out),
-        transform .55s var(--ease-out);
+        transform .55s var(--ease-out),
+        filter .55s var(--ease-out);
     transition-delay: calc(var(--i, 0) * 55ms);
-    will-change: opacity, transform;
+    will-change: opacity, transform, filter;
 }
 .hero-title.in .split-word {
     opacity: 1;
     transform: none;
+    filter: blur(0);
 }
 
 /* ============================================================
@@ -246,6 +253,7 @@
     .reveal {
         opacity: 1 !important;
         transform: none !important;
+        filter: none !important;
         transition: none !important;
     }
 
@@ -273,6 +281,7 @@
     .split-word {
         opacity: 1 !important;
         transform: none !important;
+        filter: none !important;
         transition: none !important;
     }
 

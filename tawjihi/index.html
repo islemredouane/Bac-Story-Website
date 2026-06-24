@@ -24,7 +24,7 @@
          No JS at all → :not(.js) keeps content visible. JS on but landing.js
          failed to load → the timeout reveals everything. -->
     <style>
-      html:not(.js) .reveal{opacity:1 !important;transform:none !important;}
+      html:not(.js) .reveal{opacity:1 !important;transform:none !important;filter:none !important;}
       /* Move the page background to <html> so the fixed z-index:-1 aurora
          isn't painted over by the body's opaque background. */
       html{background:var(--bg);transition:background var(--t-mid) var(--ease);}
