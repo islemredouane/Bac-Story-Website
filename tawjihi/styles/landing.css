@@ -759,6 +759,97 @@
 body.lp-no-scroll { overflow: hidden; }
 
 /* ============================================================
+   PREMIUM CARD LAYERS — cursor spotlight, border-beam, particles
+   (Static appearance + masks only. Motion owns the beam rotation;
+    the 3D agent draws on the particle canvas. JS sets --mx/--my.)
+   ============================================================ */
+
+/* 1. Cursor-following spotlight surface.
+   Sits below content (z-index:0) and above the card background, so it
+   reads through the glass without washing out text. JS sets --mx/--my
+   (px from the card's top-left) on pointermove; falls back to center. */
+.feat-card::after,
+.step-card::after,
+.stat-card::after,
+.testimonial::after {
+    content: ""; position: absolute; inset: 0; z-index: 0;
+    pointer-events: none; border-radius: inherit;
+    background: radial-gradient(circle 220px at var(--mx, 50%) var(--my, 50%),
+                color-mix(in srgb, var(--cat, var(--primary)) 22%, transparent), transparent 60%);
+    opacity: 0;
+    transition: opacity var(--t-mid) var(--ease);
+}
+.feat-card:hover::after,
+.step-card:hover::after,
+.stat-card:hover::after,
+.testimonial:hover::after { opacity: 1; }
+
+/* the hero star card spotlights in the accent hue */
+.feat-card.hero-feat::after {
+    background: radial-gradient(circle 220px at var(--mx, 50%) var(--my, 50%),
+                color-mix(in srgb, var(--accent) 24%, transparent), transparent 60%);
+}
+
+/* dark mode: lift the spotlight so it stays visible on the dark surface */
+[data-theme="dark"] .feat-card::after,
+[data-theme="dark"] .step-card::after,
+[data-theme="dark"] .stat-card::after,
+[data-theme="dark"] .testimonial::after {
+    background: radial-gradient(circle 220px at var(--mx, 50%) var(--my, 50%),
+                color-mix(in srgb, var(--cat, var(--primary)) 34%, transparent), transparent 62%);
+}
+[data-theme="dark"] .feat-card.hero-feat::after {
+    background: radial-gradient(circle 220px at var(--mx, 50%) var(--my, 50%),
+                color-mix(in srgb, var(--accent) 36%, transparent), transparent 62%);
+}
+
+/* 2. Border-beam — thin rotating light ring on the hero star card.
+   The padding + mask trick punches out the interior so only a 1.5px
+   ring shows. Motion adds the spin keyframe + animation to ::before. */
+.lp-beam {
+    position: absolute; inset: 0;
+    border-radius: var(--r-lg);
+    padding: 1.5px;
+    pointer-events: none;
+    z-index: 0;
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    overflow: hidden;
+}
+.lp-beam::before {
+    content: ""; position: absolute; inset: -150%;
+    background: conic-gradient(from 0deg,
+                transparent 0%, transparent 75%,
+                var(--accent) 88%,
+                color-mix(in srgb, var(--accent) 40%, #fff) 94%,
+                transparent 100%);
+}
+/* dark mode: brighten the beam's leading edge so the ring still pops */
+[data-theme="dark"] .lp-beam::before {
+    background: conic-gradient(from 0deg,
+                transparent 0%, transparent 75%,
+                color-mix(in srgb, var(--accent) 85%, #fff) 88%,
+                #ffffff 94%,
+                transparent 100%);
+}
+
+/* 3. Particle canvas — full-bleed inside the fixed .lp-aurora layer.
+   The 3D agent draws on it; we only size/place/opacity it. It stays
+   behind page content because .lp-aurora is z-index:-1. */
+.lp-particles {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    opacity: .6;
+}
+[data-theme="dark"] .lp-particles { opacity: .5; }
+
+/* 4. Magnetic buttons — JS owns the transform; we only hint the GPU. */
+[data-magnetic] { will-change: transform; }
+
+/* ============================================================
    DARK-MODE GLASS / GLOW OVERRIDES
    ============================================================ */
 [data-theme="dark"] .lp-nav.scrolled {

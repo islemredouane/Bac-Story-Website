@@ -155,6 +155,83 @@
 .hero-demo.in { animation: lm-card-drift 9s ease-in-out infinite; animation-delay: .8s; }
 
 /* ============================================================
+   10. BORDER-BEAM SPIN — conic ring rotates around the card.
+   Visual owns .lp-beam + .lp-beam::before (the gradient ring);
+   we only spin it. Transform-only, GPU-cheap.
+   ============================================================ */
+@keyframes lm-beam-spin {
+    to { transform: rotate(360deg); }
+}
+.lp-beam::before {
+    animation: lm-beam-spin 4s linear infinite;
+}
+
+/* ============================================================
+   11. WORD-REVEAL HEADLINE — JS wraps hero title words in
+   .split-word spans carrying an inline --i index. We disable
+   the block-level reveal for the split title and stagger the
+   words in instead. Words stay inline so the .grad gradient
+   span is never broken. RTL-safe (translateY + rotate only).
+   ============================================================ */
+.reveal[data-split] {
+    opacity: 1 !important;
+    transform: none !important;
+}
+.split-word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(0.6em) rotate(3deg);
+    transition:
+        opacity .55s var(--ease-out),
+        transform .55s var(--ease-out);
+    transition-delay: calc(var(--i, 0) * 55ms);
+    will-change: opacity, transform;
+}
+.hero-title.in .split-word {
+    opacity: 1;
+    transform: none;
+}
+
+/* ============================================================
+   12. CTA SHINY SWEEP — a soft light glances across the primary
+   CTA on hover. Pseudo-element transform/opacity only; Visual
+   owns the button's fill/shape, so we stay transform-scoped and
+   clip via the existing button bounds.
+   ============================================================ */
+@keyframes lm-cta-sweep {
+    from { transform: translateX(-120%) skewX(-18deg); }
+    to   { transform: translateX(220%)  skewX(-18deg); }
+}
+.lp-cta,
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+.lp-cta::after,
+.btn-primary::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    inset-inline-start: 0;
+    width: 40%;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(
+        100deg,
+        transparent 0%,
+        rgba(255, 255, 255, .35) 50%,
+        transparent 100%
+    );
+    transform: translateX(-120%) skewX(-18deg);
+    opacity: 0;
+}
+.lp-cta:hover::after,
+.btn-primary:hover::after {
+    opacity: 1;
+    animation: lm-cta-sweep .9s var(--ease-out);
+}
+
+/* ============================================================
    9. REDUCED MOTION — mandatory kill switch
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {
@@ -186,6 +263,22 @@
     .demo-msg-1,
     .demo-msg-2,
     .hero-title .grad {
+        animation: none !important;
+    }
+
+    .lp-beam::before {
+        animation: none !important;
+    }
+
+    .split-word {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+
+    .lp-cta::after,
+    .btn-primary::after {
+        display: none !important;
         animation: none !important;
     }
 }

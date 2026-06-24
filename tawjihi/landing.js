@@ -359,4 +359,125 @@
     nodes.forEach((el) => io.observe(el));
   })();
 
+  /* ------------------------------------------------------------
+     8) SPOTLIGHT TRACKING
+     Feeds --mx/--my (cursor pos relative to card top-left) to the
+     CSS ::after glow. Pointer-only; opacity handled by CSS :hover.
+     ------------------------------------------------------------ */
+  (() => {
+    if (coarsePointer) return;
+
+    const cards = $$('.feat-card, .step-card, .stat-card, .testimonial');
+    if (!cards.length) return;
+
+    cards.forEach((el) => {
+      el.addEventListener('pointermove', (e) => {
+        if (e.pointerType === 'touch') return;
+        const r = el.getBoundingClientRect();
+        if (!r.width || !r.height) return;
+        el.style.setProperty('--mx', (e.clientX - r.left).toFixed(1) + 'px');
+        el.style.setProperty('--my', (e.clientY - r.top).toFixed(1) + 'px');
+      }, { passive: true });
+    });
+  })();
+
+  /* ------------------------------------------------------------
+     9) MAGNETIC BUTTONS
+     Nudge [data-magnetic] toward the cursor within a padded zone.
+     Not tilt/float targets — no transform conflict. FX-gated.
+     ------------------------------------------------------------ */
+  (() => {
+    if (!allowMotionFx) return;
+
+    const btns = $$('[data-magnetic]');
+    if (!btns.length) return;
+
+    const PAD = 28;     // padded hit zone around the button (px)
+    const FACTOR = 0.25;
+    const MAX = 10;     // clamp the pull (px)
+
+    const clamp = (v) => Math.max(-MAX, Math.min(MAX, v));
+
+    btns.forEach((el) => {
+      el.addEventListener('pointerenter', (e) => {
+        if (e.pointerType === 'touch') return;
+        el.style.transition = 'transform .15s ease-out';
+      });
+
+      el.addEventListener('pointermove', (e) => {
+        if (e.pointerType === 'touch') return;
+        const r = el.getBoundingClientRect();
+        if (!r.width || !r.height) return;
+        const cx = r.left + r.width / 2;
+        const cy = r.top + r.height / 2;
+        // Only pull while inside the padded zone.
+        if (e.clientX < r.left - PAD || e.clientX > r.right + PAD ||
+            e.clientY < r.top - PAD  || e.clientY > r.bottom + PAD) {
+          el.style.transform = '';
+          return;
+        }
+        const x = clamp((e.clientX - cx) * FACTOR);
+        const y = clamp((e.clientY - cy) * FACTOR);
+        el.style.transform = `translate(${x.toFixed(2)}px, ${y.toFixed(2)}px)`;
+      }, { passive: true });
+
+      el.addEventListener('pointerleave', () => {
+        el.style.transform = '';
+      });
+    });
+  })();
+
+  /* ------------------------------------------------------------
+     10) WORD-SPLIT (.hero-title[data-split])
+     Wrap each word in <span class="split-word" style="--i:N">,
+     preserving <br> and the .grad span (its words split in place).
+     Runs synchronously so spans exist before reveal adds .in.
+     ------------------------------------------------------------ */
+  (() => {
+    const title = $('.hero-title[data-split]');
+    if (!title || title.dataset.splitDone) return;
+
+    let i = 0;
+
+    // Replace a text node with .split-word spans (trailing space kept).
+    const splitTextNode = (node, container) => {
+      const text = node.textContent;
+      if (!/\S/.test(text)) return;            // pure whitespace: leave as-is
+      const frag = document.createDocumentFragment();
+      // Split keeping the spaces attached to each preceding word.
+      const parts = text.split(/(\s+)/);
+      for (let p = 0; p < parts.length; p++) {
+        const chunk = parts[p];
+        if (!chunk) continue;
+        if (/^\s+$/.test(chunk)) {             // whitespace run: keep literal
+          frag.appendChild(document.createTextNode(chunk));
+          continue;
+        }
+        const span = document.createElement('span');
+        span.className = 'split-word';
+        span.style.setProperty('--i', i++);
+        span.textContent = chunk;
+        frag.appendChild(span);
+      }
+      container.replaceChild(frag, node);
+    };
+
+    // Snapshot children first (we mutate as we go).
+    Array.from(title.childNodes).forEach((node) => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        splitTextNode(node, title);
+      } else if (node.nodeType === Node.ELEMENT_NODE) {
+        // Keep the element; split words inside the .grad span in place.
+        if (node.classList && node.classList.contains('grad')) {
+          Array.from(node.childNodes).forEach((child) => {
+            if (child.nodeType === Node.TEXT_NODE) splitTextNode(child, node);
+          });
+        }
+        // Other elements (e.g. <br>) are preserved untouched.
+      }
+    });
+
+    title.dataset.splitDone = 'true';
+  })();
+
 })();

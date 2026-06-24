@@ -49,6 +49,7 @@
     <span class="aurora-orb orb-orange" data-parallax="0.18"></span>
     <span class="aurora-orb orb-violet" data-parallax="0.14"></span>
     <span class="aurora-grid"></span>
+    <canvas id="lpParticles" class="lp-particles" aria-hidden="true"></canvas>
 </div>
 
 <!-- ===================== NAVBAR ===================== -->
@@ -69,7 +70,7 @@
         <div class="lp-nav-actions">
             <button class="lp-icon-btn js-theme-toggle" id="themeBtn" aria-label="تبديل الوضع الليلي"><i class="fas fa-moon"></i></button>
             <a href="login.html" class="lp-login">دخول</a>
-            <a href="app.html" class="btn btn-primary lp-cta"><i class="fas fa-arrow-left"></i> ابدأ مجاناً</a>
+            <a href="app.html" class="btn btn-primary lp-cta" data-magnetic><i class="fas fa-arrow-left"></i> ابدأ مجاناً</a>
             <button class="lp-burger" id="lpMenuBtn" aria-label="فتح القائمة" aria-expanded="false" aria-controls="lpMobileMenu">
                 <span></span><span></span><span></span>
             </button>
@@ -111,13 +112,13 @@
         <div class="tw-container hero-grid">
             <div class="hero-copy">
                 <span class="hero-badge reveal" data-reveal="up"><i class="fas fa-graduation-cap"></i> مرشدك الجامعي · مجاناً</span>
-                <h1 class="hero-title reveal" data-reveal="up">معدلك بيدك،<br><span class="grad">والتوجيه عند توجيهي</span></h1>
+                <h1 class="hero-title reveal" data-reveal="up" data-split>معدلك بيدك،<br><span class="grad">والتوجيه عند توجيهي</span></h1>
                 <p class="hero-sub reveal" data-reveal="up">
                     مرشد ذكي يفهم شعبتك ومعدلك، يرشّحلك التخصصات اللي تناسبك، ويعاونك ترتّب بطاقة الرغبات تاعك —
                     بلغتك، وبثقة، واعتماداً على بيانات الدليل الوزاري الرسمي.
                 </p>
                 <div class="hero-cta reveal" data-reveal="up">
-                    <a href="app.html" class="btn btn-primary btn-lg"><i class="fas fa-comments"></i> ابدأ مجاناً</a>
+                    <a href="app.html" class="btn btn-primary btn-lg" data-magnetic><i class="fas fa-comments"></i> ابدأ مجاناً</a>
                     <a href="#how" class="btn btn-ghost btn-lg"><i class="fas fa-circle-play"></i> كيفاش يخدم؟</a>
                 </div>
                 <div class="hero-trust reveal" data-reveal="up">
@@ -249,6 +250,7 @@
                     </ul>
                 </div>
                 <div class="feat-card hero-feat reveal" data-reveal="up" data-reveal-delay="240" data-tilt data-tilt-max="7" style="--cat:var(--accent)">
+                    <span class="lp-beam" aria-hidden="true"></span>
                     <span class="feat-tag">الميزة النجمة</span>
                     <div class="feat-icon"><i class="fas fa-list-check"></i></div>
                     <h3>محاكي بطاقة الرغبات</h3>
@@ -389,6 +391,7 @@
     </div>
 </footer>
 
+<script src="landing-fx.js" defer></script>
 <script src="landing.js" defer></script>
 </body>
 </html>
