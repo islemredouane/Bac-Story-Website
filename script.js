@@ -112,9 +112,8 @@ window.addEventListener('popstate', (event) => {
 });
 
 const TIMERS_CONFIG = [
-    { suffix: '1', target: new Date(2026, 5, 24, 8, 0, 0) },  // June 24 - Ã˜Â§Ã™â€žÃ˜ÂªÃ˜ÂµÃ˜Â­Ã™Å Ã˜Â­
-    { suffix: '2', target: new Date(2026, 6, 18, 8, 0, 0) },  // July 18 - Ã˜Â§Ã™â€žÃ™â€ Ã˜ÂªÃ˜Â§Ã˜Â¦Ã˜Â¬
-    { suffix: '3', target: new Date(2027, 5, 7,  8, 30, 0) }, // June 7 2027 - Ã˜Â¨Ã™Æ’Ã˜Â§Ã™â€žÃ™Ë†Ã˜Â±Ã™Å Ã˜Â§ 2027
+    { suffix: '2', target: new Date(2026, 6, 14, 8, 0, 0) },  // July 14 - النتائج
+    { suffix: '3', target: new Date(2027, 5, 7,  8, 30, 0) }, // June 7 2027 - بكالوريا 2027
 ];
 
 function updateAllTimers() {
