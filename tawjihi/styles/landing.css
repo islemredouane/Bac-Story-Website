@@ -152,7 +152,7 @@
     box-shadow: 0 6px 24px color-mix(in srgb, var(--primary) 8%, rgba(20,28,46,.06));
 }
 .lp-nav-inner {
-    height: var(--topbar-h); display: flex; align-items: center; gap: var(--sp-4);
+    height: var(--topbar-h); display: flex; align-items: center; justify-content: space-between; gap: var(--sp-4);
     transition: height var(--t-mid) var(--ease);
 }
 .lp-nav.scrolled .lp-nav-inner { height: 58px; }
