@@ -11124,3 +11124,98 @@ body.pdf-body-lock {
     100% { transform: scale(1); opacity: 1; }
 }
 
+/* ── Announce Feature Mini-Cards (inside modal) ── */
+.announce-features {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    margin: 1.4rem 0 0.25rem;
+}
+
+.announce-feature-card {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 0.9rem 1.1rem;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.16);
+    border-radius: 14px;
+    color: #ffffff;
+    text-decoration: none;
+    transition: background 0.22s ease, transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.announce-feature-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(255,255,255,0.04) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.announce-feature-card:hover {
+    background: rgba(255,255,255,0.18);
+    border-color: rgba(255,255,255,0.35);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+}
+
+.announce-feature-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    flex-shrink: 0;
+}
+
+.announce-feature--correct .announce-feature-icon { background: rgba(34,197,94,0.22);  color: #86efac; }
+.announce-feature--calc    .announce-feature-icon { background: rgba(251,191,36,0.22);  color: #fde68a; }
+.announce-feature--uni     .announce-feature-icon { background: rgba(167,139,250,0.22); color: #c4b5fd; }
+
+.announce-feature-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+    text-align: right;
+}
+
+.announce-feature-text strong {
+    font-size: 0.97rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.3;
+}
+
+.announce-feature-text span {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.4;
+}
+
+.announce-feature-arrow {
+    color: rgba(255,255,255,0.4);
+    font-size: 0.85rem;
+    flex-shrink: 0;
+    transition: color 0.2s ease;
+}
+
+.announce-feature-card:hover .announce-feature-arrow {
+    color: rgba(255,255,255,0.9);
+}
+
+@media (max-width: 480px) {
+    .announce-feature-card  { padding: 0.75rem 0.9rem; gap: 0.7rem; }
+    .announce-feature-icon  { width: 38px; height: 38px; font-size: 1rem; border-radius: 10px; }
+    .announce-feature-text strong { font-size: 0.88rem; }
+    .announce-feature-text span   { font-size: 0.76rem; }
+}
+
+
+.breadcrumb-nav { display: none !important; }
