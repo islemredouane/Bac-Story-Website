@@ -822,15 +822,15 @@ body.lp-no-scroll { overflow: hidden; }
     content: ""; position: absolute; inset: -150%;
     background: conic-gradient(from 0deg,
                 transparent 0%, transparent 75%,
-                var(--accent) 88%,
-                color-mix(in srgb, var(--accent) 40%, #fff) 94%,
+                var(--cat, var(--primary)) 88%,
+                color-mix(in srgb, var(--cat, var(--primary)) 40%, #fff) 94%,
                 transparent 100%);
 }
 /* dark mode: brighten the beam's leading edge so the ring still pops */
 [data-theme="dark"] .lp-beam::before {
     background: conic-gradient(from 0deg,
                 transparent 0%, transparent 75%,
-                color-mix(in srgb, var(--accent) 85%, #fff) 88%,
+                color-mix(in srgb, var(--cat, var(--primary)) 85%, #fff) 88%,
                 #ffffff 94%,
                 transparent 100%);
 }
