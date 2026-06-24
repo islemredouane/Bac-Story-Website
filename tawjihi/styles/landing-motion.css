@@ -30,6 +30,10 @@
 .reveal[data-reveal="right"] { transform: translateX(44px) scale(.97); filter: blur(6px); }
 .reveal[data-reveal="left"]  { transform: translateX(-44px) scale(.97); filter: blur(6px); }
 .reveal[data-reveal="scale"] { transform: scale(.9);  filter: blur(6px); }
+/* swoop: card glides in from the side with a slight rotation, then settles
+   (evokes the sibling project's float-stack feel, as a one-time entrance) */
+.reveal[data-reveal="swoop-r"] { transform: translateX(64px) rotate(6deg) scale(.93);  filter: blur(6px); }
+.reveal[data-reveal="swoop-l"] { transform: translateX(-64px) rotate(-6deg) scale(.93); filter: blur(6px); }
 
 .reveal.in { opacity: 1; transform: none; filter: blur(0); }
 

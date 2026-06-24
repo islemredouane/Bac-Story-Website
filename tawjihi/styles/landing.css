@@ -503,40 +503,6 @@
         rgba(23, 29, 43, 0.97);
 }
 
-/* ── SCROLL STACK — feature cards (same deck behaviour, taller content) ── */
-.feat-grid.lp-stack {
-    display: block;
-    max-width: 640px;
-    margin-inline: auto;
-}
-.lp-stack .feat-card {
-    position: sticky;
-    margin-bottom: var(--sp-6);
-    background:
-        radial-gradient(circle at 14% 14%, color-mix(in srgb, var(--cat, var(--primary)) 8%, transparent), transparent 55%),
-        color-mix(in srgb, var(--surface) 97%, transparent);
-    animation: none !important;
-}
-.lp-stack .feat-card.hero-feat {
-    background:
-        radial-gradient(circle at 14% 14%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 55%),
-        color-mix(in srgb, var(--surface) 97%, transparent);
-}
-.lp-stack .feat-card:nth-child(1) { top: 96px;  }
-.lp-stack .feat-card:nth-child(2) { top: 116px; }
-.lp-stack .feat-card:nth-child(3) { top: 136px; }
-.lp-stack .feat-card:last-child { margin-bottom: 0; }
-[data-theme="dark"] .lp-stack .feat-card {
-    background:
-        radial-gradient(circle at 14% 16%, color-mix(in srgb, var(--cat, var(--primary)) 16%, transparent), transparent 55%),
-        rgba(23, 29, 43, 0.97);
-}
-[data-theme="dark"] .lp-stack .feat-card.hero-feat {
-    background:
-        radial-gradient(circle at 14% 16%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 55%),
-        rgba(23, 29, 43, 0.97);
-}
-
 /* ============================================================
    FEATURES
    ============================================================ */
