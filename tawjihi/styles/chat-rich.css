@@ -30,6 +30,13 @@
   color: var(--text);
   margin: 0.9em 0 0.35em;
 }
+.tw-md-h4 {
+  font-size: 0.91rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0.7em 0 0.18em;
+  opacity: 0.88;
+}
 
 .tw-md hr {
   border: none;
@@ -44,7 +51,18 @@
 }
 .tw-md-ul li,
 .tw-md-ol li {
-  margin-bottom: 0.3em;
+  margin-bottom: 0.35em;
+  line-height: 1.65;
+}
+.tw-md-ul li::marker,
+.tw-md-ol li::marker {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.tw-md strong {
+  font-weight: 800;
+  color: var(--text);
 }
 
 .tw-callout {

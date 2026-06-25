@@ -120,6 +120,13 @@
         container.appendChild(h); i++; continue;
       }
 
+      if (/^#### /.test(line)) {
+        const h = document.createElement('h4');
+        h.className = 'tw-md-h4';
+        h.innerHTML = inlineHtml(line.slice(5).trim());
+        container.appendChild(h); i++; continue;
+      }
+
       if (/^### /.test(line)) {
         const h = document.createElement('h3');
         h.className = 'tw-md-h3';
@@ -623,6 +630,7 @@
             .replace(/\*([^*\n]+)\*/g,   '<em>$1</em>')
             .replace(/`([^`\n]+)`/g,     '<code>$1</code>');
 
+        if (line.startsWith('#### '))    { html += `<h4>${inline(esc(line.slice(5)))}</h4>`; continue; }
         if (line.startsWith('### '))     { html += `<h3>${inline(esc(line.slice(4)))}</h3>`; continue; }
         if (line.startsWith('## '))      { html += `<h2>${inline(esc(line.slice(3)))}</h2>`; continue; }
         if (line.startsWith('# '))       { html += `<h1>${inline(esc(line.slice(2)))}</h1>`; continue; }
