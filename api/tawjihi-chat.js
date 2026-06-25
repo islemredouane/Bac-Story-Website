@@ -10,10 +10,62 @@ import Groq from 'groq-sdk';
 import specialitiesKb from '../tawjihi/data/kb/specialities-kb.json' with { type: 'json' };
 import admissionsFull from '../tawjihi/data/kb/admissions-full.json' with { type: 'json' };
 import filiereIndex from '../tawjihi/data/kb/filiere-index.json' with { type: 'json' };
+/* ---- Official guide data (الدليل الوزاري) ---- */
+import guidePrograms from '../tawjihi/data/guide/programs.json' with { type: 'json' };
+import geoData from '../tawjihi/data/guide/geographic-circles.json' with { type: 'json' };
 
 const SPECIALITIES = specialitiesKb.specialities || [];
 const ADM_ROWS = admissionsFull.rows || [];
 const FILIERES = filiereIndex.filieres || {};
+
+/* ---- Guide indexes (built once at module load) ---- */
+const GUIDE_PROGRAMS = guidePrograms.programs || [];
+/* wilaya Arabic name → its number (1-58) for geographic filtering */
+const WILAYA_TO_NUM = Object.fromEntries(
+  (geoData.wilayas || []).map((w) => [w.ar, w.num])
+);
+
+/* Canonical field names — the PDF extraction scrambled word order across copies.
+   Map every variant to its official الدليل الوزاري designation. */
+const FIELD_CANONICAL = {
+  'علوم وتكنولوجيا': 'علوم وتكنولوجيا',
+  'وتكنولوجيا علوم': 'علوم وتكنولوجيا',
+  'علوم المادة': 'علوم المادة',
+  'المادة علوم': 'علوم المادة',
+  'والحياة علوم الطبيعة': 'علوم الطبيعة والحياة',
+  'والحياة الطبيعة علوم': 'علوم الطبيعة والحياة',
+  'تجارية علوم اقتصادية والتسيير وعلوم': 'علوم اقتصادية تجارية وتسيير',
+  'تجارية وعلوم والتسيير اقتصادية علوم': 'علوم اقتصادية تجارية وتسيير',
+  'تجارية والتسيير وعلوم علوم اقتصادية': 'علوم اقتصادية تجارية وتسيير',
+  'وعلومتجارية التسيير اقتصادية، علوم': 'علوم اقتصادية تجارية وتسيير',
+  'تجارية التسيير وعلوم علوم قتصادية،': 'علوم اقتصادية تجارية وتسيير',
+  'تجارية تسيير وعلوم علوم اقتصادية،': 'علوم اقتصادية تجارية وتسيير',
+  'تجارية وعلوم تسيير اقتصادية، علوم': 'علوم اقتصادية تجارية وتسيير',
+  'واجتماعية علوم إنسانية': 'علوم إنسانية واجتماعية',
+  'واجتماعية إنسانية علوم': 'علوم إنسانية واجتماعية',
+  'والرياضية * النشاطات البدنية علوم وتقنيات': 'علوم وتقنيات النشاطات البدنية والرياضية',
+  'فنون': 'فنون',
+  'لغة وأدب عربي': 'لغة وأدب عربي',
+  'أمازيغية لغة وثقافة': 'لغة وثقافة أمازيغية',
+  'ومهن المدينة معمارية،عمران هندسة': 'هندسة معمارية وعمران ومهن المدينة',
+  'المدينة ومهن عمران معمارية، هندسة': 'هندسة معمارية وعمران ومهن المدينة',
+  'المدينة عمارن ومهن هندسة معمارية،': 'هندسة معمارية وعمران ومهن المدينة',
+  'وإعالم آلي رياضيات': 'رياضيات وإعلام آلي',
+  'و إعالم آلي رياضيات': 'رياضيات وإعلام آلي',
+  'أجنبية أداب ولغات': 'آداب ولغات أجنبية',
+};
+function canonicalField(raw) {
+  return FIELD_CANONICAL[raw?.trim()] || raw?.trim() || 'غير محدد';
+}
+
+/* programs indexed by stream code for fast eligibility lookup */
+const GUIDE_BY_STREAM = {};
+for (const prog of GUIDE_PROGRAMS) {
+  for (const s of prog.allowedStreams || []) {
+    if (!GUIDE_BY_STREAM[s.stream]) GUIDE_BY_STREAM[s.stream] = [];
+    GUIDE_BY_STREAM[s.stream].push(prog);
+  }
+}
 
 /* ---- Stream mapping (KB averages are min1/min2/min3) ----
    min1 = علوم تجريبية (sciexp), min2 = رياضيات (math), min3 = تقني رياضي (techmath) */
@@ -21,7 +73,19 @@ const STREAM_TO_MIN = {
   sciexp: 'min1',
   math: 'min2',
   techmath: 'min3',
+  // gestion/lettres/langues: no separate admission column in the data (they compete on
+  // معدل عام with generally lower thresholds). Mark as 'general' for context-building.
+  gestion: 'general',
+  lettres: 'general',
+  langues: 'general',
 };
+/* Specialities eligible for gestion/lettres/langues students (معدل عام-based, ≥10/20) */
+const NON_SCIENCE_ELIGIBLE = {
+  gestion: new Set(['ss', 'droit', 'sciences-po', 'info-gest', 'enssea', 'ehec', 'sciences-hum', 'charia', 'traduction', 'commu', 'langues', 'math-eco', 'mgmt-eng', 'escf', 'esgen']),
+  lettres: new Set(['droit', 'sciences-po', 'sciences-hum', 'langues', 'traduction', 'commu', 'charia', 'ss']),
+  langues: new Set(['langues', 'traduction', 'droit', 'sciences-po', 'sciences-hum', 'commu', 'ss']),
+};
+
 const STREAM_AR = {
   sciexp: 'علوم تجريبية',
   math: 'رياضيات',
@@ -179,9 +243,13 @@ function retrieve(message, conversation, profile, k = 6) {
       }
     }
     // Stream-fit boost: speciality accepts the student's stream.
-    if (minKey && spec.resolvedAverages) {
+    if (minKey && minKey !== 'general' && spec.resolvedAverages) {
       const v = spec.resolvedAverages[minKey];
       if (v !== null && v !== undefined) score += 2;
+    }
+    // Boost for gestion/lettres/langues: their filières have معدل عام access (no numeric threshold column).
+    if (minKey === 'general' && userCode && NON_SCIENCE_ELIGIBLE[userCode]) {
+      if (NON_SCIENCE_ELIGIBLE[userCode].has(spec.id)) score += 3;
     }
 
     return { spec, score, named };
@@ -229,8 +297,60 @@ function buildContext(specs) {
     .join('\n\n---\n\n');
 }
 
+/* ---- Official guide context builder ------------------------------------- */
+/* Produces a compact, structured summary of accessible programs from الدليل الوزاري
+   for the student's stream + wilaya. Injected into the system prompt as authoritative
+   official data (complements the KB RAG context). Returns '' when no data available. */
+function buildGuideContext(profile) {
+  const p = profile || {};
+  const code = streamCode(p.stream);
+  if (!code) return '';
+
+  const wilaya = p.wilaya && p.wilaya !== 'غير محددة' ? p.wilaya : null;
+  const wNum = wilaya ? WILAYA_TO_NUM[wilaya] : null;
+
+  const streamProgs = GUIDE_BY_STREAM[code] || [];
+  if (streamProgs.length === 0) return '';
+
+  // Filter to programs the student's wilaya can actually access
+  const accessible = wNum
+    ? streamProgs.filter((pr) => pr.scope === 'national' || (pr.circleWilayaNums || []).includes(wNum))
+    : streamProgs;
+
+  if (accessible.length === 0) return '';
+
+  // Group by academic field (ميدان)
+  const byField = new Map();
+  for (const prog of accessible) {
+    const field = canonicalField(prog.field_ar);
+    if (!byField.has(field)) {
+      byField.set(field, { national: 0, regional: 0, insts: new Set(), basis: prog.rankingBasis });
+    }
+    const entry = byField.get(field);
+    if (prog.scope === 'national') entry.national++;
+    else entry.regional++;
+    // Collect up to 3 institution name samples per field
+    (prog.institutions_ar || []).slice(0, 3).forEach((i) => {
+      const clean = i.trim().replace(/\s+/g, ' ');
+      if (clean.length > 3) entry.insts.add(clean);
+    });
+  }
+
+  const lines = [
+    `## الدليل الوزاري الرسمي — برامج متاحة لشعبة ${STREAM_AR[code] || code}${wilaya ? ` من ولاية ${wilaya}` : ''}:`,
+  ];
+  for (const [field, data] of byField) {
+    const instSample = [...data.insts].slice(0, 3).join(' ، ');
+    const scope = data.national > 0 ? '(وطني)' : '(إقليمي)';
+    const basis = data.basis === 'weighted_or_general' ? 'موزون أو عام' : 'معدل عام';
+    lines.push(`- **${field}** ${scope} — مؤسسات: ${instSample || 'متعددة'} — ترتيب: ${basis}`);
+  }
+
+  return lines.join('\n');
+}
+
 /* ---- System prompt (CHAT-CONTRACT.md §4) -------------------------------- */
-function buildSystemPrompt(profile, contextBlock, orientationMode = false, emptyContext = false) {
+function buildSystemPrompt(profile, contextBlock, guideBlock, orientationMode = false, emptyContext = false) {
   const p = profile || {};
   const code = streamCode(p.stream);
   const streamLabel = code ? STREAM_AR[code] || p.stream : p.stream || 'غير محددة';
@@ -310,6 +430,33 @@ ${p.stream ? `ملاحظة أهليّة (AI-10): المستخدم في شعبة 
 س4: "شنو الأهم بالنسبة ليك مهنياً؟" | خيارات: ["الشغف — نحب ما ندرس ونعمل ❤️","الراتب المرتفع — الكفاءة المالية 💰","خدمة المجتمع والمساهمة فيه 🤲","المكانة الاجتماعية والاحترام 🏆","التوازن بين العمل والحياة الشخصية ⚖️","العمل الدولي والسفر للخارج 🌍"]
 س5: "كيف تتخيل روحك بعد 10 سنين؟" | خيارات: ["طبيب أو مختص في الصحة","مهندس أو خبير تقني","رجل/سيدة أعمال أو مدير","باحث أو أستاذ جامعي","محامٍ أو قانوني","مبرمج أو خبير رقمي","في مجال إبداعي أو فني"]
 ` : ''}
+# حقائق ثابتة عن التعليم الجزائري (لا تتجاوزها)
+## مدد الدراسة (أعطِ الرقم الدقيق، لا تقل "6-7 سنوات"):
+- طب عام: 7 سنوات (6 دراسة + سنة انترنا إلزامية)
+- طب الأسنان: 6 سنوات (5 دراسة + سنة انترنا)
+- الصيدلة: 5 سنوات
+- البيطرة: 5 سنوات
+- مهندس دولة (مدارس عليا): 5 سنوات (2 تحضيري + 3 تخصص)
+- ليسانس LMD: 3 سنوات | ماستر LMD: 2 سنوات | دكتوراه: 3 سنوات
+
+## قبول الشعب في الطب وعلوم الصحة:
+- الطب، الصيدلة، طب الأسنان، البيطرة: تقبل فقط علوم تجريبية ورياضيات (لا يُقبل تقني رياضي)
+- طب الأسنان: لا يقبل تقني رياضي
+
+## شعبة تسيير واقتصاد — مسارات التوجيه:
+بمعدل ≥ 10: SECSG (علوم اقتصادية تجارية وتسيير)، الحقوق، العلوم الإنسانية، الإعلام والاتصال
+بمسابقة: EHEC (المدرسة العليا للتجارة)، ENSSEA، بعض الدراسات الاقتصادية المتخصصة
+
+## شعبة آداب وفلسفة ولغات أجنبية — مسارات التوجيه:
+بمعدل ≥ 10: الحقوق، اللغات والترجمة، الإعلام، العلوم الإنسانية، الشريعة الإسلامية
+
+## دقة أسماء الجامعات:
+- قل "جامعة الجزائر 1 - بن يوسف بن خدة" لا "جامعة الجزائر"
+- قل "جامعة قسنطينة 1 فرحات عباس" أو "قسنطينة 3 صالح بوبنيدر" (لا "قسنطينة" فقط)
+- المستشفى الجامعي للطب في العاصمة: Mustapha Pacha, Lamine Debaghine, Nafissa Hamoud
+- جامعة علوم الصحة (الزيانية) = المؤسسة الجديدة للطب في الجزائر العاصمة (منذ 2023)
+
+${guideBlock ? `${guideBlock}\n` : ''}
 # قاعدة المعرفة (المصدر الوحيد للأرقام — استعملها فقط)
 ${emptyContext
   ? 'لا توجد تخصصات مطابقة في قاعدة بياناتك. اطلب من المستخدم توضيح سؤاله أو اذكر أن المعلومة غير متوفرة لديك.'
@@ -372,7 +519,9 @@ export default async function handler(req, res) {
   // AI-2: retrieve() returns [] when all scores are 0 — avoids misleading CS-heavy defaults
   const selected = retrieve(message, messages, profile, 6);
   const contextBlock = buildContext(selected);
-  const systemPrompt = buildSystemPrompt(profile, contextBlock, orientationMode, selected.length === 0);
+  // Guide context: official program eligibility from الدليل الوزاري (stream + wilaya aware)
+  const guideBlock = buildGuideContext(profile);
+  const systemPrompt = buildSystemPrompt(profile, contextBlock, guideBlock, orientationMode, selected.length === 0);
 
   // Call Groq with streaming
   const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
