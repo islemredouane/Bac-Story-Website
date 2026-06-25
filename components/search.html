@@ -1,9 +1,78 @@
+<style>
+/* ── Recent searches ───────────────────────────────────── */
+.search-recent-section {
+    padding: 0 1.25rem .5rem;
+}
+.search-section-label {
+    font-size: .72rem;
+    color: var(--text-muted, #888);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    margin-bottom: .5rem;
+    padding-right: .25rem;
+}
+.recent-searches-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem;
+}
+.recent-search-item {
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+    background: var(--card-bg, rgba(255,255,255,.06));
+    border: 1px solid var(--border-color, rgba(255,255,255,.1));
+    border-radius: 2rem;
+    padding: .3rem .75rem;
+    font-size: .82rem;
+    color: var(--text-secondary, #ccc);
+    cursor: pointer;
+    transition: background .18s, color .18s;
+}
+.recent-search-item:hover {
+    background: var(--accent-color, #2c5cc5);
+    color: #fff;
+    border-color: transparent;
+}
+.recent-search-item i { font-size: .72rem; opacity: .7; }
+
+/* ── Keyboard-focused result ───────────────────────────── */
+.search-result-item.is-focused {
+    background: var(--accent-color, #2c5cc5) !important;
+    color: #fff !important;
+}
+.search-result-item.is-focused p,
+.search-result-item.is-focused i {
+    color: rgba(255,255,255,.8) !important;
+}
+
+/* ── Shortcut hint in footer ───────────────────────────── */
+.search-shortcut-hint {
+    display: inline-flex;
+    align-items: center;
+    gap: .3rem;
+    font-size: .72rem;
+    color: var(--text-muted, #888);
+}
+.search-shortcut-hint kbd {
+    display: inline-block;
+    padding: .1rem .35rem;
+    border: 1px solid var(--border-color, rgba(255,255,255,.2));
+    border-radius: .25rem;
+    font-size: .68rem;
+    font-family: monospace;
+    background: var(--card-bg, rgba(255,255,255,.06));
+    color: var(--text-muted, #aaa);
+    line-height: 1.4;
+}
+</style>
+
 <div id="searchOverlay" class="search-overlay">
     <div class="search-container">
         <div class="search-header">
             <div class="search-input-wrapper">
                 <i class="fas fa-search"></i>
-                <input type="text" id="searchInput" placeholder="ابحث عن دروس، ملخصات، أو مواضيع..." autocomplete="off">
+                <input type="text" id="searchInput" placeholder="ابحث في باك ستوري..." autocomplete="off" spellcheck="false">
                 <button id="clearSearch" class="clear-btn"><i class="fas fa-times"></i></button>
             </div>
             <button id="closeSearch" class="close-search-btn">إلغاء</button>
@@ -13,14 +82,18 @@
             <div class="quick-links-grid">
                 <a href="/bac-topics.html" class="quick-link-item">مواضيع البكالوريا</a>
                 <a href="/resources.html#math" class="quick-link-item">الرياضيات</a>
-                <a href="/resources.html#science" class="quick-link-item">علوم تجريبية</a>
-                <a href="/plans.html" class="quick-link-item">الخطط الدراسية</a>
+                <a href="/university.html#university-section" class="quick-link-item">التخصصات</a>
+                <a href="/tools.html#calculator" class="quick-link-item">حاسبة المعدل</a>
             </div>
+        </div>
+
+        <div id="searchRecentSection" class="search-recent-section" style="display:none;">
+            <div class="search-section-label">عمليات البحث الأخيرة</div>
+            <div id="recentSearchesList" class="recent-searches-list"></div>
         </div>
 
         <div class="search-results-area">
             <div id="searchResults" class="search-results-list">
-                <!-- Results will be injected here -->
                 <div class="search-placeholder">
                     <i class="fas fa-keyboard"></i>
                     <p>ابدأ الكتابة للبحث في المنصة</p>
@@ -30,10 +103,13 @@
 
         <div class="search-footer">
             <div class="search-footer-logo">BAC STORY</div>
-            <a href="https://t.me/islembacdz" target="_blank" rel="noopener" class="search-telegram-btn">
-                <i class="fab fa-telegram-plane"></i>
-                <span>انضم إلينا على التلغرام</span>
-            </a>
+            <div style="display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;justify-content:flex-end;">
+                <span class="search-shortcut-hint"><kbd>Ctrl</kbd><kbd>K</kbd> للفتح &nbsp;·&nbsp; <kbd>↑↓</kbd> للتنقل &nbsp;·&nbsp; <kbd>Esc</kbd> للإغلاق</span>
+                <a href="https://t.me/islembacdz" target="_blank" rel="noopener" class="search-telegram-btn">
+                    <i class="fab fa-telegram-plane"></i>
+                    <span>انضم إلينا على التلغرام</span>
+                </a>
+            </div>
         </div>
     </div>
 </div>
