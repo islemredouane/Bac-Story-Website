@@ -443,20 +443,85 @@ function setupSearch() {
 
     if (!searchOverlay || !searchInput) return;
 
-    // ── SMART SEARCH DATA ─────────────────────────────────────────────────────
-    // Each entry: { title, desc, url, icon, specialty (null = all), keywords[] }
-    // specialty: string label shown as a badge when the result is specialty-specific
+    // ── RECENT SEARCHES ───────────────────────────────────────────────────────
+    const RECENT_KEY = 'bs_recent_searches';
+    const MAX_RECENT = 5;
+    function getRecent() { try { return JSON.parse(localStorage.getItem(RECENT_KEY) || '[]'); } catch { return []; } }
+    function saveRecent(q) {
+        if (!q || q.length < 2) return;
+        let r = getRecent();
+        r = [q, ...r.filter(x => x !== q)].slice(0, MAX_RECENT);
+        try { localStorage.setItem(RECENT_KEY, JSON.stringify(r)); } catch {}
+    }
+    function renderRecent() {
+        const sec = document.getElementById('searchRecentSection');
+        const list = document.getElementById('recentSearchesList');
+        if (!sec || !list) return;
+        const r = getRecent();
+        if (!r.length) { sec.style.display = 'none'; return; }
+        list.innerHTML = r.map(q => `<button class="recent-search-item" data-q="${q.replace(/"/g,'&quot;')}"><i class="fas fa-history"></i><span>${q}</span></button>`).join('');
+        list.querySelectorAll('.recent-search-item').forEach(btn => {
+            btn.addEventListener('click', () => {
+                searchInput.value = btn.dataset.q;
+                searchInput.dispatchEvent(new Event('input'));
+                searchInput.focus();
+            });
+        });
+        sec.style.display = 'block';
+    }
+    function hideRecent() { const s = document.getElementById('searchRecentSection'); if (s) s.style.display = 'none'; }
+
+    // ── KEYBOARD NAVIGATION ───────────────────────────────────────────────────
+    let focusIdx = -1;
+    function setFocus(idx) {
+        const items = searchResults.querySelectorAll('.search-result-item');
+        focusIdx = Math.max(-1, Math.min(idx, items.length - 1));
+        items.forEach((el, i) => el.classList.toggle('is-focused', i === focusIdx));
+        if (focusIdx >= 0 && items[focusIdx]) items[focusIdx].scrollIntoView({ block: 'nearest' });
+    }
+
+    // ── NORMALIZATION ─────────────────────────────────────────────────────────
+    const normalizeSearch = (text) => {
+        if (!text) return '';
+        return text.toString()
+            .toLowerCase()
+            .replace(/[ً-ٰٟ]/g, '')   // diacritics
+            .replace(/[أإآٱ]/g, 'ا')
+            .replace(/ة/g, 'ه')
+            .replace(/ى/g, 'ي')
+            .replace(/ئ/g, 'ي')
+            .replace(/ؤ/g, 'و')
+            .replace(/(^|\s)ال/g, '$1')              // strip ال per word
+            .replace(/\s+/g, ' ')
+            .trim();
+    };
+
+    // ── SEARCH DATA ───────────────────────────────────────────────────────────
     const navSearchData = [
 
-        // ── BROAD SUBJECT ENTRIES (matched by subject name) ────────────────
+        // ── SITE SECTIONS (PAGES & ANCHORS) ───────────────────────────────────
         { title: 'الرياضيات', desc: 'ملخصات، تمارين ومواضيع في الرياضيات', url: '/resources.html#math', icon: 'fas fa-calculator', specialty: null, keywords: ['رياضيات', 'math', 'حساب', 'ملخصات الرياضيات'] },
         { title: 'العلوم الفيزيائية', desc: 'ميكانيك، كهرباء، كيمياء وتحولات نووية', url: '/resources.html#phys', icon: 'fas fa-atom', specialty: null, keywords: ['فيزياء', 'فيزيائية', 'physics', 'ملخصات الفيزياء'] },
         { title: 'العلوم الطبيعية', desc: 'بيولوجيا، البروتين، المناعة والاتصال العصبي', url: '/resources.html#science', icon: 'fas fa-flask', specialty: null, keywords: ['علوم طبيعية', 'بيولوجيا', 'علوم الحياة', 'ملخصات العلوم'] },
         { title: 'مواد التكنولوجيا', desc: 'هندسة مدنية، كهربائية، ميكانيكية وطرائق', url: '/resources.html#tech', icon: 'fas fa-microchip', specialty: null, keywords: ['تكنولوجيا', 'تقني', 'هندسة'] },
         { title: 'تسيير واقتصاد', desc: 'محاسبة، قانون، اقتصاد ومناجمنت', url: '/resources.html#management', icon: 'fas fa-chart-line', specialty: null, keywords: ['تسيير', 'اقتصاد', 'management'] },
         { title: 'مواضيع البكالوريا', desc: 'مواضيع رسمية 2025 و2024 مع التصحيح', url: '/bac-topics.html', icon: 'fas fa-file-alt', specialty: null, keywords: ['مواضيع', 'بكالوريا', 'BAC', 'تصحيح', 'موضوع', 'اختبار رسمي', 'بكالوريات'] },
-        { title: 'دليل الجامعة 2025', desc: 'تخصصات، معدلات القبول والتوجيه الجامعي', url: '/university.html', icon: 'fas fa-university', specialty: null, keywords: ['جامعة', 'LMD', 'توجيه', 'معدل القبول', 'تخصص', 'ESTIN', 'ENSIA', 'Polytech', 'طب', 'مهندس', 'صيدلة', 'شبه طبي', 'ذكاء اصطناعي', 'أمن سيبراني', 'Medicine'] },
-        { title: 'الأدوات وخطط التميز', desc: 'حاسبة المعدل، توقيت الباك وخطط الدراسة', url: '/tools.html', icon: 'fas fa-tools', specialty: null, keywords: ['أدوات', 'خطط', 'حاسبة', 'معدل', 'توقيت', 'تحديات', 'تميز', 'خطة', 'عقبة بن نافع'] },
+        { title: 'تصحيحات بكالوريا 2026', desc: 'الحلول النموذجية لجميع الشعب — دورة 2026', url: '/bac-2026.html', icon: 'fas fa-check-double', specialty: null, keywords: ['2026', 'بكالوريا 2026', 'تصحيح 2026', 'حلول 2026', 'دورة 2026', 'نتائج', 'تصحيحات'] },
+        { title: 'محاكاة البكالوريا', desc: 'اختبارات تجريبية لمحاكاة ظروف الباك الحقيقية', url: '/simulation.html', icon: 'fas fa-vr-cardboard', specialty: null, keywords: ['محاكاة', 'تجريبي', 'امتحان تجريبي', 'simulation', 'محاكاة الباك', 'اختبار تجريبي'] },
+        { title: 'باقات عقبة بن نافع', desc: 'دروس وتمارين منظمة من عقبة بن نافع', url: '/oqba.html', icon: 'fas fa-star', specialty: null, keywords: ['عقبة', 'عقبة بن نافع', 'باقات عقبة', 'oqba', 'باقات'] },
+        { title: 'الكتب الخارجية', desc: 'كتب دراسية مختارة لتعميق الفهم في كل مادة', url: '/resources.html#books', icon: 'fas fa-book', specialty: null, keywords: ['كتب', 'كتاب', 'كتب خارجية', 'مراجع', 'مرجع', 'books', 'كتب دراسية'] },
+        { title: 'درايفات المتفوقين', desc: 'ملفات مشتركة من أوائل البكالوريا', url: '/resources.html#Drives', icon: 'fab fa-google-drive', specialty: null, keywords: ['درايف', 'Google Drive', 'المتفوقين', 'إسلام', 'لين', 'سارة', 'حكيم', 'Islam', 'Leen', 'Sara', 'Hakime'] },
+        { title: 'الخطط الشهرية', desc: 'خطط دراسية شهرية شاملة لجميع المواد', url: '/plans.html#monthly-plans', icon: 'fas fa-calendar-alt', specialty: null, keywords: ['الخطط الشهرية', 'خطط شهرية', 'خطة شهرية', 'مراجعة شهرية', 'جدول مراجعة', 'خطة دراسية'] },
+        { title: 'خطط التميز للمواد', desc: 'خطط متخصصة لكل مادة للوصول للمعدل الأمثل', url: '/plans.html#subject-plans', icon: 'fas fa-book-open', specialty: null, keywords: ['خطط المواد', 'خطة مادة', 'خطط التميز', 'تميز مادة', 'خطة الرياضيات', 'خطة الفيزياء', 'خطة دراسية'] },
+        { title: 'تحديات التميز', desc: 'تحديات يومية وأسبوعية لتطوير مستواك', url: '/plans.html#challenges', icon: 'fas fa-trophy', specialty: null, keywords: ['تحديات', 'تحدي', 'تميز', 'تحدي يومي', 'تحدي أسبوعي', 'رفع مستوى', 'challenges'] },
+        { title: 'العد التنازلي للنتائج', desc: 'كم تبقى على نتائج البكالوريا؟', url: '/tools.html#timer', icon: 'fas fa-hourglass-half', specialty: null, keywords: ['العد التنازلي', 'الوقت المتبقي', 'نتائج', 'وقت', 'مؤقت', 'timer', 'قداه بقى', 'متبقي'] },
+        { title: 'حاسبة معدل البكالوريا', desc: 'احسب معدلك التقديري بدقة قبل النتائج', url: '/tools.html#calculator', icon: 'fas fa-calculator', specialty: null, keywords: ['حاسبة', 'معدل', 'احسب معدلي', 'حساب المعدل', 'calculator', 'معدلي', 'احتساب'] },
+        { title: 'المعدل الموزون', desc: 'احسب معدلك الموزون للقبول في الجامعات', url: '/tools.html#weighted-calc', icon: 'fas fa-balance-scale', specialty: null, keywords: ['المعدل الموزون', 'معدل الباك', 'قبول جامعي', 'احتساب المعدل', 'التوجيه', 'موزون'] },
+        { title: 'ورقة الإجابة', desc: 'نسخة رقمية من ورقة إجابة البكالوريا الرسمية', url: '/tools.html#exam-sheet', icon: 'fas fa-file-alt', specialty: null, keywords: ['ورقة الإجابة', 'ورقة امتحان', 'ورقة رسمية', 'exam sheet', 'نموذج', 'استمارة', 'ورقة اجابة'] },
+        { title: 'النظام الجامعي الجزائري', desc: 'كل ما تحتاج معرفته عن نظام LMD والجامعة', url: '/university.html#university-system', icon: 'fas fa-university', specialty: null, keywords: ['النظام الجامعي', 'LMD', 'nظام lmd', 'ليسانس ماستر دكتوراه', 'الجامعة الجزائرية', 'نظام الجامعة'] },
+        { title: 'الدليل الوزاري للتخصصات', desc: 'الدليل الرسمي لوزارة التعليم العالي', url: '/university.html#ministry-guide', icon: 'fas fa-scroll', specialty: null, keywords: ['الدليل الوزاري', 'وزاري', 'وزارة', 'الدليل الرسمي', 'دليل التخصصات', 'ministry'] },
+        { title: 'تخصصات الجامعة والمدارس', desc: 'تعريف كامل بجميع التخصصات الجامعية', url: '/university.html#university-section', icon: 'fas fa-graduation-cap', specialty: null, keywords: ['تخصصات', 'تخصص جامعي', 'مدارس عليا', 'اختيار تخصص', 'توجيه جامعي', 'جامعة', 'LMD', 'ESTIN', 'ESI', 'ENSIA'] },
+        { title: 'معدلات القبول 2025', desc: 'معدلات القبول الرسمية لجميع التخصصات', url: '/university.html#averages-of-acceptance', icon: 'fas fa-chart-bar', specialty: null, keywords: ['معدلات القبول', 'معدل القبول', 'قبول 2025', 'المعدل المطلوب', 'شروط القبول', 'دخول الجامعة', 'معدل دخول'] },
 
         // ── MATH — SPECIALTY SECTIONS ──────────────────────────────────────
         { title: 'الرياضيات', desc: 'دروس، ملخصات وتمارين', url: '/resources.html#math-matheleme', icon: 'fas fa-calculator', specialty: 'رياضيات', keywords: ['رياضيات', 'ملخصات', 'دروس', 'تمارين'] },
@@ -581,114 +646,179 @@ function setupSearch() {
         { title: 'شعبة آداب وفلسفة', desc: 'جميع مواد وموارد شعبة الآداب وفلسفة', url: '/resources.html#literature', icon: 'fas fa-pen-nib', specialty: 'آداب وفلسفة', keywords: ['آداب', 'فلسفة', 'أدب', 'شعبة آداب', 'أدب وفلسفة'] },
         { title: 'شعبة لغات أجنبية', desc: 'جميع مواد وموارد شعبة اللغات الأجنبية', url: '/resources.html#languages', icon: 'fas fa-comments', specialty: 'لغات أجنبية', keywords: ['لغات', 'لغات أجنبية', 'شعبة لغات', 'اللغات'] },
 
-        // ── DRIVES & TOOLS ─────────────────────────────────────────────────
-        { title: 'درايفات المتفوقين', desc: 'ملفات مشتركة من أوائل البكالوريا', url: '/resources.html#Drives', icon: 'fab fa-google-drive', specialty: null, keywords: ['درايف', 'Google Drive', 'المتفوقين', 'إسلام', 'لين', 'سارة', 'حكيم', 'Islam', 'Leen', 'Sara', 'Hakime'] },
+        // ── UNIVERSITY SPECIALTIES — TOP SCHOOLS ──────────────────────────
+        { title: 'ESTIN بجاية', desc: 'ذكاء اصطناعي، أمن سيبراني وإنترنت الأشياء', url: '/university.html#ESTIN', icon: 'fas fa-robot', specialty: 'مدارس عليا', keywords: ['ESTIN', 'estin', 'بجاية', 'ذكاء اصطناعي', 'أمن سيبراني', 'cybersécurité', 'intelligence artificielle', 'iot', 'génie informatique', 'رقمنة', 'machine learning'] },
+        { title: 'ESI الجزائر', desc: 'المدرسة العليا للإعلام الآلي — بن عكنون', url: '/university.html#ESI-ALGER', icon: 'fas fa-laptop-code', specialty: 'مدارس عليا', keywords: ['ESI', 'esi', 'ISI', 'SIW', 'IRS', 'HCD', 'إعلام آلي', 'génie logiciel', 'سيبراني', 'بن عكنون', 'شبكات'] },
+        { title: 'ESI-SBA سيدي بلعباس', desc: 'ذكاء اصطناعي، علوم البيانات ومعمارية الحاسوب', url: '/university.html#ESI-SBA', icon: 'fas fa-laptop-code', specialty: 'مدارس عليا', keywords: ['ESI-SBA', 'esi sba', 'سيدي بلعباس', 'IASD', 'CYS', 'data science', 'علوم بيانات', 'machine learning', 'وهران'] },
+        { title: 'ENSIA — الذكاء الاصطناعي', desc: 'المدرسة الوطنية العليا للذكاء الاصطناعي', url: '/university.html#ENSIA', icon: 'fas fa-brain', specialty: 'مدارس عليا', keywords: ['ENSIA', 'ensia', 'ذكاء اصطناعي', 'intelligence artificielle', 'machine learning', 'deep learning', 'neural networks', 'big data', 'AI'] },
+        { title: 'ENSCS — الأمن السيبراني', desc: 'المدرسة الوطنية العليا للأمن السيبراني', url: '/university.html#ENSCS', icon: 'fas fa-shield-alt', specialty: 'مدارس عليا', keywords: ['ENSCS', 'enscs', 'cybersécurité', 'سيبراني', 'pentest', 'أمن معلومات', 'ethical hacking', 'أمن شبكات', 'cybersecurity'] },
+        { title: 'Polytechnique الجزائر', desc: 'المعهد الوطني البوليتكنيكي — متعدد التخصصات', url: '/university.html#POLYTECH', icon: 'fas fa-cogs', specialty: 'مدارس عليا', keywords: ['Polytech', 'polytechnique', 'هندسة مدنية', 'ميكانيك', 'كهربائية', 'كيميائية', 'multidisciplinaire', 'بوليتكنيك'] },
+        { title: 'NHSM — الرياضيات', desc: 'المدرسة الوطنية العليا للرياضيات', url: '/university.html#NHSM', icon: 'fas fa-square-root-alt', specialty: 'مدارس عليا', keywords: ['NHSM', 'nhsm', 'رياضيات بحتة', 'mathématiques', 'statistiques', 'probabilités', 'الكوليا', 'analyse', 'algèbre'] },
+        { title: 'EPAU — هندسة معمارية', desc: 'المدرسة البوليتكنيكية لهندسة البناء والتعمير', url: '/university.html#EPAU', icon: 'fas fa-drafting-compass', specialty: 'مدارس عليا', keywords: ['EPAU', 'epau', 'معمارية', 'architecture', 'urbanisme', 'هندسة', 'تعمير', 'بوليتكنيكية'] },
+        { title: 'ENSTP — أشغال عمومية', desc: 'المدرسة الوطنية العليا للأشغال العمومية', url: '/university.html#ENSTP', icon: 'fas fa-hard-hat', specialty: 'مدارس عليا', keywords: ['ENSTP', 'enstp', 'أشغال عمومية', 'travaux publics', 'génie civil', 'VRD', 'routes', 'ponts', 'بناء'] },
+        { title: 'IGEE — الكهرباء بومرداس', desc: 'معهد الهندسة الكهربائية والإلكترونيك', url: '/university.html#IGEE', icon: 'fas fa-bolt', specialty: 'مدارس عليا', keywords: ['IGEE', 'igee', 'هندسة كهربائية', 'génie électrique', 'إلكترونيك', 'طاقة', 'أتوماتيك', 'بومرداس'] },
+        { title: 'AERONAUTIQUE — الطيران', desc: 'المدرسة الوطنية للطيران المدني — البليدة', url: '/university.html#AERONAUTIQUE', icon: 'fas fa-plane', specialty: 'مدارس عليا', keywords: ['طيران', 'aéronautique', 'aerospace', 'aviation', 'pilot', 'طيار', 'فضاء', 'البليدة', 'صواريخ'] },
+        { title: 'ENSH — هيدروليك', desc: 'المدرسة الوطنية العليا للهيدروليك — البليدة', url: '/university.html#ENSH', icon: 'fas fa-tint', specialty: 'مدارس عليا', keywords: ['ENSH', 'ensh', 'هيدروليك', 'hydraulique', 'ماء', 'سدود', 'ري', 'البليدة', 'ressources en eau'] },
+        { title: 'ENSB — البيوتكنولوجيا', desc: 'المدرسة الوطنية العليا للبيوتكنولوجيا', url: '/university.html#ENSB', icon: 'fas fa-dna', specialty: 'مدارس عليا', keywords: ['ENSB', 'ensb', 'بيوتكنولوجيا', 'biotechnologie', 'biologie moléculaire', 'génétique', 'بيولوجيا جزيئية'] },
+        { title: 'EHEC — التجارة', desc: 'المدرسة العليا للتجارة — تيجلابين', url: '/university.html#EHEC', icon: 'fas fa-chart-line', specialty: 'مدارس عليا', keywords: ['EHEC', 'ehec', 'تجارة', 'commerce', 'marketing', 'management', 'مناجمنت', 'تيجلابين', 'MBA', 'اقتصاد'] },
+        { title: 'ENSC — التجارة وهران', desc: 'المدرسة الوطنية العليا للتجارة', url: '/university.html#ENSC', icon: 'fas fa-chart-line', specialty: 'مدارس عليا', keywords: ['ENSC', 'ensc', 'تجارة', 'وهران', 'commerce', 'marketing', 'sciences commerciales'] },
+        { title: 'ESB — البنوك', desc: 'المدرسة العليا للبنوك', url: '/university.html#ESB', icon: 'fas fa-university', specialty: 'مدارس عليا', keywords: ['ESB', 'esb', 'بنوك', 'بنك', 'banque', 'finance', 'صيرفة', 'إسلامية', 'مالية'] },
+        { title: 'ENS — تكوين الأساتذة', desc: 'المدرسة العليا للأساتذة — التكوين التربوي', url: '/university.html#ENS', icon: 'fas fa-chalkboard-teacher', specialty: 'مدارس عليا', keywords: ['أساتذة', 'ENS', 'ens', 'تعليم', 'تربية', 'enseignement', 'professeur', 'pédagogie', 'école normale', 'أستاذ'] },
+        { title: 'ENSA — الزراعة', desc: 'المدرسة الوطنية العليا للزراعة — الجزائر', url: '/university.html#ENSA', icon: 'fas fa-leaf', specialty: 'مدارس عليا', keywords: ['زراعة', 'agronomie', 'agriculture', 'ENSA', 'ensa', 'فلاحة', 'zootechnie', 'علوم زراعية'] },
+        { title: 'ENST — السياحة والفندقة', desc: 'المدرسة الوطنية العليا للسياحة', url: '/university.html#ENST', icon: 'fas fa-hotel', specialty: 'مدارس عليا', keywords: ['سياحة', 'tourisme', 'فندقة', 'hôtellerie', 'restauration', 'guide touristique', 'voyage', 'ENST', 'enst'] },
+        { title: 'ENSSMAL — علوم البحر', desc: 'المدرسة الوطنية العليا للعلوم البحرية', url: '/university.html#ENSSMAL', icon: 'fas fa-water', specialty: 'مدارس عليا', keywords: ['ENSSMAL', 'بحر', 'marine', 'halieutique', 'océanographie', 'pêche', 'علوم بحرية', 'بيولوجيا بحرية'] },
+
+        // ── UNIVERSITY TRACKS (LMD) ────────────────────────────────────────
+        { title: 'طب عام — كلية الطب', desc: 'الدراسات الطبية الكاملة — الطريق للدكتوراه', url: '/university.html#MEDCINE', icon: 'fas fa-stethoscope', specialty: 'طب وصحة', keywords: ['طب', 'médecine', 'طبيب', 'CHU', 'doctor', 'دكتور', 'حكيم', 'كلية الطب', 'résidanat', 'طب عام', 'تخصص طبي'] },
+        { title: 'طب الأسنان', desc: 'دراسة طب وجراحة الأسنان', url: '/university.html#MEDCINE-DENTAIRE', icon: 'fas fa-tooth', specialty: 'طب وصحة', keywords: ['طب أسنان', 'dentaire', 'dentiste', 'أسنان', 'orthodontie', 'chirurgie dentaire', 'طب الفم'] },
+        { title: 'الصيدلة', desc: 'دراسة الصيدلة والعلوم الصيدلانية', url: '/university.html#PHARMACIE', icon: 'fas fa-pills', specialty: 'طب وصحة', keywords: ['صيدلة', 'pharmacie', 'صيدلاني', 'دواء', 'médicaments', 'officine', 'pharmacologie', 'pharmacy'] },
+        { title: 'شبه طبي', desc: 'تمريض، كينيزيتيرابيا، مخبر، راديولوجيا', url: '/university.html#PARAMEDICAL', icon: 'fas fa-heartbeat', specialty: 'طب وصحة', keywords: ['شبه طبي', 'infirmier', 'تمريض', 'kinésithérapie', 'كينيزيتيرابيا', 'مخبر', 'labo', 'radiologie', 'أشعة', 'paramedical', 'ممرض'] },
+        { title: 'القابلة — توليد', desc: 'تكوين القابلات وصحة الأمومة', url: '/university.html#Sage-Femme', icon: 'fas fa-baby', specialty: 'طب وصحة', keywords: ['قابلة', 'توليد', 'ولادة', 'sage-femme', 'maïeutique', 'obstétrique', 'أمومة'] },
+        { title: 'ليسانس إعلام آلي', desc: 'تخصص الإعلام الآلي بالجامعات LMD', url: '/university.html#INFORMATIQUE', icon: 'fas fa-code', specialty: 'جامعة LMD', keywords: ['إعلام آلي', 'informatique', 'ليسانس', 'licence', 'génie logiciel', 'réseaux', 'cybersécurité', 'python', 'java', 'web', 'برمجة', 'تطوير'] },
+        { title: 'هندسة معمارية LMD', desc: 'الليسانس والماستر في العمارة', url: '/university.html#ARCHITECTURE-UNI', icon: 'fas fa-building', specialty: 'جامعة LMD', keywords: ['معمارية', 'architecture', 'lmd', 'تعمير', 'urbanisme', 'هندسة بناء', 'بناء'] },
+        { title: 'رياضيات — ليسانس', desc: 'الليسانس في الرياضيات والإحصاء', url: '/university.html#MATH', icon: 'fas fa-infinity', specialty: 'جامعة LMD', keywords: ['رياضيات بحتة', 'mathématiques', 'ليسانس رياضيات', 'statistiques', 'analyse', 'algèbre'] },
+        { title: 'علوم الفيزياء والكيمياء', desc: 'تخصص علوم المادة في الجامعات', url: '/university.html#SM', icon: 'fas fa-atom', specialty: 'جامعة LMD', keywords: ['فيزياء', 'كيمياء', 'sciences de la matière', 'physique', 'chimie', 'SM', 'thermodynamique', 'علوم مادة'] },
+        { title: 'بيولوجيا — ليسانس', desc: 'الليسانس في البيولوجيا والبيئة', url: '/university.html#BIOLOGIE', icon: 'fas fa-leaf', specialty: 'جامعة LMD', keywords: ['بيولوجيا', 'biologie', 'écologie', 'environnement', 'génétique', 'microbiologie', 'علوم طبيعية'] },
+        { title: 'الهندسة المدنية', desc: 'تخصص هندسة الإنشاء والبناء', url: '/university.html#GC', icon: 'fas fa-hard-hat', specialty: 'جامعة LMD', keywords: ['هندسة مدنية', 'génie civil', 'GC', 'بناء', 'بتون', 'VRD', 'هندسة إنشاء', 'géotechnique'] },
+        { title: 'الهندسة الميكانيكية', desc: 'تخصص ميكانيك وميكاترونيك', url: '/university.html#GMEC', icon: 'fas fa-cog', specialty: 'جامعة LMD', keywords: ['هندسة ميكانيكية', 'génie mécanique', 'GMEC', 'ميكانيك', 'machines', 'thermodynamique', 'ميكاترونيك'] },
+        { title: 'النفط والغاز', desc: 'هندسة البترول والمحروقات', url: '/university.html#HYDROCARBURES', icon: 'fas fa-oil-can', specialty: 'جامعة LMD', keywords: ['نفط', 'غاز', 'بترول', 'sonatrach', 'pétrole', 'HYDROCARBURES', 'محروقات', 'raffinerie', 'pétrolier'] },
+        { title: 'الحقوق والقانون', desc: 'ليسانس في الحقوق والعلوم القانونية', url: '/university.html#DROIT', icon: 'fas fa-gavel', specialty: 'جامعة LMD', keywords: ['حقوق', 'قانون', 'droit', 'محاماة', 'قضاء', 'justice', 'commercial', 'avocat', 'juriste'] },
+        { title: 'العلوم الاجتماعية', desc: 'علم النفس، علم الاجتماع والأنثروبولوجيا', url: '/university.html#SS', icon: 'fas fa-users', specialty: 'جامعة LMD', keywords: ['علم نفس', 'علم اجتماع', 'psychologie', 'sociologie', 'SS', 'anthropologie', 'اجتماع', 'نفس'] },
+        { title: 'الإعلام والصحافة', desc: 'علوم الإعلام والاتصال والصحافة', url: '/university.html#COMMU', icon: 'fas fa-newspaper', specialty: 'جامعة LMD', keywords: ['إعلام', 'صحافة', 'journalisme', 'communication', 'médias', 'relations publiques', 'اتصال', 'COMMU'] },
+        { title: 'الترجمة', desc: 'تخصص الترجمة التحريرية والفورية', url: '/university.html#TRADUCTION', icon: 'fas fa-language', specialty: 'جامعة LMD', keywords: ['ترجمة', 'traduction', 'interprétation', 'لغات', 'فورية', 'تحريرية', 'TRADUCTION'] },
+        { title: 'العلوم الإسلامية — جامعة', desc: 'الشريعة والفقه والعلوم الإسلامية', url: '/university.html#CHARIA', icon: 'fas fa-mosque', specialty: 'جامعة LMD', keywords: ['شريعة', 'فقه', 'حديث', 'قرآن', 'CHARIA', 'إسلامية', 'علوم دينية', 'aqida', 'usoul'] },
+        { title: 'علوم سياسية ودبلوماسية', desc: 'العلاقات الدولية والإدارة العامة', url: '/university.html#SCIENCES-PO', icon: 'fas fa-globe', specialty: 'جامعة LMD', keywords: ['علوم سياسية', 'دبلوماسية', 'relations internationales', 'administration publique', 'SCIENCES-PO', 'دبلوماسي', 'سياسة'] },
+        { title: 'تاريخ وجغرافيا — جامعة', desc: 'الليسانس في التاريخ والجغرافيا والآثار', url: '/university.html#SCIENCES-HUM', icon: 'fas fa-landmark', specialty: 'جامعة LMD', keywords: ['تاريخ', 'جغرافيا', 'آثار', 'تراث', 'histoire', 'géographie', 'archéologie', 'SCIENCES-HUM'] },
     ];
 
+    const PLACEHOLDER = '<div class="search-placeholder"><i class="fas fa-keyboard"></i><p>ابدأ الكتابة للبحث في المنصة</p></div>';
+    const NORESULT   = '<div class="search-placeholder"><i class="fas fa-search"></i><p>لا توجد نتائج — جرّب كلمة أخرى</p></div>';
+
+    // ── OPEN / CLOSE ──────────────────────────────────────────────────────────
     const toggleSearch = (show) => {
         searchOverlay.classList.toggle('active', show);
         document.body.classList.toggle('search-active', show);
         document.body.style.overflow = show ? 'hidden' : '';
+        focusIdx = -1;
         if (show) {
             setTimeout(() => searchInput.focus(), 300);
+            if (!searchInput.value.trim()) renderRecent();
         } else {
             searchInput.value = '';
-            searchResults.innerHTML = '<div class="search-placeholder"><i class="fas fa-keyboard"></i><p>ابدأ الكتابة للبحث في المنصة</p></div>';
+            searchResults.innerHTML = PLACEHOLDER;
             clearSearch.classList.remove('visible');
+            hideRecent();
         }
     };
 
-    if (searchBtnMobile) searchBtnMobile.addEventListener('click', () => toggleSearch(true));
+    // Global keyboard shortcut Ctrl+K / ⌘K
+    document.addEventListener('keydown', (e) => {
+        if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+            e.preventDefault();
+            toggleSearch(!searchOverlay.classList.contains('active'));
+        }
+        if (e.key === 'Escape' && searchOverlay.classList.contains('active')) {
+            toggleSearch(false);
+        }
+    });
+
+    // Arrow-key navigation inside the input
+    searchInput.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowDown') { e.preventDefault(); setFocus(focusIdx + 1); }
+        else if (e.key === 'ArrowUp') { e.preventDefault(); setFocus(focusIdx - 1); }
+        else if (e.key === 'Enter') {
+            const items = searchResults.querySelectorAll('.search-result-item');
+            if (focusIdx >= 0 && items[focusIdx]) { e.preventDefault(); items[focusIdx].click(); }
+        }
+    });
+
+    if (searchBtnMobile)  searchBtnMobile.addEventListener('click',  () => toggleSearch(true));
     if (searchBtnDesktop) searchBtnDesktop.addEventListener('click', () => toggleSearch(true));
-    if (closeSearch) closeSearch.addEventListener('click', () => toggleSearch(false));
-    if (searchOverlay) {
-        searchOverlay.addEventListener('click', (e) => {
-            if (e.target === searchOverlay) toggleSearch(false);
-        });
-    }
+    if (closeSearch)      closeSearch.addEventListener('click',      () => toggleSearch(false));
+    if (searchOverlay)    searchOverlay.addEventListener('click',    (e) => { if (e.target === searchOverlay) toggleSearch(false); });
 
-    const normalizeSearch = (text) => {
-        if (!text) return "";
-        return text.toString().toLowerCase()
-            .replace(/[أإآ]/g, "ا")
-            .replace(/ة/g, "ه")
-            .replace(/ى/g, "ي")
-            .replace(/^(ال)/, "") // Remove leading "Al"
-            .trim();
-    };
-
+    // ── SEARCH HANDLER ────────────────────────────────────────────────────────
     searchInput.addEventListener('input', (e) => {
         const queryRaw = e.target.value.trim();
-        const query = normalizeSearch(queryRaw);
         clearSearch.classList.toggle('visible', queryRaw.length > 0);
+        focusIdx = -1;
 
-        if (queryRaw.length < 1) {
-            searchResults.innerHTML = '<div class="search-placeholder"><i class="fas fa-keyboard"></i><p>ابدأ الكتابة للبحث في المنصة</p></div>';
+        if (!queryRaw) {
+            searchResults.innerHTML = PLACEHOLDER;
+            renderRecent();
             return;
         }
+        hideRecent();
+        if (queryRaw.length < 2) { searchResults.innerHTML = PLACEHOLDER; return; }
 
-        const queryWords = query.split(/\s+/).filter(w => w.length > 0);
+        const query = normalizeSearch(queryRaw);
+        const queryWords = query.split(/\s+/).filter(w => w.length >= 1);
 
-        // Score-based ranking: exact title match > keyword exact > partial
         const scored = navSearchData.map(item => {
-            const itemTitle = normalizeSearch(item.title);
-            const itemDesc = normalizeSearch(item.desc);
-            const itemKeywords = (item.keywords || []).map(kw => normalizeSearch(kw));
+            const normTitle   = normalizeSearch(item.title);
+            const normDesc    = normalizeSearch(item.desc);
+            const normKws     = (item.keywords || []).map(k => normalizeSearch(k));
+            const normSp      = item.specialty ? normalizeSearch(item.specialty) : '';
 
             let score = 0;
-            let allWordsMatched = true;
+            let allMatched = true;
 
             for (const word of queryWords) {
-                let wordMatched = false;
+                let hit = false;
 
-                // Title / desc match (highest weight)
-                if (itemTitle.includes(word)) { score += 12; wordMatched = true; }
-                else if (itemDesc.includes(word)) { score += 5; wordMatched = true; }
+                // Title (highest weight) — exact > startsWith > contains
+                if (normTitle === word)             { score += 22; hit = true; }
+                else if (normTitle.startsWith(word)){ score += 15; hit = true; }
+                else if (normTitle.includes(word))  { score += 12; hit = true; }
 
-                // Keyword match
-                for (const kw of itemKeywords) {
+                // Description
+                if (!hit && normDesc.includes(word)) { score += 5; hit = true; }
+
+                // Keywords
+                for (const kw of normKws) {
                     if (!kw) continue;
-                    if (kw === word) { score += 10; wordMatched = true; }
-                    else if (kw.includes(word)) { score += 6; wordMatched = true; }
-                    else if (word.includes(kw) && kw.length > 2) { score += 3; wordMatched = true; }
+                    if (kw === word)                       { score += 10; hit = true; }
+                    else if (kw.startsWith(word))          { score +=  8; hit = true; }
+                    else if (kw.includes(word))            { score +=  6; hit = true; }
+                    else if (word.includes(kw) && kw.length > 2) { score += 3; hit = true; }
                 }
 
-                // Specialty label match (helps "آداب" show آداب-specialty entries)
-                if (item.specialty) {
-                    const sp = normalizeSearch(item.specialty);
-                    if (sp.includes(word) || word.includes(sp)) { score += 4; wordMatched = true; }
-                }
+                // Specialty badge
+                if (!hit && normSp && (normSp.includes(word) || word.includes(normSp))) { score += 4; hit = true; }
 
-                if (!wordMatched) { allWordsMatched = false; break; }
+                if (!hit) { allMatched = false; break; }
             }
 
-            return { item, score, matched: allWordsMatched };
+            return { item, score, matched: allMatched };
         })
             .filter(x => x.matched && x.score > 0)
             .sort((a, b) => b.score - a.score);
 
-        const topResults = scored.slice(0, 8).map(x => x.item);
+        const topItems = scored.slice(0, 10).map(x => x.item);
 
-        if (topResults.length === 0) {
-            searchResults.innerHTML = '<div class="search-placeholder"><i class="fas fa-search"></i><p>لم يتم العثور على نتائج</p></div>';
-        } else {
-            searchResults.innerHTML = topResults.map(item => `
-                <a href="${item.url}" class="search-result-item" onclick="document.getElementById('searchOverlay').classList.remove('active'); document.body.classList.remove('search-active'); document.body.style.overflow='';">
-                    <i class="${item.icon}"></i>
-                    <div class="result-info">
-                        <h4>${item.title}${item.specialty ? `<span class="result-specialty-badge">${item.specialty}</span>` : ''}</h4>
-                        <p>${item.desc}</p>
-                    </div>
-                </a>
-            `).join('');
+        if (!topItems.length) {
+            searchResults.innerHTML = NORESULT;
+            return;
         }
+
+        searchResults.innerHTML = '';
+        topItems.forEach(item => {
+            const a = document.createElement('a');
+            a.href = item.url;
+            a.className = 'search-result-item';
+            a.innerHTML = `<i class="${item.icon}"></i><div class="result-info"><h4>${item.title}${item.specialty ? `<span class="result-specialty-badge">${item.specialty}</span>` : ''}</h4><p>${item.desc}</p></div>`;
+            a.addEventListener('click', () => { saveRecent(queryRaw); toggleSearch(false); });
+            searchResults.appendChild(a);
+        });
     });
 
     clearSearch.addEventListener('click', () => {
         searchInput.value = '';
         searchInput.focus();
         clearSearch.classList.remove('visible');
-        searchResults.innerHTML = '<div class="search-placeholder"><i class="fas fa-keyboard"></i><p>ابدأ الكتابة للبحث في المنصة</p></div>';
+        focusIdx = -1;
+        searchResults.innerHTML = PLACEHOLDER;
+        renderRecent();
     });
 }
 
