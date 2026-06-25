@@ -751,12 +751,17 @@
     let fullText = '';
     let firstToken = true;
 
+    let renderScheduled = false;
     const updateLive = () => {
-        textEl.innerHTML = liveRender(fullText);
-        const cursor = document.createElement('span');
-        cursor.className = 'stream-cursor';
-        const last = textEl.lastElementChild;
-        (last || textEl).appendChild(cursor);
+        if (renderScheduled) return;
+        renderScheduled = true;
+        requestAnimationFrame(() => {
+            textEl.innerHTML = liveRender(fullText);
+            const cursor = document.createElement('span');
+            cursor.className = 'stream-cursor';
+            (textEl.lastElementChild || textEl).appendChild(cursor);
+            renderScheduled = false;
+        });
     };
 
     while (true) {
@@ -1021,10 +1026,11 @@
     currentChatId = sessionId;
     renderHistory(); // highlight the now-active item
 
-    /* Fast path: messages cached locally. */
+    /* Fast path: messages cached locally.
+       Defer rendering one rAF so the browser paints the closed overlay first. */
     const saved = JSON.parse(localStorage.getItem(`tw-sess-${sessionId}`) || '[]');
     if (saved.length > 0) {
-      renderSessionMessages(saved);
+      requestAnimationFrame(() => renderSessionMessages(saved));
       return;
     }
 
