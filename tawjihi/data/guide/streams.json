@@ -1,0 +1,21 @@
+{
+  "streams": [
+    { "code": "sciexp", "ar": "علوم تجريبية" },
+    { "code": "math", "ar": "رياضيات" },
+    {
+      "code": "techmath",
+      "ar": "تقني رياضي",
+      "subTracks": [
+        { "code": "techmath-procedes", "ar": "هندسة الطرائق" },
+        { "code": "techmath-civil", "ar": "هندسة مدنية" },
+        { "code": "techmath-elec", "ar": "هندسة كهربائية" },
+        { "code": "techmath-meca", "ar": "هندسة ميكانيكية" }
+      ]
+    },
+    { "code": "gestion", "ar": "تسيير واقتصاد" },
+    { "code": "lettres", "ar": "آداب وفلسفة" },
+    { "code": "langues", "ar": "لغات أجنبية" },
+    { "code": "arts", "ar": "فنون" }
+  ],
+  "_note": "Stream Arabic labels verified against the eligibility matrix on PDF page 1 (text-cache lines ~100-170). The four تقني رياضي sub-tracks (هندسة الطرائق/مدنية/كهربائية/ميكانيكية) are listed explicitly in the matrix for ميدان علوم وتكنولوجيا ('4 مسارات تقني رياضي')."
+}

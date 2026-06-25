@@ -1,0 +1,359 @@
+{
+  "_note": "Field list extracted from the high-level eligibility matrix, PDF page 4 (text-cache lines ~100-260). Stream priorities are NOT included here because the matrix uses merged cells that pdfplumber cannot align reliably row-to-row (priority markers appear as 'أ 0/أ 1/أ 3', whose numeric meaning is itself ambiguous). For authoritative per-program stream priorities, use programs.json (شعب البكالوريا والأولويات column). allowedStreams here lists the streams associated with each field, priority=null.",
+  "fields": [
+    {
+      "ar": "ميدان علوم الطبيعة والحياة",
+      "allowedStreams": [
+        {
+          "stream": "sciexp",
+          "priority": null
+        }
+      ]
+    },
+    {
+      "ar": "ميدان علوم ألارض والكون",
+      "allowedStreams": [
+        {
+          "stream": "math",
+          "priority": null
+        }
+      ]
+    },
+    {
+      "ar": "ميدان علوم الصحة",
+      "allowedStreams": [],
+      "_note": "streams_unreadable_from_merged_matrix"
+    },
+    {
+      "ar": "ميدان علوم املادة",
+      "allowedStreams": [
+        {
+          "stream": "math",
+          "priority": null
+        },
+        {
+          "stream": "sciexp",
+          "priority": null
+        }
+      ]
+    },
+    {
+      "ar": "ميدان علوم وتكنولوجيا",
+      "allowedStreams": [],
+      "_note": "streams_unreadable_from_merged_matrix"
+    },
+    {
+      "ar": "ميدان علوم وتكنولوجيا",
+      "allowedStreams": [
+        {
+          "stream": "math",
+          "priority": null
+        }
+      ]
+    },
+    {
+      "ar": "ميدان رياضيات وإعالم آلي",
+      "allowedStreams": [
+        {
+          "stream": "sciexp",
+          "priority": null
+        },
+        {
+          "stream": "math",
+          "priority": null
+        }
+      ]
+    },
+    {
+      "ar": "ميدان رياضيات",
+      "allowedStreams": [
+        {
+          "stream": "sciexp",
+          "priority": null
+        },
+        {
+          "stream": "math",
+          "priority": null
+        }
+      ]
+    },
+    {
+      "ar": "ميدان هندسة معمارية، عمران ومهن املدينة",
+      "allowedStreams": [
+        {
+          "stream": "sciexp",
+          "priority": null
+        },
+        {
+          "stream": "langues",
+          "priority": null
+        }
+      ]
+    },
+    {
+      "ar": "ميدان آداب ولغات أجنبية (لغة فرنسية، لغة انجليزية)",
+      "allowedStreams": [
+        {
+          "stream": "lettres",
+          "priority": null
+        },
+        {
+          "stream": "sciexp",
+          "priority": null
+        },
+        {
+          "stream": "gestion",
+          "priority": null
+        },
+        {
+          "stream": "arts",
+          "priority": null
+        },
+        {
+          "stream": "langues",
+          "priority": null
+        }
+      ]
+    },
+    {
+      "ar": "ميدان آداب ولغات أجنبية (لغة اسبانية، لغة أملانية)",
+      "allowedStreams": [
+        {
+          "stream": "lettres",
+          "priority": null
+        },
+        {
+          "stream": "sciexp",
+          "priority": null
+        },
+        {
+          "stream": "gestion",
+          "priority": null
+        },
+        {
+          "stream": "arts",
+          "priority": null
+        },
+        {
+          "stream": "langues",
+          "priority": null
+        }
+      ]
+    },
+    {
+      "ar": "ميدان آداب ولغات أجنبية (لغة إيطالية)",
+      "allowedStreams": [
+        {
+          "stream": "sciexp",
+          "priority": null
+        },
+        {
+          "stream": "math",
+          "priority": null
+        },
+        {
+          "stream": "gestion",
+          "priority": null
+        },
+        {
+          "stream": "arts",
+          "priority": null
+        }
+      ]
+    },
+    {
+      "ar": "ميدان آداب ولغات أجنبية (لغة روسية،لغة صينية ولغة",
+      "allowedStreams": [
+        {
+          "stream": "langues",
+          "priority": null
+        },
+        {
+          "stream": "lettres",
+          "priority": null
+        },
+        {
+          "stream": "sciexp",
+          "priority": null
+        },
+        {
+          "stream": "gestion",
+          "priority": null
+        },
+        {
+          "stream": "arts",
+          "priority": null
+        }
+      ]
+    },
+    {
+      "ar": "ميدان آداب ولغات أجنبية (ترجمة)",
+      "allowedStreams": [
+        {
+          "stream": "lettres",
+          "priority": null
+        }
+      ]
+    },
+    {
+      "ar": "ميدان لغة وثقافة أمازيغية",
+      "allowedStreams": [
+        {
+          "stream": "lettres",
+          "priority": null
+        },
+        {
+          "stream": "langues",
+          "priority": null
+        },
+        {
+          "stream": "arts",
+          "priority": null
+        }
+      ]
+    },
+    {
+      "ar": "ميدان لغة وأدب عربي",
+      "allowedStreams": [
+        {
+          "stream": "sciexp",
+          "priority": null
+        },
+        {
+          "stream": "gestion",
+          "priority": null
+        },
+        {
+          "stream": "lettres",
+          "priority": null
+        },
+        {
+          "stream": "langues",
+          "priority": null
+        },
+        {
+          "stream": "arts",
+          "priority": null
+        }
+      ]
+    },
+    {
+      "ar": "ميدان علوم إنسانية واجتماعية",
+      "allowedStreams": [
+        {
+          "stream": "sciexp",
+          "priority": null
+        },
+        {
+          "stream": "lettres",
+          "priority": null
+        },
+        {
+          "stream": "langues",
+          "priority": null
+        },
+        {
+          "stream": "arts",
+          "priority": null
+        }
+      ]
+    },
+    {
+      "ar": "ميدان علوم إنسانية واجتماعية (علوم اسالمية)",
+      "allowedStreams": [
+        {
+          "stream": "sciexp",
+          "priority": null
+        },
+        {
+          "stream": "math",
+          "priority": null
+        },
+        {
+          "stream": "gestion",
+          "priority": null
+        },
+        {
+          "stream": "lettres",
+          "priority": null
+        },
+        {
+          "stream": "langues",
+          "priority": null
+        },
+        {
+          "stream": "arts",
+          "priority": null
+        }
+      ]
+    },
+    {
+      "ar": "ميدان حقوق وعلوم سياسية",
+      "allowedStreams": [
+        {
+          "stream": "sciexp",
+          "priority": null
+        },
+        {
+          "stream": "math",
+          "priority": null
+        },
+        {
+          "stream": "langues",
+          "priority": null
+        },
+        {
+          "stream": "gestion",
+          "priority": null
+        },
+        {
+          "stream": "lettres",
+          "priority": null
+        }
+      ]
+    },
+    {
+      "ar": "ميدان علوم اقتصادية والتسيير وعلوم تجارية",
+      "allowedStreams": [],
+      "_note": "streams_unreadable_from_merged_matrix"
+    },
+    {
+      "ar": "ميدان علوم اقتصادية",
+      "allowedStreams": [
+        {
+          "stream": "gestion",
+          "priority": null
+        },
+        {
+          "stream": "math",
+          "priority": null
+        },
+        {
+          "stream": "sciexp",
+          "priority": null
+        },
+        {
+          "stream": "arts",
+          "priority": null
+        }
+      ]
+    },
+    {
+      "ar": "ميدان فنون",
+      "allowedStreams": [
+        {
+          "stream": "math",
+          "priority": null
+        },
+        {
+          "stream": "sciexp",
+          "priority": null
+        },
+        {
+          "stream": "langues",
+          "priority": null
+        }
+      ]
+    }
+  ]
+}

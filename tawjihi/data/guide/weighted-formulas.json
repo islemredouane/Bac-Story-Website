@@ -1,0 +1,26 @@
+{
+  "_note": "Source: PDF pages 2-4 (text-cache lines 94-99 and the eligibility/calculation table on page 4, column 'صيغة الحساب'). The Guide defines the weighted average conceptually but does NOT publish an explicit per-subject coefficient table. The (*) footnote (line 99) states: the calculated weighted average (المعدل الموزون المحسوب) is the combination of the general bac average (المعدل العام) weighted by a coefficient, plus the mark of the key subject(s) (المادة أو المواد الأساسية). For most listed fields the 'صيغة الحساب' column simply reads 'المعدل العام المحصل عليه في امتحان البكالوريا'. Specific coefficients per subject are NOT stated in the Guide and have been left null rather than guessed. Per-program ranking basis (weighted vs general) is captured reliably in programs.json (rankingBasis field).",
+  "definition_ar": "المعدل الموزون المحسوب: هو المحصلة ما بين المعدل العام المحصل عليه في البكالوريا المزود بمعامل وعلامة المادة أو المواد الأساسية.",
+  "formulas": [
+    {
+      "ar": "المعدل العام",
+      "description_ar": "المعدل العام المحصل عليه في امتحان البكالوريا",
+      "appliesTo_ar": "الميادين التي يرد في عمود صيغة الحساب فيها 'المعدل العام المحصل عليه في امتحان البكالوريا' (مثل: ميدان علوم الطبيعة والحياة، ميدان علوم الأرض والكون، ميدان علوم الصحة، علوم طبية، علوم البيطرة).",
+      "components": [
+        { "subject_ar": "المعدل العام للبكالوريا", "coefficient": null }
+      ],
+      "_confidence": "high"
+    },
+    {
+      "ar": "المعدل الموزون المحسوب",
+      "description_ar": "المحصلة ما بين المعدل العام المحصل عليه في البكالوريا المزود بمعامل، وعلامة المادة أو المواد الأساسية الخاصة بالميدان.",
+      "appliesTo_ar": "الميادين والشعب التي يُرتَّب فيها على أساس المعدل الموزون المحسوب (انظر عمود rankingBasis في programs.json).",
+      "components": [
+        { "subject_ar": "المعدل العام للبكالوريا (مزوّد بمعامل)", "coefficient": null },
+        { "subject_ar": "علامة المادة/المواد الأساسية", "coefficient": null }
+      ],
+      "_confidence": "medium",
+      "_note": "Coefficients and the exact list of key subjects per field are not enumerated in the Guide circular; left null intentionally."
+    }
+  ]
+}
