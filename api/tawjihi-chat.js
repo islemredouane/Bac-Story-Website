@@ -111,11 +111,15 @@ function streamCode(streamRaw) {
   return null;
 }
 
-/* Format the three per-stream thresholds; null => "لا يقبل". */
+/* Format per-stream thresholds — only show streams with actual data.
+   null means "no admissions data for this stream", NOT "stream is rejected". */
 function formatAverages(resolved) {
   if (!resolved) return 'غير متوفرة';
-  const fmt = (v) => (v === null || v === undefined ? 'لا يقبل' : String(v));
-  return `علوم تجريبية: ${fmt(resolved.min1)} · رياضيات: ${fmt(resolved.min2)} · تقني رياضي: ${fmt(resolved.min3)}`;
+  const lines = [];
+  if (resolved.min1 != null) lines.push(`علوم تجريبية: ${resolved.min1}`);
+  if (resolved.min2 != null) lines.push(`رياضيات: ${resolved.min2}`);
+  if (resolved.min3 != null) lines.push(`تقني رياضي: ${resolved.min3}`);
+  return lines.length ? lines.join(' · ') : 'بيانات المعدلات غير متوفرة بعد';
 }
 
 /* ---- Section excerpting -------------------------------------------------- */

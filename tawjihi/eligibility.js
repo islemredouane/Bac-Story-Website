@@ -1412,12 +1412,11 @@
     ],
     "rankingBasis": "weighted_or_general",
     "thresholdsByStream": {
-      "sciexp": 10.0,
-      "math": 10.29
+      "sciexp": 18.21
     },
-    "sourceConfidence": "high",
-    "_note": "linked via admissions catalog_averages filiere_key=SCIENCES AGRONOMIQUES",
-    "_method": "catalog_averages"
+    "sourceConfidence": "medium",
+    "_note": "sciexp corrected from KB admissions 2025 (was wrongly linked via SCIENCES AGRONOMIQUES); math threshold unavailable",
+    "_method": "kb_corrected"
   },
   "st": {
     "linkedProgramCodes": [
@@ -1499,13 +1498,13 @@
     ],
     "rankingBasis": "weighted_or_general",
     "thresholdsByStream": {
-      "math": 10.0,
+      "math": 17.75,
       "sciexp": 10.0,
-      "techmath": 10.0
+      "techmath": 18.1
     },
-    "sourceConfidence": "card-derived",
-    "_note": "streams+threshold corrected to card (threshold=card.minAvg; math/techmath from a single grande-ecole row; using card minAvg across streams); previous registry-inherited values were unreliable",
-    "_method": "card_derived_correction"
+    "sourceConfidence": "medium",
+    "_note": "sciexp=10 from admissions (general university level); math/techmath corrected from KB admissions data 2025",
+    "_method": "kb_corrected"
   },
   "hydrocarbures": {
     "linkedProgramCodes": [
@@ -1855,12 +1854,12 @@
     "circleWilayaNums": [],
     "rankingBasis": "weighted_or_general",
     "thresholdsByStream": {
-      "math": 10.04,
-      "sciexp": 10.04
+      "math": 18.0,
+      "sciexp": 18.0
     },
-    "sourceConfidence": "card-derived",
-    "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
-    "_method": "card_derived"
+    "sourceConfidence": "medium",
+    "_note": "thresholds corrected from KB admissions data 2025; previous card-derived value (10.04) was wrong",
+    "_method": "kb_corrected"
   },
   "ensb": {
     "linkedProgramCodes": [
@@ -2102,13 +2101,11 @@
     ],
     "rankingBasis": "general",
     "thresholdsByStream": {
-      "sciexp": 10.0,
-      "math": 10.0,
-      "techmath": 10.08
+      "sciexp": 15.78
     },
     "sourceConfidence": "medium",
-    "_note": "linked via explicit grande-ecole code_fil; linked via admissions by_filiere filiere_key=SCIENCES ECONOMIQUES; thresholds from grande-ecole code_fil records",
-    "_method": "explicit_codefil"
+    "_note": "sciexp corrected from KB admissions 2025; math/techmath removed (were wrongly inherited from SCIENCES ECONOMIQUES general programs)",
+    "_method": "kb_corrected"
   },
   "enssea": {
     "linkedProgramCodes": [
@@ -2375,14 +2372,10 @@
       58
     ],
     "rankingBasis": "general",
-    "thresholdsByStream": {
-      "sciexp": 10.0,
-      "math": 10.0,
-      "techmath": 10.08
-    },
-    "sourceConfidence": "medium",
-    "_note": "linked via explicit grande-ecole code_fil; linked via admissions by_filiere filiere_key=SCIENCES ECONOMIQUES; thresholds from grande-ecole code_fil records",
-    "_method": "explicit_codefil"
+    "thresholdsByStream": {},
+    "sourceConfidence": "low",
+    "_note": "no reliable threshold data available; previously inherited wrong values from SCIENCES ECONOMIQUES",
+    "_method": "no_data"
   },
   "esm": {
     "linkedProgramCodes": [
@@ -2514,13 +2507,11 @@
     ],
     "rankingBasis": "general",
     "thresholdsByStream": {
-      "sciexp": 10.0,
-      "math": 10.0,
-      "techmath": 10.08
+      "sciexp": 15.18
     },
     "sourceConfidence": "medium",
-    "_note": "linked via explicit grande-ecole code_fil; linked via admissions by_filiere filiere_key=SCIENCES ECONOMIQUES; thresholds from grande-ecole code_fil records",
-    "_method": "explicit_codefil"
+    "_note": "sciexp corrected from KB admissions 2025; math/techmath removed (were wrongly inherited from SCIENCES ECONOMIQUES general programs)",
+    "_method": "kb_corrected"
   },
   "ensa-agro": {
     "linkedProgramCodes": [

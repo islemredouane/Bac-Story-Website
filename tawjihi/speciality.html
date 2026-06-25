@@ -231,12 +231,24 @@
       ? desc.map(p => `<p>${p}</p>`).join('')
       : '<p style="color:var(--text-muted)">لا يوجد وصف متاح لهذا التخصص حالياً.</p>';
 
-  /* ---- STREAMS ---- */
-  const streams = Array.isArray(spec.streams) ? spec.streams : [];
-  document.getElementById('specStreams').innerHTML =
-    streams.length
+  /* ---- STREAMS — prefer ELIG.allowedStreams (official), fall back to catalog ---- */
+  (function renderStreams() {
+    const el = document.getElementById('specStreams');
+    if (!el) return;
+    const STREAM_AR_NAMES = {
+      sciexp: 'علوم تجريبية', math: 'رياضيات', techmath: 'تقني رياضي',
+      gestion: 'تسيير واقتصاد', lettres: 'آداب وفلسفة', langues: 'لغات أجنبية', arts: 'فنون',
+    };
+    const eligRec = (typeof window.twElig === 'function') ? window.twElig(spec.id) : null;
+    const eligAllowed = eligRec ? (eligRec.allowedStreams || []) : [];
+    const catStreams = Array.isArray(spec.streams) ? spec.streams : [];
+    const streams = eligAllowed.length
+      ? eligAllowed.map(c => STREAM_AR_NAMES[c] || c)
+      : catStreams;
+    el.innerHTML = streams.length
       ? streams.map(s => `<span class="stream-tag">${s}</span>`).join('')
       : '<span style="color:var(--text-muted);font-size:var(--fs-sm)">غير محدد</span>';
+  })();
 
   /* ============================================================
      ELIGIBILITY SECTION (eligibility engine)
@@ -310,16 +322,6 @@
           <span class="elig-scope-chip" data-scope="${isRegional ? 'regional' : 'national'}">
             <i class="fas fa-${isRegional ? 'map-pin' : 'flag'}"></i> ${isRegional ? 'جهوي' : 'وطني'}
           </span>
-        </div>`);
-    }
-
-    const allowed = Array.isArray(rec.allowedStreams) ? rec.allowedStreams : [];
-    if (allowed.length) {
-      const tags = allowed.map(c => `<span class="stream-tag">${esc(STREAM_AR[c] || c)}</span>`).join('');
-      parts.push(`
-        <div>
-          <div class="elig-line" style="margin-bottom:var(--sp-2)"><span class="elig-key">الشعب المؤهلة للقبول:</span></div>
-          <div class="tag-list">${tags}</div>
         </div>`);
     }
 
