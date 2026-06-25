@@ -1,6 +1,6 @@
 // calculatorState is kept here because showSection() and the popstate handler reference it.
 // All calculator logic (coefficients, selectField, calculateAverage, reveals, etc.)
-// lives in components/calculator.js Ã¢â‚¬â€ loaded only on tools.html.
+// lives in components/calculator.js — loaded only on tools.html.
 let calculatorState = 'fieldSelection';
 
 function showSection(id, push = true) {
@@ -30,11 +30,11 @@ function showSection(id, push = true) {
         if (id !== 'fieldSelection') {
             const fieldName = getFieldName(id.replace('Subjects', ''));
             document.querySelector('.calculator-header h2').textContent =
-                `Ã˜Â­Ã˜Â³Ã˜Â§Ã˜Â¨ Ã™â€¦Ã˜Â¹Ã˜Â¯Ã™â€ž Ã˜Â§Ã™â€žÃ˜Â¨Ã™Æ’Ã˜Â§Ã™â€žÃ™Ë†Ã˜Â±Ã™Å Ã˜Â§ - ${fieldName}`;
-            document.querySelector('.calculator-header p').textContent = 'Ã˜Â£Ã˜Â¯Ã˜Â®Ã™â€ž Ã˜Â¹Ã™â€žÃ˜Â§Ã™â€¦Ã˜Â§Ã˜ÂªÃ™Æ’';
+                `حساب معدل البكالوريا - ${fieldName}`;
+            document.querySelector('.calculator-header p').textContent = 'أدخل علاماتك';
         } else {
-            document.querySelector('.calculator-header h2').textContent = 'Ã˜Â­Ã˜Â³Ã˜Â§Ã˜Â¨ Ã™â€¦Ã˜Â¹Ã˜Â¯Ã™â€ž Ã˜Â§Ã™â€žÃ˜Â¨Ã™Æ’Ã˜Â§Ã™â€žÃ™Ë†Ã˜Â±Ã™Å Ã˜Â§';
-            document.querySelector('.calculator-header p').textContent = 'Ã˜Â§Ã˜Â®Ã˜ÂªÃ˜Â± Ã˜Â´Ã˜Â¹Ã˜Â¨Ã˜ÂªÃ™Æ’ Ã™â€žÃ˜Â­Ã˜Â³Ã˜Â§Ã˜Â¨ Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â¹Ã˜Â¯Ã™â€ž';
+            document.querySelector('.calculator-header h2').textContent = 'حساب معدل البكالوريا';
+            document.querySelector('.calculator-header p').textContent = 'اختر شعبتك لحساب المعدل';
         }
 
         document.getElementById('resultSection').style.display = 'none';
@@ -138,7 +138,7 @@ function updateAllTimers() {
     });
 }
 
-// Timer with Page Visibility API Ã¢â‚¬â€ pauses when tab is hidden
+// Timer with Page Visibility API — pauses when tab is hidden
 let timerInterval = null;
 function startTimer() {
     if (timerInterval) return;
@@ -154,7 +154,7 @@ document.addEventListener('visibilitychange', () => {
     else startTimer();
 }, { passive: true });
 
-// Ã¢â€â‚¬Ã¢â€â‚¬ Share Card Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+// ── Share Card ──────────────────────────────────────────────────────────────
 (function () {
     var overlay, card, cardSubject, cardUrl;
 
@@ -171,7 +171,7 @@ document.addEventListener('visibilitychange', () => {
 
         card.innerHTML =
             '<span class="share-card__handle"></span>' +
-            /* Ã¢â€â‚¬Ã¢â€â‚¬ Gradient hero header Ã¢â€â‚¬Ã¢â€â‚¬ */
+            /* ── Gradient hero header ── */
             '<div class="share-card__hero">' +
                 '<div class="share-card__hero-icon"><i class="fas fa-share-nodes"></i></div>' +
                 '<div class="share-card__hero-text">' +
@@ -294,9 +294,9 @@ function shareOnWhatsApp(btn) {
     var section = btn.closest('.resource-content');
     var title   = (section && section.querySelector('h2'))
         ? section.querySelector('h2').textContent.trim()
-        : 'Ã™â€¦Ã™Ë†Ã˜Â§Ã˜Â¶Ã™Å Ã˜Â¹ Ã˜Â¨Ã™Æ’Ã˜Â§Ã™â€žÃ™Ë†Ã˜Â±Ã™Å Ã˜Â§ 2026';
+        : 'مواضيع بكالوريا 2026';
 
-    // Read the section ID directly from the DOM Ã¢â‚¬â€ always accurate, no window.location dependency
+    // Read the section ID directly from the DOM — always accurate, no window.location dependency
     var sectionId = section ? section.id : '';
     var base = window.location.origin + window.location.pathname.replace(/\/$/, '');
     var url  = sectionId ? (base + '#' + sectionId) : base;
@@ -333,7 +333,7 @@ if (contactForm) {
         errorMessage.style.display = 'none';
 
         submitButton.disabled = true;
-        submitButton.textContent = 'Ã˜Â¬Ã˜Â§Ã˜Â±Ã™Å  Ã˜Â§Ã™â€žÃ˜Â¥Ã˜Â±Ã˜Â³Ã˜Â§Ã™â€ž...';
+        submitButton.textContent = 'جاري الإرسال...';
 
         fetch(this.action, {
             method: this.method,
@@ -358,12 +358,12 @@ if (contactForm) {
                 }
             })
             .catch(() => {
-                errorMessage.textContent = 'Ã˜Â­Ã˜Â¯Ã˜Â« Ã˜Â®Ã˜Â·Ã˜Â£ Ã™ÂÃ™Å  Ã˜Â§Ã™â€žÃ˜Â´Ã˜Â¨Ã™Æ’Ã˜Â©. Ã™Å Ã˜Â±Ã˜Â¬Ã™â€° Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â­Ã˜Â§Ã™Ë†Ã™â€žÃ˜Â© Ã™â€žÃ˜Â§Ã˜Â­Ã™â€šÃ˜Â§Ã™â€¹.';
+                errorMessage.textContent = 'حدث خطأ في الشبكة. يرجى المحاولة لاحقاً.';
                 errorMessage.style.display = 'block';
             })
             .finally(() => {
                 submitButton.disabled = false;
-                submitButton.textContent = 'Ã˜Â¥Ã˜Â±Ã˜Â³Ã˜Â§Ã™â€ž Ã˜Â§Ã™â€žÃ˜Â±Ã˜Â³Ã˜Â§Ã™â€žÃ˜Â©';
+                submitButton.textContent = 'إرسال الرسالة';
 
                 setTimeout(() => {
                     successMessage.style.display = 'none';
@@ -374,16 +374,16 @@ if (contactForm) {
 }
 
 // Fullscreen toggler for multiple PDF viewers
-// Strategy: try native Fullscreen API (desktop) Ã¢â€ â€™ catch failure Ã¢â€ â€™ CSS overlay (mobile/iOS)
+// Strategy: try native Fullscreen API (desktop) → catch failure → CSS overlay (mobile/iOS)
 function toggleFullScreen(event) {
     const btn     = event.currentTarget;
     const wrapper = btn.closest('.pdf-wrapper');
     const iframe  = wrapper.querySelector('iframe');
 
-    const ICON_EXPAND  = '<i class="fa-solid fa-expand"></i> Ã˜ÂªÃ™Æ’Ã˜Â¨Ã™Å Ã˜Â± Ã˜Â§Ã™â€žÃ™â€¦Ã™â€žÃ™Â';
-    const ICON_COMPRESS = '<i class="fa-solid fa-compress"></i> Ã˜ÂªÃ˜ÂµÃ˜ÂºÃ™Å Ã˜Â± Ã˜Â§Ã™â€žÃ™â€¦Ã™â€žÃ™Â';
+    const ICON_EXPAND  = '<i class="fa-solid fa-expand"></i> تكبير الملف';
+    const ICON_COMPRESS = '<i class="fa-solid fa-compress"></i> تصغير الملف';
 
-    // Ã¢â€â‚¬Ã¢â€â‚¬ CSS overlay helpers Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+    // ── CSS overlay helpers ──────────────────────────────────────────────────
     function enterCSSFullscreen() {
         wrapper.classList.add('pdf-fullscreen');
         document.body.classList.add('pdf-body-lock');
@@ -395,20 +395,20 @@ function toggleFullScreen(event) {
         btn.innerHTML = ICON_EXPAND;
     }
 
-    // Ã¢â€â‚¬Ã¢â€â‚¬ Already in CSS fullscreen? Ã¢â€ â€™ exit Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+    // ── Already in CSS fullscreen? → exit ───────────────────────────────────
     if (wrapper.classList.contains('pdf-fullscreen')) {
         exitCSSFullscreen();
         return;
     }
 
-    // Ã¢â€â‚¬Ã¢â€â‚¬ Already in native fullscreen? Ã¢â€ â€™ exit Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+    // ── Already in native fullscreen? → exit ────────────────────────────────
     const fsEl = document.fullscreenElement || document.webkitFullscreenElement;
     if (fsEl === iframe) {
         (document.exitFullscreen || document.webkitExitFullscreen).call(document);
         return;
     }
 
-    // Ã¢â€â‚¬Ã¢â€â‚¬ Try native fullscreen; fall back to CSS on rejection (Android) Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+    // ── Try native fullscreen; fall back to CSS on rejection (Android) ───────
     const reqFS = iframe.requestFullscreen
                || iframe.webkitRequestFullscreen
                || iframe.msRequestFullscreen;
@@ -416,7 +416,7 @@ function toggleFullScreen(event) {
     if (reqFS) {
         reqFS.call(iframe).catch(() => enterCSSFullscreen());
     } else {
-        // iOS Safari Ã¢â‚¬â€ requestFullscreen not available on iframes
+        // iOS Safari — requestFullscreen not available on iframes
         enterCSSFullscreen();
     }
 }
@@ -425,7 +425,7 @@ function toggleFullScreen(event) {
 function _syncFSButtons() {
     if (!document.fullscreenElement && !document.webkitFullscreenElement) {
         document.querySelectorAll('.full-btn').forEach(function (b) {
-            b.innerHTML = '<i class="fa-solid fa-expand"></i> Ã˜ÂªÃ™Æ’Ã˜Â¨Ã™Å Ã˜Â± Ã˜Â§Ã™â€žÃ™â€¦Ã™â€žÃ™Â';
+            b.innerHTML = '<i class="fa-solid fa-expand"></i> تكبير الملف';
         });
     }
 }
@@ -444,13 +444,13 @@ document.addEventListener('keydown', function (e) {
             cssFs.classList.remove('pdf-fullscreen');
             document.body.classList.remove('pdf-body-lock');
             var b = cssFs.querySelector('.full-btn');
-            if (b) b.innerHTML = '<i class="fa-solid fa-expand"></i> Ã˜ÂªÃ™Æ’Ã˜Â¨Ã™Å Ã˜Â± Ã˜Â§Ã™â€žÃ™â€¦Ã™â€žÃ™Â';
+            if (b) b.innerHTML = '<i class="fa-solid fa-expand"></i> تكبير الملف';
         }
     }
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Initial Section Loading Ã¢â‚¬â€ replaceState stamps the initial entry so
+    // 1. Initial Section Loading — replaceState stamps the initial entry so
     //    the popstate handler always gets valid state when the user presses back.
     const initial = location.hash.slice(1) || 'home';
     const savedState = localStorage.getItem('calculatorState') || 'fieldSelection';
@@ -464,7 +464,7 @@ document.addEventListener('DOMContentLoaded', () => {
         showSection(initial, false);
     }
 
-    // 2. Timer Setup Ã¢â‚¬â€ start immediately if timer elements exist on this page
+    // 2. Timer Setup — start immediately if timer elements exist on this page
     if (document.getElementById('t-days-1')) {
         startTimer();
     }
@@ -532,142 +532,142 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-/* Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
-   UNIVERSITY PAGE Ã¢â‚¬â€ FILTER, TABS & SCROLL-TO-TOP
-Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â */
+/* ═══════════════════════════════════════════════════
+   UNIVERSITY PAGE — FILTER, TABS & SCROLL-TO-TOP
+═══════════════════════════════════════════════════ */
 
-// Ã¢â€â‚¬Ã¢â€â‚¬ Speciality Filter Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+// ── Speciality Filter ─────────────────────────────
 
-// Rich keyword aliases keyed by section ID Ã¢â‚¬â€ searched in addition to data-name
+// Rich keyword aliases keyed by section ID — searched in addition to data-name
 var SPEC_KEYWORDS = {
-    'ESTIN': 'Ã˜Â°Ã™Æ’Ã˜Â§Ã˜Â¡ Ã˜Â§Ã˜ÂµÃ˜Â·Ã™â€ Ã˜Â§Ã˜Â¹Ã™Å  Ã˜Â£Ã™â€¦Ã™â€  Ã˜Â³Ã™Å Ã˜Â¨Ã˜Â±Ã˜Â§Ã™â€ Ã™Å  Ã˜Â§Ã™â€ Ã˜ÂªÃ˜Â±Ã™â€ Ã˜Âª Ã˜Â§Ã™â€žÃ˜Â£Ã˜Â´Ã™Å Ã˜Â§Ã˜Â¡ intelligence artificielle cybersÃƒÂ©curitÃƒÂ© iot internet des objets gÃƒÂ©nie informatique logiciel rÃƒÂ©seaux machine learning deep learning numÃƒÂ©rique digital Ã˜Â¨Ã˜Â¬Ã˜Â§Ã™Å Ã˜Â© Ã™â€¦Ã˜Â¯Ã˜Â±Ã˜Â³Ã˜Â© Ã˜Â¹Ã™â€žÃ™Å Ã˜Â§ Ã˜Â±Ã™â€šÃ™â€¦Ã™â€ Ã˜Â©',
-    'ESI-ALGER': 'Ã™â€¦Ã˜Â¯Ã˜Â±Ã˜Â³Ã˜Â© Ã˜Â¹Ã™â€žÃ™Å Ã˜Â§ Ã˜Â¥Ã˜Â¹Ã™â€žÃ˜Â§Ã™â€¦ Ã˜Â¢Ã™â€žÃ™Å  isi siw irs hcd gÃƒÂ©nie logiciel systÃƒÂ¨mes informatiques rÃƒÂ©seaux cybersÃƒÂ©curitÃƒÂ© grande ÃƒÂ©cole informatique Ã˜Â§Ã™â€žÃ˜Â¬Ã˜Â²Ã˜Â§Ã˜Â¦Ã˜Â± Ã˜Â§Ã™â€žÃ˜Â¹Ã˜Â§Ã˜ÂµÃ™â€¦Ã˜Â© Ã˜Â¨Ã™â€  Ã˜Â¹Ã™Æ’Ã™â€ Ã™Ë†Ã™â€ ',
-    'ESI-SBA': 'isi siw iasd cys gÃƒÂ©nie informatique intelligence artificielle sciences des donnÃƒÂ©es data science Ã˜Â³Ã™Å Ã˜Â¯Ã™Å  Ã˜Â¨Ã™â€žÃ˜Â¹Ã˜Â¨Ã˜Â§Ã˜Â³ Ã™Ë†Ã™â€¡Ã˜Â±Ã˜Â§Ã™â€  ingÃƒÂ©nierie systÃƒÂ¨mes information computer architecture data structures algorithms linux assembly language digital electronics linear algebra information systems digital economy ai literacy quantum computing Ã˜Â­Ã™Ë†Ã˜Â³Ã˜Â¨Ã˜Â© Ã™Æ’Ã™â€¦Ã™Ë†Ã™â€¦Ã™Å Ã˜Â© AI and Quantum Community Alphabet Ingeniums Ã˜Â£Ã™â€¦Ã™â€  Ã˜Â³Ã™Å Ã˜Â¨Ã˜Â±Ã˜Â§Ã™â€ Ã™Å ',
-    'ENSIA': 'ia intelligence artificielle artificial intelligence machine learning deep learning neural networks data science big data Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â¯Ã˜Â±Ã˜Â³Ã˜Â© Ã˜Â§Ã™â€žÃ™Ë†Ã˜Â·Ã™â€ Ã™Å Ã˜Â© Ã˜Â§Ã™â€žÃ˜Â¹Ã™â€žÃ™Å Ã˜Â§ Ã™â€žÃ™â€žÃ˜Â°Ã™Æ’Ã˜Â§Ã˜Â¡ Ã˜Â§Ã™â€žÃ˜Â§Ã˜ÂµÃ˜Â·Ã™â€ Ã˜Â§Ã˜Â¹Ã™Å  Ã˜Â§Ã™â€žÃ˜Â¬Ã˜Â²Ã˜Â§Ã˜Â¦Ã˜Â±',
-    'ENSCS': 'cybersÃƒÂ©curitÃƒÂ© cybersecurity sÃƒÂ©curitÃƒÂ© informatique Ã˜Â³Ã™Å Ã˜Â¨Ã˜Â±Ã˜Â§Ã™â€ Ã™Å  Ã˜Â³Ã™Å Ã˜Â¨Ã˜Â±Ã˜Â§Ã™â€ Ã™Å Ã˜Â§ Ã˜Â£Ã™â€¦Ã™â€  Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â¹Ã™â€žÃ™Ë†Ã™â€¦Ã˜Â§Ã˜Âª Ã˜Â£Ã™â€¦Ã™â€  Ã˜Â§Ã™â€žÃ˜Â´Ã˜Â¨Ã™Æ’Ã˜Â§Ã˜Âª pentest ethical hacking Ã™â€¡Ã˜Â¬Ã™â€¦Ã˜Â§Ã˜Âª Ã˜Â­Ã™â€¦Ã˜Â§Ã™Å Ã˜Â© Ã˜Â£Ã™â€ Ã˜Â¸Ã™â€¦Ã˜Â© Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â¯Ã˜Â±Ã˜Â³Ã˜Â© Ã˜Â§Ã™â€žÃ™Ë†Ã˜Â·Ã™â€ Ã™Å Ã˜Â© Ã˜Â§Ã™â€žÃ˜Â¹Ã™â€žÃ™Å Ã˜Â§ Ã™â€žÃ™â€žÃ˜Â£Ã™â€¦Ã™â€  Ã˜Â§Ã™â€žÃ˜Â³Ã™Å Ã˜Â¨Ã˜Â±Ã˜Â§Ã™â€ Ã™Å ',
-    'ENSTTIC': 'tÃƒÂ©lÃƒÂ©communications telecom rÃƒÂ©seaux TIC technologies information communication Ã˜Â³Ã˜ÂªÃ™Å Ã™Æ’ Ã˜Â¨Ã™Ë†Ã˜Â²Ã˜Â±Ã™Å Ã˜Â¹Ã˜Â© haut dÃƒÂ©bit fibre optique 5g',
-    'NHSM': 'mathÃƒÂ©matiques mathematics statistiques probabilitÃƒÂ©s analyse algÃƒÂ¨bre analyse numÃƒÂ©rique Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â¯Ã˜Â±Ã˜Â³Ã˜Â© Ã˜Â§Ã™â€žÃ™Ë†Ã˜Â·Ã™â€ Ã™Å Ã˜Â© Ã˜Â§Ã™â€žÃ˜Â¹Ã™â€žÃ™Å Ã˜Â§ Ã™â€žÃ™â€žÃ˜Â±Ã™Å Ã˜Â§Ã˜Â¶Ã™Å Ã˜Â§Ã˜Âª Ã˜Â§Ã™â€žÃ™Æ’Ã™Ë†Ã™â€žÃ™Å Ã˜Â§',
-    'POLYTECH': 'polytechnique gÃƒÂ©nie civil mÃƒÂ©canique ÃƒÂ©lectrique chimique matÃƒÂ©riaux multidisciplinaire complexe polytechnique Ã˜Â§Ã™â€žÃ˜Â¬Ã˜Â²Ã˜Â§Ã˜Â¦Ã˜Â±',
-    'EPAU': 'architecture urbanisme design urbain habitat logement patrimoine paysage Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â¯Ã˜Â±Ã˜Â³Ã˜Â© Ã˜Â§Ã™â€žÃ˜Â¨Ã™Ë†Ã™â€žÃ™Å Ã˜ÂªÃ™Æ’Ã™â€ Ã™Å Ã™Æ’Ã™Å Ã˜Â© Ã™â€¡Ã™â€ Ã˜Â¯Ã˜Â³Ã˜Â© Ã˜ÂªÃ˜Â¹Ã™â€¦Ã™Å Ã˜Â±',
-    'ENSSN': 'nanotechnologie nanosciences matÃƒÂ©riaux optique photonique microÃƒÂ©lectronique nanostructures Ã™â€ Ã˜Â§Ã™â€ Ã™Ë†',
-    'ENSAS': 'robotique robotics systÃƒÂ¨mes autonomes drones vÃƒÂ©hicules autonomes automation Ã˜Â±Ã™Ë†Ã˜Â¨Ã™Ë†Ã˜Âª Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â¯Ã˜Â±Ã˜Â³Ã˜Â© Ã˜Â§Ã™â€žÃ™Ë†Ã˜Â·Ã™â€ Ã™Å Ã˜Â© Ã˜Â§Ã™â€žÃ˜Â¹Ã™â€žÃ™Å Ã˜Â§ Ã™â€žÃ™â€žÃ˜Â£Ã™â€ Ã˜Â¸Ã™â€¦Ã˜Â© Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â³Ã˜ÂªÃ™â€šÃ™â€žÃ˜Â©',
-    'ENSTP': 'travaux publics gÃƒÂ©nie civil voirie VRD btp routes ponts barrages infrastructure Ã˜Â£Ã˜Â´Ã˜ÂºÃ˜Â§Ã™â€ž Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â¯Ã˜Â±Ã˜Â³Ã˜Â© Ã˜Â§Ã™â€žÃ™Ë†Ã˜Â·Ã™â€ Ã™Å Ã˜Â© Ã˜Â§Ã™â€žÃ˜Â¹Ã™â€žÃ™Å Ã˜Â§ Ã™â€žÃ™â€žÃ˜Â£Ã˜Â´Ã˜ÂºÃ˜Â§Ã™â€ž Ã˜Â§Ã™â€žÃ˜Â¹Ã™â€¦Ã™Ë†Ã™â€¦Ã™Å Ã˜Â©',
-    'ENSH': 'hydraulique ressources en eau irrigation eau potable traitement des eaux barrage Ã˜Â§Ã™â€žÃ˜Â¨Ã™â€žÃ™Å Ã˜Â¯Ã˜Â© Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â¯Ã˜Â±Ã˜Â³Ã˜Â© Ã˜Â§Ã™â€žÃ™Ë†Ã˜Â·Ã™â€ Ã™Å Ã˜Â© Ã˜Â§Ã™â€žÃ˜Â¹Ã™â€žÃ™Å Ã˜Â§ Ã™â€žÃ™â€žÃ™â€¡Ã™Å Ã˜Â¯Ã˜Â±Ã™Ë†Ã™â€žÃ™Å Ã™Æ’',
-    'IGEE': 'gÃƒÂ©nie ÃƒÂ©lectrique ÃƒÂ©lectronique ÃƒÂ©lectrotechnique automatique systÃƒÂ¨mes ÃƒÂ©lectriques ÃƒÂ©nergÃƒÂ©tique Ã˜Â¨Ã™Ë†Ã™â€¦Ã˜Â±Ã˜Â¯Ã˜Â§Ã˜Â³ Ã™Æ’Ã™â€¡Ã˜Â±Ã˜Â¨Ã˜Â§Ã˜Â¡',
-    'ENSEE': 'gÃƒÂ©nie ÃƒÂ©lectrique ÃƒÂ©nergie ÃƒÂ©lectrotechnique puissance systÃƒÂ¨mes ÃƒÂ©lectriques Ã™Ë†Ã™â€¡Ã˜Â±Ã˜Â§Ã™â€  Ã™Æ’Ã™â€¡Ã˜Â±Ã˜Â¨Ã˜Â§Ã˜Â¡ Ã˜Â·Ã˜Â§Ã™â€šÃ˜Â©',
-    'ESSA': 'sciences appliquÃƒÂ©es multidisciplinaire ingÃƒÂ©nierie Ã˜ÂªÃ™â€žÃ™â€¦Ã˜Â³Ã˜Â§Ã™â€  Ã˜Â¹Ã™â€žÃ™Ë†Ã™â€¦ Ã˜ÂªÃ˜Â·Ã˜Â¨Ã™Å Ã™â€šÃ™Å Ã˜Â©',
-    'HNSRE': 'ÃƒÂ©nergies renouvelables ÃƒÂ©nergie solaire photovoltaÃƒÂ¯que ÃƒÂ©olien hydrogÃƒÂ¨ne transition ÃƒÂ©nergÃƒÂ©tique green energy Ã˜Â¨Ã˜Â§Ã˜ÂªÃ™â€ Ã˜Â© Ã˜Â·Ã˜Â§Ã™â€šÃ˜Â© Ã˜Â´Ã™â€¦Ã˜Â³Ã™Å Ã˜Â© Ã˜Â±Ã™Å Ã˜Â­',
-    'AERONAUTIQUE': 'aÃƒÂ©ronautique aerospace aviation pilote avion moteur espace aÃƒÂ©rospatial vol Ã˜Â§Ã™â€žÃ˜Â¨Ã™â€žÃ™Å Ã˜Â¯Ã˜Â© Ã˜Â·Ã™Å Ã˜Â±Ã˜Â§Ã™â€  Ã™â€¦Ã˜Â¯Ã™â€ Ã™Å  Ã˜ÂµÃ™Ë†Ã˜Â§Ã˜Â±Ã™Å Ã˜Â®',
-    'ENSC': 'commerce sciences commerciales marketing finance vente gestion Ã™Ë†Ã™â€¡Ã˜Â±Ã˜Â§Ã™â€  Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â¯Ã˜Â±Ã˜Â³Ã˜Â© Ã˜Â§Ã™â€žÃ™Ë†Ã˜Â·Ã™â€ Ã™Å Ã˜Â© Ã˜Â§Ã™â€žÃ˜Â¹Ã™â€žÃ™Å Ã˜Â§ Ã™â€žÃ™â€žÃ˜ÂªÃ˜Â¬Ã˜Â§Ã˜Â±Ã˜Â©',
-    'EHEC': 'hautes ÃƒÂ©tudes commerciales management ÃƒÂ©conomie commerce international entreprise mba Ã˜ÂªÃ™Å Ã˜Â¬Ã™â€žÃ˜Â§Ã˜Â¨Ã™Å Ã™â€  Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â¯Ã˜Â±Ã˜Â³Ã˜Â© Ã˜Â§Ã™â€žÃ˜Â¹Ã™â€žÃ™Å Ã˜Â§ Ã™â€žÃ™â€žÃ˜ÂªÃ˜Â¬Ã˜Â§Ã˜Â±Ã˜Â©',
-    'ESGEN': 'gestion des entreprises entrepreneuriat ÃƒÂ©conomie numÃƒÂ©rique digital business Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â¯Ã˜Â±Ã˜Â³Ã˜Â© Ã˜Â§Ã™â€žÃ˜Â¹Ã™â€žÃ™Å Ã˜Â§ Ã™â€žÃ™â€žÃ˜ÂªÃ˜Â³Ã™Å Ã™Å Ã˜Â± Ã™Ë†Ã˜Â§Ã™â€žÃ˜Â§Ã™â€šÃ˜ÂªÃ˜ÂµÃ˜Â§Ã˜Â¯ Ã˜Â§Ã™â€žÃ˜Â±Ã™â€šÃ™â€¦Ã™Å ',
-    'ENSSEA': 'statistique ÃƒÂ©conomÃƒÂ©trie dÃƒÂ©mographie actuariat planification prospective Ã˜Â§Ã™â€žÃ™Æ’Ã™Ë†Ã™â€žÃ™Å Ã˜Â§ Ã˜Â¥Ã˜Â­Ã˜ÂµÃ˜Â§Ã˜Â¡ Ã˜Â§Ã™â€šÃ˜ÂªÃ˜ÂµÃ˜Â§Ã˜Â¯ Ã˜ÂªÃ˜Â·Ã˜Â¨Ã™Å Ã™â€šÃ™Å ',
-    'ESB': 'banque finance bancaire monnaie crÃƒÂ©dit islamique Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â¯Ã˜Â±Ã˜Â³Ã˜Â© Ã˜Â§Ã™â€žÃ˜Â¹Ã™â€žÃ™Å Ã˜Â§ Ã™â€žÃ™â€žÃ˜Â¨Ã™â€ Ã™Ë†Ã™Æ’ Ã˜Â§Ã™â€žÃ˜Â¬Ã˜Â²Ã˜Â§Ã˜Â¦Ã˜Â± Ã˜Â§Ã™â€žÃ˜Â¹Ã˜Â§Ã˜ÂµÃ™â€¦Ã˜Â© Ã˜ÂµÃ™Å Ã˜Â±Ã™ÂÃ˜Â©',
-    'ENST': 'tourisme hÃƒÂ´tellerie restauration guide touristique patrimoine voyage Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â¯Ã˜Â±Ã˜Â³Ã˜Â© Ã˜Â§Ã™â€žÃ™Ë†Ã˜Â·Ã™â€ Ã™Å Ã˜Â© Ã˜Â§Ã™â€žÃ˜Â¹Ã™â€žÃ™Å Ã˜Â§ Ã™â€žÃ™â€žÃ˜Â³Ã™Å Ã˜Â§Ã˜Â­Ã˜Â©',
-    'ESM': 'management gestion leadership entreprise stratÃƒÂ©gie Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â¯Ã˜Â±Ã˜Â³Ã˜Â© Ã˜Â§Ã™â€žÃ˜Â¹Ã™â€žÃ™Å Ã˜Â§ Ã™â€žÃ™â€žÃ™â€¦Ã˜Â§Ã™â€ Ã˜Â¬Ã™â€¦Ã™Å Ã™â€ Ã˜Âª Ã˜ÂªÃ™â€žÃ™â€¦Ã˜Â³Ã˜Â§Ã™â€  Ã˜Â¥Ã˜Â¯Ã˜Â§Ã˜Â±Ã˜Â©',
-    'ESSAIA': 'agroalimentaire nutrition qualitÃƒÂ© alimentaire sÃƒÂ©curitÃƒÂ© alimentaire food science industrie alimentaire Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â¯Ã˜Â±Ã˜Â³Ã˜Â© Ã˜Â§Ã™â€žÃ˜Â¹Ã™â€žÃ™Å Ã˜Â§ Ã™â€žÃ™â€žÃ˜Â¹Ã™â€žÃ™Ë†Ã™â€¦ Ã˜Â§Ã™â€žÃ˜Â²Ã˜Â±Ã˜Â§Ã˜Â¹Ã™Å Ã˜Â© Ã™Ë†Ã˜Â§Ã™â€žÃ˜ÂµÃ™â€ Ã˜Â§Ã˜Â¹Ã˜Â§Ã˜Âª Ã˜Â§Ã™â€žÃ˜ÂºÃ˜Â°Ã˜Â§Ã˜Â¦Ã™Å Ã˜Â©',
-    'ENSA': 'agronomie agriculture agronome INA zootechnie horticulture Ã˜Â¹Ã™â€žÃ™Ë†Ã™â€¦ Ã˜Â²Ã˜Â±Ã˜Â§Ã˜Â¹Ã™Å Ã˜Â© Ã™ÂÃ™â€žÃ˜Â§Ã˜Â­Ã˜Â© Ã˜Â§Ã™â€žÃ˜Â¬Ã˜Â²Ã˜Â§Ã˜Â¦Ã˜Â±',
-    'ENS': 'enseignement professeur pÃƒÂ©dagogie ÃƒÂ©ducation formation des enseignants ÃƒÂ©cole normale supÃƒÂ©rieure Ã™â€¦Ã˜Â¯Ã˜Â±Ã˜Â³Ã˜Â© Ã˜Â¹Ã™â€žÃ™Å Ã˜Â§ Ã˜Â£Ã˜Â³Ã˜Â§Ã˜ÂªÃ˜Â°Ã˜Â© Ã˜Â£Ã˜Â³Ã˜ÂªÃ˜Â§Ã˜Â°',
-    'MEDCINE': 'mÃƒÂ©decine gÃƒÂ©nÃƒÂ©rale CHU rÃƒÂ©sidanat mÃƒÂ©decin docteur gÃƒÂ©nÃƒÂ©raliste spÃƒÂ©cialiste Ã˜Â·Ã˜Â¨Ã™Å Ã˜Â¨ Ã˜Â¯Ã™Æ’Ã˜ÂªÃ™Ë†Ã˜Â± Ã™Æ’Ã™â€žÃ™Å Ã˜Â© Ã˜Â§Ã™â€žÃ˜Â·Ã˜Â¨ Ã˜Â­Ã™Æ’Ã™Å Ã™â€¦',
-    'MEDCINE-DENTAIRE': 'dentiste chirurgie dentaire orthodontie implant dentaire prothÃƒÂ¨se carie Ã˜Â£Ã˜Â³Ã™â€ Ã˜Â§Ã™â€  Ã˜Â¯Ã™Æ’Ã˜ÂªÃ™Ë†Ã˜Â± Ã˜Â£Ã˜Â³Ã™â€ Ã˜Â§Ã™â€  Ã˜Â·Ã˜Â¨ Ã˜Â§Ã™â€žÃ™ÂÃ™â€¦ Ã™Æ’Ã™â€žÃ™Å Ã˜Â© Ã˜Â·Ã˜Â¨ Ã˜Â§Ã™â€žÃ˜Â£Ã˜Â³Ã™â€ Ã˜Â§Ã™â€ ',
-    'PHARMACIE': 'pharmacien mÃƒÂ©dicaments officine pharmacologie biochimie Ã˜Â¯Ã™Ë†Ã˜Â§Ã˜Â¡ Ã˜Â§Ã™â€žÃ˜ÂµÃ™Å Ã˜Â¯Ã™â€žÃ˜Â© Ã˜ÂµÃ™Å Ã˜Â¯Ã™â€žÃ˜Â§Ã™â€ Ã™Å ',
-    'PARAMEDICAL': 'infirmier kinÃƒÂ©sithÃƒÂ©rapie laborantin radiologie soins aide soignant Ã˜ÂªÃ™â€¦Ã˜Â±Ã™Å Ã˜Â¶ Ã˜Â¥Ã˜Â³Ã˜Â¹Ã˜Â§Ã™Â Ã˜Â´Ã˜Â¨Ã™â€¡ Ã˜Â·Ã˜Â¨Ã™Å  Ã˜ÂµÃ˜Â­Ã˜Â© Ã˜Â±Ã˜Â¹Ã˜Â§Ã™Å Ã˜Â©',
-    'Sage-Femme': 'maÃƒÂ¯eutique accouchement obstÃƒÂ©trique gynÃƒÂ©cologie maternitÃƒÂ© sage femme Ã™â€šÃ˜Â¨Ã˜Â§Ã™â€žÃ˜Â© Ã™Ë†Ã™â€žÃ˜Â§Ã˜Â¯Ã˜Â© Ã˜ÂªÃ™Ë†Ã™â€žÃ™Å Ã˜Â¯ Ã˜Â£Ã™â€¦Ã™Ë†Ã™â€¦Ã˜Â©',
-    'PHARMACIE-INDUSTRIELLE': 'industrie pharmaceutique fabrication mÃƒÂ©dicaments biotechnologie pharmaceutique bioproduction Ã˜ÂµÃ™Å Ã˜Â¯Ã™â€žÃ˜Â© Ã˜ÂµÃ™â€ Ã˜Â§Ã˜Â¹Ã™Å Ã˜Â©',
-    'vetrinaire': 'vÃƒÂ©tÃƒÂ©rinaire animaux ÃƒÂ©levage zoologie ÃƒÂ©quine bovine aviculture Ã˜Â¨Ã™Å Ã˜Â·Ã˜Â±Ã™Å  Ã˜Â­Ã™Å Ã™Ë†Ã˜Â§Ã™â€ Ã˜Â§Ã˜Âª Ã˜Â·Ã˜Â¨ Ã˜Â¨Ã™Å Ã˜Â·Ã˜Â±Ã™Å ',
-    'MED-BIO': 'double cursus biologie mÃƒÂ©dicale biochimie microbiologie biologie molÃƒÂ©culaire Ã™â€¦Ã˜Â²Ã˜Â¯Ã™Ë†Ã˜Â¬ Ã˜ÂªÃ˜Â®Ã˜ÂµÃ˜Âµ Ã™â€¦Ã˜Â²Ã˜Â¯Ã™Ë†Ã˜Â¬',
-    'MED-INFO': 'bioinformatique informatique mÃƒÂ©dicale santÃƒÂ© numÃƒÂ©rique health tech double cursus Ã˜Â°Ã™Æ’Ã˜Â§Ã˜Â¡ Ã˜Â§Ã˜ÂµÃ˜Â·Ã™â€ Ã˜Â§Ã˜Â¹Ã™Å  Ã˜Â·Ã˜Â¨Ã™Å ',
-    'ESSB': 'biologie biotechnologie microbiologie biochimie biologie cellulaire Ã™Ë†Ã™â€¡Ã˜Â±Ã˜Â§Ã™â€ ',
-    'ENSB': 'biotechnologie biologie molÃƒÂ©culaire gÃƒÂ©nie biologique gÃƒÂ©nÃƒÂ©tique fermentation Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â¯Ã˜Â±Ã˜Â³Ã˜Â© Ã˜Â§Ã™â€žÃ™Ë†Ã˜Â·Ã™â€ Ã™Å Ã˜Â© Ã˜Â§Ã™â€žÃ˜Â¹Ã™â€žÃ™Å Ã˜Â§ Ã™â€žÃ™â€žÃ˜Â¨Ã™Å Ã™Ë†Ã˜ÂªÃ™Æ’Ã™â€ Ã™Ë†Ã™â€žÃ™Ë†Ã˜Â¬Ã™Å Ã˜Â§',
-    'ENSSMAL': 'sciences de la mer biologie marine halieutique pÃƒÂªche oceanographie cÃƒÂ´tier Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â¯Ã˜Â±Ã˜Â³Ã˜Â© Ã˜Â§Ã™â€žÃ™Ë†Ã˜Â·Ã™â€ Ã™Å Ã˜Â© Ã˜Â§Ã™â€žÃ˜Â¹Ã™â€žÃ™Å Ã˜Â§ Ã™â€žÃ™â€žÃ˜Â¹Ã™â€žÃ™Ë†Ã™â€¦ Ã˜Â§Ã™â€žÃ˜Â¨Ã˜Â­Ã˜Â±Ã™Å Ã˜Â© Ã˜Â¨Ã˜Â­Ã˜Â±',
-    'INFORMATIQUE': 'licence informatique gÃƒÂ©nie logiciel rÃƒÂ©seaux cybersÃƒÂ©curitÃƒÂ© systÃƒÂ¨mes web dÃƒÂ©veloppement programmation code python java',
-    'ARCHITECTURE': 'architecture urbanisme design urbain habitat logement patrimoine bÃƒÂ¢timent paysage Ã™â€¡Ã™â€ Ã˜Â¯Ã˜Â³Ã˜Â© Ã™â€¦Ã˜Â¹Ã™â€¦Ã˜Â§Ã˜Â±Ã™Å Ã˜Â©',
-    'MATH': 'mathÃƒÂ©matiques mathematics statistiques probabilitÃƒÂ©s analyse algÃƒÂ¨bre mathÃƒÂ©matiques appliquÃƒÂ©es Ã˜Â±Ã™Å Ã˜Â§Ã˜Â¶Ã™Å Ã˜Â§Ã˜Âª',
-    'ST': 'sciences technologies ÃƒÂ©lectronique mÃƒÂ©canique chimie gÃƒÂ©nie industriel technologies Ã˜Â¹Ã™â€žÃ™Ë†Ã™â€¦ Ã˜ÂªÃ™Æ’Ã™â€ Ã™Ë†Ã™â€žÃ™Ë†Ã˜Â¬Ã™Å Ã˜Â§',
-    'SM': 'sciences de la matiÃƒÂ¨re physique chimie thermodynamique matÃƒÂ©riaux ÃƒÂ©nergie Ã™ÂÃ™Å Ã˜Â²Ã™Å Ã˜Â§Ã˜Â¡ Ã™Æ’Ã™Å Ã™â€¦Ã™Å Ã˜Â§Ã˜Â¡',
-    'BIOLOGIE': 'biologie ÃƒÂ©cologie environnement gÃƒÂ©nÃƒÂ©tique microbiologie zoologie botanique Ã˜Â¨Ã™Å Ã™Ë†Ã™â€žÃ™Ë†Ã˜Â¬Ã™Å Ã˜Â§ Ã˜Â¹Ã™â€žÃ™Ë†Ã™â€¦ Ã˜Â·Ã˜Â¨Ã™Å Ã˜Â¹Ã™Å Ã˜Â©',
-    'HYDROCARBURES': 'pÃƒÂ©trole gaz sonatrach raffinerie exploration gÃƒÂ©ologie pÃƒÂ©troliÃƒÂ¨re ingÃƒÂ©nierie pÃƒÂ©troliÃƒÂ¨re Ã™â€ Ã™ÂÃ˜Â· Ã˜ÂºÃ˜Â§Ã˜Â² Ã˜Â¨Ã˜ÂªÃ˜Â±Ã™Ë†Ã™â€ž Ã™â€¦Ã˜Â­Ã˜Â±Ã™Ë†Ã™â€šÃ˜Â§Ã˜Âª',
-    'Optique': 'optique physique photonique instrumentation mÃƒÂ©canique de prÃƒÂ©cision lunettes lasers Ã˜Â¨Ã˜ÂµÃ˜Â±Ã™Å Ã˜Â§Ã˜Âª Ã˜Â¶Ã™Ë†Ã˜Â¡ Ã™â€žÃ™Å Ã˜Â²Ã˜Â±',
-    'GP': 'gÃƒÂ©nie des procÃƒÂ©dÃƒÂ©s chimie industrielle gÃƒÂ©nie chimique procÃƒÂ©dÃƒÂ©s industriels Ã™Æ’Ã™Å Ã™â€¦Ã™Å Ã˜Â§Ã˜Â¡ Ã˜ÂµÃ™â€ Ã˜Â§Ã˜Â¹Ã™Å Ã˜Â© Ã™â€¦Ã˜Â¹Ã˜Â§Ã™â€žÃ˜Â¬Ã˜Â©',
-    'GI': 'gÃƒÂ©nie industriel production qualitÃƒÂ© ergonomie logistique industrielle maintenance Ã˜ÂµÃ™â€ Ã˜Â§Ã˜Â¹Ã˜Â© Ã˜Â¬Ã™Ë†Ã˜Â¯Ã˜Â© Ã˜Â¥Ã™â€ Ã˜ÂªÃ˜Â§Ã˜Â¬',
-    'MARINE': 'marine naval navires offshore port mer navigation maritime Ã™â€¡Ã™â€ Ã˜Â¯Ã˜Â³Ã˜Â© Ã˜Â¨Ã˜Â­Ã˜Â±Ã™Å Ã˜Â© Ã˜Â³Ã™ÂÃ™â€  Ã™â€¦Ã™Å Ã™â€ Ã˜Â§Ã˜Â¡ Ã™â€¦Ã™â€žÃ˜Â§Ã˜Â­Ã˜Â©',
-    'GT': 'gÃƒÂ©nie des transports logistique ferroviaire aÃƒÂ©rien portuaire mobilitÃƒÂ© transports Ã˜Â³Ã™Æ’Ã™Æ’ Ã˜Â­Ã˜Â¯Ã™Å Ã˜Â¯Ã™Å Ã˜Â© Ã™â€¦Ã˜Â·Ã˜Â§Ã˜Â±Ã˜Â§Ã˜Âª Ã™â€¦Ã™Ë†Ã˜Â§Ã™â€ Ã˜Â¦',
-    'GM': 'mines minÃƒÂ©ralurgie gÃƒÂ©ologie miniÃƒÂ¨re extraction ressources minÃƒÂ©rales Ã™â€¦Ã™â€ Ã˜Â§Ã˜Â¬Ã™â€¦ Ã™â€¦Ã˜Â¹Ã˜Â§Ã˜Â¯Ã™â€  Ã˜ÂªÃ˜Â¹Ã˜Â¯Ã™Å Ã™â€  Ã˜Â¬Ã™Å Ã™Ë†Ã™â€žÃ™Ë†Ã˜Â¬Ã™Å Ã˜Â§',
-    'GC': 'gÃƒÂ©nie civil structures bÃƒÂ©ton gÃƒÂ©otechnique VRD routes ponts bÃƒÂ¢timent Ã™â€¡Ã™â€ Ã˜Â¯Ã˜Â³Ã˜Â© Ã™â€¦Ã˜Â¯Ã™â€ Ã™Å Ã˜Â© Ã˜Â¨Ã™â€ Ã˜Â§Ã˜Â¡ Ã˜Â¬Ã˜Â³Ã™Ë†Ã˜Â± Ã˜Â³Ã˜Â¯Ã™Ë†Ã˜Â¯',
-    'GMEC': 'gÃƒÂ©nie mÃƒÂ©canique mÃƒÂ©catronique thermodynamique fluides fabrication machines moteurs Ã™â€¡Ã™â€ Ã˜Â¯Ã˜Â³Ã˜Â© Ã™â€¦Ã™Å Ã™Æ’Ã˜Â§Ã™â€ Ã™Å Ã™Æ’Ã™Å Ã˜Â© Ã™â€¦Ã™Å Ã™Æ’Ã˜Â§Ã™â€ Ã™Å Ã™Æ’',
-    'DROIT': 'droit civil commercial public avocat notaire juriste magistrat tribunal justice loi Ã˜Â­Ã™â€šÃ™Ë†Ã™â€š Ã™â€¦Ã˜Â­Ã˜Â§Ã™â€¦Ã˜Â§Ã˜Â© Ã™â€šÃ˜Â¶Ã˜Â§Ã˜Â¡ Ã˜Â¹Ã˜Â¯Ã˜Â§Ã™â€žÃ˜Â©',
-    'SS': 'psychologie sociologie anthropologie dÃƒÂ©mographie philosophie travail social Ã˜Â¹Ã™â€žÃ™â€¦ Ã™â€ Ã™ÂÃ˜Â³ Ã˜Â¹Ã™â€žÃ™â€¦ Ã˜Â§Ã˜Â¬Ã˜ÂªÃ™â€¦Ã˜Â§Ã˜Â¹ Ã™ÂÃ™â€žÃ˜Â³Ã™ÂÃ˜Â©',
-    'TRADUCTION': 'traduction interprÃƒÂ©tation langues linguistique traducteur interprÃƒÂ¨te traduit Ã˜ÂªÃ˜Â±Ã˜Â¬Ã™â€¦Ã˜Â© Ã™ÂÃ™Ë†Ã˜Â±Ã™Å Ã˜Â© Ã˜ÂªÃ˜Â­Ã˜Â±Ã™Å Ã˜Â±Ã™Å Ã˜Â©',
-    'COMMU': 'journalisme mÃƒÂ©dias relations publiques communication digitale rÃƒÂ©seaux sociaux presse Ã˜Â¥Ã˜Â¹Ã™â€žÃ˜Â§Ã™â€¦ Ã˜ÂµÃ˜Â­Ã˜Â§Ã™ÂÃ˜Â© Ã˜Â§Ã˜ÂªÃ˜ÂµÃ˜Â§Ã™â€ž',
-    'LANGUES': 'franÃƒÂ§ais anglais espagnol allemand arabe langues ÃƒÂ©trangÃƒÂ¨res littÃƒÂ©rature linguistique Ã™ÂÃ˜Â±Ã™â€ Ã˜Â³Ã™Å Ã˜Â© Ã˜Â¥Ã™â€ Ã˜Â¬Ã™â€žÃ™Å Ã˜Â²Ã™Å Ã˜Â© Ã˜Â¥Ã˜Â³Ã˜Â¨Ã˜Â§Ã™â€ Ã™Å Ã˜Â©',
-    'CHARIA': 'fiqh hadith coran charia jurisprudence islamique aqida usoul Ã˜Â§Ã™â€žÃ™ÂÃ™â€šÃ™â€¡ Ã˜Â¹Ã™â€žÃ™Ë†Ã™â€¦ Ã˜Â´Ã˜Â±Ã˜Â¹Ã™Å Ã˜Â© Ã˜Â¥Ã˜Â³Ã™â€žÃ˜Â§Ã™â€¦Ã™Å Ã˜Â© Ã˜Â¯Ã™Å Ã™â€ ',
-    'SCIENCES-PO': 'politique diplomatie relations internationales administration publique gouvernance Ã˜Â¯Ã˜Â¨Ã™â€žÃ™Ë†Ã™â€¦Ã˜Â§Ã˜Â³Ã™Å Ã˜Â© Ã˜Â³Ã™Å Ã˜Â§Ã˜Â³Ã˜Â© Ã˜Â¹Ã™â€žÃ˜Â§Ã™â€šÃ˜Â§Ã˜Âª Ã˜Â¯Ã™Ë†Ã™â€žÃ™Å Ã˜Â©',
-    'SCIENCES-HUM': 'histoire gÃƒÂ©ographie archÃƒÂ©ologie bibliothÃƒÂ©conomie patrimoine civilisations Ã˜ÂªÃ˜Â§Ã˜Â±Ã™Å Ã˜Â® Ã˜Â¬Ã˜ÂºÃ˜Â±Ã˜Â§Ã™ÂÃ™Å Ã˜Â§ Ã˜Â¢Ã˜Â«Ã˜Â§Ã˜Â± Ã˜ÂªÃ˜Â±Ã˜Â§Ã˜Â«',
-    'MED-AI': 'intelligence artificielle mÃƒÂ©dicale santÃƒÂ© numÃƒÂ©rique diagnostic algorithmique imagerie mÃƒÂ©dicale Ã˜Â°Ã™Æ’Ã˜Â§Ã˜Â¡ Ã˜Â·Ã˜Â¨Ã™Å ',
-    'MED-GEN': 'gÃƒÂ©nÃƒÂ©tique mÃƒÂ©dicale gÃƒÂ©nomique maladies hÃƒÂ©rÃƒÂ©ditaires conseil gÃƒÂ©nÃƒÂ©tique Ã™Ë†Ã˜Â±Ã˜Â§Ã˜Â«Ã˜Â© Ã˜Â·Ã˜Â¨Ã™Å Ã˜Â© Ã˜Â¬Ã™Å Ã™â€ Ã™Ë†Ã™â€¦',
-    'IT-INT': 'interopÃƒÂ©rabilitÃƒÂ© systÃƒÂ¨mes information cloud architecture SI ingÃƒÂ©nierie logicielle Ã˜ÂªÃ˜Â´Ã˜ÂºÃ™Å Ã™â€ž Ã˜Â¨Ã™Å Ã™â€ Ã™Å ',
-    'ADDICT': 'addictologie addiction toxicomanie alcool drogues comportement santÃƒÂ© mentale Ã˜Â§Ã™â€žÃ˜Â¥Ã˜Â¯Ã™â€¦Ã˜Â§Ã™â€  Ã™â€¦Ã˜Â®Ã˜Â¯Ã˜Â±Ã˜Â§Ã˜Âª',
-    'NLP': 'traitement du langage naturel nlp ia linguistique computationnelle intelligence artificielle Ã™â€žÃ˜ÂºÃ˜Â© Ã˜Â·Ã˜Â¨Ã™Å Ã˜Â¹Ã™Å Ã˜Â©',
-    'PREC-MED': 'mÃƒÂ©decine de prÃƒÂ©cision personnalisÃƒÂ©e thÃƒÂ©rapie ciblÃƒÂ©e gÃƒÂ©nomique oncologie Ã˜Â·Ã˜Â¨ Ã˜Â¯Ã™â€šÃ™Å Ã™â€š Ã˜Â´Ã˜Â®Ã˜ÂµÃ™Å ',
-    'DENT-HYG': 'hygiÃƒÂ¨ne dentaire soins prÃƒÂ©ventifs prophylaxie dentisterie clinique Ã˜ÂµÃ˜Â­Ã˜Â© Ã˜Â§Ã™â€žÃ™ÂÃ™â€¦',
-    'GEN-COUNS': 'conseil gÃƒÂ©nÃƒÂ©tique maladies gÃƒÂ©nÃƒÂ©tiques dÃƒÂ©pistage prÃƒÂ©natal Ã™â€¦Ã˜Â³Ã˜ÂªÃ˜Â´Ã˜Â§Ã˜Â± Ã™Ë†Ã˜Â±Ã˜Â§Ã˜Â«Ã˜Â©',
-    'IND-ENTR': 'entrepreneuriat industriel startups innovation industrie management Ã™â€¦Ã™â€šÃ˜Â§Ã™Ë†Ã™â€žÃ˜Â§Ã˜ÂªÃ™Å Ã˜Â© Ã˜Â±Ã™Å Ã˜Â§Ã˜Â¯Ã˜Â© Ã˜Â§Ã™â€žÃ˜Â£Ã˜Â¹Ã™â€¦Ã˜Â§Ã™â€ž',
-    'SPACE-TECH': 'espace spatial satellites technologie spatiale aÃƒÂ©rospatial astronomie Ã˜Â§Ã™â€žÃ™ÂÃ˜Â¶Ã˜Â§Ã˜Â¡ Ã˜Â£Ã™â€šÃ™â€¦Ã˜Â§Ã˜Â± Ã˜ÂµÃ™â€ Ã˜Â§Ã˜Â¹Ã™Å Ã˜Â©',
-    'DIGITAL-AGRO': 'agriculture numÃƒÂ©rique drones capteurs iot agtech smart farming Ã™â€¡Ã™â€ Ã˜Â¯Ã˜Â³Ã˜Â© Ã˜Â²Ã˜Â±Ã˜Â§Ã˜Â¹Ã™Å Ã˜Â© Ã˜Â±Ã™â€šÃ™â€¦Ã™Å Ã˜Â©',
-    'SMART-CITIES': 'villes intelligentes smart city urbanisme numÃƒÂ©rique mobilitÃƒÂ© infrastructure Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â¯Ã™â€  Ã˜Â§Ã™â€žÃ˜Â°Ã™Æ’Ã™Å Ã˜Â©',
-    'MED-INFORMATICS': 'informatique mÃƒÂ©dicale santÃƒÂ© numÃƒÂ©rique tÃƒÂ©lÃƒÂ©mÃƒÂ©decine dossiers mÃƒÂ©dicaux e-santÃƒÂ© Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â¹Ã™â€žÃ™Ë†Ã™â€¦Ã˜Â§Ã˜ÂªÃ™Å Ã˜Â© Ã˜Â§Ã™â€žÃ˜Â·Ã˜Â¨Ã™Å Ã˜Â©',
-    'QUANTUM': 'physique quantique mÃƒÂ©canique quantique calcul quantique cryptographie Ã™Æ’Ã™â€¦ Ã™Æ’Ã™â€¦Ã™Ë†Ã™â€¦Ã™Å  Ã™ÂÃ™Å Ã˜Â²Ã™Å Ã˜Â§Ã˜Â¡ Ã™Æ’Ã™â€¦Ã™Å Ã˜Â©',
-    'kinÃƒÂ©': 'kinÃƒÂ©sithÃƒÂ©rapie rÃƒÂ©ÃƒÂ©ducation physiothÃƒÂ©rapie masseur kinÃƒÂ© rÃƒÂ©ÃƒÂ©ducateur Ã˜Â§Ã™â€žÃ™Æ’Ã™Å Ã™â€ Ã™Å Ã˜Â²Ã™Å Ã˜ÂªÃ™Å Ã˜Â±Ã˜Â§Ã˜Â¨Ã™Å Ã˜Â§ Ã˜Â¹Ã™â€žÃ˜Â§Ã˜Â¬ Ã˜Â·Ã˜Â¨Ã™Å Ã˜Â¹Ã™Å ',
-    'labo': 'laboratoire analyses mÃƒÂ©dicales biologie mÃƒÂ©dicale examens cliniques laborantin Ã˜ÂªÃ˜Â­Ã˜Â§Ã™â€žÃ™Å Ã™â€ž Ã™â€¦Ã˜Â®Ã˜Â¨Ã˜Â±Ã™Å Ã˜Â© Ã™â€¦Ã˜Â®Ã˜ÂªÃ˜Â¨Ã˜Â±',
-    'radio': 'radiologie imagerie mÃƒÂ©dicale scanner IRM radiographie rayons X Ã˜ÂªÃ˜ÂµÃ™Ë†Ã™Å Ã˜Â± Ã˜Â·Ã˜Â¨Ã™Å  Ã˜Â±Ã˜Â§Ã˜Â¯Ã™Å Ã™Ë† Ã˜Â£Ã˜Â´Ã˜Â¹Ã˜Â©',
-    'Appareilleur-OrthopÃƒÂ©diste': 'appareillage orthopÃƒÂ©dique prothÃƒÂ¨se orthÃƒÂ¨se handicap rÃƒÂ©ÃƒÂ©ducation Ã˜Â£Ã˜Â·Ã˜Â±Ã˜Â§Ã™Â Ã˜Â§Ã˜ÂµÃ˜Â·Ã™â€ Ã˜Â§Ã˜Â¹Ã™Å Ã˜Â© Ã™â€¦Ã™â€šÃ™Ë†Ã™â€˜Ã™â€¦ Ã˜Â£Ã˜Â¹Ã˜Â¶Ã˜Â§Ã˜Â¡',
-    'AnesthÃƒÂ©sie-RÃƒÂ©animation': 'anesthÃƒÂ©sie rÃƒÂ©animation urgences bloc opÃƒÂ©ratoire soins intensifs Ã˜ÂªÃ˜Â®Ã˜Â¯Ã™Å Ã˜Â± Ã˜Â¥Ã™â€ Ã˜Â¹Ã˜Â§Ã˜Â´',
-    'isp': 'infirmier soins infirmiers santÃƒÂ© publique nursing Ã˜ÂªÃ™â€¦Ã˜Â±Ã™Å Ã˜Â¶ Ã˜ÂµÃ˜Â­Ã˜Â© Ã™â€¦Ã™â€¦Ã˜Â±Ã˜Â¶',
-    'esp': 'ergothÃƒÂ©rapie occupation thÃƒÂ©rapie rÃƒÂ©ÃƒÂ©ducation fonctionnelle Ã™â€¦Ã˜Â¯Ã˜Â§Ã™Ë†Ã˜Â§Ã˜Â© Ã˜Â¨Ã˜Â§Ã™â€žÃ˜Â¹Ã™â€¦Ã™â€ž',
-    'Psychomotricien': 'psychomotricitÃƒÂ© dÃƒÂ©veloppement moteur enfant rÃƒÂ©ÃƒÂ©ducation Ã˜Â­Ã˜Â±Ã™Æ’Ã˜Â© Ã™â€ Ã™ÂÃ˜Â³Ã™Å Ã˜Â© Ã˜Â·Ã™ÂÃ™â€ž',
-    'PÃƒÂ©dicure-Podologue': 'pÃƒÂ©dicure podologie soins des pieds Ã™â€šÃ˜Â¯Ã™â€¦ Ã˜Â£Ã˜Â±Ã˜Â¬Ã™â€ž',
-    'dental-prosthetist': 'prothÃƒÂ¨se dentaire prothÃƒÂ©siste dentaire laboratoire dentaire cÃƒÂ©ramique Ã˜Â£Ã˜Â³Ã™â€ Ã˜Â§Ã™â€  Ã˜Â§Ã˜ÂµÃ˜Â·Ã™â€ Ã˜Â§Ã˜Â¹Ã™Å Ã˜Â© Ã˜ÂªÃ˜Â±Ã™Æ’Ã™Å Ã˜Â¨Ã˜Â§Ã˜Âª',
-    'pharma-prep': 'prÃƒÂ©parateur en pharmacie mÃƒÂ©dicaments ordonnance officine Ã™â€¦Ã˜Â­Ã˜Â¶Ã˜Â± Ã˜ÂµÃ™Å Ã˜Â¯Ã™â€žÃ˜Â§Ã™â€ Ã™Å  Ã˜Â¯Ã™Ë†Ã˜Â§Ã˜Â¡',
-    'LAW-POL': 'Ã˜Â­Ã™â€šÃ™Ë†Ã™â€š Ã˜Â¹Ã™â€žÃ™Ë†Ã™â€¦ Ã˜Â³Ã™Å Ã˜Â§Ã˜Â³Ã™Å Ã˜Â© Ã™â€šÃ˜Â§Ã™â€ Ã™Ë†Ã™â€  Ã˜Â¹Ã™â€žÃ˜Â§Ã™â€šÃ˜Â§Ã˜Âª Ã˜Â¯Ã™Ë†Ã™â€žÃ™Å Ã˜Â© sciences politiques droit',
-    'LAW-FIN': 'Ã˜Â­Ã™â€šÃ™Ë†Ã™â€š Ã™â€¦Ã˜Â§Ã™â€žÃ™Å Ã˜Â© Ã™â€¦Ã˜Â­Ã˜Â§Ã˜Â³Ã˜Â¨Ã˜Â© Ã™â€šÃ˜Â§Ã™â€ Ã™Ë†Ã™â€  Ã˜ÂªÃ˜Â¬Ã˜Â§Ã˜Â±Ã™Å  droit finance comptabilitÃƒÂ©',
-    'MATH-ECO': 'Ã˜Â±Ã™Å Ã˜Â§Ã˜Â¶Ã™Å Ã˜Â§Ã˜Âª Ã˜Â§Ã™â€šÃ˜ÂªÃ˜ÂµÃ˜Â§Ã˜Â¯ Ã˜Â¥Ã˜Â­Ã˜ÂµÃ˜Â§Ã˜Â¡ Ã™â€ Ã™â€¦Ã˜Â§Ã˜Â°Ã˜Â¬ Ã™â€¦Ã˜Â§Ã™â€žÃ™Å Ã˜Â© mathÃƒÂ©matiques appliquÃƒÂ©es ÃƒÂ©conomie',
-    'CS-ECO': 'Ã˜Â¥Ã˜Â¹Ã™â€žÃ˜Â§Ã™â€¦ Ã˜Â¢Ã™â€žÃ™Å  Ã˜Â§Ã™â€šÃ˜ÂªÃ˜ÂµÃ˜Â§Ã˜Â¯ Ã˜ÂªÃ™Æ’Ã™â€ Ã™Ë†Ã™â€žÃ™Ë†Ã˜Â¬Ã™Å Ã˜Â§ Ã™â€¦Ã˜Â§Ã™â€žÃ™Å Ã˜Â© fintech informatique ÃƒÂ©conomie',
-    'ARCH-SOC': 'Ã™â€¡Ã™â€ Ã˜Â¯Ã˜Â³Ã˜Â© Ã™â€¦Ã˜Â¹Ã™â€¦Ã˜Â§Ã˜Â±Ã™Å Ã˜Â© Ã˜Â¹Ã™â€žÃ™â€¦ Ã˜Â§Ã˜Â¬Ã˜ÂªÃ™â€¦Ã˜Â§Ã˜Â¹ Ã˜Â­Ã˜Â¶Ã˜Â±Ã™Å  architecture sociologie urbaine',
-    'TECH-MEDIA': 'Ã˜Â¥Ã˜Â¹Ã™â€žÃ˜Â§Ã™â€¦ Ã˜Â¢Ã™â€žÃ™Å  Ã˜Â¥Ã˜Â¹Ã™â€žÃ˜Â§Ã™â€¦ Ã˜Â±Ã™â€šÃ™â€¦Ã™Å  Ã˜ÂªÃ™Ë†Ã˜Â§Ã˜ÂµÃ™â€ž tech media communication digitale informatique',
-    'ENG-POL': 'Ã˜Â¥Ã™â€ Ã˜Â¬Ã™â€žÃ™Å Ã˜Â²Ã™Å Ã˜Â© Ã˜Â¹Ã™â€žÃ™Ë†Ã™â€¦ Ã˜Â³Ã™Å Ã˜Â§Ã˜Â³Ã™Å Ã˜Â© Ã˜Â¯Ã˜Â¨Ã™â€žÃ™Ë†Ã™â€¦Ã˜Â§Ã˜Â³Ã™Å Ã˜Â© english political science diplomatie',
-    'ECO-MEDIA': 'Ã˜Â§Ã™â€šÃ˜ÂªÃ˜ÂµÃ˜Â§Ã˜Â¯ Ã˜Â¥Ã˜Â¹Ã™â€žÃ˜Â§Ã™â€¦ Ã˜ÂªÃ˜Â³Ã™Ë†Ã™Å Ã™â€š Ã˜ÂµÃ˜Â­Ã˜Â§Ã™ÂÃ˜Â© Ã˜Â§Ã™â€šÃ˜ÂªÃ˜ÂµÃ˜Â§Ã˜Â¯Ã™Å Ã˜Â© marketing journalisme ÃƒÂ©conomique',
-    'MEDIA-POL': 'Ã˜Â¥Ã˜Â¹Ã™â€žÃ˜Â§Ã™â€¦ Ã˜Â³Ã™Å Ã˜Â§Ã˜Â³Ã˜Â© Ã˜Â¹Ã™â€žÃ˜Â§Ã™â€šÃ˜Â§Ã˜Âª Ã˜Â¹Ã˜Â§Ã™â€¦Ã˜Â© communication politique relations publiques',
-    'SPORTS-MEDIA': 'Ã˜Â¥Ã˜Â¹Ã™â€žÃ˜Â§Ã™â€¦ Ã˜Â±Ã™Å Ã˜Â§Ã˜Â¶Ã˜Â© Ã˜ÂªÃ˜Â¯Ã˜Â±Ã™Å Ã˜Â¨ Ã˜Â±Ã™Å Ã˜Â§Ã˜Â¶Ã™Å  Ã˜ÂµÃ˜Â­Ã˜Â§Ã™ÂÃ˜Â© Ã˜Â±Ã™Å Ã˜Â§Ã˜Â¶Ã™Å Ã˜Â© journalisme sportif',
-    'DIGITAL-ENG': 'Ã˜Â¥Ã˜Â¯Ã˜Â§Ã˜Â±Ã˜Â© Ã˜Â±Ã™â€šÃ™â€¦Ã™Å Ã˜Â© Ã˜Â¥Ã™â€ Ã˜Â¬Ã™â€žÃ™Å Ã˜Â²Ã™Å Ã˜Â© Ã™â€¦Ã™â€ Ã˜Â§Ã˜Â¬Ã™â€¦Ã™â€ Ã˜Âª digital administration management english',
-    'DIP-LAW': 'Ã™â€šÃ˜Â§Ã™â€ Ã™Ë†Ã™â€  Ã˜Â¯Ã˜Â¨Ã™â€žÃ™Ë†Ã™â€¦Ã˜Â§Ã˜Â³Ã™Å  Ã˜ÂªÃ˜Â¹Ã˜Â§Ã™Ë†Ã™â€  Ã˜Â¯Ã™Ë†Ã™â€žÃ™Å  droit diplomatique coopÃƒÂ©ration internationale',
-    'SPORTS-PSYCH': 'Ã˜ÂªÃ˜Â¯Ã˜Â±Ã™Å Ã˜Â¨ Ã˜Â±Ã™Å Ã˜Â§Ã˜Â¶Ã™Å  Ã˜Â¹Ã™â€žÃ™â€¦ Ã™â€ Ã™ÂÃ˜Â³ Ã˜Â±Ã™Å Ã˜Â§Ã˜Â¶Ã™Å  sports psychology high performance',
-    'ARCHI-CIVIL': 'Ã™â€¡Ã™â€ Ã˜Â¯Ã˜Â³Ã˜Â© Ã™â€¦Ã˜Â¹Ã™â€¦Ã˜Â§Ã˜Â±Ã™Å Ã˜Â© Ã™â€¡Ã™â€ Ã˜Â¯Ã˜Â³Ã˜Â© Ã™â€¦Ã˜Â¯Ã™â€ Ã™Å Ã˜Â© architectural engineering archi civil',
-    'ARCHITECTURE-UNI': 'Ã™â€¡Ã™â€ Ã˜Â¯Ã˜Â³Ã˜Â© Ã™â€¦Ã˜Â¹Ã™â€¦Ã˜Â§Ã˜Â±Ã™Å Ã˜Â© Ã™â€ Ã˜Â¸Ã˜Â§Ã™â€¦ LMD Ã˜Â¬Ã˜Â§Ã™â€¦Ã˜Â¹Ã˜Â© architecture lmd',
-    'ENPEI': 'Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â¯Ã˜Â±Ã˜Â³Ã˜Â© Ã˜Â§Ã™â€žÃ™Ë†Ã˜Â·Ã™â€ Ã™Å Ã˜Â© Ã˜Â§Ã™â€žÃ˜ÂªÃ˜Â­Ã˜Â¶Ã™Å Ã˜Â±Ã™Å Ã˜Â© Ã™â€žÃ˜Â¯Ã˜Â±Ã˜Â§Ã˜Â³Ã˜Â§Ã˜Âª Ã™â€¦Ã™â€¡Ã™â€ Ã˜Â¯Ã˜Â³ Ã˜Â±Ã™Ë†Ã™Å Ã˜Â¨Ã˜Â© enpei rouiba ingÃƒÂ©nierie militaire',
-    'ESSG': 'Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â¯Ã˜Â±Ã˜Â³Ã˜Â© Ã˜Â§Ã™â€žÃ˜Â¹Ã™â€žÃ™Å Ã˜Â§ Ã™â€žÃ˜Â¹Ã™â€žÃ™Ë†Ã™â€¦ Ã˜Â§Ã™â€žÃ˜ÂªÃ˜Â³Ã™Å Ã™Å Ã˜Â± Ã˜Â¹Ã™â€ Ã˜Â§Ã˜Â¨Ã˜Â© essg annaba management gestion',
-    'ESCF': 'Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â¯Ã˜Â±Ã˜Â³Ã˜Â© Ã˜Â§Ã™â€žÃ˜Â¹Ã™â€žÃ™Å Ã˜Â§ Ã™â€žÃ™â€žÃ™â€¦Ã˜Â­Ã˜Â§Ã˜Â³Ã˜Â¨Ã˜Â© Ã™Ë†Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â§Ã™â€žÃ™Å Ã˜Â© Ã™â€šÃ˜Â³Ã™â€ Ã˜Â·Ã™Å Ã™â€ Ã˜Â© escf constantine finance comptabilitÃƒÂ©',
-    'ESE': 'Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â¯Ã˜Â±Ã˜Â³Ã˜Â© Ã˜Â§Ã™â€žÃ˜Â¹Ã™â€žÃ™Å Ã˜Â§ Ã™â€žÃ™â€žÃ˜Â§Ã™â€šÃ˜ÂªÃ˜ÂµÃ˜Â§Ã˜Â¯ Ã™Ë†Ã™â€¡Ã˜Â±Ã˜Â§Ã™â€  ese oran economie',
-    'ENSM': 'Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â¯Ã˜Â±Ã˜Â³Ã˜Â© Ã˜Â§Ã™â€žÃ™Ë†Ã˜Â·Ã™â€ Ã™Å Ã˜Â© Ã˜Â§Ã™â€žÃ˜Â¹Ã™â€žÃ™Å Ã˜Â§ Ã™â€žÃ™â€žÃ™â€¦Ã™â€ Ã˜Â§Ã˜Â¬Ã™â€¦ Ã™Ë†Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â¹Ã˜Â§Ã˜Â¯Ã™â€  Ã˜Â¹Ã™â€ Ã˜Â§Ã˜Â¨Ã˜Â© ensm annaba mines mÃƒÂ©tallurgie',
-    'ENSTA': 'Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â¯Ã˜Â±Ã˜Â³Ã˜Â© Ã˜Â§Ã™â€žÃ™Ë†Ã˜Â·Ã™â€ Ã™Å Ã˜Â© Ã˜Â§Ã™â€žÃ˜Â¹Ã™â€žÃ™Å Ã˜Â§ Ã™â€žÃ™â€žÃ˜ÂªÃ™Æ’Ã™â€ Ã™Ë†Ã™â€žÃ™Ë†Ã˜Â¬Ã™Å Ã˜Â§Ã˜Âª Ã˜Â§Ã™â€žÃ™â€¦Ã˜ÂªÃ™â€šÃ˜Â¯Ã™â€¦Ã˜Â© Ã™Ë†Ã™â€¡Ã˜Â±Ã˜Â§Ã™â€  ensta oran technologies avancÃƒÂ©es',
-    'MED-ECO': 'Ã˜Â·Ã˜Â¨ Ã™Ë†Ã˜Â§Ã™â€šÃ˜ÂªÃ˜ÂµÃ˜Â§Ã˜Â¯ Ã˜Â§Ã™â€šÃ˜ÂªÃ˜ÂµÃ˜Â§Ã˜Â¯ Ã˜ÂµÃ˜Â­Ã™Å  mÃƒÂ©decine ÃƒÂ©conomie santÃƒÂ© publique management de la santÃƒÂ©',
-    'INFO-AUTO': 'Ã˜Â¥Ã˜Â¹Ã™â€žÃ˜Â§Ã™â€¦ Ã˜Â¢Ã™â€žÃ™Å  Ã™Ë†Ã˜Â¢Ã™â€žÃ™Å Ã˜Â© Ã˜Â°Ã™Æ’Ã˜Â§Ã˜Â¡ Ã˜Â§Ã˜ÂµÃ˜Â·Ã™â€ Ã˜Â§Ã˜Â¹Ã™Å  Ã˜Â³Ã™Å Ã˜Â§Ã˜Â±Ã˜Â§Ã˜Âª Ã˜Â°Ã˜Â§Ã˜ÂªÃ™Å Ã˜Â© Ã˜Â§Ã™â€žÃ™â€šÃ™Å Ã˜Â§Ã˜Â¯Ã˜Â© informatique automatique vÃƒÂ©hicules autonomes',
-    'LANG-FIN': 'Ã™â€žÃ˜ÂºÃ˜Â§Ã˜Âª Ã˜Â£Ã˜Â¬Ã™â€ Ã˜Â¨Ã™Å Ã˜Â© Ã™Ë†Ã™â€¦Ã˜Â§Ã™â€žÃ™Å Ã˜Â© Ã™â€žÃ˜ÂºÃ˜Â§Ã˜Âª Ã˜ÂªÃ˜Â·Ã˜Â¨Ã™Å Ã™â€šÃ™Å Ã˜Â© Ã™â€¦Ã˜Â§Ã™â€žÃ™Å Ã˜Â© langues ÃƒÂ©trangÃƒÂ¨res finance traduction financiÃƒÂ¨re',
-    'INFO-GEST': 'Ã˜Â¥Ã˜Â¹Ã™â€žÃ˜Â§Ã™â€¦ Ã˜Â¢Ã™â€žÃ™Å  Ã™Ë†Ã˜ÂªÃ˜Â³Ã™Å Ã™Å Ã˜Â± Ã˜Â£Ã™â€ Ã˜Â¸Ã™â€¦Ã˜Â© Ã™â€¦Ã˜Â¹Ã™â€žÃ™Ë†Ã™â€¦Ã˜Â§Ã˜Âª informatique gestion systÃƒÂ¨mes d\'information',
-    'MGMT-ENG': 'Ã˜Â¥Ã˜Â¯Ã˜Â§Ã˜Â±Ã˜Â© Ã˜Â£Ã˜Â¹Ã™â€¦Ã˜Â§Ã™â€ž Ã™Ë†Ã™â€¡Ã™â€ Ã˜Â¯Ã˜Â³Ã˜Â© management ingÃƒÂ©nierie',
-    'DROIT-INFO': 'Ã˜Â­Ã™â€šÃ™Ë†Ã™â€š Ã™Ë†Ã˜Â¥Ã˜Â¹Ã™â€žÃ˜Â§Ã™â€¦ Ã˜Â¢Ã™â€žÃ™Å  Ã™â€šÃ˜Â§Ã™â€ Ã™Ë†Ã™â€  Ã˜Â±Ã™â€šÃ™â€¦Ã™Å  droit informatique cyberdroit',
-    'MED-PSY': 'Ã˜Â·Ã˜Â¨ Ã™Ë†Ã˜Â¹Ã™â€žÃ™â€¦ Ã™â€ Ã™ÂÃ˜Â³ Ã˜Â§Ã™â€žÃ˜Â·Ã˜Â¨ Ã˜Â§Ã™â€žÃ™â€ Ã™ÂÃ˜Â³Ã™Å  mÃƒÂ©decine psychologie psychiatrie',
-    'GEOLOGIE': 'Ã˜Â¬Ã™Å Ã™Ë†Ã™â€žÃ™Ë†Ã˜Â¬Ã™Å Ã˜Â§ gÃƒÂ©ologie Ã˜Â¹Ã™â€žÃ™Ë†Ã™â€¦ Ã˜Â§Ã™â€žÃ˜Â£Ã˜Â±Ã˜Â¶',
-    'GEOGRAPHIE': 'Ã˜Â¬Ã˜ÂºÃ˜Â±Ã˜Â§Ã™ÂÃ™Å Ã˜Â§ gÃƒÂ©ographie',
-    'AGRONOMIE': 'Ã˜Â¹Ã™â€žÃ™Ë†Ã™â€¦ Ã˜Â²Ã˜Â±Ã˜Â§Ã˜Â¹Ã™Å Ã˜Â© agronomique sciences agronomiques',
-    'AGROALIMENTAIRE': 'Ã˜Â¹Ã™â€žÃ™Ë†Ã™â€¦ Ã˜ÂºÃ˜Â°Ã˜Â§Ã˜Â¡ Ã˜ÂªÃ˜ÂºÃ˜Â°Ã™Å Ã˜Â© sciences alimentaires',
-    'SOCIALES': 'Ã˜Â¹Ã™â€žÃ™Ë†Ã™â€¦ Ã˜Â§Ã˜Â¬Ã˜ÂªÃ™â€¦Ã˜Â§Ã˜Â¹Ã™Å Ã˜Â© sciences sociales',
-    'ARCHEOLOGIE': 'Ã˜Â¹Ã™â€žÃ™â€¦ Ã˜Â§Ã™â€žÃ˜Â¢Ã˜Â«Ã˜Â§Ã˜Â± archÃƒÂ©ologie',
-    'LOISIR': 'Ã˜Â¹Ã™â€žÃ™â€¦ Ã˜Â§Ã™â€žÃ˜Â§Ã˜Â¬Ã˜ÂªÃ™â€¦Ã˜Â§Ã˜Â¹ Ã˜Â³Ã™Å Ã˜Â§Ã˜Â­Ã˜Â© Ã˜Â±Ã™ÂÃ˜Â§Ã™â€¡Ã™Å Ã˜Â© sociologie du loisir',
-    'STAPS': 'Ã˜Â±Ã™Å Ã˜Â§Ã˜Â¶Ã˜Â© Ã˜Â¹Ã™â€žÃ™Ë†Ã™â€¦ Ã˜ÂªÃ™â€šÃ™â€ Ã™Å Ã˜Â§Ã˜Âª Ã˜Â£Ã™â€ Ã˜Â´Ã˜Â·Ã˜Â© Ã˜Â¨Ã˜Â¯Ã™â€ Ã™Å Ã˜Â© staps sports',
-    'ARTS': 'Ã™ÂÃ™â€ Ã™Ë†Ã™â€  Ã˜ÂªÃ˜Â´Ã™Æ’Ã™Å Ã™â€žÃ™Å Ã˜Â© arts plastiques',
-    'CINEMA': 'Ã˜Â³Ã™Å Ã™â€ Ã™â€¦Ã˜Â§ cinÃƒÂ©ma arts du spectacle',
-    'ARABE': 'Ã™â€žÃ˜ÂºÃ˜Â© Ã™Ë†Ã˜Â£Ã˜Â¯Ã˜Â¨ Ã˜Â¹Ã˜Â±Ã˜Â¨Ã™Å  langue littÃƒÂ©rature arabes',
-    'TAMAZIGHT': 'Ã™â€žÃ˜ÂºÃ˜Â© Ã™Ë†Ã˜Â«Ã™â€šÃ˜Â§Ã™ÂÃ˜Â© Ã˜Â£Ã™â€¦Ã˜Â§Ã˜Â²Ã™Å Ã˜ÂºÃ™Å Ã˜Â© tamazight berbÃƒÂ¨re tamazighte',
+    'ESTIN': 'ذكاء اصطناعي أمن سيبراني انترنت الأشياء intelligence artificielle cybersécurité iot internet des objets génie informatique logiciel réseaux machine learning deep learning numérique digital بجاية مدرسة عليا رقمنة',
+    'ESI-ALGER': 'مدرسة عليا إعلام آلي isi siw irs hcd génie logiciel systèmes informatiques réseaux cybersécurité grande école informatique الجزائر العاصمة بن عكنون',
+    'ESI-SBA': 'isi siw iasd cys génie informatique intelligence artificielle sciences des données data science سيدي بلعباس وهران ingénierie systèmes information computer architecture data structures algorithms linux assembly language digital electronics linear algebra information systems digital economy ai literacy quantum computing حوسبة كمومية AI and Quantum Community Alphabet Ingeniums أمن سيبراني',
+    'ENSIA': 'ia intelligence artificielle artificial intelligence machine learning deep learning neural networks data science big data المدرسة الوطنية العليا للذكاء الاصطناعي الجزائر',
+    'ENSCS': 'cybersécurité cybersecurity sécurité informatique سيبراني سيبرانيا أمن المعلومات أمن الشبكات pentest ethical hacking هجمات حماية أنظمة المدرسة الوطنية العليا للأمن السيبراني',
+    'ENSTTIC': 'télécommunications telecom réseaux TIC technologies information communication ستيك بوزريعة haut débit fibre optique 5g',
+    'NHSM': 'mathématiques mathematics statistiques probabilités analyse algèbre analyse numérique المدرسة الوطنية العليا للرياضيات الكوليا',
+    'POLYTECH': 'polytechnique génie civil mécanique électrique chimique matériaux multidisciplinaire complexe polytechnique الجزائر',
+    'EPAU': 'architecture urbanisme design urbain habitat logement patrimoine paysage المدرسة البوليتكنيكية هندسة تعمير',
+    'ENSSN': 'nanotechnologie nanosciences matériaux optique photonique microélectronique nanostructures نانو',
+    'ENSAS': 'robotique robotics systèmes autonomes drones véhicules autonomes automation روبوت المدرسة الوطنية العليا للأنظمة المستقلة',
+    'ENSTP': 'travaux publics génie civil voirie VRD btp routes ponts barrages infrastructure أشغال المدرسة الوطنية العليا للأشغال العمومية',
+    'ENSH': 'hydraulique ressources en eau irrigation eau potable traitement des eaux barrage البليدة المدرسة الوطنية العليا للهيدروليك',
+    'IGEE': 'génie électrique électronique électrotechnique automatique systèmes électriques énergétique بومرداس كهرباء',
+    'ENSEE': 'génie électrique énergie électrotechnique puissance systèmes électriques وهران كهرباء طاقة',
+    'ESSA': 'sciences appliquées multidisciplinaire ingénierie تلمسان علوم تطبيقية',
+    'HNSRE': 'énergies renouvelables énergie solaire photovoltaïque éolien hydrogène transition énergétique green energy باتنة طاقة شمسية ريح',
+    'AERONAUTIQUE': 'aéronautique aerospace aviation pilote avion moteur espace aérospatial vol البليدة طيران مدني صواريخ',
+    'ENSC': 'commerce sciences commerciales marketing finance vente gestion وهران المدرسة الوطنية العليا للتجارة',
+    'EHEC': 'hautes études commerciales management économie commerce international entreprise mba تيجلابين المدرسة العليا للتجارة',
+    'ESGEN': 'gestion des entreprises entrepreneuriat économie numérique digital business المدرسة العليا للتسيير والاقتصاد الرقمي',
+    'ENSSEA': 'statistique économétrie démographie actuariat planification prospective الكوليا إحصاء اقتصاد تطبيقي',
+    'ESB': 'banque finance bancaire monnaie crédit islamique المدرسة العليا للبنوك الجزائر العاصمة صيرفة',
+    'ENST': 'tourisme hôtellerie restauration guide touristique patrimoine voyage المدرسة الوطنية العليا للسياحة',
+    'ESM': 'management gestion leadership entreprise stratégie المدرسة العليا للمانجمينت تلمسان إدارة',
+    'ESSAIA': 'agroalimentaire nutrition qualité alimentaire sécurité alimentaire food science industrie alimentaire المدرسة العليا للعلوم الزراعية والصناعات الغذائية',
+    'ENSA': 'agronomie agriculture agronome INA zootechnie horticulture علوم زراعية فلاحة الجزائر',
+    'ENS': 'enseignement professeur pédagogie éducation formation des enseignants école normale supérieure مدرسة عليا أساتذة أستاذ',
+    'MEDCINE': 'médecine générale CHU résidanat médecin docteur généraliste spécialiste طبيب دكتور كلية الطب حكيم',
+    'MEDCINE-DENTAIRE': 'dentiste chirurgie dentaire orthodontie implant dentaire prothèse carie أسنان دكتور أسنان طب الفم كلية طب الأسنان',
+    'PHARMACIE': 'pharmacien médicaments officine pharmacologie biochimie دواء الصيدلة صيدلاني',
+    'PARAMEDICAL': 'infirmier kinésithérapie laborantin radiologie soins aide soignant تمريض إسعاف شبه طبي صحة رعاية',
+    'Sage-Femme': 'maïeutique accouchement obstétrique gynécologie maternité sage femme قبالة ولادة توليد أمومة',
+    'PHARMACIE-INDUSTRIELLE': 'industrie pharmaceutique fabrication médicaments biotechnologie pharmaceutique bioproduction صيدلة صناعية',
+    'vetrinaire': 'vétérinaire animaux élevage zoologie équine bovine aviculture بيطري حيوانات طب بيطري',
+    'MED-BIO': 'double cursus biologie médicale biochimie microbiologie biologie moléculaire مزدوج تخصص مزدوج',
+    'MED-INFO': 'bioinformatique informatique médicale santé numérique health tech double cursus ذكاء اصطناعي طبي',
+    'ESSB': 'biologie biotechnologie microbiologie biochimie biologie cellulaire وهران',
+    'ENSB': 'biotechnologie biologie moléculaire génie biologique génétique fermentation المدرسة الوطنية العليا للبيوتكنولوجيا',
+    'ENSSMAL': 'sciences de la mer biologie marine halieutique pêche oceanographie côtier المدرسة الوطنية العليا للعلوم البحرية بحر',
+    'INFORMATIQUE': 'licence informatique génie logiciel réseaux cybersécurité systèmes web développement programmation code python java',
+    'ARCHITECTURE': 'architecture urbanisme design urbain habitat logement patrimoine bâtiment paysage هندسة معمارية',
+    'MATH': 'mathématiques mathematics statistiques probabilités analyse algèbre mathématiques appliquées رياضيات',
+    'ST': 'sciences technologies électronique mécanique chimie génie industriel technologies علوم تكنولوجيا',
+    'SM': 'sciences de la matière physique chimie thermodynamique matériaux énergie فيزياء كيمياء',
+    'BIOLOGIE': 'biologie écologie environnement génétique microbiologie zoologie botanique بيولوجيا علوم طبيعية',
+    'HYDROCARBURES': 'pétrole gaz sonatrach raffinerie exploration géologie pétrolière ingénierie pétrolière نفط غاز بترول محروقات',
+    'Optique': 'optique physique photonique instrumentation mécanique de précision lunettes lasers بصريات ضوء ليزر',
+    'GP': 'génie des procédés chimie industrielle génie chimique procédés industriels كيمياء صناعية معالجة',
+    'GI': 'génie industriel production qualité ergonomie logistique industrielle maintenance صناعة جودة إنتاج',
+    'MARINE': 'marine naval navires offshore port mer navigation maritime هندسة بحرية سفن ميناء ملاحة',
+    'GT': 'génie des transports logistique ferroviaire aérien portuaire mobilité transports سكك حديدية مطارات موانئ',
+    'GM': 'mines minéralurgie géologie minière extraction ressources minérales مناجم معادن تعدين جيولوجيا',
+    'GC': 'génie civil structures béton géotechnique VRD routes ponts bâtiment هندسة مدنية بناء جسور سدود',
+    'GMEC': 'génie mécanique mécatronique thermodynamique fluides fabrication machines moteurs هندسة ميكانيكية ميكانيك',
+    'DROIT': 'droit civil commercial public avocat notaire juriste magistrat tribunal justice loi حقوق محاماة قضاء عدالة',
+    'SS': 'psychologie sociologie anthropologie démographie philosophie travail social علم نفس علم اجتماع فلسفة',
+    'TRADUCTION': 'traduction interprétation langues linguistique traducteur interprète traduit ترجمة فورية تحريرية',
+    'COMMU': 'journalisme médias relations publiques communication digitale réseaux sociaux presse إعلام صحافة اتصال',
+    'LANGUES': 'français anglais espagnol allemand arabe langues étrangères littérature linguistique فرنسية إنجليزية إسبانية',
+    'CHARIA': 'fiqh hadith coran charia jurisprudence islamique aqida usoul الفقه علوم شرعية إسلامية دين',
+    'SCIENCES-PO': 'politique diplomatie relations internationales administration publique gouvernance دبلوماسية سياسة علاقات دولية',
+    'SCIENCES-HUM': 'histoire géographie archéologie bibliothéconomie patrimoine civilisations تاريخ جغرافيا آثار تراث',
+    'MED-AI': 'intelligence artificielle médicale santé numérique diagnostic algorithmique imagerie médicale ذكاء طبي',
+    'MED-GEN': 'génétique médicale génomique maladies héréditaires conseil génétique وراثة طبية جينوم',
+    'IT-INT': 'interopérabilité systèmes information cloud architecture SI ingénierie logicielle تشغيل بيني',
+    'ADDICT': 'addictologie addiction toxicomanie alcool drogues comportement santé mentale الإدمان مخدرات',
+    'NLP': 'traitement du langage naturel nlp ia linguistique computationnelle intelligence artificielle لغة طبيعية',
+    'PREC-MED': 'médecine de précision personnalisée thérapie ciblée génomique oncologie طب دقيق شخصي',
+    'DENT-HYG': 'hygiène dentaire soins préventifs prophylaxie dentisterie clinique صحة الفم',
+    'GEN-COUNS': 'conseil génétique maladies génétiques dépistage prénatal مستشار وراثة',
+    'IND-ENTR': 'entrepreneuriat industriel startups innovation industrie management مقاولاتية ريادة الأعمال',
+    'SPACE-TECH': 'espace spatial satellites technologie spatiale aérospatial astronomie الفضاء أقمار صناعية',
+    'DIGITAL-AGRO': 'agriculture numérique drones capteurs iot agtech smart farming هندسة زراعية رقمية',
+    'SMART-CITIES': 'villes intelligentes smart city urbanisme numérique mobilité infrastructure المدن الذكية',
+    'MED-INFORMATICS': 'informatique médicale santé numérique télémédecine dossiers médicaux e-santé المعلوماتية الطبية',
+    'QUANTUM': 'physique quantique mécanique quantique calcul quantique cryptographie كم كمومي فيزياء كمية',
+    'kiné': 'kinésithérapie rééducation physiothérapie masseur kiné rééducateur الكينيزيتيرابيا علاج طبيعي',
+    'labo': 'laboratoire analyses médicales biologie médicale examens cliniques laborantin تحاليل مخبرية مختبر',
+    'radio': 'radiologie imagerie médicale scanner IRM radiographie rayons X تصوير طبي راديو أشعة',
+    'Appareilleur-Orthopédiste': 'appareillage orthopédique prothèse orthèse handicap rééducation أطراف اصطناعية مقوّم أعضاء',
+    'Anesthésie-Réanimation': 'anesthésie réanimation urgences bloc opératoire soins intensifs تخدير إنعاش',
+    'isp': 'infirmier soins infirmiers santé publique nursing تمريض صحة ممرض',
+    'esp': 'ergothérapie occupation thérapie rééducation fonctionnelle مداواة بالعمل',
+    'Psychomotricien': 'psychomotricité développement moteur enfant rééducation حركة نفسية طفل',
+    'Pédicure-Podologue': 'pédicure podologie soins des pieds قدم أرجل',
+    'dental-prosthetist': 'prothèse dentaire prothésiste dentaire laboratoire dentaire céramique أسنان اصطناعية تركيبات',
+    'pharma-prep': 'préparateur en pharmacie médicaments ordonnance officine محضر صيدلاني دواء',
+    'LAW-POL': 'حقوق علوم سياسية قانون علاقات دولية sciences politiques droit',
+    'LAW-FIN': 'حقوق مالية محاسبة قانون تجاري droit finance comptabilité',
+    'MATH-ECO': 'رياضيات اقتصاد إحصاء نماذج مالية mathématiques appliquées économie',
+    'CS-ECO': 'إعلام آلي اقتصاد تكنولوجيا مالية fintech informatique économie',
+    'ARCH-SOC': 'هندسة معمارية علم اجتماع حضري architecture sociologie urbaine',
+    'TECH-MEDIA': 'إعلام آلي إعلام رقمي تواصل tech media communication digitale informatique',
+    'ENG-POL': 'إنجليزية علوم سياسية دبلوماسية english political science diplomatie',
+    'ECO-MEDIA': 'اقتصاد إعلام تسويق صحافة اقتصادية marketing journalisme économique',
+    'MEDIA-POL': 'إعلام سياسة علاقات عامة communication politique relations publiques',
+    'SPORTS-MEDIA': 'إعلام رياضة تدريب رياضي صحافة رياضية journalisme sportif',
+    'DIGITAL-ENG': 'إدارة رقمية إنجليزية مناجمنت digital administration management english',
+    'DIP-LAW': 'قانون دبلوماسي تعاون دولي droit diplomatique coopération internationale',
+    'SPORTS-PSYCH': 'تدريب رياضي علم نفس رياضي sports psychology high performance',
+    'ARCHI-CIVIL': 'هندسة معمارية هندسة مدنية architectural engineering archi civil',
+    'ARCHITECTURE-UNI': 'هندسة معمارية نظام LMD جامعة architecture lmd',
+    'ENPEI': 'المدرسة الوطنية التحضيرية لدراسات مهندس رويبة enpei rouiba ingénierie militaire',
+    'ESSG': 'المدرسة العليا لعلوم التسيير عنابة essg annaba management gestion',
+    'ESCF': 'المدرسة العليا للمحاسبة والمالية قسنطينة escf constantine finance comptabilité',
+    'ESE': 'المدرسة العليا للاقتصاد وهران ese oran economie',
+    'ENSM': 'المدرسة الوطنية العليا للمناجم والمعادن عنابة ensm annaba mines métallurgie',
+    'ENSTA': 'المدرسة الوطنية العليا للتكنولوجيات المتقدمة وهران ensta oran technologies avancées',
+    'MED-ECO': 'طب واقتصاد اقتصاد صحي médecine économie santé publique management de la santé',
+    'INFO-AUTO': 'إعلام آلي وآلية ذكاء اصطناعي سيارات ذاتية القيادة informatique automatique véhicules autonomes',
+    'LANG-FIN': 'لغات أجنبية ومالية لغات تطبيقية مالية langues étrangères finance traduction financière',
+    'INFO-GEST': 'إعلام آلي وتسيير أنظمة معلومات informatique gestion systèmes d\'information',
+    'MGMT-ENG': 'إدارة أعمال وهندسة management ingénierie',
+    'DROIT-INFO': 'حقوق وإعلام آلي قانون رقمي droit informatique cyberdroit',
+    'MED-PSY': 'طب وعلم نفس الطب النفسي médecine psychologie psychiatrie',
+    'GEOLOGIE': 'جيولوجيا géologie علوم الأرض',
+    'GEOGRAPHIE': 'جغرافيا géographie',
+    'AGRONOMIE': 'علوم زراعية agronomique sciences agronomiques',
+    'AGROALIMENTAIRE': 'علوم غذاء تغذية sciences alimentaires',
+    'SOCIALES': 'علوم اجتماعية sciences sociales',
+    'ARCHEOLOGIE': 'علم الآثار archéologie',
+    'LOISIR': 'علم الاجتماع سياحة رفاهية sociologie du loisir',
+    'STAPS': 'رياضة علوم تقنيات أنشطة بدنية staps sports',
+    'ARTS': 'فنون تشكيلية arts plastiques',
+    'CINEMA': 'سينما cinéma arts du spectacle',
+    'ARABE': 'لغة وأدب عربي langue littérature arabes',
+    'TAMAZIGHT': 'لغة وثقافة أمازيغية tamazight berbère tamazighte',
 };
 
 (function initSpecFilter() {
@@ -675,10 +675,10 @@ var SPEC_KEYWORDS = {
 
     function normalize(s) {
         return (s || '').toLowerCase()
-            .replace(/[Ã˜Â£Ã˜Â¥Ã˜Â¢Ã™Â±]/g, 'Ã˜Â§')
-            .replace(/Ã˜Â©/g, 'Ã™â€¡')
-            .replace(/Ã™â€°/g, 'Ã™Å ')
-            .replace(/[Ã™â€¹-Ã™Å¸Ã™Â°]/g, '')
+            .replace(/[أإآٱ]/g, 'ا')
+            .replace(/ة/g, 'ه')
+            .replace(/ى/g, 'ي')
+            .replace(/[ً-ٰٟ]/g, '')
             .trim();
     }
 
@@ -765,26 +765,26 @@ var SPEC_KEYWORDS = {
     }
 })();
 
-// Ã¢â€â‚¬Ã¢â€â‚¬ School Detail Tabs Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+// ── School Detail Tabs ────────────────────────────
 var TAB_KEYWORDS = {
-    intro: ['Ã˜Â§Ã™â€žÃ˜ÂªÃ˜Â¹Ã˜Â±Ã™Å Ã™Â Ã˜Â¨', 'Ã˜ÂªÃ˜Â¹Ã˜Â±Ã™Å Ã™Â Ã˜Â§Ã™â€žÃ˜ÂªÃ˜Â®Ã˜ÂµÃ˜Âµ', 'Ã˜ÂªÃ˜Â¹Ã˜Â±Ã™Å Ã™Â Ã™â€¦Ã˜Â®Ã˜ÂªÃ˜ÂµÃ˜Â±', 'Ã™â€¦Ã˜Â§ Ã™â€¡Ã™Ë†', 'Ã™â€¦Ã˜Â§Ã™â€¡Ã™Ë†', 'Ã™Ë†Ã˜Â§Ã˜Â´ Ã™â€¡Ã™Ë†', 'Ã™â€¡Ã™â€ž Ã™â€¡Ã™Ë† Ã˜ÂªÃ˜Â®Ã˜ÂµÃ˜Âµ', 'Ã˜Â¨Ã™â€¦Ã™â€  Ã™Å Ã˜Â¹Ã˜ÂªÃ™â€ Ã™Å ', 'Ã˜Â¥Ã™â€ Ã˜Â³Ã˜Â§Ã™â€ Ã™Å Ã˜Â© Ã˜Â§Ã™â€žÃ™â€¦Ã™â€¡Ã™â€ Ã˜Â©', 'Ã™â€žÃ™â€¦Ã˜Â§Ã˜Â°Ã˜Â§ Ã™â€¡Ã˜Â°Ã˜Â§ Ã˜Â§Ã™â€žÃ˜ÂªÃ˜Â®Ã˜ÂµÃ˜Âµ', 'Ã™Ë†Ã˜Â§Ã˜Â´ Ã™Å Ã˜Â¯Ã™Å Ã˜Â±', 'Ã™Ë†Ã˜Â§Ã˜Â´ Ã˜ÂªÃ˜Â®Ã˜Â¯Ã™â€¦', 'Ã˜Â§Ã™â€žÃ™â€¦Ã™â€¡Ã˜Â§Ã™â€¦ Ã˜Â§Ã™â€žÃ™Å Ã™Ë†Ã™â€¦Ã™Å Ã˜Â©', 'Ã˜Â§Ã™â€žÃ™â€¦Ã™â€¡Ã™â€¦Ã˜Â§Ã˜Âª Ã™Ë†Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â¬Ã˜Â§Ã™â€žÃ˜Â§Ã˜Âª', 'Ã™â€¦Ã™â€¡Ã˜Â§Ã™â€¦Ã™â€¡', 'Ã°Å¸â€™Â» Ã˜Â§Ã™â€žÃ˜ÂªÃ˜Â¹Ã˜Â±Ã™Å Ã™Â', 'Ã°Å¸Â©Âº Ã˜Â§Ã™â€žÃ˜Â­Ã˜Â§Ã™â€žÃ˜Â§Ã˜Âª', 'Ã™â€žÃ˜ÂºÃ˜Â© Ã˜Â§Ã™â€žÃ˜Â¯Ã˜Â±Ã˜Â§Ã˜Â³Ã˜Â©', 'Ã™â€žÃ˜ÂºÃ˜Â© Ã˜Â§Ã™â€žÃ˜ÂªÃ˜Â¯Ã˜Â±Ã™Å Ã˜Â³', 'Ã˜ÂªÃ˜Â®Ã˜ÂµÃ˜Âµ Ã˜Â¬Ã˜Â¯Ã™Å Ã˜Â¯', 'Ã˜Â§Ã™â€žÃ˜Â¬Ã˜Â§Ã™â€¦Ã˜Â¹Ã˜Â§Ã˜Âª Ã˜Â§Ã™â€žÃ˜ÂªÃ™Å ', 'Ã˜Â§Ã™â€žÃ˜Â¬Ã˜Â§Ã™â€¦Ã˜Â¹Ã˜Â§Ã˜Âª Ã˜Â§Ã™â€žÃ™â€¦Ã˜ÂªÃ™Ë†Ã™ÂÃ˜Â±Ã˜Â©', 'Ã˜Â§Ã™â€žÃ™Æ’Ã™â€žÃ™Å Ã˜Â§Ã˜Âª Ã˜Â§Ã™â€žÃ™â€¦Ã˜ÂªÃ™Ë†Ã™ÂÃ˜Â±Ã˜Â©', 'Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â¯Ã˜Â§Ã˜Â±Ã˜Â³ Ã˜Â§Ã™â€žÃ™â€¦Ã˜ÂªÃ™Ë†Ã™ÂÃ˜Â±Ã˜Â©', 'Ã™Ë†Ã™Å Ã™â€  Ã˜ÂªÃ™â€šÃ˜Â±Ã˜Â§', 'Ã˜Â£Ã™Å Ã™â€  Ã™Å Ã™â€¦Ã™Æ’Ã™â€  Ã˜Â¯Ã˜Â±Ã˜Â§Ã˜Â³Ã˜ÂªÃ™â€¡', 'Ã˜Â£Ã™Å Ã™â€  Ã™Å Ã™ÂÃ˜Â¯Ã˜Â±Ã™â€˜Ã˜Â³', 'Ã˜Â£Ã™â€¦Ã˜Â§Ã™Æ’Ã™â€  Ã˜Â§Ã™â€žÃ˜Â¯Ã˜Â±Ã˜Â§Ã˜Â³Ã˜Â©', 'Ã˜Â§Ã™â€žÃ™â€¦Ã™Ë†Ã™â€šÃ˜Â¹'],
-    admission: ['Ã™â€¦Ã˜Â¹Ã˜Â¯Ã™â€žÃ˜Â§Ã˜Âª Ã˜Â§Ã™â€žÃ™â€šÃ˜Â¨Ã™Ë†Ã™â€ž', 'Ã™â€¦Ã˜Â¹Ã˜Â¯Ã™â€ž Ã˜Â§Ã™â€žÃ™â€šÃ˜Â¨Ã™Ë†Ã™â€ž', 'Ã˜Â´Ã˜Â±Ã™Ë†Ã˜Â· Ã˜Â§Ã™â€žÃ™â€šÃ˜Â¨Ã™Ë†Ã™â€ž', 'Ã˜Â´Ã˜Â±Ã™Ë†Ã˜Â· Ã˜Â§Ã™â€žÃ˜Â¯Ã˜Â®Ã™Ë†Ã™â€ž', 'Ã˜Â´Ã˜Â±Ã™Ë†Ã˜Â· Ã˜Â§Ã™â€žÃ˜Â§Ã™â€žÃ˜ÂªÃ˜Â­Ã˜Â§Ã™â€š', 'Ã˜Â§Ã™â€žÃ˜ÂªÃ˜Â³Ã˜Â¬Ã™Å Ã™â€ž Ã™Ë†Ã˜Â§Ã™â€žÃ™â€šÃ˜Â¨Ã™Ë†Ã™â€ž', 'Ã˜Â§Ã™â€žÃ˜ÂªÃ˜Â³Ã˜Â¬Ã™Å Ã™â€ž', 'Ã˜Â§Ã™â€žÃ˜Â´Ã˜Â¹Ã˜Â¨ Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â³Ã™â€¦Ã™Ë†Ã˜Â­', 'Ã™Æ’Ã™Å Ã™Â Ã˜ÂªÃ™â€žÃ˜ÂªÃ˜Â­Ã™â€š', 'Ã™Æ’Ã™Å Ã™ÂÃ˜Â§Ã˜Â´ Ã˜ÂªÃ™â€žÃ˜ÂªÃ˜Â­Ã™â€š', 'Ã˜ÂªÃ˜Â³Ã˜Â¬Ã™Å Ã™â€žÃ˜Â§Ã˜Âª', 'Ã˜Â§Ã™â€žÃ™Ë†Ã™â€žÃ™Ë†Ã˜Â¬ Ã˜Â¥Ã™â€žÃ™â€°', 'Ã™Æ’Ã™Å Ã™Â Ã™Å Ã˜ÂªÃ™â€¦ Ã˜Â§Ã™â€žÃ˜ÂªÃ™Ë†Ã˜Â¬Ã™Å Ã™â€¡', 'Ã˜Â£Ã™Å Ã™â€  Ã™Å Ã™â€¦Ã™Æ’Ã™â€  Ã˜Â¯Ã˜Â±Ã˜Â§Ã˜Â³Ã˜ÂªÃ™â€¡', 'Ã˜Â£Ã™Å Ã™â€  Ã™Å Ã™ÂÃ˜Â¯Ã˜Â±Ã™â€˜Ã˜Â³', 'Ã˜Â£Ã™â€¦Ã˜Â§Ã™Æ’Ã™â€  Ã˜Â§Ã™â€žÃ˜Â¯Ã˜Â±Ã˜Â§Ã˜Â³Ã˜Â©'],
-    curriculum: ['Ã˜Â§Ã™â€žÃ™â€¦Ã™Ë†Ã˜Â§Ã˜Â¯ Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â¯Ã˜Â±Ã™Ë†Ã˜Â³Ã˜Â©', 'Ã˜Â§Ã™â€žÃ™â€¦Ã™Ë†Ã˜Â§Ã˜Â¯ Ã˜Â§Ã™â€žÃ˜Â£Ã˜Â³Ã˜Â§Ã˜Â³Ã™Å Ã˜Â©', 'Ã˜Â§Ã™â€žÃ™â€¦Ã™Ë†Ã˜Â§Ã˜Â¯ Ã™ÂÃ™Å ', 'Ã˜Â§Ã™â€žÃ™â€¦Ã™Ë†Ã˜Â§Ã˜Â¯ Ã™Ë†Ã˜Â§Ã™â€žÃ˜ÂªÃ™Æ’Ã™Ë†Ã™Å Ã™â€ ', 'Ã™â€¦Ã™Ë†Ã˜Â§Ã˜Â¯ Ã˜ÂªÃ™â€šÃ˜Â±Ã˜Â§Ã™â€¡Ã˜Â§', 'Ã˜Â§Ã™â€žÃ˜Â¨Ã˜Â±Ã™â€ Ã˜Â§Ã™â€¦Ã˜Â¬ Ã˜Â§Ã™â€žÃ˜Â¯Ã˜Â±Ã˜Â§Ã˜Â³Ã™Å ', 'Ã™â€¦Ã˜Â³Ã˜Â§Ã˜Â± Ã˜Â§Ã™â€žÃ˜Â¯Ã˜Â±Ã˜Â§Ã˜Â³Ã˜Â©', 'Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â³Ã˜Â§Ã˜Â± Ã˜Â§Ã™â€žÃ˜Â¯Ã˜Â±Ã˜Â§Ã˜Â³Ã™Å ', 'Ã™â€¦Ã˜Â¯Ã˜Â© Ã˜Â§Ã™â€žÃ˜Â¯Ã˜Â±Ã˜Â§Ã˜Â³Ã˜Â©', 'Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â¯Ã˜Â© Ã™Ë†Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â¹Ã˜Â§Ã™â€¡Ã˜Â¯', 'Ã˜Â·Ã˜Â±Ã™Å Ã™â€šÃ˜Â© Ã˜Â§Ã™â€žÃ˜Â¯Ã˜Â±Ã˜Â§Ã˜Â³Ã˜Â©', 'Ã™Æ’Ã™Å Ã™ÂÃ˜Â§Ã˜Â´ Ã˜ÂªÃ™â€šÃ˜Â±Ã˜Â§', 'Ã˜ÂªÃ™â€ Ã˜Â¸Ã™Å Ã™â€¦ Ã˜Â§Ã™â€žÃ˜Â¯Ã˜Â±Ã˜Â§Ã˜Â³Ã˜Â©', 'Ã˜Â§Ã™â€žÃ˜Â¯Ã˜Â±Ã˜Â§Ã˜Â³Ã˜Â© Ã™Ë†Ã˜Â§Ã™â€žÃ™â€ Ã˜Â¸Ã˜Â§Ã™â€¦', 'Ã˜Â§Ã™â€žÃ˜ÂªÃ˜Â±Ã˜Â¨Ã˜ÂµÃ˜Â§Ã˜Âª', 'Ã˜Â§Ã™â€žÃ˜ÂªÃ˜Â¯Ã˜Â±Ã™Å Ã˜Â¨ Ã˜Â§Ã™â€žÃ™â€¦Ã™Å Ã˜Â¯Ã˜Â§Ã™â€ Ã™Å ', 'Ã˜Â§Ã™â€žÃ˜ÂªÃ˜Â·Ã˜Â¨Ã™Å Ã™â€š Ã˜Â§Ã™â€žÃ˜Â¹Ã™â€¦Ã™â€žÃ™Å ', 'Ã˜Â·Ã™Ë†Ã˜Â± Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â§Ã˜Â³Ã˜ÂªÃ˜Â±', 'Ã˜Â§Ã™â€žÃ˜ÂªÃ˜Â®Ã˜ÂµÃ˜ÂµÃ˜Â§Ã˜Âª Ã™ÂÃ™Å  Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â§Ã˜Â³Ã˜ÂªÃ˜Â±', 'Ã˜Â§Ã™â€žÃ˜ÂªÃ˜Â®Ã˜ÂµÃ˜ÂµÃ˜Â§Ã˜Âª Ã˜Â§Ã™â€žÃ™â€¦Ã˜ÂªÃ™Ë†Ã™ÂÃ˜Â±Ã˜Â© Ã™ÂÃ™Å  Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â§Ã˜Â³Ã˜ÂªÃ˜Â±', 'Ã˜Â§Ã™â€žÃ˜ÂªÃ˜Â®Ã˜ÂµÃ˜ÂµÃ˜Â§Ã˜Âª Ã˜Â¨Ã˜Â¹Ã˜Â¯ Ã˜Â§Ã™â€žÃ™â€žÃ™Å Ã˜Â³Ã˜Â§Ã™â€ Ã˜Â³', 'Ã˜ÂªÃ˜Â®Ã˜ÂµÃ˜ÂµÃ˜Â§Ã˜Âª Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â§Ã˜Â³Ã˜ÂªÃ˜Â±', 'Ã˜Â¯Ã™Ë†Ã˜Â±Ã˜Â§Ã˜Âª Ã˜Â§Ã™â€žÃ˜Â¯Ã˜Â±Ã˜Â§Ã˜Â³Ã˜Â§Ã˜Âª Ã˜Â§Ã™â€žÃ˜Â¹Ã™â€žÃ™Å Ã˜Â§', 'Ã˜Â§Ã™â€žÃ™â€¦Ã™â€šÃ˜Â§Ã™Å Ã™Å Ã˜Â³ Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â¯Ã˜Â±Ã™Ë†Ã˜Â³Ã˜Â©', 'Ã˜Â§Ã™â€žÃ˜Â³Ã™â€ Ã˜Â© Ã˜Â§Ã™â€žÃ˜Â£Ã™Ë†Ã™â€žÃ™â€°', 'Ã™â€ Ã˜Â¸Ã˜Â§Ã™â€¦ Ã˜Â§Ã™â€žÃ˜Â¯Ã˜Â±Ã˜Â§Ã˜Â³Ã˜Â©', 'Ã˜Â§Ã™â€žÃ™â€ Ã˜Â¸Ã˜Â§Ã™â€¦ Ã˜Â§Ã™â€žÃ˜Â¯Ã˜Â±Ã˜Â§Ã˜Â³Ã™Å ', 'Ã™â€ Ã˜Â¸Ã˜Â§Ã™â€¦ Ã˜Â§Ã™â€žÃ˜Â§Ã˜Â®Ã˜ÂªÃ˜Â¨Ã˜Â§Ã˜Â±Ã˜Â§Ã˜Âª', 'Ã™â€ Ã˜Â¸Ã˜Â§Ã™â€¦ Ã˜Â§Ã™â€žÃ˜ÂªÃ™â€šÃ™Å Ã™Å Ã™â€¦', 'Ã˜ÂµÃ˜Â¹Ã™Ë†Ã˜Â¨Ã˜Â© Ã˜Â§Ã™â€žÃ˜Â¯Ã˜Â±Ã˜Â§Ã˜Â³Ã˜Â©', 'Ã˜ÂµÃ˜Â¹Ã™Ë†Ã˜Â¨Ã˜Â§Ã˜Âª Ã˜Â§Ã™â€žÃ˜ÂªÃ˜Â®Ã˜ÂµÃ˜Âµ', 'Ã˜ÂµÃ˜Â¹Ã™Ë†Ã˜Â¨Ã˜Â© Ã˜Â§Ã™â€žÃ˜ÂªÃ˜Â®Ã˜ÂµÃ˜Âµ', 'Ã™â€¡Ã™â€ž Ã˜ÂªÃ™Ë†Ã˜Â¬Ã˜Â¯ Ã™â€¦Ã˜Â´Ã˜Â§Ã˜Â±Ã™Å Ã˜Â¹', 'Ã™â€¦Ã˜Â³Ã˜ÂªÃ™Ë†Ã™â€° Ã˜Â§Ã™â€žÃ˜Â¯Ã™Æ’Ã˜Â§Ã˜ÂªÃ˜Â±Ã˜Â©', 'Ã˜Â§Ã™â€žÃ™ÂÃ˜Â±Ã™â€š Ã˜Â¨Ã™Å Ã™â€ Ã™â€¡Ã˜Â§', 'Ã˜Â§Ã™â€žÃ™ÂÃ˜Â±Ã™â€š Ã˜Â¨Ã™Å Ã™â€ ', 'Ã˜Â§Ã™â€žÃ™ÂÃ˜Â±Ã™â€š Ã™â€¦Ã˜Â¹', 'Ã™â€ Ã˜Â¸Ã˜Â§Ã™â€¦ LMD', 'Ã™â€ Ã˜Â¸Ã˜Â§Ã™â€¦ IngÃƒÂ©nieur', 'Ã™â€ Ã˜Â¸Ã˜Â§Ã™â€¦ Ã˜Â§Ã™â€žÃ˜Â¥Ã™â€ Ã˜ÂªÃ™â€šÃ˜Â§Ã™â€ž', 'Ã˜Â§Ã™â€žÃ˜Â¨Ã˜Â­Ã˜Â« Ã˜Â§Ã™â€žÃ˜Â¹Ã™â€žÃ™â€¦Ã™Å ', 'Ã˜Â¨Ã™Å Ã˜Â¦Ã˜Â© Ã˜Â§Ã™â€žÃ˜Â¨Ã˜Â­Ã˜Â«', 'Ã˜ÂªÃ˜Â§Ã˜Â¨Ã˜Â¹ Ã™â€žÃ˜Â£Ã™Å '],
-    career: ['Ã™ÂÃ˜Â±Ã˜Âµ Ã˜Â§Ã™â€žÃ˜Â¹Ã™â€¦Ã™â€ž', 'Ã˜Â¢Ã™ÂÃ˜Â§Ã™â€š Ã˜Â§Ã™â€žÃ˜ÂªÃ™Ë†Ã˜Â¸Ã™Å Ã™Â', 'Ã˜Â¢Ã™ÂÃ˜Â§Ã™â€š Ã˜Â§Ã™â€žÃ˜Â¹Ã™â€¦Ã™â€ž', 'Ã™â€¦Ã˜Â¬Ã˜Â§Ã™â€žÃ˜Â§Ã˜Âª Ã˜Â§Ã™â€žÃ˜ÂªÃ™Ë†Ã˜Â¸Ã™Å Ã™Â', 'Ã˜Â¨Ã˜Â¹Ã˜Â¯ Ã˜Â§Ã™â€žÃ˜ÂªÃ˜Â®Ã˜Â±Ã˜Â¬', 'Ã˜Â§Ã™â€žÃ˜Â¹Ã™â€¦Ã™â€ž Ã˜Â¨Ã˜Â¹Ã˜Â¯', 'Ã˜Â§Ã™â€žÃ˜Â¹Ã™â€¦Ã™â€ž Ã™ÂÃ™Å ', 'Ã˜Â§Ã™â€žÃ˜Â±Ã˜Â§Ã˜ÂªÃ˜Â¨', 'Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â³Ã˜ÂªÃ™â€šÃ˜Â¨Ã™â€ž Ã˜Â§Ã™â€žÃ™â€¦Ã™â€¡Ã™â€ Ã™Å ', 'Ã™Ë†Ã™Å Ã™â€  Ã˜ÂªÃ˜Â®Ã˜Â¯Ã™â€¦', 'Ã™Ë†Ã™Å Ã™â€  Ã™Å Ã˜Â®Ã˜Â¯Ã™â€¦', 'Ã™Ë†Ã™Å Ã™â€  Ã™Å Ã™â€šÃ˜Â¯Ã˜Â± Ã™Å Ã˜Â®Ã˜Â¯Ã™â€¦', 'Ã˜Â¢Ã™ÂÃ˜Â§Ã™â€š Ã˜Â§Ã™â€žÃ˜ÂªÃ˜Â±Ã™â€šÃ™Å Ã˜Â©', 'Ã˜Â§Ã™â€žÃ˜ÂªÃ˜Â±Ã™â€šÃ™Å Ã˜Â§Ã˜Âª', 'Ã˜Â³Ã™â€žÃ™â€¦ Ã˜Â§Ã™â€žÃ˜ÂªÃ˜Â±Ã™â€šÃ™Å Ã˜Â©', 'Ã˜Â³Ã™â€žÃ™â€¦ Ã˜Â§Ã™â€žÃ˜Â±Ã˜ÂªÃ˜Â¨', 'Ã™ÂÃ˜Â±Ã˜Âµ Ã˜Â§Ã™â€žÃ˜ÂªÃ™Æ’Ã™Ë†Ã™Å Ã™â€  Ã˜Â§Ã™â€žÃ˜Â¥Ã˜Â¶Ã˜Â§Ã™ÂÃ™Å ', 'Ã˜Â§Ã™â€žÃ˜ÂªÃ™Ë†Ã˜Â¸Ã™Å Ã™Â', 'Ã™â€¦Ã˜Â¬Ã˜Â§Ã™â€žÃ˜Â§Ã˜Âª Ã˜Â§Ã™â€žÃ˜Â¹Ã™â€¦Ã™â€ž'],
-    pros: ['Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â²Ã˜Â§Ã™Å Ã˜Â§', 'Ã˜Â§Ã™â€žÃ˜Â¹Ã™Å Ã™Ë†Ã˜Â¨', 'Ã˜Â§Ã™â€žÃ˜Â¥Ã™Å Ã˜Â¬Ã˜Â§Ã˜Â¨Ã™Å Ã˜Â§Ã˜Âª', 'Ã˜Â§Ã™â€žÃ˜Â³Ã™â€žÃ˜Â¨Ã™Å Ã˜Â§Ã˜Âª', 'Ã™â€¦Ã™â€¦Ã™Å Ã˜Â²Ã˜Â§Ã˜Âª Ã˜Â§Ã™â€žÃ˜ÂªÃ˜Â®Ã˜ÂµÃ˜Âµ', 'Ã™â€¦Ã™â€¦Ã™Å Ã˜Â²Ã˜Â§Ã˜Âª Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â¯Ã˜Â±Ã˜Â³Ã˜Â©', 'Ã˜Â£Ã™â€¡Ã™â€¦ Ã™â€¦Ã™â€¦Ã™Å Ã˜Â²Ã˜Â§Ã˜ÂªÃ™â€¡', 'Ã˜Â³Ã™â€žÃ˜Â¨Ã™Å Ã˜Â§Ã˜Âª Ã˜Â§Ã™â€žÃ˜ÂªÃ˜Â®Ã˜ÂµÃ˜Âµ', 'Ã˜Â§Ã™â€žÃ˜ÂªÃ˜Â­Ã˜Â¯Ã™Å Ã˜Â§Ã˜Âª', 'Ã˜Â§Ã™â€žÃ˜Â§Ã™â€¦Ã˜ÂªÃ™Å Ã˜Â§Ã˜Â²Ã˜Â§Ã˜Âª', 'Ã˜Â¥Ã™Å Ã˜Â¬Ã˜Â§Ã˜Â¨Ã™Å Ã˜Â§Ã˜Âª Ã˜Â§Ã™â€žÃ˜ÂªÃ˜Â®Ã˜ÂµÃ˜Âµ', 'Ã˜Â§Ã™â€žÃ˜Â¥Ã™Å Ã˜Â¬Ã˜Â§Ã˜Â¨Ã™Å Ã˜Â§Ã˜Âª Ã™Ë†Ã˜Â§Ã™â€žÃ˜Â³Ã™â€žÃ˜Â¨Ã™Å Ã˜Â§Ã˜Âª', 'Ã˜Â§Ã™â€žÃ˜ÂªÃ˜Â­Ã˜Â¯Ã™Å Ã˜Â§Ã˜Âª Ã˜Â§Ã™â€žÃ˜Â­Ã˜Â§Ã™â€žÃ™Å Ã˜Â©', 'Ã˜Â§Ã™â€žÃ™Ë†Ã˜Â¶Ã˜Â¹ Ã˜Â§Ã™â€žÃ˜Â­Ã˜Â§Ã™â€žÃ™Å ', 'Ã˜Â§Ã™â€žÃ™â€¦Ã™â€¦Ã™Å Ã˜Â²Ã˜Â§Ã˜Âª', 'Ã˜Â§Ã™â€žÃ˜Â³Ã™â€žÃ˜Â¨Ã™Å Ã˜Â§Ã˜Âª Ã™Ë†Ã˜Â§Ã™â€žÃ˜ÂªÃ˜Â­Ã˜Â¯Ã™Å Ã˜Â§Ã˜Âª'],
-    student: ['Ã˜Â§Ã™â€žÃ™â€ Ã™Ë†Ã˜Â§Ã˜Â¯Ã™Å  Ã˜Â§Ã™â€žÃ˜Â¹Ã™â€žÃ™â€¦Ã™Å Ã˜Â©', 'Ã™ÂÃ˜Â§Ã˜Â¦Ã˜Â¯Ã˜Â© Ã˜Â§Ã™â€žÃ™â€ Ã™Ë†Ã˜Â§Ã˜Â¯Ã™Å ', 'Ã˜Â§Ã™â€žÃ˜Â¥Ã™â€šÃ˜Â§Ã™â€¦Ã˜Â©', 'Ã˜Â¢Ã˜Â±Ã˜Â§Ã˜Â¡ Ã˜Â§Ã™â€žÃ˜Â·Ã™â€žÃ˜Â¨Ã˜Â©', 'Ã˜Â¢Ã˜Â±Ã˜Â§Ã˜Â¡ Ã˜Â¨Ã˜Â¹Ã˜Â¶ Ã˜Â§Ã™â€žÃ˜Â·Ã™â€žÃ˜Â¨Ã˜Â©', 'Ã˜Â±Ã˜Â£Ã™Å  Ã˜Â§Ã™â€žÃ˜Â·Ã™â€žÃ˜Â¨Ã˜Â©', 'Ã˜Â´Ã™â€¡Ã˜Â§Ã˜Â¯Ã˜Â© Ã˜Â·Ã˜Â§Ã™â€žÃ˜Â¨', 'Ã™â€¦Ã˜Â²Ã˜Â§Ã™Å Ã˜Â§ Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â¯Ã˜Â±Ã˜Â³Ã˜Â©'],
-    tips: ['Ã™â€ Ã˜ÂµÃ˜Â§Ã˜Â¦Ã˜Â­', 'Ã™â€ Ã˜ÂµÃ™Å Ã˜Â­Ã˜Â©', 'Ã˜Â®Ã™â€žÃ˜Â§Ã˜ÂµÃ˜Â©', 'Ã™Æ’Ã™â€žÃ™â€¦Ã˜Â© Ã˜Â£Ã˜Â®Ã™Å Ã˜Â±Ã˜Â©', 'Ã™ÂÃ™Å  Ã˜Â§Ã™â€žÃ˜Â®Ã™â€žÃ˜Â§Ã˜ÂµÃ˜Â©', 'Ã˜Â¹Ã™â€žÃ˜Â§Ã˜Â´ Ã˜ÂªÃ˜Â®Ã˜ÂªÃ˜Â§Ã˜Â±', 'Ã˜Â¹Ã™â€žÃ˜Â§Ã™â€¡ Ã™â€¦Ã™â€  Ã˜Â£Ã™ÂÃ˜Â¶Ã™â€ž', 'Ã™Ë†Ã˜Â§Ã˜Â´ Ã™â€žÃ˜Â§Ã˜Â²Ã™â€¦ Ã˜ÂªÃ˜Â¹Ã˜Â±Ã™Â', 'Ã™Ë†Ã˜Â§Ã˜Â´ Ã™â€žÃ˜Â§Ã˜Â²Ã™â€¦ Ã˜ÂªÃ˜Â¯Ã™Å Ã˜Â±', 'Ã™â€ Ã™â€šÃ™Ë†Ã™â€žÃ™Æ’', 'Ã™Ë†Ã˜Â¨Ã˜Â§Ã™â€žÃ™â€ Ã˜Â³Ã˜Â¨Ã˜Â© Ã™â€žÃ™â€žÃ˜Â¨Ã™â€ Ã˜Â§Ã˜Âª', 'Ã™â€¦Ã˜Â¹Ã™â€žÃ™Ë†Ã™â€¦Ã˜Â§Ã˜Âª Ã˜Â¥Ã˜Â¶Ã˜Â§Ã™ÂÃ™Å Ã˜Â©', 'Ã™â€¦Ã˜Â¹Ã™â€žÃ™Ë†Ã™â€¦Ã˜Â© Ã˜Â¥Ã˜Â¶Ã˜Â§Ã™ÂÃ™Å Ã˜Â©', 'Ã™â€¦Ã™â€žÃ˜Â§Ã˜Â­Ã˜Â¸Ã˜Â§Ã˜Âª Ã™â€¦Ã™â€¡Ã™â€¦Ã˜Â©', 'Ã™â€¦Ã™â€žÃ˜Â§Ã˜Â­Ã˜Â¸Ã˜Â© Ã™â€¦Ã™â€¡Ã™â€¦Ã˜Â©', 'Ã˜Â­Ã™â€šÃ˜Â§Ã˜Â¦Ã™â€š Ã™â€žÃ˜Â§Ã˜Â²Ã™â€¦', 'Ã˜Â­Ã˜Â§Ã˜Â¬Ã˜Â§Ã˜Âª Ã™â€žÃ˜Â§Ã˜Â²Ã™â€¦', 'Ã™Ë†Ã˜Â§Ã˜Â´ Ã™Å Ã˜Â®Ã™â€žÃ™Å Ã™Æ’', 'Ã™Ë†Ã˜Â§Ã˜Â´ Ã˜ÂªÃ™â€šÃ˜Â±Ã˜Â§'],
-    firstyear: ['Ã˜Â§Ã™â€žÃ˜Â¨Ã˜Â±Ã™â€ Ã˜Â§Ã™â€¦Ã˜Â¬ Ã˜Â§Ã™â€žÃ˜Â¯Ã˜Â±Ã˜Â§Ã˜Â³Ã™Å  (Ã˜Â§Ã™â€žÃ˜Â³Ã™â€ Ã˜Â© Ã˜Â§Ã™â€žÃ˜Â£Ã™Ë†Ã™â€žÃ™â€°)', 'Ã˜Â§Ã™â€žÃ™â€¦Ã™Ë†Ã˜Â§Ã˜Â¯ Ã™ÂÃ™Å  Ã˜Â§Ã™â€žÃ˜Â·Ã™Ë†Ã˜Â± Ã˜Â§Ã™â€žÃ˜ÂªÃ˜Â­Ã˜Â¶Ã™Å Ã˜Â±Ã™Å ', 'Ã˜Â§Ã™â€žÃ™â€¦Ã™Ë†Ã˜Â§Ã˜Â¯ Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â¯Ã˜Â±Ã™Ë†Ã˜Â³Ã˜Â© Ã™ÂÃ™Å  Ã˜Â§Ã™â€žÃ˜Â·Ã™Ë†Ã˜Â±']
+    intro: ['التعريف ب', 'تعريف التخصص', 'تعريف مختصر', 'ما هو', 'ماهو', 'واش هو', 'هل هو تخصص', 'بمن يعتني', 'إنسانية المهنة', 'لماذا هذا التخصص', 'واش يدير', 'واش تخدم', 'المهام اليومية', 'المهمات والمجالات', 'مهامه', '💻 التعريف', '🩺 الحالات', 'لغة الدراسة', 'لغة التدريس', 'تخصص جديد', 'الجامعات التي', 'الجامعات المتوفرة', 'الكليات المتوفرة', 'المدارس المتوفرة', 'وين تقرا', 'أين يمكن دراسته', 'أين يُدرّس', 'أماكن الدراسة', 'الموقع'],
+    admission: ['معدلات القبول', 'معدل القبول', 'شروط القبول', 'شروط الدخول', 'شروط الالتحاق', 'التسجيل والقبول', 'التسجيل', 'الشعب المسموح', 'كيف تلتحق', 'كيفاش تلتحق', 'تسجيلات', 'الولوج إلى', 'كيف يتم التوجيه', 'أين يمكن دراسته', 'أين يُدرّس', 'أماكن الدراسة'],
+    curriculum: ['المواد المدروسة', 'المواد الأساسية', 'المواد في', 'المواد والتكوين', 'مواد تقراها', 'البرنامج الدراسي', 'مسار الدراسة', 'المسار الدراسي', 'مدة الدراسة', 'المدة والمعاهد', 'طريقة الدراسة', 'كيفاش تقرا', 'تنظيم الدراسة', 'الدراسة والنظام', 'التربصات', 'التدريب الميداني', 'التطبيق العملي', 'طور الماستر', 'التخصصات في الماستر', 'التخصصات المتوفرة في الماستر', 'التخصصات بعد الليسانس', 'تخصصات الماستر', 'دورات الدراسات العليا', 'المقاييس المدروسة', 'السنة الأولى', 'نظام الدراسة', 'النظام الدراسي', 'نظام الاختبارات', 'نظام التقييم', 'صعوبة الدراسة', 'صعوبات التخصص', 'صعوبة التخصص', 'هل توجد مشاريع', 'مستوى الدكاترة', 'الفرق بينها', 'الفرق بين', 'الفرق مع', 'نظام LMD', 'نظام Ingénieur', 'نظام الإنتقال', 'البحث العلمي', 'بيئة البحث', 'تابع لأي'],
+    career: ['فرص العمل', 'آفاق التوظيف', 'آفاق العمل', 'مجالات التوظيف', 'بعد التخرج', 'العمل بعد', 'العمل في', 'الراتب', 'المستقبل المهني', 'وين تخدم', 'وين يخدم', 'وين يقدر يخدم', 'آفاق الترقية', 'الترقيات', 'سلم الترقية', 'سلم الرتب', 'فرص التكوين الإضافي', 'التوظيف', 'مجالات العمل'],
+    pros: ['المزايا', 'العيوب', 'الإيجابيات', 'السلبيات', 'مميزات التخصص', 'مميزات المدرسة', 'أهم مميزاته', 'سلبيات التخصص', 'التحديات', 'الامتيازات', 'إيجابيات التخصص', 'الإيجابيات والسلبيات', 'التحديات الحالية', 'الوضع الحالي', 'المميزات', 'السلبيات والتحديات'],
+    student: ['النوادي العلمية', 'فائدة النوادي', 'الإقامة', 'آراء الطلبة', 'آراء بعض الطلبة', 'رأي الطلبة', 'شهادة طالب', 'مزايا المدرسة'],
+    tips: ['نصائح', 'نصيحة', 'خلاصة', 'كلمة أخيرة', 'في الخلاصة', 'علاش تختار', 'علاه من أفضل', 'واش لازم تعرف', 'واش لازم تدير', 'نقولك', 'وبالنسبة للبنات', 'معلومات إضافية', 'معلومة إضافية', 'ملاحظات مهمة', 'ملاحظة مهمة', 'حقائق لازم', 'حاجات لازم', 'واش يخليك', 'واش تقرا'],
+    firstyear: ['البرنامج الدراسي (السنة الأولى)', 'المواد في الطور التحضيري', 'المواد المدروسة في الطور']
 };
 var TAB_LABELS = {
-    intro: 'Ã˜Â¹Ã™â€  Ã˜Â§Ã™â€žÃ˜ÂªÃ˜Â®Ã˜ÂµÃ˜Âµ',
-    admission: 'Ã˜Â§Ã™â€žÃ™â€šÃ˜Â¨Ã™Ë†Ã™â€ž',
-    curriculum: 'Ã˜Â§Ã™â€žÃ˜Â¯Ã˜Â±Ã˜Â§Ã˜Â³Ã˜Â©',
-    career: 'Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â³Ã˜Â§Ã˜Â± Ã˜Â§Ã™â€žÃ™â€¦Ã™â€¡Ã™â€ Ã™Å ',
-    pros: 'Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â²Ã˜Â§Ã™Å Ã˜Â§ Ã™Ë†Ã˜Â§Ã™â€žÃ˜Â¹Ã™Å Ã™Ë†Ã˜Â¨',
-    student: 'Ã˜Â­Ã™Å Ã˜Â§Ã˜Â© Ã˜Â§Ã™â€žÃ˜Â·Ã˜Â§Ã™â€žÃ˜Â¨',
-    tips: 'Ã™â€ Ã˜ÂµÃ˜Â§Ã˜Â¦Ã˜Â­',
-    firstyear: 'Ã˜Â§Ã™â€žÃ˜Â·Ã™Ë†Ã˜Â± Ã˜Â§Ã™â€žÃ˜ÂªÃ˜Â­Ã˜Â¶Ã™Å Ã˜Â±Ã™Å '
+    intro: 'عن التخصص',
+    admission: 'القبول',
+    curriculum: 'الدراسة',
+    career: 'المسار المهني',
+    pros: 'المزايا والعيوب',
+    student: 'حياة الطالب',
+    tips: 'نصائح',
+    firstyear: 'الطور التحضيري'
 };
 
 function initSchoolTabs(sectionId) {
@@ -838,7 +838,7 @@ function initSchoolTabs(sectionId) {
     var allBtn = document.createElement('button');
     allBtn.className = 'school-tab-btn active';
     allBtn.dataset.tab = 'all';
-    allBtn.textContent = 'Ã˜Â§Ã™â€žÃ™Æ’Ã™â€ž';
+    allBtn.textContent = 'الكل';
     tabBar.appendChild(allBtn);
 
     // Category buttons in order
@@ -851,12 +851,12 @@ function initSchoolTabs(sectionId) {
         tabBar.appendChild(btn);
     });
 
-    // "Ã˜Â§Ã™â€žÃ˜ÂªÃ˜Â®Ã˜ÂµÃ˜ÂµÃ˜Â§Ã˜Âª" button Ã¢â‚¬â€ only if a specialities grid exists in this section
+    // "التخصصات" button — only if a specialities grid exists in this section
     if (hasSpecGrid) {
         var specBtn = document.createElement('button');
         specBtn.className = 'school-tab-btn';
         specBtn.dataset.tab = 'specialities';
-        specBtn.textContent = 'Ã˜Â§Ã™â€žÃ˜ÂªÃ˜Â®Ã˜ÂµÃ˜ÂµÃ˜Â§Ã˜Âª';
+        specBtn.textContent = 'التخصصات';
         tabBar.appendChild(specBtn);
     }
 
