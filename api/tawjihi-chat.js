@@ -520,13 +520,11 @@ export default async function handler(req, res) {
     .single();
   const profile = profileFromDB || {};
 
-  // SEC-5: Check credit balance BEFORE Groq call (read-only check; decrement happens after)
-  const { data: creditRow } = await adminSupabase
-    .from('credits')
-    .select('balance')
-    .eq('user_id', user.id)
-    .single();
-  if (!creditRow || creditRow.balance <= 0) {
+  // SEC-5: Check (and auto-refill if 24 h elapsed) credit balance BEFORE Groq call.
+  // ensure_daily_credits() atomically resets balance to 30 when due, then returns it.
+  const { data: currentBalance, error: credErr } = await adminSupabase
+    .rpc('ensure_daily_credits', { uid: user.id });
+  if (credErr || currentBalance == null || currentBalance <= 0) {
     return res.status(402).json({ error: 'insufficient_credits' });
   }
 

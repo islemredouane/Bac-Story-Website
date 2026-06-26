@@ -114,7 +114,9 @@
       credits = localCredits;
     }
 
-    refLink = `https://tawjihi.dz/signup?ref=${ref.code}`;
+    const loginUrl = new URL('login.html', location.href);
+    loginUrl.searchParams.set('ref', ref.code);
+    refLink = loginUrl.toString();
 
     renderUI(ref, credits, refLink);
 

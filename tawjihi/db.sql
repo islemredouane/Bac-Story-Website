@@ -254,3 +254,74 @@ end;
 $$;
 
 -- Intentionally NOT granted to authenticated — only service_role can call this.
+
+
+-- =============================================================================
+-- SECTION 11: INSERT policies for client-side new-user provisioning
+-- Credits and referral_codes rows are created on first login (client-side).
+-- The with-check constraints prevent abuse (cannot set arbitrary balance).
+-- =============================================================================
+
+create policy "credits: user inserts own row"
+  on public.credits for insert
+  with check (
+    auth.uid() = user_id
+    and balance = 30
+    and total_earned = 30
+    and total_spent = 0
+  );
+
+create policy "referral_codes: user inserts own row"
+  on public.referral_codes for insert
+  with check (auth.uid() = owner_user_id);
+
+
+-- =============================================================================
+-- SECTION 12: Daily credit renewal
+-- Adds last_refilled_at to credits, plus ensure_daily_credits(uid) RPC.
+-- Called from the chat API before every message — atomically resets balance
+-- to 30 if 24 hours have elapsed since the last refill.
+-- =============================================================================
+
+alter table public.credits
+  add column if not exists last_refilled_at timestamptz default now();
+
+-- Backfill: existing rows get now() so the 24h clock starts today.
+update public.credits
+  set last_refilled_at = now()
+  where last_refilled_at is null;
+
+-- Returns current balance (after any refill). Called from serverless functions
+-- (service_role). NOT granted to authenticated users.
+create or replace function public.ensure_daily_credits(uid uuid)
+returns integer
+language plpgsql
+security definer
+as $$
+declare
+  v_balance        integer;
+  v_last_refilled  timestamptz;
+begin
+  select balance, last_refilled_at
+    into v_balance, v_last_refilled
+    from public.credits
+   where user_id = uid;
+
+  if not found then
+    return 0;  -- row not yet provisioned; chat API will block with 402
+  end if;
+
+  if v_last_refilled is null or (now() - v_last_refilled) >= interval '24 hours' then
+    update public.credits
+       set balance          = 30,
+           last_refilled_at = now(),
+           updated_at       = now()
+     where user_id = uid;
+    return 30;
+  end if;
+
+  return v_balance;
+end;
+$$;
+
+-- intentionally NOT granted to authenticated — service_role only.
