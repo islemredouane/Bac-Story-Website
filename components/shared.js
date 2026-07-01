@@ -724,6 +724,96 @@ function setupSearch() {
         // ── المدرسة الوطنية لحفظ الممتلكات الثقافية ──
         { title: 'المدرسة الوطنية العليا لحفظ الممتلكات الثقافية وترميمها – ENSRPC تيبازة', desc: 'ترميم وحفظ الآثار والمخطوطات والممتلكات الثقافية — دخول بمسابقة وطنية بعد الباك', url: '/university.html#ENSRPC', icon: 'fas fa-landmark', specialty: 'فنون وتراث', keywords: ['ENSRPC', 'حفظ الممتلكات الثقافية', 'ترميم', 'تراث', 'تيبازة', 'آثار', 'restoration', 'patrimoine', 'مخطوطات', 'متحف', 'OGEBC', 'فنون تشكيلية', 'أثري', 'patrimoine culturel', 'حفظ التراث'] },
 
+        // ── الصحة والحماية الاجتماعية ──
+        { title: 'الصحة والحماية الاجتماعية – Santé et Protection Sociale', desc: 'تسيير منظومة الرعاية والضمان — CNAS، CNR، مستشفيات، وزارة الصحة والتضامن الاجتماعي', url: '/university.html#HEALTH-SOC', icon: 'fas fa-heartbeat', specialty: 'اقتصاد وتسيير', keywords: ['الصحة والحماية الاجتماعية', 'ضمان اجتماعي', 'تأمين صحي', 'CNAS', 'CASNOS', 'CNR', 'مستشفى', 'تسيير صحي', 'santé', 'protection sociale', 'اقتصاد الصحة', 'تقاعد', 'حوادث العمل', 'HEALTH-SOC', 'إدارة مستشفيات', 'وزارة الصحة'] },
+
+        // ── اقتصاد + علاقات دولية ──
+        { title: 'إقتصاد + علاقات دولية – Double Diplôme', desc: 'الدبلوماسي الاقتصادي — تجارة دولية، جيوسياسية اقتصادية، بنوك دولية، شركات متعددة الجنسيات', url: '/university.html#ECO-IR', icon: 'fas fa-globe-americas', specialty: 'اقتصاد وعلوم سياسية', keywords: ['اقتصاد', 'علاقات دولية', 'دبلوماسية اقتصادية', 'تجارة دولية', 'مالية دولية', 'économie internationale', 'relations internationales', 'double diplôme', 'جيوسياسية', 'FMI', 'OMC', 'ZLECAF', 'ملحق اقتصادي', 'Risk Analyst', 'بنك دولي', 'صندوق النقد', 'ECO-IR', 'حروب تجارية', 'استثمار دولي'] },
+
+        // ── إتصال + علاقات دولية ──
+        { title: 'إتصال + علاقات دولية – Double Diplôme', desc: 'الدبلوماسية الإعلامية — علوم الإعلام والاتصال + علوم سياسية — Global PR، مراسل دولي، منظمات دولية', url: '/university.html#COMM-IR', icon: 'fas fa-satellite-dish', specialty: 'إعلام وعلوم سياسية', keywords: ['إتصال', 'علاقات دولية', 'إعلام', 'علوم سياسية', 'دبلوماسية إعلامية', 'communication', 'relations internationales', 'double diplôme', 'Global PR', 'attaché de presse', 'صحافة دولية', 'مراسل دولي', 'تسويق سياسي', 'اتصال أزماتي', 'منظمات دولية', 'COMM-IR', 'علاقات عامة دولية'] },
+
+        // ── قانون عام + علاقات دولية ──
+        { title: 'قانون عام + علاقات دولية – Double Diplôme', desc: 'بروفايل دبلوماسي-قانوني مزدوج — حقوق + علوم سياسية — دبلوماسية، منظمات دولية، مستشار قانوني', url: '/university.html#LAW-IR', icon: 'fas fa-balance-scale', specialty: 'حقوق وعلوم سياسية', keywords: ['قانون عام', 'علاقات دولية', 'دبلوماسية', 'حقوق', 'علوم سياسية', 'droit public', 'relations internationales', 'double diplôme', 'قانون دولي', 'دستور', 'قانون إداري', 'جيوسياسية', 'منظمات دولية', 'سفارة', 'قنصلية', 'تفاوض', 'NGO', 'أمم متحدة', 'LAW-IR'] },
+
+        // ── العلوم الفلاحية ──
+        { title: 'العلوم الفلاحية – Sciences Agronomiques', desc: 'فلاحة ذكية، تربة، نبات، حيوان، Smart Farming | ENSA الحراش – ESAS الوادي – ESA مستغانم', url: '/university.html#AGRO', icon: 'fas fa-seedling', specialty: 'agro', keywords: ['فلاحة', 'زراعة', 'AGRO', 'علوم فلاحية', 'agronome', 'مهندس زراعي', 'ENSA', 'ESAS', 'ESA', 'SNV', 'بيولوجيا', 'تربة', 'نبات', 'حيوان', 'بذور', 'ري تنقيط', 'جنوب صحراء', 'smart farming', 'pivot irrigation', 'DSA', 'INRA', 'آفات', 'حشرات'] },
+
+        // ── الوقاية والأمن الصناعي ──
+        { title: 'الوقاية والأمن الصناعي – HSE', desc: 'سلامة مهنية، مخاطر صناعية، QHSE، تلوث بيئي | وهران – باتنة – سكيكدة – ورقلة | سوناطراك', url: '/university.html#HSE', icon: 'fas fa-hard-hat', specialty: 'hse', keywords: ['HSE', 'وقاية', 'أمن صناعي', 'سلامة مهنية', 'QHSE', 'مخاطر صناعية', 'سوناطراك', 'نفطال', 'مصافي بترول', 'حرائق', 'إخلاء', 'تلوث بيئي', 'ورقلة', 'سكيكدة', 'باتنة', 'وهران', 'MRI', 'HSST', 'GPE', 'SIE', 'صحة سلامة بيئة'] },
+
+        // ── الهندسة الهيدروليكية والري ──
+        { title: 'الهندسة الهيدروليكية والري – Hydraulique', desc: 'سدود، شبكات مياه، محطات تصفية، صرف صحي، GIS | ENSH البليدة (مهندس دولة) – وهران – بجاية', url: '/university.html#HYDRO', icon: 'fas fa-water', specialty: 'hydro', keywords: ['هيدروليك', 'ري', 'HYDRO', 'مياه', 'سدود', 'هيدرولوجيا', 'ADE', 'ONA', 'ENSH', 'محطات تصفية', 'شبكات قنوات', 'صرف صحي', 'فيضانات', 'GIS', 'WaterCAD', 'Epanet', 'ArcGIS', 'موارد مائية', 'مياه جوفية', 'VRD', 'hydraulique', 'irrigation'] },
+
+        // ── الآلية والتحكم الآلي ──
+        { title: 'الآلية والتحكم الآلي – Automatique', desc: 'أتمتة، PLC، روبوتيك، خطوط إنتاج ذكية، Embedded Systems | بومرداس H22 (MCIL) – INELEC – Polytechnique', url: '/university.html#AUTO', icon: 'fas fa-cogs', specialty: 'auto', keywords: ['آلية', 'تحكم آلي', 'automatique', 'AUTO', 'PLC', 'روبوتيك', 'أتمتة', 'بومرداس', 'MCIL', 'INELEC', 'خطوط إنتاج', 'مصانع ذكية', 'embedded systems', 'سوناطراك', 'سونلغاز', 'Siemens', 'Schneider', 'IoT', 'ladder', 'SCADA'] },
+
+        // ── الكهروتقني ──
+        { title: 'الكهروتقني – Électrotechnique', desc: 'طاقة كهربائية، آلات، شبكات، طاقات متجددة، أتمتة صناعية | INELEC بومرداس – البليدة – سطيف – قسنطينة', url: '/university.html#ELECTRO', icon: 'fas fa-bolt', specialty: 'electro', keywords: ['كهروتقني', 'électrotechnique', 'ELECTRO', 'كهرباء', 'طاقة', 'INELEC', 'سونلغاز', 'سوناطراك', 'محطات توليد', 'أتمتة', 'طاقات متجددة', 'شبكات كهربائية', 'آلات كهربائية', 'PLC', 'SCADA', 'صناعة'] },
+
+        // ── الاتصالات السلكية واللاسلكية ──
+        { title: 'الاتصالات السلكية واللاسلكية – Télécommunications', desc: 'شبكات 5G، ألياف بصرية، معالجة إشارة، أمن شبكات | قالمة – USTHB – INTTIC وهران', url: '/university.html#TELECOM', icon: 'fas fa-broadcast-tower', specialty: 'telecom', keywords: ['اتصالات', 'تليكوم', 'TELECOM', 'سلكية لاسلكية', '5G', 'fibre optique', 'ألياف بصرية', 'INTTIC', 'USTHB', 'قالمة', 'أم البواقي', 'معالجة إشارة', 'شبكات', 'تشفير', 'أمن شبكات', 'IoT', 'هندسة اتصالات'] },
+
+        // ── علوم البيئة والمحيط ──
+        { title: 'علوم البيئة والمحيط – Environmental Sciences', desc: 'بيئة، تلوث، إيكولوجيا، دراسات أثر بيئي، Green Jobs | قسنطينة 1 (الإخوة منتوري)', url: '/university.html#ENV-SCI', icon: 'fas fa-leaf', specialty: 'env-sci', keywords: ['علوم البيئة', 'بيئة', 'ENV-SCI', 'تلوث', 'SNV', 'إيكولوجيا', 'قسنطينة', 'green jobs', 'أثر بيئي', 'استصلاح', 'تربة', 'هواء', 'ماء', 'محيط'] },
+
+        // ── مهن المدينة ──
+        { title: 'مهن المدينة – Métiers de la Ville', desc: 'تسيير وإشراف حضري ميداني — بناء مدن، شبكات، GIS، مشاريع عمرانية | تلمسان ISTA – بسكرة – باتنة', url: '/university.html#CITY-JOBS', icon: 'fas fa-city', specialty: 'city-jobs', keywords: ['مهن المدينة', 'métiers de la ville', 'CITY-JOBS', 'تسيير حضري', 'ورشة', 'GIS', 'ISTA', 'تلمسان', 'هندسة عمرانية', 'مقاولات', 'تطوير عقاري', 'تعمير', 'بناء'] },
+
+        // ── إنتاج وتصميم رقمي وصناعة المحتوى ──
+        { title: 'إنتاج وتصميم رقمي – صناعة المحتوى الرقمي | Digital Content Production', desc: 'تخصص يجمع التصميم الغرافيكي والمونتاج وخوارزميات السوشل ميديا لصناعة محتوى رقمي احترافي', url: '/university.html#DIGITAL-PROD', icon: 'fas fa-photo-video', specialty: 'digital-prod', keywords: ['إنتاج رقمي', 'تصميم رقمي', 'محتوى رقمي', 'digital content', 'content creator', 'graphic design', 'motion graphics', 'montage', 'reels', 'tiktok', 'youtube', 'social media', 'SEO', 'UI UX', 'photoshop', 'after effects', 'premiere', 'freelancing', 'الجزائر 3', 'قسنطينة 3', 'وهران 1', 'DIGITAL-PROD'] },
+
+        // ── ممثل محترف وكاتب مسرحي ──
+        { title: 'ممثل محترف وكاتب مسرحي – Acting & Playwriting', desc: 'تخصص فني مزدوج يجمع بين التمثيل الاحترافي والكتابة الدرامية المسرحية فوق الخشبة وخلف الكاميرا', url: '/university.html#THEATER', icon: 'fas fa-theater-masks', specialty: 'theater', keywords: ['تمثيل', 'مسرح', 'كتابة مسرحية', 'acting', 'playwriting', 'فنون عرض', 'دراما', 'ارتجال', 'improvisation', 'دبلجة', 'voice acting', 'ISMACS', 'وهران 1', 'مستغانم', 'باتنة 1', 'سيناريو', 'سينما', 'THEATER'] },
+
+        // ── متحكم في الأداء الموسيقي والإبداع الفني ──
+        { title: 'متحكم في الأداء الموسيقي والإبداع الفني – Musical Performance & Artistic Direction', desc: 'تخصص نخبوي يصنع قادة الأوركسترا والمخرجين الموسيقيين والمديرين الإبداعيين للمهرجانات والأوبرا', url: '/university.html#MUSIC-PERF', icon: 'fas fa-music', specialty: 'music-perf', keywords: ['موسيقى', 'أداء موسيقي', 'أوركسترا', 'مايسترو', 'توزيع موسيقي', 'هارموني', 'musical performance', 'artistic direction', 'هندسة صوتية', 'MAO', 'Pro Tools', 'مهرجان', 'أوبرا', 'INSM', 'ISMACS', 'مستغانم', 'تلمسان', 'MUSIC-PERF'] },
+
+        // ── كتابة السيناريو ──
+        { title: 'كتابة السيناريو – Screenwriting / Creative Writing', desc: 'تخصص فني إبداعي لتعلم كتابة النصوص السينمائية والدرامية من بناء الحبكة إلى الحوار والشخصيات', url: '/university.html#SCENARIO', icon: 'fas fa-pen-fancy', specialty: 'scenario', keywords: ['سيناريو', 'كتابة إبداعية', 'screenwriting', 'سيناريست', 'مسلسل', 'فيلم', 'حوار', 'قصة', 'دراما', 'كوميديا', 'خيال علمي', 'adaptation', 'narrative design', 'ISMACS', 'فنون درامية', 'وهران 1', 'باتنة 1', 'مستغانم', 'SCENARIO'] },
+
+        // ── مصمم ثلاثي الأبعاد ومؤثرات خاصة ──
+        { title: 'مصمم ثلاثي الأبعاد – مؤثرات خاصة | 3D Design & VFX', desc: 'تخصص إبداعي تكنولوجي لتصميم المجسمات الرقمية والمؤثرات البصرية للسينما والإعلانات والألعاب', url: '/university.html#3D-DESIGN', icon: 'fas fa-cube', specialty: '3d-design', keywords: ['3D', 'VFX', 'مصمم', 'ثلاثي الأبعاد', 'مؤثرات خاصة', 'blender', 'maya', 'modeling', 'animation', 'compositing', 'unreal engine', 'unity', 'سينما', 'إعلانات', 'ألعاب فيديو', 'gaming', 'freelancing', 'showreel', 'ISMACS', 'فنون جميلة', '3D-DESIGN'] },
+
+        // ── علم الاجتماع الترفيه والأسفار ──
+        { title: 'علم الاجتماع الترفيه والأسفار – Sociology of Leisure & Travel', desc: 'تخصص يدرس سلوك السواح وصناعة الترفيه والسياحة من منظور سوسيولوجي تطبيقي', url: '/university.html#SOC-LEISURE', icon: 'fas fa-umbrella-beach', specialty: 'soc-leisure', keywords: ['علم اجتماع', 'ترفيه', 'أسفار', 'سياحة', 'sociology', 'leisure', 'travel', 'camping', 'سواح', 'وقت فراغ', 'فندقة', 'tour operator', 'trip planner', 'تنشيط', 'animation', 'بيوت شباب', 'مخيمات', 'الجزائر 2', 'مستغانم', 'وهران 2', 'بسكرة', 'SOC-LEISURE'] },
+
+        // ── التاريخ والبيانات الضخمة ──
+        { title: 'التاريخ والبيانات الضخمة – History & Big Data', desc: 'تخصص هجين يجمع بين علم التاريخ والأرشيف وتقنيات البيانات الضخمة لرقمنة الذاكرة الوطنية', url: '/university.html#HISTORY-DATA', icon: 'fas fa-database', specialty: 'history-data', keywords: ['تاريخ', 'بيانات ضخمة', 'big data', 'history', 'أرشيف رقمي', 'مخطوطات', 'ذاكرة وطنية', 'رقمنة', 'digital historian', 'digital humanities', 'GIS', 'text mining', 'علوم إنسانية', 'أرشيف وطني', 'وزارة المجاهدين', 'وزارة الثقافة', 'متحف', 'الجزائر 2', 'قسنطينة 2', 'وهران 1', 'HISTORY-DATA'] },
+
+        // ── الإعلام والاتصال الصحي ──
+        { title: 'الإعلام والاتصال الصحي – Health Communication', desc: 'تخصص يجمع الإعلام والاتصال مع القطاع الصحي لتصميم حملات توعية وتسيير أزمات صحية إعلامية', url: '/university.html#HEALTH-COMM', icon: 'fas fa-stethoscope', specialty: 'health-comm', keywords: ['إعلام صحي', 'اتصال صحي', 'health communication', 'حملة توعية', 'صحافة طبية', 'وزارة الصحة', 'مستشفى', 'أدوية', 'اتصال أزمات', 'medical marketing', 'health journalist', 'توعية صحية', 'إشاعات طبية', 'جامعة الجزائر 3', 'قسنطينة 3', 'وهران 1', 'HEALTH-COMM'] },
+
+        // ── التفاوض والتكنولوجيا المالية ──
+        { title: 'التفاوض والتكنولوجيا المالية – Negotiation & FinTech', desc: 'Smart Fusion — FinTech، دفع إلكتروني، تفاوض تجاري، BizDev، بنوك رقمية، Startups مالية', url: '/university.html#FINTECH', icon: 'fas fa-mobile-alt', specialty: 'مالية وتكنولوجيا', keywords: ['التفاوض', 'التكنولوجيا المالية', 'fintech', 'negotiation', 'FINTECH', 'e-payment', 'baridimob', 'blockchain', 'mobile money', 'دفع إلكتروني', 'بنك رقمي', 'تمويل جماعي', 'digital banking', 'bizdev', 'business development', 'إقناع', 'صفقات', 'شركات ناشئة مالية', 'stripe', 'paypal', 'الجزائر 3', 'وهران 2', 'قسنطينة 2', 'جيزي', 'أوريدو', 'موبيليس', 'IOB', 'امتثال مالي', 'تأمين ذكي', 'startup'] },
+
+        // ── التداول والأسواق المالية ──
+        { title: 'التداول والأسواق المالية – Trading & Financial Markets', desc: 'بورصة، Forex، أسهم، تحليل فني وأساسي، محافظ مالية، Broker، Risk Manager — تسيير واقتصاد', url: '/university.html#TRADING', icon: 'fas fa-chart-bar', specialty: 'مالية وأسواق', keywords: ['التداول', 'الأسواق المالية', 'trading', 'financial markets', 'TRADING', 'بورصة', 'forex', 'أسهم', 'سندات', 'تحليل فني', 'تحليل أساسي', 'technical analysis', 'fundamental analysis', 'portfolio management', 'محافظ مالية', 'risk manager', 'broker', 'وسيط مالي', 'هندسة مالية', 'options', 'futures', 'prop trading', 'الجزائر 3', 'وهران 2', 'قسنطينة 2', 'EHEC', 'ESC', 'بنك', 'استثمار', 'ذهب', 'بترول', 'عملات', 'صندوق استثمار', 'financial english', 'رياضيات مالية'] },
+
+        // ── الإدارة الإلكترونية للأعمال ──
+        { title: 'الإدارة الإلكترونية للأعمال – E-Business / E-Management', desc: 'الـ E-Manager — تجارة إلكترونية، ERP، Agile، تحول رقمي، Startups، شركات خاصة — تسيير واقتصاد', url: '/university.html#E-BIZ', icon: 'fas fa-laptop', specialty: 'تسيير رقمي وتكنولوجيا', keywords: ['الإدارة الإلكترونية', 'e-business', 'e-management', 'E-BIZ', 'e-commerce', 'ERP', 'SAP', 'odoo', 'تجارة إلكترونية', 'تحول رقمي', 'digital transformation', 'agile', 'scrum', 'MIS', 'e-payment', 'remote work', 'الجزائر 3', 'وهران 2', 'قسنطينة 2', 'startups', 'تسيير رقمي', 'لوجيستيك', 'supply chain', 'e-commerce manager', 'consulting', 'paperless', 'تشريع رقمي'] },
+
+        // ── الاتصال التسويقي وإدارة العلاقات مع الزبائن ──
+        { title: 'الاتصال التسويقي وإدارة العلاقات مع الزبائن – MarCom & CRM', desc: 'تسويق رقمي، إشهار، CRM، Salesforce، وكالات إشهار، شركات — آداب ولغات وتسيير', url: '/university.html#MARKETING-COMM', icon: 'fas fa-handshake', specialty: 'إعلام واتصال وتسويق', keywords: ['الاتصال التسويقي', 'إدارة علاقات الزبائن', 'marcom', 'CRM', 'MARKETING-COMM', 'تسويق', 'إشهار', 'customer experience', 'account manager', 'salesforce', 'hubspot', 'consumer behavior', 'سلوك المستهلك', 'digital PR', 'علاقات عامة', 'call center', 'خدمة الزبائن', 'NPS', 'KPI', 'الجزائر 3', 'وهران', 'قسنطينة', 'سطيف', 'عنابة', 'آداب', 'لغات أجنبية', 'brand', 'تجربة الزبائن', 'e-commerce', 'after-sales'] },
+
+        // ── إدارة نظم المعلومات الصحية ──
+        { title: 'إدارة نظم المعلومات الصحية – Health Information Systems Management', desc: 'المهندس الرقمي للسبيطار — EHR، أمن بيانات طبية، HealthTech، CNAS، وزارة الصحة', url: '/university.html#HEALTH-INFO', icon: 'fas fa-hospital-user', specialty: 'تسيير وإعلام آلي طبي', keywords: ['إدارة نظم المعلومات الصحية', 'health information systems', 'HEALTH-INFO', 'EHR', 'رقمنة صحة', 'digital health', 'ملفات طبية إلكترونية', 'أمن سيبراني طبي', 'biostatistics', 'healthtech', 'سبيطار', 'مستشفى', 'CNAS', 'CASNOS', 'بطاقة الشفاء', 'وزارة الصحة', 'الجزائر 3', 'قسنطينة 2', 'إدارة مستشفيات', 'CHU', 'health IT manager', 'تأمين صحي', 'بيانات ضخمة طبية'] },
+
+        // ── التربية والنفس حركية لمرحلة الطفولة ──
+        { title: 'التربية والنفس حركية لمرحلة الطفولة – Psychomotor Education & Early Childhood', desc: 'أخصائي نفس حركي — توحد، ADHD، روضة، مراكز التربية الخاصة، وزارة التضامن', url: '/university.html#CHILDHOOD', icon: 'fas fa-child', specialty: 'علوم التربية وعلم النفس', keywords: ['التربية النفس حركية', 'مرحلة الطفولة', 'psychomotricité', 'early childhood', 'CHILDHOOD', 'طفل', 'روضة', 'توحد', 'autism', 'ADHD', 'صعوبات تعلم', 'dyslexia', 'علم نفس الطفل', 'child psychology', 'نمو الطفل', 'بيداغوجيا', 'إعاقة', 'الجزائر 2', 'قسنطينة 2', 'وهران 2', 'سطيف 2', 'أرطفوني', 'orthophonie', 'تربية خاصة', 'وزارة التضامن', 'مركز نفسي بيداغوجي', 'إدماج'] },
+
+        // ── دراسات وابتكار عمومي ──
+        { title: 'دراسات وابتكار عمومي – Public Studies & Innovation', desc: 'عصرنة الدولة — حوكمة إلكترونية، سياسات عمومية، Design Thinking — وزارات، ولايات، Think Tanks', url: '/university.html#PUBLIC-INNOV', icon: 'fas fa-city', specialty: 'علوم سياسية وحوكمة', keywords: ['دراسات عمومية', 'ابتكار عمومي', 'public studies', 'public innovation', 'PUBLIC-INNOV', 'حوكمة', 'رقمنة', 'e-government', 'سياسات عمومية', 'design thinking', 'تحول رقمي', 'عصرنة الإدارة', 'علوم سياسية', 'think tank', 'مستشار استراتيجي', 'الجزائر 3', 'قسنطينة 3', 'وهران 2', 'وزارة', 'بلدية', 'ولاية', 'إطار سامي', 'consulting', 'بيانات ضخمة', 'تسيير مشاريع عمومية', 'مرفق عام'] },
+
+        // ── السينما والميديا الرقمية ──
+        { title: 'السينما والميديا الرقمية – Cinema & Digital Media', desc: 'إنتاج سمعي بصري رقمي — مونتاج، إخراج، سيناريو، يوتيوب، Netflix — كليات الإعلام والاتصال', url: '/university.html#CINEMA-MEDIA', icon: 'fas fa-film', specialty: 'إعلام واتصال وفنون', keywords: ['السينما', 'الميديا الرقمية', 'cinema', 'digital media', 'CINEMA-MEDIA', 'مونتاج', 'إخراج', 'سيناريو', 'video editing', 'adobe premiere', 'davinci resolve', 'سمعي بصري', 'audiovisuel', 'يوتيوب', 'netflix', 'streaming', 'فيلم قصير', 'وثائقي', 'إعلام واتصال', 'الجزائر 3', 'قسنطينة 3', 'وهران 1', 'in-house video', 'freelance', 'portfolio', 'sound design', 'storytelling', 'صناعة محتوى', 'كاميرا', 'DSLR', 'إشهار'] },
+
+        // ── الاتصال السياحي والترويج للأقاليم ──
+        { title: 'الاتصال السياحي والترويج للأقاليم – Tourism Communication & Territorial Branding', desc: 'مسوق الأقاليم — سياحة، تراث، تسويق إقليمي، ONT، مديريات السياحة — آداب ولغات أجنبية', url: '/university.html#COMM-TOURISM', icon: 'fas fa-map-marked-alt', specialty: 'إعلام واتصال وسياحة', keywords: ['الاتصال السياحي', 'الترويج للأقاليم', 'tourism communication', 'territorial branding', 'COMM-TOURISM', 'سياحة', 'تسويق إقليمي', 'marketing territorial', 'ديوان السياحة', 'ONT', 'تراث', 'جغرافية السياحة', 'فيديو ترويجي', 'vlogging', 'علاقات عامة', 'تيبازة', 'مستغانم', 'بسكرة', 'صحراء', 'آثار', 'tour operator', 'فندقة', 'استثمار سياحي', 'آداب', 'لغات أجنبية', 'الجزائر 3'] },
+
+        // ── الاتصال الرقمي وإدارة الأعمال ──
+        { title: 'الاتصال الرقمي وإدارة الأعمال – Digital Communication & Business Administration', desc: 'بروفايل Digital Manager يجمع بين الإعلام الرقمي وتسيير الأعمال — Startups، وكالات إشهار، Brand Manager', url: '/university.html#DIGITAL-BIZ', icon: 'fas fa-laptop-code', specialty: 'إعلام واتصال وتسيير', keywords: ['الاتصال الرقمي', 'إدارة الأعمال', 'digital communication', 'business administration', 'DIGITAL-BIZ', 'سوشل ميديا', 'تسويق رقمي', 'digital marketing', 'brand manager', 'growth hacker', 'SEO', 'copywriting', 'تحليل بيانات', 'analytics', 'إدارة مشاريع رقمية', 'digital project management', 'الجزائر 3', 'وهران 2', 'قسنطينة 2', 'سمعة رقمية', 'digital reputation', 'startup', 'وكالة إشهار', 'اتصال مؤسساتي', 'e-business', 'e-management', 'أمن سيبراني'] },
+
         // ── إدارة المطارات والعبور ──
         { title: 'إدارة المطارات والعبور – Management Aéroportuaire', desc: 'تخصص لطلبة الآداب واللغات — لوجيستيك جوي، عبور، جمارك، شحن جوي', url: '/university.html#AEROPORT', icon: 'fas fa-plane', specialty: 'اقتصاد وتسيير', keywords: ['إدارة المطارات', 'management aéroportuaire', 'transit', 'عبور', 'طيران', 'aviation', 'لوجيستيك جوي', 'شحن جوي', 'fret', 'EGSA', 'ground handling', 'آداب', 'لغات أجنبية', 'جمارك', 'douane', 'خطوط جوية', 'مطار', 'aéroport', 'aviation english', 'supply chain', 'courier', 'freight', 'استيراد تصدير'] },
     ];
