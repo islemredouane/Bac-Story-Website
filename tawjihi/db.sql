@@ -286,9 +286,14 @@ create policy "referral_codes: user inserts own row"
 alter table public.credits
   add column if not exists last_refilled_at timestamptz default now();
 
--- Backfill: existing rows get now() so the 24h clock starts today.
+-- Backfill: users who still have credits start the 24h clock from now.
+-- Users with balance = 0 get a timestamp 25h in the past so they are
+-- immediately refilled on the next chat request (no extra wait).
 update public.credits
-  set last_refilled_at = now()
+  set last_refilled_at = case
+    when balance = 0 then now() - interval '25 hours'
+    else now()
+  end
   where last_refilled_at is null;
 
 -- Returns current balance (after any refill). Called from serverless functions
