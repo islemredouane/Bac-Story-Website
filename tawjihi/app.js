@@ -120,6 +120,13 @@
         container.appendChild(h); i++; continue;
       }
 
+      if (/^#### /.test(line)) {
+        const h = document.createElement('h4');
+        h.className = 'tw-md-h4';
+        h.innerHTML = inlineHtml(line.slice(5).trim());
+        container.appendChild(h); i++; continue;
+      }
+
       if (/^### /.test(line)) {
         const h = document.createElement('h3');
         h.className = 'tw-md-h3';
@@ -623,6 +630,7 @@
             .replace(/\*([^*\n]+)\*/g,   '<em>$1</em>')
             .replace(/`([^`\n]+)`/g,     '<code>$1</code>');
 
+        if (line.startsWith('#### '))    { html += `<h4>${inline(esc(line.slice(5)))}</h4>`; continue; }
         if (line.startsWith('### '))     { html += `<h3>${inline(esc(line.slice(4)))}</h3>`; continue; }
         if (line.startsWith('## '))      { html += `<h2>${inline(esc(line.slice(3)))}</h2>`; continue; }
         if (line.startsWith('# '))       { html += `<h1>${inline(esc(line.slice(2)))}</h1>`; continue; }
@@ -751,12 +759,17 @@
     let fullText = '';
     let firstToken = true;
 
+    let renderScheduled = false;
     const updateLive = () => {
-        textEl.innerHTML = liveRender(fullText);
-        const cursor = document.createElement('span');
-        cursor.className = 'stream-cursor';
-        const last = textEl.lastElementChild;
-        (last || textEl).appendChild(cursor);
+        if (renderScheduled) return;
+        renderScheduled = true;
+        requestAnimationFrame(() => {
+            textEl.innerHTML = liveRender(fullText);
+            const cursor = document.createElement('span');
+            cursor.className = 'stream-cursor';
+            (textEl.lastElementChild || textEl).appendChild(cursor);
+            renderScheduled = false;
+        });
     };
 
     while (true) {
@@ -879,21 +892,22 @@
           if (conversationMessages.length > 20) conversationMessages.splice(0, 2);
           saveMessageToSession('assistant', fullText);
 
-          /* Replace streaming raw text with properly rendered markdown + components */
-          const followups = renderAiMessage(textEl, fullText);
+          /* Defer the heavy full-markdown re-render to the next frame so the
+             browser can paint the "stream finished" state before blocking. */
+          requestAnimationFrame(() => {
+            const followups = renderAiMessage(textEl, fullText);
 
-          /* Disclaimer */
-          const note = document.createElement('p');
-          note.className = 'tw-disclaimer';
-          note.textContent = 'المعلومات مبنية على بيانات الدليل الوزاري 2025 — أكّد دائماً اختيارك على البوابة الرسمية.';
-          textEl.appendChild(note);
+            const note = document.createElement('p');
+            note.className = 'tw-disclaimer';
+            note.textContent = 'المعلومات مبنية على بيانات الدليل الوزاري 2025 — أكّد دائماً اختيارك على البوابة الرسمية.';
+            textEl.appendChild(note);
 
-          shell.querySelector('.msg-body').appendChild(actionsBar());
-          /* Only show follow-up chips when the AI explicitly provided them */
-          if (followups && followups.length > 0) {
-            shell.querySelector('.msg-body').appendChild(followupChips(followups));
-          }
-          scrollDown();
+            shell.querySelector('.msg-body').appendChild(actionsBar());
+            if (followups && followups.length > 0) {
+              shell.querySelector('.msg-body').appendChild(followupChips(followups));
+            }
+            scrollDown();
+          });
         }
       );
     } catch (err) {
@@ -1021,10 +1035,11 @@
     currentChatId = sessionId;
     renderHistory(); // highlight the now-active item
 
-    /* Fast path: messages cached locally. */
+    /* Fast path: messages cached locally.
+       Defer rendering one rAF so the browser paints the closed overlay first. */
     const saved = JSON.parse(localStorage.getItem(`tw-sess-${sessionId}`) || '[]');
     if (saved.length > 0) {
-      renderSessionMessages(saved);
+      requestAnimationFrame(() => renderSessionMessages(saved));
       return;
     }
 

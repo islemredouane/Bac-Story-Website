@@ -217,6 +217,10 @@
     const gBtn = document.getElementById('googleBtn');
     gBtn.addEventListener('click', async () => {
         if (gBtn.classList.contains('is-loading')) return;
+        // Save ?ref= NOW — sessionStorage survives the OAuth redirect within the same tab.
+        // After Google redirects back the ?ref= query param will be gone from the URL.
+        const refCode = new URLSearchParams(location.search).get('ref');
+        if (refCode) sessionStorage.setItem('tw-pending-ref', refCode);
         gBtn.classList.add('is-loading');
         gBtn.querySelector('.google-btn-label').textContent = 'جاري الدخول…';
         const { error } = await tw_supabase.auth.signInWithOAuth({

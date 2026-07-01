@@ -316,9 +316,7 @@
 
 .msg-actions {
     display: flex; gap: var(--sp-1); margin-top: var(--sp-2);
-    opacity: 0; transition: opacity var(--t-fast);
 }
-.msg:hover .msg-actions { opacity: 1; }
 .msg-action {
     width: 34px; height: 34px; border-radius: var(--r-sm); color: var(--text-faint);
     display: grid; place-items: center; transition: background var(--t-fast), color var(--t-fast);

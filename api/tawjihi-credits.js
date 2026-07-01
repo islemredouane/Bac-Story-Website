@@ -34,11 +34,15 @@ export default async function handler(req, res) {
     return res.status(401).json({ error: 'Unauthorized' });
   }
 
-  // GET — return the user's credit balance
+  // GET — refill if due, then return the user's credit balance
   try {
+    // Atomically refill balance to 30 if 24 h have elapsed since last refill.
+    // Harmless no-op when called within the same 24-hour window.
+    await adminSupabase.rpc('ensure_daily_credits', { uid: user.id });
+
     const { data, error } = await adminSupabase
       .from('credits')
-      .select('balance, total_earned, total_spent')
+      .select('balance, total_earned, total_spent, last_refilled_at')
       .eq('user_id', user.id)
       .single();
 
