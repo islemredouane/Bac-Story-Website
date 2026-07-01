@@ -4,6 +4,7 @@
    v2 output contract — see tawjihi/CHAT-CONTRACT.md
    ============================================================ */
 import { createClient } from '@supabase/supabase-js';
+import { GoogleGenerativeAI } from '@google/generative-ai';
 import Groq from 'groq-sdk';
 
 /* ---- Knowledge base (static JSON, bundled by Vercel via import attributes) ---- */
@@ -480,10 +481,32 @@ ${p.stream ? `ملاحظة أهليّة (AI-10): المستخدم في شعبة 
 تنبيه: ESI قليعة (id: esi-kolea) هي **المدرسة العليا للضرائب** — ليست مدرسة إعلام آلي على الإطلاق.
 
 ${guideBlock ? `${guideBlock}\n` : ''}
+## معرّفات التخصصات الصحيحة الوحيدة (id) — أي id خارج هذه القائمة ممنوع منعاً باتاً في spec-cards/compare/verdict:
+${SPECIALITIES.map((s) => s.id).join(' · ')}
+
 # قاعدة المعرفة (المصدر الوحيد للأرقام — استعملها فقط)
 ${emptyContext
-  ? 'لا توجد تخصصات مطابقة في قاعدة بياناتك. اطلب من المستخدم توضيح سؤاله أو اذكر أن المعلومة غير متوفرة لديك.'
+  ? 'لا توجد تخصصات مطابقة في قاعدة بياناتك للسؤال الحالي — البحث في الإنترنت مُفعَّل تلقائياً لهذا السؤال. استعمل النتائج المتاحة، واذكر المصدر.'
   : contextBlock}`;
+}
+
+/* ---- AI clients (module-level — reused across invocations) ---- */
+const gemini = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || '');
+const groq   = new Groq({ apiKey: process.env.GROQ_API_KEY || '' });
+
+/* Convert OpenAI-format message history to Gemini format.
+   Rules: role must be 'user'|'model', must alternate, must start with 'user'. */
+function toGeminiHistory(msgs) {
+  const out = [];
+  for (const m of msgs) {
+    const role = m.role === 'assistant' ? 'model' : 'user';
+    const text = String(m.content || '').trim();
+    if (!text) continue;
+    if (out.length > 0 && out[out.length - 1].role === role) continue; // skip duplicate roles
+    out.push({ role, parts: [{ text }] });
+  }
+  while (out.length > 0 && out[0].role !== 'user') out.shift(); // must start with user
+  return out;
 }
 
 /* ---- Supabase admin client (module-level — reused across invocations) ---- */
@@ -544,17 +567,6 @@ export default async function handler(req, res) {
   const guideBlock = buildGuideContext(profile);
   const systemPrompt = buildSystemPrompt(profile, contextBlock, guideBlock, orientationMode, selected.length === 0);
 
-  // Call Groq with streaming
-  const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
-
-  const stream = await groq.chat.completions.create({
-    model: 'llama-3.3-70b-versatile',
-    messages: [{ role: 'system', content: systemPrompt }, ...messages.slice(-12)],
-    stream: true,
-    max_tokens: 2048,      // AI-8: was 1200 — prevents mid-sentence cutoff
-    temperature: 0.4,      // AI-16: was 0.6 — reduces variance in factual citations
-  });
-
   // Stream as SSE
   res.setHeader('Content-Type', 'text/event-stream');
   res.setHeader('Cache-Control', 'no-cache');
@@ -564,24 +576,67 @@ export default async function handler(req, res) {
   let fullResponse = '';
   let streamSucceeded = false;
 
+  // PRIMARY: Gemini 2.0 Flash — 1M tok/min free, built-in Google Search grounding
+  // Google Search is enabled when KB returned no matches (emptyContext) so the model
+  // can retrieve real web information instead of hallucinating.
+  const useWebSearch = selected.length === 0;
+  let geminiStarted = false;
   try {
-    for await (const chunk of stream) {
-      const content = chunk.choices[0]?.delta?.content || '';
-      if (content) {
-        fullResponse += content;
-        res.write(`data: ${JSON.stringify({ content })}\n\n`);
+    const geminiModel = gemini.getGenerativeModel({
+      model: 'gemini-2.0-flash',
+      tools: useWebSearch ? [{ googleSearch: {} }] : [],
+      generationConfig: { maxOutputTokens: 2048, temperature: 0.4 },
+    });
+    const history = toGeminiHistory(messages.slice(-12, -1));
+    const chat = geminiModel.startChat({ systemInstruction: systemPrompt, history });
+    const result = await chat.sendMessageStream(message); // throws before stream if quota hit
+    geminiStarted = true;
+    for await (const chunk of result.stream) {
+      const text = chunk.text();
+      if (text) {
+        fullResponse += text;
+        res.write(`data: ${JSON.stringify({ content: text })}\n\n`);
       }
     }
     streamSucceeded = true;
-  } catch (groqError) {
-    // Stream failed — do NOT decrement credit; propagate error to client
-    res.write(`data: ${JSON.stringify({ error: 'stream_error' })}\n\n`);
-    res.write('data: [DONE]\n\n');
-    res.end();
-    return;
+  } catch (geminiErr) {
+    if (geminiStarted) {
+      // Mid-stream failure — cannot recover; client already received partial content
+      console.error('Gemini mid-stream error:', geminiErr.message);
+      res.write(`data: ${JSON.stringify({ error: 'stream_error' })}\n\n`);
+      res.write('data: [DONE]\n\n');
+      res.end();
+      return;
+    }
+    // Gemini failed before streaming (rate limit, quota, key missing) — fall back to Groq
+    console.error('Gemini unavailable, falling back to Groq:', geminiErr.message);
+    fullResponse = '';
+    try {
+      const groqStream = await groq.chat.completions.create({
+        model: 'llama-3.3-70b-versatile',
+        messages: [{ role: 'system', content: systemPrompt }, ...messages.slice(-12)],
+        stream: true,
+        max_tokens: 2048,
+        temperature: 0.4,
+      });
+      for await (const chunk of groqStream) {
+        const content = chunk.choices[0]?.delta?.content || '';
+        if (content) {
+          fullResponse += content;
+          res.write(`data: ${JSON.stringify({ content })}\n\n`);
+        }
+      }
+      streamSucceeded = true;
+    } catch (groqErr) {
+      console.error('Groq fallback also failed:', groqErr.message);
+      res.write(`data: ${JSON.stringify({ error: 'stream_error' })}\n\n`);
+      res.write('data: [DONE]\n\n');
+      res.end();
+      return;
+    }
   }
 
-  // SEC-5: Decrement credit AFTER successful stream — credit is never lost on Groq failure
+  // SEC-5: Decrement credit AFTER successful stream — credit is never lost on AI failure
   await adminSupabase.rpc('decrement_credit', { uid: user.id });
 
   // SEC-9: All Supabase writes BEFORE res.end() — Vercel terminates execution after res.end()
