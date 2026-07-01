@@ -490,23 +490,171 @@ ${emptyContext
   : contextBlock}`;
 }
 
-/* ---- AI clients (module-level — reused across invocations) ---- */
-const gemini = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || '');
-const groq   = new Groq({ apiKey: process.env.GROQ_API_KEY || '' });
+/* ============================================================
+   AI ROUTER — multi-provider, multi-key rotation
+   Priority: Gemini keys → Groq keys → OpenRouter free models
+   Each provider gets a 65-second cooldown on 429. When all are
+   cooled, the least-recently-cooled one is tried as last resort.
+   ============================================================ */
 
-/* Convert OpenAI-format message history to Gemini format.
-   Rules: role must be 'user'|'model', must alternate, must start with 'user'. */
+const COOLDOWN_MS = 65_000;
+const _cooldowns = new Map(); // label → expiry timestamp (per Vercel instance)
+
+function isOnCooldown(label) {
+  const exp = _cooldowns.get(label);
+  return exp !== undefined && Date.now() < exp;
+}
+function markCooldown(label) {
+  _cooldowns.set(label, Date.now() + COOLDOWN_MS);
+  console.log(`[ai-router] ${label} rate-limited, cooldown ${COOLDOWN_MS}ms`);
+}
+function isRateLimit(err) {
+  const msg = String(err?.message || '').toLowerCase();
+  return (
+    err?.status === 429 || err?.statusCode === 429 ||
+    msg.includes('429') || msg.includes('quota') ||
+    msg.includes('rate limit') || msg.includes('resource_exhausted') ||
+    msg.includes('resource exhausted') || msg.includes('too many requests')
+  );
+}
+
+/* Build ordered provider list from env vars.
+   Multiple keys per provider: GEMINI_API_KEY_1 … GEMINI_API_KEY_5 (or plain GEMINI_API_KEY).
+   OpenRouter: single key, multiple free models listed in quality order. */
+function buildProviders() {
+  const list = [];
+
+  // Gemini keys (best quality + search grounding)
+  const geminiKeys = [];
+  for (let i = 1; i <= 5; i++) {
+    const k = process.env[`GEMINI_API_KEY_${i}`];
+    if (k) geminiKeys.push(k);
+  }
+  if (!geminiKeys.length && process.env.GEMINI_API_KEY) geminiKeys.push(process.env.GEMINI_API_KEY);
+  geminiKeys.forEach((key, i) => list.push({ type: 'gemini', key, label: `gemini-${i + 1}` }));
+
+  // Groq keys (fast, good Arabic)
+  const groqKeys = [];
+  for (let i = 1; i <= 5; i++) {
+    const k = process.env[`GROQ_API_KEY_${i}`];
+    if (k) groqKeys.push(k);
+  }
+  if (!groqKeys.length && process.env.GROQ_API_KEY) groqKeys.push(process.env.GROQ_API_KEY);
+  groqKeys.forEach((key, i) => list.push({ type: 'groq', key, label: `groq-${i + 1}` }));
+
+  // OpenRouter free models (last resort — lower rate limits but extra coverage)
+  const orKey = process.env.OPENROUTER_API_KEY;
+  if (orKey) {
+    list.push({ type: 'openrouter', key: orKey, model: 'google/gemini-2.0-flash-exp:free', label: 'or-gemini' });
+    list.push({ type: 'openrouter', key: orKey, model: 'meta-llama/llama-3.3-70b-instruct:free', label: 'or-llama' });
+    list.push({ type: 'openrouter', key: orKey, model: 'mistralai/mistral-7b-instruct:free', label: 'or-mistral' });
+  }
+
+  return list;
+}
+
+const PROVIDERS = buildProviders();
+
+/* Convert OpenAI-format message history → Gemini format.
+   Must alternate user/model, start with user, no empty messages. */
 function toGeminiHistory(msgs) {
   const out = [];
   for (const m of msgs) {
     const role = m.role === 'assistant' ? 'model' : 'user';
     const text = String(m.content || '').trim();
     if (!text) continue;
-    if (out.length > 0 && out[out.length - 1].role === role) continue; // skip duplicate roles
+    if (out.length > 0 && out[out.length - 1].role === role) continue;
     out.push({ role, parts: [{ text }] });
   }
-  while (out.length > 0 && out[0].role !== 'user') out.shift(); // must start with user
+  while (out.length > 0 && out[0].role !== 'user') out.shift();
   return out;
+}
+
+/* Async generator — yields text chunks from one provider.
+   Throws (isRateLimit or other) so the caller can rotate. */
+async function* streamFromProvider(provider, systemPrompt, messages, message, useWebSearch) {
+  /* ---- Gemini ---- */
+  if (provider.type === 'gemini') {
+    const client = new GoogleGenerativeAI(provider.key);
+    const model = client.getGenerativeModel({
+      model: 'gemini-2.0-flash',
+      tools: useWebSearch ? [{ googleSearch: {} }] : [],
+      generationConfig: { maxOutputTokens: 2048, temperature: 0.4 },
+    });
+    const chat = model.startChat({
+      systemInstruction: systemPrompt,
+      history: toGeminiHistory(messages.slice(-12, -1)),
+    });
+    const result = await chat.sendMessageStream(message);
+    for await (const chunk of result.stream) {
+      const text = chunk.text();
+      if (text) yield text;
+    }
+    return;
+  }
+
+  /* ---- Groq ---- */
+  if (provider.type === 'groq') {
+    const client = new Groq({ apiKey: provider.key });
+    const stream = await client.chat.completions.create({
+      model: 'llama-3.3-70b-versatile',
+      messages: [{ role: 'system', content: systemPrompt }, ...messages.slice(-12)],
+      stream: true,
+      max_tokens: 2048,
+      temperature: 0.4,
+    });
+    for await (const chunk of stream) {
+      const text = chunk.choices[0]?.delta?.content || '';
+      if (text) yield text;
+    }
+    return;
+  }
+
+  /* ---- OpenRouter (OpenAI-compatible REST, streamed via fetch) ---- */
+  if (provider.type === 'openrouter') {
+    const resp = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${provider.key}`,
+        'Content-Type': 'application/json',
+        'HTTP-Referer': 'https://tawjihi.vercel.app',
+        'X-Title': 'Tawjihi AI',
+      },
+      body: JSON.stringify({
+        model: provider.model,
+        messages: [{ role: 'system', content: systemPrompt }, ...messages.slice(-12)],
+        stream: true,
+        max_tokens: 2048,
+        temperature: 0.4,
+      }),
+    });
+    if (!resp.ok) {
+      const err = new Error(`OpenRouter HTTP ${resp.status}`);
+      err.status = resp.status;
+      throw err;
+    }
+    const reader = resp.body.getReader();
+    const decoder = new TextDecoder();
+    let buf = '';
+    // eslint-disable-next-line no-constant-condition
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buf += decoder.decode(value, { stream: true });
+      const lines = buf.split('\n');
+      buf = lines.pop() ?? '';
+      for (const line of lines) {
+        if (!line.startsWith('data: ')) continue;
+        const raw = line.slice(6).trim();
+        if (raw === '[DONE]') return;
+        try {
+          const parsed = JSON.parse(raw);
+          const text = parsed.choices?.[0]?.delta?.content || '';
+          if (text) yield text;
+        } catch { /* ignore malformed SSE line */ }
+      }
+    }
+  }
 }
 
 /* ---- Supabase admin client (module-level — reused across invocations) ---- */
@@ -575,65 +723,54 @@ export default async function handler(req, res) {
 
   let fullResponse = '';
   let streamSucceeded = false;
-
-  // PRIMARY: Gemini 2.0 Flash — 1M tok/min free, built-in Google Search grounding
-  // Google Search is enabled when KB returned no matches (emptyContext) so the model
-  // can retrieve real web information instead of hallucinating.
   const useWebSearch = selected.length === 0;
-  let geminiStarted = false;
-  try {
-    const geminiModel = gemini.getGenerativeModel({
-      model: 'gemini-2.0-flash',
-      tools: useWebSearch ? [{ googleSearch: {} }] : [],
-      generationConfig: { maxOutputTokens: 2048, temperature: 0.4 },
-    });
-    const history = toGeminiHistory(messages.slice(-12, -1));
-    const chat = geminiModel.startChat({ systemInstruction: systemPrompt, history });
-    const result = await chat.sendMessageStream(message); // throws before stream if quota hit
-    geminiStarted = true;
-    for await (const chunk of result.stream) {
-      const text = chunk.text();
-      if (text) {
+
+  // Build provider queue — skip cooled-down ones; if all are cooled use least-recently-cooled
+  let queue = PROVIDERS.filter((p) => !isOnCooldown(p.label));
+  if (queue.length === 0) {
+    // All on cooldown — pick the one whose cooldown expires soonest as last resort
+    queue = [PROVIDERS.reduce((a, b) =>
+      (_cooldowns.get(a.label) ?? 0) < (_cooldowns.get(b.label) ?? 0) ? a : b
+    )];
+  }
+
+  for (const provider of queue) {
+    let providerYielded = false;
+    try {
+      for await (const text of streamFromProvider(provider, systemPrompt, messages, message, useWebSearch)) {
+        if (!providerYielded) {
+          providerYielded = true;
+          console.log(`[ai-router] streaming via ${provider.label}`);
+        }
         fullResponse += text;
         res.write(`data: ${JSON.stringify({ content: text })}\n\n`);
       }
-    }
-    streamSucceeded = true;
-  } catch (geminiErr) {
-    if (geminiStarted) {
-      // Mid-stream failure — cannot recover; client already received partial content
-      console.error('Gemini mid-stream error:', geminiErr.message);
-      res.write(`data: ${JSON.stringify({ error: 'stream_error' })}\n\n`);
-      res.write('data: [DONE]\n\n');
-      res.end();
-      return;
-    }
-    // Gemini failed before streaming (rate limit, quota, key missing) — fall back to Groq
-    console.error('Gemini unavailable, falling back to Groq:', geminiErr.message);
-    fullResponse = '';
-    try {
-      const groqStream = await groq.chat.completions.create({
-        model: 'llama-3.3-70b-versatile',
-        messages: [{ role: 'system', content: systemPrompt }, ...messages.slice(-12)],
-        stream: true,
-        max_tokens: 2048,
-        temperature: 0.4,
-      });
-      for await (const chunk of groqStream) {
-        const content = chunk.choices[0]?.delta?.content || '';
-        if (content) {
-          fullResponse += content;
-          res.write(`data: ${JSON.stringify({ content })}\n\n`);
-        }
-      }
       streamSucceeded = true;
-    } catch (groqErr) {
-      console.error('Groq fallback also failed:', groqErr.message);
-      res.write(`data: ${JSON.stringify({ error: 'stream_error' })}\n\n`);
-      res.write('data: [DONE]\n\n');
-      res.end();
-      return;
+      break; // done — don't try more providers
+    } catch (err) {
+      if (providerYielded) {
+        // Error after partial output — client already has content, can't recover cleanly
+        console.error(`[ai-router] ${provider.label} mid-stream error:`, err.message);
+        res.write(`data: ${JSON.stringify({ error: 'stream_error' })}\n\n`);
+        res.write('data: [DONE]\n\n');
+        res.end();
+        return;
+      }
+      if (isRateLimit(err)) {
+        markCooldown(provider.label);
+        // continue to next provider
+      } else {
+        console.error(`[ai-router] ${provider.label} error:`, err.message);
+        // non-rate-limit error — still try next provider
+      }
     }
+  }
+
+  if (!streamSucceeded) {
+    res.write(`data: ${JSON.stringify({ error: 'all_providers_exhausted' })}\n\n`);
+    res.write('data: [DONE]\n\n');
+    res.end();
+    return;
   }
 
   // SEC-5: Decrement credit AFTER successful stream — credit is never lost on AI failure
