@@ -4,6 +4,7 @@
    v2 output contract — see tawjihi/CHAT-CONTRACT.md
    ============================================================ */
 import { createClient } from '@supabase/supabase-js';
+import { GoogleGenerativeAI } from '@google/generative-ai';
 import Groq from 'groq-sdk';
 
 /* ---- Knowledge base (static JSON, bundled by Vercel via import attributes) ---- */
@@ -480,10 +481,191 @@ ${p.stream ? `ملاحظة أهليّة (AI-10): المستخدم في شعبة 
 تنبيه: ESI قليعة (id: esi-kolea) هي **المدرسة العليا للضرائب** — ليست مدرسة إعلام آلي على الإطلاق.
 
 ${guideBlock ? `${guideBlock}\n` : ''}
+## معرّفات التخصصات الصحيحة الوحيدة (id) — أي id خارج هذه القائمة ممنوع منعاً باتاً في spec-cards/compare/verdict:
+${SPECIALITIES.map((s) => s.id).join(' · ')}
+
 # قاعدة المعرفة (المصدر الوحيد للأرقام — استعملها فقط)
 ${emptyContext
-  ? 'لا توجد تخصصات مطابقة في قاعدة بياناتك. اطلب من المستخدم توضيح سؤاله أو اذكر أن المعلومة غير متوفرة لديك.'
+  ? 'لا توجد تخصصات مطابقة في قاعدة بياناتك للسؤال الحالي — البحث في الإنترنت مُفعَّل تلقائياً لهذا السؤال. استعمل النتائج المتاحة، واذكر المصدر.'
   : contextBlock}`;
+}
+
+/* ============================================================
+   AI ROUTER — multi-provider, multi-key rotation
+   Priority: Gemini keys → Groq keys → OpenRouter free models
+   Each provider gets a 65-second cooldown on 429. When all are
+   cooled, the least-recently-cooled one is tried as last resort.
+   ============================================================ */
+
+const COOLDOWN_MS = 65_000;
+const _cooldowns = new Map(); // label → expiry timestamp (per Vercel instance)
+
+function isOnCooldown(label) {
+  const exp = _cooldowns.get(label);
+  return exp !== undefined && Date.now() < exp;
+}
+function markCooldown(label) {
+  _cooldowns.set(label, Date.now() + COOLDOWN_MS);
+  console.log(`[ai-router] ${label} rate-limited, cooldown ${COOLDOWN_MS}ms`);
+}
+function isRateLimit(err) {
+  const msg = String(err?.message || '').toLowerCase();
+  return (
+    err?.status === 429 || err?.statusCode === 429 ||
+    msg.includes('429') || msg.includes('quota') ||
+    msg.includes('rate limit') || msg.includes('resource_exhausted') ||
+    msg.includes('resource exhausted') || msg.includes('too many requests')
+  );
+}
+
+/* Build ordered provider list from env vars.
+   Gemini: GEMINI_API_KEY_1 … GEMINI_API_KEY_10 (or plain GEMINI_API_KEY)
+   Groq:   GROQ_API_KEY (existing, always first) + GROQ_API_KEY_2 … GROQ_API_KEY_10
+   OR:     OPENROUTER_API_KEY + OPENROUTER_API_KEY_2 … each key × 3 free models */
+function buildProviders() {
+  const list = [];
+
+  // Gemini keys — up to 10, fallback to unnumbered if none set
+  const geminiKeys = [];
+  for (let i = 1; i <= 10; i++) {
+    const k = process.env[`GEMINI_API_KEY_${i}`];
+    if (k) geminiKeys.push(k);
+  }
+  if (!geminiKeys.length && process.env.GEMINI_API_KEY) geminiKeys.push(process.env.GEMINI_API_KEY);
+  geminiKeys.forEach((key, i) => list.push({ type: 'gemini', key, label: `gemini-${i + 1}` }));
+
+  // Groq keys — GROQ_API_KEY always first, then GROQ_API_KEY_2 … _10
+  const groqKeys = [];
+  if (process.env.GROQ_API_KEY) groqKeys.push(process.env.GROQ_API_KEY);
+  for (let i = 2; i <= 10; i++) {
+    const k = process.env[`GROQ_API_KEY_${i}`];
+    if (k) groqKeys.push(k);
+  }
+  groqKeys.forEach((key, i) => list.push({ type: 'groq', key, label: `groq-${i + 1}` }));
+
+  // OpenRouter — each key unlocks 3 free model slots (Gemini → Llama → Mistral)
+  const orKeys = [];
+  if (process.env.OPENROUTER_API_KEY) orKeys.push(process.env.OPENROUTER_API_KEY);
+  for (let i = 2; i <= 5; i++) {
+    const k = process.env[`OPENROUTER_API_KEY_${i}`];
+    if (k) orKeys.push(k);
+  }
+  const OR_MODELS = [
+    'google/gemini-2.0-flash-exp:free',
+    'meta-llama/llama-3.3-70b-instruct:free',
+    'mistralai/mistral-7b-instruct:free',
+  ];
+  orKeys.forEach((key, ki) => {
+    OR_MODELS.forEach((model, mi) => {
+      list.push({ type: 'openrouter', key, model, label: `or-k${ki + 1}-m${mi + 1}` });
+    });
+  });
+
+  return list;
+}
+
+const PROVIDERS = buildProviders();
+
+/* Convert OpenAI-format message history → Gemini format.
+   Must alternate user/model, start with user, no empty messages. */
+function toGeminiHistory(msgs) {
+  const out = [];
+  for (const m of msgs) {
+    const role = m.role === 'assistant' ? 'model' : 'user';
+    const text = String(m.content || '').trim();
+    if (!text) continue;
+    if (out.length > 0 && out[out.length - 1].role === role) continue;
+    out.push({ role, parts: [{ text }] });
+  }
+  while (out.length > 0 && out[0].role !== 'user') out.shift();
+  return out;
+}
+
+/* Async generator — yields text chunks from one provider.
+   Throws (isRateLimit or other) so the caller can rotate. */
+async function* streamFromProvider(provider, systemPrompt, messages, message, useWebSearch) {
+  /* ---- Gemini ---- */
+  if (provider.type === 'gemini') {
+    const client = new GoogleGenerativeAI(provider.key);
+    const model = client.getGenerativeModel({
+      model: 'gemini-2.0-flash',
+      tools: useWebSearch ? [{ googleSearch: {} }] : [],
+      generationConfig: { maxOutputTokens: 2048, temperature: 0.4 },
+    });
+    const chat = model.startChat({
+      systemInstruction: systemPrompt,
+      history: toGeminiHistory(messages.slice(-12, -1)),
+    });
+    const result = await chat.sendMessageStream(message);
+    for await (const chunk of result.stream) {
+      const text = chunk.text();
+      if (text) yield text;
+    }
+    return;
+  }
+
+  /* ---- Groq ---- */
+  if (provider.type === 'groq') {
+    const client = new Groq({ apiKey: provider.key });
+    const stream = await client.chat.completions.create({
+      model: 'llama-3.3-70b-versatile',
+      messages: [{ role: 'system', content: systemPrompt }, ...messages.slice(-12)],
+      stream: true,
+      max_tokens: 2048,
+      temperature: 0.4,
+    });
+    for await (const chunk of stream) {
+      const text = chunk.choices[0]?.delta?.content || '';
+      if (text) yield text;
+    }
+    return;
+  }
+
+  /* ---- OpenRouter (OpenAI-compatible REST, streamed via fetch) ---- */
+  if (provider.type === 'openrouter') {
+    const resp = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${provider.key}`,
+        'Content-Type': 'application/json',
+        'HTTP-Referer': 'https://tawjihi.vercel.app',
+        'X-Title': 'Tawjihi AI',
+      },
+      body: JSON.stringify({
+        model: provider.model,
+        messages: [{ role: 'system', content: systemPrompt }, ...messages.slice(-12)],
+        stream: true,
+        max_tokens: 2048,
+        temperature: 0.4,
+      }),
+    });
+    if (!resp.ok) {
+      const err = new Error(`OpenRouter HTTP ${resp.status}`);
+      err.status = resp.status;
+      throw err;
+    }
+    const reader = resp.body.getReader();
+    const decoder = new TextDecoder();
+    let buf = '';
+    // eslint-disable-next-line no-constant-condition
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buf += decoder.decode(value, { stream: true });
+      const lines = buf.split('\n');
+      buf = lines.pop() ?? '';
+      for (const line of lines) {
+        if (!line.startsWith('data: ')) continue;
+        const raw = line.slice(6).trim();
+        if (raw === '[DONE]') return;
+        try {
+          const parsed = JSON.parse(raw);
+          const text = parsed.choices?.[0]?.delta?.content || '';
+          if (text) yield text;
+        } catch { /* ignore malformed SSE line */ }
+      }
+    }
+  }
 }
 
 /* ---- Supabase admin client (module-level — reused across invocations) ---- */
@@ -544,17 +726,6 @@ export default async function handler(req, res) {
   const guideBlock = buildGuideContext(profile);
   const systemPrompt = buildSystemPrompt(profile, contextBlock, guideBlock, orientationMode, selected.length === 0);
 
-  // Call Groq with streaming
-  const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
-
-  const stream = await groq.chat.completions.create({
-    model: 'llama-3.3-70b-versatile',
-    messages: [{ role: 'system', content: systemPrompt }, ...messages.slice(-12)],
-    stream: true,
-    max_tokens: 2048,      // AI-8: was 1200 — prevents mid-sentence cutoff
-    temperature: 0.4,      // AI-16: was 0.6 — reduces variance in factual citations
-  });
-
   // Stream as SSE
   res.setHeader('Content-Type', 'text/event-stream');
   res.setHeader('Cache-Control', 'no-cache');
@@ -563,25 +734,57 @@ export default async function handler(req, res) {
 
   let fullResponse = '';
   let streamSucceeded = false;
+  const useWebSearch = selected.length === 0;
 
-  try {
-    for await (const chunk of stream) {
-      const content = chunk.choices[0]?.delta?.content || '';
-      if (content) {
-        fullResponse += content;
-        res.write(`data: ${JSON.stringify({ content })}\n\n`);
+  // Build provider queue — skip cooled-down ones; if all are cooled use least-recently-cooled
+  let queue = PROVIDERS.filter((p) => !isOnCooldown(p.label));
+  if (queue.length === 0) {
+    // All on cooldown — pick the one whose cooldown expires soonest as last resort
+    queue = [PROVIDERS.reduce((a, b) =>
+      (_cooldowns.get(a.label) ?? 0) < (_cooldowns.get(b.label) ?? 0) ? a : b
+    )];
+  }
+
+  for (const provider of queue) {
+    let providerYielded = false;
+    try {
+      for await (const text of streamFromProvider(provider, systemPrompt, messages, message, useWebSearch)) {
+        if (!providerYielded) {
+          providerYielded = true;
+          console.log(`[ai-router] streaming via ${provider.label}`);
+        }
+        fullResponse += text;
+        res.write(`data: ${JSON.stringify({ content: text })}\n\n`);
+      }
+      streamSucceeded = true;
+      break; // done — don't try more providers
+    } catch (err) {
+      if (providerYielded) {
+        // Error after partial output — client already has content, can't recover cleanly
+        console.error(`[ai-router] ${provider.label} mid-stream error:`, err.message);
+        res.write(`data: ${JSON.stringify({ error: 'stream_error' })}\n\n`);
+        res.write('data: [DONE]\n\n');
+        res.end();
+        return;
+      }
+      if (isRateLimit(err)) {
+        markCooldown(provider.label);
+        // continue to next provider
+      } else {
+        console.error(`[ai-router] ${provider.label} error:`, err.message);
+        // non-rate-limit error — still try next provider
       }
     }
-    streamSucceeded = true;
-  } catch (groqError) {
-    // Stream failed — do NOT decrement credit; propagate error to client
-    res.write(`data: ${JSON.stringify({ error: 'stream_error' })}\n\n`);
+  }
+
+  if (!streamSucceeded) {
+    res.write(`data: ${JSON.stringify({ error: 'all_providers_exhausted' })}\n\n`);
     res.write('data: [DONE]\n\n');
     res.end();
     return;
   }
 
-  // SEC-5: Decrement credit AFTER successful stream — credit is never lost on Groq failure
+  // SEC-5: Decrement credit AFTER successful stream — credit is never lost on AI failure
   await adminSupabase.rpc('decrement_credit', { uid: user.id });
 
   // SEC-9: All Supabase writes BEFORE res.end() — Vercel terminates execution after res.end()
