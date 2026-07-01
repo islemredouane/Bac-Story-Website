@@ -519,36 +519,47 @@ function isRateLimit(err) {
 }
 
 /* Build ordered provider list from env vars.
-   Multiple keys per provider: GEMINI_API_KEY_1 … GEMINI_API_KEY_5 (or plain GEMINI_API_KEY).
-   OpenRouter: single key, multiple free models listed in quality order. */
+   Gemini: GEMINI_API_KEY_1 … GEMINI_API_KEY_10 (or plain GEMINI_API_KEY)
+   Groq:   GROQ_API_KEY (existing, always first) + GROQ_API_KEY_2 … GROQ_API_KEY_10
+   OR:     OPENROUTER_API_KEY + OPENROUTER_API_KEY_2 … each key × 3 free models */
 function buildProviders() {
   const list = [];
 
-  // Gemini keys (best quality + search grounding)
+  // Gemini keys — up to 10, fallback to unnumbered if none set
   const geminiKeys = [];
-  for (let i = 1; i <= 5; i++) {
+  for (let i = 1; i <= 10; i++) {
     const k = process.env[`GEMINI_API_KEY_${i}`];
     if (k) geminiKeys.push(k);
   }
   if (!geminiKeys.length && process.env.GEMINI_API_KEY) geminiKeys.push(process.env.GEMINI_API_KEY);
   geminiKeys.forEach((key, i) => list.push({ type: 'gemini', key, label: `gemini-${i + 1}` }));
 
-  // Groq keys (fast, good Arabic)
+  // Groq keys — GROQ_API_KEY always first, then GROQ_API_KEY_2 … _10
   const groqKeys = [];
-  for (let i = 1; i <= 5; i++) {
+  if (process.env.GROQ_API_KEY) groqKeys.push(process.env.GROQ_API_KEY);
+  for (let i = 2; i <= 10; i++) {
     const k = process.env[`GROQ_API_KEY_${i}`];
     if (k) groqKeys.push(k);
   }
-  if (!groqKeys.length && process.env.GROQ_API_KEY) groqKeys.push(process.env.GROQ_API_KEY);
   groqKeys.forEach((key, i) => list.push({ type: 'groq', key, label: `groq-${i + 1}` }));
 
-  // OpenRouter free models (last resort — lower rate limits but extra coverage)
-  const orKey = process.env.OPENROUTER_API_KEY;
-  if (orKey) {
-    list.push({ type: 'openrouter', key: orKey, model: 'google/gemini-2.0-flash-exp:free', label: 'or-gemini' });
-    list.push({ type: 'openrouter', key: orKey, model: 'meta-llama/llama-3.3-70b-instruct:free', label: 'or-llama' });
-    list.push({ type: 'openrouter', key: orKey, model: 'mistralai/mistral-7b-instruct:free', label: 'or-mistral' });
+  // OpenRouter — each key unlocks 3 free model slots (Gemini → Llama → Mistral)
+  const orKeys = [];
+  if (process.env.OPENROUTER_API_KEY) orKeys.push(process.env.OPENROUTER_API_KEY);
+  for (let i = 2; i <= 5; i++) {
+    const k = process.env[`OPENROUTER_API_KEY_${i}`];
+    if (k) orKeys.push(k);
   }
+  const OR_MODELS = [
+    'google/gemini-2.0-flash-exp:free',
+    'meta-llama/llama-3.3-70b-instruct:free',
+    'mistralai/mistral-7b-instruct:free',
+  ];
+  orKeys.forEach((key, ki) => {
+    OR_MODELS.forEach((model, mi) => {
+      list.push({ type: 'openrouter', key, model, label: `or-k${ki + 1}-m${mi + 1}` });
+    });
+  });
 
   return list;
 }
