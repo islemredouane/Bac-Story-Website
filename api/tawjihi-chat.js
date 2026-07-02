@@ -155,6 +155,13 @@ function pickSections(sections) {
       if (body) out.push(`${want.label} (${match}): ${body}`);
     }
   }
+  // Fallback: if no sections matched, include first 2 by position (handles Darija-titled specs)
+  if (out.length === 0) {
+    Object.entries(sections).slice(0, 2).forEach(([title, content]) => {
+      const body = trim(content, 400);
+      if (body) out.push(`${title}: ${body}`);
+    });
+  }
   return out;
 }
 
@@ -211,7 +218,7 @@ function tokenize(str) {
 
 function specText(spec) {
   const sectionText = Object.values(spec.sections || {}).join(' ');
-  return `${spec.name_ar} ${spec.name_fr} ${spec.dataName} ${spec.id} ${sectionText}`;
+  return `${spec.name_ar} ${spec.name_fr} ${spec.dataName || ''} ${spec.id} ${sectionText}`;
 }
 
 /* Score every speciality against the user's message; return top selection. */
@@ -245,6 +252,25 @@ function retrieve(message, conversation, profile, k = 6) {
       if (nl.length >= 2 && rawQuery.includes(nl)) {
         score += 12;
         named = true;
+      } else {
+        // Token-level partial boost: "طب" matches "تخصص الطب – MÉDECINE"
+        const nameTokens = tokenize(nl);
+        for (const qt of queryTokens) {
+          if (qt.length >= 3 && nameTokens.includes(qt)) {
+            score += 6;
+            named = true;
+            break;
+          }
+        }
+      }
+    }
+    // ID token boost: "esi" matches "esi-alger"
+    const idTokens = spec.id.split('-');
+    for (const qt of queryTokens) {
+      if (qt.length >= 3 && idTokens.includes(qt)) {
+        score += 4;
+        named = true;
+        break;
       }
     }
     // Stream-fit boost: speciality accepts the student's stream.
@@ -262,9 +288,8 @@ function retrieve(message, conversation, profile, k = 6) {
 
   scored.sort((a, b) => b.score - a.score);
 
-  // AI-2: If every score is 0, return empty — don't inject misleading CS-heavy defaults.
-  const allZero = scored.every((s) => s.score === 0);
-  if (allZero) return [];
+  // AI-2: If top score < 3 (only common-word overlap, no name/id match), return empty → triggers web search.
+  if ((scored[0]?.score ?? 0) < 3) return [];
 
   // Always include any explicitly-named speciality, then fill with top scorers.
   const selected = [];
@@ -364,7 +389,7 @@ function buildSystemPrompt(profile, contextBlock, guideBlock, orientationMode = 
 
 # شخصيتك ولغتك
 - أخ كبير محبّ وصادق، بالدارجة الجزائرية الدافئة.
-- ترد بنفس لغة السؤال (عربية / فرنسية / دارجة).
+- الأساس دارجة جزائرية — إذا سألك المستخدم بالفرنسية رد بالفرنسية، إذا سألك بالعربية الفصحى رد بالعربية الفصحى.
 
 # حدود اختصاصك (AI-15)
 إذا سأل المستخدم عن موضوع لا علاقة له بالتوجيه الجامعي الجزائري (هجرة، منح خارجية، أسئلة شخصية...)، اعتذر بأدب وأخبره أنك متخصص في التوجيه الجامعي الجزائري فقط.
@@ -454,7 +479,11 @@ ${p.stream ? `ملاحظة أهليّة (AI-10): المستخدم في شعبة 
 - ليسانس LMD: 3 سنوات | ماستر LMD: 2 سنوات | دكتوراه: 3 سنوات
 
 ## قبول الشعب في الطب وعلوم الصحة:
-- الطب، الصيدلة، طب الأسنان، البيطرة: تقبل فقط علوم تجريبية ورياضيات (لا يُقبل تقني رياضي)
+- الطب، الصيدلة، طب الأسنان: الأولوية 1 علوم تجريبية، الأولوية 2 رياضيات، الأولوية 3 تقني رياضي (مقبول في بعض الولايات والجامعات)
+- شرط التأهل: معدل البكالوريا ≥ 14/20 للمشاركة في التوجيه الطبي
+- المعدلات الوطنية 2025: طب 16.65/17.15 | صيدلة 16.26/16.76 | طب أسنان 16.99/17.50
+- البيطرة: تقبل علوم تجريبية ورياضيات — معدل ≥ 14/20 شرط التأهل
+- المعدلات تختلف حسب الولاية — الجنوب عادةً أقل تنافسية من الشمال
 
 ## شعبة تسيير واقتصاد — التخصصات الجامعية المتاحة (بمعدل ≥ 10):
 علوم اقتصادية تجارية وتسيير (SECSG)، الحقوق، علم الاجتماع، الإعلام والاتصال
@@ -472,13 +501,15 @@ ${p.stream ? `ملاحظة أهليّة (AI-10): المستخدم في شعبة 
 - المستشفى الجامعي للطب في العاصمة: Mustapha Pacha, Lamine Debaghine, Nafissa Hamoud
 - جامعة علوم الصحة (الزيانية) = المؤسسة الجديدة للطب في الجزائر العاصمة (منذ 2023)
 
-## مدارس الإعلام الآلي في الجزائر — ترتيب الجودة (اتبعه دائماً):
-عندما يسأل الطالب عن "أفضل مدارس الإعلام الآلي" أو "مدارس الإعلام الآلي في الجزائر"، رتّبها هكذا بالضبط:
-1. **ESTIN** (أميزور – بجاية) — أفضل مدرسة إعلام آلي في الجزائر جودةً وبيئةً أكاديمية، تنافسية وخريجوها مطلوبون جداً. (id: estin)
-2. **ESI الجزائر العاصمة** — الأكثر تنافسية من حيث معدل القبول (الأعلى بين الثلاث). (id: esi-alger)
-3. **ESI SBA** (سيدي بلعباس) — جيدة جداً، نفس نظام ESI الجزائر بمعدلات أقل. (id: esi-sba)
-4. **ENSTA** (درقانة – الجزائر) — مدرسة جيدة للإعلام الآلي والتكنولوجيات المتقدمة، مستوى قريب من ESI SBA. (id: ensta)
-تنبيه: ESI قليعة (id: esi-kolea) هي **المدرسة العليا للضرائب** — ليست مدرسة إعلام آلي على الإطلاق.
+## مدارس الإعلام الآلي في الجزائر — الحقيقة الكاملة:
+هذه المدارس الأربع تتنافس في نفس المسابقة الوطنية — نفس نظام الدراسة، نفس الشهادة. الفرق في البيئة والتخصصات:
+1. **ESTIN** أميزور بجاية (2019) — الأحدث والأفضل من حيث البنية التحتية والإمكانيات المادية وحداثة التخصصات. تدرّس بالإنجليزية. تخصصات حصرية: IoT (يبدأ هذا العام، الوحيدة في الجزائر)، AI، أمن سيبراني. علوم 17.45 / رياضيات 17.79 / تقني 18.15. (id: estin)
+2. **ESI الجزائر** (واد سمار) — الأقدم (1969) والأعلى معدل قبول (الأكثر تنافسية). تخصصات: IS، ISI، GL، SID. علوم 18.55 / رياضيات 18.19 / تقني 18.93. (id: esi-alger)
+3. **ESI SBA** سيدي بلعباس (2014) — علوم 17.36 / رياضيات 17.70 / تقني 18.06. (id: esi-sba)
+4. **ENSTA** الجزائر درقانة (2023) — علوم 17.39 / رياضيات 17.15 / تقني 18.10. (id: ensta)
+⚠️ تنبيه مهم: **ESI قليعة** (id: esi-kolea) مدرسة تجارية/اقتصادية — ليست مدرسة إعلام آلي على الإطلاق. لا تذكرها كمدرسة إعلام آلي أبداً.
+⚠️ لا توجد مدرسة اسمها "ENST" أو "ESTA" للإعلام الآلي في الجزائر — هذه أسماء غير موجودة، لا تذكرها.
+مدارس قطب سيدي عبد الله الجديدة (أعلى المعدلات): ENSIA ذكاء اصطناعي 18.59 | ENSCS أمن سيبراني 18.34 | ENSAS أنظمة مستقلة 18.21.
 
 ${guideBlock ? `${guideBlock}\n` : ''}
 ## معرّفات التخصصات الصحيحة الوحيدة (id) — أي id خارج هذه القائمة ممنوع منعاً باتاً في spec-cards/compare/verdict:
@@ -574,7 +605,10 @@ function toGeminiHistory(msgs) {
     const role = m.role === 'assistant' ? 'model' : 'user';
     const text = String(m.content || '').trim();
     if (!text) continue;
-    if (out.length > 0 && out[out.length - 1].role === role) continue;
+    if (out.length > 0 && out[out.length - 1].role === role) {
+      out[out.length - 1].parts[0].text += '\n' + text;
+      continue;
+    }
     out.push({ role, parts: [{ text }] });
   }
   while (out.length > 0 && out[0].role !== 'user') out.shift();
