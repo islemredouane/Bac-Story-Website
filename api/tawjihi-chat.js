@@ -221,6 +221,22 @@ function specText(spec) {
   return `${spec.name_ar} ${spec.name_fr} ${spec.dataName || ''} ${spec.id} ${sectionText}`;
 }
 
+/* ---- Intent detection helpers for retrieve() -------------------------------- */
+const ENSIA_SIGNALS = ['ensia', 'ذكاء اصطناعي', 'ذكاء الاصطناعي', 'ia artificielle', 'intelligence artificielle', 'ai school', 'مدرسة الذكاء', 'سيدي عبد الله'];
+const CPGE_SIGNALS = ['cpge', 'classes préparatoires', 'prépa', 'prepa', 'تحضيرية', 'كلاس بريبا', 'mpsi', 'pcsi', 'mp ', ' pc ', 'psi', 'مرحلة تحضيرية', 'مدرسة عليا مسابقة', 'grandes écoles'];
+const WISHLIST_SIGNALS = ['بطاقة الرغبات', 'bطاقة', 'carte de voeux', 'قائمة الرغبات', 'اختيار التخصص', 'كيف أملأ', 'كيف نملا', 'ماذا أختار', 'واش نختار', 'نصائح التوجيه', 'ترتيب الرغبات'];
+const ORIENTATION_SIGNALS = ['توجيه الجامعي', 'التوجيه الجامعي', 'كيف يشتغل التوجيه', 'مراحل التوجيه', 'خطوات التوجيه', 'inscription en ligne', 'نتائج التوجيه', 'classement', 'résultats orientation'];
+
+function detectIntent(rawQuery) {
+  const q = rawQuery.toLowerCase();
+  return {
+    ensia:       ENSIA_SIGNALS.some((s) => q.includes(s)),
+    cpge:        CPGE_SIGNALS.some((s) => q.includes(s)),
+    wishlist:    WISHLIST_SIGNALS.some((s) => q.includes(s)),
+    orientation: ORIENTATION_SIGNALS.some((s) => q.includes(s)),
+  };
+}
+
 /* Score every speciality against the user's message; return top selection. */
 function retrieve(message, conversation, profile, k = 6) {
   const userCode = streamCode(profile?.stream);
@@ -233,6 +249,9 @@ function retrieve(message, conversation, profile, k = 6) {
     .join(' ');
   const queryTokens = new Set(tokenize(`${message} ${recent}`));
   const rawQuery = `${message} ${recent}`.toLowerCase();
+
+  // Detect special intents early — these inject static knowledge blocks rather than KB entries.
+  const intent = detectIntent(rawQuery);
 
   const scored = SPECIALITIES.map((spec) => {
     const haystack = specText(spec).toLowerCase();
@@ -273,6 +292,11 @@ function retrieve(message, conversation, profile, k = 6) {
         break;
       }
     }
+    // Intent-based boosts — surface high-signal entries for special queries.
+    if (intent.ensia && (spec.id === 'ensia' || String(spec.name_ar || '').includes('ذكاء'))) {
+      score += 15;
+      named = true;
+    }
     // Stream-fit boost: speciality accepts the student's stream.
     if (minKey && minKey !== 'general' && spec.resolvedAverages) {
       const v = spec.resolvedAverages[minKey];
@@ -289,7 +313,8 @@ function retrieve(message, conversation, profile, k = 6) {
   scored.sort((a, b) => b.score - a.score);
 
   // AI-2: If top score < 3 (only common-word overlap, no name/id match), return empty → triggers web search.
-  if ((scored[0]?.score ?? 0) < 3) return [];
+  // Exception: intent signals detected → always return context (intent blocks added at prompt-build time).
+  if ((scored[0]?.score ?? 0) < 3 && !intent.ensia && !intent.cpge && !intent.wishlist && !intent.orientation) return [];
 
   // Always include any explicitly-named speciality, then fill with top scorers.
   const selected = [];
@@ -380,7 +405,7 @@ function buildGuideContext(profile) {
 }
 
 /* ---- System prompt (CHAT-CONTRACT.md §4) -------------------------------- */
-function buildSystemPrompt(profile, contextBlock, guideBlock, orientationMode = false, emptyContext = false) {
+function buildSystemPrompt(profile, contextBlock, guideBlock, orientationMode = false, emptyContext = false, intent = {}) {
   const p = profile || {};
   const code = streamCode(p.stream);
   const streamLabel = code ? STREAM_AR[code] || p.stream : p.stream || 'غير محددة';
@@ -509,8 +534,69 @@ ${p.stream ? `ملاحظة أهليّة (AI-10): المستخدم في شعبة 
 4. **ENSTA** الجزائر درقانة (2023) — علوم 17.39 / رياضيات 17.15 / تقني 18.10. (id: ensta)
 ⚠️ تنبيه مهم: **ESI قليعة** (id: esi-kolea) مدرسة تجارية/اقتصادية — ليست مدرسة إعلام آلي على الإطلاق. لا تذكرها كمدرسة إعلام آلي أبداً.
 ⚠️ لا توجد مدرسة اسمها "ENST" أو "ESTA" للإعلام الآلي في الجزائر — هذه أسماء غير موجودة، لا تذكرها.
-مدارس قطب سيدي عبد الله الجديدة (أعلى المعدلات): ENSIA ذكاء اصطناعي 18.59 | ENSCS أمن سيبراني 18.34 | ENSAS أنظمة مستقلة 18.21.
+مدارس قطب سيدي عبد الله الجديدة (أعلى المعدلات): ENSIA ذكاء اصطناعي — علوم تجريبية 18.59 / رياضيات 18.95 / تقني 19.37 | ENSCS أمن سيبراني 18.34 | ENSAS أنظمة مستقلة 18.21.
 
+## مسار التوجيه الجامعي 2025 — خطوة بخطوة (الطلاب يسألون دائماً عن هذا)
+1. **التسجيل على المنصة الرقمية** — بعد إعلان نتائج البكالوريا مباشرة، يفتح الديوان الوطني للامتحانات (ONEC) بوابة inscription.mesrs.dz لمدة أسبوع تقريباً.
+2. **إدخال بطاقة الرغبات** — يختار الطالب ما يصل إلى 20 رغبة مرتبة حسب الأولوية (من الأعلى طموحاً إلى الأقل). كل رغبة = مؤسسة + تخصص.
+3. **التصنيف الآلي (Classement)** — يرتب النظام الطلاب على كل رغبة بالمعدل الموزون (أو العام حسب الميدان) مقارنةً بالطاقة الاستيعابية.
+4. **إعلان نتائج التوجيه** — تظهر على البوابة في غضون أسبوع إلى أسبوعين. يحصل الطالب على أعلى رغبة ممكنة ضمن قائمته.
+5. **التسجيل الجامعي الفعلي** — يتوجه الطالب للمؤسسة التي وُجِّه إليها، ومعه وثائق البكالوريا والهوية، ويُسجَّل فيها رسمياً.
+⚠️ لا يوجد "عطلة ثانية" أو إعادة توجيه بعد الإعلان في الغالب — الاختيار نهائي.
+
+## معدل التوجيه الموزون — الصيغة الرسمية (MESRS 2025)
+```
+المعدل الموزون = (معدل البكالوريا × 2 + علامة المادة الأساسية) ÷ 3
+```
+**المادة الأساسية حسب الميدان:**
+- رياضيات وإعلام آلي (MI — ESI, ESTIN, ENSIA...): **الرياضيات**
+- علوم وتكنولوجيا (ST): **الفيزياء**
+- علوم المادة (SM): **الفيزياء**
+- طب / صيدلة / طب أسنان: **علوم الطبيعة والحياة**
+- حقوق وعلوم سياسية: **اللغة العربية**
+- اقتصاد وتسيير وتجارة (SEGC): **التسيير أو الاقتصاد**
+- لغات أجنبية (LLE): **اللغة الأجنبية المختارة**
+⟹ مثال: طالب رياضيات، معدل باك 17/20، علامة رياضيات 18/20 → موزون = (17×2+18)÷3 = **17.33**
+⟹ مثال: علوم تجريبية، معدل باك 16/20، علامة SNV 15/20 → موزون (للطب) = (16×2+15)÷3 = **15.67**
+
+## CPGE — Classes Préparatoires (التحضيريات) — مختلفة عن المدارس العليا المباشرة
+كثير من الطلاب يخلطون بين CPGE والقبول المباشر في المدارس العليا — هذا الفرق جوهري:
+- **CPGE = مرحلة تحضيرية 2 سنوات** في ثانويات/مؤسسات مختارة (MPSI، PCSI للسنة 1 → MP، PC، PSI للسنة 2).
+- في نهاية السنة الثانية، يتقدم الطالب لـ**مسابقة وطنية موحدة** (Concours National) يتنافس فيها على مقاعد المدارس العليا الهندسية (ENP، USTHB هندسة...).
+- **تختلف عن** القبول المباشر بالمعدل في ESI/ESTIN/ENSIA/ENS — تلك مدارس يُوجَّه إليها الطالب مباشرة عبر بطاقة الرغبات.
+- CPGE تُقدَّم في مؤسسات مثل Lycée Ferhat Abbas, Lycée technique d'Oran, وغيرها — لها كود FRN في بطاقة الرغبات.
+- سنوات الدراسة: 2 سنوات تحضيري + 3 سنوات في المدرسة العليا = **5 سنوات مهندس دولة**.
+⟹ نصيحة: إذا كان هدف الطالب مدرسة هندسية عليا وعلامات الرياضيات ممتازة، CPGE خيار استراتيجي.
+
+## ENSIA — المدرسة الوطنية العليا للذكاء الاصطناعي
+- **الموقع**: سيدي عبد الله (قطب التكنولوجيا الجديد) — ولاية الجزائر
+- **التأسيس**: 2021 (من أحدث المدارس العليا في الجزائر)
+- **التخصص**: ذكاء اصطناعي، تعلم الآلة (Machine Learning)، روبوتيك
+- **لغة التدريس**: الإنجليزية أساساً
+- **الشهادة**: مهندس دولة 5 سنوات (2 تحضيري + 3 تخصص)
+- **معدلات القبول 2025**: علوم تجريبية **18.59** | رياضيات **18.95** | تقني رياضي **19.37** (الأعلى في الجزائر)
+- **الأولوية**: الشعبتان المقبولتان هما رياضيات (P1) وعلوم تجريبية (P2) وتقني رياضي (P3)
+- **مقارنة**: أعلى من ESI الجزائر في الشعبة العلمية — المنافسة شرسة جداً
+⚠️ لا تخلط بين ENSIA وESI أو ENSTA — كل واحدة مدرسة مستقلة بتخصصات مختلفة.
+
+## نصائح بطاقة الرغبات — استراتيجية ملء القائمة
+1. **الترتيب مهم جداً** — يُوجَّه الطالب لأعلى رغبة ممكنة، لذا ضع الأحلام أولاً وليس الخيارات الآمنة.
+2. **لا تترك مقاعد فارغة** — الطالب الذي لا يختار 20 رغبة يضيع فرصاً مجانية.
+3. **الخيارات الجهوية أقل تنافسية** — التسجيل الجهوي (FRR) يمنح فرصة أكبر للولايات البعيدة.
+4. **تنويع الاختيارات** — ضع مزيجاً من الطموحات العالية (طب، ESI، ENSIA) + خيارات وسط + خيارات آمنة (جامعة قريبة بتخصص مناسب).
+5. **التحقق من الأهلية قبل الاختيار** — الاختيار بدون استيفاء شروط الشعبة أو الحد الأدنى يُلغى تلقائياً.
+6. **الولاية والمؤسسة** — بعض التخصصات متاحة فقط في ولايات معينة (FRL) — تأكد أن رغبتك تطابق دائرتك الجغرافية.
+
+## التوجيه شبه الطبي (وزارة الصحة) — نظام مختلف تماماً
+- التوجيه شبه الطبي **لا يمر عبر بوابة MESRS** — له منصة وزارة الصحة المستقلة.
+- **التخصصات**: تمريض، قبالة، علاج طبيعي (kiné)، تغذية، مخبرية، أشعة، صيدلة مساعدة...
+- **شرط الحد الأدنى**: لا يوجد حد أدنى رسمي للمعدل — الترتيب يكون بالمعدل العام ضمن مقاعد الولاية (FRL).
+- **التقويم**: مختلف عن الجامعي — التسجيل يفتح في فترة مستقلة، تابع إعلانات وزارة الصحة.
+- **التنافس**: يختلف كثيراً من ولاية لأخرى — الولايات الكبرى (الجزائر، وهران، قسنطينة) أكثر تنافسية.
+- **مدة الدراسة**: 3 سنوات لمعظم التخصصات.
+⚠️ خطأ شائع: الطلاب يعتقدون أن معدل 14/20 شرط للتوجيه شبه الطبي — هذا غير صحيح، الشرط الوحيد هو النجاح في البكالوريا.
+
+${intent.ensia ? `\n## ⭐ تنبيه: الطالب يسأل عن ENSIA تحديداً — قدّم المعلومات الكاملة أعلاه بشكل بارز.\n` : ''}${intent.cpge ? `\n## ⭐ تنبيه: الطالب يسأل عن CPGE — اشرح الفرق بين التحضيريات والقبول المباشر بوضوح.\n` : ''}${intent.wishlist ? `\n## ⭐ تنبيه: الطالب يسأل عن بطاقة الرغبات — قدّم نصائح الاستراتيجية الكاملة ومراحل التوجيه.\n` : ''}${intent.orientation ? `\n## ⭐ تنبيه: الطالب يسأل عن مسار التوجيه — اشرح الخطوات الخمس بشكل واضح.\n` : ''}
 ${guideBlock ? `${guideBlock}\n` : ''}
 ## معرّفات التخصصات الصحيحة الوحيدة (id) — أي id خارج هذه القائمة ممنوع منعاً باتاً في spec-cards/compare/verdict:
 ${SPECIALITIES.map((s) => s.id).join(' · ')}
@@ -758,7 +844,9 @@ export default async function handler(req, res) {
   const contextBlock = buildContext(selected);
   // Guide context: official program eligibility from الدليل الوزاري (stream + wilaya aware)
   const guideBlock = buildGuideContext(profile);
-  const systemPrompt = buildSystemPrompt(profile, contextBlock, guideBlock, orientationMode, selected.length === 0);
+  // Intent signals for targeted knowledge-block injection in the system prompt
+  const intent = detectIntent(`${message} ${(messages || []).slice(-4).map((m) => m.content || '').join(' ')}`);
+  const systemPrompt = buildSystemPrompt(profile, contextBlock, guideBlock, orientationMode, selected.length === 0, intent);
 
   // Stream as SSE
   res.setHeader('Content-Type', 'text/event-stream');
@@ -843,4 +931,4 @@ export default async function handler(req, res) {
 }
 
 /* ---- Exports for local verification harness (no side effects) ---- */
-export { retrieve, buildContext, buildSystemPrompt, formatAverages, SPECIALITIES };
+export { retrieve, buildContext, buildSystemPrompt, formatAverages, SPECIALITIES, detectIntent };
