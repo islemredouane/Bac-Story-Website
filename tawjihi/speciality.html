@@ -64,6 +64,14 @@
 
                 <a class="detail-back" href="specialities.html" onclick="event.preventDefault(); history.length > 1 ? history.back() : location.href='specialities.html'"><i class="fas fa-arrow-right"></i> رجوع لدليل التخصصات</a>
 
+                <!-- ===== HERO IMAGE ===== -->
+                <div id="specHeroWrap" style="display:none;margin-bottom:var(--sp-4)">
+                    <img id="specHeroImg" alt="" style="
+                        width:100%;max-height:240px;object-fit:cover;
+                        border-radius:var(--r-lg);display:block;
+                        box-shadow:var(--shadow-sm);">
+                </div>
+
                 <!-- ===== HEADER ===== -->
                 <header class="detail-header" id="specHeader">
                     <span class="detail-eyebrow" id="specEyebrow"><i class="fas fa-compass"></i> جاري التحميل…</span>
@@ -194,6 +202,17 @@
   /* ---- PAGE META ---- */
   document.title = `توجيهي · ${spec.name}`;
   document.getElementById('pageInner').style.setProperty('--cat', spec.catVar || 'var(--primary)');
+
+  /* ---- HERO IMAGE ---- */
+  const heroImg  = spec.img || 'images/placeholder.jpeg';
+  const heroWrap = document.getElementById('specHeroWrap');
+  const heroEl   = document.getElementById('specHeroImg');
+  if (heroImg && heroWrap && heroEl) {
+    heroEl.src = heroImg;
+    heroEl.alt = spec.name;
+    heroWrap.style.display = '';
+    heroEl.onerror = () => { heroWrap.style.display = 'none'; };
+  }
 
   /* ---- EYEBROW (category badge) ---- */
   document.getElementById('specEyebrow').innerHTML =
@@ -414,15 +433,17 @@
     avgSection.style.display = 'none';
   } else {
     document.getElementById('specAvgTbody').innerHTML = avgHistory.map(r => {
-      const raw  = (r.y2025 || 0) - (r.y2024 || 0);
-      const diff = Math.abs(raw).toFixed(2);
-      const up   = raw >= 0;
-      const trendHtml = up
-        ? `<span class="trend-up"><i class="fas fa-arrow-up"></i> +${diff}</span>`
-        : `<span class="trend-down"><i class="fas fa-arrow-down"></i> −${diff}</span>`;
+      const has2024   = typeof r.y2024 === 'number' && r.y2024 > 0;
+      const raw       = has2024 ? (r.y2025 || 0) - r.y2024 : null;
+      const diff      = raw != null ? Math.abs(raw).toFixed(2) : null;
+      const trendHtml = diff == null
+        ? '<span style="color:var(--text-muted)">—</span>'
+        : raw >= 0
+          ? `<span class="trend-up"><i class="fas fa-arrow-up"></i> +${diff}</span>`
+          : `<span class="trend-down"><i class="fas fa-arrow-down"></i> −${diff}</span>`;
       return `<tr>
         <td>${r.uni}</td>
-        <td>${(r.y2024 || 0).toFixed(2)}</td>
+        <td>${has2024 ? r.y2024.toFixed(2) : '<span style="color:var(--text-muted)">—</span>'}</td>
         <td><span class="val">${(r.y2025 || 0).toFixed(2)}</span></td>
         <td>${trendHtml}</td>
       </tr>`;
@@ -517,13 +538,14 @@
     syncWishBtn();
   });
 
-  /* ---- "Ask AI" cross-link: pre-fill chat with spec name ---- */
+  /* ---- "Ask AI" cross-link: deep-link to app.html?q=... ---- */
+  const aiQ    = encodeURIComponent(`أعطني معلومات تفصيلية عن ${spec.name}${spec.nameEn ? ' (' + spec.nameEn + ')' : ''}`);
+  const aiHref = `app.html?q=${aiQ}`;
   document.querySelectorAll('a[href="app.html"]').forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      const q = `أعطني معلومات تفصيلية عن ${spec.name}${spec.nameEn ? ' (' + spec.nameEn + ')' : ''}`;
-      sessionStorage.setItem('tw-pending-q', q);
-      location.href = 'app.html';
+    link.href = aiHref;
+    // also keep sessionStorage for apps that read it
+    link.addEventListener('click', () => {
+      sessionStorage.setItem('tw-pending-q', decodeURIComponent(aiQ));
     });
   });
 })();
