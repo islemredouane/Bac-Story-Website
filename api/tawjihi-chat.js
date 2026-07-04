@@ -484,9 +484,17 @@ function retrieve(message, conversation, profile, k = 6) {
 
   scored.sort((a, b) => b.score - a.score);
 
+  // Top retrieval score is exposed on the returned array (result.topScore) so the
+  // handler can decide whether to augment with web search (low-confidence trigger).
+  const topScore = scored[0]?.score ?? 0;
+
   // AI-2: If top score < 3 (only common-word overlap, no name/id match), return empty → triggers web search.
   // Exception: intent signals detected → always return context (intent blocks added at prompt-build time).
-  if ((scored[0]?.score ?? 0) < 3 && !intent.ensia && !intent.cpge && !intent.wishlist && !intent.orientation) return [];
+  if (topScore < 3 && !intent.ensia && !intent.cpge && !intent.wishlist && !intent.orientation) {
+    const none = [];
+    none.topScore = topScore;
+    return none;
+  }
 
   // Always include any explicitly-named speciality, then fill with top scorers.
   const selected = [];
@@ -503,7 +511,9 @@ function retrieve(message, conversation, profile, k = 6) {
     selected.push(s.spec);
     chosen.add(s.spec.id);
   }
-  return selected.slice(0, Math.max(k, selected.length));
+  const result = selected.slice(0, Math.max(k, selected.length));
+  result.topScore = topScore;
+  return result;
 }
 
 /* Render the selected specialities into a compact, bounded context string.
@@ -579,8 +589,103 @@ function buildGuideContext(profile) {
   return lines.join('\n');
 }
 
+/* ============================================================
+   WEB SEARCH AUGMENTATION (Tavily) — optional, key-gated
+   Enabled only when TAVILY_API_KEY is set; otherwise the whole
+   feature is inert and the request flow is byte-identical.
+   Design doc: tawjihi/data/kb/_WEBSEARCH-DESIGN.md
+   ============================================================ */
+
+/* Trigger threshold on the retrieve() scoring scale.
+   A name/id match contributes ≥ +4 (id token) / +6 (name token) / +12 (substring);
+   below 6 the top hit was matched by generic word overlap only → KB likely can't
+   answer directly, so we augment with a web search. */
+const WEB_SEARCH_SCORE_THRESHOLD = 6;
+
+/* Time-sensitive intent — news / calendar / deadline / new-programme queries
+   where the static KB is stale by construction. */
+const TIME_SENSITIVE_SIGNALS = [
+  'التسجيلات 2026', 'التسجيلات ٢٠٢٦', 'تسجيلات 2026', 'تسجيلات ٢٠٢٦',
+  '2026', '٢٠٢٦',
+  'رزنامة', 'موعد', 'مواعيد', 'آخر أجل', 'اخر اجل', 'آخر اجل',
+  'جديد', 'جديدة', 'أخبار', 'اخبار', 'فتح تخصص', 'فتح تخصصات',
+  'calendrier', 'date limite', 'deadline', 'nouveau', 'nouvelle', 'actualité',
+];
+function isTimeSensitive(rawQuery) {
+  const q = String(rawQuery || '').toLowerCase();
+  return TIME_SENSITIVE_SIGNALS.some((s) => q.includes(s));
+}
+
+/* Official / reliable Algerian sources first; Tavily supports wildcard domains. */
+const TAVILY_PREFERRED_DOMAINS = [
+  'mesrs.dz',
+  'inscription.mesrs.dz',
+  'aps.dz',
+  '*.edu.dz',
+  '*.dz',
+];
+
+async function tavilyCall(apiKey, query, includeDomains, signal) {
+  const resp = await fetch('https://api.tavily.com/search', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      api_key: apiKey,
+      query,
+      max_results: 3,
+      search_depth: 'basic',
+      ...(includeDomains ? { include_domains: includeDomains } : {}),
+    }),
+    signal,
+  });
+  if (!resp.ok) throw new Error(`Tavily HTTP ${resp.status}`);
+  const data = await resp.json();
+  return Array.isArray(data.results) ? data.results : [];
+}
+
+/* Run the search under a single hard 3.5 s deadline (shared by the optional
+   unrestricted fallback). Never throws — returns null on any failure/timeout
+   so the chat request always proceeds. */
+async function webSearch(query) {
+  const apiKey = process.env.TAVILY_API_KEY;
+  if (!apiKey) return null;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 3500);
+  try {
+    let results = await tavilyCall(apiKey, query, TAVILY_PREFERRED_DOMAINS, controller.signal);
+    if (results.length === 0) {
+      // Domain-restricted search found nothing — retry unrestricted within the same deadline.
+      results = await tavilyCall(apiKey, query, null, controller.signal);
+    }
+    return results.slice(0, 3);
+  } catch (err) {
+    console.log('[web-search] skipped:', err?.message || err);
+    return null;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+/* Render results as a clearly-labeled system-prompt block. '' when nothing usable. */
+function buildWebBlock(results) {
+  if (!results || results.length === 0) return '';
+  const lines = ['## نتائج بحث من الإنترنت (تحقق منها)'];
+  for (const r of results.slice(0, 3)) {
+    const title = trim(r.title, 120) || 'بدون عنوان';
+    const snippet = trim(r.content, 350);
+    lines.push(`- **${title}**${snippet ? ` — ${snippet}` : ''}\n  المصدر: ${r.url || 'غير معروف'}`);
+  }
+  lines.push(
+    '⚠️ قواعد استعمال نتائج الإنترنت (إلزامية):\n' +
+    '1. هذه النتائج **ثانوية** — قاعدة المعرفة أعلاه لها الأولوية دائماً عند أي تعارض.\n' +
+    '2. إذا استعملت معلومة من نتيجة، **اذكر مصدرها** (اسم الموقع أو الرابط) صراحة في ردك.\n' +
+    '3. ممنوع منعاً باتاً أخذ أي **معدل قبول أو رقم رسمي** من هذه النتائج — الأرقام الرسمية من قاعدة المعرفة فقط.'
+  );
+  return lines.join('\n');
+}
+
 /* ---- System prompt (CHAT-CONTRACT.md §4) -------------------------------- */
-function buildSystemPrompt(profile, contextBlock, guideBlock, orientationMode = false, emptyContext = false, intent = {}, wilayaAr = null) {
+function buildSystemPrompt(profile, contextBlock, guideBlock, orientationMode = false, emptyContext = false, intent = {}, wilayaAr = null, webBlock = '') {
   const p = profile || {};
   const code = streamCode(p.stream);
   const streamLabel = code ? STREAM_AR[code] || p.stream : p.stream || 'غير محددة';
@@ -833,7 +938,7 @@ ${p.stream ? `ملاحظة أهليّة (AI-10): المستخدم في شعبة 
 ⟹ إجمالي مسار طبيب متخصص: **11 إلى 13 سنة** من الباك حتى التخصص الكامل.
 
 ${intent.ensia ? `\n## ⭐ تنبيه: الطالب يسأل عن ENSIA تحديداً — قدّم المعلومات الكاملة أعلاه بشكل بارز.\n` : ''}${intent.cpge ? `\n## ⭐ تنبيه: الطالب يسأل عن CPGE — اشرح الفرق بين التحضيريات والقبول المباشر بوضوح.\n` : ''}${intent.wishlist ? `\n## ⭐ تنبيه: الطالب يسأل عن بطاقة الرغبات — قدّم نصائح الاستراتيجية الكاملة ومراحل التوجيه.\n` : ''}${intent.orientation ? `\n## ⭐ تنبيه: الطالب يسأل عن مسار التوجيه — اشرح الخطوات الخمس بشكل واضح.\n` : ''}${wilayaAr ? `\n## ⭐ سؤال ولائي: الطالب يسأل عن ولاية ${wilayaAr} — أجب حصرياً بأرقام سطر "معدلات القبول 2025 في ${wilayaAr}" الموجود في قاعدة المعرفة أدناه لكل تخصص. إذا ورد أن التخصص غير متوفر في هذه الولاية أو لم يوجد سطر ولائي، قل ذلك صراحة وانصح بالتحقق من منصة التوجيه الرسمية — لا تخمّن ولا تستنتج رقماً أبداً.\n` : ''}
-${guideBlock ? `${guideBlock}\n` : ''}
+${guideBlock ? `${guideBlock}\n` : ''}${webBlock ? `${webBlock}\n` : ''}
 ## معرّفات التخصصات الصحيحة الوحيدة (id) — أي id خارج هذه القائمة ممنوع منعاً باتاً في spec-cards/compare/verdict:
 ${SPECIALITIES.map((s) => s.id).join(' · ')}
 
@@ -1085,7 +1190,24 @@ export default async function handler(req, res) {
   const guideBlock = buildGuideContext(profile);
   // Intent signals for targeted knowledge-block injection in the system prompt
   const intent = detectIntent(`${message} ${recentText}`);
-  const systemPrompt = buildSystemPrompt(profile, contextBlock, guideBlock, orientationMode, selected.length === 0, intent, wilayaKey ? wilayaArName(wilayaKey) : null);
+
+  // Optional Tavily web-search augmentation (inert unless TAVILY_API_KEY is set).
+  // Trigger: low-confidence retrieval (topScore < threshold — no explicit name/id
+  // match in the KB) OR time-sensitive intent (news / calendar / deadlines / new
+  // programmes). At most one search per request, hard 3.5 s deadline, and any
+  // failure degrades silently to the normal KB-only flow.
+  let webBlock = '';
+  if (process.env.TAVILY_API_KEY) {
+    const topScore = selected.topScore ?? 0;
+    const timeSensitive = isTimeSensitive(`${message} ${recentText}`);
+    if (topScore < WEB_SEARCH_SCORE_THRESHOLD || timeSensitive) {
+      const webResults = await webSearch(String(message || '').slice(0, 300));
+      webBlock = buildWebBlock(webResults);
+      if (webBlock) console.log(`[web-search] injected ${Math.min(webResults.length, 3)} result(s) (topScore=${topScore}, timeSensitive=${timeSensitive})`);
+    }
+  }
+
+  const systemPrompt = buildSystemPrompt(profile, contextBlock, guideBlock, orientationMode, selected.length === 0, intent, wilayaKey ? wilayaArName(wilayaKey) : null, webBlock);
 
   // Stream as SSE
   res.setHeader('Content-Type', 'text/event-stream');
@@ -1170,4 +1292,4 @@ export default async function handler(req, res) {
 }
 
 /* ---- Exports for local verification harness (no side effects) ---- */
-export { retrieve, buildContext, buildSystemPrompt, formatAverages, SPECIALITIES, detectIntent, detectWilaya, buildWilayaBlock, wilayaArName };
+export { retrieve, buildContext, buildSystemPrompt, formatAverages, SPECIALITIES, detectIntent, detectWilaya, buildWilayaBlock, wilayaArName, isTimeSensitive, buildWebBlock, WEB_SEARCH_SCORE_THRESHOLD };
