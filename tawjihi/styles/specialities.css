@@ -449,6 +449,27 @@
 .avg-table .trend-up { color: var(--cat-medical); font-weight: 700; }
 .avg-table .trend-down { color: var(--cat-science); font-weight: 700; }
 
+/* per-wilaya averages (collapsible detail section) */
+details.wilaya-avg-section > summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-3);
+}
+details.wilaya-avg-section > summary::-webkit-details-marker { display: none; }
+details.wilaya-avg-section > summary h2 { margin-bottom: 0; }
+details.wilaya-avg-section[open] > summary { margin-bottom: var(--sp-3); }
+details.wilaya-avg-section .wa-caret {
+    color: var(--text-faint);
+    transition: transform var(--t-fast) var(--ease);
+}
+details.wilaya-avg-section[open] .wa-caret { transform: rotate(180deg); }
+.wa-table th[data-key] { cursor: pointer; user-select: none; white-space: nowrap; }
+.wa-table th[data-key] .wa-sort { margin-inline-start: 4px; font-size: 0.8em; }
+.wa-table th[data-key].is-sorted .wa-sort { color: var(--cat, var(--primary)); }
+
 /* ============================================================
    Eligibility section (detail page)
    ============================================================ */

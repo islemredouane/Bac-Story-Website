@@ -450,6 +450,140 @@
     }).join('');
   }
 
+  /* ============================================================
+     PER-WILAYA ADMISSION AVERAGES (2025) — lazy-loaded from the KB
+     Fetched off the critical path (idle); the section is only
+     inserted when the KB has wilayaAverages for this specialty.
+     ============================================================ */
+  (function initWilayaAverages() {
+    /* catalog id → KB id (only for ids that differ) */
+    const KB_ID_MAP = {
+      esi: 'esi-alger', med: 'medcine', pharm: 'pharmacie', dent: 'medcine-dentaire',
+      archi: 'epau', info: 'informatique', esc: 'ehec', bio: 'biologie',
+      'genie-civil': 'gc', 'genie-elec': 'electro', 'genie-meca': 'gmec',
+      'marine-eng': 'marine', vet: 'vetrinaire', 'pharm-ind': 'pharmacie-industrielle',
+      'ensa-agro': 'ensa', essb: 'essbo',
+    };
+
+    /* KB wilaya keys (Latin) → Arabic display names */
+    const WILAYA_AR = {
+      'Adrar': 'أدرار', 'Aflou': 'أفلو', 'Ain Defla': 'عين الدفلى', 'Ain Temouchent': 'عين تموشنت',
+      'Alger': 'الجزائر', 'Annaba': 'عنابة', 'Barika': 'بريكة', 'Batna': 'باتنة', 'Bechar': 'بشار',
+      'Bejaia': 'بجاية', 'Biskra': 'بسكرة', 'Blida': 'البليدة', 'Bordj Bou Arreridj': 'برج بوعريريج',
+      'Bou Saada': 'بوسعادة', 'Bouira': 'البويرة', 'Boumerdes': 'بومرداس', 'Chlef': 'الشلف',
+      'Constantine': 'قسنطينة', 'Djelfa': 'الجلفة', 'El Bayadh': 'البيض', 'El Oued': 'الوادي',
+      'El Tarf': 'الطارف', 'Ghardaia': 'غرداية', 'Guelma': 'قالمة', 'Jijel': 'جيجل',
+      'Khenchela': 'خنشلة', 'Laghouat': 'الأغواط', 'Maghnia': 'مغنية', 'Mascara': 'معسكر',
+      'Medea': 'المدية', 'Mila': 'ميلة', 'Mostaganem': 'مستغانم', 'Msila': 'المسيلة',
+      'Naama': 'النعامة', 'National': 'وطني', 'Oran': 'وهران', 'Ouargla': 'ورقلة',
+      'Oum El Bouaghi': 'أم البواقي', 'Relizane': 'غليزان', 'Saida': 'سعيدة',
+      'Sci Islamiques Emir': 'العلوم الإسلامية · الأمير عبد القادر', 'Setif': 'سطيف',
+      'Sidi Bel Abbes': 'سيدي بلعباس', 'Skikda': 'سكيكدة', 'Souk Ahras': 'سوق أهراس',
+      'Tamanrasset': 'تمنراست', 'Tebessa': 'تبسة', 'Tiaret': 'تيارت', 'Tipaza': 'تيبازة',
+      'Tissemsilt': 'تيسمسيلت', 'Tizi Ouzou': 'تيزي وزو', 'Tlemcen': 'تلمسان', 'Touggourt': 'تقرت',
+    };
+
+    const escWa = (t) => String(t).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+    const kbId = KB_ID_MAP[spec.id] || spec.id;
+
+    function load() {
+      fetch('data/kb/specialities-kb.json')
+        .then(r => r.ok ? r.json() : null)
+        .then(kb => {
+          const list  = kb && Array.isArray(kb.specialities) ? kb.specialities : null;
+          const entry = list ? list.find(e => e.id === kbId) : null;
+          const wa    = entry && entry.wilayaAverages;
+          if (!wa) return;
+          const rows = Object.keys(wa).map(name => {
+            const v = wa[name] || {};
+            const mins = [v.min1, v.min2, v.min3].filter(n => typeof n === 'number' && isFinite(n));
+            return {
+              ar: WILAYA_AR[name] || name,
+              min1: (typeof v.min1 === 'number') ? v.min1 : null,
+              min2: (typeof v.min2 === 'number') ? v.min2 : null,
+              min3: (typeof v.min3 === 'number') ? v.min3 : null,
+              low:  mins.length ? Math.min.apply(null, mins) : null,
+            };
+          }).filter(r => r.low != null);
+          if (rows.length) renderWilayaSection(rows);
+        })
+        .catch(() => { /* silent — section simply not shown */ });
+    }
+    if ('requestIdleCallback' in window) requestIdleCallback(load, { timeout: 4000 });
+    else setTimeout(load, 500);
+
+    function renderWilayaSection(rows) {
+      let sortKey = 'low';
+      let sortAsc = true;
+
+      const details = document.createElement('details');
+      details.className = 'detail-section wilaya-avg-section';
+      details.innerHTML = `
+        <summary>
+          <h2><i class="fas fa-map-location-dot"></i> معدلات القبول حسب الولاية (2025)</h2>
+          <i class="fas fa-chevron-down wa-caret" aria-hidden="true"></i>
+        </summary>
+        <div class="avg-table-wrap">
+          <table class="avg-table wa-table">
+            <thead>
+              <tr>
+                <th data-key="ar">الولاية <span class="wa-sort"></span></th>
+                <th data-key="min1">علوم تجريبية <span class="wa-sort"></span></th>
+                <th data-key="min2">رياضيات <span class="wa-sort"></span></th>
+                <th data-key="min3">تقني رياضي <span class="wa-sort"></span></th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="honesty-note">
+          <i class="fas fa-circle-info"></i>
+          <span>أدنى معدلات القبول 2025 حسب الولاية — أكّد على البوابة الرسمية.</span>
+        </div>`;
+
+      const tbody = details.querySelector('tbody');
+
+      function renderRows() {
+        const sorted = rows.slice().sort((a, b) => {
+          const va = a[sortKey], vb = b[sortKey];
+          if (sortKey === 'ar') return sortAsc ? va.localeCompare(vb, 'ar') : vb.localeCompare(va, 'ar');
+          if (va == null && vb == null) return 0;
+          if (va == null) return 1;              /* nulls always last */
+          if (vb == null) return -1;
+          return sortAsc ? va - vb : vb - va;
+        });
+        const dash = '<span style="color:var(--text-muted)">—</span>';
+        tbody.innerHTML = sorted.map(r => `<tr>
+          <td>${escWa(r.ar)}</td>
+          <td>${r.min1 != null ? `<span class="val">${r.min1.toFixed(2)}</span>` : dash}</td>
+          <td>${r.min2 != null ? `<span class="val">${r.min2.toFixed(2)}</span>` : dash}</td>
+          <td>${r.min3 != null ? `<span class="val">${r.min3.toFixed(2)}</span>` : dash}</td>
+        </tr>`).join('');
+        details.querySelectorAll('th[data-key]').forEach(th => {
+          const active = th.dataset.key === sortKey;
+          th.classList.toggle('is-sorted', active);
+          th.querySelector('.wa-sort').textContent = active ? (sortAsc ? '▲' : '▼') : '';
+        });
+      }
+
+      details.querySelector('thead').addEventListener('click', e => {
+        const th = e.target.closest('th[data-key]');
+        if (!th) return;
+        const key = th.dataset.key;
+        if (sortKey === key) sortAsc = !sortAsc;
+        else { sortKey = key; sortAsc = true; }
+        renderRows();
+      });
+
+      renderRows();
+
+      /* insert right after the acceptance-averages section */
+      const anchor = document.getElementById('specAvgTbody')?.closest('.detail-section');
+      if (anchor) anchor.insertAdjacentElement('afterend', details);
+      else document.querySelector('.detail-main')?.appendChild(details);
+    }
+  })();
+
   /* ---- UNIVERSITIES ---- */
   const unis = Array.isArray(spec.unis) ? spec.unis : [];
   const uniSection = document.getElementById('specUniList')?.closest('.detail-section');
