@@ -112,6 +112,178 @@ function streamCode(streamRaw) {
   return null;
 }
 
+/* ---- Wilaya detection (per-wilaya 2025 averages in KB wilayaAverages) ----
+   KB keys are Latin ("Ouargla", "Alger", …) plus a special "National" key and
+   a few non-wilaya campuses ("Sci Islamiques Emir"). Map every Latin key that
+   students actually ask about to its Arabic display name + query variants. */
+const WILAYA_DEF = {
+  'Adrar':              { ar: 'أدرار',           variants: ['adrar', 'ادرار'] },
+  'Aflou':              { ar: 'أفلو',            variants: ['aflou', 'افلو'] },
+  'Ain Defla':          { ar: 'عين الدفلى',      variants: ['ain defla', 'عين الدفلة'] },
+  'Ain Temouchent':     { ar: 'عين تموشنت',      variants: ['ain temouchent', 'temouchent'] },
+  'Alger':              { ar: 'الجزائر العاصمة',  variants: ['alger', 'algiers', 'العاصمة', 'ولاية الجزائر', 'الجزائر العاصمة'] },
+  'Annaba':             { ar: 'عنابة',           variants: ['annaba', 'بونة'] },
+  'Barika':             { ar: 'بريكة',           variants: ['barika'] },
+  'Batna':              { ar: 'باتنة',           variants: ['batna'] },
+  'Bechar':             { ar: 'بشار',            variants: ['bechar'] },
+  'Bejaia':             { ar: 'بجاية',           variants: ['bejaia', 'bgayet'] },
+  'Biskra':             { ar: 'بسكرة',           variants: ['biskra'] },
+  'Blida':              { ar: 'البليدة',          variants: ['blida', 'بليدة'] },
+  'Bordj Bou Arreridj': { ar: 'برج بوعريريج',    variants: ['bordj bou arreridj', 'برج بو عريريج'] },
+  'Bou Saada':          { ar: 'بوسعادة',         variants: ['bou saada', 'boussaada', 'بو سعادة'] },
+  'Bouira':             { ar: 'البويرة',          variants: ['bouira', 'بويرة'] },
+  'Boumerdes':          { ar: 'بومرداس',         variants: ['boumerdes'] },
+  'Chlef':              { ar: 'الشلف',           variants: ['chlef', 'شلف'] },
+  'Constantine':        { ar: 'قسنطينة',         variants: ['constantine', 'قسمطينة'] },
+  'Djelfa':             { ar: 'الجلفة',           variants: ['djelfa', 'جلفة'] },
+  'El Bayadh':          { ar: 'البيض',           variants: ['el bayadh', 'bayadh'] },
+  'El Oued':            { ar: 'الوادي',           variants: ['el oued', 'الواد'] },
+  'El Tarf':            { ar: 'الطارف',           variants: ['el tarf', 'tarf'] },
+  'Ghardaia':           { ar: 'غرداية',           variants: ['ghardaia'] },
+  'Guelma':             { ar: 'قالمة',            variants: ['guelma'] },
+  'Jijel':              { ar: 'جيجل',            variants: ['jijel'] },
+  'Khenchela':          { ar: 'خنشلة',           variants: ['khenchela'] },
+  'Laghouat':           { ar: 'الأغواط',          variants: ['laghouat'] },
+  'Maghnia':            { ar: 'مغنية',            variants: ['maghnia'] },
+  'Mascara':            { ar: 'معسكر',           variants: ['mascara'] },
+  'Medea':              { ar: 'المدية',           variants: ['medea', 'مدية'] },
+  'Mila':               { ar: 'ميلة',             variants: ['mila'] },
+  'Mostaganem':         { ar: 'مستغانم',          variants: ['mostaganem'] },
+  'Msila':              { ar: 'المسيلة',          variants: ['msila', "m'sila", 'مسيلة'] },
+  'Naama':              { ar: 'النعامة',          variants: ['naama', 'نعامة'] },
+  'Oran':               { ar: 'وهران',            variants: ['oran', 'wahran'] },
+  'Ouargla':            { ar: 'ورقلة',            variants: ['ouargla', 'ورڨلة', 'ورجلان'] },
+  'Oum El Bouaghi':     { ar: 'أم البواقي',       variants: ['oum el bouaghi'] },
+  'Relizane':           { ar: 'غليزان',           variants: ['relizane', 'غيليزان'] },
+  'Saida':              { ar: 'سعيدة',            variants: ['saida'] },
+  'Setif':              { ar: 'سطيف',            variants: ['setif'] },
+  'Sidi Bel Abbes':     { ar: 'سيدي بلعباس',     variants: ['sidi bel abbes', 'سيدي بل عباس', 'bel abbes'] },
+  'Skikda':             { ar: 'سكيكدة',          variants: ['skikda'] },
+  'Souk Ahras':         { ar: 'سوق أهراس',       variants: ['souk ahras'] },
+  'Tamanrasset':        { ar: 'تمنراست',         variants: ['tamanrasset', 'تامنغست', 'تمنغست'] },
+  'Tebessa':            { ar: 'تبسة',            variants: ['tebessa'] },
+  'Tiaret':             { ar: 'تيارت',            variants: ['tiaret'] },
+  'Tipaza':             { ar: 'تيبازة',           variants: ['tipaza'] },
+  'Tissemsilt':         { ar: 'تيسمسيلت',        variants: ['tissemsilt'] },
+  'Tizi Ouzou':         { ar: 'تيزي وزو',        variants: ['tizi ouzou', 'تيزي اوزو'] },
+  'Tlemcen':            { ar: 'تلمسان',           variants: ['tlemcen'] },
+  'Touggourt':          { ar: 'تقرت',            variants: ['touggourt', 'توقرت', 'تڨرت'] },
+};
+/* Note: bare "الجزائر" is deliberately NOT a variant for Alger — in queries it
+   almost always means the country ("معدل الطب في الجزائر"), not the wilaya. */
+
+/* Normalize Arabic hamza/taa-marbuta variants + Latin accents for matching. */
+function normalizeWilayaText(s) {
+  return String(s || '')
+    .toLowerCase()
+    .replace(/[أإآٱ]/g, 'ا')
+    .replace(/ة/g, 'ه')
+    .replace(/ى/g, 'ي')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f\u064b-\u0655]/g, '')
+    .replace(/[^\p{L}\p{N}\s]/gu, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+/* Lookup structures built once at module load. */
+const _WILAYA_SINGLE = new Map(); // normalized single token → key
+const _WILAYA_MULTI = [];         // { needle, key } — multi-word, longest first
+for (const [key, def] of Object.entries(WILAYA_DEF)) {
+  for (const v of [def.ar, ...def.variants]) {
+    const n = normalizeWilayaText(v);
+    if (!n) continue;
+    if (n.includes(' ')) _WILAYA_MULTI.push({ needle: n, key });
+    else _WILAYA_SINGLE.set(n, key);
+  }
+}
+_WILAYA_MULTI.sort((a, b) => b.needle.length - a.needle.length);
+
+/* Detect a wilaya mention in free text → Latin KB key (or null). */
+function detectWilaya(text) {
+  const q = normalizeWilayaText(text);
+  if (!q) return null;
+  for (const { needle, key } of _WILAYA_MULTI) {
+    if (q.includes(needle)) return key;
+  }
+  for (const t of q.split(' ')) {
+    if (_WILAYA_SINGLE.has(t)) return _WILAYA_SINGLE.get(t);
+    // Tolerate attached Arabic prefixes: "بورقلة"، "لوهران"، "وورقلة"
+    const stripped = t.replace(/^[وبلف]/, '');
+    if (stripped.length >= 3 && stripped !== t && _WILAYA_SINGLE.has(stripped)) {
+      return _WILAYA_SINGLE.get(stripped);
+    }
+  }
+  return null;
+}
+
+function wilayaArName(key) {
+  return WILAYA_DEF[key]?.ar || key;
+}
+
+/* Format one wilayaAverages entry — omit null streams. Returns null if all null. */
+function formatWilayaNums(entry) {
+  if (!entry) return null;
+  const parts = [];
+  if (entry.min1 != null) parts.push(`علوم تجريبية ${entry.min1}`);
+  if (entry.min2 != null) parts.push(`رياضيات ${entry.min2}`);
+  if (entry.min3 != null) parts.push(`تقني رياضي ${entry.min3}`);
+  return parts.length ? parts.join(' / ') : null;
+}
+
+/* Per-spec wilaya context block (kept compact — well under ~500 tokens):
+   - wilaya asked + data exists   → exact 2025 numbers for that wilaya
+   - wilaya asked + no data there → explicit "not offered there" (no invented numbers)
+   - no wilaya asked              → national minimum + coverage count + 3 lowest-threshold wilayas */
+function buildWilayaBlock(spec, wilayaKey) {
+  const wa = spec.wilayaAverages;
+  if (!wa) return '';
+  const realKeys = Object.keys(wa).filter((k) => k !== 'National' && WILAYA_DEF[k]);
+
+  if (wilayaKey) {
+    const arName = wilayaArName(wilayaKey);
+    const nums = formatWilayaNums(wa[wilayaKey]);
+    if (nums) return `معدلات القبول 2025 في ${arName}: ${nums}`;
+    const lines = [`هذا التخصص غير متوفر في ولاية ${arName} حسب معطيات 2025`];
+    const natNums = formatWilayaNums(wa['National']);
+    if (natNums) lines.push(`(تسجيل وطني — الحد الأدنى الوطني 2025: ${natNums})`);
+    return lines.join('\n');
+  }
+
+  // No wilaya in the query → compact national summary, never the full dump.
+  const natNums = formatWilayaNums(wa['National']) || (() => {
+    // Compute per-stream minimum across wilayas when no explicit National row exists.
+    const mins = { min1: null, min2: null, min3: null };
+    for (const k of realKeys) {
+      const e = wa[k] || {};
+      for (const m of ['min1', 'min2', 'min3']) {
+        if (e[m] != null && (mins[m] == null || e[m] < mins[m])) mins[m] = e[m];
+      }
+    }
+    return formatWilayaNums(mins);
+  })();
+
+  if (realKeys.length === 0) {
+    return natNums ? `معدلات 2025 (تسجيل وطني): ${natNums}` : '';
+  }
+
+  const lowest = realKeys
+    .map((k) => {
+      const e = wa[k] || {};
+      const vals = [e.min1, e.min2, e.min3].filter((v) => v != null);
+      return { k, score: vals.length ? Math.min(...vals) : Infinity };
+    })
+    .filter((x) => x.score !== Infinity)
+    .sort((a, b) => a.score - b.score)
+    .slice(0, 3)
+    .map((x) => `${wilayaArName(x.k)} (${formatWilayaNums(wa[x.k])})`);
+
+  const lines = [`ملخص معدلات 2025 حسب الولايات: متوفر في ${realKeys.length} ولاية/موقع.`];
+  if (natNums) lines.push(`الحد الأدنى الوطني 2025: ${natNums}`);
+  if (lowest.length) lines.push(`أقل العتبات: ${lowest.join(' ، ')}`);
+  return lines.join('\n');
+}
+
 /* Format per-stream thresholds — only show streams with actual data.
    null means "no admissions data for this stream", NOT "stream is rejected". */
 function formatAverages(resolved) {
@@ -334,8 +506,9 @@ function retrieve(message, conversation, profile, k = 6) {
   return selected.slice(0, Math.max(k, selected.length));
 }
 
-/* Render the selected specialities into a compact, bounded context string. */
-function buildContext(specs) {
+/* Render the selected specialities into a compact, bounded context string.
+   wilayaKey (optional): Latin KB key of the wilaya the student asked about. */
+function buildContext(specs, wilayaKey = null) {
   return specs
     .map((spec) => {
       const sections = pickSections(spec.sections);
@@ -345,6 +518,8 @@ function buildContext(specs) {
         `التصنيف: ${spec.category}`,
         `معدلات القبول حسب الشعبة: ${formatAverages(spec.resolvedAverages)}`,
       ];
+      const wilayaBlock = buildWilayaBlock(spec, wilayaKey);
+      if (wilayaBlock) parts.push(wilayaBlock);
       if (sections.length) parts.push(sections.join('\n'));
       if (rows.length) parts.push('مؤسسات مرجعية:\n- ' + rows.join('\n- '));
       return parts.join('\n');
@@ -405,7 +580,7 @@ function buildGuideContext(profile) {
 }
 
 /* ---- System prompt (CHAT-CONTRACT.md §4) -------------------------------- */
-function buildSystemPrompt(profile, contextBlock, guideBlock, orientationMode = false, emptyContext = false, intent = {}) {
+function buildSystemPrompt(profile, contextBlock, guideBlock, orientationMode = false, emptyContext = false, intent = {}, wilayaAr = null) {
   const p = profile || {};
   const code = streamCode(p.stream);
   const streamLabel = code ? STREAM_AR[code] || p.stream : p.stream || 'غير محددة';
@@ -545,9 +720,9 @@ ${p.stream ? `ملاحظة أهليّة (AI-10): المستخدم في شعبة 
 ⚠️ لا يوجد "عطلة ثانية" أو إعادة توجيه بعد الإعلان في الغالب — الاختيار نهائي.
 
 ## معدل التوجيه الموزون — الصيغة الرسمية (MESRS 2025)
-```
+\`\`\`
 المعدل الموزون = (معدل البكالوريا × 2 + علامة المادة الأساسية) ÷ 3
-```
+\`\`\`
 **المادة الأساسية حسب الميدان:**
 - رياضيات وإعلام آلي (MI — ESI, ESTIN, ENSIA...): **الرياضيات**
 - علوم وتكنولوجيا (ST): **الفيزياء**
@@ -607,6 +782,7 @@ ${p.stream ? `ملاحظة أهليّة (AI-10): المستخدم في شعبة 
 8. **لا تختلق جامعات خاصة** بأسماء غير موجودة — الجامعات الخاصة المعتمدة قليلة ومعروفة (انظر الكتلة أدناه).
 9. **لا تقل "6-7 سنوات" للطب** — الصواب: 7 سنوات بالضبط (6 دراسة + سنة انترنا).
 10. **لا تقدّم توصية بتخصص** لشعبة لا تقبلها — راجع NON_SCIENCE_ELIGIBLE وبيانات الشعب في كل تخصص قبل التوصية.
+11. **أسئلة المعدلات حسب الولاية** — استعمل حصرياً أرقام سطر "معدلات القبول 2025 في <الولاية>" المحقونة في قاعدة المعرفة أدناه. ممنوع منعاً باتاً الاستقراء أو التخمين أو الاستنتاج من ولاية مجاورة أو من المعدل الوطني. إذا لم يوجد رقم للولاية المطلوبة في البيانات، قل بصراحة أن المعطى غير متوفر لديك وانصح الطالب بالتحقق من منصة التوجيه الرسمية inscription.mesrs.dz.
 
 ## تباين المعدلات بين الشمال والجنوب (حقيقة جغرافية مهمة):
 ولايات الجنوب (أدرار، تمنراست، إليزي، تندوف، برج باجي مختار، إن قزام، إن صالح) تسجّل باستمرار معدلات قبول أقل من المتوسط الوطني — عادةً بفارق **1 إلى 2 نقطة**:
@@ -614,7 +790,7 @@ ${p.stream ? `ملاحظة أهليّة (AI-10): المستخدم في شعبة 
 - **المدارس العليا الوطنية** (ESI، ENSIA، ESTIN...): تسجيل وطني — نفس المعدل لجميع الولايات، لا فارق جغرافي.
 - **LMD جامعات الجنوب**: كثير منها يقبل بدون حد أدنى (null في قاعدة البيانات) أو بعتبات منخفضة.
 - **نصيحة للطلاب بمعدل حدودي**: إذا كان الطالب منفتحاً جغرافياً، استكشاف خيارات الجنوب يفتح أبواباً أكثر.
-⚠️ لا تخترع أرقاماً ولائية محددة — المعدلات الولائية لا تُنشر رسمياً للعموم، فقط المعدلات الوطنية.
+⚠️ لا تخترع أرقاماً ولائية محددة — الأرقام الولائية الوحيدة المسموح بذكرها هي المحقونة صراحة في قاعدة المعرفة أدناه (سطور "معدلات القبول 2025 في ..."). خارجها لا تذكر أي رقم ولائي.
 
 ## خيارات الطلاب بمعدل منخفض (10-13/20) — لا تيأس:
 ### شعب مفتوحة بمعدل منخفض (10+/20):
@@ -656,7 +832,7 @@ ${p.stream ? `ملاحظة أهليّة (AI-10): المستخدم في شعبة 
   - مدة الريزيدانا: 4 سنوات (التخصصات الطبية) إلى 6 سنوات (الجراحات الدقيقة)
 ⟹ إجمالي مسار طبيب متخصص: **11 إلى 13 سنة** من الباك حتى التخصص الكامل.
 
-${intent.ensia ? `\n## ⭐ تنبيه: الطالب يسأل عن ENSIA تحديداً — قدّم المعلومات الكاملة أعلاه بشكل بارز.\n` : ''}${intent.cpge ? `\n## ⭐ تنبيه: الطالب يسأل عن CPGE — اشرح الفرق بين التحضيريات والقبول المباشر بوضوح.\n` : ''}${intent.wishlist ? `\n## ⭐ تنبيه: الطالب يسأل عن بطاقة الرغبات — قدّم نصائح الاستراتيجية الكاملة ومراحل التوجيه.\n` : ''}${intent.orientation ? `\n## ⭐ تنبيه: الطالب يسأل عن مسار التوجيه — اشرح الخطوات الخمس بشكل واضح.\n` : ''}
+${intent.ensia ? `\n## ⭐ تنبيه: الطالب يسأل عن ENSIA تحديداً — قدّم المعلومات الكاملة أعلاه بشكل بارز.\n` : ''}${intent.cpge ? `\n## ⭐ تنبيه: الطالب يسأل عن CPGE — اشرح الفرق بين التحضيريات والقبول المباشر بوضوح.\n` : ''}${intent.wishlist ? `\n## ⭐ تنبيه: الطالب يسأل عن بطاقة الرغبات — قدّم نصائح الاستراتيجية الكاملة ومراحل التوجيه.\n` : ''}${intent.orientation ? `\n## ⭐ تنبيه: الطالب يسأل عن مسار التوجيه — اشرح الخطوات الخمس بشكل واضح.\n` : ''}${wilayaAr ? `\n## ⭐ سؤال ولائي: الطالب يسأل عن ولاية ${wilayaAr} — أجب حصرياً بأرقام سطر "معدلات القبول 2025 في ${wilayaAr}" الموجود في قاعدة المعرفة أدناه لكل تخصص. إذا ورد أن التخصص غير متوفر في هذه الولاية أو لم يوجد سطر ولائي، قل ذلك صراحة وانصح بالتحقق من منصة التوجيه الرسمية — لا تخمّن ولا تستنتج رقماً أبداً.\n` : ''}
 ${guideBlock ? `${guideBlock}\n` : ''}
 ## معرّفات التخصصات الصحيحة الوحيدة (id) — أي id خارج هذه القائمة ممنوع منعاً باتاً في spec-cards/compare/verdict:
 ${SPECIALITIES.map((s) => s.id).join(' · ')}
@@ -901,12 +1077,15 @@ export default async function handler(req, res) {
   // Build RAG context from the real knowledge base
   // AI-2: retrieve() returns [] when all scores are 0 — avoids misleading CS-heavy defaults
   const selected = retrieve(message, messages, profile, 6);
-  const contextBlock = buildContext(selected);
+  // Wilaya detection: current message first (authoritative), recent context as fallback
+  const recentText = (messages || []).slice(-4).map((m) => m.content || '').join(' ');
+  const wilayaKey = detectWilaya(message) || detectWilaya(recentText);
+  const contextBlock = buildContext(selected, wilayaKey);
   // Guide context: official program eligibility from الدليل الوزاري (stream + wilaya aware)
   const guideBlock = buildGuideContext(profile);
   // Intent signals for targeted knowledge-block injection in the system prompt
-  const intent = detectIntent(`${message} ${(messages || []).slice(-4).map((m) => m.content || '').join(' ')}`);
-  const systemPrompt = buildSystemPrompt(profile, contextBlock, guideBlock, orientationMode, selected.length === 0, intent);
+  const intent = detectIntent(`${message} ${recentText}`);
+  const systemPrompt = buildSystemPrompt(profile, contextBlock, guideBlock, orientationMode, selected.length === 0, intent, wilayaKey ? wilayaArName(wilayaKey) : null);
 
   // Stream as SSE
   res.setHeader('Content-Type', 'text/event-stream');
@@ -991,4 +1170,4 @@ export default async function handler(req, res) {
 }
 
 /* ---- Exports for local verification harness (no side effects) ---- */
-export { retrieve, buildContext, buildSystemPrompt, formatAverages, SPECIALITIES, detectIntent };
+export { retrieve, buildContext, buildSystemPrompt, formatAverages, SPECIALITIES, detectIntent, detectWilaya, buildWilayaBlock, wilayaArName };
