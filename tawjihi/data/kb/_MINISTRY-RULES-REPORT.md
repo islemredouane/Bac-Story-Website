@@ -2,7 +2,7 @@
 
 **Date:** 2026-07-04
 **Source:** `tawjihi/data/guide-bac2025-extracted.md` (192-page automated extraction of المنشور رقم 00 المؤرخ في 01 جويلية 2025 — التسجيل الأولي وتوجيه حاملي شهادة البكالوريا 2025-2026)
-**Deliverable:** `tawjihi/data/kb/ministry-rules.json` (26 rules)
+**Deliverable:** `tawjihi/data/kb/ministry-rules.json` (27 rules)
 
 ## Extraction method
 
