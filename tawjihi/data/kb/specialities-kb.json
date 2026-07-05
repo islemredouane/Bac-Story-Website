@@ -1701,8 +1701,8 @@
       "linkedEtabRows": [],
       "resolvedAverages": {
         "min1": 16.65,
-        "min2": 17.15,
-        "min3": null
+        "min2": 16.65,
+        "min3": 17.15
       },
       "_linkNote": "linked via filiere label tokens (6 filiere keys)",
       "wilayaAverages": {
