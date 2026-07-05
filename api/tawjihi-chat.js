@@ -115,6 +115,12 @@ const ADMIN_PROC_KEYWORDS = [
   'حالة خاصة', 'حالات خاصة', 'ذوي الهمم', 'باك أجنبي', 'باك اجنبي',
   'أجنبي', 'اجنبي', 'القديم', 'المرحلة الثانية', 'مرحلة ثانية',
   'inscription', 'calendrier', 'bourse', 'logement', 'transfert',
+  // GAP-03: housing / residence keywords
+  'الحي الجامعي', 'حي جامعي', 'سكن جامعي', 'سكن طالب', 'إقامة جامعية',
+  'نسكن', 'نقدر نسكن', 'إيواء طالب', 'hébergement', 'résidence universitaire',
+  // GAP-06: geographic-circle keywords
+  'الدائرة الجغرافية', 'الدوائر الجغرافية', 'دائرة جغرافية', 'دائرتي',
+  'منطقتي', 'الدائرة',
 ];
 
 /* Retrieve 1-3 most relevant ministry rules for a procedural query.
@@ -191,6 +197,58 @@ function buildAvailabilityNotes(specs, wilayaKey) {
     notes[spec.id] = `هذا التخصص لا يُدرَّس في ${arName} — يُدرَّس في: ${top3.join(' ، ')}`;
   }
   return notes;
+}
+
+/* GAP-07: Detect "list specialities available in wilaya X" intent.
+   Returns true when the query combines a listing intent keyword with a wilaya. */
+const WILAYA_LISTING_KEYWORDS = [
+  'تخصصات', 'متاح', 'متوفر', 'موجود', 'كاين', 'شو فيه', 'شنو فيه',
+  'قائمة', 'list', 'يتوفر', 'تتوفر',
+];
+function isWilayaListingQuery(rawQuery) {
+  const q = String(rawQuery || '').toLowerCase();
+  return WILAYA_LISTING_KEYWORDS.some((kw) => q.includes(kw));
+}
+
+/* Build a compact block listing all specialities offered in a wilaya from
+   availability-map.json. Grouped by scope (national first, then regional).
+   Capped at 20 entries, kept under ~600 tokens. */
+function buildWilayaListingBlock(wilayaKey) {
+  if (!wilayaKey) return '';
+  const arName = wilayaArName(wilayaKey);
+  const national = [];
+  const regional = [];
+
+  for (const [specId, avail] of Object.entries(AVAILABILITY_MAP)) {
+    if (avail.scope === 'national') {
+      national.push(specId);
+    } else if ((avail.offeredIn || []).includes(wilayaKey)) {
+      regional.push(specId);
+    }
+  }
+
+  if (national.length === 0 && regional.length === 0) return '';
+
+  // Resolve display name from SPECIALITIES index
+  const specById = {};
+  for (const s of SPECIALITIES) specById[s.id] = s.name_ar || s.id;
+
+  const lines = [`## التخصصات المتاحة في ولاية ${arName} (حسب خريطة التوفر 2025)`];
+
+  if (national.length > 0) {
+    lines.push(`### تخصصات وطنية (متاحة لجميع الولايات — ${national.length} تخصص):`);
+    national.slice(0, 10).forEach((id) => lines.push(`- ${specById[id] || id} (${id})`));
+    if (national.length > 10) lines.push(`… و${national.length - 10} تخصصاً وطنياً آخر`);
+  }
+
+  if (regional.length > 0) {
+    lines.push(`### تخصصات إقليمية متوفرة في ${arName} (${regional.length} تخصص):`);
+    regional.slice(0, 10).forEach((id) => lines.push(`- ${specById[id] || id} (${id})`));
+    if (regional.length > 10) lines.push(`… و${regional.length - 10} تخصصاً إقليمياً آخر`);
+  }
+
+  lines.push('ℹ️ هذه القائمة من خريطة التوفر — تحقق من منصة التوجيه الرسمية للتأكيد النهائي.');
+  return lines.join('\n');
 }
 
 const STREAM_AR = {
@@ -327,6 +385,49 @@ function wilayaArName(key) {
   return WILAYA_DEF[key]?.ar || key;
 }
 
+/* GAP-08: Detect zone-name mentions (منطقة الغرب / الشرق / الوسط) in free text.
+   Returns the matching circle object from GEO_CIRCLES, or null if no zone found.
+   Called ONLY when detectWilaya() returns null (specific wilaya takes priority). */
+const ZONE_VARIANTS = [
+  { ids: [1], patterns: ['منطقة الشرق', 'منطقه الشرق', 'الشرق الجزائري'] },
+  { ids: [2], patterns: ['منطقة الوسط', 'منطقه الوسط', 'الوسط الجزائري', 'وسط الجزائر'] },
+  { ids: [3], patterns: ['منطقة الغرب', 'منطقه الغرب', 'الغرب الجزائري', 'غرب الجزائر'] },
+  // bare zone names — checked only if "منطقة" not already caught above
+  { ids: [1], patterns: ['الشرق'] },
+  { ids: [2], patterns: ['الوسط'] },
+  { ids: [3], patterns: ['الغرب'] },
+];
+
+function detectZone(text) {
+  const q = normalizeWilayaText(text);
+  if (!q) return null;
+  for (const { ids, patterns } of ZONE_VARIANTS) {
+    for (const p of patterns) {
+      const pn = normalizeWilayaText(p);
+      if (q.includes(pn)) {
+        return GEO_CIRCLES.find((c) => ids.includes(c.id)) || null;
+      }
+    }
+  }
+  return null;
+}
+
+/* Build a compact zone-context injection block for zone-level queries (GAP-08).
+   Lists the wilayas in the zone and explains regional assignment. */
+function buildZoneContextBlock(circle) {
+  if (!circle) return '';
+  const wilayaList = (circle.wilayas || []).join(' ، ');
+  const lines = [
+    `## سياق جغرافي: ${circle.name_ar}`,
+    `الولايات المنتمية لـ${circle.name_ar}: ${wilayaList}`,
+    'ℹ️ المعدلات تختلف من ولاية لأخرى داخل المنطقة — للحصول على معدل دقيق اذكر اسم الولاية المحددة.',
+  ];
+  if (GEO_RULES.regional_programs) {
+    lines.push(`قاعدة التكوينات الجهوية: ${String(GEO_RULES.regional_programs).slice(0, 350)}`);
+  }
+  return lines.join('\n');
+}
+
 /* Format one wilayaAverages entry — omit null streams. Returns null if all null. */
 function formatWilayaNums(entry) {
   if (!entry) return null;
@@ -350,6 +451,14 @@ function buildWilayaBlock(spec, wilayaKey) {
     const arName = wilayaArName(wilayaKey);
     const nums = formatWilayaNums(wa[wilayaKey]);
     if (nums) return `معدلات القبول 2025 في ${arName}: ${nums}`;
+    // GAP-02: check availability-map scope before emitting "غير متوفر"
+    const avail = AVAILABILITY_MAP[spec.id];
+    if (avail && avail.scope === 'national') {
+      const natNums = formatWilayaNums(wa['National']);
+      const lines = ['تخصص وطني: يُوجَّه حسب معدلك الوطني — لا يُشترط وجوده في ولايتك'];
+      if (natNums) lines.push(`الحد الأدنى الوطني 2025: ${natNums}`);
+      return lines.join('\n');
+    }
     const lines = [`هذا التخصص غير متوفر في ولاية ${arName} حسب معطيات 2025`];
     const natNums = formatWilayaNums(wa['National']);
     if (natNums) lines.push(`(تسجيل وطني — الحد الأدنى الوطني 2025: ${natNums})`);
@@ -494,6 +603,30 @@ function tokenize(str) {
     .filter((w) => w.length >= 2);
 }
 
+/* GAP-05: Strip common Arabic attached prefixes (لل، بال، وال، فال، كال، ال)
+   so "للطب" matches "الطب", "بالرياضيات" matches "الرياضيات", etc.
+   Returns the root form (still lowercased Arabic). */
+function stripArabicPrefix(token) {
+  // Order matters: try longest prefix first to avoid double-stripping
+  const prefixes = ['لل', 'بال', 'وال', 'فال', 'كال', 'ال'];
+  for (const p of prefixes) {
+    if (token.startsWith(p) && token.length > p.length + 1) {
+      return token.slice(p.length);
+    }
+  }
+  return token;
+}
+
+/* Expand a token set with prefix-stripped variants (mutates the set in place). */
+function expandWithPrefixStrip(tokenSet) {
+  const extras = [];
+  for (const t of tokenSet) {
+    const stripped = stripArabicPrefix(t);
+    if (stripped !== t) extras.push(stripped);
+  }
+  for (const e of extras) tokenSet.add(e);
+}
+
 function specText(spec) {
   const sectionText = Object.values(spec.sections || {}).join(' ');
   return `${spec.name_ar} ${spec.name_fr} ${spec.dataName || ''} ${spec.id} ${sectionText}`;
@@ -526,6 +659,8 @@ function retrieve(message, conversation, profile, k = 6) {
     .map((m) => m.content || '')
     .join(' ');
   const queryTokens = new Set(tokenize(`${message} ${recent}`));
+  // GAP-05: expand query tokens with Arabic prefix-stripped variants
+  expandWithPrefixStrip(queryTokens);
   const rawQuery = `${message} ${recent}`.toLowerCase();
 
   // Detect special intents early — these inject static knowledge blocks rather than KB entries.
@@ -535,6 +670,8 @@ function retrieve(message, conversation, profile, k = 6) {
     const haystack = specText(spec).toLowerCase();
     const hayTokens = tokenize(haystack);
     const hayTokenSet = new Set(hayTokens);
+    // GAP-05: also expand haystack tokens with prefix-stripped forms
+    expandWithPrefixStrip(hayTokenSet);
 
     let score = 0;
     // Keyword overlap (token-level).
@@ -551,9 +688,11 @@ function retrieve(message, conversation, profile, k = 6) {
         named = true;
       } else {
         // Token-level partial boost: "طب" matches "تخصص الطب – MÉDECINE"
-        const nameTokens = tokenize(nl);
+        // GAP-05: expand name tokens with prefix-stripped variants for better matching
+        const nameTokenSet = new Set(tokenize(nl));
+        expandWithPrefixStrip(nameTokenSet);
         for (const qt of queryTokens) {
-          if (qt.length >= 3 && nameTokens.includes(qt)) {
+          if (qt.length >= 3 && nameTokenSet.has(qt)) {
             score += 6;
             named = true;
             break;
@@ -1327,7 +1466,25 @@ export default async function handler(req, res) {
   // Geographic zone: injected when a wilaya is detected
   const geoZoneAr = wilayaKey ? wilayaZoneAr(wilayaKey) : null;
 
-  const systemPrompt = buildSystemPrompt(profile, contextBlock, guideBlock, orientationMode, selected.length === 0, intent, wilayaKey ? wilayaArName(wilayaKey) : null, webBlock, ministryBlock, geoZoneAr);
+  // GAP-07: wilaya listing block — injected when a wilaya is detected + listing intent
+  let wilayaListingBlock = '';
+  if (wilayaKey && isWilayaListingQuery(`${message} ${recentText}`)) {
+    wilayaListingBlock = buildWilayaListingBlock(wilayaKey);
+  }
+
+  // GAP-08: zone detection — only when no specific wilaya was found
+  let zoneContextBlock = '';
+  if (!wilayaKey) {
+    const detectedZone = detectZone(`${message} ${recentText}`);
+    if (detectedZone) {
+      zoneContextBlock = buildZoneContextBlock(detectedZone);
+    }
+  }
+
+  // Merge extra blocks into ministryBlock (they all go into the same slot in the prompt)
+  const combinedMinistryBlock = [ministryBlock, wilayaListingBlock, zoneContextBlock].filter(Boolean).join('\n\n');
+
+  const systemPrompt = buildSystemPrompt(profile, contextBlock, guideBlock, orientationMode, selected.length === 0, intent, wilayaKey ? wilayaArName(wilayaKey) : null, webBlock, combinedMinistryBlock, geoZoneAr);
 
   // Stream as SSE
   res.setHeader('Content-Type', 'text/event-stream');
@@ -1412,4 +1569,4 @@ export default async function handler(req, res) {
 }
 
 /* ---- Exports for local verification harness (no side effects) ---- */
-export { retrieve, buildContext, buildSystemPrompt, formatAverages, SPECIALITIES, detectIntent, detectWilaya, buildWilayaBlock, wilayaArName, isTimeSensitive, buildWebBlock, WEB_SEARCH_SCORE_THRESHOLD, buildMinistryRulesBlock, buildAvailabilityNotes, wilayaZoneAr, isAdminProcQuery, retrieveMinistryRules };
+export { retrieve, buildContext, buildSystemPrompt, formatAverages, SPECIALITIES, detectIntent, detectWilaya, buildWilayaBlock, wilayaArName, isTimeSensitive, buildWebBlock, WEB_SEARCH_SCORE_THRESHOLD, buildMinistryRulesBlock, buildAvailabilityNotes, wilayaZoneAr, isAdminProcQuery, retrieveMinistryRules, isWilayaListingQuery, buildWilayaListingBlock, detectZone, buildZoneContextBlock, stripArabicPrefix, expandWithPrefixStrip };
