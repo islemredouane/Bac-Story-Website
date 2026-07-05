@@ -92,7 +92,7 @@ function injectGlobalCTA() {
             </div>
             <div class="gcta-btn">احسب الآن <i class="fas fa-arrow-left"></i></div>
         </a>
-        <a href="/university.html" class="gcta-card gcta-card--uni">
+        <a href="/university/specialities" class="gcta-card gcta-card--uni">
             <div class="gcta-icon-circle"><i class="fas fa-university"></i></div>
             <div class="gcta-text">
                 <strong>مرحباً بك في مرحلة جديدة!</strong>
@@ -684,6 +684,7 @@ function setupSearch() {
         { title: 'النفط والغاز', desc: 'هندسة البترول والمحروقات', url: '/university.html#HYDROCARBURES', icon: 'fas fa-oil-can', specialty: 'جامعة LMD', keywords: ['نفط', 'غاز', 'بترول', 'sonatrach', 'pétrole', 'HYDROCARBURES', 'محروقات', 'raffinerie', 'pétrolier'] },
         { title: 'الحقوق والقانون', desc: 'ليسانس في الحقوق والعلوم القانونية', url: '/university.html#DROIT', icon: 'fas fa-gavel', specialty: 'جامعة LMD', keywords: ['حقوق', 'قانون', 'droit', 'محاماة', 'قضاء', 'justice', 'commercial', 'avocat', 'juriste'] },
         { title: 'العلوم الاجتماعية', desc: 'علم النفس، علم الاجتماع والأنثروبولوجيا', url: '/university.html#SS', icon: 'fas fa-users', specialty: 'جامعة LMD', keywords: ['علم نفس', 'علم اجتماع', 'psychologie', 'sociologie', 'SS', 'anthropologie', 'اجتماع', 'نفس'] },
+        { title: 'الفلسفة', desc: 'تخصص الفلسفة العامة — منطق، إبستمولوجيا، نقد وحِجاج', url: '/university.html#PHILO', icon: 'fas fa-brain', specialty: 'جامعة LMD', keywords: ['فلسفة', 'philosophie', 'PHILO', 'منطق', 'إبستمولوجيا', 'نقد', 'حجاج', 'ENS فلسفة', 'فلسفة جامعة', 'أستاذ فلسفة'] },
         { title: 'الإعلام والصحافة', desc: 'علوم الإعلام والاتصال والصحافة', url: '/university.html#COMMU', icon: 'fas fa-newspaper', specialty: 'جامعة LMD', keywords: ['إعلام', 'صحافة', 'journalisme', 'communication', 'médias', 'relations publiques', 'اتصال', 'COMMU'] },
         { title: 'الترجمة', desc: 'تخصص الترجمة التحريرية والفورية', url: '/university.html#TRADUCTION', icon: 'fas fa-language', specialty: 'جامعة LMD', keywords: ['ترجمة', 'traduction', 'interprétation', 'لغات', 'فورية', 'تحريرية', 'TRADUCTION'] },
         { title: 'العلوم الإسلامية — جامعة', desc: 'الشريعة والفقه والعلوم الإسلامية', url: '/university.html#CHARIA', icon: 'fas fa-mosque', specialty: 'جامعة LMD', keywords: ['شريعة', 'فقه', 'حديث', 'قرآن', 'CHARIA', 'إسلامية', 'علوم دينية', 'aqida', 'usoul'] },
