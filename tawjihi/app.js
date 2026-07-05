@@ -786,7 +786,13 @@
           return;
         }
         try {
-          const { content } = JSON.parse(raw);
+          const parsed = JSON.parse(raw);
+          if (parsed.error) {
+            textEl.innerHTML = '<p style="color:var(--danger,#e33)">حدث خطأ في المعالجة — حاول مرة أخرى.</p>';
+            done && done('');
+            return;
+          }
+          const { content } = parsed;
           if (content) {
             if (firstToken) {
               firstToken = false;
@@ -888,6 +894,13 @@
       await streamFromSSE(textEl, response,
         () => scrollDown(),
         (fullText) => {
+          if (!fullText) {
+            if (!textEl.querySelector('[style*="danger"]')) {
+              textEl.innerHTML = '<p style="color:var(--danger,#e33)">لم يصل رد — حاول مرة أخرى.</p>';
+            }
+            conversationMessages.pop();
+            return;
+          }
           conversationMessages.push({ role: 'assistant', content: fullText });
           if (conversationMessages.length > 20) conversationMessages.splice(0, 2);
           saveMessageToSession('assistant', fullText);
