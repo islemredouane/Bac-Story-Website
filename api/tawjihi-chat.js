@@ -538,14 +538,14 @@ function pickSections(sections) {
     });
     if (match) {
       used.add(match);
-      const body = trim(sections[match], 400);
-      if (body) out.push(`${want.label} (${match}): ${body}`);
+      const body = trim(sections[match], 200);
+      if (body) out.push(`${want.label}: ${body}`);
     }
   }
   // Fallback: if no sections matched, include first 2 by position (handles Darija-titled specs)
   if (out.length === 0) {
     Object.entries(sections).slice(0, 2).forEach(([title, content]) => {
-      const body = trim(content, 400);
+      const body = trim(content, 200);
       if (body) out.push(`${title}: ${body}`);
     });
   }
@@ -1257,7 +1257,12 @@ function isRateLimit(err) {
     err?.status === 429 || err?.statusCode === 429 ||
     msg.includes('429') || msg.includes('quota') ||
     msg.includes('rate limit') || msg.includes('resource_exhausted') ||
-    msg.includes('resource exhausted') || msg.includes('too many requests')
+    msg.includes('resource exhausted') || msg.includes('too many requests') ||
+    // Gemini SDK wraps quota errors as "Error fetching from <url>: [429 ...]"
+    // The URL truncates the status — catch by origin pattern + any quota signal
+    (msg.includes('generativelanguage.googleapis.com') && (msg.includes('exhausted') || msg.includes('429') || msg.includes('quota'))) ||
+    // Groq 413 = tokens-per-minute budget exceeded, treat as rate limit so next provider is tried
+    (err?.status === 413 || msg.includes('request too large') || msg.includes('413'))
   );
 }
 
@@ -1294,9 +1299,9 @@ function buildProviders() {
     if (k) orKeys.push(k);
   }
   const OR_MODELS = [
-    'google/gemini-2.0-flash-exp:free',
     'meta-llama/llama-3.3-70b-instruct:free',
-    'mistralai/mistral-7b-instruct:free',
+    'deepseek/deepseek-r1:free',
+    'google/gemini-2.5-flash:free',
   ];
   orKeys.forEach((key, ki) => {
     OR_MODELS.forEach((model, mi) => {
@@ -1465,7 +1470,7 @@ export default async function handler(req, res) {
 
   // Build RAG context from the real knowledge base
   // AI-2: retrieve() returns [] when all scores are 0 — avoids misleading CS-heavy defaults
-  const selected = retrieve(message, messages, profile, 6);
+  const selected = retrieve(message, messages, profile, 4);
   // Wilaya detection: current message first (authoritative), recent context as fallback
   const recentText = (messages || []).slice(-4).map((m) => m.content || '').join(' ');
   const wilayaKey = detectWilaya(message) || detectWilaya(recentText);
@@ -1564,7 +1569,7 @@ export default async function handler(req, res) {
         _errs.push(`${provider.label}:rl`);
         // continue to next provider
       } else {
-        _errs.push(`${provider.label}:${err.message?.slice(0, 120)}`);
+        _errs.push(`${provider.label}:${err.message?.slice(0, 300)}`);
         console.error(`[ai-router] ${provider.label} error:`, err.message);
         // non-rate-limit error — still try next provider
       }
