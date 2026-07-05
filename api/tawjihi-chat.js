@@ -14,6 +14,10 @@ import filiereIndex from '../tawjihi/data/kb/filiere-index.json' with { type: 'j
 /* ---- Official guide data (الدليل الوزاري) ---- */
 import guidePrograms from '../tawjihi/data/guide/programs.json' with { type: 'json' };
 import geoData from '../tawjihi/data/guide/geographic-circles.json' with { type: 'json' };
+/* ---- New KB files: geographic zones, ministry rules, availability map ---- */
+import geoCircles from '../tawjihi/data/kb/geo-circles.json' with { type: 'json' };
+import ministryRulesData from '../tawjihi/data/kb/ministry-rules.json' with { type: 'json' };
+import availabilityMapData from '../tawjihi/data/kb/availability-map.json' with { type: 'json' };
 
 const SPECIALITIES = specialitiesKb.specialities || [];
 const ADM_ROWS = admissionsFull.rows || [];
@@ -86,6 +90,108 @@ const NON_SCIENCE_ELIGIBLE = {
   lettres: new Set(['droit', 'sciences-po', 'sciences-hum', 'langues', 'traduction', 'commu', 'charia', 'ss']),
   langues: new Set(['langues', 'traduction', 'droit', 'sciences-po', 'sciences-hum', 'commu', 'ss']),
 };
+
+/* ---- geo-circles.json indexes (built once at module load) ---- */
+const WILAYA_TO_CIRCLE = geoCircles.wilayaToCircle || {};   // Latin key → circle id (1/2/3)
+const GEO_CIRCLES = geoCircles.circles || [];               // [{id,name_ar,wilayas,...}]
+const GEO_RULES = geoCircles.rules || {};                   // {national_programs, regional_programs, redirection}
+
+/* Resolve a Latin KB wilaya key → its zone name in Arabic */
+function wilayaZoneAr(wilayaKey) {
+  const circleId = WILAYA_TO_CIRCLE[wilayaKey];
+  if (!circleId) return null;
+  const circle = GEO_CIRCLES.find((c) => c.id === circleId);
+  return circle ? circle.name_ar : null;
+}
+
+/* ---- ministry-rules.json index (built once at module load) ---- */
+const MINISTRY_RULES = ministryRulesData.rules || [];
+
+/* Keywords that signal an administrative/procedural question. */
+const ADMIN_PROC_KEYWORDS = [
+  'الطعن', 'طعن', 'التحويل', 'تحويل', 'تغيير', 'المنحة', 'منحة',
+  'الإيواء', 'إيواء', 'ايواء', 'التسجيل', 'تسجيل', 'موعد', 'مواعيد',
+  'رزنامة', 'رزنامه', 'بطاقة الرغبات', 'بطاقه الرغبات', 'متفوق',
+  'حالة خاصة', 'حالات خاصة', 'ذوي الهمم', 'باك أجنبي', 'باك اجنبي',
+  'أجنبي', 'اجنبي', 'القديم', 'المرحلة الثانية', 'مرحلة ثانية',
+  'inscription', 'calendrier', 'bourse', 'logement', 'transfert',
+];
+
+/* Retrieve 1-3 most relevant ministry rules for a procedural query.
+   Simple token/keyword overlap against id + topic_ar + questions array. */
+function retrieveMinistryRules(rawQuery, maxRules = 3) {
+  const q = String(rawQuery || '').toLowerCase();
+  const qTokens = new Set(tokenize(q));
+
+  const scored = MINISTRY_RULES.map((rule) => {
+    const haystack = [rule.id, rule.topic_ar, ...(rule.questions || [])].join(' ').toLowerCase();
+    const hayTokens = tokenize(haystack);
+    let score = 0;
+    for (const t of qTokens) {
+      if (haystack.includes(t)) score += 1;
+    }
+    for (const qt of qTokens) {
+      if (qt.length >= 3 && hayTokens.includes(qt)) score += 1;
+    }
+    return { rule, score };
+  });
+
+  scored.sort((a, b) => b.score - a.score);
+  return scored
+    .filter((x) => x.score > 0)
+    .slice(0, maxRules)
+    .map((x) => x.rule);
+}
+
+/* Detect if the query contains procedural/administrative keywords. */
+function isAdminProcQuery(rawQuery) {
+  const q = String(rawQuery || '').toLowerCase();
+  return ADMIN_PROC_KEYWORDS.some((kw) => q.includes(kw));
+}
+
+/* Build a ministry-rules injection block (max 3 rules × 600 chars each). */
+function buildMinistryRulesBlock(rawQuery) {
+  if (!isAdminProcQuery(rawQuery)) return '';
+  const rules = retrieveMinistryRules(rawQuery, 3);
+  if (!rules.length) return '';
+  const MAX_CHARS = 600;
+  const lines = ['## أحكام وزارية رسمية'];
+  for (const rule of rules) {
+    const ruleText = String(rule.rule_ar || '');
+    const truncated = ruleText.length > MAX_CHARS ? ruleText.slice(0, MAX_CHARS).trim() + '…' : ruleText;
+    lines.push(`### ${rule.topic_ar}\n${truncated}`);
+  }
+  return lines.join('\n\n');
+}
+
+/* ---- availability-map.json index (built once at module load) ---- */
+const AVAILABILITY_MAP = availabilityMapData.specialities || {};
+
+/* For a detected wilaya key and retrieved KB specs, build a per-spec availability note.
+   Returns a map: specId → availability note string (or null if not needed). */
+function buildAvailabilityNotes(specs, wilayaKey) {
+  if (!wilayaKey || !specs || !specs.length) return {};
+  const notes = {};
+  for (const spec of specs) {
+    const avail = AVAILABILITY_MAP[spec.id];
+    if (!avail) continue;
+    // scope=national: no restriction message needed
+    if (avail.scope === 'national') continue;
+    // regional: check if wilayaKey is in offeredIn
+    const offeredIn = avail.offeredIn || [];
+    if (offeredIn.includes(wilayaKey)) continue;
+    if (offeredIn.length === 0) continue;
+    // Not offered in this wilaya — build a message
+    const arName = wilayaArName(wilayaKey);
+    const top3 = offeredIn.slice(0, 3).map((wk) => {
+      const etabs = (avail.establishments || {})[wk] || [];
+      const etabStr = etabs.length ? ` (${etabs[0]})` : '';
+      return `${wilayaArName(wk)}${etabStr}`;
+    });
+    notes[spec.id] = `هذا التخصص لا يُدرَّس في ${arName} — يُدرَّس في: ${top3.join(' ، ')}`;
+  }
+  return notes;
+}
 
 const STREAM_AR = {
   sciexp: 'علوم تجريبية',
@@ -519,6 +625,7 @@ function retrieve(message, conversation, profile, k = 6) {
 /* Render the selected specialities into a compact, bounded context string.
    wilayaKey (optional): Latin KB key of the wilaya the student asked about. */
 function buildContext(specs, wilayaKey = null) {
+  const availNotes = buildAvailabilityNotes(specs, wilayaKey);
   return specs
     .map((spec) => {
       const sections = pickSections(spec.sections);
@@ -530,6 +637,8 @@ function buildContext(specs, wilayaKey = null) {
       ];
       const wilayaBlock = buildWilayaBlock(spec, wilayaKey);
       if (wilayaBlock) parts.push(wilayaBlock);
+      // Availability note: override generic "غير متوفر" with specific wilaya list
+      if (availNotes[spec.id]) parts.push(availNotes[spec.id]);
       if (sections.length) parts.push(sections.join('\n'));
       if (rows.length) parts.push('مؤسسات مرجعية:\n- ' + rows.join('\n- '));
       return parts.join('\n');
@@ -685,7 +794,7 @@ function buildWebBlock(results) {
 }
 
 /* ---- System prompt (CHAT-CONTRACT.md §4) -------------------------------- */
-function buildSystemPrompt(profile, contextBlock, guideBlock, orientationMode = false, emptyContext = false, intent = {}, wilayaAr = null, webBlock = '') {
+function buildSystemPrompt(profile, contextBlock, guideBlock, orientationMode = false, emptyContext = false, intent = {}, wilayaAr = null, webBlock = '', ministryBlock = '', geoZoneAr = null) {
   const p = profile || {};
   const code = streamCode(p.stream);
   const streamLabel = code ? STREAM_AR[code] || p.stream : p.stream || 'غير محددة';
@@ -821,8 +930,11 @@ ${p.stream ? `ملاحظة أهليّة (AI-10): المستخدم في شعبة 
 2. **إدخال بطاقة الرغبات** — يختار الطالب ما يصل إلى 20 رغبة مرتبة حسب الأولوية (من الأعلى طموحاً إلى الأقل). كل رغبة = مؤسسة + تخصص.
 3. **التصنيف الآلي (Classement)** — يرتب النظام الطلاب على كل رغبة بالمعدل الموزون (أو العام حسب الميدان) مقارنةً بالطاقة الاستيعابية.
 4. **إعلان نتائج التوجيه** — تظهر على البوابة في غضون أسبوع إلى أسبوعين. يحصل الطالب على أعلى رغبة ممكنة ضمن قائمته.
-5. **التسجيل الجامعي الفعلي** — يتوجه الطالب للمؤسسة التي وُجِّه إليها، ومعه وثائق البكالوريا والهوية، ويُسجَّل فيها رسمياً.
-⚠️ لا يوجد "عطلة ثانية" أو إعادة توجيه بعد الإعلان في الغالب — الاختيار نهائي.
+5. **التسجيل الجامعي الفعلي** — يدفع الطالب رسوم التسجيل إلكترونياً عبر PROGRES بالبطاقة الذهبية — يصبح التسجيل نهائياً بمجرد الدفع.
+⚠️ **لا يوجد طعن رسمي في نتائج التوجيه** — الآليات الفعلية المنصوص عليها في الدليل هي:
+- تغيير بطاقة الرغبات خلال فترة التأكيد (27-29 جويلية 2025) قبل التأكيد النهائي.
+- **المرحلة الثانية** (6-8 أوت 2025): لمن لم يتحصل على أي اختيار — يملأ بطاقة رغبات جديدة من 6 اختيارات.
+- **التحويل** (الحالات الخاصة): يُودَع عبر https://progres.mesrs.dz/webetu حتى 22 أوت 2025، ويعالجه مدير المؤسسة.
 
 ## معدل التوجيه الموزون — الصيغة الرسمية (MESRS 2025)
 \`\`\`
@@ -860,8 +972,10 @@ ${p.stream ? `ملاحظة أهليّة (AI-10): المستخدم في شعبة 
 ⚠️ لا تخلط بين ENSIA وESI أو ENSTA — كل واحدة مدرسة مستقلة بتخصصات مختلفة.
 
 ## نصائح بطاقة الرغبات — استراتيجية ملء القائمة
+⚠️ **الحد الرسمي (الدليل الوزاري 2025): 6 اختيارات على الأقل و10 اختيارات على الأكثر** — لا أكثر من 10، لا أقل من 6.
+يجب أن تتضمن البطاقة وجوباً مسارين (02) على الأقل في الليسانس ذات التسجيل المحلي أو الجهوي.
 1. **الترتيب مهم جداً** — يُوجَّه الطالب لأعلى رغبة ممكنة، لذا ضع الأحلام أولاً وليس الخيارات الآمنة.
-2. **لا تترك مقاعد فارغة** — الطالب الذي لا يختار 20 رغبة يضيع فرصاً مجانية.
+2. **استغل الـ10 اختيارات كاملاً** — الحد الأقصى 10 اختيارات؛ ملء القائمة إلى 10 يضمن أكبر فرصة للحصول على تخصص مناسب.
 3. **الخيارات الجهوية أقل تنافسية** — التسجيل الجهوي (FRR) يمنح فرصة أكبر للولايات البعيدة.
 4. **تنويع الاختيارات** — ضع مزيجاً من الطموحات العالية (طب، ESI، ENSIA) + خيارات وسط + خيارات آمنة (جامعة قريبة بتخصص مناسب).
 5. **التحقق من الأهلية قبل الاختيار** — الاختيار بدون استيفاء شروط الشعبة أو الحد الأدنى يُلغى تلقائياً.
@@ -904,8 +1018,8 @@ ${p.stream ? `ملاحظة أهليّة (AI-10): المستخدم في شعبة 
 - **اللغات والترجمة** — لغات أجنبية، ترجمة وتفسير (10+ في معظم الولايات)
 - **الإعلام والاتصال** — معدلات إدخال منخفضة نسبياً
 - **علوم اقتصادية وتسيير** — للطلاب من شعبة تسيير واقتصاد بمعدل 10+
-### التوجيه الإجباري (orientation forcée):
-إذا لم تُقبل أي رغبة من قائمة الطالب، يُوجَّه آلياً لتخصص ومؤسسة متاحة. **للطالب حق الطعن خلال 7 أيام** من إعلان النتائج عبر بوابة inscription.mesrs.dz — لا يفوّت هذه الفرصة.
+### المرحلة الثانية بدل التوجيه الإجباري:
+إذا لم تُقبل أي رغبة من قائمة الطالب، **لا يُوجَّه آلياً** — بل يُتاح له المرحلة الثانية (6-8 أوت 2025) لإدراج بطاقة رغبات جديدة من 6 اختيارات. إذا لم ينجح في المرحلة الثانية أيضاً، يُعالَج ملفه كحالة خاصة عبر المؤسسة الجامعية في دائرته الجغرافية. **لا يوجد إجراء طعن رسمي في التوجيه** — الخيار الوحيد هو التحويل عبر PROGRES.
 ### التكوين المهني كبديل جدي للجامعة:
 - مراكز التكوين المهني (CFPA) — تدريب عملي 1-3 سنوات
 - شهادات مهنية معترف بها (CAP، BEP، BP) في الميكانيك، الكهرباء، الإعلام الآلي، الخياطة، البناء...
@@ -937,8 +1051,8 @@ ${p.stream ? `ملاحظة أهليّة (AI-10): المستخدم في شعبة 
   - مدة الريزيدانا: 4 سنوات (التخصصات الطبية) إلى 6 سنوات (الجراحات الدقيقة)
 ⟹ إجمالي مسار طبيب متخصص: **11 إلى 13 سنة** من الباك حتى التخصص الكامل.
 
-${intent.ensia ? `\n## ⭐ تنبيه: الطالب يسأل عن ENSIA تحديداً — قدّم المعلومات الكاملة أعلاه بشكل بارز.\n` : ''}${intent.cpge ? `\n## ⭐ تنبيه: الطالب يسأل عن CPGE — اشرح الفرق بين التحضيريات والقبول المباشر بوضوح.\n` : ''}${intent.wishlist ? `\n## ⭐ تنبيه: الطالب يسأل عن بطاقة الرغبات — قدّم نصائح الاستراتيجية الكاملة ومراحل التوجيه.\n` : ''}${intent.orientation ? `\n## ⭐ تنبيه: الطالب يسأل عن مسار التوجيه — اشرح الخطوات الخمس بشكل واضح.\n` : ''}${wilayaAr ? `\n## ⭐ سؤال ولائي: الطالب يسأل عن ولاية ${wilayaAr} — أجب حصرياً بأرقام سطر "معدلات القبول 2025 في ${wilayaAr}" الموجود في قاعدة المعرفة أدناه لكل تخصص. إذا ورد أن التخصص غير متوفر في هذه الولاية أو لم يوجد سطر ولائي، قل ذلك صراحة وانصح بالتحقق من منصة التوجيه الرسمية — لا تخمّن ولا تستنتج رقماً أبداً.\n` : ''}
-${guideBlock ? `${guideBlock}\n` : ''}${webBlock ? `${webBlock}\n` : ''}
+${intent.ensia ? `\n## ⭐ تنبيه: الطالب يسأل عن ENSIA تحديداً — قدّم المعلومات الكاملة أعلاه بشكل بارز.\n` : ''}${intent.cpge ? `\n## ⭐ تنبيه: الطالب يسأل عن CPGE — اشرح الفرق بين التحضيريات والقبول المباشر بوضوح.\n` : ''}${intent.wishlist ? `\n## ⭐ تنبيه: الطالب يسأل عن بطاقة الرغبات — قدّم نصائح الاستراتيجية الكاملة ومراحل التوجيه. تذكير: الحد الرسمي 6 اختيارات كحد أدنى و10 اختيارات كحد أقصى.\n` : ''}${intent.orientation ? `\n## ⭐ تنبيه: الطالب يسأل عن مسار التوجيه — اشرح الخطوات بشكل واضح. تذكير: لا يوجد طعن رسمي في التوجيه — الآليات هي: تغيير الرغبات قبل التأكيد، المرحلة الثانية، والتحويل عبر PROGRES.\n` : ''}${wilayaAr ? `\n## ⭐ سؤال ولائي: الطالب يسأل عن ولاية ${wilayaAr}${geoZoneAr ? ` (${geoZoneAr})` : ''} — أجب حصرياً بأرقام سطر "معدلات القبول 2025 في ${wilayaAr}" الموجود في قاعدة المعرفة أدناه لكل تخصص. إذا ورد أن التخصص غير متوفر في هذه الولاية أو لم يوجد سطر ولائي، قل ذلك صراحة وانصح بالتحقق من منصة التوجيه الرسمية — لا تخمّن ولا تستنتج رقماً أبداً.\n` : ''}${geoZoneAr ? `\n## المنطقة الجغرافية للولاية المذكورة: ${geoZoneAr}\n${GEO_RULES.regional_programs ? `قاعدة التكوينات الجهوية (الدليل الوزاري): ${String(GEO_RULES.regional_programs).slice(0, 400)}\n` : ''}` : ''}
+${ministryBlock ? `${ministryBlock}\n` : ''}${guideBlock ? `${guideBlock}\n` : ''}${webBlock ? `${webBlock}\n` : ''}
 ## معرّفات التخصصات الصحيحة الوحيدة (id) — أي id خارج هذه القائمة ممنوع منعاً باتاً في spec-cards/compare/verdict:
 ${SPECIALITIES.map((s) => s.id).join(' · ')}
 
@@ -1207,7 +1321,13 @@ export default async function handler(req, res) {
     }
   }
 
-  const systemPrompt = buildSystemPrompt(profile, contextBlock, guideBlock, orientationMode, selected.length === 0, intent, wilayaKey ? wilayaArName(wilayaKey) : null, webBlock);
+  // Ministry rules block: injected when query contains procedural/admin keywords
+  const ministryBlock = buildMinistryRulesBlock(`${message} ${recentText}`);
+
+  // Geographic zone: injected when a wilaya is detected
+  const geoZoneAr = wilayaKey ? wilayaZoneAr(wilayaKey) : null;
+
+  const systemPrompt = buildSystemPrompt(profile, contextBlock, guideBlock, orientationMode, selected.length === 0, intent, wilayaKey ? wilayaArName(wilayaKey) : null, webBlock, ministryBlock, geoZoneAr);
 
   // Stream as SSE
   res.setHeader('Content-Type', 'text/event-stream');
@@ -1292,4 +1412,4 @@ export default async function handler(req, res) {
 }
 
 /* ---- Exports for local verification harness (no side effects) ---- */
-export { retrieve, buildContext, buildSystemPrompt, formatAverages, SPECIALITIES, detectIntent, detectWilaya, buildWilayaBlock, wilayaArName, isTimeSensitive, buildWebBlock, WEB_SEARCH_SCORE_THRESHOLD };
+export { retrieve, buildContext, buildSystemPrompt, formatAverages, SPECIALITIES, detectIntent, detectWilaya, buildWilayaBlock, wilayaArName, isTimeSensitive, buildWebBlock, WEB_SEARCH_SCORE_THRESHOLD, buildMinistryRulesBlock, buildAvailabilityNotes, wilayaZoneAr, isAdminProcQuery, retrieveMinistryRules };
