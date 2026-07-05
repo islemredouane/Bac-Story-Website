@@ -31,6 +31,7 @@
             <a class="nav-item" href="app.html"><i class="fas fa-comments"></i><span>المرشد الذكي</span></a>
             <a class="nav-item active" href="specialities.html"><i class="fas fa-compass"></i><span>دليل التخصصات</span></a>
             <a class="nav-item" href="simulator.html"><i class="fas fa-list-check"></i><span>محاكي بطاقة الرغبات</span></a>
+            <a class="nav-item" href="orientation-guide.html"><i class="fas fa-book-open"></i><span>دليل التوجيه</span></a>
             <a class="nav-item" href="dashboard.html"><i class="fas fa-gauge-high"></i><span>لوحتي</span></a>
             <a class="nav-item" href="referral.html"><i class="fas fa-gift"></i><span>الإحالة والمكافآت</span></a>
         </nav>
@@ -63,6 +64,14 @@
             <div class="page-inner" id="pageInner" style="--cat:var(--cat-engineering)">
 
                 <a class="detail-back" href="specialities.html" onclick="event.preventDefault(); history.length > 1 ? history.back() : location.href='specialities.html'"><i class="fas fa-arrow-right"></i> رجوع لدليل التخصصات</a>
+
+                <!-- ===== HERO IMAGE ===== -->
+                <div id="specHeroWrap" style="display:none;margin-bottom:var(--sp-4)">
+                    <img id="specHeroImg" alt="" style="
+                        width:100%;max-height:240px;object-fit:cover;
+                        border-radius:var(--r-lg);display:block;
+                        box-shadow:var(--shadow-sm);">
+                </div>
 
                 <!-- ===== HEADER ===== -->
                 <header class="detail-header" id="specHeader">
@@ -194,6 +203,17 @@
   /* ---- PAGE META ---- */
   document.title = `توجيهي · ${spec.name}`;
   document.getElementById('pageInner').style.setProperty('--cat', spec.catVar || 'var(--primary)');
+
+  /* ---- HERO IMAGE ---- */
+  const heroImg  = spec.img || 'images/placeholder.jpeg';
+  const heroWrap = document.getElementById('specHeroWrap');
+  const heroEl   = document.getElementById('specHeroImg');
+  if (heroImg && heroWrap && heroEl) {
+    heroEl.src = heroImg;
+    heroEl.alt = spec.name;
+    heroWrap.style.display = '';
+    heroEl.onerror = () => { heroWrap.style.display = 'none'; };
+  }
 
   /* ---- EYEBROW (category badge) ---- */
   document.getElementById('specEyebrow').innerHTML =
@@ -414,20 +434,260 @@
     avgSection.style.display = 'none';
   } else {
     document.getElementById('specAvgTbody').innerHTML = avgHistory.map(r => {
-      const raw  = (r.y2025 || 0) - (r.y2024 || 0);
-      const diff = Math.abs(raw).toFixed(2);
-      const up   = raw >= 0;
-      const trendHtml = up
-        ? `<span class="trend-up"><i class="fas fa-arrow-up"></i> +${diff}</span>`
-        : `<span class="trend-down"><i class="fas fa-arrow-down"></i> −${diff}</span>`;
+      const has2024   = typeof r.y2024 === 'number' && r.y2024 > 0;
+      const raw       = has2024 ? (r.y2025 || 0) - r.y2024 : null;
+      const diff      = raw != null ? Math.abs(raw).toFixed(2) : null;
+      const trendHtml = diff == null
+        ? '<span style="color:var(--text-muted)">—</span>'
+        : raw >= 0
+          ? `<span class="trend-up"><i class="fas fa-arrow-up"></i> +${diff}</span>`
+          : `<span class="trend-down"><i class="fas fa-arrow-down"></i> −${diff}</span>`;
       return `<tr>
         <td>${r.uni}</td>
-        <td>${(r.y2024 || 0).toFixed(2)}</td>
+        <td>${has2024 ? r.y2024.toFixed(2) : '<span style="color:var(--text-muted)">—</span>'}</td>
         <td><span class="val">${(r.y2025 || 0).toFixed(2)}</span></td>
         <td>${trendHtml}</td>
       </tr>`;
     }).join('');
   }
+
+  /* ============================================================
+     AVAILABILITY MAP — lazy-loaded from availability-map.json
+     Shows where the specialty is taught (scope + wilayas + establishments)
+     Inserted after the per-wilaya averages section (or after avg table).
+     ============================================================ */
+  (function initAvailabilityMap() {
+    const escAv = (t) => String(t).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+    function load() {
+      fetch('data/kb/availability-map.json')
+        .then(r => r.ok ? r.json() : null)
+        .then(data => {
+          if (!data || !data.specialities) return;
+          const entry = data.specialities[spec.id];
+          if (!entry) return;
+          renderAvailabilitySection(entry);
+        })
+        .catch(() => { /* silent */ });
+    }
+    if ('requestIdleCallback' in window) requestIdleCallback(load, { timeout: 5000 });
+    else setTimeout(load, 700);
+
+    function renderAvailabilitySection(entry) {
+      const scope      = entry.scope || 'unknown';
+      const offeredIn  = Array.isArray(entry.offeredIn) ? entry.offeredIn : [];
+      const estabs     = (entry.establishments && typeof entry.establishments === 'object') ? entry.establishments : {};
+
+      const details = document.createElement('details');
+      details.className = 'detail-section wilaya-avg-section avail-map-section';
+
+      /* --- scope badge --- */
+      let scopeBadgeHtml = '';
+      if (scope === 'national') {
+        scopeBadgeHtml = `<span class="avail-scope-badge avail-scope-national"><i class="fas fa-globe"></i> تخصص وطني 🌍</span>`;
+      } else if (scope === 'regional') {
+        scopeBadgeHtml = `<span class="avail-scope-badge avail-scope-regional"><i class="fas fa-map-pin"></i> تخصص جهوي 🏛️</span>`;
+      }
+
+      /* --- body content --- */
+      let bodyHtml = '';
+      const hasWilayas = offeredIn.length > 0;
+      const hasEstabs  = Object.keys(estabs).length > 0;
+
+      if (scope === 'unknown' || (!hasWilayas && !hasEstabs && scope !== 'national')) {
+        bodyHtml = `<div class="avail-empty"><i class="fas fa-circle-question"></i> بيانات التوفر غير متاحة لهذا التخصص</div>`;
+      } else if (scope === 'national') {
+        bodyHtml = `<div class="avail-national-note">
+          <i class="fas fa-circle-info"></i>
+          <span>يُدرَّس في جميع الجامعات التي تحتضنه — التوجيه يكون وطنياً حسب معدلك وترتيبك</span>
+        </div>`;
+        /* If we also have establishment data, show it */
+        if (hasEstabs) {
+          bodyHtml += buildWilayaGrid(offeredIn, estabs, escAv);
+        }
+      } else {
+        /* regional */
+        if (hasEstabs) {
+          bodyHtml = buildWilayaGrid(offeredIn, estabs, escAv);
+        } else if (hasWilayas) {
+          bodyHtml = `<div class="avail-wilaya-pills">` +
+            offeredIn.map(w => `<span class="avail-wilaya-pill">${escAv(w)}</span>`).join('') +
+            `</div>`;
+        } else {
+          bodyHtml = `<div class="avail-empty"><i class="fas fa-circle-question"></i> بيانات التوفر غير متاحة لهذا التخصص</div>`;
+        }
+      }
+
+      details.innerHTML = `
+        <summary>
+          <h2><i class="fas fa-map-location-dot"></i> أين يُدرَّس هذا التخصص؟</h2>
+          <i class="fas fa-chevron-down wa-caret" aria-hidden="true"></i>
+        </summary>
+        ${scopeBadgeHtml ? `<div style="margin-bottom:var(--sp-4)">${scopeBadgeHtml}</div>` : ''}
+        ${bodyHtml}
+        <div class="honesty-note" style="margin-top:var(--sp-4)">
+          <i class="fas fa-circle-info"></i>
+          <span>بيانات قبول 2025 — أكّد على البوابة الرسمية orientation-esi.dz</span>
+        </div>`;
+
+      /* insert after the wilaya-averages section if present, otherwise after the avg table */
+      const wilayaSec = document.querySelector('.wilaya-avg-section');
+      const avgAnchor = document.getElementById('specAvgTbody')?.closest('.detail-section');
+      if (wilayaSec) wilayaSec.insertAdjacentElement('afterend', details);
+      else if (avgAnchor) avgAnchor.insertAdjacentElement('afterend', details);
+      else document.querySelector('.detail-main')?.appendChild(details);
+    }
+
+    function buildWilayaGrid(offeredIn, estabs, esc) {
+      const wilayas = offeredIn.length ? offeredIn : Object.keys(estabs);
+      if (!wilayas.length) return '';
+      const items = wilayas.map(w => {
+        const list = Array.isArray(estabs[w]) ? estabs[w] : [];
+        const etabHtml = list.length
+          ? `<ul class="avail-etab-list">${list.map(e => `<li>${esc(e)}</li>`).join('')}</ul>`
+          : '';
+        return `<div class="avail-wilaya-card">
+          <div class="avail-wilaya-name"><i class="fas fa-location-dot"></i> ${esc(w)}</div>
+          ${etabHtml}
+        </div>`;
+      }).join('');
+      return `<div class="avail-wilaya-grid">${items}</div>`;
+    }
+  })();
+
+  /* ============================================================
+     PER-WILAYA ADMISSION AVERAGES (2025) — lazy-loaded from the KB
+     Fetched off the critical path (idle); the section is only
+     inserted when the KB has wilayaAverages for this specialty.
+     ============================================================ */
+  (function initWilayaAverages() {
+    /* catalog id → KB id (only for ids that differ) */
+    const KB_ID_MAP = {
+      esi: 'esi-alger', med: 'medcine', pharm: 'pharmacie', dent: 'medcine-dentaire',
+      archi: 'epau', info: 'informatique', esc: 'ehec', bio: 'biologie',
+      'genie-civil': 'gc', 'genie-elec': 'electro', 'genie-meca': 'gmec',
+      'marine-eng': 'marine', vet: 'vetrinaire', 'pharm-ind': 'pharmacie-industrielle',
+      'ensa-agro': 'ensa', essb: 'essbo',
+    };
+
+    /* KB wilaya keys (Latin) → Arabic display names */
+    const WILAYA_AR = {
+      'Adrar': 'أدرار', 'Aflou': 'أفلو', 'Ain Defla': 'عين الدفلى', 'Ain Temouchent': 'عين تموشنت',
+      'Alger': 'الجزائر', 'Annaba': 'عنابة', 'Barika': 'بريكة', 'Batna': 'باتنة', 'Bechar': 'بشار',
+      'Bejaia': 'بجاية', 'Biskra': 'بسكرة', 'Blida': 'البليدة', 'Bordj Bou Arreridj': 'برج بوعريريج',
+      'Bou Saada': 'بوسعادة', 'Bouira': 'البويرة', 'Boumerdes': 'بومرداس', 'Chlef': 'الشلف',
+      'Constantine': 'قسنطينة', 'Djelfa': 'الجلفة', 'El Bayadh': 'البيض', 'El Oued': 'الوادي',
+      'El Tarf': 'الطارف', 'Ghardaia': 'غرداية', 'Guelma': 'قالمة', 'Jijel': 'جيجل',
+      'Khenchela': 'خنشلة', 'Laghouat': 'الأغواط', 'Maghnia': 'مغنية', 'Mascara': 'معسكر',
+      'Medea': 'المدية', 'Mila': 'ميلة', 'Mostaganem': 'مستغانم', 'Msila': 'المسيلة',
+      'Naama': 'النعامة', 'National': 'وطني', 'Oran': 'وهران', 'Ouargla': 'ورقلة',
+      'Oum El Bouaghi': 'أم البواقي', 'Relizane': 'غليزان', 'Saida': 'سعيدة',
+      'Sci Islamiques Emir': 'العلوم الإسلامية · الأمير عبد القادر', 'Setif': 'سطيف',
+      'Sidi Bel Abbes': 'سيدي بلعباس', 'Skikda': 'سكيكدة', 'Souk Ahras': 'سوق أهراس',
+      'Tamanrasset': 'تمنراست', 'Tebessa': 'تبسة', 'Tiaret': 'تيارت', 'Tipaza': 'تيبازة',
+      'Tissemsilt': 'تيسمسيلت', 'Tizi Ouzou': 'تيزي وزو', 'Tlemcen': 'تلمسان', 'Touggourt': 'تقرت',
+    };
+
+    const escWa = (t) => String(t).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+    const kbId = KB_ID_MAP[spec.id] || spec.id;
+
+    function load() {
+      fetch('data/kb/specialities-kb.json')
+        .then(r => r.ok ? r.json() : null)
+        .then(kb => {
+          const list  = kb && Array.isArray(kb.specialities) ? kb.specialities : null;
+          const entry = list ? list.find(e => e.id === kbId) : null;
+          const wa    = entry && entry.wilayaAverages;
+          if (!wa) return;
+          const rows = Object.keys(wa).map(name => {
+            const v = wa[name] || {};
+            const mins = [v.min1, v.min2, v.min3].filter(n => typeof n === 'number' && isFinite(n));
+            return {
+              ar: WILAYA_AR[name] || name,
+              min1: (typeof v.min1 === 'number') ? v.min1 : null,
+              min2: (typeof v.min2 === 'number') ? v.min2 : null,
+              min3: (typeof v.min3 === 'number') ? v.min3 : null,
+              low:  mins.length ? Math.min.apply(null, mins) : null,
+            };
+          }).filter(r => r.low != null);
+          if (rows.length) renderWilayaSection(rows);
+        })
+        .catch(() => { /* silent — section simply not shown */ });
+    }
+    if ('requestIdleCallback' in window) requestIdleCallback(load, { timeout: 4000 });
+    else setTimeout(load, 500);
+
+    function renderWilayaSection(rows) {
+      let sortKey = 'low';
+      let sortAsc = true;
+
+      const details = document.createElement('details');
+      details.className = 'detail-section wilaya-avg-section';
+      details.innerHTML = `
+        <summary>
+          <h2><i class="fas fa-map-location-dot"></i> معدلات القبول حسب الولاية (2025)</h2>
+          <i class="fas fa-chevron-down wa-caret" aria-hidden="true"></i>
+        </summary>
+        <div class="avg-table-wrap">
+          <table class="avg-table wa-table">
+            <thead>
+              <tr>
+                <th data-key="ar">الولاية <span class="wa-sort"></span></th>
+                <th data-key="min1">علوم تجريبية <span class="wa-sort"></span></th>
+                <th data-key="min2">رياضيات <span class="wa-sort"></span></th>
+                <th data-key="min3">تقني رياضي <span class="wa-sort"></span></th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="honesty-note">
+          <i class="fas fa-circle-info"></i>
+          <span>أدنى معدلات القبول 2025 حسب الولاية — أكّد على البوابة الرسمية.</span>
+        </div>`;
+
+      const tbody = details.querySelector('tbody');
+
+      function renderRows() {
+        const sorted = rows.slice().sort((a, b) => {
+          const va = a[sortKey], vb = b[sortKey];
+          if (sortKey === 'ar') return sortAsc ? va.localeCompare(vb, 'ar') : vb.localeCompare(va, 'ar');
+          if (va == null && vb == null) return 0;
+          if (va == null) return 1;              /* nulls always last */
+          if (vb == null) return -1;
+          return sortAsc ? va - vb : vb - va;
+        });
+        const dash = '<span style="color:var(--text-muted)">—</span>';
+        tbody.innerHTML = sorted.map(r => `<tr>
+          <td>${escWa(r.ar)}</td>
+          <td>${r.min1 != null ? `<span class="val">${r.min1.toFixed(2)}</span>` : dash}</td>
+          <td>${r.min2 != null ? `<span class="val">${r.min2.toFixed(2)}</span>` : dash}</td>
+          <td>${r.min3 != null ? `<span class="val">${r.min3.toFixed(2)}</span>` : dash}</td>
+        </tr>`).join('');
+        details.querySelectorAll('th[data-key]').forEach(th => {
+          const active = th.dataset.key === sortKey;
+          th.classList.toggle('is-sorted', active);
+          th.querySelector('.wa-sort').textContent = active ? (sortAsc ? '▲' : '▼') : '';
+        });
+      }
+
+      details.querySelector('thead').addEventListener('click', e => {
+        const th = e.target.closest('th[data-key]');
+        if (!th) return;
+        const key = th.dataset.key;
+        if (sortKey === key) sortAsc = !sortAsc;
+        else { sortKey = key; sortAsc = true; }
+        renderRows();
+      });
+
+      renderRows();
+
+      /* insert right after the acceptance-averages section */
+      const anchor = document.getElementById('specAvgTbody')?.closest('.detail-section');
+      if (anchor) anchor.insertAdjacentElement('afterend', details);
+      else document.querySelector('.detail-main')?.appendChild(details);
+    }
+  })();
 
   /* ---- UNIVERSITIES ---- */
   const unis = Array.isArray(spec.unis) ? spec.unis : [];
@@ -517,13 +777,14 @@
     syncWishBtn();
   });
 
-  /* ---- "Ask AI" cross-link: pre-fill chat with spec name ---- */
+  /* ---- "Ask AI" cross-link: deep-link to app.html?q=... ---- */
+  const aiQ    = encodeURIComponent(`أعطني معلومات تفصيلية عن ${spec.name}${spec.nameEn ? ' (' + spec.nameEn + ')' : ''}`);
+  const aiHref = `app.html?q=${aiQ}`;
   document.querySelectorAll('a[href="app.html"]').forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      const q = `أعطني معلومات تفصيلية عن ${spec.name}${spec.nameEn ? ' (' + spec.nameEn + ')' : ''}`;
-      sessionStorage.setItem('tw-pending-q', q);
-      location.href = 'app.html';
+    link.href = aiHref;
+    // also keep sessionStorage for apps that read it
+    link.addEventListener('click', () => {
+      sessionStorage.setItem('tw-pending-q', decodeURIComponent(aiQ));
     });
   });
 })();
