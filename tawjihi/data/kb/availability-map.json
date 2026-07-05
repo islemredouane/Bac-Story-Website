@@ -697,16 +697,33 @@
     },
     "medcine": {
       "offeredIn": [
+        "Ain Defla",
         "Alger",
         "Annaba",
         "Batna",
+        "Bechar",
         "Bejaia",
+        "Biskra",
+        "Boumerdes",
+        "Chlef",
         "Constantine",
+        "El Oued",
+        "Jijel",
+        "Laghouat",
+        "Mostaganem",
+        "Msila",
+        "Oran",
         "Ouargla",
         "Setif",
-        "Tlemcen"
+        "Sidi Bel Abbes",
+        "Skikda",
+        "Tipaza",
+        "Tizi Ouzou"
       ],
       "establishments": {
+        "Ain Defla": [
+          "UNIV. AIN DEFLA (annexe)"
+        ],
         "Alger": [
           "UNIV DES SCIENCES MEDICALES ALGER + UNIV ALGER 1"
         ],
@@ -716,11 +733,41 @@
         "Batna": [
           "UNIV. BATNA 2"
         ],
+        "Bechar": [
+          "UNIV. BECHAR"
+        ],
         "Bejaia": [
           "UNIV. BEJAIA"
         ],
+        "Biskra": [
+          "UNIV. BISKRA (annexe)"
+        ],
+        "Boumerdes": [
+          "UNIV. BOUMERDES (annexe)"
+        ],
+        "Chlef": [
+          "UNIV. CHLEF (annexe)"
+        ],
         "Constantine": [
           "UNIV CONSTANTINE 3 + UNIV CONSTANTINE 2"
+        ],
+        "El Oued": [
+          "UNIV. EL OUED (annexe)"
+        ],
+        "Jijel": [
+          "UNIV. JIJEL (annexe)"
+        ],
+        "Laghouat": [
+          "UNIV. LAGHOUAT"
+        ],
+        "Mostaganem": [
+          "UNIV. MOSTAGANEM"
+        ],
+        "Msila": [
+          "UNIV. MSILA (annexe)"
+        ],
+        "Oran": [
+          "UNIV. ORAN 1"
         ],
         "Ouargla": [
           "UNIV. OUARGLA"
@@ -728,14 +775,22 @@
         "Setif": [
           "UNIV. SETIF 1"
         ],
-        "Tlemcen": [
-          "UNIV. TLEMCEN"
+        "Sidi Bel Abbes": [
+          "UNIV. SIDI BEL ABBES"
+        ],
+        "Skikda": [
+          "UNIV. SKIKDA (annexe)"
+        ],
+        "Tipaza": [
+          "UNIV. TIPAZA (annexe)"
+        ],
+        "Tizi Ouzou": [
+          "UNIV. TIZI OUZOU"
         ]
       },
-      "scope": "regional",
-      "notOfferedNote_ar": "يُدرَّس فقط في الولايات المذكورة، التوجيه حسب الدائرة الجغرافية",
+      "scope": "broad",
       "nationalRow": true,
-      "matchMethod": "linkedFiliereKeys"
+      "matchMethod": "kb_text_extraction"
     },
     "medcine-dentaire": {
       "offeredIn": [
@@ -743,9 +798,17 @@
         "Annaba",
         "Batna",
         "Bejaia",
+        "Blida",
+        "Boumerdes",
         "Constantine",
+        "Guelma",
+        "Mostaganem",
+        "Oran",
         "Ouargla",
         "Setif",
+        "Sidi Bel Abbes",
+        "Skikda",
+        "Tizi Ouzou",
         "Tlemcen"
       ],
       "establishments": {
@@ -761,8 +824,20 @@
         "Bejaia": [
           "UNIV. BEJAIA"
         ],
+        "Blida": [
+          "UNIV. BLIDA 1"
+        ],
         "Constantine": [
           "UNIV CONSTANTINE 3 + UNIV CONSTANTINE 2"
+        ],
+        "Guelma": [
+          "UNIV. GUELMA"
+        ],
+        "Mostaganem": [
+          "UNIV. MOSTAGANEM"
+        ],
+        "Oran": [
+          "UNIV. ORAN 1"
         ],
         "Ouargla": [
           "UNIV. OUARGLA"
@@ -770,45 +845,102 @@
         "Setif": [
           "UNIV. SETIF 1"
         ],
+        "Sidi Bel Abbes": [
+          "UNIV. SIDI BEL ABBES"
+        ],
+        "Skikda": [
+          "UNIV. SKIKDA"
+        ],
+        "Tizi Ouzou": [
+          "UNIV. TIZI OUZOU"
+        ],
         "Tlemcen": [
           "UNIV. TLEMCEN"
         ]
       },
       "scope": "regional",
-      "notOfferedNote_ar": "يُدرَّس فقط في الولايات المذكورة، التوجيه حسب الدائرة الجغرافية",
       "nationalRow": true,
-      "matchMethod": "linkedFiliereKeys"
+      "matchMethod": "kb_text_extraction"
     },
     "pharmacie": {
-      "offeredIn": [],
-      "establishments": {},
-      "scope": "national",
-      "notOfferedNote_ar": "تخصص وطني: تُوجَّه إلى الولاية التي تحتضنه حسب ترتيبك",
-      "nationalRow": true,
-      "matchMethod": "linkedFiliereKeys"
-    },
-    "paramedical": {
-      "offeredIn": [],
-      "establishments": {},
-      "scope": "unknown",
-      "notOfferedNote_ar": "لا تتوفر بيانات توجيه رسمية لهذا التخصص في بيانات القبول 2025"
-    },
-    "sage-femme": {
       "offeredIn": [
-        "Tizi Ouzou",
-        "Tlemcen"
+        "Alger",
+        "Annaba",
+        "Batna",
+        "Bejaia",
+        "Blida",
+        "Constantine",
+        "Oran",
+        "Ouargla",
+        "Setif",
+        "Sidi Bel Abbes",
+        "Tizi Ouzou"
       ],
       "establishments": {
-        "Tizi Ouzou": [
-          "INFSSF TIZI OUZOU"
+        "Batna": [
+          "UNIV. BATNA 2"
         ],
-        "Tlemcen": [
-          "INFSSF TLEMCEN"
+        "Blida": [
+          "UNIV. BLIDA 1"
+        ],
+        "Oran": [
+          "UNIV. ORAN 1"
+        ],
+        "Sidi Bel Abbes": [
+          "UNIV. SIDI BEL ABBES"
+        ],
+        "Tizi Ouzou": [
+          "UNIV. TIZI OUZOU"
         ]
       },
       "scope": "regional",
-      "notOfferedNote_ar": "يُدرَّس فقط في الولايات المذكورة، التوجيه حسب الدائرة الجغرافية",
-      "matchMethod": "linkedFiliereKeys"
+      "nationalRow": true,
+      "matchMethod": "kb_text_extraction"
+    },
+    "paramedical": {
+      "offeredIn": [
+        "Adrar",
+        "Ain Defla",
+        "Alger",
+        "Annaba",
+        "Batna",
+        "Bechar",
+        "Bejaia",
+        "Biskra",
+        "Blida",
+        "Bouira",
+        "Constantine",
+        "Jijel",
+        "Mascara",
+        "Medea",
+        "Mostaganem",
+        "Msila",
+        "Oran",
+        "Ouargla",
+        "Saida",
+        "Setif",
+        "Sidi Bel Abbes",
+        "Skikda",
+        "Tebessa",
+        "Tiaret",
+        "Tizi Ouzou",
+        "Tlemcen"
+      ],
+      "establishments": {},
+      "scope": "broad",
+      "nationalRow": false,
+      "matchMethod": "wilayaAverages+admissions"
+    },
+    "sage-femme": {
+      "offeredIn": [
+        "Annaba",
+        "Tizi Ouzou",
+        "Tlemcen"
+      ],
+      "establishments": {},
+      "scope": "limited",
+      "nationalRow": false,
+      "matchMethod": "wilayaAverages+admissions"
     },
     "pharmacie-industrielle": {
       "offeredIn": [
@@ -831,10 +963,9 @@
           "UNIV.SKIKDA I.S.T.A"
         ]
       },
-      "scope": "regional",
-      "notOfferedNote_ar": "يُدرَّس فقط في الولايات المذكورة، التوجيه حسب الدائرة الجغرافية",
+      "scope": "limited",
       "nationalRow": true,
-      "matchMethod": "linkedFiliereKeys"
+      "matchMethod": "wilayaAverages+admissions"
     },
     "vetrinaire": {
       "offeredIn": [
@@ -906,8 +1037,8 @@
         ]
       },
       "scope": "regional",
-      "notOfferedNote_ar": "يُدرَّس فقط في الولايات المذكورة، التوجيه حسب الدائرة الجغرافية",
-      "matchMethod": "linkedFiliereKeys"
+      "nationalRow": false,
+      "matchMethod": "wilayaAverages+admissions"
     },
     "med-bio": {
       "offeredIn": [
@@ -4116,10 +4247,20 @@
       "matchMethod": "linkedFiliereKeys"
     },
     "addict": {
-      "offeredIn": [],
+      "offeredIn": [
+        "Alger",
+        "Annaba",
+        "Batna",
+        "Bejaia",
+        "Constantine",
+        "Ouargla",
+        "Setif",
+        "Tlemcen"
+      ],
       "establishments": {},
-      "scope": "unknown",
-      "notOfferedNote_ar": "لا تتوفر بيانات توجيه رسمية لهذا التخصص في بيانات القبول 2025"
+      "scope": "limited",
+      "nationalRow": false,
+      "matchMethod": "wilayaAverages+admissions"
     },
     "prec-med": {
       "offeredIn": [
@@ -4142,15 +4283,21 @@
           "UNIV. SETIF 1"
         ]
       },
-      "scope": "regional",
-      "notOfferedNote_ar": "يُدرَّس فقط في الولايات المذكورة، التوجيه حسب الدائرة الجغرافية",
-      "matchMethod": "linkedFiliereKeys"
+      "scope": "limited",
+      "nationalRow": false,
+      "matchMethod": "wilayaAverages+admissions"
     },
     "dent-hyg": {
-      "offeredIn": [],
+      "offeredIn": [
+        "Alger",
+        "Biskra",
+        "Blida",
+        "Oran"
+      ],
       "establishments": {},
-      "scope": "unknown",
-      "notOfferedNote_ar": "لا تتوفر بيانات توجيه رسمية لهذا التخصص في بيانات القبول 2025"
+      "scope": "limited",
+      "nationalRow": false,
+      "matchMethod": "wilayaAverages+admissions"
     },
     "gen-couns": {
       "offeredIn": [],
@@ -4247,9 +4394,8 @@
         ]
       },
       "scope": "regional",
-      "notOfferedNote_ar": "يُدرَّس فقط في الولايات المذكورة، التوجيه حسب الدائرة الجغرافية",
       "nationalRow": true,
-      "matchMethod": "linkedFiliereKeys"
+      "matchMethod": "wilayaAverages+admissions"
     },
     "quantum": {
       "offeredIn": [
@@ -5572,29 +5718,6 @@
       "matchMethod": "linkedFiliereKeys"
     },
     "kine": {
-      "offeredIn": [],
-      "establishments": {},
-      "scope": "unknown",
-      "notOfferedNote_ar": "لا تتوفر بيانات توجيه رسمية لهذا التخصص في بيانات القبول 2025"
-    },
-    "labo": {
-      "offeredIn": [
-        "Adrar",
-        "Batna"
-      ],
-      "establishments": {
-        "Adrar": [
-          "INFSPM ADRAR"
-        ],
-        "Batna": [
-          "INFSPM BATNA"
-        ]
-      },
-      "scope": "regional",
-      "notOfferedNote_ar": "يُدرَّس فقط في الولايات المذكورة، التوجيه حسب الدائرة الجغرافية",
-      "matchMethod": "linkedFiliereKeys"
-    },
-    "radio": {
       "offeredIn": [
         "Adrar",
         "Alger",
@@ -5602,64 +5725,89 @@
         "Bechar",
         "Biskra",
         "Blida",
-        "Bouira",
+        "Constantine",
         "Jijel",
+        "Mascara",
+        "Oran",
+        "Ouargla",
+        "Setif",
+        "Sidi Bel Abbes"
+      ],
+      "establishments": {},
+      "scope": "regional",
+      "nationalRow": false,
+      "matchMethod": "wilayaAverages+admissions"
+    },
+    "labo": {
+      "offeredIn": [
+        "Adrar",
+        "Ain Defla",
+        "Alger",
+        "Batna",
+        "Bechar",
+        "Bejaia",
+        "Biskra",
+        "Blida",
+        "Constantine",
+        "Jijel",
+        "Mascara",
+        "Medea",
+        "Mostaganem",
+        "Msila",
+        "Oran",
+        "Ouargla",
         "Saida",
         "Setif",
+        "Sidi Bel Abbes",
         "Skikda",
         "Tebessa",
         "Tiaret"
       ],
-      "establishments": {
-        "Adrar": [
-          "INFSPM ADRAR"
-        ],
-        "Alger": [
-          "INFSPM ALGER"
-        ],
-        "Batna": [
-          "INFSPM BATNA"
-        ],
-        "Bechar": [
-          "INFSPM BECHAR"
-        ],
-        "Biskra": [
-          "INFSPM BISKRA"
-        ],
-        "Blida": [
-          "INFSPM BLIDA"
-        ],
-        "Bouira": [
-          "INFSPM BOUIRA"
-        ],
-        "Jijel": [
-          "INFSPM JIJEL"
-        ],
-        "Saida": [
-          "INFSPM SAIDA"
-        ],
-        "Setif": [
-          "INFSPM SETIF"
-        ],
-        "Skikda": [
-          "INFSPM SKIKDA"
-        ],
-        "Tebessa": [
-          "INFSPM TEBESSA"
-        ],
-        "Tiaret": [
-          "INFSPM TIARET"
-        ]
-      },
-      "scope": "regional",
-      "notOfferedNote_ar": "يُدرَّس فقط في الولايات المذكورة، التوجيه حسب الدائرة الجغرافية",
-      "matchMethod": "linkedFiliereKeys"
+      "establishments": {},
+      "scope": "broad",
+      "nationalRow": false,
+      "matchMethod": "wilayaAverages+admissions"
+    },
+    "radio": {
+      "offeredIn": [
+        "Adrar",
+        "Ain Defla",
+        "Alger",
+        "Batna",
+        "Bechar",
+        "Biskra",
+        "Blida",
+        "Bouira",
+        "Constantine",
+        "Jijel",
+        "Mascara",
+        "Medea",
+        "Mostaganem",
+        "Msila",
+        "Oran",
+        "Ouargla",
+        "Saida",
+        "Setif",
+        "Sidi Bel Abbes",
+        "Skikda",
+        "Tebessa",
+        "Tiaret"
+      ],
+      "establishments": {},
+      "scope": "broad",
+      "nationalRow": false,
+      "matchMethod": "wilayaAverages+admissions"
     },
     "appareilleur-orthopediste": {
-      "offeredIn": [],
+      "offeredIn": [
+        "Alger",
+        "Oran",
+        "Setif"
+      ],
       "establishments": {},
-      "scope": "unknown",
-      "notOfferedNote_ar": "لا تتوفر بيانات توجيه رسمية لهذا التخصص في بيانات القبول 2025"
+      "scope": "limited",
+      "nationalRow": false,
+      "matchMethod": "wilayaAverages+admissions"
     },
     "anesthesie-reanimation": {
       "offeredIn": [],
@@ -5670,63 +5818,101 @@
     "isp": {
       "offeredIn": [
         "Adrar",
-        "Batna"
+        "Ain Defla",
+        "Alger",
+        "Batna",
+        "Bechar",
+        "Bejaia",
+        "Biskra",
+        "Blida",
+        "Bouira",
+        "Constantine",
+        "Jijel",
+        "Mascara",
+        "Medea",
+        "Mostaganem",
+        "Msila",
+        "Oran",
+        "Ouargla",
+        "Saida",
+        "Setif",
+        "Sidi Bel Abbes",
+        "Skikda",
+        "Tebessa",
+        "Tiaret"
       ],
-      "establishments": {
-        "Adrar": [
-          "INFSPM ADRAR"
-        ],
-        "Batna": [
-          "INFSPM BATNA"
-        ]
-      },
-      "scope": "regional",
-      "notOfferedNote_ar": "يُدرَّس فقط في الولايات المذكورة، التوجيه حسب الدائرة الجغرافية",
-      "matchMethod": "linkedFiliereKeys"
+      "establishments": {},
+      "scope": "broad",
+      "nationalRow": false,
+      "matchMethod": "wilayaAverages+admissions"
     },
     "esp": {
-      "offeredIn": [],
+      "offeredIn": [
+        "Ain Defla",
+        "Alger",
+        "Annaba",
+        "Batna",
+        "Bejaia",
+        "Blida",
+        "Bouira",
+        "Boumerdes",
+        "Chlef",
+        "Constantine",
+        "El Oued",
+        "El Tarf",
+        "Mascara",
+        "Mostaganem",
+        "Oran",
+        "Ouargla",
+        "Relizane",
+        "Setif",
+        "Skikda",
+        "Tipaza",
+        "Tizi Ouzou",
+        "Tlemcen"
+      ],
       "establishments": {},
-      "scope": "unknown",
-      "notOfferedNote_ar": "لا تتوفر بيانات توجيه رسمية لهذا التخصص في بيانات القبول 2025"
+      "scope": "broad",
+      "nationalRow": false,
+      "matchMethod": "wilayaAverages+admissions"
     },
     "psychomotricien": {
       "offeredIn": [
-        "Adrar",
-        "Batna"
-      ],
-      "establishments": {
-        "Adrar": [
-          "INFSPM ADRAR"
-        ],
-        "Batna": [
-          "INFSPM BATNA"
-        ]
-      },
-      "scope": "regional",
-      "notOfferedNote_ar": "يُدرَّس فقط في الولايات المذكورة، التوجيه حسب الدائرة الجغرافية",
-      "matchMethod": "linkedFiliereKeys"
-    },
-    "pedicure-podologue": {
-      "offeredIn": [
-        "Adrar",
         "Alger",
-        "Batna"
+        "Blida",
+        "Setif",
+        "Sidi Bel Abbes"
       ],
       "establishments": {
-        "Adrar": [
-          "INFSPM ADRAR"
-        ],
         "Alger": [
           "INFSPM ALGER"
         ],
-        "Batna": [
-          "INFSPM BATNA"
+        "Blida": [
+          "INFSPM BLIDA"
+        ],
+        "Setif": [
+          "INFSPM SETIF"
+        ],
+        "Sidi Bel Abbes": [
+          "INFSPM SIDI BEL ABBES"
         ]
       },
-      "scope": "regional",
-      "notOfferedNote_ar": "يُدرَّس فقط في الولايات المذكورة، التوجيه حسب الدائرة الجغرافية",
-      "matchMethod": "linkedFiliereKeys"
+      "scope": "limited",
+      "nationalRow": false,
+      "matchMethod": "wilayaAverages+admissions"
+    },
+    "pedicure-podologue": {
+      "offeredIn": [
+        "Alger"
+      ],
+      "establishments": {
+        "Alger": [
+          "INFSPM ALGER"
+        ]
+      },
+      "scope": "limited",
+      "nationalRow": false,
+      "matchMethod": "wilayaAverages+admissions"
     },
     "dental-prosthetist": {
       "offeredIn": [],
@@ -5737,10 +5923,25 @@
       "matchMethod": "linkedFiliereKeys"
     },
     "pharma-prep": {
-      "offeredIn": [],
+      "offeredIn": [
+        "Adrar",
+        "Alger",
+        "Batna",
+        "Biskra",
+        "Blida",
+        "Constantine",
+        "Jijel",
+        "Medea",
+        "Mostaganem",
+        "Oran",
+        "Setif",
+        "Sidi Bel Abbes",
+        "Skikda"
+      ],
       "establishments": {},
-      "scope": "unknown",
-      "notOfferedNote_ar": "لا تتوفر بيانات توجيه رسمية لهذا التخصص في بيانات القبول 2025"
+      "scope": "regional",
+      "nationalRow": false,
+      "matchMethod": "wilayaAverages+admissions"
     },
     "3d-design": {
       "offeredIn": [
@@ -9173,6 +9374,105 @@
       "scope": "regional",
       "notOfferedNote_ar": "يُدرَّس فقط في الولايات المذكورة، التوجيه حسب الدائرة الجغرافية",
       "matchMethod": "filiereKeywordFallback"
+    },
+    "appareilleur-ortho": {
+      "offeredIn": [
+        "Alger",
+        "Oran",
+        "Setif"
+      ],
+      "establishments": {},
+      "scope": "limited",
+      "nationalRow": false,
+      "matchMethod": "wilayaAverages+admissions"
+    },
+    "assistant-medical": {
+      "offeredIn": [
+        "Adrar",
+        "Ain Defla",
+        "Alger",
+        "Batna",
+        "Bechar",
+        "Bejaia",
+        "Biskra",
+        "Mascara",
+        "Mostaganem",
+        "Msila",
+        "Oran",
+        "Ouargla",
+        "Saida",
+        "Skikda",
+        "Tebessa",
+        "Tiaret"
+      ],
+      "establishments": {},
+      "scope": "regional",
+      "nationalRow": false,
+      "matchMethod": "wilayaAverages+admissions"
+    },
+    "assistant-social-sante": {
+      "offeredIn": [
+        "Ain Defla",
+        "Alger",
+        "Bechar",
+        "Bejaia",
+        "Constantine",
+        "Jijel",
+        "Mostaganem",
+        "Msila",
+        "Oran",
+        "Ouargla",
+        "Saida"
+      ],
+      "establishments": {},
+      "scope": "regional",
+      "nationalRow": false,
+      "matchMethod": "wilayaAverages+admissions"
+    },
+    "dieteticien": {
+      "offeredIn": [
+        "Alger",
+        "Biskra",
+        "Constantine",
+        "Oran"
+      ],
+      "establishments": {},
+      "scope": "limited",
+      "nationalRow": false,
+      "matchMethod": "wilayaAverages+admissions"
+    },
+    "preparateur-pharmacie": {
+      "offeredIn": [
+        "Adrar",
+        "Alger",
+        "Batna",
+        "Biskra",
+        "Blida",
+        "Constantine",
+        "Jijel",
+        "Medea",
+        "Mostaganem",
+        "Oran",
+        "Setif",
+        "Sidi Bel Abbes",
+        "Skikda"
+      ],
+      "establishments": {},
+      "scope": "regional",
+      "nationalRow": false,
+      "matchMethod": "wilayaAverages+admissions"
+    },
+    "prothesiste-dentaire": {
+      "offeredIn": [
+        "Alger",
+        "Biskra",
+        "Blida",
+        "Oran"
+      ],
+      "establishments": {},
+      "scope": "limited",
+      "nationalRow": false,
+      "matchMethod": "wilayaAverages+admissions"
     }
   },
   "wilayas": {
