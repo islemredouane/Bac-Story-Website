@@ -1525,6 +1525,7 @@ export default async function handler(req, res) {
 
   let fullResponse = '';
   let streamSucceeded = false;
+  let _lastErr = '';
   const useWebSearch = selected.length === 0;
 
   // Build provider queue — skip cooled-down ones; if all are cooled use least-recently-cooled
@@ -1560,8 +1561,10 @@ export default async function handler(req, res) {
       }
       if (isRateLimit(err)) {
         markCooldown(provider.label);
+        _lastErr = `${provider.label}: rate_limit`;
         // continue to next provider
       } else {
+        _lastErr = `${provider.label}: ${err.message?.slice(0, 200)}`;
         console.error(`[ai-router] ${provider.label} error:`, err.message);
         // non-rate-limit error — still try next provider
       }
@@ -1569,7 +1572,7 @@ export default async function handler(req, res) {
   }
 
   if (!streamSucceeded) {
-    res.write(`data: ${JSON.stringify({ error: 'all_providers_exhausted' })}\n\n`);
+    res.write(`data: ${JSON.stringify({ error: 'all_providers_exhausted', _dbg: _lastErr })}\n\n`);
     res.write('data: [DONE]\n\n');
     res.end();
     return;
