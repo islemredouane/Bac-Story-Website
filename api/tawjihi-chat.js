@@ -1335,7 +1335,6 @@ async function* streamFromProvider(provider, systemPrompt, messages, message, us
     const client = new GoogleGenerativeAI(provider.key);
     const model = client.getGenerativeModel({
       model: 'gemini-2.0-flash',
-      tools: useWebSearch ? [{ googleSearch: {} }] : [],
       generationConfig: { maxOutputTokens: 2048, temperature: 0.4 },
     });
     const chat = model.startChat({
