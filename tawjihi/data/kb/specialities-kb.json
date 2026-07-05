@@ -1788,7 +1788,7 @@
       "linkedEtabRows": [],
       "resolvedAverages": {
         "min1": 16.65,
-        "min2": 17.15,
+        "min2": 16.65,
         "min3": null
       },
       "_linkNote": "linked via filiere label tokens (6 filiere keys)",
@@ -1864,7 +1864,7 @@
       "linkedEtabRows": [],
       "resolvedAverages": {
         "min1": 16.26,
-        "min2": 16.76,
+        "min2": 16.26,
         "min3": null
       },
       "_linkNote": "linked via filiere label tokens (1 filiere keys)",
@@ -1905,7 +1905,7 @@
       "linkedEtabRows": [],
       "resolvedAverages": {
         "min1": 10.01,
-        "min2": 12.86,
+        "min2": 10.01,
         "min3": null
       },
       "wilayaAverages": {
@@ -2095,7 +2095,7 @@
       "linkedEtabRows": [],
       "resolvedAverages": {
         "min1": 11.93,
-        "min2": 14.31,
+        "min2": 11.93,
         "min3": null
       },
       "_linkNote": "linked via filiere label tokens (30 filiere keys)",
@@ -2150,7 +2150,7 @@
       "linkedEtabRows": [],
       "resolvedAverages": {
         "min1": 12.8,
-        "min2": 13.6,
+        "min2": 12.8,
         "min3": null
       },
       "_linkNote": "linked via filiere label tokens (4 filiere keys)",
@@ -2211,7 +2211,7 @@
       "linkedEtabRows": [],
       "resolvedAverages": {
         "min1": 12.26,
-        "min2": 12.92,
+        "min2": 12.26,
         "min3": null
       },
       "_linkNote": "linked via filiere label tokens (1 filiere keys)",
@@ -5355,7 +5355,7 @@
       "linkedEtabRows": [],
       "resolvedAverages": {
         "min1": 16.65,
-        "min2": 17.15,
+        "min2": 16.65,
         "min3": null
       },
       "wilayaAverages": {
@@ -5435,7 +5435,7 @@
       "linkedEtabRows": [],
       "resolvedAverages": {
         "min1": 11.72,
-        "min2": 12.28,
+        "min2": 11.72,
         "min3": null
       },
       "_linkNote": "linked via filiere label tokens (4 filiere keys)",
@@ -5486,7 +5486,7 @@
       "linkedEtabRows": [],
       "resolvedAverages": {
         "min1": 12.23,
-        "min2": 15.07,
+        "min2": 12.23,
         "min3": null
       },
       "wilayaAverages": {
@@ -5758,7 +5758,7 @@
       "linkedEtabRows": [],
       "resolvedAverages": {
         "min1": 10.17,
-        "min2": 13.09,
+        "min2": 10.17,
         "min3": 15.08
       },
       "_linkNote": "linked via filiere label tokens (8 filiere keys)",
@@ -8142,7 +8142,7 @@
       "linkedEtabRows": [],
       "resolvedAverages": {
         "min1": 10.01,
-        "min2": 13.57,
+        "min2": 10.01,
         "min3": null
       },
       "wilayaAverages": {
@@ -8266,7 +8266,7 @@
       "linkedEtabRows": [],
       "resolvedAverages": {
         "min1": 11.27,
-        "min2": 11.95,
+        "min2": 11.27,
         "min3": null
       },
       "_linkNote": "linked via filiere label tokens (30 filiere keys)",
@@ -8437,7 +8437,7 @@
       "linkedEtabRows": [],
       "resolvedAverages": {
         "min1": 12.37,
-        "min2": 13.37,
+        "min2": 12.37,
         "min3": null
       },
       "_linkNote": "linked via filiere label tokens (30 filiere keys)",
@@ -8579,7 +8579,7 @@
       "linkedEtabRows": [],
       "resolvedAverages": {
         "min1": 11.95,
-        "min2": 14.28,
+        "min2": 11.95,
         "min3": null
       },
       "wilayaAverages": {
@@ -8688,7 +8688,7 @@
       "linkedEtabRows": [],
       "resolvedAverages": {
         "min1": 11.27,
-        "min2": 11.95,
+        "min2": 11.27,
         "min3": null
       },
       "_linkNote": "linked via filiere label tokens (30 filiere keys)",
@@ -8837,7 +8837,7 @@
       "linkedEtabRows": [],
       "resolvedAverages": {
         "min1": 10.0,
-        "min2": null,
+        "min2": 10.0,
         "min3": null
       },
       "wilayaAverages": {
@@ -9050,7 +9050,7 @@
       "linkedEtabRows": [],
       "resolvedAverages": {
         "min1": 11.27,
-        "min2": 11.95,
+        "min2": 11.27,
         "min3": null
       },
       "_linkNote": "linked via filiere label tokens (30 filiere keys)",
@@ -9129,7 +9129,7 @@
       "linkedEtabRows": [],
       "resolvedAverages": {
         "min1": 11.27,
-        "min2": 11.95,
+        "min2": 11.27,
         "min3": null
       },
       "_linkNote": "linked via filiere label tokens (30 filiere keys)",
@@ -9166,7 +9166,7 @@
       "linkedEtabRows": [],
       "resolvedAverages": {
         "min1": 16.99,
-        "min2": 17.5,
+        "min2": 16.99,
         "min3": null
       },
       "_linkNote": "linked via filiere label tokens (1 filiere keys)",
@@ -9205,7 +9205,7 @@
       "linkedEtabRows": [],
       "resolvedAverages": {
         "min1": 11.95,
-        "min2": 13.01,
+        "min2": 11.95,
         "min3": null
       },
       "wilayaAverages": {
@@ -14511,7 +14511,7 @@
       ],
       "resolvedAverages": {
         "min1": 11.95,
-        "min2": 14.28
+        "min2": 11.95
       },
       "averages_text": "شعبة رياضيات: 11.95 / شعبة علوم تجريبية: 14.28",
       "wilayaAverages": {
@@ -14543,7 +14543,7 @@
       ],
       "resolvedAverages": {
         "min1": 10.73,
-        "min2": 10.83
+        "min2": 10.73
       },
       "averages_text": "شعبة رياضيات: 10.73 / شعبة علوم تجريبية: 10.83",
       "wilayaAverages": {
@@ -14627,7 +14627,7 @@
       ],
       "resolvedAverages": {
         "min1": 11.62,
-        "min2": 11.8
+        "min2": 11.62
       },
       "averages_text": "شعبة رياضيات: 11.62 / شعبة علوم تجريبية: 11.8",
       "wilayaAverages": {
@@ -14691,7 +14691,7 @@
       ],
       "resolvedAverages": {
         "min1": 12.01,
-        "min2": 14.52
+        "min2": 12.01
       },
       "averages_text": "شعبة رياضيات: 12.01 / شعبة علوم تجريبية: 14.52",
       "wilayaAverages": {
@@ -14728,7 +14728,7 @@
       ],
       "resolvedAverages": {
         "min1": 11.95,
-        "min2": 13.01
+        "min2": 11.95
       },
       "averages_text": "شعبة رياضيات: 11.95 / شعبة علوم تجريبية: 13.01",
       "wilayaAverages": {
@@ -14792,7 +14792,7 @@
       ],
       "resolvedAverages": {
         "min1": 12.23,
-        "min2": 15.07
+        "min2": 12.23
       },
       "averages_text": "شعبة رياضيات: 12.23 / شعبة علوم تجريبية: 15.07",
       "wilayaAverages": {
