@@ -1300,8 +1300,8 @@ function buildProviders() {
   }
   const OR_MODELS = [
     'meta-llama/llama-3.3-70b-instruct:free',
-    'deepseek/deepseek-r1:free',
-    'google/gemini-2.5-flash:free',
+    'meta-llama/llama-3.1-8b-instruct:free',
+    'qwen/qwen-2.5-72b-instruct:free',
   ];
   orKeys.forEach((key, ki) => {
     OR_MODELS.forEach((model, mi) => {
@@ -1340,10 +1340,10 @@ async function* streamFromProvider(provider, systemPrompt, messages, message, us
     const client = new GoogleGenerativeAI(provider.key);
     const model = client.getGenerativeModel({
       model: 'gemini-2.0-flash',
+      systemInstruction: systemPrompt,
       generationConfig: { maxOutputTokens: 2048, temperature: 0.4 },
     });
     const chat = model.startChat({
-      systemInstruction: systemPrompt,
       history: toGeminiHistory(messages.slice(-12, -1)),
     });
     const result = await chat.sendMessageStream(message);
@@ -1373,22 +1373,30 @@ async function* streamFromProvider(provider, systemPrompt, messages, message, us
 
   /* ---- OpenRouter (OpenAI-compatible REST, streamed via fetch) ---- */
   if (provider.type === 'openrouter') {
-    const resp = await fetch('https://openrouter.ai/api/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${provider.key}`,
-        'Content-Type': 'application/json',
-        'HTTP-Referer': 'https://tawjihi.vercel.app',
-        'X-Title': 'Tawjihi AI',
-      },
-      body: JSON.stringify({
-        model: provider.model,
-        messages: [{ role: 'system', content: systemPrompt }, ...messages.slice(-12)],
-        stream: true,
-        max_tokens: 2048,
-        temperature: 0.4,
-      }),
-    });
+    const orAbort = new AbortController();
+    const orTimer = setTimeout(() => orAbort.abort(), 8000);
+    let resp;
+    try {
+      resp = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+        method: 'POST',
+        signal: orAbort.signal,
+        headers: {
+          'Authorization': `Bearer ${provider.key}`,
+          'Content-Type': 'application/json',
+          'HTTP-Referer': 'https://tawjihi.vercel.app',
+          'X-Title': 'Tawjihi AI',
+        },
+        body: JSON.stringify({
+          model: provider.model,
+          messages: [{ role: 'system', content: systemPrompt }, ...messages.slice(-12)],
+          stream: true,
+          max_tokens: 2048,
+          temperature: 0.4,
+        }),
+      });
+    } finally {
+      clearTimeout(orTimer);
+    }
     if (!resp.ok) {
       const err = new Error(`OpenRouter HTTP ${resp.status}`);
       err.status = resp.status;
