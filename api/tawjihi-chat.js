@@ -627,6 +627,35 @@ function expandWithPrefixStrip(tokenSet) {
   for (const e of extras) tokenSet.add(e);
 }
 
+/* GAP-Q23: Darija-to-MSA synonym expansion.
+   Expand common Darija terms that relate to specialties so that queries like
+   "إنجينيور معلوماتية" or "دكتور" correctly retrieve the relevant KB specs.
+   Operates on the raw query string and returns an augmented string. */
+const DARIJA_SYNONYMS = [
+  // engineering / computer science
+  { pattern: /إنجينيور|مهندس/g,       expansion: 'هندسة' },
+  // medicine / health
+  { pattern: /دكتور|طبيب/g,           expansion: 'طب مدرسة' },
+  // law
+  { pattern: /محامي/g,                expansion: 'حقوق' },
+  // informatics / coding
+  { pattern: /كمبيوتر|كوداج|كودينغ/g, expansion: 'إعلام آلي' },
+  // business / economics
+  { pattern: /أعمال|بيزنيس/g,         expansion: 'تسيير اقتصاد' },
+];
+
+function expandDarijaSynonyms(rawQuery) {
+  let expanded = rawQuery;
+  for (const { pattern, expansion } of DARIJA_SYNONYMS) {
+    if (pattern.test(expanded)) {
+      expanded += ' ' + expansion;
+    }
+    // Reset lastIndex since we're reusing global regexes
+    pattern.lastIndex = 0;
+  }
+  return expanded;
+}
+
 function specText(spec) {
   const sectionText = Object.values(spec.sections || {}).join(' ');
   return `${spec.name_ar} ${spec.name_fr} ${spec.dataName || ''} ${spec.id} ${sectionText}`;
@@ -658,7 +687,9 @@ function retrieve(message, conversation, profile, k = 6) {
     .slice(-4)
     .map((m) => m.content || '')
     .join(' ');
-  const queryTokens = new Set(tokenize(`${message} ${recent}`));
+  // GAP-Q23: expand Darija terms to MSA equivalents before tokenizing
+  const expandedMessage = expandDarijaSynonyms(`${message} ${recent}`);
+  const queryTokens = new Set(tokenize(expandedMessage));
   // GAP-05: expand query tokens with Arabic prefix-stripped variants
   expandWithPrefixStrip(queryTokens);
   const rawQuery = `${message} ${recent}`.toLowerCase();
@@ -1109,6 +1140,7 @@ ${p.stream ? `ملاحظة أهليّة (AI-10): المستخدم في شعبة 
 - **الأولوية**: الشعبتان المقبولتان هما رياضيات (P1) وعلوم تجريبية (P2) وتقني رياضي (P3)
 - **مقارنة**: أعلى من ESI الجزائر في الشعبة العلمية — المنافسة شرسة جداً
 ⚠️ لا تخلط بين ENSIA وESI أو ENSTA — كل واحدة مدرسة مستقلة بتخصصات مختلفة.
+ENSIA هي المدرسة المخصصة كلياً للذكاء الاصطناعي في الجزائر — لكن ESTIN بجاية تقدم أيضاً تخصص AI وIoT وأمن سيبراني ضمن مساراتها.
 
 ## نصائح بطاقة الرغبات — استراتيجية ملء القائمة
 ⚠️ **الحد الرسمي (الدليل الوزاري 2025): 6 اختيارات على الأقل و10 اختيارات على الأكثر** — لا أكثر من 10، لا أقل من 6.
