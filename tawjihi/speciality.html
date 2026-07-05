@@ -31,6 +31,7 @@
             <a class="nav-item" href="app.html"><i class="fas fa-comments"></i><span>المرشد الذكي</span></a>
             <a class="nav-item active" href="specialities.html"><i class="fas fa-compass"></i><span>دليل التخصصات</span></a>
             <a class="nav-item" href="simulator.html"><i class="fas fa-list-check"></i><span>محاكي بطاقة الرغبات</span></a>
+            <a class="nav-item" href="orientation-guide.html"><i class="fas fa-book-open"></i><span>دليل التوجيه</span></a>
             <a class="nav-item" href="dashboard.html"><i class="fas fa-gauge-high"></i><span>لوحتي</span></a>
             <a class="nav-item" href="referral.html"><i class="fas fa-gift"></i><span>الإحالة والمكافآت</span></a>
         </nav>
@@ -449,6 +450,110 @@
       </tr>`;
     }).join('');
   }
+
+  /* ============================================================
+     AVAILABILITY MAP — lazy-loaded from availability-map.json
+     Shows where the specialty is taught (scope + wilayas + establishments)
+     Inserted after the per-wilaya averages section (or after avg table).
+     ============================================================ */
+  (function initAvailabilityMap() {
+    const escAv = (t) => String(t).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+    function load() {
+      fetch('data/kb/availability-map.json')
+        .then(r => r.ok ? r.json() : null)
+        .then(data => {
+          if (!data || !data.specialities) return;
+          const entry = data.specialities[spec.id];
+          if (!entry) return;
+          renderAvailabilitySection(entry);
+        })
+        .catch(() => { /* silent */ });
+    }
+    if ('requestIdleCallback' in window) requestIdleCallback(load, { timeout: 5000 });
+    else setTimeout(load, 700);
+
+    function renderAvailabilitySection(entry) {
+      const scope      = entry.scope || 'unknown';
+      const offeredIn  = Array.isArray(entry.offeredIn) ? entry.offeredIn : [];
+      const estabs     = (entry.establishments && typeof entry.establishments === 'object') ? entry.establishments : {};
+
+      const details = document.createElement('details');
+      details.className = 'detail-section wilaya-avg-section avail-map-section';
+
+      /* --- scope badge --- */
+      let scopeBadgeHtml = '';
+      if (scope === 'national') {
+        scopeBadgeHtml = `<span class="avail-scope-badge avail-scope-national"><i class="fas fa-globe"></i> تخصص وطني 🌍</span>`;
+      } else if (scope === 'regional') {
+        scopeBadgeHtml = `<span class="avail-scope-badge avail-scope-regional"><i class="fas fa-map-pin"></i> تخصص جهوي 🏛️</span>`;
+      }
+
+      /* --- body content --- */
+      let bodyHtml = '';
+      const hasWilayas = offeredIn.length > 0;
+      const hasEstabs  = Object.keys(estabs).length > 0;
+
+      if (scope === 'unknown' || (!hasWilayas && !hasEstabs && scope !== 'national')) {
+        bodyHtml = `<div class="avail-empty"><i class="fas fa-circle-question"></i> بيانات التوفر غير متاحة لهذا التخصص</div>`;
+      } else if (scope === 'national') {
+        bodyHtml = `<div class="avail-national-note">
+          <i class="fas fa-circle-info"></i>
+          <span>يُدرَّس في جميع الجامعات التي تحتضنه — التوجيه يكون وطنياً حسب معدلك وترتيبك</span>
+        </div>`;
+        /* If we also have establishment data, show it */
+        if (hasEstabs) {
+          bodyHtml += buildWilayaGrid(offeredIn, estabs, escAv);
+        }
+      } else {
+        /* regional */
+        if (hasEstabs) {
+          bodyHtml = buildWilayaGrid(offeredIn, estabs, escAv);
+        } else if (hasWilayas) {
+          bodyHtml = `<div class="avail-wilaya-pills">` +
+            offeredIn.map(w => `<span class="avail-wilaya-pill">${escAv(w)}</span>`).join('') +
+            `</div>`;
+        } else {
+          bodyHtml = `<div class="avail-empty"><i class="fas fa-circle-question"></i> بيانات التوفر غير متاحة لهذا التخصص</div>`;
+        }
+      }
+
+      details.innerHTML = `
+        <summary>
+          <h2><i class="fas fa-map-location-dot"></i> أين يُدرَّس هذا التخصص؟</h2>
+          <i class="fas fa-chevron-down wa-caret" aria-hidden="true"></i>
+        </summary>
+        ${scopeBadgeHtml ? `<div style="margin-bottom:var(--sp-4)">${scopeBadgeHtml}</div>` : ''}
+        ${bodyHtml}
+        <div class="honesty-note" style="margin-top:var(--sp-4)">
+          <i class="fas fa-circle-info"></i>
+          <span>بيانات قبول 2025 — أكّد على البوابة الرسمية orientation-esi.dz</span>
+        </div>`;
+
+      /* insert after the wilaya-averages section if present, otherwise after the avg table */
+      const wilayaSec = document.querySelector('.wilaya-avg-section');
+      const avgAnchor = document.getElementById('specAvgTbody')?.closest('.detail-section');
+      if (wilayaSec) wilayaSec.insertAdjacentElement('afterend', details);
+      else if (avgAnchor) avgAnchor.insertAdjacentElement('afterend', details);
+      else document.querySelector('.detail-main')?.appendChild(details);
+    }
+
+    function buildWilayaGrid(offeredIn, estabs, esc) {
+      const wilayas = offeredIn.length ? offeredIn : Object.keys(estabs);
+      if (!wilayas.length) return '';
+      const items = wilayas.map(w => {
+        const list = Array.isArray(estabs[w]) ? estabs[w] : [];
+        const etabHtml = list.length
+          ? `<ul class="avail-etab-list">${list.map(e => `<li>${esc(e)}</li>`).join('')}</ul>`
+          : '';
+        return `<div class="avail-wilaya-card">
+          <div class="avail-wilaya-name"><i class="fas fa-location-dot"></i> ${esc(w)}</div>
+          ${etabHtml}
+        </div>`;
+      }).join('');
+      return `<div class="avail-wilaya-grid">${items}</div>`;
+    }
+  })();
 
   /* ============================================================
      PER-WILAYA ADMISSION AVERAGES (2025) — lazy-loaded from the KB

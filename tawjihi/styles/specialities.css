@@ -631,6 +631,107 @@ details.wilaya-avg-section[open] .wa-caret { transform: rotate(180deg); }
 }
 
 /* ============================================================
+   AVAILABILITY MAP SECTION
+   ============================================================ */
+.avail-scope-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2);
+    padding: var(--sp-2) var(--sp-4);
+    border-radius: var(--r-pill);
+    font-size: var(--fs-sm);
+    font-weight: 800;
+    border: 1.5px solid transparent;
+}
+.avail-scope-national {
+    color: var(--acc-safe);
+    background: color-mix(in srgb, var(--acc-safe) 12%, transparent);
+    border-color: color-mix(in srgb, var(--acc-safe) 30%, transparent);
+}
+.avail-scope-regional {
+    color: var(--acc-likely);
+    background: color-mix(in srgb, var(--acc-likely) 12%, transparent);
+    border-color: color-mix(in srgb, var(--acc-likely) 30%, transparent);
+}
+.avail-national-note {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    padding: var(--sp-3) var(--sp-4);
+    background: color-mix(in srgb, var(--acc-safe) 8%, var(--surface));
+    border: 1px solid color-mix(in srgb, var(--acc-safe) 25%, transparent);
+    border-radius: var(--r-md);
+    font-size: var(--fs-sm);
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: var(--sp-4);
+}
+.avail-national-note > i { color: var(--acc-safe); flex-shrink: 0; }
+.avail-empty {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    color: var(--text-muted);
+    font-size: var(--fs-sm);
+    font-weight: 700;
+}
+.avail-empty > i { color: var(--text-faint); }
+.avail-wilaya-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: var(--sp-3);
+    margin-top: var(--sp-2);
+}
+.avail-wilaya-card {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--r-sm);
+    padding: var(--sp-3) var(--sp-4);
+    font-size: var(--fs-sm);
+}
+.avail-wilaya-name {
+    font-weight: 800;
+    color: var(--cat, var(--primary));
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    margin-bottom: var(--sp-2);
+}
+.avail-wilaya-name i { font-size: .85em; flex-shrink: 0; }
+.avail-etab-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-1);
+    padding-inline-start: var(--sp-3);
+    border-inline-start: 2px solid var(--border);
+}
+.avail-etab-list li {
+    color: var(--text-muted);
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    line-height: 1.4;
+}
+.avail-wilaya-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-2);
+    margin-top: var(--sp-2);
+}
+.avail-wilaya-pill {
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    color: var(--cat, var(--primary));
+    background: color-mix(in srgb, var(--cat, var(--primary)) 10%, transparent);
+    border: 1px solid color-mix(in srgb, var(--cat, var(--primary)) 25%, transparent);
+    padding: var(--sp-1) var(--sp-3);
+    border-radius: var(--r-pill);
+}
+@media (max-width: 640px) {
+    .avail-wilaya-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
    GLASS LAYER — speciality DETAIL cards only
    (.spec-card browse grid intentionally excluded)
    ============================================================ */
