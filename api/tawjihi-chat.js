@@ -787,7 +787,7 @@ function retrieve(message, conversation, profile, k = 6) {
     selected.push(s.spec);
     chosen.add(s.spec.id);
   }
-  const result = selected.slice(0, Math.max(k, selected.length));
+  const result = selected.slice(0, Math.min(k, selected.length));
   result.topScore = topScore;
   return result;
 }
