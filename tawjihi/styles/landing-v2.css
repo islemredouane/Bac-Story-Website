@@ -1,4 +1,4 @@
-/* ═══════════════════════════════════════════════════════════
+﻿/* ═══════════════════════════════════════════════════════════
    TAWJIHI — Landing V2  |  build-premium-website design system
    Brand: primary #2c5cc5  ·  accent #ff6b35
    ═══════════════════════════════════════════════════════════ */
@@ -273,9 +273,8 @@ img { display: block; max-width: 100%; }
 .lv2-nav-pill {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-  width: min(1024px, 100%);
-  padding: .55rem .75rem .55rem 1.25rem;
+  width: min(1200px, 100%);
+  padding: .6rem 1.25rem;
   border-radius: 999px;
   transition: background .3s var(--ease-out), box-shadow .3s var(--ease-out), border .3s;
 }
@@ -306,20 +305,15 @@ img { display: block; max-width: 100%; }
 .lv2-nav.scrolled .lv2-logo { color: var(--ink); }
 [data-theme="dark"] .lv2-nav.scrolled .lv2-logo { color: var(--ink); }
 
-.lv2-logo-mark {
-  width: 30px; height: 30px;
-  border-radius: 8px;
-  background: var(--primary);
-  display: grid; place-items: center;
-  color: #fff;
-  font-size: .8rem; font-weight: 900;
+.lv2-logo-icon {
+  width: 26px; height: 26px;
   flex-shrink: 0;
 }
 
-/* Nav links */
+/* Nav links — center zone, takes all remaining space */
 .lv2-nav-links {
-  display: flex; align-items: center; gap: .1rem;
-  margin-inline-start: auto;
+  flex: 1;
+  display: flex; align-items: center; justify-content: center; gap: .1rem;
 }
 
 .lv2-nav-link {
@@ -334,8 +328,9 @@ img { display: block; max-width: 100%; }
 .lv2-nav.scrolled .lv2-nav-link { color: var(--muted); }
 .lv2-nav.scrolled .lv2-nav-link:hover { color: var(--ink); background: rgba(var(--primary-rgb),.07); }
 
-/* Theme + actions */
+/* Actions — right end of left zone */
 .lv2-nav-actions {
+  flex-shrink: 0;
   display: flex; align-items: center; gap: .6rem;
 }
 
@@ -533,6 +528,99 @@ img { display: block; max-width: 100%; }
 }
 
 /* ─────────────────────────────────────────────────────────────
+   HERO COMPASS RADAR
+───────────────────────────────────────────────────────────── */
+.lv2-hero-compass {
+  position: absolute;
+  left: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: min(360px, 38vw);
+  aspect-ratio: 1;
+  pointer-events: none;
+}
+
+@media (max-width: 1023px) { .lv2-hero-compass { display: none; } }
+
+.lv2-compass-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.15);
+  animation: lv2-ring-spin 30s linear infinite;
+  inset: 0;
+}
+.lv2-ring-outer { animation-duration: 30s; }
+.lv2-ring-mid   { inset: 13%; animation-direction: reverse; animation-duration: 20s; }
+
+@keyframes lv2-ring-spin { to { transform: rotate(360deg); } }
+
+.lv2-compass-svg {
+  width: 100%; height: 100%;
+  overflow: visible;
+}
+
+.lv2-route         { stroke: rgba(var(--primary-rgb),.55); stroke-width: 1.5; opacity: .7; }
+.lv2-route-2       { stroke: rgba(255,255,255,.35); }
+.lv2-route-3       { stroke: rgba(var(--accent-rgb),.45); }
+
+.lv2-compass-face  { fill: rgba(15,20,25,.6); stroke: rgba(255,255,255,.12); stroke-width: 1; }
+.lv2-compass-bezel { fill: none; stroke: rgba(255,255,255,.08); stroke-width: 1.5; }
+
+.lv2-compass-cardinal {
+  fill: rgba(255,255,255,.5);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.lv2-needle-group {
+  transform-origin: 150px 150px;
+  animation: lv2-needle-sweep 6s cubic-bezier(.4,0,.2,1) infinite;
+}
+
+@keyframes lv2-needle-sweep {
+  0%   { transform: rotate(0deg); }
+  25%  { transform: rotate(45deg); }
+  50%  { transform: rotate(-30deg); }
+  75%  { transform: rotate(20deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.lv2-needle-n { fill: var(--primary); }
+.lv2-needle-s { fill: var(--accent); opacity: .85; }
+
+.lv2-ripple   { animation: lv2-ripple-out 2s ease-out infinite; }
+.lv2-ripple-2 { animation-delay: .7s; }
+
+@keyframes lv2-ripple-out {
+  0%   { r: 14; opacity: .4; }
+  100% { r: 26; opacity: 0; }
+}
+
+/* Floating specialty chips */
+.lv2-chip {
+  position: absolute;
+  padding: .28rem .72rem;
+  border-radius: 999px;
+  background: rgba(15,20,25,.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,.18);
+  font-size: .7rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: rgba(255,255,255,.85);
+  white-space: nowrap;
+  box-shadow: 0 4px 16px rgba(0,0,0,.25);
+  animation: lv2-float 4s ease-in-out infinite;
+}
+
+.lv2-chip-1 { top: 5%;  right: 0%;    animation-delay: 0s; }
+.lv2-chip-2 { top: 25%; left: -5%;    animation-delay: 1s; }
+.lv2-chip-3 { bottom: 25%; right: -5%; animation-delay: .5s; color: rgba(var(--primary-rgb),.9); border-color: rgba(var(--primary-rgb),.35); }
+.lv2-chip-4 { bottom: 8%; left: 2%;   animation-delay: 1.5s; }
+
+/* ─────────────────────────────────────────────────────────────
    3 · FEATURES
 ───────────────────────────────────────────────────────────── */
 .lv2-features {
@@ -559,8 +647,14 @@ img { display: block; max-width: 100%; }
   flex-direction: column;
   gap: .85rem;
   box-shadow: 0 1px 4px rgba(0,0,0,.04), 0 6px 24px rgba(var(--primary-rgb),.05);
-  transition: transform .35s var(--ease-out), box-shadow .35s var(--ease-out);
-  opacity: 0; /* GSAP will reveal */
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .7s var(--ease-out), transform .7s var(--ease-out),
+              box-shadow .35s var(--ease-out);
+}
+.feature-card.revealed {
+  opacity: 1;
+  transform: none;
 }
 .feature-card:hover {
   transform: translateY(-5px);
@@ -1256,8 +1350,15 @@ img { display: block; max-width: 100%; }
   .lv2-footer-grid   { grid-template-columns: 1fr; }
 }
 
-@media (max-width: 640px) {
+/* Tablet: hide nav links, show burger — pill becomes logo ↔ actions */
+@media (max-width: 860px) {
   .lv2-nav-links { display: none; }
+  .lv2-burger { display: flex; }
+  .lv2-nav-pill { justify-content: space-between; }
+}
+
+/* Mobile: also hide login link and CTA in pill (burger covers it) */
+@media (max-width: 640px) {
   .lv2-nav-login { display: none; }
   .lv2-nav-pill .btn-primary { display: none; }
   .lv2-burger { display: flex; }
