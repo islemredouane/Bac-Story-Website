@@ -647,8 +647,14 @@ img { display: block; max-width: 100%; }
   flex-direction: column;
   gap: .85rem;
   box-shadow: 0 1px 4px rgba(0,0,0,.04), 0 6px 24px rgba(var(--primary-rgb),.05);
-  transition: transform .35s var(--ease-out), box-shadow .35s var(--ease-out);
-  opacity: 0; /* GSAP will reveal */
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .7s var(--ease-out), transform .7s var(--ease-out),
+              box-shadow .35s var(--ease-out);
+}
+.feature-card.revealed {
+  opacity: 1;
+  transform: none;
 }
 .feature-card:hover {
   transform: translateY(-5px);

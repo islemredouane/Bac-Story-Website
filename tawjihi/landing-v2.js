@@ -92,6 +92,24 @@
     obs.observe(el);
   });
 
+  /* ── Feature cards — CSS + IntersectionObserver reveal ───── */
+  (function () {
+    var cards = document.querySelectorAll('.feature-card');
+    if (!cards.length || !('IntersectionObserver' in window)) {
+      cards.forEach(function (c) { c.classList.add('revealed'); });
+      return;
+    }
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var idx = Array.prototype.indexOf.call(cards, e.target);
+        setTimeout(function () { e.target.classList.add('revealed'); }, idx * 130);
+        obs.unobserve(e.target);
+      });
+    }, { threshold: 0.12 });
+    cards.forEach(function (c) { obs.observe(c); });
+  }());
+
   /* ── FAQ accordion ────────────────────────────────────────── */
   document.querySelectorAll('.lv2-faq-q').forEach(function (btn) {
     btn.addEventListener('click', function () {
@@ -175,17 +193,6 @@
       gsap.from('.hero-meta, .hero-cta', {
         y: 24, opacity: 0, duration: 0.8, delay: 0.8, stagger: 0.12, ease: 'power3.out'
       });
-    });
-
-    /* Feature cards reveal */
-    gsap.from('.feature-card', {
-      scrollTrigger: {
-        trigger: '#features',
-        start: 'top 75%',
-        once: true
-      },
-      y: 40, opacity: 0,
-      duration: 0.8, stagger: 0.15, ease: 'power3.out'
     });
 
     /* Pillar counters section reveal */
