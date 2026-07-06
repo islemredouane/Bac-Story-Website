@@ -639,26 +639,42 @@ img { display: block; max-width: 100%; }
 }
 
 .feature-card {
-  background: var(--surface);
-  border: 1px solid var(--divider);
-  border-radius: 1.5rem;
-  padding: 1.75rem;
+  background: linear-gradient(135deg, var(--surface) 0%, rgba(var(--primary-rgb), .03) 100%);
+  border: 1.5px solid transparent;
+  border-image: linear-gradient(135deg, rgba(var(--primary-rgb),.2) 0%, rgba(var(--accent-rgb),.05) 100%) 1;
+  border-radius: 1.75rem;
+  padding: 2rem 1.75rem;
   display: flex;
   flex-direction: column;
-  gap: .85rem;
-  box-shadow: 0 1px 4px rgba(0,0,0,.04), 0 6px 24px rgba(var(--primary-rgb),.05);
+  gap: .95rem;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 24px rgba(0,0,0,.06), inset 0 1px 0 rgba(255,255,255,.4);
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity .7s var(--ease-out), transform .7s var(--ease-out),
-              box-shadow .35s var(--ease-out);
+  transform: translateY(32px) scale(.96);
+  transition: opacity .6s var(--ease-out), transform .6s var(--ease-out),
+              box-shadow .35s var(--ease-out), border-color .4s ease;
 }
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0; inset-inline: 0; height: 2px;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+  opacity: 0.6;
+}
+
 .feature-card.revealed {
   opacity: 1;
-  transform: none;
+  transform: translateY(0) scale(1);
 }
+
 .feature-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 40px rgba(var(--primary-rgb),.12);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 16px 48px rgba(var(--primary-rgb),.16), inset 0 1px 0 rgba(255,255,255,.5);
+  border-color: rgba(var(--primary-rgb),.3);
 }
 
 .feature-card-eyebrow {
@@ -1350,10 +1366,11 @@ img { display: block; max-width: 100%; }
   .lv2-footer-grid   { grid-template-columns: 1fr; }
 }
 
-/* Tablet: hide nav links, keep CTA + theme visible */
+/* Tablet: hide nav links, show burger — pill becomes logo ↔ actions */
 @media (max-width: 860px) {
   .lv2-nav-links { display: none; }
   .lv2-burger { display: flex; }
+  .lv2-nav-pill { justify-content: space-between; }
 }
 
 /* Mobile: also hide login link and CTA in pill (burger covers it) */

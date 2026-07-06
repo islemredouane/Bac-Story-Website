@@ -92,21 +92,34 @@
     obs.observe(el);
   });
 
-  /* ── Feature cards — CSS + IntersectionObserver reveal ───── */
+  /* ── Feature cards — GSAP reveal with stagger ───── */
   (function () {
     var cards = document.querySelectorAll('.feature-card');
     if (!cards.length || !('IntersectionObserver' in window)) {
       cards.forEach(function (c) { c.classList.add('revealed'); });
       return;
     }
+    var revealed = new Set();
     var obs = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
-        if (!e.isIntersecting) return;
+        if (!e.isIntersecting || revealed.has(e.target)) return;
+        revealed.add(e.target);
         var idx = Array.prototype.indexOf.call(cards, e.target);
-        setTimeout(function () { e.target.classList.add('revealed'); }, idx * 130);
+
+        if (typeof gsap !== 'undefined') {
+          gsap.to(e.target, {
+            opacity: 1,
+            transform: 'translateY(0) scale(1)',
+            duration: 0.7,
+            delay: idx * 0.15,
+            ease: 'power3.out'
+          });
+        } else {
+          e.target.classList.add('revealed');
+        }
         obs.unobserve(e.target);
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.15 });
     cards.forEach(function (c) { obs.observe(c); });
   }());
 
