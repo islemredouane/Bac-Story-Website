@@ -250,4 +250,16 @@
   /* Also try immediately in case scripts already loaded */
   if (document.readyState === 'complete') initGsap();
 
+  /* ── Compass logo needle — subtle mouse follow ───────────── */
+  var logoNeedle = document.getElementById('lv2LogoNeedle');
+  if (logoNeedle && !prefersReduced) {
+    document.addEventListener('mousemove', function (e) {
+      var cx = window.innerWidth / 2;
+      var cy = window.innerHeight / 2;
+      var angle = Math.atan2(e.clientX - cx, -(e.clientY - cy)) * (180 / Math.PI);
+      logoNeedle.style.transform = 'rotate(' + angle + 'deg)';
+      logoNeedle.style.transformOrigin = '16px 16px';
+    }, { passive: true });
+  }
+
 })();
