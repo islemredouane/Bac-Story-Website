@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>توجيهي · مرشدك الذكي لاختيار التخصص الجامعي في الجزائر</title>
+  <meta name="description" content="منصة ذكاء اصطناعي للتوجيه الجامعي في الجزائر — اكتشف تخصصاتك ومعدلات القبول مع مرشد ذكي.">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="images/favicon-32.png" type="image/png" sizes="32x32">
+  <meta property="og:title" content="توجيهي — مرشدك للجامعة في الجزائر">
+  <meta property="og:description" content="منصة ذكاء اصطناعي للتوجيه الجامعي — اكتشف تخصصك، ابنِ بطاقة الرغبات، واسأل المرشد.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="توجيهي — مرشدك للجامعة في الجزائر">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/landing-v2.css">
+  <script>
+    (function(){
+      var t = localStorage.getItem('tawjihi-theme') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     NAVBAR
+═══════════════════════════════════════════════════════════════ -->
+<header class="lv2-nav" id="lv2Nav">
+  <div class="lv2-nav-inner">
+    <a href="index.html" class="lv2-logo" aria-label="توجيهي">
+      <svg class="lv2-logo-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <circle cx="16" cy="16" r="13" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="16" cy="16" r="2.5" fill="currentColor"/>
+        <line x1="16" y1="3" x2="16" y2="9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="16" y1="23" x2="16" y2="29" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="3" y1="16" x2="9" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="23" y1="16" x2="29" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <line id="lv2-compass-needle" x1="16" y1="16" x2="16" y2="7" stroke="var(--lv2-accent)" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span class="lv2-logo-text">توجيهي</span>
+    </a>
+
+    <nav class="lv2-nav-links" aria-label="روابط رئيسية">
+      <a href="#features" class="lv2-nav-link">المميزات</a>
+      <a href="#how" class="lv2-nav-link">كيفاش يخدم؟</a>
+      <a href="#domains" class="lv2-nav-link">المجالات</a>
+      <a href="#faq" class="lv2-nav-link">أسئلة</a>
+    </nav>
+
+    <div class="lv2-nav-actions">
+      <button class="lv2-theme-btn" id="themeBtn" aria-label="تبديل الوضع">
+        <svg class="icon-sun" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <circle cx="10" cy="10" r="4"/><line x1="10" y1="1" x2="10" y2="3"/><line x1="10" y1="17" x2="10" y2="19"/>
+          <line x1="1" y1="10" x2="3" y2="10"/><line x1="17" y1="10" x2="19" y2="10"/>
+          <line x1="3.5" y1="3.5" x2="5" y2="5"/><line x1="15" y1="15" x2="16.5" y2="16.5"/>
+          <line x1="16.5" y1="3.5" x2="15" y2="5"/><line x1="5" y1="15" x2="3.5" y2="16.5"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+        </svg>
+      </button>
+      <a href="login.html" class="lv2-nav-login">دخول</a>
+      <a href="app.html" class="lv2-btn-primary">ابدأ مجاناً ←</a>
+      <button class="lv2-burger" id="lv2Burger" aria-label="القائمة" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile drawer -->
+<div class="lv2-drawer" id="lv2Drawer" aria-hidden="true">
+  <div class="lv2-drawer-inner">
+    <a href="#features" class="lv2-drawer-link">المميزات</a>
+    <a href="#how" class="lv2-drawer-link">كيفاش يخدم؟</a>
+    <a href="#domains" class="lv2-drawer-link">المجالات</a>
+    <a href="#faq" class="lv2-drawer-link">أسئلة شائعة</a>
+    <div class="lv2-drawer-sep"></div>
+    <a href="login.html" class="lv2-drawer-link">دخول</a>
+    <a href="app.html" class="lv2-btn-primary" style="text-align:center">ابدأ مجاناً ←</a>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════════════════════════ -->
+<section class="lv2-hero" id="hero">
+  <div class="lv2-hero-bg" aria-hidden="true">
+    <div class="lv2-hero-grid"></div>
+    <div class="lv2-orb lv2-orb-1"></div>
+    <div class="lv2-orb lv2-orb-2"></div>
+  </div>
+
+  <div class="lv2-hero-inner">
+    <!-- Left: copy -->
+    <div class="lv2-hero-copy">
+      <div class="lv2-hero-badge lv2-reveal">
+        <span class="lv2-badge-dot"></span>
+        <span class="lv2-mono">AI · الجزائر 2026</span>
+      </div>
+      <h1 class="lv2-hero-h1 lv2-reveal lv2-reveal-d1">
+        مسارك الجامعي<br>
+        <span class="lv2-grad">يبدأ هنا</span>
+      </h1>
+      <p class="lv2-hero-sub lv2-reveal lv2-reveal-d2">
+        اكتشف تخصصاتك بناءً على معدلك ومزاياك — بمساعدة مرشد ذكاء اصطناعي يفهم النظام الجزائري جيداً.
+      </p>
+      <div class="lv2-hero-actions lv2-reveal lv2-reveal-d3">
+        <a href="app.html" class="lv2-btn-primary lv2-btn-hero">
+          اسأل المرشد الذكي
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 10h12M12 5l5 5-5 5"/>
+          </svg>
+        </a>
+        <a href="simulator.html" class="lv2-btn-ghost">
+          جرّب الحاسبة
+        </a>
+      </div>
+      <div class="lv2-hero-stats lv2-reveal lv2-reveal-d4">
+        <div class="lv2-stat">
+          <strong class="lv2-mono">+220</strong>
+          <span>تخصص</span>
+        </div>
+        <div class="lv2-stat-sep"></div>
+        <div class="lv2-stat">
+          <strong class="lv2-mono">58</strong>
+          <span>ولاية</span>
+        </div>
+        <div class="lv2-stat-sep"></div>
+        <div class="lv2-stat">
+          <strong class="lv2-mono">مجاني</strong>
+          <span>100%</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: compass animation -->
+    <div class="lv2-compass-wrap lv2-reveal lv2-reveal-d2" aria-hidden="true">
+      <div class="lv2-compass-ring lv2-ring-outer"></div>
+      <div class="lv2-compass-ring lv2-ring-mid"></div>
+      <svg class="lv2-compass-svg" viewBox="0 0 300 300">
+        <!-- Dotted route path -->
+        <path class="lv2-route" d="M150,150 Q200,80 250,60" stroke-dasharray="5 5" fill="none"/>
+        <path class="lv2-route lv2-route-2" d="M150,150 Q100,80 60,100" stroke-dasharray="5 5" fill="none"/>
+        <path class="lv2-route lv2-route-3" d="M150,150 Q180,220 160,260" stroke-dasharray="5 5" fill="none"/>
+        <!-- Compass face -->
+        <circle class="lv2-compass-face" cx="150" cy="150" r="80"/>
+        <circle class="lv2-compass-bezel" cx="150" cy="150" r="84"/>
+        <!-- Cardinal marks -->
+        <text class="lv2-compass-cardinal" x="150" y="90" text-anchor="middle">ش</text>
+        <text class="lv2-compass-cardinal" x="150" y="222" text-anchor="middle">ج</text>
+        <text class="lv2-compass-cardinal" x="85" y="155" text-anchor="middle">غ</text>
+        <text class="lv2-compass-cardinal" x="218" y="155" text-anchor="middle">ش</text>
+        <!-- Needle -->
+        <g class="lv2-needle-group">
+          <polygon class="lv2-needle-n" points="150,80 145,150 155,150"/>
+          <polygon class="lv2-needle-s" points="150,220 145,150 155,150"/>
+          <circle cx="150" cy="150" r="5" fill="var(--lv2-bg-card)"/>
+        </g>
+        <!-- Target pins -->
+        <g class="lv2-target t1">
+          <circle cx="250" cy="60" r="8" fill="var(--lv2-accent)"/>
+          <circle cx="250" cy="60" r="14" fill="none" stroke="var(--lv2-accent)" stroke-width="1" opacity=".4" class="lv2-ripple"/>
+          <circle cx="250" cy="60" r="20" fill="none" stroke="var(--lv2-accent)" stroke-width="1" opacity=".2" class="lv2-ripple lv2-ripple-2"/>
+        </g>
+        <g class="lv2-target t2">
+          <circle cx="60" cy="100" r="8" fill="var(--lv2-primary)"/>
+          <circle cx="60" cy="100" r="14" fill="none" stroke="var(--lv2-primary)" stroke-width="1" opacity=".4" class="lv2-ripple"/>
+        </g>
+        <g class="lv2-target t3">
+          <circle cx="160" cy="260" r="8" fill="var(--lv2-coral)"/>
+          <circle cx="160" cy="260" r="14" fill="none" stroke="var(--lv2-coral)" stroke-width="1" opacity=".4" class="lv2-ripple"/>
+        </g>
+      </svg>
+      <!-- Floating chips -->
+      <div class="lv2-chip lv2-chip-1">طب عام</div>
+      <div class="lv2-chip lv2-chip-2">هندسة مدنية</div>
+      <div class="lv2-chip lv2-chip-3">ESI</div>
+      <div class="lv2-chip lv2-chip-4">إعلام آلي</div>
+    </div>
+  </div>
+
+  <!-- Scroll cue -->
+  <div class="lv2-scroll-cue" aria-hidden="true">
+    <div class="lv2-scroll-dot"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     FEATURES
+═══════════════════════════════════════════════════════════════ -->
+<section class="lv2-section" id="features">
+  <div class="lv2-container">
+    <div class="lv2-section-head lv2-reveal">
+      <span class="lv2-mono lv2-section-tag">// الأدوات</span>
+      <h2 class="lv2-section-h2">ثلاثة أدوات، مسار واحد</h2>
+      <p class="lv2-section-sub">كل ما تحتاجه للتوجيه الجامعي في مكان واحد.</p>
+    </div>
+
+    <div class="lv2-features-grid">
+      <!-- Card 1: AI Chat -->
+      <div class="lv2-feat-card lv2-reveal lv2-reveal-d1">
+        <div class="lv2-feat-icon lv2-feat-icon-teal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+          </svg>
+        </div>
+        <div class="lv2-feat-body">
+          <h3 class="lv2-feat-title">المرشد الذكي</h3>
+          <p class="lv2-feat-desc">اسأله أي سؤال — عن الشروط، المعدلات، الفروق بين التخصصات، أو التوقعات لـ 2026.</p>
+        </div>
+        <div class="lv2-feat-demo lv2-chat-demo">
+          <div class="lv2-chat-bubble lv2-chat-user">ما معدل القبول في ESI هذا العام؟</div>
+          <div class="lv2-chat-bubble lv2-chat-ai">
+            <span class="lv2-typing-dot"></span><span class="lv2-typing-dot"></span><span class="lv2-typing-dot"></span>
+            <span class="lv2-chat-text" style="display:none">ESI الجزائر: قسم رياضيات ≥ 17.5 عادةً · القبول على أساس المعدل فقط — مجانية كاملة.</span>
+          </div>
+        </div>
+        <a href="app.html" class="lv2-feat-cta">جرّب الآن ←</a>
+      </div>
+
+      <!-- Card 2: Specialty Matcher -->
+      <div class="lv2-feat-card lv2-feat-card-accent lv2-reveal lv2-reveal-d2">
+        <div class="lv2-feat-icon lv2-feat-icon-coral">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+          </svg>
+        </div>
+        <div class="lv2-feat-body">
+          <h3 class="lv2-feat-title">مطابقة التخصصات</h3>
+          <p class="lv2-feat-desc">أدخل معدلك وشعبتك — نُحضر لك التخصصات التي تؤهّل لها فعلاً، مرتّبة حسب الأقرب.</p>
+        </div>
+        <div class="lv2-feat-demo lv2-match-demo">
+          <div class="lv2-match-bar lv2-match-bar-1">
+            <span>طب عام</span><span class="lv2-mono">18.2</span>
+          </div>
+          <div class="lv2-match-bar lv2-match-bar-2">
+            <span>صيدلة</span><span class="lv2-mono">17.8</span>
+          </div>
+          <div class="lv2-match-bar lv2-match-bar-3">
+            <span>هندسة معمارية</span><span class="lv2-mono">17.1</span>
+          </div>
+          <div class="lv2-match-bar lv2-match-bar-4">
+            <span>ESI — إعلام آلي</span><span class="lv2-mono">16.9</span>
+          </div>
+        </div>
+        <a href="specialities.html" class="lv2-feat-cta">اكتشف تخصصاتك ←</a>
+      </div>
+
+      <!-- Card 3: Wishlist -->
+      <div class="lv2-feat-card lv2-reveal lv2-reveal-d3">
+        <div class="lv2-feat-icon lv2-feat-icon-teal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+          </svg>
+        </div>
+        <div class="lv2-feat-body">
+          <h3 class="lv2-feat-title">بطاقة الرغبات</h3>
+          <p class="lv2-feat-desc">رتّب تخصصاتك المفضّلة وأولوياتك — ووفّر القائمة لبطاقة التوجيه الرسمية.</p>
+        </div>
+        <div class="lv2-feat-demo lv2-wish-demo">
+          <div class="lv2-wish-item lv2-wish-active">
+            <span class="lv2-mono lv2-wish-num">01</span>
+            <span>طب عام · الجزائر</span>
+            <span class="lv2-wish-check">✓</span>
+          </div>
+          <div class="lv2-wish-item">
+            <span class="lv2-mono lv2-wish-num">02</span>
+            <span>صيدلة · وهران</span>
+          </div>
+          <div class="lv2-wish-item">
+            <span class="lv2-mono lv2-wish-num">03</span>
+            <span>ESI · الجزائر</span>
+          </div>
+        </div>
+        <a href="app.html" class="lv2-feat-cta">أنشئ بطاقتك ←</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     COUNTERS
+═══════════════════════════════════════════════════════════════ -->
+<section class="lv2-counters" id="counters">
+  <div class="lv2-container">
+    <div class="lv2-counters-grid">
+      <div class="lv2-counter-item lv2-reveal">
+        <strong class="lv2-counter-num lv2-mono" data-target="220">0</strong>
+        <span class="lv2-counter-suffix">+</span>
+        <p class="lv2-counter-label">تخصص جامعي مُغطّى</p>
+      </div>
+      <div class="lv2-counter-sep"></div>
+      <div class="lv2-counter-item lv2-reveal lv2-reveal-d1">
+        <strong class="lv2-counter-num lv2-mono" data-target="58">0</strong>
+        <p class="lv2-counter-label">ولاية جزائرية</p>
+      </div>
+      <div class="lv2-counter-sep"></div>
+      <div class="lv2-counter-item lv2-reveal lv2-reveal-d2">
+        <strong class="lv2-counter-num lv2-mono" data-target="100">0</strong>
+        <span class="lv2-counter-suffix">%</span>
+        <p class="lv2-counter-label">مجاني بدون اشتراك</p>
+      </div>
+      <div class="lv2-counter-sep"></div>
+      <div class="lv2-counter-item lv2-reveal lv2-reveal-d3">
+        <strong class="lv2-counter-num lv2-mono" data-target="2026">0</strong>
+        <p class="lv2-counter-label">بيانات موسم الدخول</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     HOW IT WORKS (sticky-stack)
+═══════════════════════════════════════════════════════════════ -->
+<section class="lv2-section lv2-how" id="how">
+  <div class="lv2-container">
+    <div class="lv2-section-head lv2-reveal">
+      <span class="lv2-mono lv2-section-tag">// الخطوات</span>
+      <h2 class="lv2-section-h2">ثلاث خطوات بس</h2>
+    </div>
+
+    <div class="lv2-steps-wrap">
+      <div class="lv2-step lv2-reveal lv2-reveal-d1">
+        <div class="lv2-step-num lv2-mono">01</div>
+        <div class="lv2-step-content">
+          <h3 class="lv2-step-title">أدخل معدلك وشعبتك</h3>
+          <p class="lv2-step-desc">علوم، رياضيات، آداب — أيا كانت شعبتك، نحن نعرف المعادلات الحقيقية لكل تخصص.</p>
+        </div>
+        <div class="lv2-step-visual lv2-step-v1">
+          <div class="lv2-input-mock">
+            <span class="lv2-mono">المعدل:</span>
+            <span class="lv2-input-val">16.50</span>
+            <span class="lv2-input-cursor"></span>
+          </div>
+          <div class="lv2-input-mock">
+            <span class="lv2-mono">الشعبة:</span>
+            <span class="lv2-input-val">علوم تجريبية</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="lv2-step lv2-reveal lv2-reveal-d2">
+        <div class="lv2-step-num lv2-mono">02</div>
+        <div class="lv2-step-content">
+          <h3 class="lv2-step-title">اكتشف ما يناسبك</h3>
+          <p class="lv2-step-desc">نعرض لك التخصصات التي تؤهّل لها فعلاً، مع معدلات القبول الرسمية لـ 2026، وإمكانية مقارنة خيارات متعددة.</p>
+        </div>
+        <div class="lv2-step-visual lv2-step-v2">
+          <div class="lv2-mini-radar">
+            <div class="lv2-radar-ring r1"></div>
+            <div class="lv2-radar-ring r2"></div>
+            <div class="lv2-radar-ring r3"></div>
+            <div class="lv2-radar-dot d1"></div>
+            <div class="lv2-radar-dot d2"></div>
+            <div class="lv2-radar-dot d3"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lv2-step lv2-reveal lv2-reveal-d3">
+        <div class="lv2-step-num lv2-mono">03</div>
+        <div class="lv2-step-content">
+          <h3 class="lv2-step-title">ابنِ بطاقة رغباتك</h3>
+          <p class="lv2-step-desc">رتّب خياراتك حسب الأولوية واحتفظ بها — أو اسأل المرشد أي وقت عن أي تفاصيل.</p>
+        </div>
+        <div class="lv2-step-visual lv2-step-v3">
+          <div class="lv2-mini-list">
+            <div class="lv2-mini-row"><span class="lv2-mono">01</span><span>طب عام</span><span class="lv2-check-ico">✓</span></div>
+            <div class="lv2-mini-row"><span class="lv2-mono">02</span><span>صيدلة</span></div>
+            <div class="lv2-mini-row"><span class="lv2-mono">03</span><span>ESI</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     DOMAINS GRID
+═══════════════════════════════════════════════════════════════ -->
+<section class="lv2-section lv2-domains-section" id="domains">
+  <div class="lv2-container">
+    <div class="lv2-section-head lv2-reveal">
+      <span class="lv2-mono lv2-section-tag">// المجالات</span>
+      <h2 class="lv2-section-h2" style="color:#fff">ماذا تريد أن تدرس؟</h2>
+      <p class="lv2-section-sub" style="color:rgba(255,255,255,.6)">ستة مجالات كبرى — كلها موثّقة بمعدلات القبول الرسمية.</p>
+    </div>
+
+    <div class="lv2-domains-grid">
+      <a href="specialities.html?cat=medicine" class="lv2-domain-tile lv2-reveal lv2-reveal-d1">
+        <div class="lv2-domain-icon">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 4v24M4 16h24"/><rect x="8" y="8" width="16" height="16" rx="3" stroke-opacity=".3"/>
+          </svg>
+        </div>
+        <h3 class="lv2-domain-title">الطب والصحة</h3>
+        <p class="lv2-domain-sub">طب، صيدلة، طب أسنان، شبه طبي</p>
+        <span class="lv2-domain-arrow">←</span>
+      </a>
+
+      <a href="specialities.html?cat=engineering" class="lv2-domain-tile lv2-reveal lv2-reveal-d2">
+        <div class="lv2-domain-icon">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="16" cy="16" r="4"/>
+            <path d="M16 2v4M16 26v4M2 16h4M26 16h4M5.6 5.6l2.8 2.8M23.6 23.6l2.8 2.8M26.4 5.6l-2.8 2.8M8.4 23.6l-2.8 2.8"/>
+          </svg>
+        </div>
+        <h3 class="lv2-domain-title">الهندسة والتكنولوجيا</h3>
+        <p class="lv2-domain-sub">مدني، كهربائي، ميكانيكي، معلوماتية</p>
+        <span class="lv2-domain-arrow">←</span>
+      </a>
+
+      <a href="specialities.html?cat=cs" class="lv2-domain-tile lv2-domain-tile-accent lv2-reveal lv2-reveal-d3">
+        <div class="lv2-domain-icon">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="8" width="24" height="16" rx="2"/>
+            <path d="M11 14l-3 2 3 2M21 14l3 2-3 2M16 13l-2 6"/>
+          </svg>
+        </div>
+        <h3 class="lv2-domain-title">الكبرى المعلوماتية</h3>
+        <p class="lv2-domain-sub">ESI · ESTIN · ENSIA · ENSCS</p>
+        <span class="lv2-domain-badge">مجاني</span>
+        <span class="lv2-domain-arrow">←</span>
+      </a>
+
+      <a href="specialities.html?cat=science" class="lv2-domain-tile lv2-reveal lv2-reveal-d1">
+        <div class="lv2-domain-icon">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 4l-6 18h20L20 4M8 14h16"/>
+          </svg>
+        </div>
+        <h3 class="lv2-domain-title">العلوم الأساسية</h3>
+        <p class="lv2-domain-sub">رياضيات، فيزياء، كيمياء، أحياء</p>
+        <span class="lv2-domain-arrow">←</span>
+      </a>
+
+      <a href="specialities.html?cat=economics" class="lv2-domain-tile lv2-reveal lv2-reveal-d2">
+        <div class="lv2-domain-icon">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="4,22 12,14 18,18 28,8"/><path d="M22 8h6v6"/>
+          </svg>
+        </div>
+        <h3 class="lv2-domain-title">الاقتصاد والتسيير</h3>
+        <p class="lv2-domain-sub">اقتصاد، تسيير، مالية، تجارة</p>
+        <span class="lv2-domain-arrow">←</span>
+      </a>
+
+      <a href="specialities.html?cat=humanities" class="lv2-domain-tile lv2-reveal lv2-reveal-d3">
+        <div class="lv2-domain-icon">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 8h24M4 14h18M4 20h22M4 26h16"/>
+          </svg>
+        </div>
+        <h3 class="lv2-domain-title">الآداب واللغات</h3>
+        <p class="lv2-domain-sub">عربية، فرنسية، إنجليزية، ترجمة</p>
+        <span class="lv2-domain-arrow">←</span>
+      </a>
+    </div>
+
+    <div class="lv2-domains-all lv2-reveal">
+      <a href="specialities.html" class="lv2-btn-ghost lv2-btn-ghost-light">عرض جميع التخصصات ←</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     TRUST SIGNALS
+═══════════════════════════════════════════════════════════════ -->
+<section class="lv2-section lv2-trust" id="trust">
+  <div class="lv2-container">
+    <div class="lv2-trust-grid">
+      <div class="lv2-trust-card lv2-reveal lv2-reveal-d1">
+        <div class="lv2-trust-icon">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 4l3.09 6.26L26 11.27l-5 4.87 1.18 6.86L16 19.77l-6.18 3.23L11 16.14 6 11.27l6.91-1.01z"/>
+          </svg>
+        </div>
+        <h3 class="lv2-trust-title">بيانات رسمية فقط</h3>
+        <p class="lv2-trust-desc">معدلات القبول مأخوذة من الدليل الوزاري الرسمي للمسالك الجامعية — لا توقعات، لا خمنات.</p>
+      </div>
+
+      <div class="lv2-trust-card lv2-reveal lv2-reveal-d2">
+        <div class="lv2-trust-icon">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="6" y="14" width="20" height="14" rx="2"/>
+            <path d="M11 14V10a5 5 0 0110 0v4"/>
+          </svg>
+        </div>
+        <h3 class="lv2-trust-title">خصوصيتك محفوظة</h3>
+        <p class="lv2-trust-desc">لا نبيع بياناتك لأي طرف. معدلك يبقى عندك — نحن نعالجه فقط لنقدّم لك الإجابة.</p>
+      </div>
+
+      <div class="lv2-trust-card lv2-reveal lv2-reveal-d3">
+        <div class="lv2-trust-icon">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="16" cy="16" r="12"/>
+            <path d="M16 10v6l4 2"/>
+          </svg>
+        </div>
+        <h3 class="lv2-trust-title">متوفر على مدار الساعة</h3>
+        <p class="lv2-trust-desc">المرشد يعمل 24/7 — اسأله في أي وقت حتى في آخر ليلة قبل التسجيل.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     FAQ
+═══════════════════════════════════════════════════════════════ -->
+<section class="lv2-section" id="faq">
+  <div class="lv2-container lv2-faq-wrap">
+    <div class="lv2-section-head lv2-reveal">
+      <span class="lv2-mono lv2-section-tag">// أسئلة</span>
+      <h2 class="lv2-section-h2">الأسئلة الشائعة</h2>
+    </div>
+
+    <div class="lv2-faq-list">
+      <div class="lv2-faq-item lv2-reveal">
+        <button class="lv2-faq-q" aria-expanded="false">
+          كيف يحسب توجيهي معدل القبول؟
+          <svg class="lv2-faq-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6l4 4 4-4"/>
+          </svg>
+        </button>
+        <div class="lv2-faq-a">
+          <p>نستخدم المعادلة الرسمية للوزارة: معدل البكالوريا × معامل الشعبة + مواد محددة × معاملاتها، مقارنةً بالعتبات الرسمية المسجّلة في الدليل الوزاري.</p>
+        </div>
+      </div>
+
+      <div class="lv2-faq-item lv2-reveal lv2-reveal-d1">
+        <button class="lv2-faq-q" aria-expanded="false">
+          هل البيانات محدّثة لموسم 2026؟
+          <svg class="lv2-faq-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6l4 4 4-4"/>
+          </svg>
+        </button>
+        <div class="lv2-faq-a">
+          <p>نعم، البيانات مأخوذة من آخر إصدار للدليل الوزاري وتشمل معدلات الدخول المتوقعة لموسم 2026 بناءً على المسارات التاريخية.</p>
+        </div>
+      </div>
+
+      <div class="lv2-faq-item lv2-reveal lv2-reveal-d2">
+        <button class="lv2-faq-q" aria-expanded="false">
+          هل المنصة مجانية فعلاً؟
+          <svg class="lv2-faq-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6l4 4 4-4"/>
+          </svg>
+        </button>
+        <div class="lv2-faq-a">
+          <p>نعم، توجيهي مجانية 100% للطلاب. لا اشتراك، لا بطاقة بنكية. نؤمن بأن التوجيه الجيد حق للجميع.</p>
+        </div>
+      </div>
+
+      <div class="lv2-faq-item lv2-reveal lv2-reveal-d3">
+        <button class="lv2-faq-q" aria-expanded="false">
+          هل المدارس الكبرى (ESI، ESTIN...) تتطلب امتحاناً للدخول؟
+          <svg class="lv2-faq-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6l4 4 4-4"/>
+          </svg>
+        </button>
+        <div class="lv2-faq-a">
+          <p>لا — القبول في السنة الأولى يكون على أساس معدل البكالوريا فقط، بدون مسابقة دخول. المسابقة (concours S2) تكون داخلية بين المسجّلين لاختيار التخصص في نهاية السنة الثانية. والدراسة مجانية تماماً مع منحة حكومية.</p>
+        </div>
+      </div>
+
+      <div class="lv2-faq-item lv2-reveal lv2-reveal-d4">
+        <button class="lv2-faq-q" aria-expanded="false">
+          ما الفرق بين نظام LMD ومدارس الهندسة؟
+          <svg class="lv2-faq-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6l4 4 4-4"/>
+          </svg>
+        </button>
+        <div class="lv2-faq-a">
+          <p>نظام LMD: 3 سنوات ليسانس + 2 ماجستير + 3 دكتوراه، في الجامعات العادية. مدارس الهندسة (grandes écoles): 5 سنوات مدمجة، شهادة مهندس دولة، أكثر تخصصية وأكثر طلباً في سوق العمل.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     FINAL CTA
+═══════════════════════════════════════════════════════════════ -->
+<section class="lv2-cta-section" id="cta">
+  <div class="lv2-cta-bg" aria-hidden="true">
+    <div class="lv2-cta-orb"></div>
+  </div>
+  <div class="lv2-container lv2-cta-inner">
+    <span class="lv2-mono lv2-section-tag lv2-reveal" style="color:var(--lv2-accent)">// ابدأ</span>
+    <h2 class="lv2-cta-h2 lv2-reveal lv2-reveal-d1">مستعد تعرف مسارك؟</h2>
+    <p class="lv2-cta-sub lv2-reveal lv2-reveal-d2">لا تحتاج حساباً — ابدأ الآن واسأل مرشدنا الذكي مباشرةً.</p>
+    <div class="lv2-cta-actions lv2-reveal lv2-reveal-d3">
+      <a href="app.html" class="lv2-btn-primary lv2-btn-hero">
+        ابدأ مجاناً ←
+      </a>
+      <a href="simulator.html" class="lv2-btn-ghost lv2-btn-ghost-light">احسب معدلك</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════════════════════ -->
+<footer class="lv2-footer">
+  <div class="lv2-container lv2-footer-inner">
+    <div class="lv2-footer-brand">
+      <a href="index.html" class="lv2-logo">
+        <svg class="lv2-logo-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <circle cx="16" cy="16" r="13" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="16" cy="16" r="2.5" fill="currentColor"/>
+          <line x1="16" y1="3" x2="16" y2="9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="16" y1="23" x2="16" y2="29" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="3" y1="16" x2="9" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="23" y1="16" x2="29" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="16" y1="16" x2="16" y2="7" stroke="var(--lv2-accent)" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span class="lv2-logo-text">توجيهي</span>
+      </a>
+      <p class="lv2-footer-tagline">مرشدك الذكي للجامعة في الجزائر</p>
+    </div>
+
+    <nav class="lv2-footer-links" aria-label="روابط التذييل">
+      <div class="lv2-footer-col">
+        <strong class="lv2-footer-col-title lv2-mono">المنصة</strong>
+        <a href="app.html">المرشد الذكي</a>
+        <a href="specialities.html">التخصصات</a>
+        <a href="simulator.html">الحاسبة</a>
+        <a href="dashboard.html">لوحة التحكم</a>
+      </div>
+      <div class="lv2-footer-col">
+        <strong class="lv2-footer-col-title lv2-mono">المجالات</strong>
+        <a href="specialities.html?cat=medicine">الطب والصحة</a>
+        <a href="specialities.html?cat=engineering">الهندسة</a>
+        <a href="specialities.html?cat=cs">المدارس الكبرى</a>
+        <a href="specialities.html?cat=economics">الاقتصاد</a>
+      </div>
+      <div class="lv2-footer-col">
+        <strong class="lv2-footer-col-title lv2-mono">قانوني</strong>
+        <a href="privacy.html">سياسة الخصوصية</a>
+        <a href="terms.html">شروط الاستخدام</a>
+      </div>
+    </nav>
+  </div>
+
+  <div class="lv2-footer-bottom">
+    <div class="lv2-container lv2-footer-bottom-inner">
+      <span>© 2026 توجيهي · BAC Story</span>
+      <span class="lv2-footer-status">
+        <span class="lv2-status-dot"></span>
+        <span class="lv2-mono">النظام يعمل</span>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="landing-v2.js" defer></script>
+</body>
+</html>
