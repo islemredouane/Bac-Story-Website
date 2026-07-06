@@ -1,4 +1,4 @@
-/* landing-v2.js — Tawjihi Landing V2
+﻿/* landing-v2.js — Tawjihi Landing V2
    Follows build-premium-website skill patterns.
    GSAP loaded via CDN, registered when available. */
 (function () {
@@ -92,6 +92,24 @@
     obs.observe(el);
   });
 
+  /* ── Feature cards — CSS + IntersectionObserver reveal ───── */
+  (function () {
+    var cards = document.querySelectorAll('.feature-card');
+    if (!cards.length || !('IntersectionObserver' in window)) {
+      cards.forEach(function (c) { c.classList.add('revealed'); });
+      return;
+    }
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var idx = Array.prototype.indexOf.call(cards, e.target);
+        setTimeout(function () { e.target.classList.add('revealed'); }, idx * 130);
+        obs.unobserve(e.target);
+      });
+    }, { threshold: 0.12 });
+    cards.forEach(function (c) { obs.observe(c); });
+  }());
+
   /* ── FAQ accordion ────────────────────────────────────────── */
   document.querySelectorAll('.lv2-faq-q').forEach(function (btn) {
     btn.addEventListener('click', function () {
@@ -177,17 +195,6 @@
       });
     });
 
-    /* Feature cards reveal */
-    gsap.from('.feature-card', {
-      scrollTrigger: {
-        trigger: '#features',
-        start: 'top 75%',
-        once: true
-      },
-      y: 40, opacity: 0,
-      duration: 0.8, stagger: 0.15, ease: 'power3.out'
-    });
-
     /* Pillar counters section reveal */
     gsap.from('.lv2-pillar', {
       scrollTrigger: { trigger: '.lv2-pillars', start: 'top 80%', once: true },
@@ -249,5 +256,17 @@
 
   /* Also try immediately in case scripts already loaded */
   if (document.readyState === 'complete') initGsap();
+
+  /* ── Compass logo needle — subtle mouse follow ───────────── */
+  var logoNeedle = document.getElementById('lv2LogoNeedle');
+  if (logoNeedle && !prefersReduced) {
+    document.addEventListener('mousemove', function (e) {
+      var cx = window.innerWidth / 2;
+      var cy = window.innerHeight / 2;
+      var angle = Math.atan2(e.clientX - cx, -(e.clientY - cy)) * (180 / Math.PI);
+      logoNeedle.style.transform = 'rotate(' + angle + 'deg)';
+      logoNeedle.style.transformOrigin = '16px 16px';
+    }, { passive: true });
+  }
 
 })();
