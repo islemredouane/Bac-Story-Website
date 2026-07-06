@@ -273,9 +273,8 @@ img { display: block; max-width: 100%; }
 .lv2-nav-pill {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-  width: min(1024px, 100%);
-  padding: .55rem .75rem .55rem 1.25rem;
+  width: min(1200px, 100%);
+  padding: .6rem 1.25rem;
   border-radius: 999px;
   transition: background .3s var(--ease-out), box-shadow .3s var(--ease-out), border .3s;
 }
@@ -311,10 +310,10 @@ img { display: block; max-width: 100%; }
   flex-shrink: 0;
 }
 
-/* Nav links */
+/* Nav links — center zone, takes all remaining space */
 .lv2-nav-links {
-  display: flex; align-items: center; gap: .1rem;
-  margin-inline-start: auto;
+  flex: 1;
+  display: flex; align-items: center; justify-content: center; gap: .1rem;
 }
 
 .lv2-nav-link {
@@ -329,8 +328,9 @@ img { display: block; max-width: 100%; }
 .lv2-nav.scrolled .lv2-nav-link { color: var(--muted); }
 .lv2-nav.scrolled .lv2-nav-link:hover { color: var(--ink); background: rgba(var(--primary-rgb),.07); }
 
-/* Theme + actions */
+/* Actions — right end of left zone */
 .lv2-nav-actions {
+  flex-shrink: 0;
   display: flex; align-items: center; gap: .6rem;
 }
 
@@ -1344,8 +1344,14 @@ img { display: block; max-width: 100%; }
   .lv2-footer-grid   { grid-template-columns: 1fr; }
 }
 
-@media (max-width: 640px) {
+/* Tablet: hide nav links, keep CTA + theme visible */
+@media (max-width: 860px) {
   .lv2-nav-links { display: none; }
+  .lv2-burger { display: flex; }
+}
+
+/* Mobile: also hide login link and CTA in pill (burger covers it) */
+@media (max-width: 640px) {
   .lv2-nav-login { display: none; }
   .lv2-nav-pill .btn-primary { display: none; }
   .lv2-burger { display: flex; }
