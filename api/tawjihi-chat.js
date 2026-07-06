@@ -155,7 +155,12 @@ function isAdminProcQuery(rawQuery) {
   return ADMIN_PROC_KEYWORDS.some((kw) => q.includes(kw));
 }
 
-/* Build a ministry-rules injection block (max 3 rules × 600 chars each). */
+/* Build a ministry-rules injection block (max 3 rules × 600 chars each).
+   NOTE: ministry-rules.json contains 27+ official procedural rules extracted from
+   the الدليل الوزاري (MESRS circular 2025-2026). These cover بطاقة الرغبات, التوجيه,
+   المعدل الموزون, التحويل, الطعن, المنحة, الإيواء, الدوائر الجغرافية, and more.
+   The AI MUST use these rules — not general knowledge — when answering procedural
+   questions about university enrollment, transfers, appeals, or orientation steps. */
 function buildMinistryRulesBlock(rawQuery) {
   if (!isAdminProcQuery(rawQuery)) return '';
   const rules = retrieveMinistryRules(rawQuery, 3);
