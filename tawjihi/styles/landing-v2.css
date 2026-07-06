@@ -1,4 +1,4 @@
-﻿/* ═══════════════════════════════════════════════════════════
+/* ═══════════════════════════════════════════════════════════
    TAWJIHI — Landing V2  |  build-premium-website design system
    Brand: primary #2c5cc5  ·  accent #ff6b35
    ═══════════════════════════════════════════════════════════ */
@@ -1350,10 +1350,11 @@ img { display: block; max-width: 100%; }
   .lv2-footer-grid   { grid-template-columns: 1fr; }
 }
 
-/* Tablet: hide nav links, keep CTA + theme visible */
+/* Tablet: hide nav links, show burger — pill becomes logo ↔ actions */
 @media (max-width: 860px) {
   .lv2-nav-links { display: none; }
   .lv2-burger { display: flex; }
+  .lv2-nav-pill { justify-content: space-between; }
 }
 
 /* Mobile: also hide login link and CTA in pill (burger covers it) */
