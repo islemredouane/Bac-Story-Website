@@ -1,108 +1,118 @@
-/* landing-v2.js — Tawjihi Landing V2
-   Follows build-premium-website skill patterns.
-   GSAP loaded via CDN, registered when available. */
+﻿/* landing-v2.js — Tawjihi Landing Page interactions */
+
 (function () {
   'use strict';
 
-  /* ── Reduce motion gate ─────────────────────────────────── */
-  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
   /* ── Theme toggle ─────────────────────────────────────────── */
-  var themeBtn = document.getElementById('themeBtn');
-  var html = document.documentElement;
+  const themeBtn = document.getElementById('themeBtn');
+  const html = document.documentElement;
 
-  function applyTheme(t) {
+  function setTheme(t) {
     html.setAttribute('data-theme', t);
     localStorage.setItem('tawjihi-theme', t);
   }
 
   if (themeBtn) {
     themeBtn.addEventListener('click', function () {
-      applyTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+      setTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
     });
   }
 
-  /* ── Navbar: transparent → glass on scroll ────────────────── */
+  /* ── Navbar glass on scroll ───────────────────────────────── */
   var nav = document.getElementById('lv2Nav');
-  function onScroll() {
-    if (nav) nav.classList.toggle('scrolled', window.scrollY > 60);
+  if (nav) {
+    function onScroll() {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
   }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
 
-  /* ── Burger / mobile menu ─────────────────────────────────── */
+  /* ── Mobile burger / drawer ───────────────────────────────── */
   var burger = document.getElementById('lv2Burger');
-  var mobileMenu = document.getElementById('lv2MobileMenu');
+  var drawer = document.getElementById('lv2Drawer');
 
-  if (burger && mobileMenu) {
+  if (burger && drawer) {
     burger.addEventListener('click', function () {
       var open = burger.classList.toggle('open');
-      mobileMenu.classList.toggle('open', open);
+      drawer.classList.toggle('open', open);
       burger.setAttribute('aria-expanded', String(open));
-      mobileMenu.setAttribute('aria-hidden', String(!open));
+      drawer.setAttribute('aria-hidden', String(!open));
     });
 
-    mobileMenu.querySelectorAll('a').forEach(function (a) {
-      a.addEventListener('click', function () {
+    // Close on drawer link click
+    drawer.querySelectorAll('.lv2-drawer-link, .lv2-btn-primary').forEach(function (el) {
+      el.addEventListener('click', function () {
         burger.classList.remove('open');
-        mobileMenu.classList.remove('open');
+        drawer.classList.remove('open');
         burger.setAttribute('aria-expanded', 'false');
-        mobileMenu.setAttribute('aria-hidden', 'true');
+        drawer.setAttribute('aria-hidden', 'true');
       });
     });
   }
 
-  /* ── Smooth anchor scroll (offset for sticky nav) ────────── */
-  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
-    a.addEventListener('click', function (e) {
-      var id = a.getAttribute('href').slice(1);
-      if (!id) return;
-      var target = document.getElementById(id);
-      if (target) {
-        e.preventDefault();
-        var top = target.getBoundingClientRect().top + window.scrollY - 80;
-        window.scrollTo({ top: top, behavior: 'smooth' });
-        // close mobile menu if open
-        if (burger) { burger.classList.remove('open'); mobileMenu.classList.remove('open'); }
-      }
-    });
-  });
+  /* ── Reveal on scroll (IntersectionObserver) ──────────────── */
+  var revealEls = document.querySelectorAll('.lv2-reveal');
 
-  /* ── CountUp (IntersectionObserver + rAF) ─────────────────── */
-  document.querySelectorAll('.lv2-countup[data-target]').forEach(function (el) {
-    var target = parseInt(el.getAttribute('data-target'), 10);
-    var started = false;
+  if ('IntersectionObserver' in window && revealEls.length) {
+    var revealObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('lv2-in');
+          revealObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-    var obs = new IntersectionObserver(function (entries) {
-      if (!entries[0].isIntersecting || started) return;
-      started = true;
-      obs.disconnect();
-      var startTs = performance.now();
-      var duration = 1800;
+    revealEls.forEach(function (el) { revealObs.observe(el); });
+  } else {
+    // Fallback — show everything
+    revealEls.forEach(function (el) { el.classList.add('lv2-in'); });
+  }
 
-      function tick(now) {
-        var t = Math.min(1, (now - startTs) / duration);
-        var eased = 1 - Math.pow(1 - t, 3); // ease-out-cubic
-        el.textContent = Math.round(target * eased);
-        if (t < 1) requestAnimationFrame(tick);
-      }
-      requestAnimationFrame(tick);
-    }, { threshold: 0.4 });
+  /* ── CountUp animation ────────────────────────────────────── */
+  var counters = document.querySelectorAll('.lv2-counter-num[data-target]');
 
-    obs.observe(el);
-  });
+  if (counters.length) {
+    var countObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        countObs.unobserve(e.target);
+        var el = e.target;
+        var target = parseInt(el.getAttribute('data-target'), 10);
+        var start = 0;
+        var duration = 1400;
+        var startTime = null;
+
+        function step(ts) {
+          if (!startTime) startTime = ts;
+          var progress = Math.min((ts - startTime) / duration, 1);
+          // ease-out-quart
+          var eased = 1 - Math.pow(1 - progress, 4);
+          el.textContent = Math.round(start + (target - start) * eased);
+          if (progress < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      });
+    }, { threshold: 0.5 });
+
+    counters.forEach(function (el) { countObs.observe(el); });
+  }
 
   /* ── FAQ accordion ────────────────────────────────────────── */
-  document.querySelectorAll('.lv2-faq-q').forEach(function (btn) {
+  var faqBtns = document.querySelectorAll('.lv2-faq-q');
+
+  faqBtns.forEach(function (btn) {
     btn.addEventListener('click', function () {
       var expanded = btn.getAttribute('aria-expanded') === 'true';
       var answer = btn.nextElementSibling;
 
-      // collapse others
-      document.querySelectorAll('.lv2-faq-q[aria-expanded="true"]').forEach(function (b) {
+      // Collapse others
+      faqBtns.forEach(function (b) {
         if (b !== btn) {
           b.setAttribute('aria-expanded', 'false');
-          if (b.nextElementSibling) b.nextElementSibling.style.maxHeight = '0';
+          var a = b.nextElementSibling;
+          if (a) a.style.maxHeight = '0';
         }
       });
 
@@ -116,138 +126,54 @@
     });
   });
 
-  /* ── Signature animation — status cycling ─────────────────── */
-  var sigStatus = document.getElementById('sigStatus');
-  var statusLabels = ['يحدد المسار', 'يكتشف الخيارات', 'يطابق معدلك', 'مسارك جاهز'];
-  var statusIdx = 0;
+  /* ── Chat demo typing animation ───────────────────────────── */
+  function runChatDemo() {
+    var dots = document.querySelectorAll('.lv2-typing-dot');
+    var text = document.querySelector('.lv2-chat-text');
+    if (!dots.length || !text) return;
 
-  if (sigStatus) {
-    setInterval(function () {
-      statusIdx = (statusIdx + 1) % statusLabels.length;
-      sigStatus.style.opacity = '0';
-      setTimeout(function () {
-        sigStatus.textContent = statusLabels[statusIdx];
-        sigStatus.style.opacity = '1';
-      }, 200);
-    }, 2300);
-    sigStatus.style.transition = 'opacity .2s';
+    setTimeout(function () {
+      dots.forEach(function (d) { d.style.display = 'none'; });
+      text.style.display = 'inline';
+    }, 2000);
   }
 
-  /* ── Shuffler animation ───────────────────────────────────── */
-  var shuffler = document.getElementById('lv2Shuffler');
-  if (shuffler && !prefersReduced) {
-    var cards = Array.from(shuffler.querySelectorAll('.lv2-shuffler-card'));
-    var shuffleIdx = 0;
-
-    function shuffleNext() {
-      shuffleIdx = (shuffleIdx + 1) % cards.length;
-      cards.forEach(function (c, i) {
-        var offset = ((i - shuffleIdx + cards.length) % cards.length);
-        c.style.transition = 'transform .5s cubic-bezier(.34,1.56,.64,1), opacity .5s';
-        c.style.transform = offset === 0
-          ? 'none'
-          : offset === 1
-          ? 'translateY(8px) scale(.97)'
-          : 'translateY(16px) scale(.94)';
-        c.style.opacity = offset === 0 ? '1' : offset === 1 ? '.7' : '.4';
-        c.style.zIndex = String(-offset);
-      });
-    }
-
-    setInterval(shuffleNext, 2800);
+  // Re-run when feature section enters view
+  var featSection = document.getElementById('features');
+  if (featSection) {
+    var featObs = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) {
+        runChatDemo();
+        featObs.disconnect();
+      }
+    }, { threshold: 0.2 });
+    featObs.observe(featSection);
   }
 
-  /* ── GSAP — wait for CDN load ─────────────────────────────── */
-  function initGsap() {
-    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
-    gsap.registerPlugin(ScrollTrigger);
-
-    if (prefersReduced) return; // respect motion preference
-
-    /* Hero entrance stagger */
-    var heroCtx = gsap.context(function () {
-      gsap.from('.hero-line-1', {
-        y: 40, opacity: 0, duration: 1, delay: 0.3, ease: 'power3.out'
-      });
-      gsap.from('.hero-line-2', {
-        y: 60, opacity: 0, duration: 1.2, delay: 0.5, ease: 'power3.out'
-      });
-      gsap.from('.hero-meta, .hero-cta', {
-        y: 24, opacity: 0, duration: 0.8, delay: 0.8, stagger: 0.12, ease: 'power3.out'
-      });
+  /* ── Smooth anchor scrolling (mobile drawer links) ────────── */
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var id = a.getAttribute('href').slice(1);
+      var target = document.getElementById(id);
+      if (target) {
+        e.preventDefault();
+        var offset = 72; // nav height
+        var top = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      }
     });
-
-    /* Feature cards reveal */
-    gsap.from('.feature-card', {
-      scrollTrigger: {
-        trigger: '#features',
-        start: 'top 75%',
-        once: true
-      },
-      y: 40, opacity: 0,
-      duration: 0.8, stagger: 0.15, ease: 'power3.out'
-    });
-
-    /* Pillar counters section reveal */
-    gsap.from('.lv2-pillar', {
-      scrollTrigger: { trigger: '.lv2-pillars', start: 'top 80%', once: true },
-      y: 30, opacity: 0, duration: 0.7, stagger: 0.1, ease: 'power3.out'
-    });
-
-    /* Trust cards */
-    gsap.from('.lv2-trust-card', {
-      scrollTrigger: { trigger: '.lv2-trust', start: 'top 80%', once: true },
-      y: 30, opacity: 0, duration: 0.7, stagger: 0.12, ease: 'power3.out'
-    });
-
-    /* Protocol sticky-stack scrub */
-    var pStack = document.getElementById('lv2ProtocolStack');
-    if (pStack) {
-      var pCards = pStack.querySelectorAll('.lv2-protocol-card');
-      pCards.forEach(function (card, i) {
-        if (i === pCards.length - 1) return; // last card stays
-        gsap.to(card, {
-          scrollTrigger: {
-            trigger: card,
-            start: 'top top+=80',
-            end: '+=420',
-            scrub: 1
-          },
-          scale: 0.93,
-          filter: 'blur(4px) saturate(0.6)',
-          opacity: 0.45,
-          ease: 'none'
-        });
-      });
-    }
-
-    /* Service tiles fade-in */
-    gsap.from('.lv2-service-tile', {
-      scrollTrigger: { trigger: '.lv2-services', start: 'top 75%', once: true },
-      y: 25, opacity: 0, duration: 0.6, stagger: 0.08, ease: 'power3.out'
-    });
-
-    /* Footer tagline */
-    gsap.from('.lv2-footer-tagline', {
-      scrollTrigger: { trigger: '.lv2-footer', start: 'top 85%', once: true },
-      y: 30, opacity: 0, duration: 0.8, ease: 'power3.out'
-    });
-
-    /* Cleanup on page unload */
-    window.addEventListener('beforeunload', function () {
-      heroCtx.revert();
-      ScrollTrigger.killAll();
-    });
-
-    setTimeout(function () { ScrollTrigger.refresh(); }, 300);
-  }
-
-  /* Try after scripts load */
-  window.addEventListener('load', function () {
-    setTimeout(initGsap, 100);
   });
 
-  /* Also try immediately in case scripts already loaded */
-  if (document.readyState === 'complete') initGsap();
+  /* ── Compass nav needle subtle follow-mouse ───────────────── */
+  var needle = document.getElementById('lv2-compass-needle');
+  if (needle) {
+    document.addEventListener('mousemove', function (e) {
+      var cx = window.innerWidth / 2;
+      var cy = window.innerHeight / 2;
+      var angle = Math.atan2(e.clientX - cx, -(e.clientY - cy)) * (180 / Math.PI);
+      needle.style.transform = 'rotate(' + angle + 'deg)';
+      needle.style.transformOrigin = '16px 16px';
+    }, { passive: true });
+  }
 
 })();
