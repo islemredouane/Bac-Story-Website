@@ -1255,86 +1255,45 @@ img { display: block; max-width: 100%; }
 }
 
 .lv2-trust-card {
-  background:
-    linear-gradient(var(--surface), var(--surface)) padding-box,
-    linear-gradient(145deg, rgba(var(--primary-rgb),.18) 0%, rgba(var(--accent-rgb),.08) 100%) border-box;
-  border: 1px solid transparent;
+  background: var(--surface);
+  border: 1px solid var(--divider);
   border-radius: 1.25rem;
   padding: 2rem;
   display: flex; flex-direction: column; gap: .85rem;
-  position: relative; overflow: hidden;
-  box-shadow: 0 2px 12px rgba(0,0,0,.05);
-  transition: transform .35s var(--ease-out), box-shadow .35s, border-color .35s;
-}
-.lv2-trust-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 14px 36px rgba(var(--primary-rgb),.12);
-}
-
-/* Top accent line — grows from right on reveal */
-.lv2-trust-card::before {
-  content: '';
-  position: absolute;
-  top: 0; inset-inline: 0;
-  height: 2px;
-  background: linear-gradient(to left, var(--primary) 0%, var(--accent) 100%);
+  box-shadow: 0 1px 4px rgba(0,0,0,.04);
   opacity: 0;
-  transform: scaleX(0);
-  transform-origin: right center;
-  transition: opacity .45s .1s, transform .6s var(--ease-spring);
+  will-change: transform, opacity, filter;
+  transition: transform .3s var(--ease-out), box-shadow .3s;
 }
-.lv2-trust-card.trust-revealed::before {
-  opacity: .6;
-  transform: scaleX(1);
+.lv2-trust-card.in-view {
+  animation: lv2CardIn .55s cubic-bezier(.22, 1, .36, 1) both;
+}
+.lv2-trust-card[data-s="1"].in-view { animation-delay: .08s; }
+.lv2-trust-card[data-s="2"].in-view { animation-delay: .16s; }
+
+@keyframes lv2CardIn {
+  from {
+    opacity: 0;
+    transform: translateY(32px) scale(.95);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
 }
 
-/* Shimmer sweep */
-.lv2-trust-card::after {
-  content: '';
-  position: absolute;
-  inset-block: 0; left: 0; width: 60%;
-  background: linear-gradient(
-    105deg,
-    transparent 20%,
-    rgba(255,255,255,.42) 50%,
-    transparent 80%
-  );
-  transform: translateX(-200%) skewX(-16deg);
-  pointer-events: none;
-}
-.lv2-trust-card.trust-revealed::after {
-  animation: lv2TrustShimmer .95s ease-out var(--shimmer-delay, 0s) both;
-}
-
-@keyframes lv2TrustShimmer {
-  from { transform: translateX(-200%) skewX(-16deg); }
-  to   { transform: translateX(380%) skewX(-16deg); }
-}
-
-[data-theme="dark"] .lv2-trust-card::after {
-  background: linear-gradient(
-    105deg,
-    transparent 20%,
-    rgba(255,255,255,.14) 50%,
-    transparent 80%
-  );
+.lv2-trust-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 28px rgba(var(--primary-rgb),.08);
 }
 
 .lv2-trust-icon {
-  width: 48px; height: 48px; border-radius: .9rem;
+  width: 46px; height: 46px; border-radius: .85rem;
   display: grid; place-items: center;
-  background: rgba(var(--primary-rgb),.1);
+  background: rgba(var(--primary-rgb),.08);
   color: var(--primary);
-  box-shadow: 0 0 0 0 rgba(var(--primary-rgb),.25);
-  transition: box-shadow .4s;
-}
-.lv2-trust-card.trust-revealed .lv2-trust-icon {
-  animation: lv2IconGlow .5s ease-out var(--shimmer-delay, 0s) both;
-}
-@keyframes lv2IconGlow {
-  0%   { box-shadow: 0 0 0 0 rgba(var(--primary-rgb),.3); }
-  50%  { box-shadow: 0 0 0 8px rgba(var(--primary-rgb),.12); }
-  100% { box-shadow: 0 0 0 0 rgba(var(--primary-rgb),.0); }
 }
 .lv2-trust-icon svg { width: 22px; height: 22px; }
 

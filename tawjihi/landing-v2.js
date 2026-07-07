@@ -191,23 +191,20 @@
       y: 30, opacity: 0, duration: 0.7, stagger: 0.1, ease: 'power3.out'
     });
 
-    /* Trust cards — fade-up + shimmer sweep + icon spring pop */
-    gsap.from('.lv2-trust-card', {
-      scrollTrigger: { trigger: '.lv2-trust', start: 'top 80%', once: true },
-      y: 40, opacity: 0, duration: 0.75, stagger: 0.13, ease: 'power3.out',
-      onComplete: function () {
-        document.querySelectorAll('.lv2-trust-card').forEach(function (card, i) {
-          card.style.setProperty('--shimmer-delay', (i * 0.12) + 's');
-          card.classList.add('trust-revealed');
+    /* Trust cards — IntersectionObserver, same pattern as Bac Story landing */
+    (function () {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('in-view');
+            io.unobserve(e.target);
+          }
         });
-      }
-    });
-    /* Icon spring pop (plays after cards are fully in) */
-    gsap.from('.lv2-trust-icon', {
-      scrollTrigger: { trigger: '.lv2-trust', start: 'top 80%', once: true },
-      scale: 0.1, duration: 0.55, stagger: 0.13, delay: 1.1,
-      ease: 'back.out(2.8)'
-    });
+      }, { threshold: 0.10, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.lv2-trust-card').forEach(function (el) {
+        io.observe(el);
+      });
+    }());
 
     /* ── Feature cards: scroll-scrubbed folder reveal (pinned) ── */
     (function () {
