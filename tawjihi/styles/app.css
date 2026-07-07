@@ -1218,8 +1218,9 @@
     padding: var(--sp-3) var(--sp-3) var(--sp-4);
 }
 
-/* ── Sidebar logo — Plus Jakarta Sans, same as landing-v2 ─── */
+/* ── Sidebar logo — explicit font, cannot drift per-page ─── */
 .sidebar-logo-brand {
+    font-family: 'Plus Jakarta Sans', 'Cairo', sans-serif !important;
     font-weight: 800 !important;
     letter-spacing: -.02em;
     color: var(--primary) !important;
