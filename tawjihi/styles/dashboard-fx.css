@@ -102,87 +102,61 @@
     isolation: isolate;
 }
 
-/* Always-on sweep on the top edge — no orange */
+/* Gradient top bar — appears on hover only (same pattern as spec-browser cards) */
 .dash-card::after {
     content: '';
     position: absolute;
-    inset: 0;
-    height: 3.5px;
-    bottom: auto;
+    top: 0; right: 0; left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--card-theme, var(--primary)), rgba(255,107,53,.6));
     border-radius: 0;
-    background: linear-gradient(
-        90deg,
-        transparent 0%,
-        color-mix(in srgb, var(--card-theme, var(--primary)) 80%, white) 45%,
-        rgba(255,255,255,.9) 50%,
-        color-mix(in srgb, var(--card-theme, var(--primary)) 80%, white) 55%,
-        transparent 100%
-    );
-    background-size: 200% 100%;
-    opacity: .85;
-    z-index: 1;
+    opacity: 0;
+    z-index: 2;
     pointer-events: none;
-    animation: fx-sweep 1.6s var(--ease) infinite;
+    transition: opacity .3s;
 }
+.dash-card:hover::after { opacity: 1; }
 
 /* Radial inner glow overlay (was previously ::after in dashboard.css) */
 .dash-card-glow-inner {
     display: none; /* handled via card background gradient */
 }
 
-/* Spec cards — always-on sweep */
+/* Spec cards — gradient top bar on hover */
 .dash-spec-card {
     isolation: isolate;
 }
 .dash-spec-card::after {
     content: '';
     position: absolute;
-    inset: 0;
-    height: 3.5px;
-    bottom: auto;
+    top: 0; right: 0; left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--card-theme, var(--primary)), rgba(255,107,53,.6));
     border-radius: 0;
-    background: linear-gradient(
-        90deg,
-        transparent 0%,
-        color-mix(in srgb, var(--card-theme, var(--primary)) 80%, white) 45%,
-        rgba(255,255,255,.9) 50%,
-        color-mix(in srgb, var(--card-theme, var(--primary)) 80%, white) 55%,
-        transparent 100%
-    );
-    background-size: 200% 100%;
-    opacity: .85;
-    z-index: 1;
+    opacity: 0;
+    z-index: 2;
     pointer-events: none;
-    animation: fx-sweep 1.6s var(--ease) infinite;
-    animation-delay: .5s;
+    transition: opacity .3s;
 }
+.dash-spec-card:hover::after { opacity: 1; }
 
-/* Nudge cards — always-on sweep */
+/* Nudge cards — gradient top bar on hover */
 .dash-nudge {
     isolation: isolate;
 }
 .dash-nudge::after {
     content: '';
     position: absolute;
-    inset: 0;
-    height: 3.5px;
-    bottom: auto;
+    top: 0; right: 0; left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--card-theme, var(--primary)), rgba(255,107,53,.6));
     border-radius: 0;
-    background: linear-gradient(
-        90deg,
-        transparent 0%,
-        color-mix(in srgb, var(--card-theme, var(--primary)) 80%, white) 45%,
-        rgba(255,255,255,.9) 50%,
-        color-mix(in srgb, var(--card-theme, var(--primary)) 80%, white) 55%,
-        transparent 100%
-    );
-    background-size: 200% 100%;
-    opacity: .85;
-    z-index: 1;
+    opacity: 0;
+    z-index: 2;
     pointer-events: none;
-    animation: fx-sweep 1.6s var(--ease) infinite;
-    animation-delay: 1s;
+    transition: opacity .3s;
 }
+.dash-nudge:hover::after { opacity: 1; }
 
 /* Hero decorative orb animation */
 .dash-hero::after {
