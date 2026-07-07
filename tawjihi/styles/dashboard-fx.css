@@ -102,27 +102,27 @@
     isolation: isolate;
 }
 
-/* Gradient top bar — appears on hover only (same pattern as spec-browser cards) */
+/* Gradient top bar — slides in on hover, single card-theme color (field-card pattern) */
 .dash-card::after {
     content: '';
     position: absolute;
     top: 0; right: 0; left: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--card-theme, var(--primary)), rgba(255,107,53,.6));
-    border-radius: 0;
-    opacity: 0;
+    width: 100%; height: 3px;
+    background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--card-theme, var(--primary)) 70%, transparent));
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform .3s ease;
     z-index: 2;
     pointer-events: none;
-    transition: opacity .3s;
 }
-.dash-card:hover::after { opacity: 1; }
+.dash-card:hover::after { transform: scaleX(1); }
 
 /* Radial inner glow overlay (was previously ::after in dashboard.css) */
 .dash-card-glow-inner {
     display: none; /* handled via card background gradient */
 }
 
-/* Spec cards — gradient top bar on hover */
+/* Spec cards — same slide-in top bar */
 .dash-spec-card {
     isolation: isolate;
 }
@@ -130,17 +130,17 @@
     content: '';
     position: absolute;
     top: 0; right: 0; left: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--card-theme, var(--primary)), rgba(255,107,53,.6));
-    border-radius: 0;
-    opacity: 0;
+    width: 100%; height: 3px;
+    background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--card-theme, var(--primary)) 70%, transparent));
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform .3s ease;
     z-index: 2;
     pointer-events: none;
-    transition: opacity .3s;
 }
-.dash-spec-card:hover::after { opacity: 1; }
+.dash-spec-card:hover::after { transform: scaleX(1); }
 
-/* Nudge cards — gradient top bar on hover */
+/* Nudge cards — same slide-in top bar */
 .dash-nudge {
     isolation: isolate;
 }
@@ -148,15 +148,15 @@
     content: '';
     position: absolute;
     top: 0; right: 0; left: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--card-theme, var(--primary)), rgba(255,107,53,.6));
-    border-radius: 0;
-    opacity: 0;
+    width: 100%; height: 3px;
+    background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--card-theme, var(--primary)) 70%, transparent));
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform .3s ease;
     z-index: 2;
     pointer-events: none;
-    transition: opacity .3s;
 }
-.dash-nudge:hover::after { opacity: 1; }
+.dash-nudge:hover::after { transform: scaleX(1); }
 
 /* Hero decorative orb animation */
 .dash-hero::after {
