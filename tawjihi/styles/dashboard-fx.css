@@ -67,25 +67,25 @@
 }
 
 .dash-card {
-    animation: fx-rise 480ms var(--ease-out) both;
+    animation: fx-rise 480ms var(--ease-out) both, cardFloat 3.5s ease-in-out infinite;
 }
-.dash-grid > .dash-card:nth-child(1) { animation-delay:  80ms; }
-.dash-grid > .dash-card:nth-child(2) { animation-delay: 150ms; }
-.dash-grid > .dash-card:nth-child(3) { animation-delay: 220ms; }
-.dash-grid > .dash-card:nth-child(4) { animation-delay: 290ms; }
-.dash-grid > .dash-card:nth-child(5) { animation-delay: 360ms; }
-.dash-grid > .dash-card:nth-child(6) { animation-delay: 430ms; }
+.dash-grid > .dash-card:nth-child(1) { animation-delay:  80ms,  760ms; }
+.dash-grid > .dash-card:nth-child(2) { animation-delay: 150ms,  900ms; }
+.dash-grid > .dash-card:nth-child(3) { animation-delay: 220ms, 1050ms; }
+.dash-grid > .dash-card:nth-child(4) { animation-delay: 290ms, 1200ms; }
+.dash-grid > .dash-card:nth-child(5) { animation-delay: 360ms, 1350ms; }
+.dash-grid > .dash-card:nth-child(6) { animation-delay: 430ms, 1500ms; }
 
 /* inner spec cards get a tiny cascade of their own */
-.dash-spec-row .dash-spec-card { animation: fx-rise 460ms var(--ease-out) both; }
-.dash-spec-row .dash-spec-card:nth-child(1) { animation-delay: 260ms; }
-.dash-spec-row .dash-spec-card:nth-child(2) { animation-delay: 320ms; }
-.dash-spec-row .dash-spec-card:nth-child(3) { animation-delay: 380ms; }
+.dash-spec-row .dash-spec-card { animation: fx-rise 460ms var(--ease-out) both, cardFloat 3.5s ease-in-out infinite; }
+.dash-spec-row .dash-spec-card:nth-child(1) { animation-delay: 260ms, 960ms; }
+.dash-spec-row .dash-spec-card:nth-child(2) { animation-delay: 320ms, 1080ms; }
+.dash-spec-row .dash-spec-card:nth-child(3) { animation-delay: 380ms, 1200ms; }
 
 /* nudge cards stagger */
-.dash-nudges .dash-nudge:nth-child(1) { animation: fx-rise 460ms 480ms var(--ease-out) both; }
-.dash-nudges .dash-nudge:nth-child(2) { animation: fx-rise 460ms 540ms var(--ease-out) both; }
-.dash-nudges .dash-nudge:nth-child(3) { animation: fx-rise 460ms 600ms var(--ease-out) both; }
+.dash-nudges .dash-nudge:nth-child(1) { animation: fx-rise 460ms var(--ease-out) both, cardFloat 3.5s ease-in-out infinite; animation-delay: 480ms, 1140ms; }
+.dash-nudges .dash-nudge:nth-child(2) { animation: fx-rise 460ms var(--ease-out) both, cardFloat 3.5s ease-in-out infinite; animation-delay: 540ms, 1200ms; }
+.dash-nudges .dash-nudge:nth-child(3) { animation: fx-rise 460ms var(--ease-out) both, cardFloat 3.5s ease-in-out infinite; animation-delay: 600ms, 1260ms; }
 
 /* ------------------------------------------------------------
    3) PREMIUM CARD GLOW — always-on border pulse
@@ -102,25 +102,14 @@
     isolation: isolate;
 }
 
-/* Premium animated gradient border using box-shadow + ::after overlay */
+/* Always-on sweep on the top edge — no orange */
 .dash-card::after {
     content: '';
     position: absolute;
-    inset: -1.5px;
-    border-radius: inherit;
-    background: linear-gradient(135deg,
-        rgba(44, 92, 197, .38) 0%,
-        rgba(255, 107, 53, .22) 50%,
-        rgba(44, 92, 197, .10) 75%,
-        transparent 100%);
-    z-index: -1;
-    pointer-events: none;
-    animation: borderPulse 3.5s ease-in-out infinite;
-}
-
-/* Hover: kill the pulse animation, replace with bright sweep */
-.dash-card:hover::after {
-    animation: none;
+    inset: 0;
+    height: 3.5px;
+    bottom: auto;
+    border-radius: 0;
     background: linear-gradient(
         90deg,
         transparent 0%,
@@ -130,11 +119,9 @@
         transparent 100%
     );
     background-size: 200% 100%;
-    opacity: .9;
-    inset: 0;
-    height: 3.5px;
-    bottom: auto;
-    border-radius: 0;
+    opacity: .85;
+    z-index: 1;
+    pointer-events: none;
     animation: fx-sweep 1.6s var(--ease) infinite;
 }
 
@@ -143,26 +130,13 @@
     display: none; /* handled via card background gradient */
 }
 
-/* Spec cards — same premium border */
+/* Spec cards — always-on sweep */
 .dash-spec-card {
     isolation: isolate;
 }
 .dash-spec-card::after {
     content: '';
     position: absolute;
-    inset: -1.5px;
-    border-radius: inherit;
-    background: linear-gradient(135deg,
-        rgba(44, 92, 197, .30) 0%,
-        rgba(255, 107, 53, .18) 55%,
-        transparent 100%);
-    z-index: -1;
-    pointer-events: none;
-    animation: borderPulse 4s ease-in-out infinite;
-    animation-delay: .8s;
-}
-.dash-spec-card:hover::after {
-    animation: none;
     inset: 0;
     height: 3.5px;
     bottom: auto;
@@ -176,30 +150,20 @@
         transparent 100%
     );
     background-size: 200% 100%;
-    opacity: .9;
+    opacity: .85;
+    z-index: 1;
+    pointer-events: none;
     animation: fx-sweep 1.6s var(--ease) infinite;
+    animation-delay: .5s;
 }
 
-/* Nudge cards — same premium border */
+/* Nudge cards — always-on sweep */
 .dash-nudge {
     isolation: isolate;
 }
 .dash-nudge::after {
     content: '';
     position: absolute;
-    inset: -1.5px;
-    border-radius: inherit;
-    background: linear-gradient(135deg,
-        rgba(44, 92, 197, .28) 0%,
-        rgba(255, 107, 53, .16) 55%,
-        transparent 100%);
-    z-index: -1;
-    pointer-events: none;
-    animation: borderPulse 4.5s ease-in-out infinite;
-    animation-delay: 1.2s;
-}
-.dash-nudge:hover::after {
-    animation: none;
     inset: 0;
     height: 3.5px;
     bottom: auto;
@@ -213,8 +177,11 @@
         transparent 100%
     );
     background-size: 200% 100%;
-    opacity: .9;
+    opacity: .85;
+    z-index: 1;
+    pointer-events: none;
     animation: fx-sweep 1.6s var(--ease) infinite;
+    animation-delay: 1s;
 }
 
 /* Hero decorative orb animation */
