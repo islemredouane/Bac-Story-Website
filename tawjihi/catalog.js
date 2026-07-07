@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    TAWJIHI — Shared specialty catalog (single source of truth)
    Used by: specialities.html, speciality.html, simulator.js,
             dashboard.html
@@ -85,7 +85,7 @@ const TW_CATALOG = [
     streams: ['رياضيات','تقني رياضي','علوم تجريبية'],
     duration: '5 سنوات', language: 'فرنسية + إنجليزية',
     degree: 'مهندس دولة', demand: 'مرتفع',
-    img: 'images/estin.jpg', location: 'ESTIN · أميزور، بجاية',
+    img: 'images/20250610_175029.jpg', location: 'ESTIN · أميزور، بجاية',
     description: [
       'ESTIN مدرسة عليا في علوم وتكنولوجيات الإعلام الآلي والرقمنة بأميزور ولاية بجاية. تُكوّن مهندسين في الإعلام الآلي، الرقمنة، والأنظمة الذكية.',
       'تتميز بموقعها في المنطقة الشرقية وبمستوى علمي عالٍ يقترب من ESI.',
@@ -153,7 +153,7 @@ const TW_CATALOG = [
     streams: ['علوم تجريبية','رياضيات'],
     duration: '6 سنوات', language: 'فرنسية',
     degree: 'دكتوراه في الصيدلة', demand: 'مرتفع',
-    img: 'images/pharmacie.jpeg', location: 'كليات الصيدلة عبر الوطن',
+    img: 'images/Busy Pharmacy Counter with Many Medicine Bottles Stock Illustration - Illustration of pharmaceuticals, care_ 305580383.jpeg', location: 'كليات الصيدلة عبر الوطن',
     description: [
       'الصيدلة علم يدرس الأدوية: تركيبها، تصنيعها، وآليات عملها في الجسم. الدراسة 6 سنوات باللغة الفرنسية.',
       'تفتح أمام حاملها أبواب الصيدليات الخاصة، الصناعة الدوائية، والبحث العلمي.',
@@ -188,7 +188,7 @@ const TW_CATALOG = [
     streams: ['علوم تجريبية','رياضيات'],
     duration: '6 سنوات', language: 'فرنسية',
     degree: 'دكتوراه في طب الأسنان', demand: 'مرتفع',
-    img: 'images/medecine.jpeg', location: 'كليات طب الأسنان عبر الوطن',
+    img: 'images/Free Dental Checkup Smile Image _ Download at StockCake.jpeg', location: 'كليات طب الأسنان عبر الوطن',
     description: [
       'طب الأسنان تخصص يدمج الطب والجراحة في منطقة الفم والأسنان والوجه. الدراسة 6 سنوات باللغة الفرنسية.',
       'يُتيح للخريج فتح عيادة خاصة أو العمل في القطاع الصحي الحكومي.',
@@ -255,7 +255,7 @@ const TW_CATALOG = [
     streams: ['رياضيات','تقني رياضي','علوم تجريبية'],
     duration: '3 سنوات (ليسانس) / 5 سنوات (ماستر)', language: 'فرنسية + عربية',
     degree: 'ليسانس ثم ماستر', demand: 'مرتفع',
-    img: 'images/esi.jpeg', location: 'جامعات عبر الوطن',
+    img: 'images/Software Consulting and Development Company.jpeg', location: 'جامعات عبر الوطن',
     description: [
       'ليسانس الإعلام الآلي في الجامعات العادية يغطي البرمجة، الخوارزميات وهندسة البرمجيات في 3 سنوات، يتبعها ماستر تخصصي.',
       'أقل انتقائية من المدارس العليا لكن تفتح نفس الآفاق المهنية إذا اكتسب الطالب مهارات إضافية.',
@@ -288,7 +288,7 @@ const TW_CATALOG = [
     streams: ['تسيير واقتصاد','رياضيات','تقني رياضي','علوم تجريبية','آداب وفلسفة'],
     duration: '3 سنوات', language: 'عربية + فرنسية',
     degree: 'ليسانس في العلوم التجارية', demand: 'متوسط',
-    img: 'images/esc.jpg', location: 'ESC · القليعة، الجزائر',
+    img: 'images/esc2024.jpg', location: 'ESC · القليعة، الجزائر',
     description: [
       'المدرسة العليا للتجارة تُكوّن إطارات في التسيير، التسويق، المالية، والتجارة الدولية. تقع في القليعة ولاية الجزائر.',
       'من أفضل المؤسسات في مجال الاقتصاد بالجزائر مع انتقائية معتدلة.',
@@ -381,7 +381,7 @@ const TW_CATALOG = [
     streams: ['رياضيات','تقني رياضي'],
     duration: '3 سنوات (ليسانس) / 5 سنوات (ماستر)', language: 'عربية + فرنسية',
     degree: 'ليسانس ثم ماستر', demand: 'متوسط',
-    img: 'images/math.jpeg', location: 'جامعات عبر الوطن',
+    img: 'images/Math Pattern Photos - Download Free High-Quality Pictures _ Freepik.jpeg', location: 'جامعات عبر الوطن',
     description: [
       'ليسانس الرياضيات يُدرّس الجبر، التحليل، الرياضيات التطبيقية والإحصاء. بوابة للدكتوراه والبحث العلمي.',
       'يمكن لخريجيه التوجه للتعليم، الإحصاء التطبيقي، أو القطاع المالي والتأميني.',
@@ -651,7 +651,7 @@ const TW_CATALOG = [
     avg: 18.34, minAvg: 18.34,
     streamCodes: ['math','techmath','sciexp'], streams: ['رياضيات','تقني رياضي','علوم تجريبية'],
     duration: '5 سنوات', language: 'فرنسية', degree: 'مهندس دولة', demand: 'مرتفع جداً',
-    img: 'images/esi.jpeg', location: 'ENSCS · الجزائر',
+    img: 'images/FB_IMG_1727195730880.webp', location: 'ENSCS · الجزائر',
     description: [
       'المدرسة الوطنية العليا للأمن السيبراني — تخصص ناشئ وشديد الطلب في الاقتصاد الرقمي الجزائري والعالمي.',
       'تُكوّن مهندسين في أمن الأنظمة، التحقيق الجنائي الرقمي، والشبكات الآمنة.',
@@ -671,7 +671,7 @@ const TW_CATALOG = [
     avg: 16.69, minAvg: 16.69,
     streamCodes: ['math','techmath','sciexp'], streams: ['رياضيات','تقني رياضي','علوم تجريبية'],
     duration: '5 سنوات', language: 'فرنسية', degree: 'مهندس دولة', demand: 'مرتفع',
-    img: 'images/estin.jpg', location: 'ENSTTIC · تلمسان',
+    img: 'images/ENSTTIC.webp', location: 'ENSTTIC · تلمسان',
     description: [
       'ENSTTIC بتلمسان تُكوّن مهندسين في الاتصالات، الإعلام الآلي والشبكات المدمجة.',
       'تقع في الجهة الغربية وتُعدّ مرجعاً تقنياً للمنطقة في تخصصات التكنولوجيا.',
@@ -691,7 +691,7 @@ const TW_CATALOG = [
     avg: 17.43, minAvg: 17.43,
     streamCodes: ['math','techmath'], streams: ['رياضيات','تقني رياضي'],
     duration: '5 سنوات', language: 'فرنسية', degree: 'مهندس دولة / ماجستير', demand: 'مرتفع',
-    img: 'images/math.jpeg', location: 'NHSM · كوبة، الجزائر',
+    img: 'images/NHSM-photo.jpg', location: 'NHSM · كوبة، الجزائر',
     description: [
       'المدرسة الوطنية العليا للرياضيات (NHSM) بكوبة هي القمة الرياضية في الجزائر — تُكوّن نخبة من علماء الرياضيات والإحصاء التطبيقي.',
       'من أعلى المدارس انتقائيةً، تخريجوها يلتحقون بمراكز البحث والشركات الكبرى وبرامج الدكتوراه الدولية.',
@@ -711,7 +711,7 @@ const TW_CATALOG = [
     avg: 16.65, minAvg: 16.65,
     streamCodes: ['math','techmath','sciexp'], streams: ['رياضيات','تقني رياضي','علوم تجريبية'],
     duration: '5 سنوات', language: 'فرنسية', degree: 'مهندس دولة', demand: 'مرتفع',
-    img: 'images/estin.jpg', location: 'USTO وهران · UCA قسنطينة',
+    img: 'images/IMG-a6dd9c0171d8c3be8eb3a0886686d5c0-V-e1599265441301.jpg', location: 'USTO وهران · UCA قسنطينة',
     description: [
       'المدارس الوطنية المتعددة التقنيات (Polytechnique) تُكوّن مهندسين في تخصصات متعددة: ميكانيك، كهرباء، هندسة مدنية وكيمياء صناعية.',
       'متوفرة في عدة ولايات وتتيح تخصيص المسار في السنوات العليا.',
@@ -737,7 +737,7 @@ const TW_CATALOG = [
     avg: 16.12, minAvg: 16.12,
     streamCodes: ['math','techmath','sciexp'], streams: ['رياضيات','تقني رياضي','علوم تجريبية'],
     duration: '5 سنوات', language: 'فرنسية', degree: 'مهندس دولة', demand: 'مرتفع',
-    img: 'images/estin.jpg', location: 'ENSTP · الرويبة، الجزائر',
+    img: 'images/ENSTP.webp', location: 'ENSTP · الرويبة، الجزائر',
     description: [
       'المدرسة الوطنية العليا للأشغال العمومية بالرويبة تُكوّن مهندسين في بناء الطرق، الجسور، الأنفاق والبنية التحتية الوطنية.',
       'خرّيجوها يعملون في المشاريع الكبرى للدولة وشركات البناء الدولية.',
@@ -777,7 +777,7 @@ const TW_CATALOG = [
     avg: 14.00, minAvg: 16.15,
     streamCodes: ['math','techmath'], streams: ['رياضيات','تقني رياضي'],
     duration: '5 سنوات', language: 'فرنسية', degree: 'مهندس دولة', demand: 'مرتفع',
-    img: 'images/estin.jpg', location: 'IGEE · بومرداس',
+    img: 'images/IGEE.jpg', location: 'IGEE · بومرداس',
     description: [
       'معهد الكهرباء والإلكترونيك ببومرداس يُكوّن مهندسين في الإلكترونيك، الكهرباء الصناعية والأتمتة.',
       'يتبع جامعة بومرداس ويُعدّ من المؤسسات التقنية المتميزة في منطقة الوسط.',
@@ -817,7 +817,7 @@ const TW_CATALOG = [
     avg: 17.96, minAvg: 17.96,
     streamCodes: ['math','sciexp','techmath'], streams: ['رياضيات','علوم تجريبية','تقني رياضي'],
     duration: '5 سنوات', language: 'فرنسية + إنجليزية', degree: 'مهندس دولة', demand: 'مرتفع',
-    img: 'images/placeholder.jpeg', location: 'ENSSN · الجزائر العاصمة',
+    img: 'images/photo_6032980517781097186_y.jpg', location: 'ENSSN · الجزائر العاصمة',
     description: [
       'تخصص في دراسة المواد والظواهر على المستوى النانوي (أجزاء من المليار من المتر)، مع تطبيقات في الطب والإلكترونيات والطاقة.',
     ],
@@ -836,7 +836,7 @@ const TW_CATALOG = [
     avg: 18.21, minAvg: 18.21,
     streamCodes: ['math','sciexp'], streams: ['رياضيات','علوم تجريبية'],
     duration: '5 سنوات', language: 'فرنسية + إنجليزية', degree: 'مهندس دولة', demand: 'مرتفع جداً',
-    img: 'images/placeholder.jpeg', location: 'ENSAS · القطب التكنولوجي سيدي عبد الله',
+    img: 'images/386640476_320410484001768_3712419433239447267_n.jpg', location: 'ENSAS · القطب التكنولوجي سيدي عبد الله',
     description: [
       'مدرسة متخصصة في هندسة الأنظمة المستقلة والروبوتيك والذكاء الاصطناعي التطبيقي، تُعِدّ مهندسين لمجالات الدفاع والصناعة والنقل الذكي.',
     ],
@@ -857,7 +857,7 @@ const TW_CATALOG = [
     avg: 10.00, minAvg: 10.00,
     streamCodes: ['math','techmath','sciexp'], streams: ['رياضيات','تقني رياضي','علوم تجريبية'],
     duration: '3 سنوات (ليسانس) / 5 سنوات (ماستر)', language: 'فرنسية + عربية', degree: 'ليسانس ثم ماستر', demand: 'متوسط',
-    img: 'images/estin.jpg', location: 'جامعات عبر الوطن',
+    img: 'images/ST.png', location: 'جامعات عبر الوطن',
     description: [
       'ليسانس العلوم والتكنولوجيا جذع مشترك يُدرَّس في كل الجامعات — يُغطي الفيزياء، الكيمياء، الرياضيات التطبيقية والمعلوماتية.',
       'تُختار التخصصات الدقيقة في الماستر: ميكانيك، كهرباء، إلكترونيك أو مواد.',
@@ -880,7 +880,7 @@ const TW_CATALOG = [
     avg: 14.42, minAvg: 14.42,
     streamCodes: ['math','techmath','sciexp'], streams: ['رياضيات','تقني رياضي','علوم تجريبية'],
     duration: '3 سنوات (ليسانس) / 5 سنوات (ماستر)', language: 'فرنسية', degree: 'ليسانس ثم ماستر', demand: 'مرتفع',
-    img: 'images/estin.jpg', location: 'جامعة بومرداس · UMBB',
+    img: 'images/fuel.jpeg', location: 'جامعة بومرداس · UMBB',
     description: [
       'تخصص المحروقات يُدرَّس بجامعة بومرداس (UMBB) ويغطي حفر الآبار، معالجة النفط والغاز، وهندسة الخزانات.',
       'من أكثر التخصصات طلباً في الجزائر في ظل التوسع في قطاع الطاقة.',
@@ -900,7 +900,7 @@ const TW_CATALOG = [
     avg: 12.50, minAvg: 11.50,
     streamCodes: ['math','techmath','sciexp'], streams: ['رياضيات','تقني رياضي','علوم تجريبية'],
     duration: '3 سنوات (ليسانس) / 5 سنوات (ماستر)', language: 'فرنسية', degree: 'ليسانس ثم ماستر', demand: 'متوسط',
-    img: 'images/estin.jpg', location: 'جامعة سطيف · جامعات أخرى',
+    img: 'images/Eye Exam.jpeg', location: 'جامعة سطيف · جامعات أخرى',
     description: [
       'البصريات والميكاترونيك تخصص دقيق يجمع الفيزياء الضوئية، الإلكترونيك والأنظمة الميكانيكية الذكية.',
       'تطبيقات واسعة في الصناعة الدقيقة، الطب والاتصالات الضوئية.',
@@ -1051,7 +1051,7 @@ const TW_CATALOG = [
     avg: 12.26, minAvg: 12.26,
     streamCodes: ['sciexp','math'], streams: ['علوم تجريبية','رياضيات'],
     duration: '6 سنوات', language: 'فرنسية', degree: 'دكتوراه في الطب البيطري', demand: 'مرتفع',
-    img: 'images/biologie.jpeg', location: 'كليات البيطرة عبر الوطن',
+    img: 'images/vetrinaire.webp', location: 'كليات البيطرة عبر الوطن',
     description: [
       'الطب البيطري يُعنى بصحة الحيوانات: تشخيص الأمراض، الجراحة والصحة العامة الحيوانية.',
       'تخصص مطلوب في قطاع الزراعة والأمن الغذائي والصحة العامة.',
@@ -1137,7 +1137,7 @@ const TW_CATALOG = [
     avg: 15.67, minAvg: 15.67,
     streamCodes: ['sciexp','math'], streams: ['علوم تجريبية','رياضيات'],
     duration: '5 سنوات', language: 'فرنسية', degree: 'مهندس دولة في التكنولوجيا الحيوية', demand: 'مرتفع',
-    img: 'images/biologie.jpeg', location: 'ENSB · قسنطينة',
+    img: 'images/ENSB.webp', location: 'ENSB · قسنطينة',
     description: [
       'المدرسة الوطنية العليا للتكنولوجيا الحيوية بقسنطينة تُكوّن مهندسين في التكنولوجيا الحيوية، الجينيات التطبيقية والصناعة البيوكيميائية.',
       'تخصص مستقبلي بامتياز يربط بين العلوم الحياتية والهندسة.',
@@ -1157,7 +1157,7 @@ const TW_CATALOG = [
     avg: 14.45, minAvg: 14.45,
     streamCodes: ['sciexp'], streams: ['علوم تجريبية'],
     duration: '5 سنوات', language: 'فرنسية', degree: 'مهندس دولة', demand: 'متوسط',
-    img: 'images/biologie.jpeg', location: 'ENSSMAL · بوسماعيل، تيبازة',
+    img: 'images/ENSSMAL.webp', location: 'ENSSMAL · بوسماعيل، تيبازة',
     description: [
       'ENSSMAL بوسماعيل تُكوّن مهندسين في الموارد السمكية، البيئة البحرية وتربية الأحياء المائية.',
       'إطار نادر وحيوي لإدارة السواحل الجزائرية والتنمية الزرقاء.',
@@ -1177,7 +1177,7 @@ const TW_CATALOG = [
     avg: 13.00, minAvg: 12.00,
     streamCodes: ['sciexp'], streams: ['علوم تجريبية'],
     duration: '4 سنوات', language: 'فرنسية', degree: 'ليسانس كيناسيولوجيا', demand: 'مرتفع',
-    img: 'images/medecine.jpeg', location: 'مدارس شبه طبية عبر الوطن',
+    img: 'images/Front view doctor putting on glove _ Free Photo.jpeg', location: 'مدارس شبه طبية عبر الوطن',
     description: [
       'الكيناسيولوجيا (الكينيزيتيرابي) تختص بإعادة تأهيل المرضى بعد الحوادث والعمليات الجراحية عبر تقنيات العلاج الحركي.',
       'مهنة في ازدياد مع توسع قطاع الصحة في الجزائر.',
@@ -1279,7 +1279,7 @@ const TW_CATALOG = [
     avg: 15.78, minAvg: 15.78,
     streamCodes: ['gestion','math','techmath','sciexp'], streams: ['تسيير واقتصاد','رياضيات','تقني رياضي','علوم تجريبية'],
     duration: '3 سنوات', language: 'عربية + فرنسية', degree: 'ليسانس في العلوم التجارية', demand: 'مرتفع',
-    img: 'images/esc.jpg', location: 'EHEC · كوبة، الجزائر',
+    img: 'images/EHEC.webp', location: 'EHEC · كوبة، الجزائر',
     description: [
       'المدرسة العليا للدراسات التجارية (EHEC) بكوبة من أعرق المدارس التجارية في الجزائر — تُكوّن إطارات في التسيير، التسويق والمالية.',
       'معروفة بجودة تكوينها وشبكة خرّيجيها في القطاع الاقتصادي الجزائري.',
@@ -1299,7 +1299,7 @@ const TW_CATALOG = [
     avg: 15.41, minAvg: 15.41,
     streamCodes: ['math','gestion','techmath'], streams: ['رياضيات','تسيير واقتصاد','تقني رياضي'],
     duration: '3 سنوات', language: 'فرنسية + عربية', degree: 'ليسانس في الإحصاء التطبيقي', demand: 'مرتفع',
-    img: 'images/esc.jpg', location: 'ENSSEA · الكوليا، الجزائر',
+    img: 'images/ENSSEA.jpg', location: 'ENSSEA · الكوليا، الجزائر',
     description: [
       'المدرسة الوطنية العليا للإحصاء والاقتصاد التطبيقي بالكوليا تُكوّن محللين إحصائيين وخبراء اقتصاديين.',
       'تخصص شديد الطلب في المؤسسات المالية، هيئات الدولة والقطاع الخاص.',
@@ -1359,7 +1359,7 @@ const TW_CATALOG = [
     avg: 13.50, minAvg: 12.50,
     streamCodes: ['sciexp','math'], streams: ['علوم تجريبية','رياضيات'],
     duration: '5 سنوات', language: 'عربية + فرنسية', degree: 'مهندس دولة في الزراعة', demand: 'متوسط',
-    img: 'images/biologie.jpeg', location: 'ENSA · الحراش، الجزائر',
+    img: 'images/ENSA.jpg', location: 'ENSA · الحراش، الجزائر',
     description: [
       'المدرسة الوطنية العليا الزراعية بالحراش (INA) من أعرق مؤسسات التكوين الزراعي في الجزائر.',
       'تُكوّن مهندسين في الزراعة، الغابات، علوم التربة وتسيير الموارد الطبيعية.',
@@ -1381,7 +1381,7 @@ const TW_CATALOG = [
     avg: 10.57, minAvg: 10.57,
     streamCodes: ['math','sciexp','techmath'], streams: ['رياضيات','علوم تجريبية','تقني رياضي'],
     duration: '3 سنوات (ليسانس) / 5 سنوات (ماستر)', language: 'فرنسية + عربية', degree: 'ليسانس ثم ماستر', demand: 'متوسط',
-    img: 'images/math.jpeg', location: 'جامعات عبر الوطن',
+    img: 'images/Science background containing analyzing, beaker, and biochemist, a Technology Photo by Looker_Studio.jpeg', location: 'جامعات عبر الوطن',
     description: [
       'ليسانس علوم المادة يُغطي الفيزياء النظرية والتطبيقية والكيمياء العامة والعضوية — أساس متين للماستر والدكتوراه.',
       'بوابة للبحث العلمي، الصناعة الكيميائية أو التدريس الجامعي.',
@@ -1506,7 +1506,7 @@ const TW_CATALOG = [
     avg: 10.00, minAvg: 10.00,
     streamCodes: ['lettres','langues','gestion','sciexp'], streams: ['آداب وفلسفة','لغات أجنبية','تسيير واقتصاد','علوم تجريبية'],
     duration: '3 إلى 5 سنوات', language: 'عربية', degree: 'ليسانس / ماستر', demand: 'متوسط',
-    img: 'images/education.jpg', location: 'جامعات عدة',
+    img: 'images/chari3a.webp', location: 'جامعات عدة',
     description: [
       'الشريعة والدراسات الإسلامية تُغطي الفقه الإسلامي، أصول الدين، الحديث والدراسات القرآنية.',
       'يفتح هذا التخصص أبواب الإفتاء، التدريس الديني والقضاء الإسلامي.',
@@ -1762,7 +1762,7 @@ const TW_CATALOG = [
     avg: 15.51, minAvg: 15.51,
     streamCodes: ['gestion','math','techmath','sciexp'], streams: ['تسيير واقتصاد','رياضيات','تقني رياضي','علوم تجريبية'],
     duration: '5 سنوات', language: 'فرنسية + عربية', degree: 'ماستر في التسيير الرقمي', demand: 'مرتفع',
-    img: 'images/placeholder.jpeg', location: 'ESGEN · القليعة، تيبازة',
+    img: 'images/ESGEN.jpg', location: 'ESGEN · القليعة، تيبازة',
     description: [
       'المدرسة العليا للتسيير والاقتصاد الرقمي (ESGEN) بالقليعة تُكوّن إطارات في التسيير الرقمي، التجارة الإلكترونية، مناجمنت البيانات وذكاء الأعمال.',
       'تتميز بتخصصات حديثة: E-Business، Supply Chain الرقمي، وFintech — مناسبة للطالب الطموح في قطاع الاقتصاد الرقمي.',
@@ -1860,7 +1860,7 @@ const TW_CATALOG = [
     avg: 15.40, minAvg: 15.40,
     streamCodes: ['sciexp','math'], streams: ['علوم تجريبية','رياضيات'],
     duration: '5 سنوات', language: 'فرنسية', degree: 'مهندس دولة', demand: 'مرتفع',
-    img: 'images/placeholder.jpeg', location: 'ESSAIA · الحراش، الجزائر',
+    img: 'images/ESSAIA.webp', location: 'ESSAIA · الحراش، الجزائر',
     description: [
       'المدرسة العليا لعلوم التغذية والصناعات الغذائية (ESSAIA) بالحراش تُكوّن مهندسين في التغذية، مراقبة الجودة الغذائية والتغليف والصناعات الغذائية.',
       'تخصص مستقبلي مرتبط بأمن الجزائر الغذائي، تتوفر فيه أجهزة بحثية ومشاريع مقاولاتية.',
