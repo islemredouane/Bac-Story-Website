@@ -638,10 +638,74 @@ img { display: block; max-width: 100%; }
   gap: 1.5rem;
 }
 
+/* ── Folder anchor (animation stage) ──────────────────────── */
+.lv2-folder-anchor {
+  position: relative;
+  width: 176px;
+  height: 118px;
+  margin: 0 auto 1.75rem;
+}
+
+.lv2-fd-tab {
+  position: absolute;
+  top: 0;
+  inset-inline-start: 0;
+  width: 46%;
+  height: 22px;
+  background: linear-gradient(135deg, rgba(var(--primary-rgb),.2), rgba(var(--primary-rgb),.1));
+  border: 1.5px solid rgba(var(--primary-rgb),.32);
+  border-radius: 8px 8px 0 0;
+  border-bottom: none;
+}
+
+.lv2-fd-flap {
+  position: absolute;
+  top: 14px;
+  inset-inline: 0;
+  height: 22px;
+  background: rgba(var(--primary-rgb),.16);
+  border-bottom: 1.5px solid rgba(var(--primary-rgb),.28);
+  transform-origin: top center;
+  z-index: 1;
+}
+
+.lv2-fd-body {
+  position: absolute;
+  top: 14px;
+  inset-inline: 0;
+  bottom: 0;
+  background: linear-gradient(170deg, rgba(var(--primary-rgb),.1) 0%, rgba(var(--primary-rgb),.04) 100%);
+  border: 1.5px solid rgba(var(--primary-rgb),.22);
+  border-radius: 2px 10px 10px 10px;
+  border-top: none;
+  overflow: hidden;
+}
+
+.lv2-fd-paper {
+  position: absolute;
+  inset-inline: 14px;
+  height: 3px;
+  border-radius: 2px;
+  background: rgba(var(--primary-rgb),.22);
+}
+.lv2-fd-paper:nth-child(1) { top: 38px; }
+.lv2-fd-paper:nth-child(2) { top: 52px; inset-inline-end: 40px; }
+.lv2-fd-paper:nth-child(3) { top: 66px; inset-inline-end: 60px; }
+
+[data-theme="dark"] .lv2-fd-tab    { background: rgba(var(--primary-rgb),.28); border-color: rgba(var(--primary-rgb),.45); }
+[data-theme="dark"] .lv2-fd-flap   { background: rgba(var(--primary-rgb),.22); border-color: rgba(var(--primary-rgb),.4); }
+[data-theme="dark"] .lv2-fd-body   { background: linear-gradient(170deg, rgba(var(--primary-rgb),.18), rgba(var(--primary-rgb),.07)); border-color: rgba(var(--primary-rgb),.38); }
+[data-theme="dark"] .lv2-fd-paper  { background: rgba(var(--primary-rgb),.35); }
+
+@media (max-width: 767px) { .lv2-folder-anchor { display: none; } }
+
+/* ── Feature cards ─────────────────────────────────────────── */
 .feature-card {
-  background: linear-gradient(135deg, var(--surface) 0%, rgba(var(--primary-rgb), .03) 100%);
+  /* Gradient border that respects border-radius */
+  background:
+    linear-gradient(var(--surface), var(--surface)) padding-box,
+    linear-gradient(145deg, rgba(var(--primary-rgb),.25) 0%, rgba(var(--accent-rgb),.1) 100%) border-box;
   border: 1.5px solid transparent;
-  border-image: linear-gradient(135deg, rgba(var(--primary-rgb),.2) 0%, rgba(var(--accent-rgb),.05) 100%) 1;
   border-radius: 1.75rem;
   padding: 2rem 1.75rem;
   display: flex;
@@ -649,13 +713,18 @@ img { display: block; max-width: 100%; }
   gap: .95rem;
   position: relative;
   overflow: hidden;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  box-shadow: 0 4px 24px rgba(0,0,0,.06), inset 0 1px 0 rgba(255,255,255,.4);
-  opacity: 0;
-  transform: translateY(32px) scale(.96);
-  transition: opacity .6s var(--ease-out), transform .6s var(--ease-out),
-              box-shadow .35s var(--ease-out), border-color .4s ease;
+  box-shadow: 0 4px 24px rgba(0,0,0,.06), inset 0 1px 0 rgba(255,255,255,.45);
+  /* opacity/transform driven by GSAP; only box-shadow/border transitions here */
+  transition: box-shadow .35s var(--ease-out);
+  opacity: 0; /* initial — GSAP reveals */
+  will-change: transform, opacity;
+}
+
+[data-theme="dark"] .feature-card {
+  background:
+    linear-gradient(var(--surface), var(--surface)) padding-box,
+    linear-gradient(145deg, rgba(var(--primary-rgb),.35) 0%, rgba(var(--accent-rgb),.14) 100%) border-box;
+  box-shadow: 0 4px 32px rgba(0,0,0,.18), inset 0 1px 0 rgba(255,255,255,.06);
 }
 
 .feature-card::before {
@@ -663,18 +732,18 @@ img { display: block; max-width: 100%; }
   position: absolute;
   top: 0; inset-inline: 0; height: 2px;
   background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
-  opacity: 0.6;
+  opacity: 0.65;
 }
 
+/* After GSAP reveal — enable hover transitions */
 .feature-card.revealed {
   opacity: 1;
-  transform: translateY(0) scale(1);
+  transition: box-shadow .35s var(--ease-out), transform .45s var(--ease-spring);
 }
 
-.feature-card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 16px 48px rgba(var(--primary-rgb),.16), inset 0 1px 0 rgba(255,255,255,.5);
-  border-color: rgba(var(--primary-rgb),.3);
+.feature-card.revealed:hover {
+  transform: translateY(-8px) scale(1.025);
+  box-shadow: 0 20px 52px rgba(var(--primary-rgb),.18), inset 0 1px 0 rgba(255,255,255,.5);
 }
 
 .feature-card-eyebrow {

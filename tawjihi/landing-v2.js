@@ -92,36 +92,13 @@
     obs.observe(el);
   });
 
-  /* ── Feature cards — GSAP reveal with stagger ───── */
-  (function () {
-    var cards = document.querySelectorAll('.feature-card');
-    if (!cards.length || !('IntersectionObserver' in window)) {
-      cards.forEach(function (c) { c.classList.add('revealed'); });
-      return;
-    }
-    var revealed = new Set();
-    var obs = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (!e.isIntersecting || revealed.has(e.target)) return;
-        revealed.add(e.target);
-        var idx = Array.prototype.indexOf.call(cards, e.target);
-
-        if (typeof gsap !== 'undefined') {
-          gsap.to(e.target, {
-            opacity: 1,
-            transform: 'translateY(0) scale(1)',
-            duration: 0.7,
-            delay: idx * 0.15,
-            ease: 'power3.out'
-          });
-        } else {
-          e.target.classList.add('revealed');
-        }
-        obs.unobserve(e.target);
-      });
-    }, { threshold: 0.15 });
-    cards.forEach(function (c) { obs.observe(c); });
-  }());
+  /* ── Feature cards — folder reveal handled by initGsap ─── */
+  /* Fallback: if GSAP CDN never loads, reveal via CSS class  */
+  setTimeout(function () {
+    document.querySelectorAll('.feature-card').forEach(function (c) {
+      if (!c.classList.contains('revealed')) c.classList.add('revealed');
+    });
+  }, 4000);
 
   /* ── FAQ accordion ────────────────────────────────────────── */
   document.querySelectorAll('.lv2-faq-q').forEach(function (btn) {
@@ -219,6 +196,64 @@
       scrollTrigger: { trigger: '.lv2-trust', start: 'top 80%', once: true },
       y: 30, opacity: 0, duration: 0.7, stagger: 0.12, ease: 'power3.out'
     });
+
+    /* ── Feature cards: folder stack → fan-out reveal ───────── */
+    (function () {
+      var featGrid = document.querySelector('.lv2-features-grid');
+      var featCards = Array.from(document.querySelectorAll('.feature-card'));
+      if (!featGrid || !featCards.length) return;
+
+      /* Stack all cards at grid centre with a fan rotation */
+      var gRect = featGrid.getBoundingClientRect();
+      var gCenterX = gRect.left + gRect.width / 2;
+      /* fan: right card (+rot), centre (0), left card (-rot) — in RTL layout */
+      var fanRot   = [ 9,  0, -9];
+      var fanScale = [0.76, 0.72, 0.76];
+
+      featCards.forEach(function (card, i) {
+        var r  = card.getBoundingClientRect();
+        var dx = gCenterX - (r.left + r.width / 2);
+        card.style.transition = 'none'; /* freeze CSS transition during GSAP */
+        gsap.set(card, {
+          x: dx, y: 85,
+          scale: fanScale[i],
+          opacity: 0,
+          rotation: fanRot[i],
+          zIndex: i === 1 ? 3 : 2,
+          transformOrigin: 'center bottom'
+        });
+      });
+
+      var fTl = gsap.timeline({
+        scrollTrigger: { trigger: '.lv2-features', start: 'top 62%', once: true }
+      });
+
+      /* 1 – folder flap folds back (scaleY 1 → 0 from top edge) */
+      fTl.to('#lv2FolderFlap', {
+        scaleY: 0, duration: 0.28, ease: 'power2.in',
+        transformOrigin: 'top center'
+      }, 0);
+
+      /* 2 – folder body shrinks away */
+      fTl.to('#lv2FolderAnchor', {
+        opacity: 0, scale: 0.88, y: -8,
+        duration: 0.4, ease: 'power2.in'
+      }, 0.18);
+
+      /* 3 – cards fly out with staggered back-ease */
+      featCards.forEach(function (card, i) {
+        fTl.to(card, {
+          x: 0, y: 0, scale: 1, opacity: 1, rotation: 0,
+          duration: 0.92,
+          ease: 'back.out(1.4)',
+          onComplete: function () {
+            card.style.transition = '';          /* restore CSS hover transition */
+            card.classList.add('revealed');
+            gsap.set(card, { clearProps: 'x,y,scale,rotation,zIndex,transformOrigin,opacity' });
+          }
+        }, 0.22 + i * 0.15);
+      });
+    }());
 
     /* Protocol sticky-stack scrub */
     var pStack = document.getElementById('lv2ProtocolStack');
