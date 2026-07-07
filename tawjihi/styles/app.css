@@ -1218,18 +1218,25 @@
     padding: var(--sp-3) var(--sp-3) var(--sp-4);
 }
 
-/* ── Sidebar logo — gradient text like landing-v2 ─────────── */
+/* ── Sidebar logo — same look as landing-v2 nav ───────────── */
 .sidebar-logo-brand {
     font-family: 'Plus Jakarta Sans', 'Cairo', var(--font-ui) !important;
-    font-size: 1.45rem !important;
+    font-size: 1.05rem !important;
     font-weight: 800 !important;
     letter-spacing: -.02em;
-    background: linear-gradient(135deg, #2c5cc5 0%, #3d6ee0 50%, #ff6b35 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent !important;
+    color: var(--primary) !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: .45rem !important;
 }
+.sidebar-logo-icon {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    color: var(--primary);
+}
+[data-theme="dark"] .sidebar-logo-brand { color: #fff !important; }
+[data-theme="dark"] .sidebar-logo-icon { color: #fff; }
 
 /* ── Active nav item — premium left-border accent ─────────── */
 .nav-item.active {
@@ -1269,7 +1276,7 @@
     font-weight: 800;
     letter-spacing: -.02em;
     /* grad-brand is already applied — just strengthen */
-    background: linear-gradient(135deg, #2c5cc5 0%, #3d6ee0 60%, #ff6b35 100%);
+    background: linear-gradient(135deg, #2c5cc5 0%, #3d6ee0 60%, #5b86e8 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1309,7 +1316,7 @@
 
 /* ── Chat hero brand avatar — premium ring ────────────────── */
 .chat-hero-brand {
-    background: linear-gradient(135deg, #2c5cc5, #ff6b35) !important;
+    background: linear-gradient(135deg, #2c5cc5, #1a3a8f) !important;
     box-shadow:
         0 0 0 8px rgba(44, 92, 197, .1),
         0 6px 28px rgba(44, 92, 197, .35) !important;
@@ -1364,46 +1371,7 @@
     box-shadow: 0 6px 22px rgba(44, 92, 197, .45) !important;
 }
 
-/* ── Premium card pattern for suggest cards ──────────────── */
-.suggest-card {
-    position: relative;
-    overflow: hidden;
-    transition: transform .3s cubic-bezier(.25,.8,.25,1), border-color .3s, box-shadow .3s !important;
-}
-/* Spotlight glow that tracks mouse (JS writes --mx/--my) */
-.suggest-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: radial-gradient(
-        300px circle at var(--mx, 50%) var(--my, 50%),
-        rgba(44, 92, 197, .10) 0%,
-        transparent 65%
-    );
-    opacity: .55;
-    transition: opacity .3s;
-    pointer-events: none;
-    z-index: 0;
-}
-.suggest-card:hover::before { opacity: 1; }
-
-/* Animated gradient border */
-.suggest-card::after {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    border-radius: inherit;
-    background: linear-gradient(135deg,
-        rgba(44, 92, 197, .35) 0%,
-        rgba(255, 107, 53, .2) 50%,
-        rgba(44, 92, 197, 0) 100%
-    );
-    animation: borderPulse 3.5s ease-in-out infinite;
-    pointer-events: none;
-    z-index: -1;
-}
-@keyframes borderPulse { 0%, 100% { opacity: .25; } 50% { opacity: .65; } }
+/* suggest-card — keeps original styles from above */
 
 /* ── Dark mode adjustments for premium additions ─────────── */
 [data-theme="dark"] .sidebar-head {
