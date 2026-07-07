@@ -8,150 +8,17 @@
     <meta name="description" content="عدّل معلومات ملفّك الشخصي في توجيهي — الشعبة، المعدل، الولاية، الاهتمامات والطموح.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Pattaya&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@700;800;900&family=Pattaya&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles/tokens.css">
     <link rel="stylesheet" href="styles/app.css">
     <link rel="stylesheet" href="styles/onboarding.css">
     <link rel="stylesheet" href="styles/dashboard.css">
+    <link rel="stylesheet" href="styles/settings.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
     <script src="supabase.js"></script>
     <script src="shell.js"></script>
     <script src="catalog.js"></script>
-    <style>
-        /* ── Settings page layout tweaks ── */
-        .settings-main {
-            padding: var(--sp-6) var(--sp-6) calc(var(--sp-6) * 4);
-            max-width: 760px;
-        }
-        .settings-header {
-            margin-bottom: var(--sp-8);
-        }
-        .settings-header h1 {
-            font-size: 1.6rem;
-            font-weight: 800;
-            color: var(--text-primary);
-            margin-bottom: var(--sp-1);
-        }
-        .settings-header p {
-            color: var(--text-muted);
-            font-size: .95rem;
-        }
-        .settings-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: var(--sp-6);
-            margin-bottom: var(--sp-5);
-        }
-        .settings-card-title {
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: var(--sp-5);
-            display: flex;
-            align-items: center;
-            gap: var(--sp-2);
-        }
-        .settings-card-title i {
-            color: var(--primary);
-            font-size: 1rem;
-        }
-        /* Name input */
-        .settings-field {
-            display: flex;
-            flex-direction: column;
-            gap: var(--sp-2);
-        }
-        .settings-label {
-            font-size: .9rem;
-            font-weight: 600;
-            color: var(--text-secondary);
-        }
-        .settings-input {
-            width: 100%;
-            padding: .65rem 1rem;
-            border: 1.5px solid var(--border);
-            border-radius: var(--radius-md);
-            background: var(--bg);
-            color: var(--text-primary);
-            font-family: inherit;
-            font-size: 1rem;
-            transition: border-color .15s;
-            box-sizing: border-box;
-        }
-        .settings-input:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-        /* Divider between fields inside a card */
-        .settings-divider {
-            border: none;
-            border-top: 1px solid var(--border);
-            margin: var(--sp-5) 0;
-        }
-        /* Ambition textarea */
-        #ambitionText {
-            resize: vertical;
-            min-height: 80px;
-        }
-        /* Range display */
-        .settings-range-wrap {
-            display: flex;
-            flex-direction: column;
-            gap: var(--sp-3);
-        }
-        .settings-range-value {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--primary);
-            line-height: 1;
-        }
-        .settings-range-value small {
-            font-size: 1rem;
-            font-weight: 500;
-            color: var(--text-muted);
-            margin-right: var(--sp-1);
-        }
-        .ob-range {
-            width: 100%;
-        }
-        .ob-range-scale {
-            display: flex;
-            justify-content: space-between;
-            font-size: .75rem;
-            color: var(--text-muted);
-            margin-top: var(--sp-1);
-        }
-        /* Save button */
-        .settings-save-wrap {
-            display: flex;
-            justify-content: flex-start;
-            padding-top: var(--sp-2);
-        }
-        #saveBtn {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--sp-2);
-            padding: .75rem 2rem;
-            background: var(--primary);
-            color: #fff;
-            border: none;
-            border-radius: var(--radius-md);
-            font-family: inherit;
-            font-size: 1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: background .2s, opacity .2s;
-        }
-        #saveBtn:disabled {
-            opacity: .7;
-            cursor: default;
-        }
-        #saveBtn:not(:disabled):hover {
-            background: var(--primary-hover, color-mix(in srgb, var(--primary) 85%, #000));
-        }
-    </style>
 </head>
 <body>
 <div class="app" id="app">
@@ -197,16 +64,27 @@
             <div class="dash-inner settings-main">
 
                 <!-- Page header -->
-                <div class="settings-header">
-                    <h1><i class="fas fa-gear" style="color:var(--primary);margin-left:.4rem"></i>إعدادات الحساب</h1>
-                    <p>عدّل معلوماتك الشخصية وملف BAC الخاص بك — التغييرات تُحفظ فوراً في حسابك.</p>
+                <div class="settings-page-header">
+                    <div class="settings-page-header-inner">
+                        <div class="settings-page-icon">
+                            <i class="fas fa-gear"></i>
+                        </div>
+                        <div>
+                            <div class="settings-page-eyebrow"><i class="fas fa-sliders"></i> إعدادات الحساب</div>
+                            <h1 class="settings-page-title">عدّل ملفك الشخصي</h1>
+                            <p class="settings-page-subtitle">معلوماتك الشخصية وملف BAC الخاص بك — التغييرات تُحفظ فوراً في حسابك.</p>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Card 1: معلومات شخصية -->
                 <div class="settings-card">
                     <div class="settings-card-title">
-                        <i class="fas fa-user"></i>
-                        معلومات شخصية
+                        <div class="settings-card-icon"><i class="fas fa-user"></i></div>
+                        <div class="settings-card-title-text">
+                            <span class="settings-card-label">معلومات شخصية</span>
+                            <span class="settings-card-desc">اسمك كما يظهر في حسابك</span>
+                        </div>
                     </div>
                     <div class="settings-field">
                         <label class="settings-label" for="nameInput">الاسم</label>
@@ -217,8 +95,11 @@
                 <!-- Card 2: ملف BAC -->
                 <div class="settings-card">
                     <div class="settings-card-title">
-                        <i class="fas fa-file-lines"></i>
-                        ملف BAC
+                        <div class="settings-card-icon"><i class="fas fa-file-lines"></i></div>
+                        <div class="settings-card-title-text">
+                            <span class="settings-card-label">ملف BAC</span>
+                            <span class="settings-card-desc">الشعبة والمعدل والولاية والاهتمامات</span>
+                        </div>
                     </div>
 
                     <!-- Stream -->

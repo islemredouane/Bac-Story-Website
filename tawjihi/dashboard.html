@@ -8,7 +8,7 @@
     <meta name="description" content="لوحتك الشخصية في توجيهي — تخصصاتك المحفوظة، أهليتك، بطاقة رغباتك والعد التنازلي للنتائج.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Pattaya&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Tajawal:wght@400;500;700;800&family=Cairo:wght@400;600;700;800&family=Pattaya&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles/tokens.css">
     <link rel="stylesheet" href="styles/motion.css">
@@ -67,13 +67,14 @@
                 <!-- ===== Greeting + profile chips ===== -->
                 <section class="dash-hero">
                     <div class="dash-hero-text">
+                        <span class="dash-hero-eyebrow"><i class="fas fa-gauge-high"></i> لوحة التحكم الشخصية</span>
                         <h1>مرحبا <span id="userName">صديقي</span> 👋</h1>
                         <p>هاذي صورة سريعة عن مسارك. كمّل اللي بقى، وخلّي المرشد يعاونك في القرار.</p>
                         <div class="dash-chips" id="profileChips">
                             <span class="dash-chip"><i class="fas fa-flask"></i> <span data-chip="stream">—</span></span>
                             <span class="dash-chip"><i class="fas fa-percent"></i> معدل <span data-chip="average">—</span></span>
                             <span class="dash-chip"><i class="fas fa-location-dot"></i> <span data-chip="wilaya">—</span></span>
-                            <a class="dash-chip dash-chip-edit" href="onboarding.html"><i class="fas fa-pen"></i> عدّل ملفّي</a>
+                            <a class="dash-chip dash-chip-primary" href="onboarding.html"><i class="fas fa-pen"></i> عدّل ملفّي</a>
                         </div>
                     </div>
                     <div class="dash-progress-ring" aria-label="اكتمال الملف 80٪">
@@ -89,6 +90,7 @@
 
                     <!-- Import averages from BAC Story -->
                     <section class="dash-card dash-card-wide dash-card-import" id="dashImportCard">
+                        <span class="dash-section-eyebrow"><i class="fas fa-link"></i> ربط البيانات</span>
                         <header class="dash-card-head">
                             <h2><i class="fas fa-file-import"></i> استورد معدلاتك من BAC Story</h2>
                             <span class="dash-import-state" id="dashImportState" hidden>معدلاتك مستوردة ✓ — يمكنك التحديث</span>
@@ -105,6 +107,7 @@
 
                     <!-- Saved specializations -->
                     <section class="dash-card dash-card-wide">
+                        <span class="dash-section-eyebrow"><i class="fas fa-bookmark"></i> قائمتك</span>
                         <header class="dash-card-head">
                             <h2><i class="fas fa-bookmark"></i> التخصصات المحفوظة</h2>
                             <a class="dash-link" href="simulator.html">عرض الكل <i class="fas fa-arrow-left"></i></a>
@@ -114,6 +117,7 @@
 
                     <!-- Eligibility status -->
                     <section class="dash-card">
+                        <span class="dash-section-eyebrow"><i class="fas fa-shield-halved"></i> تقييمك</span>
                         <header class="dash-card-head">
                             <h2><i class="fas fa-clipboard-check"></i> حالة الأهلية</h2>
                         </header>
@@ -123,6 +127,7 @@
 
                     <!-- Countdown -->
                     <section class="dash-card dash-card-countdown">
+                        <span class="dash-section-eyebrow"><i class="fas fa-clock"></i> الموعد المنتظر</span>
                         <header class="dash-card-head">
                             <h2><i class="fas fa-hourglass-half"></i> العد التنازلي للنتائج</h2>
                         </header>
@@ -137,6 +142,7 @@
 
                     <!-- Fiche preview -->
                     <section class="dash-card">
+                        <span class="dash-section-eyebrow"><i class="fas fa-list-ol"></i> ترتيبك</span>
                         <header class="dash-card-head">
                             <h2><i class="fas fa-list-ol"></i> بطاقة الرغبات</h2>
                             <a class="dash-link" href="simulator.html">حرّر الترتيب <i class="fas fa-arrow-left"></i></a>
@@ -146,6 +152,7 @@
 
                     <!-- Advisor nudges -->
                     <section class="dash-card dash-card-wide dash-card-nudges">
+                        <span class="dash-section-eyebrow"><i class="fas fa-wand-magic-sparkles"></i> ذكاء اصطناعي</span>
                         <header class="dash-card-head">
                             <h2><i class="fas fa-lightbulb"></i> نصائح المرشد</h2>
                         </header>

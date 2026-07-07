@@ -11,7 +11,7 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Pattaya&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Pattaya&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles/tokens.css">
     <link rel="stylesheet" href="styles/motion.css">
@@ -22,12 +22,14 @@
     <script src="supabase.js"></script>
 </head>
 <body>
+<!-- noise texture overlay — matches landing-v2 premium feel -->
+<div class="noise-overlay" aria-hidden="true" style="position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.04;mix-blend-mode:multiply;background-image:url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\");"></div>
 <div class="app" id="app">
     <!-- ===================== SIDEBAR ===================== -->
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-head">
             <button class="sidebar-toggle" id="sidebarToggle" aria-label="طي القائمة"><i class="fas fa-bars"></i></button>
-            <span class="sidebar-logo">توجيهي</span>
+            <span class="sidebar-logo sidebar-logo-brand">توجيهي</span>
         </div>
 
         <nav class="nav-group">

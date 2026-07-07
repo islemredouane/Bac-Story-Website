@@ -70,6 +70,25 @@
 .dash-ring-num small { font-size: var(--fs-sm); }
 .dash-ring-label { font-size: var(--fs-xs); color: var(--text-muted); font-weight: 700; }
 
+/* ---- Section eyebrow label ---- */
+.dash-section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    margin-bottom: var(--sp-4);
+    padding: .3rem .9rem;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--primary) 9%, transparent);
+    border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent);
+    font-family: 'Courier New', 'Consolas', monospace;
+    font-size: .70rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--primary);
+}
+.dash-section-eyebrow i { font-size: .68rem; }
+
 /* ---- Grid ---- */
 .dash-grid {
     margin-top: var(--sp-5);
@@ -85,31 +104,37 @@
     overflow: hidden;
     background: var(--surface);
     border: 1.5px solid var(--border);
-    border-radius: 18px;
+    border-radius: 1.25rem;
     padding: var(--sp-5);
     box-shadow: var(--shadow-md);
     transition: transform .3s cubic-bezier(.25,.8,.25,1), box-shadow .3s, border-color .3s;
     animation: rise var(--t-slow) var(--ease-out) both;
 }
+/* Static radial glow inside card — always on */
 .dash-card::before {
     content: '';
     position: absolute;
-    top: 0; right: 0; left: 0;
-    height: 3.5px;
-    background: linear-gradient(90deg, transparent, var(--card-theme, var(--primary)));
-    transform: scaleX(1);
-    transform-origin: right;
-    z-index: 1;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+        280px circle at 50% 50%,
+        rgba(44, 92, 197, .09) 0%,
+        transparent 65%);
+    opacity: .55;
+    pointer-events: none;
+    z-index: 0;
 }
 .dash-card:hover {
     transform: translateY(-5px);
     border-color: color-mix(in srgb, var(--card-theme, var(--primary)) 35%, transparent);
-    box-shadow: 0 14px 35px color-mix(in srgb, var(--card-theme, var(--primary)) 16%, transparent);
+    box-shadow:
+        0 20px 45px color-mix(in srgb, var(--card-theme, var(--primary)) 16%, transparent),
+        0 4px 12px rgba(44, 92, 197, .08);
 }
-.dash-card:hover::before { transform: scaleX(1); }
 .dash-card-head {
     display: flex; align-items: center; justify-content: space-between;
     gap: var(--sp-3); margin-bottom: var(--sp-4);
+    position: relative; z-index: 1;
 }
 .dash-card-head h2 {
     font-size: var(--fs-lg);
@@ -120,13 +145,14 @@
 .dash-card-head h2 i {
     color: var(--card-theme, var(--primary));
     font-size: .95rem;
-    width: 34px; height: 34px;
+    width: 36px; height: 36px;
     display: grid; place-items: center;
     border-radius: 10px;
     background: linear-gradient(135deg,
         color-mix(in srgb, var(--card-theme, var(--primary)) 22%, transparent),
         color-mix(in srgb, var(--card-theme, var(--primary)) 8%, transparent));
-    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--card-theme, var(--primary)) 18%, transparent);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--card-theme, var(--primary)) 20%, transparent),
+                0 4px 12px color-mix(in srgb, var(--card-theme, var(--primary)) 15%, transparent);
 }
 .dash-link {
     display: inline-flex; align-items: center; gap: var(--sp-1);
@@ -147,28 +173,31 @@
     overflow: hidden;
     background: var(--surface);
     border: 1.5px solid var(--border);
-    border-radius: 18px;
+    border-radius: 1.25rem;
     padding: var(--sp-4);
     box-shadow: var(--shadow-md);
     display: flex; flex-direction: column; gap: var(--sp-1);
     transition: transform .3s cubic-bezier(.25,.8,.25,1), box-shadow .3s, border-color .3s;
 }
+/* Radial inner glow on spec cards */
 .dash-spec-card::before {
     content: '';
     position: absolute;
-    top: 0; right: 0; left: 0;
-    height: 3.5px;
-    background: linear-gradient(90deg, transparent, var(--card-theme, var(--primary)));
-    transform: scaleX(1);
-    transform-origin: right;
-    z-index: 1;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+        220px circle at 50% 50%,
+        color-mix(in srgb, var(--card-theme, var(--primary)) .09, transparent) 0%,
+        transparent 70%);
+    opacity: .55;
+    pointer-events: none;
+    z-index: 0;
 }
 .dash-spec-card:hover {
     transform: translateY(-5px);
-    border-color: color-mix(in srgb, var(--card-theme, var(--primary)) 35%, transparent);
-    box-shadow: 0 14px 35px color-mix(in srgb, var(--card-theme, var(--primary)) 16%, transparent);
+    border-color: color-mix(in srgb, var(--card-theme, var(--primary)) 38%, transparent);
+    box-shadow: 0 16px 38px color-mix(in srgb, var(--card-theme, var(--primary)) 18%, transparent);
 }
-.dash-spec-card:hover::before { transform: scaleX(1); }
 .dash-spec-top { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--sp-2); }
 .dash-spec-name { font-weight: 800; font-size: var(--fs-sm); }
 .dash-spec-meta { color: var(--text-muted); font-size: var(--fs-xs); }
@@ -226,27 +255,29 @@
 .dash-countdown {
     display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-2);
     direction: ltr;
+    position: relative; z-index: 1;
 }
 .dash-cd-unit {
     background: linear-gradient(160deg,
-        color-mix(in srgb, var(--primary) 8%, var(--surface-2)),
-        var(--surface-2));
-    border: 1.5px solid color-mix(in srgb, var(--primary) 16%, var(--border));
+        color-mix(in srgb, var(--primary) 12%, var(--surface-2)) 0%,
+        var(--surface-2) 100%);
+    border: 1.5px solid color-mix(in srgb, var(--primary) 22%, var(--border));
     border-radius: var(--r-md);
     padding: var(--sp-4) var(--sp-2) var(--sp-3);
     display: flex; flex-direction: column; gap: var(--sp-1);
+    box-shadow: 0 4px 16px rgba(44, 92, 197, .10), inset 0 1px 0 rgba(255,255,255,.5);
 }
 .dash-cd-num {
     font-family: var(--font-display);
     font-size: var(--fs-3xl);
     font-weight: 800;
     line-height: 1;
-    background: var(--grad-brand);
+    background: linear-gradient(135deg, #1a3a8f 0%, #2c5cc5 55%, #5b86e8 100%);
     -webkit-background-clip: text; background-clip: text;
     -webkit-text-fill-color: transparent;
     font-variant-numeric: tabular-nums;
 }
-.dash-cd-label { font-size: var(--fs-xs); color: var(--text-muted); font-weight: 700; }
+.dash-cd-label { font-size: var(--fs-xs); color: var(--text-muted); font-weight: 800; letter-spacing: .02em; }
 .dash-cd-note { margin-top: var(--sp-3); color: var(--text-muted); font-size: var(--fs-xs); }
 
 /* ---- Fiche preview ---- */
@@ -296,26 +327,29 @@
     display: flex; align-items: center; gap: var(--sp-3);
     background: var(--surface-2);
     border: 1.5px solid var(--border);
-    border-radius: 18px;
+    border-radius: 1.25rem;
     padding: var(--sp-4);
     transition: transform .3s cubic-bezier(.25,.8,.25,1), border-color .3s, box-shadow .3s;
 }
+/* Nudge top accent line */
 .dash-nudge::before {
     content: '';
     position: absolute;
-    top: 0; right: 0; left: 0;
-    height: 3.5px;
-    background: linear-gradient(90deg, transparent, var(--card-theme, var(--primary)));
-    transform: scaleX(1);
-    transform-origin: right;
-    z-index: 1;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+        180px circle at 50% 50%,
+        rgba(44, 92, 197, .07) 0%,
+        transparent 70%);
+    opacity: .6;
+    pointer-events: none;
+    z-index: 0;
 }
 .dash-nudge:hover {
     transform: translateY(-5px);
-    border-color: color-mix(in srgb, var(--card-theme, var(--primary)) 35%, transparent);
-    box-shadow: 0 14px 35px color-mix(in srgb, var(--card-theme, var(--primary)) 16%, transparent);
+    border-color: color-mix(in srgb, var(--card-theme, var(--primary)) 38%, transparent);
+    box-shadow: 0 16px 36px color-mix(in srgb, var(--card-theme, var(--primary)) 16%, transparent);
 }
-.dash-nudge:hover::before { transform: scaleX(1); }
 .dash-nudge-ico {
     width: 44px; height: 44px; flex-shrink: 0;
     border-radius: var(--r-md);
@@ -332,6 +366,20 @@
 .dash-nudge-sub { color: var(--text-muted); font-size: var(--fs-xs); line-height: 1.5; }
 .dash-nudge-arrow { color: var(--text-faint); margin-inline-start: auto; transition: transform var(--t-fast); }
 .dash-nudge:hover .dash-nudge-arrow { transform: translateX(-4px); color: var(--primary); }
+
+/* ---- Primary-filled chip (for important action chips) ---- */
+.dash-chip-primary {
+    background: linear-gradient(135deg, #1a3a8f 0%, var(--primary) 100%);
+    border-color: transparent;
+    color: #fff !important;
+    box-shadow: 0 4px 16px rgba(44, 92, 197, .32);
+}
+.dash-chip-primary i { color: rgba(255,255,255,.85) !important; }
+.dash-chip-primary:hover {
+    background: linear-gradient(135deg, var(--primary) 0%, #5b86e8 100%);
+    box-shadow: 0 6px 22px rgba(44, 92, 197, .42) !important;
+    transform: translateY(-2px);
+}
 
 /* ---- Import averages from BAC Story ---- */
 .dash-card-import { --card-theme: var(--primary); }
@@ -406,96 +454,92 @@
 }
 
 /* ============================================================
-   GLASS LAYER — dashboard cards (top borders preserved via ::before)
+   GLASS LAYER — dashboard cards (premium glassmorphism surface)
+   ::after pseudo is owned by dashboard-fx.css (borderPulse).
    ============================================================ */
 
 .dash-card {
     background:
-        radial-gradient(circle at 10% 20%, rgba(44, 92, 197, 0.06) 0%, transparent 50%),
-        rgba(255, 255, 255, 0.88);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border-color: rgba(44, 92, 197, 0.1);
-    box-shadow: 0 6px 30px rgba(44, 92, 197, 0.07), 0 2px 6px rgba(0, 0, 0, 0.04);
-}
-.dash-card::after {
-    content: '';
-    position: absolute; bottom: -40px; right: -40px;
-    width: 150px; height: 150px; border-radius: 50%;
-    filter: blur(50px); z-index: 0; opacity: 0.08;
-    background: var(--card-theme, var(--primary));
-    pointer-events: none;
-    transition: opacity .5s ease;
+        radial-gradient(circle at 15% 25%, rgba(44, 92, 197, 0.07) 0%, transparent 55%),
+        rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-color: rgba(44, 92, 197, 0.12);
+    box-shadow:
+        0 6px 30px rgba(44, 92, 197, 0.08),
+        0 2px 6px rgba(0, 0, 0, 0.04),
+        inset 0 1px 0 rgba(255,255,255,0.7);
 }
 .dash-card:hover {
-    border-color: rgba(44, 92, 197, 0.3);
-    box-shadow: 0 20px 40px rgba(44, 92, 197, 0.12);
+    border-color: rgba(44, 92, 197, 0.28);
+    box-shadow:
+        0 22px 48px rgba(44, 92, 197, 0.14),
+        0 4px 12px rgba(44, 92, 197, 0.06);
 }
-.dash-card:hover::after { opacity: 0.15; }
 
 .dash-spec-card {
     background:
-        radial-gradient(circle at 10% 20%, rgba(44, 92, 197, 0.05) 0%, transparent 50%),
-        rgba(255, 255, 255, 0.88);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border-color: rgba(44, 92, 197, 0.1);
-    box-shadow: 0 6px 28px rgba(44, 92, 197, 0.06), 0 2px 6px rgba(0, 0, 0, 0.04);
-}
-.dash-spec-card::after {
-    content: '';
-    position: absolute; bottom: -30px; right: -30px;
-    width: 130px; height: 130px; border-radius: 50%;
-    filter: blur(45px); z-index: 0; opacity: 0.07;
-    background: var(--card-theme, var(--primary));
-    pointer-events: none;
-    transition: opacity .5s ease;
+        radial-gradient(circle at 15% 25%, rgba(44, 92, 197, 0.06) 0%, transparent 55%),
+        rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-color: rgba(44, 92, 197, 0.11);
+    box-shadow:
+        0 6px 28px rgba(44, 92, 197, 0.07),
+        0 2px 6px rgba(0, 0, 0, 0.04),
+        inset 0 1px 0 rgba(255,255,255,0.7);
 }
 .dash-spec-card:hover {
-    border-color: rgba(44, 92, 197, 0.3);
-    box-shadow: 0 14px 35px rgba(44, 92, 197, 0.12);
+    border-color: rgba(44, 92, 197, 0.28);
+    box-shadow: 0 16px 38px rgba(44, 92, 197, 0.13);
 }
-.dash-spec-card:hover::after { opacity: 0.13; }
 
 .dash-nudge {
     background:
-        radial-gradient(circle at 10% 20%, rgba(44, 92, 197, 0.05) 0%, transparent 50%),
-        rgba(255, 255, 255, 0.88);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border-color: rgba(44, 92, 197, 0.1);
-    box-shadow: 0 4px 22px rgba(44, 92, 197, 0.07);
-}
-.dash-nudge::after {
-    content: '';
-    position: absolute; bottom: -30px; right: -30px;
-    width: 130px; height: 130px; border-radius: 50%;
-    filter: blur(45px); z-index: 0; opacity: 0.07;
-    background: var(--card-theme, var(--primary));
-    pointer-events: none;
-    transition: opacity .5s ease;
+        radial-gradient(circle at 15% 25%, rgba(44, 92, 197, 0.06) 0%, transparent 55%),
+        rgba(255, 255, 255, 0.90);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-color: rgba(44, 92, 197, 0.11);
+    box-shadow:
+        0 4px 22px rgba(44, 92, 197, 0.08),
+        inset 0 1px 0 rgba(255,255,255,0.6);
 }
 .dash-nudge:hover {
-    border-color: rgba(44, 92, 197, 0.3);
-    box-shadow: 0 14px 35px rgba(44, 92, 197, 0.12);
+    border-color: rgba(44, 92, 197, 0.28);
+    box-shadow: 0 16px 38px rgba(44, 92, 197, 0.13);
 }
-.dash-nudge:hover::after { opacity: 0.13; }
 
 /* -- Dark mode -- */
 [data-theme="dark"] .dash-card,
 [data-theme="dark"] .dash-spec-card,
 [data-theme="dark"] .dash-nudge {
     background:
-        radial-gradient(circle at 10% 20%, rgba(44, 92, 197, 0.12) 0%, transparent 50%),
-        rgba(23, 29, 43, 0.90);
-    border-color: rgba(91, 134, 232, 0.12);
-    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.25);
+        radial-gradient(circle at 15% 25%, rgba(44, 92, 197, 0.14) 0%, transparent 55%),
+        rgba(23, 29, 43, 0.92);
+    border-color: rgba(91, 134, 232, 0.14);
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255,255,255,0.03);
 }
 [data-theme="dark"] .dash-card:hover,
 [data-theme="dark"] .dash-spec-card:hover,
 [data-theme="dark"] .dash-nudge:hover {
-    border-color: rgba(91, 134, 232, 0.3);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-color: rgba(91, 134, 232, 0.32);
+    box-shadow: 0 22px 45px rgba(0, 0, 0, 0.35);
+}
+
+/* Dark mode: deeper countdown units */
+[data-theme="dark"] .dash-cd-unit {
+    background: linear-gradient(160deg,
+        rgba(44, 92, 197, 0.18) 0%,
+        rgba(23, 29, 43, 0.95) 100%);
+    border-color: rgba(91, 134, 232, 0.22);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+[data-theme="dark"] .dash-cd-num {
+    background: linear-gradient(135deg, #7aa0f0 0%, #5b86e8 55%, #a0bef8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 /* ============================================================

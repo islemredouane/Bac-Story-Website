@@ -496,3 +496,162 @@
 [data-theme="dark"] .tw-compare-table thead tr th {
   background: color-mix(in srgb, var(--primary) 10%, var(--surface));
 }
+
+/* ============================================================
+   PREMIUM MESSAGE STYLES — cohesion with landing-v2
+   ============================================================ */
+
+/* ── Message entrance animation ──────────────────────────── */
+@keyframes msgSlideUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.msg {
+  animation: msgSlideUp 0.32s cubic-bezier(.16,1,.3,1) both !important;
+}
+
+/* ── User messages — primary blue gradient bubble ─────────── */
+.msg.user .msg-body {
+    background: linear-gradient(135deg, #2c5cc5 0%, #1a3a8f 100%) !important;
+    border: none !important;
+    border-radius: 22px 4px 22px 22px !important;
+    color: #fff !important;
+    box-shadow: 0 4px 18px rgba(44, 92, 197, .38) !important;
+    padding: 0.7rem 1.1rem !important;
+}
+/* All text inside user bubble is white */
+.msg.user .msg-text,
+.msg.user .msg-text p,
+.msg.user .msg-text * {
+    color: #fff !important;
+    -webkit-text-fill-color: #fff !important;
+}
+
+/* ── AI messages — clean card with left accent border ─────── */
+.msg.ai .msg-body {
+    position: relative;
+    border-inline-start: 3px solid rgba(44, 92, 197, .45);
+    padding-inline-start: 1rem;
+    background: transparent;
+}
+/* AI name label */
+.msg.ai .msg-name {
+    font-family: 'Plus Jakarta Sans', 'Cairo', var(--font-ui, system-ui);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: .01em;
+    color: #2c5cc5;
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+}
+.msg.ai .msg-name::before {
+    content: '';
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2c5cc5, #ff6b35);
+    flex-shrink: 0;
+}
+
+/* ── Code blocks — dark navy like landing-v2 deep sections ── */
+.tw-md pre,
+.tw-md code,
+.msg-text pre,
+.msg-text code {
+    font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+}
+
+.tw-md pre,
+.msg-text pre {
+    background: #0a1840 !important;
+    color: #c9d8ff;
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    overflow-x: auto;
+    font-size: 0.85rem;
+    line-height: 1.65;
+    border: 1px solid rgba(44, 92, 197, .2);
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, .3);
+    margin: 0.6em 0;
+}
+
+/* Inline code inside AI message */
+.tw-code {
+    background: rgba(44, 92, 197, .1) !important;
+    color: #2c5cc5 !important;
+    border: 1px solid rgba(44, 92, 197, .18);
+}
+[data-theme="dark"] .tw-code {
+    background: rgba(91, 134, 232, .14) !important;
+    color: #7aa0f0 !important;
+    border-color: rgba(91, 134, 232, .22);
+}
+
+/* Code block syntax token colors */
+.tw-md pre .kw, .msg-text pre .kw { color: #7db8ff; }    /* keywords */
+.tw-md pre .str, .msg-text pre .str { color: #a8d7a8; }  /* strings */
+.tw-md pre .num, .msg-text pre .num { color: #ff9970; }  /* numbers */
+.tw-md pre .cm, .msg-text pre .cm { color: #5c7fa8; }    /* comments */
+
+/* ── Dark mode message adjustments ───────────────────────── */
+[data-theme="dark"] .msg.user .msg-body {
+    background: linear-gradient(135deg, #3d6ee0 0%, #2c5cc5 100%) !important;
+    box-shadow: 0 4px 18px rgba(44, 92, 197, .5) !important;
+}
+[data-theme="dark"] .msg.ai .msg-body {
+    border-inline-start-color: rgba(91, 134, 232, .5);
+}
+[data-theme="dark"] .msg.ai .msg-name {
+    color: #7aa0f0;
+}
+[data-theme="dark"] .msg.ai .msg-name::before {
+    background: linear-gradient(135deg, #5b86e8, #ff885e);
+}
+
+/* ── Question directive chips — premium style ────────────── */
+.tw-q-chip {
+    border-radius: 999px !important;
+    font-weight: 700;
+    transition: background .15s, border-color .15s, color .15s, transform .12s, box-shadow .15s;
+}
+.tw-q-chip:hover:not(:disabled) {
+    box-shadow: 0 3px 12px rgba(44, 92, 197, .18);
+    transform: translateY(-1px) !important;
+}
+.tw-q-chip.selected {
+    background: linear-gradient(135deg, #2c5cc5, #1a3a8f) !important;
+    border-color: transparent !important;
+    box-shadow: 0 3px 12px rgba(44, 92, 197, .35);
+}
+
+/* ── Verdict box — landing-v2 premium polish ─────────────── */
+.tw-verdict {
+    border-radius: 16px !important;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, .06);
+}
+.tw-verdict[data-status="safe"] {
+    box-shadow: 0 2px 12px rgba(26, 157, 78, .12);
+}
+.tw-verdict[data-status="risk"] {
+    box-shadow: 0 2px 12px rgba(216, 65, 58, .12);
+}
+
+/* ── Compare table — premium header ──────────────────────── */
+.tw-compare {
+    border-radius: 16px !important;
+    box-shadow: 0 4px 18px rgba(44, 92, 197, .07);
+}
+.tw-compare-title {
+    font-family: 'Plus Jakarta Sans', 'Cairo', var(--font-ui, system-ui);
+    font-weight: 800;
+    letter-spacing: -.01em;
+}
+
+/* ── Hero brand gradient heading ─────────────────────────── */
+.chat-hero h1 {
+    font-family: 'Plus Jakarta Sans', 'Cairo', var(--font-ui, system-ui);
+}

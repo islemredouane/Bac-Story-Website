@@ -12,46 +12,58 @@
     padding: var(--sp-5) var(--sp-5) var(--sp-8);
 }
 
-/* ---------------- HERO STRIP ---------------- */
+/* ---------------- HERO STRIP (individual specialty detail page) ---------------- */
 .spec-hero {
-    background: var(--grad-brand);
-    color: #fff;
+    position: relative; overflow: hidden;
+    background: linear-gradient(160deg, #071336 0%, #0a1840 40%, #0d1e56 100%);
+    border: 1px solid rgba(44, 92, 197, 0.3);
     border-radius: var(--r-lg);
-    padding: var(--sp-6) var(--sp-5);
-    position: relative;
-    overflow: hidden;
-    box-shadow: var(--shadow-md);
+    padding: var(--sp-8) var(--sp-6);
+    box-shadow: 0 12px 40px rgba(7, 19, 54, 0.4);
     animation: rise var(--t-slow) var(--ease-out) both;
 }
+/* Top accent line */
+.spec-hero::before {
+    content: ''; position: absolute; inset: 0 0 auto 0;
+    height: 3px;
+    background: linear-gradient(90deg, rgba(255,107,53,0.7) 0%, #2c5cc5 45%, transparent 100%);
+    z-index: 2;
+}
+/* Ambient glow */
 .spec-hero::after {
     content: "";
     position: absolute;
     inset-block: -40%;
     inset-inline-start: -10%;
     width: 320px;
-    background: radial-gradient(circle, rgba(255,255,255,.18), transparent 65%);
+    background: radial-gradient(circle, rgba(44,92,197,.22), transparent 65%);
     pointer-events: none;
 }
 .spec-hero h1 {
     font-family: var(--font-display);
     font-size: var(--fs-2xl);
     line-height: 1.25;
-    position: relative;
+    color: #fff;
+    background: linear-gradient(135deg, #ffffff 0%, #a8c4f8 60%, #7da4f0 100%);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    position: relative; z-index: 1;
 }
 .spec-hero p {
     margin-top: var(--sp-2);
     font-size: var(--fs-md);
-    opacity: .92;
+    color: rgba(168, 196, 248, 0.85);
     max-width: 60ch;
-    position: relative;
+    position: relative; z-index: 1;
 }
 .spec-hero .hero-icon {
     position: absolute;
     inset-inline-end: var(--sp-6);
     top: 50%;
     transform: translateY(-50%);
-    font-size: 4rem;
-    opacity: .22;
+    font-size: 5rem;
+    opacity: .12;
+    color: #fff;
+    z-index: 1;
 }
 
 /* ---------------- FILTER BAR ---------------- */
@@ -238,11 +250,11 @@
 .stream-tags { display: none; }
 .stream-tag {
     font-size: var(--fs-xs);
-    font-weight: 600;
-    color: var(--text-muted);
-    background: var(--surface-2);
-    border: 1px solid var(--border);
-    padding: 2px 9px;
+    font-weight: 700;
+    color: var(--primary);
+    background: color-mix(in srgb, var(--primary) 10%, transparent);
+    border: 1.5px solid color-mix(in srgb, var(--primary) 28%, transparent);
+    padding: 4px 12px;
     border-radius: var(--r-pill);
 }
 
@@ -331,23 +343,36 @@
 .detail-back:hover { color: var(--primary); }
 
 .detail-header {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-top: 5px solid var(--cat, var(--primary));
+    position: relative; overflow: hidden;
+    background: linear-gradient(160deg, #071336 0%, #0a1840 40%, #0d1e56 100%);
+    border: 1px solid rgba(44, 92, 197, 0.3);
+    border-top: 4px solid var(--cat, var(--primary));
     border-radius: var(--r-lg);
     padding: var(--sp-6) var(--sp-5);
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 12px 40px rgba(7, 19, 54, 0.4);
     animation: rise var(--t-slow) var(--ease-out) both;
+    color: #fff;
 }
+/* Ambient glow */
+.detail-header::before {
+    content: '';
+    position: absolute; top: -50px; left: -50px;
+    width: 280px; height: 280px; border-radius: 50%;
+    filter: blur(60px); z-index: 0; opacity: 0.18;
+    background: var(--cat, var(--primary));
+    pointer-events: none;
+}
+.detail-header > * { position: relative; z-index: 1; }
 .detail-header .detail-eyebrow {
     display: inline-flex;
     align-items: center;
     gap: var(--sp-2);
     font-size: var(--fs-xs);
-    font-weight: 700;
-    color: var(--cat, var(--primary));
-    background: color-mix(in srgb, var(--cat, var(--primary)) 12%, transparent);
-    padding: 4px 12px;
+    font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase;
+    color: rgba(168, 196, 248, 0.8);
+    background: rgba(44, 92, 197, 0.25);
+    border: 1px solid rgba(91, 134, 232, 0.3);
+    padding: 5px 14px;
     border-radius: var(--r-pill);
 }
 .detail-header h1 {
@@ -355,8 +380,11 @@
     font-size: var(--fs-2xl);
     line-height: 1.25;
     margin-top: var(--sp-3);
+    color: #fff;
+    background: linear-gradient(135deg, #ffffff 0%, #a8c4f8 70%, #7da4f0 100%);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
 }
-.detail-header .detail-en { color: var(--text-muted); font-size: var(--fs-md); font-weight: 600; }
+.detail-header .detail-en { color: rgba(168, 196, 248, 0.65); font-size: var(--fs-md); font-weight: 600; }
 
 .detail-chips { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-top: var(--sp-4); }
 .detail-chip {
@@ -367,14 +395,19 @@
     font-weight: 700;
     padding: var(--sp-2) var(--sp-4);
     border-radius: var(--r-pill);
-    background: var(--surface-2);
-    border: 1px solid var(--border);
-    color: var(--text);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: rgba(232, 235, 243, 0.9);
 }
+/* The admission threshold chip — big and prominent */
 .detail-chip.accent {
-    background: color-mix(in srgb, var(--cat, var(--primary)) 14%, transparent);
-    border-color: color-mix(in srgb, var(--cat, var(--primary)) 35%, transparent);
-    color: var(--cat, var(--primary));
+    background: linear-gradient(135deg, rgba(44,92,197,0.45), rgba(61,110,224,0.35));
+    border-color: rgba(91, 134, 232, 0.5);
+    color: #a8c4f8;
+    font-size: var(--fs-md);
+    font-weight: 800;
+    padding: var(--sp-2) var(--sp-5);
+    box-shadow: 0 4px 16px rgba(44, 92, 197, 0.3);
 }
 
 .detail-actions { display: flex; flex-wrap: wrap; gap: var(--sp-3); margin-top: var(--sp-5); }
@@ -388,14 +421,28 @@
     border-radius: var(--r-pill);
     transition: transform var(--t-fast) var(--ease), box-shadow var(--t-fast), background var(--t-fast);
 }
-.btn-primary { background: var(--grad-brand); color: #fff; box-shadow: var(--shadow-sm); }
-.btn-primary:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
-.btn-outline { background: var(--surface); border: 1px solid var(--border-strong); color: var(--text); }
-.btn-outline:hover { border-color: var(--primary); color: var(--primary); }
+.btn-primary {
+    background: linear-gradient(135deg, #2c5cc5 0%, #3d6ee0 100%);
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(44, 92, 197, 0.4);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(44, 92, 197, 0.5); }
+/* Outlined button on dark hero background */
+.btn-outline {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    color: #e8ebf3;
+    backdrop-filter: blur(8px);
+}
+.btn-outline:hover {
+    background: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.4);
+    color: #fff;
+}
 .btn-outline.is-added {
-    background: color-mix(in srgb, var(--cat-science) 14%, var(--surface));
-    border-color: color-mix(in srgb, var(--cat-science) 45%, transparent);
-    color: var(--cat-science);
+    background: color-mix(in srgb, var(--acc-safe) 18%, rgba(0,0,0,0.1));
+    border-color: color-mix(in srgb, var(--acc-safe) 45%, transparent);
+    color: var(--acc-safe);
 }
 
 /* layout: main column + side rail */
@@ -448,27 +495,6 @@
 .avg-table td .val { font-weight: 800; color: var(--cat, var(--primary)); }
 .avg-table .trend-up { color: var(--cat-medical); font-weight: 700; }
 .avg-table .trend-down { color: var(--cat-science); font-weight: 700; }
-
-/* per-wilaya averages (collapsible detail section) */
-details.wilaya-avg-section > summary {
-    list-style: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--sp-3);
-}
-details.wilaya-avg-section > summary::-webkit-details-marker { display: none; }
-details.wilaya-avg-section > summary h2 { margin-bottom: 0; }
-details.wilaya-avg-section[open] > summary { margin-bottom: var(--sp-3); }
-details.wilaya-avg-section .wa-caret {
-    color: var(--text-faint);
-    transition: transform var(--t-fast) var(--ease);
-}
-details.wilaya-avg-section[open] .wa-caret { transform: rotate(180deg); }
-.wa-table th[data-key] { cursor: pointer; user-select: none; white-space: nowrap; }
-.wa-table th[data-key] .wa-sort { margin-inline-start: 4px; font-size: 0.8em; }
-.wa-table th[data-key].is-sorted .wa-sort { color: var(--cat, var(--primary)); }
 
 /* ============================================================
    Eligibility section (detail page)
@@ -576,20 +602,38 @@ details.wilaya-avg-section[open] .wa-caret { transform: rotate(180deg); }
 .fact-row .fact-val { font-weight: 700; }
 
 .side-cta {
-    background: var(--grad-brand);
+    position: relative; overflow: hidden;
+    background: linear-gradient(160deg, #071336 0%, #0a1840 40%, #0d1e56 100%);
+    border: 1px solid rgba(44, 92, 197, 0.35);
     color: #fff;
-    border-radius: var(--r-md);
+    border-radius: var(--r-lg);
     padding: var(--sp-5);
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 12px 35px rgba(7, 19, 54, 0.35);
     text-align: center;
 }
-.side-cta i { font-size: 1.8rem; margin-bottom: var(--sp-2); display: block; }
-.side-cta h3 { font-size: var(--fs-md); }
-.side-cta p { font-size: var(--fs-xs); opacity: .9; margin: var(--sp-2) 0 var(--sp-4); }
-.side-cta .btn-light {
-    background: #fff; color: var(--brand-blue-strong); width: 100%; justify-content: center;
+.side-cta::before {
+    content: ''; position: absolute; inset: 0 0 auto 0;
+    height: 2.5px;
+    background: linear-gradient(90deg, rgba(255,107,53,0.6), #2c5cc5);
 }
-.side-cta .btn-light:hover { transform: translateY(-2px); }
+.side-cta::after {
+    content: ''; position: absolute;
+    top: -40px; right: -40px;
+    width: 160px; height: 160px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(44, 92, 197, 0.2), transparent 65%);
+    pointer-events: none;
+}
+.side-cta i { font-size: 2rem; margin-bottom: var(--sp-2); display: block; color: #7da4f0; position: relative; z-index: 1; }
+.side-cta h3 { font-size: var(--fs-md); position: relative; z-index: 1; }
+.side-cta p { font-size: var(--fs-xs); color: rgba(168, 196, 248, 0.8); margin: var(--sp-2) 0 var(--sp-4); position: relative; z-index: 1; }
+.side-cta .btn-light {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    color: #fff; width: 100%; justify-content: center;
+    backdrop-filter: blur(8px);
+    position: relative; z-index: 1;
+}
+.side-cta .btn-light:hover { transform: translateY(-2px); background: rgba(255,255,255,0.2); }
 
 /* ---------------- MOBILE ---------------- */
 @media (max-width: 900px) {
@@ -631,140 +675,12 @@ details.wilaya-avg-section[open] .wa-caret { transform: rotate(180deg); }
 }
 
 /* ============================================================
-   AVAILABILITY MAP SECTION
-   ============================================================ */
-.avail-scope-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--sp-2);
-    padding: var(--sp-2) var(--sp-4);
-    border-radius: var(--r-pill);
-    font-size: var(--fs-sm);
-    font-weight: 800;
-    border: 1.5px solid transparent;
-}
-.avail-scope-national {
-    color: var(--acc-safe);
-    background: color-mix(in srgb, var(--acc-safe) 12%, transparent);
-    border-color: color-mix(in srgb, var(--acc-safe) 30%, transparent);
-}
-.avail-scope-regional {
-    color: var(--acc-likely);
-    background: color-mix(in srgb, var(--acc-likely) 12%, transparent);
-    border-color: color-mix(in srgb, var(--acc-likely) 30%, transparent);
-}
-.avail-national-note {
-    display: flex;
-    align-items: center;
-    gap: var(--sp-3);
-    padding: var(--sp-3) var(--sp-4);
-    background: color-mix(in srgb, var(--acc-safe) 8%, var(--surface));
-    border: 1px solid color-mix(in srgb, var(--acc-safe) 25%, transparent);
-    border-radius: var(--r-md);
-    font-size: var(--fs-sm);
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: var(--sp-4);
-}
-.avail-national-note > i { color: var(--acc-safe); flex-shrink: 0; }
-.avail-empty {
-    display: flex;
-    align-items: center;
-    gap: var(--sp-3);
-    color: var(--text-muted);
-    font-size: var(--fs-sm);
-    font-weight: 700;
-}
-.avail-empty > i { color: var(--text-faint); }
-.avail-wilaya-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: var(--sp-3);
-    margin-top: var(--sp-2);
-}
-.avail-wilaya-card {
-    background: var(--surface-2);
-    border: 1px solid var(--border);
-    border-radius: var(--r-sm);
-    padding: var(--sp-3) var(--sp-4);
-    font-size: var(--fs-sm);
-}
-.avail-wilaya-name {
-    font-weight: 800;
-    color: var(--cat, var(--primary));
-    display: flex;
-    align-items: center;
-    gap: var(--sp-2);
-    margin-bottom: var(--sp-2);
-}
-.avail-wilaya-name i { font-size: .85em; flex-shrink: 0; }
-.avail-etab-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: var(--sp-1);
-    padding-inline-start: var(--sp-3);
-    border-inline-start: 2px solid var(--border);
-}
-.avail-etab-list li {
-    color: var(--text-muted);
-    font-size: var(--fs-xs);
-    font-weight: 600;
-    line-height: 1.4;
-}
-.avail-wilaya-pills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--sp-2);
-    margin-top: var(--sp-2);
-}
-.avail-wilaya-pill {
-    font-size: var(--fs-xs);
-    font-weight: 700;
-    color: var(--cat, var(--primary));
-    background: color-mix(in srgb, var(--cat, var(--primary)) 10%, transparent);
-    border: 1px solid color-mix(in srgb, var(--cat, var(--primary)) 25%, transparent);
-    padding: var(--sp-1) var(--sp-3);
-    border-radius: var(--r-pill);
-}
-@media (max-width: 640px) {
-    .avail-wilaya-grid { grid-template-columns: 1fr; }
-}
-
-/* ============================================================
    GLASS LAYER — speciality DETAIL cards only
    (.spec-card browse grid intentionally excluded)
    ============================================================ */
 
-/* -- Detail header (keeps its 5px colored border-top) -- */
-.detail-header {
-    background:
-        radial-gradient(circle at 10% 20%, rgba(44, 92, 197, 0.06) 0%, transparent 50%),
-        rgba(255, 255, 255, 0.88);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border-left-color: rgba(44, 92, 197, 0.1);
-    border-right-color: rgba(44, 92, 197, 0.1);
-    border-bottom-color: rgba(44, 92, 197, 0.1);
-    position: relative; overflow: hidden;
-    box-shadow: 0 6px 30px rgba(44, 92, 197, 0.07);
-}
-.detail-header::before {
-    content: '';
-    position: absolute; top: -50px; left: -50px;
-    width: 180px; height: 180px; border-radius: 50%;
-    filter: blur(55px); z-index: 0; opacity: 0.1;
-    background: var(--cat, var(--primary));
-    pointer-events: none;
-}
-.detail-header::after {
-    content: '';
-    position: absolute; bottom: -50px; right: -50px;
-    width: 180px; height: 180px; border-radius: 50%;
-    filter: blur(55px); z-index: 0; opacity: 0.07;
-    background: var(--primary);
-    pointer-events: none;
-}
+/* -- Detail header is now a full dark navy banner (see above) -- */
+/* Glass layer ::before/::after already defined in the .detail-header block above */
 
 /* -- Detail sections (body cards) -- */
 .detail-section {
@@ -822,8 +738,7 @@ details.wilaya-avg-section[open] .wa-caret { transform: rotate(180deg); }
     pointer-events: none;
 }
 
-/* -- Dark mode -- */
-[data-theme="dark"] .detail-header,
+/* -- Dark mode — detail-header is already dark; sections/fact-card use glass -- */
 [data-theme="dark"] .detail-section,
 [data-theme="dark"] .fact-card {
     background:
@@ -832,6 +747,7 @@ details.wilaya-avg-section[open] .wa-caret { transform: rotate(180deg); }
     border-color: rgba(91, 134, 232, 0.12);
     box-shadow: 0 6px 30px rgba(0, 0, 0, 0.25);
 }
+/* detail-header stays the same dark navy in both modes */
 [data-theme="dark"] .detail-header {
-    border-top-color: var(--cat, var(--primary));
+    box-shadow: 0 16px 50px rgba(0, 0, 0, 0.5);
 }

@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="ar" dir="rtl" data-theme="light">
+<html lang="ar" dir="rtl" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -11,7 +11,7 @@
     <meta property="og:type" content="website">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Pattaya&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Pattaya&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles/tokens.css">
     <link rel="stylesheet" href="styles/motion.css">
@@ -23,6 +23,14 @@
     <script src="averages-transport.js"></script>
 </head>
 <body class="ob-body">
+    <!-- noise texture overlay -->
+    <div class="ob-noise" aria-hidden="true"></div>
+    <!-- ambient background blobs -->
+    <div class="ob-bg-blobs" aria-hidden="true">
+        <span class="ob-blob ob-blob-1"></span>
+        <span class="ob-blob ob-blob-2"></span>
+    </div>
+
     <header class="ob-topbar">
         <span class="ob-logo">توجيهي</span>
         <div class="ob-top-right">

@@ -8,397 +8,14 @@
     <meta name="description" content="شارك توجيهي مع أصدقائك واكسب رسائل مجانية لكلاكما.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Pattaya&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@700;800;900&family=Pattaya&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles/tokens.css">
     <link rel="stylesheet" href="styles/app.css">
     <link rel="stylesheet" href="styles/dashboard.css">
+    <link rel="stylesheet" href="styles/referral.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
     <script src="supabase.js"></script>
-    <style>
-        /* ══════════════════════════════════════════════
-           GLASS CARD  — BAC Story recipe
-           ══════════════════════════════════════════════ */
-        .glass-card {
-            background:
-                radial-gradient(circle at 12% 18%, rgba(44, 92, 197, 0.07) 0%, transparent 55%),
-                rgba(255, 255, 255, 0.88);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1.5px solid rgba(44, 92, 197, 0.1);
-            border-radius: 24px;
-            box-shadow:
-                0 6px 30px rgba(44, 92, 197, 0.07),
-                0 2px 6px rgba(0, 0, 0, 0.04);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            transition: all 0.4s cubic-bezier(0.34, 1.45, 0.64, 1);
-            animation: rise var(--t-slow) var(--ease-out) both;
-        }
-
-        /* Two blurred orbs behind the glass */
-        .glass-card::before,
-        .glass-card::after {
-            content: '';
-            position: absolute;
-            width: 180px; height: 180px;
-            border-radius: 50%;
-            filter: blur(50px);
-            z-index: -1;
-            pointer-events: none;
-            transition: all 0.5s ease;
-        }
-        .glass-card::before {
-            top: -60px; left: -60px;
-            background: var(--glass-orb-a, #2c5cc5);
-            opacity: 0.11;
-        }
-        .glass-card::after {
-            bottom: -60px; right: -60px;
-            background: var(--glass-orb-b, #3b82f6);
-            opacity: 0.08;
-        }
-
-        .glass-card:hover {
-            transform: translateY(-5px);
-            box-shadow:
-                0 20px 40px rgba(44, 92, 197, 0.14),
-                0 8px 16px rgba(0, 0, 0, 0.06);
-            border-color: rgba(44, 92, 197, 0.25);
-        }
-        .glass-card:hover::before {
-            transform: translate(12px, 12px) scale(1.12);
-            opacity: 0.18;
-        }
-
-        /* Dark-mode glass */
-        [data-theme="dark"] .glass-card {
-            background:
-                radial-gradient(circle at 12% 18%, rgba(91, 134, 232, 0.09) 0%, transparent 55%),
-                rgba(23, 29, 43, 0.90);
-            border-color: rgba(91, 134, 232, 0.15);
-            box-shadow:
-                0 6px 30px rgba(0, 0, 0, 0.38),
-                0 2px 6px rgba(0, 0, 0, 0.22);
-        }
-        [data-theme="dark"] .glass-card:hover {
-            box-shadow:
-                0 20px 40px rgba(0, 0, 0, 0.52),
-                0 8px 16px rgba(0, 0, 0, 0.3);
-            border-color: rgba(91, 134, 232, 0.32);
-        }
-
-        /* ══ Hero ══ */
-        .ref-hero {
-            background:
-                radial-gradient(120% 140% at 100% 0%, color-mix(in srgb, var(--primary) 11%, transparent) 0%, transparent 55%),
-                radial-gradient(120% 160% at 0% 100%, color-mix(in srgb, var(--accent) 8%, transparent) 0%, transparent 50%),
-                var(--surface);
-            border: 1px solid color-mix(in srgb, var(--primary) 14%, var(--border));
-            border-radius: var(--r-lg);
-            padding: var(--sp-6) var(--sp-5);
-            margin-bottom: var(--sp-5);
-            box-shadow: var(--shadow-md);
-            position: relative; overflow: hidden;
-            animation: rise var(--t-slow) var(--ease-out) both;
-        }
-        .ref-hero::before {
-            content: '';
-            position: absolute; inset: 0 0 auto 0;
-            height: 3.5px;
-            background: linear-gradient(90deg, transparent, var(--primary));
-        }
-        .ref-hero::after {
-            content: '';
-            position: absolute; inset-inline-end: var(--sp-6); top: 50%;
-            transform: translateY(-50%);
-            width: 140px; height: 140px; border-radius: 50%;
-            background: var(--grad-brand); opacity: 0.05;
-            pointer-events: none;
-        }
-        .ref-hero-body {
-            display: flex; align-items: center; gap: var(--sp-5); position: relative; z-index: 1;
-        }
-        .ref-hero-icon {
-            width: 64px; height: 64px; flex-shrink: 0;
-            background: var(--grad-brand);
-            border-radius: 18px;
-            display: grid; place-items: center;
-            color: #fff; font-size: 1.55rem;
-            box-shadow: var(--shadow-md);
-        }
-        .ref-hero-text { min-width: 0; }
-        .ref-hero h1 {
-            font-size: var(--fs-xl); font-weight: 900; margin-bottom: var(--sp-2);
-            background: var(--grad-brand);
-            -webkit-background-clip: text; background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .ref-hero p {
-            color: var(--text-muted); font-size: var(--fs-sm);
-            line-height: 1.6; margin: 0; max-width: 52ch;
-        }
-        .ref-hero p strong { color: var(--primary); -webkit-text-fill-color: var(--primary); }
-        .ref-hero-badges {
-            display: flex; gap: var(--sp-3); flex-wrap: wrap;
-            margin-top: var(--sp-4); padding-top: var(--sp-4);
-            border-top: 1px solid var(--border);
-            position: relative; z-index: 1;
-        }
-        .ref-hero-badge {
-            display: inline-flex; align-items: center; gap: var(--sp-2);
-            background: color-mix(in srgb, var(--primary) 8%, transparent);
-            border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent);
-            color: var(--primary);
-            padding: var(--sp-2) var(--sp-4); border-radius: var(--r-pill);
-            font-size: var(--fs-xs); font-weight: 800;
-        }
-        .ref-hero-badge i { font-size: .85rem; }
-
-        /* ══ Stats row ══ */
-        .ref-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: var(--sp-4);
-            margin-bottom: var(--sp-5);
-        }
-        .ref-stat-card {
-            padding: var(--sp-5);
-            display: flex; flex-direction: column; gap: var(--sp-2);
-        }
-        .ref-stat-icon {
-            width: 48px; height: 48px; border-radius: var(--r-sm); flex-shrink: 0;
-            display: flex; align-items: center; justify-content: center; font-size: 1.4rem;
-            background: rgba(44, 92, 197, 0.1);
-            color: var(--glass-orb-a, var(--primary));
-            margin-bottom: var(--sp-1);
-        }
-        .ref-stat-val {
-            font-size: 2.6rem; font-weight: 900;
-            color: var(--text); line-height: 1;
-        }
-        .ref-stat-label { font-size: var(--fs-xs); font-weight: 700; color: var(--text-muted); }
-        .ref-progress {
-            width: 100%; height: 7px; background: var(--border);
-            border-radius: var(--r-pill); overflow: hidden; margin-top: var(--sp-2);
-        }
-        .ref-progress-fill {
-            height: 100%; border-radius: var(--r-pill);
-            background: linear-gradient(90deg,
-                var(--glass-orb-a, var(--primary)),
-                color-mix(in srgb, var(--glass-orb-a, var(--primary)) 55%, #fff));
-            transition: width 1.2s var(--ease-out);
-        }
-
-        /* ══ Section title ══ */
-        .ref-section-title {
-            font-size: var(--fs-lg); font-weight: 900; color: var(--text);
-            margin: 0 0 var(--sp-4);
-            display: flex; align-items: center; gap: var(--sp-2);
-        }
-        .ref-section-title i { color: var(--primary); }
-
-        /* ══ Step cards ══ */
-        .ref-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
-            gap: var(--sp-4);
-            margin-bottom: var(--sp-5);
-        }
-        .ref-step {
-            padding: var(--sp-5) var(--sp-4);
-            text-align: center;
-        }
-        /* Number badge — inside the card now (no clipping issue) */
-        .ref-step-num {
-            position: absolute; top: var(--sp-3); right: var(--sp-3);
-            width: 28px; height: 28px;
-            background: var(--glass-orb-a, var(--primary));
-            color: var(--on-primary);
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-weight: 900; font-size: .75rem;
-            box-shadow: 0 4px 12px color-mix(in srgb, var(--glass-orb-a, var(--primary)) 45%, transparent);
-            z-index: 2;
-        }
-        .ref-step i { font-size: 1.9rem; color: var(--glass-orb-a, var(--primary)); margin-bottom: var(--sp-3); display: block; }
-        .ref-step h4 { font-size: var(--fs-sm); font-weight: 800; color: var(--text); margin-bottom: var(--sp-1); }
-        .ref-step p  { font-size: var(--fs-xs); color: var(--text-muted); line-height: 1.55; margin: 0; }
-
-        /* ══ Two-col ══ */
-        .ref-cols {
-            display: grid;
-            grid-template-columns: 3fr 2fr;
-            gap: var(--sp-4);
-            margin-bottom: var(--sp-5);
-        }
-        .ref-col-card { padding: var(--sp-5); }
-
-        /* ══ Link box ══ */
-        .ref-link-box {
-            display: flex; align-items: center; gap: var(--sp-2);
-            background: rgba(44, 92, 197, 0.05);
-            border: 1.5px solid rgba(44, 92, 197, 0.18);
-            border-radius: var(--r-md); padding: var(--sp-2); margin-top: var(--sp-3);
-            transition: border-color var(--t-fast), box-shadow var(--t-fast);
-        }
-        .ref-link-box:focus-within {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 4px rgba(44, 92, 197, 0.12);
-        }
-        .ref-link-input {
-            flex: 1; border: none; background: transparent;
-            font-family: monospace; font-size: var(--fs-sm); font-weight: 700;
-            color: var(--text); padding: var(--sp-2) var(--sp-3); outline: none;
-            text-align: left; direction: ltr;
-            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-        }
-        .ref-copy-btn {
-            padding: var(--sp-2) var(--sp-4); border-radius: var(--r-sm);
-            font-size: var(--fs-xs); font-weight: 800; white-space: nowrap;
-            background: var(--primary); color: var(--on-primary); border: none;
-            font-family: var(--font-ui);
-            transition: background var(--t-fast), transform var(--t-fast) var(--ease);
-        }
-        .ref-copy-btn:hover { background: var(--primary-hover); transform: translateY(-1px); }
-        .ref-copy-btn.done  { background: #10b981; }
-
-        /* ══ Share buttons ══ */
-        .ref-share-row { display: flex; flex-direction: column; gap: var(--sp-3); margin-top: var(--sp-3); }
-        .ref-share-btn {
-            display: flex; align-items: center; justify-content: center; gap: var(--sp-2);
-            padding: var(--sp-3); border-radius: var(--r-md);
-            font-size: var(--fs-sm); font-weight: 800; cursor: pointer; border: none;
-            font-family: var(--font-ui); text-decoration: none;
-            transition: transform var(--t-fast) var(--ease), box-shadow var(--t-fast), filter var(--t-fast);
-        }
-        .ref-share-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); filter: brightness(1.06); }
-        .ref-share-btn.wa  { background: #25d366; color: #fff; }
-        .ref-share-btn.tg  { background: #2ca5e0; color: #fff; }
-
-        /* ══ Social tasks — glass sub-items ══ */
-        .social-task {
-            display: flex; align-items: center; justify-content: space-between;
-            padding: var(--sp-3) var(--sp-4);
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(44, 92, 197, 0.1);
-            border-radius: var(--r-md); margin-bottom: var(--sp-3);
-            transition: transform var(--t-fast) var(--ease), border-color var(--t-mid), box-shadow var(--t-mid), background var(--t-mid);
-            position: relative; z-index: 2;
-        }
-        [data-theme="dark"] .social-task { background: rgba(35, 44, 65, 0.7); border-color: rgba(91, 134, 232, 0.12); }
-        .social-task:last-child { margin-bottom: 0; }
-        .social-task:hover {
-            transform: translateX(-3px);
-            border-color: rgba(44, 92, 197, 0.3);
-            box-shadow: 0 6px 18px rgba(44, 92, 197, 0.1);
-            background: rgba(255, 255, 255, 0.85);
-        }
-        [data-theme="dark"] .social-task:hover { background: rgba(35, 44, 65, 0.9); }
-        .social-task-info { display: flex; align-items: center; gap: var(--sp-3); }
-        .social-task-icon {
-            width: 44px; height: 44px; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center; font-size: 1.35rem;
-        }
-        .social-task-icon.insta  { background: rgba(236, 72, 153, .12); color: #ec4899; }
-        .social-task-icon.tele   { background: rgba(59, 130, 246, .12); color: #3b82f6; }
-        .social-task-icon.tiktok { background: rgba(15, 23, 42, .08);   color: var(--text); }
-        .social-btn {
-            background: rgba(255,255,255,.9);
-            border: 1.5px solid rgba(44, 92, 197, 0.2);
-            color: var(--primary); font-family: var(--font-ui); font-weight: 800; font-size: var(--fs-xs);
-            border-radius: var(--r-sm); padding: var(--sp-2) var(--sp-3);
-            text-decoration: none; display: inline-block; text-align: center;
-            transition: border-color var(--t-fast), background var(--t-fast), box-shadow var(--t-fast);
-            backdrop-filter: blur(4px);
-        }
-        [data-theme="dark"] .social-btn { background: rgba(35, 44, 65, 0.8); border-color: rgba(91, 134, 232, 0.25); }
-        .social-btn:hover {
-            border-color: var(--primary);
-            background: rgba(44, 92, 197, 0.08);
-            box-shadow: 0 2px 8px rgba(44, 92, 197, 0.12);
-        }
-
-        /* ══ Elite challenge ══ */
-        .elite-challenge {
-            background: linear-gradient(135deg, #fffbeb, #fef3c7);
-            border: 2px solid #fde68a;
-            border-radius: var(--r-lg);
-            padding: var(--sp-5);
-            position: relative; overflow: hidden;
-            margin-bottom: var(--sp-5);
-            box-shadow: 0 8px 30px rgba(245, 158, 11, .14);
-            animation: rise var(--t-slow) var(--ease-out) both;
-        }
-        [data-theme="dark"] .elite-challenge {
-            background: linear-gradient(135deg, #221900, #1a1200);
-            border-color: #5c4200;
-            box-shadow: 0 8px 30px rgba(0,0,0,.4);
-        }
-        .elite-challenge::after {
-            content: ''; position: absolute; left: -20px; bottom: -20px;
-            width: 160px; height: 160px; border-radius: 50%;
-            background: radial-gradient(circle, rgba(245,158,11,.18), transparent 70%);
-            pointer-events: none;
-        }
-        .elite-progress { display: flex; gap: var(--sp-2); flex-wrap: wrap; margin-top: var(--sp-3); }
-        .elite-circle {
-            width: 28px; height: 28px; border-radius: 50%;
-            background: rgba(217,119,6,.1); border: 1.5px solid rgba(217,119,6,.3);
-            color: rgba(217,119,6,.25);
-            display: flex; align-items: center; justify-content: center; font-size: .7rem;
-            transition: all var(--t-mid) var(--ease);
-        }
-        .elite-circle.checked {
-            background: #f59e0b; border-color: #f59e0b; color: #fff;
-            box-shadow: 0 0 12px rgba(245,158,11,.5);
-        }
-
-        /* ══ Credits bar ══ */
-        .credits-bar {
-            width: 100%; height: 8px; background: rgba(44, 92, 197, 0.1);
-            border-radius: var(--r-pill); overflow: hidden;
-        }
-        .credits-bar-fill {
-            height: 100%; border-radius: var(--r-pill);
-            background: linear-gradient(90deg, #10b981, #34d399);
-            transition: width 1.2s var(--ease-out);
-        }
-        .credits-bar-fill.warn { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
-        .credits-bar-fill.low  { background: linear-gradient(90deg, #ef4444, #f87171); }
-
-        /* ══ Toast ══ */
-        .ref-toast {
-            position: fixed; bottom: 28px; left: 50%;
-            transform: translateX(-50%) translateY(80px);
-            background: #10b981; color: #fff;
-            padding: var(--sp-3) var(--sp-5); border-radius: var(--r-pill);
-            font-family: var(--font-ui); font-weight: 800; font-size: var(--fs-sm);
-            box-shadow: 0 8px 24px rgba(16,185,129,.4);
-            transition: transform var(--t-mid) var(--ease-out);
-            z-index: 9999; white-space: nowrap;
-        }
-        .ref-toast.show { transform: translateX(-50%) translateY(0); }
-
-        /* ══ Responsive ══ */
-        @media (max-width: 760px) {
-            .ref-cols  { grid-template-columns: 1fr; }
-            .ref-steps { grid-template-columns: 1fr 1fr; }
-            .social-task { flex-direction: column; gap: var(--sp-3); text-align: center; }
-            .social-task-info { flex-direction: column; gap: var(--sp-2); }
-            .social-btn { width: 100%; }
-            .elite-challenge > div { flex-direction: column !important; }
-        }
-        @media (max-width: 420px) {
-            .ref-steps { grid-template-columns: 1fr; }
-            .ref-link-box { flex-direction: column; padding: var(--sp-2); }
-            .ref-link-input { width: 100%; text-align: center; }
-            .ref-copy-btn   { width: 100%; padding: var(--sp-3); }
-        }
-    </style>
 </head>
 <body>
 <div class="app" id="app">
@@ -445,170 +62,169 @@
             <div class="dash-inner">
 
                 <!-- ── Hero ── -->
-                <div class="ref-hero">
-                    <div class="ref-hero-body">
-                        <div class="ref-hero-icon">
-                            <i class="fas fa-share-nodes"></i>
+                <div class="ref-hero-v2">
+                    <div class="ref-hero-v2-inner">
+                        <div class="ref-hero-v2-eyebrow"><i class="fas fa-gift"></i> برنامج الإحالة</div>
+                        <h1 class="ref-hero-v2-title">ادعُ أصدقاءك،<br><span>اكسب رسائل مجانية</span></h1>
+                        <p class="ref-hero-v2-sub">شارك توجيهي مع زملائك — كل إحالة ناجحة تمنحك <strong>+30 رسالة</strong> لك ولصديقك فوراً، بلا انتظار ولا إجراءات.</p>
+                        <!-- Code pill display -->
+                        <div class="ref-code-block">
+                            <span class="ref-code-label">كودك</span>
+                            <span class="ref-code-value" id="refCodeDisplay">…</span>
+                            <button class="ref-code-copy-btn" id="heroCodeCopyBtn">
+                                <i class="far fa-copy"></i> نسخ الكود
+                            </button>
                         </div>
-                        <div class="ref-hero-text">
-                            <h1>الإحالة والمكافآت</h1>
-                            <p>شارك توجيهي مع زملائك واكسب رسائل مجانية — كل إحالة تعطيك <strong>+30 رسالة</strong> لك ولصديقك.</p>
+                        <div class="ref-hero-v2-badges">
+                            <div class="ref-hero-v2-badge"><i class="fas fa-bolt"></i> يُضاف فوراً</div>
+                            <div class="ref-hero-v2-badge"><i class="fas fa-users"></i> لك ولصديقك</div>
+                            <div class="ref-hero-v2-badge"><i class="fas fa-infinity"></i> بلا حدود</div>
+                            <div class="ref-hero-v2-badge"><i class="fas fa-star"></i> مكافآت كبرى</div>
                         </div>
-                    </div>
-                    <div class="ref-hero-badges">
-                        <div class="ref-hero-badge"><i class="fas fa-bolt"></i> فوري</div>
-                        <div class="ref-hero-badge"><i class="fas fa-users"></i> لك ولصديقك</div>
-                        <div class="ref-hero-badge"><i class="fas fa-infinity"></i> بلا حدود</div>
                     </div>
                 </div>
 
                 <!-- ── Stats row ── -->
-                <div class="ref-stats">
+                <div class="ref-stats-v2">
 
-                    <!-- balance -->
-                    <div class="glass-card ref-stat-card"
-                         style="--glass-orb-a: #2c5cc5; --glass-orb-b: #60a5fa;">
-                        <div class="ref-stat-icon"><i class="fas fa-coins"></i></div>
-                        <div class="ref-stat-val" id="statBalance">—</div>
-                        <div class="ref-stat-label">رصيدك الحالي (رسائل)</div>
-                        <div class="ref-progress">
-                            <div class="ref-progress-fill" id="balanceBar" style="width:0%"></div>
+                    <div class="ref-stat-v2">
+                        <div class="ref-stat-v2-icon"><i class="fas fa-coins"></i></div>
+                        <div class="ref-stat-v2-val" id="statBalance">—</div>
+                        <div class="ref-stat-v2-label">رصيدك الحالي (رسائل)</div>
+                        <div class="ref-progress-v2">
+                            <div class="ref-progress-v2-fill" id="balanceBar" style="width:0%"></div>
                         </div>
                         <p style="font-size:var(--fs-xs);color:var(--text-muted);margin-top:var(--sp-1)">من أصل 100 للتجديد التالي</p>
                     </div>
 
-                    <!-- refs -->
-                    <div class="glass-card ref-stat-card"
-                         style="--glass-orb-a: #10b981; --glass-orb-b: #34d399;">
-                        <div class="ref-stat-icon" style="background:rgba(16,185,129,.12);color:#10b981"><i class="fas fa-user-friends"></i></div>
-                        <div class="ref-stat-val" id="statRefs">—</div>
-                        <div class="ref-stat-label">أصدقاء انضموا عبرك</div>
+                    <div class="ref-stat-v2 green">
+                        <div class="ref-stat-v2-icon"><i class="fas fa-user-friends"></i></div>
+                        <div class="ref-stat-v2-val" id="statRefs">—</div>
+                        <div class="ref-stat-v2-label">أصدقاء انضموا عبرك</div>
                         <p style="font-size:var(--fs-sm);color:var(--text-muted);margin-top:var(--sp-2)">
                             كسبت <strong style="color:#10b981" id="statRefEarned">—</strong> رسالة من الإحالات
                         </p>
                     </div>
 
-                    <!-- spent -->
-                    <div class="glass-card ref-stat-card"
-                         style="--glass-orb-a: #ff6b35; --glass-orb-b: #fb923c;">
-                        <div class="ref-stat-icon" style="background:rgba(255,107,53,.12);color:#ff6b35"><i class="fas fa-paper-plane"></i></div>
-                        <div class="ref-stat-val" id="statSpent">—</div>
-                        <div class="ref-stat-label">رسائل أُرسلت</div>
+                    <div class="ref-stat-v2 orange">
+                        <div class="ref-stat-v2-icon"><i class="fas fa-paper-plane"></i></div>
+                        <div class="ref-stat-v2-val" id="statSpent">—</div>
+                        <div class="ref-stat-v2-label">رسائل أُرسلت</div>
                         <p style="font-size:var(--fs-sm);color:var(--text-muted);margin-top:var(--sp-2)">واصل الإحالة لتكسب أكثر!</p>
                     </div>
 
                 </div>
 
-                <!-- ── How it works ── -->
-                <p class="ref-section-title">
-                    <i class="fas fa-question-circle"></i> كيف يعمل البرنامج؟
+                <!-- ── How it works / reward tiers ── -->
+                <p class="ref-section-heading">
+                    <i class="fas fa-trophy"></i> مراحل المكافآت
                 </p>
-                <div class="ref-steps">
+                <div class="ref-reward-grid">
 
-                    <div class="glass-card ref-step" style="--glass-orb-a:#2c5cc5;--glass-orb-b:#60a5fa">
-                        <div class="ref-step-num">1</div>
-                        <i class="fas fa-share-alt"></i>
-                        <h4>شارك الرابط</h4>
-                        <p>أرسل رابطك الخاص لأصدقائك عبر واتساب أو تيليغرام.</p>
+                    <div class="ref-reward-card">
+                        <div class="ref-reward-step">1</div>
+                        <i class="fas fa-share-alt ref-reward-icon"></i>
+                        <div class="ref-reward-title">شارك الرابط</div>
+                        <p class="ref-reward-desc">أرسل رابطك الخاص لأصدقائك عبر واتساب أو تيليغرام.</p>
+                        <span class="ref-reward-pill">الخطوة الأولى</span>
                     </div>
 
-                    <div class="glass-card ref-step" style="--glass-orb-a:#2c5cc5;--glass-orb-b:#60a5fa">
-                        <div class="ref-step-num">2</div>
-                        <i class="fas fa-user-plus"></i>
-                        <h4>صديقك يسجّل</h4>
-                        <p>فور تسجيله عبر رابطك تحصل أنت وهو على <strong style="color:var(--primary)">+30 رسالة</strong> مجانية.</p>
+                    <div class="ref-reward-card">
+                        <div class="ref-reward-step">2</div>
+                        <i class="fas fa-user-plus ref-reward-icon"></i>
+                        <div class="ref-reward-title">صديقك يسجّل</div>
+                        <p class="ref-reward-desc">فور تسجيله عبر رابطك تحصل أنت وهو على مكافأة فورية.</p>
+                        <span class="ref-reward-pill">+30 رسالة لكليكما</span>
                     </div>
 
-                    <div class="glass-card ref-step" style="--glass-orb-a:#2c5cc5;--glass-orb-b:#60a5fa">
-                        <div class="ref-step-num">3</div>
-                        <i class="fas fa-coins"></i>
-                        <h4>الرصيد يُضاف فوراً</h4>
-                        <p>يُضاف لحسابيكما تلقائياً — بلا انتظار ولا إجراءات.</p>
+                    <div class="ref-reward-card">
+                        <div class="ref-reward-step">3</div>
+                        <i class="fas fa-coins ref-reward-icon"></i>
+                        <div class="ref-reward-title">الرصيد يُضاف فوراً</div>
+                        <p class="ref-reward-desc">يُضاف لحسابيكما تلقائياً — بلا انتظار ولا إجراءات.</p>
+                        <span class="ref-reward-pill">لحظي وتلقائي</span>
                     </div>
 
-                    <div class="glass-card ref-step" style="--glass-orb-a:#ff6b35;--glass-orb-b:#fb923c">
-                        <div class="ref-step-num" style="background:#ff6b35;box-shadow:0 4px 12px rgba(255,107,53,.4)">4</div>
-                        <i class="fas fa-star" style="color:#ff6b35"></i>
-                        <h4>10 إحالات = وسام ذهبي</h4>
-                        <p>أحضر 10 أصدقاء واحصل على <strong style="color:#ff6b35">+300 رسالة</strong> إضافية ووسام "السفير الذهبي"!</p>
+                    <div class="ref-reward-card gold">
+                        <div class="ref-reward-step">✦</div>
+                        <i class="fas fa-crown ref-reward-icon"></i>
+                        <div class="ref-reward-title">تحدي السفير الذهبي</div>
+                        <p class="ref-reward-desc">أحضر 10 أصدقاء واحصل على مكافأة كبرى ووسام "السفير الذهبي"!</p>
+                        <span class="ref-reward-pill">+300 رسالة + وسام</span>
                     </div>
 
                 </div>
 
                 <!-- ── Main cols ── -->
-                <div class="ref-cols">
+                <div class="ref-cols-v2">
 
-                    <!-- Copy link -->
-                    <div class="glass-card ref-col-card" style="--glass-orb-a:#2c5cc5;--glass-orb-b:#60a5fa">
-                        <div class="dash-card-title"><i class="fas fa-link"></i> رابط الدعوة الخاص بك</div>
-                        <p style="font-size:var(--fs-xs);color:var(--text-muted);font-weight:700;margin:var(--sp-3) 0 var(--sp-1)">
-                            كودك:
-                            <span id="refCodeDisplay" style="font-weight:900;color:var(--primary);font-family:monospace;font-size:var(--fs-sm);margin-inline-start:var(--sp-1)">…</span>
-                        </p>
-                        <p style="font-size:var(--fs-sm);color:var(--text-muted);margin-bottom:var(--sp-4);line-height:1.6">
+                    <!-- Copy link section -->
+                    <div class="ref-link-section">
+                        <p class="ref-section-heading" style="margin-bottom:var(--sp-2)"><i class="fas fa-link"></i> رابط الدعوة الخاص بك</p>
+                        <p style="font-size:var(--fs-sm);color:var(--text-muted);line-height:1.6;position:relative;z-index:1">
                             بمجرد تسجيل صديقك عبر هذا الرابط تحصل أنت وهو على 30 رسالة مجانية فوراً!
                         </p>
-                        <div class="ref-link-box">
-                            <input type="text" class="ref-link-input" id="refLinkInput" readonly value="…">
-                            <button class="ref-copy-btn" id="copyBtn"><i class="far fa-copy"></i> نسخ</button>
+                        <div class="ref-link-box-v2">
+                            <input type="text" class="ref-link-input-v2" id="refLinkInput" readonly value="…">
+                            <button class="ref-copy-btn-v2" id="copyBtn"><i class="far fa-copy"></i> نسخ</button>
                         </div>
-                        <div class="ref-share-row">
-                            <button class="ref-share-btn wa" id="waBtn">
-                                <i class="fab fa-whatsapp"></i> مشاركة عبر واتساب
+                        <div class="ref-share-row-v2">
+                            <button class="ref-share-btn-v2 wa" id="waBtn">
+                                <i class="fab fa-whatsapp"></i> واتساب
                             </button>
-                            <button class="ref-share-btn tg" id="tgBtn">
-                                <i class="fab fa-telegram-plane"></i> مشاركة عبر تيليغرام
+                            <button class="ref-share-btn-v2 tg" id="tgBtn">
+                                <i class="fab fa-telegram-plane"></i> تيليغرام
                             </button>
                         </div>
                     </div>
 
                     <!-- Social follow tasks -->
-                    <div class="glass-card ref-col-card" style="--glass-orb-a:#2c5cc5;--glass-orb-b:#60a5fa">
-                        <div class="dash-card-title"><i class="fas fa-satellite-dish"></i> تابعنا للبقاء على اطلاع</div>
-                        <p style="font-size:var(--fs-xs);color:var(--text-muted);margin:var(--sp-3) 0 var(--sp-4)">أول وحد يعرف جديد توجيهي والتخصصات.</p>
+                    <div class="ref-social-card">
+                        <p class="ref-section-heading" style="margin-bottom:var(--sp-2);position:relative;z-index:1"><i class="fas fa-satellite-dish"></i> تابعنا</p>
+                        <p style="font-size:var(--fs-xs);color:var(--text-muted);margin-bottom:var(--sp-4);position:relative;z-index:1">أول وحد يعرف جديد توجيهي والتخصصات.</p>
 
-                        <div class="social-task">
-                            <div class="social-task-info">
-                                <div class="social-task-icon insta"><i class="fab fa-instagram"></i></div>
+                        <div class="social-task-v2">
+                            <div class="social-task-info-v2">
+                                <div class="social-task-icon-v2 insta"><i class="fab fa-instagram"></i></div>
                                 <div>
                                     <strong style="display:block;font-size:var(--fs-sm);font-weight:800;color:var(--text);margin-bottom:2px">إنستغرام</strong>
                                     <span style="font-size:var(--fs-xs);color:#ec4899;font-weight:800">@islembacdz</span>
                                 </div>
                             </div>
-                            <a href="https://www.instagram.com/islembacdz" target="_blank" rel="noopener" class="social-btn">متابعة</a>
+                            <a href="https://www.instagram.com/islembacdz" target="_blank" rel="noopener" class="social-btn-v2">متابعة</a>
                         </div>
 
-                        <div class="social-task">
-                            <div class="social-task-info">
-                                <div class="social-task-icon tele"><i class="fab fa-telegram-plane"></i></div>
+                        <div class="social-task-v2">
+                            <div class="social-task-info-v2">
+                                <div class="social-task-icon-v2 tele"><i class="fab fa-telegram-plane"></i></div>
                                 <div>
                                     <strong style="display:block;font-size:var(--fs-sm);font-weight:800;color:var(--text);margin-bottom:2px">قناة تيليغرام</strong>
-                                    <span style="font-size:var(--fs-xs);color:#3b82f6;font-weight:800">@islembacdz</span>
+                                    <span style="font-size:var(--fs-xs);color:#2ca5e0;font-weight:800">@islembacdz</span>
                                 </div>
                             </div>
-                            <a href="https://t.me/islembacdz" target="_blank" rel="noopener" class="social-btn">انضمام</a>
+                            <a href="https://t.me/islembacdz" target="_blank" rel="noopener" class="social-btn-v2">انضمام</a>
                         </div>
 
-                        <div class="social-task">
-                            <div class="social-task-info">
-                                <div class="social-task-icon tiktok"><i class="fab fa-tiktok"></i></div>
+                        <div class="social-task-v2">
+                            <div class="social-task-info-v2">
+                                <div class="social-task-icon-v2 tiktok"><i class="fab fa-tiktok"></i></div>
                                 <div>
                                     <strong style="display:block;font-size:var(--fs-sm);font-weight:800;color:var(--text);margin-bottom:2px">تيك توك</strong>
                                     <span style="font-size:var(--fs-xs);color:var(--text-muted);font-weight:800">@bacstory</span>
                                 </div>
                             </div>
-                            <a href="https://tiktok.com/@bacstory" target="_blank" rel="noopener" class="social-btn">متابعة</a>
+                            <a href="https://tiktok.com/@bacstory" target="_blank" rel="noopener" class="social-btn-v2">متابعة</a>
                         </div>
                     </div>
 
-                </div><!-- /ref-cols -->
+                </div><!-- /ref-cols-v2 -->
 
                 <!-- ── Elite challenge ── -->
-                <div class="elite-challenge">
+                <div class="elite-challenge-v2">
                     <div style="position:relative;z-index:1;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--sp-5)">
                         <div style="flex:1;min-width:260px">
-                            <div style="display:inline-flex;align-items:center;gap:6px;background:#fff;color:#d97706;padding:4px 14px;border-radius:var(--r-pill);font-size:var(--fs-xs);font-weight:800;border:1px solid #fde68a;margin-bottom:var(--sp-3)">
-                                <i class="fas fa-medal"></i> المهمة الكبرى: العشرة الأوائل
+                            <div style="display:inline-flex;align-items:center;gap:6px;background:#fff;color:#d97706;padding:4px 14px;border-radius:999px;font-size:var(--fs-xs);font-weight:800;border:1px solid #fde68a;margin-bottom:var(--sp-3)">
+                                <i class="fas fa-medal"></i> المهمة الكبرى
                             </div>
                             <h3 style="font-size:var(--fs-xl);font-weight:900;color:#92400e;margin-bottom:var(--sp-2)"><i class="fas fa-crown" style="margin-inline-end:8px;font-size:1.1rem"></i>تحدي السفير الذهبي</h3>
                             <p style="font-size:var(--fs-sm);color:#b45309;line-height:1.6;font-weight:600;margin:0">
@@ -621,7 +237,7 @@
                                 <span>التقدم الحالي</span>
                                 <span><span id="eliteCount">0</span> / 10</span>
                             </div>
-                            <div class="elite-progress" id="eliteCircles">
+                            <div class="elite-progress-circles" id="eliteCircles">
                                 <div class="elite-circle" id="ec-1"><i class="fas fa-check"></i></div>
                                 <div class="elite-circle" id="ec-2"><i class="fas fa-check"></i></div>
                                 <div class="elite-circle" id="ec-3"><i class="fas fa-check"></i></div>
@@ -641,16 +257,16 @@
                 </div>
 
                 <!-- ── Usage card ── -->
-                <div class="glass-card" style="--glass-orb-a:#10b981;--glass-orb-b:#34d399;padding:var(--sp-5)">
-                    <div class="dash-card-title"><i class="fas fa-gauge-simple-high"></i> استخدامك الحالي</div>
-                    <div style="margin-top:var(--sp-4);display:flex;flex-direction:column;gap:var(--sp-3)">
+                <div class="ref-usage-card">
+                    <p class="ref-section-heading" style="position:relative;z-index:1"><i class="fas fa-gauge-simple-high"></i> استخدامك الحالي</p>
+                    <div style="margin-top:var(--sp-3);display:flex;flex-direction:column;gap:var(--sp-3);position:relative;z-index:1">
                         <div>
                             <div style="display:flex;justify-content:space-between;font-size:var(--fs-xs);font-weight:700;color:var(--text-muted);margin-bottom:var(--sp-2)">
                                 <span>رصيد متبقي</span>
                                 <span><span id="usageBalance">—</span> رسالة</span>
                             </div>
-                            <div class="credits-bar">
-                                <div class="credits-bar-fill" id="usageBar" style="width:0%"></div>
+                            <div class="credits-bar-v2">
+                                <div class="credits-bar-v2-fill" id="usageBar" style="width:0%"></div>
                             </div>
                         </div>
                         <p style="font-size:var(--fs-sm);color:var(--text-muted);margin:0;line-height:1.6">
@@ -659,6 +275,9 @@
                         </p>
                     </div>
                 </div>
+
+                <!-- Toast -->
+                <div class="ref-toast-v2" id="refToast">تم النسخ!</div>
 
             </div><!-- /dash-inner -->
         </div><!-- /dash-scroll -->
