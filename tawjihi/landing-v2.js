@@ -191,7 +191,7 @@
       y: 30, opacity: 0, duration: 0.7, stagger: 0.1, ease: 'power3.out'
     });
 
-    /* Trust cards — fade-up reveal + 3D tilt + cursor spotlight */
+    /* Trust cards — fade-up reveal + always-on glow + infinite float + 3D tilt */
     (function () {
       var cards = Array.from(document.querySelectorAll('.lv2-trust-card'));
 
@@ -201,7 +201,10 @@
           var card = e.target;
           var delay = parseInt(card.getAttribute('data-s') || '0', 10) * 120;
           io.unobserve(card);
-          setTimeout(function () { card.classList.add('in-view'); }, delay);
+          setTimeout(function () {
+            card.classList.add('in-view');
+            setTimeout(function () { card.classList.add('lv2-anim'); }, 750);
+          }, delay);
         });
       }, { threshold: 0.10, rootMargin: '0px 0px -40px 0px' });
 
@@ -217,7 +220,7 @@
           var cy = r.height / 2;
           var rx = ((y - cy) / cy * -5).toFixed(2);
           var ry = ((x - cx) / cx *  5).toFixed(2);
-          card.style.transform = 'perspective(640px) translateY(-4px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg)';
+          card.style.transform = 'perspective(640px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg)';
           card.style.setProperty('--mx', (x / r.width  * 100).toFixed(1) + '%');
           card.style.setProperty('--my', (y / r.height * 100).toFixed(1) + '%');
         }, { passive: true });
