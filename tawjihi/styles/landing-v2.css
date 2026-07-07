@@ -1260,51 +1260,69 @@ img { display: block; max-width: 100%; }
   padding: 2rem;
   display: flex; flex-direction: column; gap: .85rem;
   position: relative; overflow: hidden;
-  box-shadow: 0 1px 4px rgba(0,0,0,.04);
+  box-shadow: 0 2px 10px rgba(0,0,0,.05);
   opacity: 0;
   transform: translateY(28px) scale(.97);
   transition: opacity .65s cubic-bezier(.22,1,.36,1),
               transform .65s cubic-bezier(.22,1,.36,1),
-              box-shadow .35s;
+              box-shadow .4s;
 }
 
-/* Spotlight — radial gradient follows cursor */
+/* Spotlight — always on, follows cursor */
 .lv2-trust-card::before {
   content: '';
   position: absolute; inset: 0;
   background: radial-gradient(
-    340px circle at var(--mx, 50%) var(--my, 50%),
-    rgba(var(--primary-rgb), .11) 0%,
+    300px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(var(--primary-rgb), .12) 0%,
     transparent 65%
   );
-  opacity: 0;
+  opacity: .6;
   transition: opacity .3s;
   pointer-events: none; border-radius: inherit;
 }
 .lv2-trust-card:hover::before { opacity: 1; }
 
-/* Gradient border glow on hover */
+/* Gradient border — always on, breathing */
 .lv2-trust-card::after {
   content: '';
   position: absolute; inset: -1px;
   border-radius: calc(1.25rem + 1px);
   background: linear-gradient(135deg,
-    rgba(var(--primary-rgb),.35) 0%,
-    rgba(var(--accent-rgb),.2)   50%,
+    rgba(var(--primary-rgb),.4) 0%,
+    rgba(var(--accent-rgb),.25)  50%,
     rgba(var(--primary-rgb),.0)  100%);
-  opacity: 0;
-  transition: opacity .35s;
+  animation: borderPulse 3.5s ease-in-out infinite;
   pointer-events: none; z-index: -1;
 }
-.lv2-trust-card:hover::after { opacity: 1; }
+@keyframes borderPulse {
+  0%, 100% { opacity: .3; }
+  50%       { opacity: .7; }
+}
+.lv2-trust-card[data-s="1"]::after { animation-delay: -1.16s; }
+.lv2-trust-card[data-s="2"]::after { animation-delay: -2.33s; }
 
+/* Entrance */
 .lv2-trust-card.in-view {
   opacity: 1;
   transform: none;
 }
 
+/* After entrance: infinite float via CSS `translate` (independent from `transform`) */
+.lv2-trust-card.lv2-anim {
+  transition: transform .25s ease-out, box-shadow .4s;
+  animation: cardFloat 3.5s ease-in-out infinite;
+}
+.lv2-trust-card[data-s="1"].lv2-anim { animation-delay: -1.16s; }
+.lv2-trust-card[data-s="2"].lv2-anim { animation-delay: -2.33s; }
+
+@keyframes cardFloat {
+  0%, 100% { translate: 0 0; }
+  50%       { translate: 0 -8px; }
+}
+
 .lv2-trust-card:hover {
-  box-shadow: 0 12px 40px rgba(var(--primary-rgb),.12);
+  box-shadow: 0 14px 44px rgba(var(--primary-rgb),.16);
 }
 
 .lv2-trust-icon {
