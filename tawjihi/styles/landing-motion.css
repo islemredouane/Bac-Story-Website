@@ -1,0 +1,297 @@
+/* ============================================================
+   TAWJIHI — Landing Motion (landing-motion.css)
+   Depends on tokens.css. Loaded AFTER landing.css.
+   OWNS: all @keyframes, scroll/idle/marquee/float/aurora
+   animations, and the .reveal entrance system.
+   Does NOT set color/background/layout/shadow/size.
+   RTL-aware. Transform/opacity only where possible.
+   ============================================================ */
+
+/* ============================================================
+   1. REVEAL ENTRANCE SYSTEM
+   JS toggles .in when element enters viewport and sets
+   --reveal-delay from data-reveal-delay. Premium 3D feel via
+   a slight rotateX on "up".
+   ============================================================ */
+/* ReactBits-style entrance: rise + scale-up + blur-in (matches the
+   sibling project's lp-card-in). The blur sharpening is what makes it
+   feel premium. Staggered via --reveal-delay (JS sets it per element). */
+.reveal {
+    opacity: 0;
+    transition:
+        opacity .7s var(--ease-out),
+        transform .7s var(--ease-out),
+        filter .7s var(--ease-out);
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform, filter;
+}
+
+.reveal[data-reveal="up"]    { transform: translateY(34px) scale(.96); filter: blur(6px); }
+.reveal[data-reveal="right"] { transform: translateX(44px) scale(.97); filter: blur(6px); }
+.reveal[data-reveal="left"]  { transform: translateX(-44px) scale(.97); filter: blur(6px); }
+.reveal[data-reveal="scale"] { transform: scale(.9);  filter: blur(6px); }
+/* swoop: card glides in from the side with a slight rotation, then settles
+   (evokes the sibling project's float-stack feel, as a one-time entrance) */
+.reveal[data-reveal="swoop-r"] { transform: translateX(64px) rotate(6deg) scale(.93);  filter: blur(6px); }
+.reveal[data-reveal="swoop-l"] { transform: translateX(-64px) rotate(-6deg) scale(.93); filter: blur(6px); }
+
+.reveal.in { opacity: 1; transform: none; filter: blur(0); }
+
+/* ============================================================
+   2. AMBIENT AURORA ORBS — very gentle, slow looping drift
+   Decorative only (not [data-tilt]); JS owns parallax offset
+   via translate on a separate axis, so we keep these subtle.
+   ============================================================ */
+@keyframes lm-orb-blue {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    50%      { transform: translate3d(3%, 4%, 0) scale(1.08); }
+}
+@keyframes lm-orb-orange {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1.05); }
+    50%      { transform: translate3d(-4%, -3%, 0) scale(0.94); }
+}
+@keyframes lm-orb-violet {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(0.98); }
+    50%      { transform: translate3d(2%, -5%, 0) scale(1.1); }
+}
+
+.aurora-orb { will-change: transform; }
+.orb-blue   { animation: lm-orb-blue   34s var(--ease) infinite; }
+.orb-orange { animation: lm-orb-orange 28s var(--ease) infinite; }
+.orb-violet { animation: lm-orb-violet 40s var(--ease) infinite; }
+
+/* ============================================================
+   3. HERO FLOATING BADGES — gentle idle bob + tiny rotate
+   Decorative (.hero-float, not [data-tilt]); staggered.
+   ============================================================ */
+@keyframes lm-float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50%      { transform: translateY(-12px) rotate(-1.5deg); }
+}
+
+.hero-float { will-change: transform; }
+.float-1 { animation: lm-float 7s   var(--ease) infinite;        }
+.float-2 { animation: lm-float 8.5s var(--ease) infinite -1.2s;  }
+.float-3 { animation: lm-float 6.5s var(--ease) infinite -2.4s;  }
+.float-4 { animation: lm-float 9s   var(--ease) infinite -0.6s;  }
+
+/* ============================================================
+   4. HERO SCROLL CUE — soft infinite bounce
+   ============================================================ */
+@keyframes lm-scroll-cue {
+    0%, 100% { transform: translateY(0);   opacity: 1;   }
+    50%      { transform: translateY(8px); opacity: .55; }
+}
+
+.hero-scroll-cue { animation: lm-scroll-cue 1.8s var(--ease) infinite; }
+
+/* ============================================================
+   5. CATEGORIES MARQUEE — seamless horizontal loop (RTL)
+   Track holds the badge set duplicated once; translate
+   0 -> -50% moves content toward inline-start.
+   ============================================================ */
+@keyframes lm-marquee {
+    from { transform: translateX(0);     }
+    to   { transform: translateX(-50%);  }
+}
+
+.cats-track {
+    will-change: transform;
+    animation: lm-marquee 30s linear infinite;
+}
+.cats-marquee:hover .cats-track { animation-play-state: paused; }
+
+/* ============================================================
+   6. CHAT DEMO MESSAGES — entrance fade-rise (typed-in feel)
+   Existing delays 300ms / 700ms staggered.
+   ============================================================ */
+@keyframes lm-demo-msg {
+    from { opacity: 0; transform: translateY(14px) scale(.98); }
+    to   { opacity: 1; transform: translateY(0)    scale(1);   }
+}
+
+.demo-msg-1 { animation: lm-demo-msg .55s var(--ease-out) both 300ms; }
+.demo-msg-2 { animation: lm-demo-msg .55s var(--ease-out) both 700ms; }
+
+/* ============================================================
+   7. SUBTLE GRADIENT SHIMMER — hero title accent + primary CTA
+   Animates background-position only; Visual agent owns the
+   gradient itself. Tasteful, slow.
+   ============================================================ */
+@keyframes lm-shimmer {
+    0%   { background-position: 0% 50%;   }
+    100% { background-position: 200% 50%; }
+}
+
+.hero-title .grad {
+    background-size: 200% auto;
+    animation: lm-shimmer 6s linear infinite;
+}
+
+/* ============================================================
+   8. AUTO-FLOAT CARDS — the hover look, always on + always moving
+   Gentle infinite 3D drift. Scoped to .in so it starts only AFTER
+   the reveal entrance (and after a delay, so the slide-up finishes
+   before the drift takes over the transform). perspective() is in
+   the keyframe so it works even outside an .lp-stage container.
+   ============================================================ */
+@keyframes lm-card-drift {
+    0%   { transform: perspective(900px) rotateY(-7deg) rotateX(2deg);  }
+    50%  { transform: perspective(900px) rotateY(7deg)  rotateX(-2deg); }
+    100% { transform: perspective(900px) rotateY(-7deg) rotateX(2deg);  }
+}
+
+.stat-card.in,
+.step-card.in,
+.feat-card.in,
+.testimonial.in {
+    animation: lm-card-drift 7s ease-in-out infinite;
+    animation-delay: .7s;
+}
+/* organic stagger so neighbours don't drift in lockstep */
+.stat-card.in:nth-child(2),
+.step-card.in:nth-child(2),
+.feat-card.in:nth-child(2),
+.proof-grid .testimonial.in:nth-child(2) { animation-duration: 10.5s; animation-delay: 1s;   }
+.stat-card.in:nth-child(3),
+.step-card.in:nth-child(3),
+.feat-card.in:nth-child(3),
+.proof-grid .testimonial.in:nth-child(3) { animation-duration: 8s;    animation-delay: 1.3s; }
+.stat-card.in:nth-child(4)               { animation-duration: 11s;   animation-delay: .9s;  }
+
+/* the chat demo tilts too, gentler + slower */
+.hero-demo.in { animation: lm-card-drift 9s ease-in-out infinite; animation-delay: .8s; }
+
+/* ============================================================
+   10. BORDER-BEAM SPIN — conic ring rotates around the card.
+   Visual owns .lp-beam + .lp-beam::before (the gradient ring);
+   we only spin it. Transform-only, GPU-cheap.
+   ============================================================ */
+@keyframes lm-beam-spin {
+    to { transform: rotate(360deg); }
+}
+.lp-beam::before {
+    animation: lm-beam-spin 4s linear infinite;
+}
+
+/* ============================================================
+   11. WORD-REVEAL HEADLINE — JS wraps hero title words in
+   .split-word spans carrying an inline --i index. We disable
+   the block-level reveal for the split title and stagger the
+   words in instead. Words stay inline so the .grad gradient
+   span is never broken. RTL-safe (translateY + rotate only).
+   ============================================================ */
+.reveal[data-split] {
+    opacity: 1 !important;
+    transform: none !important;
+}
+.split-word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(0.6em) rotate(3deg);
+    filter: blur(8px);
+    transition:
+        opacity .55s var(--ease-out),
+        transform .55s var(--ease-out),
+        filter .55s var(--ease-out);
+    transition-delay: calc(var(--i, 0) * 55ms);
+    will-change: opacity, transform, filter;
+}
+.hero-title.in .split-word {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
+}
+
+/* ============================================================
+   12. CTA SHINY SWEEP — a soft light glances across the primary
+   CTA on hover. Pseudo-element transform/opacity only; Visual
+   owns the button's fill/shape, so we stay transform-scoped and
+   clip via the existing button bounds.
+   ============================================================ */
+@keyframes lm-cta-sweep {
+    from { transform: translateX(-120%) skewX(-18deg); }
+    to   { transform: translateX(220%)  skewX(-18deg); }
+}
+.lp-cta,
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+.lp-cta::after,
+.btn-primary::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    inset-inline-start: 0;
+    width: 40%;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(
+        100deg,
+        transparent 0%,
+        rgba(255, 255, 255, .35) 50%,
+        transparent 100%
+    );
+    transform: translateX(-120%) skewX(-18deg);
+    opacity: 0;
+}
+.lp-cta:hover::after,
+.btn-primary:hover::after {
+    opacity: 1;
+    animation: lm-cta-sweep .9s var(--ease-out);
+}
+
+/* ============================================================
+   9. REDUCED MOTION — mandatory kill switch
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+    .stat-card,
+    .step-card,
+    .feat-card,
+    .testimonial,
+    .hero-demo {
+        animation: none !important;
+    }
+
+    .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        transition: none !important;
+    }
+
+    .aurora-orb,
+    .orb-blue,
+    .orb-orange,
+    .orb-violet,
+    .hero-float,
+    .float-1,
+    .float-2,
+    .float-3,
+    .float-4,
+    .hero-scroll-cue,
+    .cats-track,
+    .demo-msg-1,
+    .demo-msg-2,
+    .hero-title .grad {
+        animation: none !important;
+    }
+
+    .lp-beam::before {
+        animation: none !important;
+    }
+
+    .split-word {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        transition: none !important;
+    }
+
+    .lp-cta::after,
+    .btn-primary::after {
+        display: none !important;
+        animation: none !important;
+    }
+}

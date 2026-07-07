@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <script>!function(){var p=location.pathname.split('/').pop();if(['login.html','onboarding.html','index.html',''].indexOf(p)<0){if(!localStorage.getItem('tw-auth'))return void location.replace('login.html');if(!localStorage.getItem('tw-profile'))return void location.replace('onboarding.html')}}()</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>توجيهي · شروط الاستخدام</title>
+    <meta name="description" content="شروط استخدام توجيهي من BAC STORY.">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@700;800;900&family=Pattaya&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles/tokens.css">
+    <link rel="stylesheet" href="styles/motion.css">
+    <link rel="stylesheet" href="styles/app.css">
+    <link rel="stylesheet" href="styles/specialities.css">
+    <link rel="stylesheet" href="styles/legal.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+    <script src="supabase.js"></script>
+</head>
+<body>
+<div class="app" id="app">
+    <!-- ===================== SIDEBAR ===================== -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-head">
+            <button class="sidebar-toggle" id="sidebarToggle" aria-label="طي القائمة"><i class="fas fa-bars"></i></button>
+            <span class="sidebar-logo">توجيهي</span>
+        </div>
+        <nav class="nav-group">
+            <a class="nav-item" href="app.html"><i class="fas fa-comments"></i><span>المرشد الذكي</span></a>
+            <a class="nav-item" href="specialities.html"><i class="fas fa-compass"></i><span>دليل التخصصات</span></a>
+            <a class="nav-item" href="simulator.html"><i class="fas fa-list-check"></i><span>محاكي بطاقة الرغبات</span></a>
+            <a class="nav-item" href="dashboard.html"><i class="fas fa-gauge-high"></i><span>لوحتي</span></a>
+            <a class="nav-item" href="referral.html"><i class="fas fa-gift"></i><span>الإحالة والمكافآت</span></a>
+        </nav>
+        <div class="sidebar-foot">
+            <a class="nav-item" href="#" onclick="document.getElementById('themeBtn')?.click();return false;"><i class="fas fa-circle-half-stroke" id="themeIconSide"></i><span>الوضع الليلي</span></a>
+            <a class="nav-item" href="dashboard.html"><i class="fas fa-user-circle"></i><span>حسابي</span></a>
+            <a class="nav-item" href="#" id="logoutBtn" onclick="if(window.twSignOut){window.twSignOut()}else{localStorage.clear();location.href='login.html'};return false;">
+              <i class="fas fa-right-from-bracket"></i><span>تسجيل الخروج</span>
+            </a>
+        </div>
+    </aside>
+    <div class="sidebar-scrim" id="scrim"></div>
+
+    <!-- ===================== MAIN ===================== -->
+    <main class="main">
+        <header class="topbar">
+            <div style="display:flex;align-items:center;gap:.5rem">
+                <button class="icon-btn mobile-only" id="drawerBtn" aria-label="القائمة"><i class="fas fa-bars"></i></button>
+                <span class="topbar-title">شروط الاستخدام</span>
+            </div>
+            <div class="topbar-actions">
+                <button class="icon-btn" id="themeBtn" aria-label="تبديل الوضع"><i class="fas fa-moon"></i></button>
+            </div>
+        </header>
+
+        <div class="page-scroll">
+            <div class="page-inner" style="max-width:1100px;padding:0">
+
+                <!-- Page hero -->
+                <div class="legal-hero" style="margin:var(--sp-6) var(--sp-6) 0">
+                    <a class="legal-hero-back" href="javascript:history.back()"><i class="fas fa-arrow-right"></i> رجوع</a>
+                    <div class="legal-hero-inner">
+                        <div class="legal-hero-icon"><i class="fas fa-file-contract"></i></div>
+                        <div class="legal-hero-eyebrow"><i class="fas fa-scale-balanced"></i> وثائق قانونية</div>
+                        <h1 class="legal-hero-title">شروط الاستخدام</h1>
+                        <p class="legal-hero-date">آخر تحديث: يونيو 2026</p>
+                    </div>
+                </div>
+
+                <!-- Main layout: TOC + content -->
+                <div class="legal-main">
+
+                    <!-- Sticky TOC (desktop) -->
+                    <nav class="legal-toc" aria-label="فهرس المحتوى">
+                        <div class="legal-toc-title">فهرس المحتوى</div>
+                        <ul class="legal-toc-list">
+                            <li><a href="#terms-1">قبول الشروط</a></li>
+                            <li><a href="#terms-2">طبيعة الخدمة</a></li>
+                            <li><a href="#terms-3">حساب المستخدم</a></li>
+                            <li><a href="#terms-4">نظام الأرصدة والإحالة</a></li>
+                            <li><a href="#terms-5">الملكية الفكرية</a></li>
+                            <li><a href="#terms-6">تعديل الشروط</a></li>
+                        </ul>
+                    </nav>
+
+                    <!-- Content -->
+                    <div class="legal-content-area">
+
+                        <!-- Mobile TOC -->
+                        <div class="legal-toc-mobile">
+                            <div class="legal-toc-mobile-title">الأقسام</div>
+                            <div class="legal-toc-mobile-grid">
+                                <a href="#terms-1">القبول</a>
+                                <a href="#terms-2">الخدمة</a>
+                                <a href="#terms-3">الحساب</a>
+                                <a href="#terms-4">الأرصدة</a>
+                                <a href="#terms-5">الملكية</a>
+                                <a href="#terms-6">التعديلات</a>
+                            </div>
+                        </div>
+
+                        <section class="legal-section" id="terms-1">
+                            <div class="legal-section-heading">
+                                <div class="legal-section-num">1</div>
+                                <h2 class="legal-section-title">قبول الشروط</h2>
+                            </div>
+                            <div class="legal-body">
+                                <p>باستخدامك لمنصة توجيهي، فأنت توافق على هذه الشروط. إذا لم توافق، يُرجى عدم استخدام المنصة.</p>
+                            </div>
+                        </section>
+
+                        <section class="legal-section" id="terms-2">
+                            <div class="legal-section-heading">
+                                <div class="legal-section-num">2</div>
+                                <h2 class="legal-section-title">طبيعة الخدمة</h2>
+                            </div>
+                            <div class="legal-body">
+                                <p>توجيهي هي منصة إرشاد تعليمي بالذكاء الاصطناعي، تقدم معلومات استشارية حول التخصصات الجامعية والمدارس العليا في الجزائر.</p>
+                                <ul>
+                                    <li>المعلومات المقدمة تقديرية وليست رسمية — يجب التأكد دائماً من البوابة الرسمية لوزارة التعليم العالي.</li>
+                                    <li>توجيهي ليست بديلاً عن الإرشاد الرسمي ولا تضمن القبول في أي مؤسسة.</li>
+                                </ul>
+                            </div>
+                        </section>
+
+                        <section class="legal-section" id="terms-3">
+                            <div class="legal-section-heading">
+                                <div class="legal-section-num">3</div>
+                                <h2 class="legal-section-title">حساب المستخدم</h2>
+                            </div>
+                            <div class="legal-body">
+                                <ul>
+                                    <li>أنت مسؤول عن الحفاظ على أمان حسابك.</li>
+                                    <li>يُمنع منعاً باتاً مشاركة الحساب أو الاستخدام التجاري دون إذن.</li>
+                                    <li>نحتفظ بالحق في إيقاف الحسابات التي تنتهك هذه الشروط.</li>
+                                </ul>
+                            </div>
+                        </section>
+
+                        <section class="legal-section" id="terms-4">
+                            <div class="legal-section-heading">
+                                <div class="legal-section-num">4</div>
+                                <h2 class="legal-section-title">نظام الأرصدة والإحالة</h2>
+                            </div>
+                            <div class="legal-body">
+                                <ul>
+                                    <li>الأرصدة للاستخدام الشخصي فقط ولا يمكن تحويلها أو استبدالها بمبالغ مالية.</li>
+                                    <li>يُمنع التلاعب بنظام الإحالة أو إنشاء حسابات وهمية للحصول على أرصدة.</li>
+                                    <li>نحتفظ بالحق في إلغاء الأرصدة المكتسبة بطرق احتيالية.</li>
+                                </ul>
+                            </div>
+                        </section>
+
+                        <section class="legal-section" id="terms-5">
+                            <div class="legal-section-heading">
+                                <div class="legal-section-num">5</div>
+                                <h2 class="legal-section-title">الملكية الفكرية</h2>
+                            </div>
+                            <div class="legal-body">
+                                <p>جميع محتويات المنصة (النصوص، التصاميم، الخوارزميات) ملك حصري لـ BAC STORY. يُمنع النسخ أو إعادة الاستخدام التجاري.</p>
+                            </div>
+                        </section>
+
+                        <section class="legal-section" id="terms-6">
+                            <div class="legal-section-heading">
+                                <div class="legal-section-num">6</div>
+                                <h2 class="legal-section-title">تعديل الشروط</h2>
+                            </div>
+                            <div class="legal-body">
+                                <p>قد نعدّل هذه الشروط في أي وقت. سيتم إشعارك عبر البريد الإلكتروني عند إجراء تغييرات جوهرية. استمرارك في استخدام المنصة بعد التعديل يعني قبولك للشروط الجديدة.</p>
+                            </div>
+                        </section>
+
+                        <!-- Footer -->
+                        <div class="legal-footer">
+                            <div class="legal-footer-brand">
+                                <div>
+                                    <div class="legal-footer-logo">توجيهي</div>
+                                    <div class="legal-footer-tagline">by BAC STORY · مرشدك الذكي لـ BAC الجزائر</div>
+                                </div>
+                            </div>
+                            <a href="dashboard.html" class="legal-footer-link"><i class="fas fa-house"></i> العودة للرئيسية</a>
+                        </div>
+
+                    </div><!-- /legal-content-area -->
+                </div><!-- /legal-main -->
+            </div>
+        </div>
+    </main>
+</div>
+<script src="shell.js"></script>
+</body>
+</html>

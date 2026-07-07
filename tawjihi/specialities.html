@@ -1,0 +1,625 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <script>!function(){var p=location.pathname.split('/').pop();if(['login.html','onboarding.html','index.html',''].indexOf(p)<0){if(!localStorage.getItem('tw-auth'))return void location.replace('login.html');if(!localStorage.getItem('tw-profile'))return void location.replace('onboarding.html')}}()</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>توجيهي · دليل التخصصات والمدارس العليا</title>
+    <meta name="description" content="توجيهي من BAC STORY — تصفّح التخصصات والمدارس العليا في الجزائر حسب الشعبة والمعدل.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Pattaya&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles/tokens.css">
+    <link rel="stylesheet" href="styles/motion.css">
+    <link rel="stylesheet" href="styles/app.css">
+    <link rel="stylesheet" href="styles/spec-browser.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+    <script src="supabase.js"></script>
+    <script src="catalog.js"></script>
+    <script src="eligibility.js"></script>
+</head>
+<body>
+<div class="app" id="app">
+    <!-- ===================== SIDEBAR ===================== -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-head">
+            <button class="sidebar-toggle" id="sidebarToggle" aria-label="طي القائمة"><i class="fas fa-bars"></i></button>
+            <span class="sidebar-logo">توجيهي</span>
+        </div>
+
+        <nav class="nav-group">
+            <a class="nav-item" href="app.html"><i class="fas fa-comments"></i><span>المرشد الذكي</span></a>
+            <a class="nav-item active" href="specialities.html"><i class="fas fa-compass"></i><span>دليل التخصصات</span></a>
+            <a class="nav-item" href="simulator.html"><i class="fas fa-list-check"></i><span>محاكي بطاقة الرغبات</span></a>
+            <a class="nav-item" href="dashboard.html"><i class="fas fa-gauge-high"></i><span>لوحتي</span></a>
+            <a class="nav-item" href="referral.html"><i class="fas fa-gift"></i><span>الإحالة والمكافآت</span></a>
+        </nav>
+
+        <div class="sidebar-foot">
+            <a class="nav-item" href="#" onclick="document.getElementById('themeBtn')?.click();return false;"><i class="fas fa-circle-half-stroke" id="themeIconSide"></i><span>الوضع الليلي</span></a>
+            <a class="nav-item" href="dashboard.html"><i class="fas fa-user-circle"></i><span>حسابي</span></a>
+            <a class="nav-item" href="settings.html"><i class="fas fa-gear"></i><span>الإعدادات</span></a>
+            <a class="nav-item" href="#" id="logoutBtn" onclick="if(window.twSignOut){window.twSignOut()}else{localStorage.clear();location.href='login.html'};return false;">
+              <i class="fas fa-right-from-bracket"></i>
+              <span>تسجيل الخروج</span>
+            </a>
+        </div>
+    </aside>
+    <div class="sidebar-scrim" id="scrim"></div>
+
+    <!-- ===================== MAIN ===================== -->
+    <main class="main">
+        <header class="topbar">
+            <div style="display:flex;align-items:center;gap:.5rem">
+                <button class="icon-btn mobile-only" id="drawerBtn" aria-label="القائمة"><i class="fas fa-bars"></i></button>
+                <span class="topbar-title">دليل التخصصات</span>
+            </div>
+            <div class="topbar-actions">
+                <button class="icon-btn" id="themeBtn" aria-label="تبديل الوضع"><i class="fas fa-moon"></i></button>
+            </div>
+        </header>
+
+        <div class="page-scroll">
+            <div class="page-inner">
+                <!-- ===== HERO STRIP ===== -->
+                <section class="spec-hero">
+                    <i class="fas fa-compass hero-icon" aria-hidden="true"></i>
+                    <h1>دليل التخصصات والمدارس العليا</h1>
+                    <p>تصفّح التخصصات الجامعية والمدارس العليا في الجزائر، واكتشف معدلات القبول وآفاق العمل قبل ما تعمّر بطاقة رغباتك.</p>
+                </section>
+
+                <!-- ===== FILTER BAR ===== -->
+                <div class="spec-filter-bar">
+
+                    <!-- Stream filter chips (visible row) -->
+                    <div class="stream-chips-row" id="streamChips">
+                        <button class="stream-chip active" data-stream="all">الكل (شعبة)</button>
+                        <button class="stream-chip" data-stream="sciexp">علوم تجريبية</button>
+                        <button class="stream-chip" data-stream="math">رياضيات</button>
+                        <button class="stream-chip" data-stream="techmath">تقني رياضي</button>
+                        <button class="stream-chip" data-stream="gestion">تسيير واقتصاد</button>
+                        <button class="stream-chip" data-stream="lettres">آداب وفلسفة</button>
+                        <button class="stream-chip" data-stream="langues">لغات أجنبية</button>
+                        <button class="stream-chip" data-stream="arts">فنون</button>
+                    </div>
+
+                    <!-- Eligibility controls: show-all-streams toggle + wilaya filter -->
+                    <div class="elig-row" id="eligRow">
+                        <button class="streamall-chip" id="showAllStreams" type="button" aria-pressed="false">
+                            <i class="fas fa-layer-group"></i> أظهر كل الشعب
+                        </button>
+                        <span class="elig-row-label"><i class="fas fa-location-dot"></i> الولاية:</span>
+                        <select class="wilaya-select" id="wilayaSelect" aria-label="تصفية حسب الولاية">
+                            <option value="">كل الولايات</option>
+                        </select>
+                    </div>
+                    <div class="regional-note is-hidden" id="regionalNote">
+                        <i class="fas fa-circle-info"></i>
+                        <span id="regionalNoteText"></span>
+                    </div>
+
+                    <hr class="filter-section-divider">
+
+                    <!-- Category chips -->
+                    <div class="spec-chips-row" id="catChips">
+                        <button class="filter-chip active" data-cat="all">الكل</button>
+                        <button class="filter-chip" data-cat="engineering">هندسة</button>
+                        <button class="filter-chip" data-cat="medical">طب وصحة</button>
+                        <button class="filter-chip" data-cat="business">اقتصاد</button>
+                        <button class="filter-chip" data-cat="science">علوم</button>
+                        <button class="filter-chip" data-cat="education">تربية</button>
+                        <button class="filter-chip" data-cat="law">قانون</button>
+                        <button class="filter-chip" data-cat="humanities">إنسانيات</button>
+                        <button class="filter-chip" data-cat="double">مسارات مزدوجة</button>
+                    </div>
+
+                    <hr class="filter-section-divider">
+
+                    <!-- LMD / Grande École toggle -->
+                    <div class="lmd-row" id="lmdChips">
+                        <span class="lmd-row-label">نوع المؤسسة:</span>
+                        <button class="lmd-chip active" data-lmd="all">الكل</button>
+                        <button class="lmd-chip" data-lmd="lmd">جامعة (LMD)</button>
+                        <button class="lmd-chip" data-lmd="grande">مدرسة عليا</button>
+                    </div>
+
+                    <!-- Avg range filter -->
+                    <div class="avg-row">
+                        <span class="avg-row-label">نطاق المعدل:</span>
+                        <div class="avg-input-group">
+                            <span>من</span>
+                            <input class="avg-input" type="number" id="avgMin" min="0" max="20" step="0.1" value="0">
+                        </div>
+                        <div class="avg-input-group">
+                            <span>إلى</span>
+                            <input class="avg-input" type="number" id="avgMax" min="0" max="20" step="0.1" value="20">
+                        </div>
+                    </div>
+
+                    <hr class="filter-section-divider">
+
+                    <!-- Search -->
+                    <div class="spec-search-wrap">
+                        <i class="fas fa-search"></i>
+                        <input type="text" class="spec-search-input" id="searchInput" placeholder="ابحث عن مدرسة أو تخصص..." autocomplete="off">
+                    </div>
+                </div>
+
+                <!-- ===== RESULTS META ===== -->
+                <div class="results-meta">
+                    <span class="results-count" id="resultsCount"><strong>13</strong> تخصص</span>
+                    <button class="btn-ghost" id="resetBtn"><i class="fas fa-rotate-left"></i> إعادة ضبط الفلاتر</button>
+                </div>
+
+                <!-- ===== CARD GRID — rendered dynamically from TW_CATALOG ===== -->
+                <div class="Speciality-container-new" id="specGrid">
+                    <!-- empty state -->
+                    <div class="no-results is-hidden" id="noResults">
+                        <i class="fas fa-folder-open"></i>
+                        <p>ما لقينا حتى تخصص يطابق الفلاتر. جرّب تخفّف الشروط أو تعيد ضبط الفلاتر.</p>
+                        <button class="no-results-reset" id="noResultsReset"><i class="fas fa-rotate-left"></i> صفّر الفلاتر</button>
+                    </div>
+                </div>
+
+                <!-- honesty note -->
+                <div class="honesty-note">
+                    <i class="fas fa-circle-info"></i>
+                    <span>معدلات تقديرية — أكّد على البوابة الرسمية.</span>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script src="shell.js"></script>
+<script>
+/* ============================================================
+   Specialities browser — dynamic rendering from TW_CATALOG
+   ============================================================ */
+(() => {
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+
+  /* ---- Arabic category badge labels ---- */
+  const CAT_LABEL = {
+    engineering: 'هندسة',
+    medical:     'طب وصحة',
+    business:    'اقتصاد',
+    science:     'علوم',
+    education:   'تربية',
+    law:         'قانون',
+    humanities:  'إنسانيات',
+    double:      'مسارات مزدوجة',
+  };
+
+  /* ---- Arabic label → stream code (covers labels + legacy values) ---- */
+  const STREAM_MAP = {
+    'علوم تجريبية': 'sciexp',
+    'رياضيات':       'math',
+    'تقني رياضي':    'techmath',
+    'تسيير واقتصاد': 'gestion',
+    'اقتصاد وتسيير': 'gestion',
+    'آداب وفلسفة':   'lettres',
+    'لغات أجنبية':   'langues',
+    'فنون':          'arts',
+  };
+
+  /* ---- canonical stream codes (from streams.json) ---- */
+  const STREAM_CODES = ['sciexp','math','techmath','gestion','lettres','langues','arts'];
+  const STREAM_AR = {
+    sciexp: 'علوم تجريبية', math: 'رياضيات', techmath: 'تقني رياضي',
+    gestion: 'تسيير واقتصاد', lettres: 'آداب وفلسفة', langues: 'لغات أجنبية', arts: 'فنون',
+  };
+
+  /* ---- normalizeStream(): accepts a code, an Arabic label, or a legacy value ---- */
+  function normalizeStream(raw) {
+    if (!raw) return null;
+    const v = String(raw).trim();
+    if (STREAM_CODES.includes(v)) return v;                 // already a code
+    if (STREAM_MAP[v]) return STREAM_MAP[v];                // arabic label
+    const lower = v.toLowerCase();
+    if (STREAM_CODES.includes(lower)) return lower;         // case-variant code
+    // handle techmath sub-tracks (techmath-civil, …) → base track
+    if (lower.startsWith('techmath')) return 'techmath';
+    return null;
+  }
+
+  /* ---- read profile defensively ---- */
+  const profile = JSON.parse(localStorage.getItem('tw-profile') || 'null') || {};
+  const myStreamCode = normalizeStream(profile.stream);
+
+  /* general average (number or null) */
+  const myAverage = (typeof profile.average === 'number' && isFinite(profile.average))
+    ? profile.average
+    : (parseFloat(profile.average) || null);
+
+  /* weighted averages map (may be absent) — keys may be stream codes or field labels */
+  const myWeighted = (profile.weightedAverages && typeof profile.weightedAverages === 'object')
+    ? profile.weightedAverages : null;
+
+  /* profile wilaya: {num,ar} | number | null */
+  let myWilayaNum = null;
+  if (profile.wilaya != null) {
+    if (typeof profile.wilaya === 'number') myWilayaNum = profile.wilaya;
+    else if (typeof profile.wilaya === 'object' && profile.wilaya.num != null) myWilayaNum = Number(profile.wilaya.num);
+    else if (!isNaN(parseInt(profile.wilaya, 10))) myWilayaNum = parseInt(profile.wilaya, 10);
+  }
+
+  /**
+   * Resolve the effective average for accessibility comparison + a basis tag.
+   * Prefers a weighted average for the relevant stream; else general; else null (تقديري).
+   * returns { value:number|null, basis:'موزون'|'عام'|'تقديري' }
+   */
+  function effectiveAverage(streamCode) {
+    if (myWeighted) {
+      // try by stream code, then a few common label keys
+      const keys = [streamCode, STREAM_AR[streamCode]].filter(Boolean);
+      for (const k of keys) {
+        const w = myWeighted[k];
+        const n = (typeof w === 'number') ? w : parseFloat(w);
+        if (typeof n === 'number' && isFinite(n)) return { value: n, basis: 'موزون' };
+      }
+    }
+    if (typeof myAverage === 'number' && isFinite(myAverage)) return { value: myAverage, basis: 'عام' };
+    return { value: null, basis: 'تقديري' };
+  }
+
+  /* ---- Filter state ---- */
+  const state = {
+    cat:    'all',
+    q:      '',
+    stream: null,        // null = show all (manual chip override)
+    lmd:    'all',       // 'all' | 'lmd' | 'grande'
+    avgMin: 0,
+    avgMax: 20,
+    wilaya: myWilayaNum, // number | null
+    showAllStreams: false, // when true, ignore strict شعبة default
+  };
+
+  /* ---- Pre-select user's stream from profile ---- */
+  if (myStreamCode) {
+    state.stream = myStreamCode;
+    const preChip = $(`#streamChips [data-stream="${myStreamCode}"]`);
+    if (preChip) {
+      $$('.stream-chip', $('#streamChips')).forEach(c => c.classList.remove('active'));
+      preChip.classList.add('active');
+    }
+  }
+
+  /* eligibility engine presence (graceful degradation if missing) */
+  const hasElig = typeof window.twAccessibility === 'function';
+
+  /* ---- Helpers ---- */
+  const setActiveChip = (container, activeBtn) => {
+    $$('button', container).forEach(c => c.classList.remove('active'));
+    activeBtn.classList.add('active');
+  };
+
+  /* ---- accessibility status → Arabic label + icon ---- */
+  const ACC_LABEL = {
+    safe:       { ar: 'في المتناول',        icon: 'fa-circle-check' },
+    likely:     { ar: 'على الحدّ',           icon: 'fa-scale-balanced' },
+    risk:       { ar: 'طموح',                icon: 'fa-bolt' },
+    ineligible: { ar: 'غير متاح لشعبتك',     icon: 'fa-ban' },
+    unknown:    { ar: 'بيانات غير متوفرة',   icon: 'fa-circle-question' },
+  };
+
+  /* The stream to evaluate accessibility against: profile stream, else the
+     manually selected chip, else null. */
+  function evalStream() {
+    return myStreamCode || (state.stream && state.stream !== 'all' ? state.stream : null);
+  }
+
+  /* ---- build the eligibility meta row (pill + scope) for a card ---- */
+  function buildEligMeta(s) {
+    const rec = window.twElig(s.id);
+    const wrap = document.createElement('div');
+    wrap.className = 'spec-elig-meta';
+
+    const stream = evalStream();
+    const eff = effectiveAverage(stream);
+    const acc = window.twAccessibility(s.id, eff.value, stream);
+
+    const pill = document.createElement('span');
+    pill.className = 'acc-pill';
+    pill.dataset.status = acc.status;
+    const lbl = ACC_LABEL[acc.status] || ACC_LABEL.unknown;
+    pill.innerHTML = `<i class="fas ${lbl.icon}"></i> ${lbl.ar}`;
+    wrap.appendChild(pill);
+
+    /* scope chip */
+    if (rec && rec.scope && rec.scope !== 'unknown') {
+      const scope = document.createElement('span');
+      scope.className = 'scope-chip';
+      const regional = (rec.scope === 'regional');
+      scope.dataset.scope = regional ? 'regional' : 'national';
+      scope.innerHTML = regional
+        ? `<i class="fas fa-map-pin"></i> جهوي`
+        : `<i class="fas fa-flag"></i> وطني`;
+      wrap.appendChild(scope);
+    }
+
+    return wrap;
+  }
+
+  /* ---- Build one card element ---- */
+  function buildCard(s) {
+    const card = document.createElement('a');
+    card.className = 'spec-card';
+    card.href = `speciality.html?id=${s.id}`;
+    card.dataset.cat     = s.cat;
+    card.dataset.avg     = s.avg;
+    card.dataset.streams = s.streamCodes.join(' ');
+    card.dataset.name    = `${s.name} ${s.nameEn}`;
+    card.dataset.lmd     = s.lmd;
+
+    /* image wrapper */
+    const imgWrap = document.createElement('div');
+    imgWrap.className = 'spec-card-img';
+    const img = document.createElement('img');
+    img.loading = 'lazy';
+    img.src = s.img;
+    img.alt = s.name;
+    imgWrap.appendChild(img);
+
+    /* body */
+    const body = document.createElement('div');
+    body.className = 'spec-card-body';
+
+    /* top section */
+    const top = document.createElement('div');
+    top.className = 'spec-card-top';
+
+    const nameEl = document.createElement('div');
+    nameEl.className = 'spec-card-name';
+    nameEl.textContent = `${s.name} – ${s.nameEn}`;
+
+    const meta = document.createElement('div');
+    meta.className = 'spec-card-meta';
+
+    const avgSpan = document.createElement('span');
+    avgSpan.className = 'spec-meta-avg';
+    avgSpan.innerHTML = `<i class="fas fa-percent"></i>`;
+    avgSpan.appendChild(document.createTextNode(` معدل القبول 2025 ~ ${s.avg.toFixed(2)}`));
+
+    const locSpan = document.createElement('span');
+    locSpan.className = 'spec-meta-loc';
+    locSpan.innerHTML = `<i class="fas fa-location-dot"></i>`;
+    locSpan.appendChild(document.createTextNode(` ${s.location}`));
+
+    meta.appendChild(avgSpan);
+    meta.appendChild(locSpan);
+    top.appendChild(nameEl);
+    top.appendChild(meta);
+
+    /* ---- eligibility meta: accessibility pill + scope chip ---- */
+    if (hasElig) {
+      const eligMeta = buildEligMeta(s);
+      if (eligMeta) top.appendChild(eligMeta);
+    }
+
+    /* footer */
+    const footer = document.createElement('div');
+    footer.className = 'spec-card-footer';
+
+    const badge = document.createElement('span');
+    badge.className = 'cat-badge';
+    badge.textContent = CAT_LABEL[s.cat] || s.cat;
+
+    const detailBtn = document.createElement('span');
+    detailBtn.className = 'spec-detail-btn';
+    detailBtn.innerHTML = `<i class="fas fa-arrow-left"></i>`;
+    detailBtn.appendChild(document.createTextNode(' التفاصيل'));
+
+    footer.appendChild(badge);
+    footer.appendChild(detailBtn);
+
+    body.appendChild(top);
+    body.appendChild(footer);
+
+    card.appendChild(imgWrap);
+    card.appendChild(body);
+
+    return card;
+  }
+
+  /* ---- Main render function ---- */
+  const grid     = $('#specGrid');
+  const noResults = $('#noResults');
+  const countEl  = $('#resultsCount');
+
+  const regionalNote     = $('#regionalNote');
+  const regionalNoteText = $('#regionalNoteText');
+
+  function renderCards() {
+    /* remove existing cards (keep #noResults in place) */
+    $$('.spec-card', grid).forEach(c => c.remove());
+
+    let visible = 0;
+    let regionalHidden = 0;
+
+    TW_CATALOG.forEach(s => {
+      const matchCat    = state.cat === 'all' || s.cat === state.cat;
+      const matchQ      = state.q === '' || (s.name + ' ' + s.nameEn).toLowerCase().includes(state.q.toLowerCase());
+      const matchLmd    = state.lmd === 'all'
+                          || (state.lmd === 'lmd'    &&  s.lmd)
+                          || (state.lmd === 'grande' && !s.lmd);
+      const matchAvg    = s.avg >= state.avgMin && s.avg <= state.avgMax;
+
+      /* ----- شعبة filtering -----
+         If a chip is explicitly selected, honour it (exact streamCodes match).
+         Otherwise, by default, apply strict eligibility filtering against the
+         student's own stream (unless "show all streams" is toggled on). */
+      let matchStream = true;
+      if (state.stream !== null) {
+        // manual chip override — use the engine if available, else streamCodes
+        matchStream = hasElig
+          ? window.twIsStreamAllowed(s.id, state.stream)
+          : s.streamCodes.includes(state.stream);
+      } else if (!state.showAllStreams && myStreamCode && hasElig) {
+        // default strict view driven by profile stream
+        matchStream = window.twIsStreamAllowed(s.id, myStreamCode);
+      }
+
+      /* ----- wilaya filtering ----- */
+      let matchWilaya = true;
+      if (state.wilaya != null && hasElig) {
+        matchWilaya = window.twWilayaEligible(s.id, state.wilaya);
+      }
+
+      const passNonWilaya = matchCat && matchQ && matchStream && matchLmd && matchAvg;
+
+      if (passNonWilaya && matchWilaya) {
+        grid.insertBefore(buildCard(s), noResults);
+        visible++;
+      } else if (passNonWilaya && !matchWilaya) {
+        // hidden only because of the chosen wilaya (regional program)
+        regionalHidden++;
+      }
+    });
+
+    noResults.classList.toggle('is-hidden', visible !== 0);
+    countEl.innerHTML = `<strong>${visible}</strong> تخصص`;
+
+    /* regional-hidden notice */
+    if (state.wilaya != null && regionalHidden > 0) {
+      const wn = (hasElig && window.twWilayaName) ? window.twWilayaName(state.wilaya) : '';
+      regionalNoteText.textContent =
+        `أُخفيت ${regionalHidden} تخصص جهوي غير متاح${wn ? ' لولاية ' + wn : ''}.`;
+      regionalNote.classList.remove('is-hidden');
+    } else {
+      regionalNote.classList.add('is-hidden');
+    }
+  }
+
+  /* ---- Event: category chips ---- */
+  $('#catChips').addEventListener('click', e => {
+    const btn = e.target.closest('.filter-chip');
+    if (!btn) return;
+    state.cat = btn.dataset.cat;
+    setActiveChip($('#catChips'), btn);
+    renderCards();
+  });
+
+  /* ---- Event: stream chips ---- */
+  $('#streamChips').addEventListener('click', e => {
+    const btn = e.target.closest('.stream-chip');
+    if (!btn) return;
+    state.stream = btn.dataset.stream === 'all' ? null : btn.dataset.stream;
+    setActiveChip($('#streamChips'), btn);
+    renderCards();
+  });
+
+  /* ---- Event: LMD chips ---- */
+  $('#lmdChips').addEventListener('click', e => {
+    const btn = e.target.closest('.lmd-chip');
+    if (!btn) return;
+    state.lmd = btn.dataset.lmd;
+    setActiveChip($('#lmdChips'), btn);
+    renderCards();
+  });
+
+  /* ---- Populate wilaya select from the engine ---- */
+  const wilayaSelect = $('#wilayaSelect');
+  if (hasElig && window.twWilayaList) {
+    const frag = document.createDocumentFragment();
+    window.twWilayaList().forEach(w => {
+      const opt = document.createElement('option');
+      opt.value = String(w.num);
+      opt.textContent = `${w.num} · ${w.ar}`;
+      frag.appendChild(opt);
+    });
+    wilayaSelect.appendChild(frag);
+    if (state.wilaya != null) wilayaSelect.value = String(state.wilaya);
+  } else {
+    /* engine missing — disable the control gracefully */
+    wilayaSelect.disabled = true;
+  }
+
+  /* ---- Event: wilaya select ---- */
+  wilayaSelect.addEventListener('change', e => {
+    const v = e.target.value;
+    state.wilaya = v === '' ? null : parseInt(v, 10);
+    renderCards();
+  });
+
+  /* ---- Event: show-all-streams toggle ----
+     Turning it on clears any stream selection (chip → "all") so cards from
+     every شعبة are shown. Turning it off restores the student's own stream. */
+  const showAllBtn = $('#showAllStreams');
+  showAllBtn.addEventListener('click', () => {
+    state.showAllStreams = !state.showAllStreams;
+    showAllBtn.classList.toggle('active', state.showAllStreams);
+    showAllBtn.setAttribute('aria-pressed', String(state.showAllStreams));
+
+    if (state.showAllStreams) {
+      state.stream = null;
+      setActiveChip($('#streamChips'), $('#streamChips [data-stream="all"]'));
+    } else if (myStreamCode) {
+      state.stream = myStreamCode;
+      const chip = $(`#streamChips [data-stream="${myStreamCode}"]`);
+      if (chip) setActiveChip($('#streamChips'), chip);
+    }
+    renderCards();
+  });
+
+  /* ---- Event: search ---- */
+  $('#searchInput').addEventListener('input', e => {
+    state.q = e.target.value.trim();
+    renderCards();
+  });
+
+  /* ---- Event: avg range ---- */
+  $('#avgMin').addEventListener('input', e => {
+    state.avgMin = parseFloat(e.target.value) || 0;
+    renderCards();
+  });
+  $('#avgMax').addEventListener('input', e => {
+    state.avgMax = parseFloat(e.target.value) || 20;
+    renderCards();
+  });
+
+  /* ---- Event: reset (restores profile-driven defaults) ---- */
+  $('#resetBtn').addEventListener('click', () => {
+    state.cat    = 'all';
+    state.q      = '';
+    state.stream = myStreamCode || null;   // back to the student's own stream
+    state.lmd    = 'all';
+    state.avgMin = 0;
+    state.avgMax = 20;
+    state.wilaya = myWilayaNum;             // back to the student's wilaya
+    state.showAllStreams = false;
+
+    $('#searchInput').value = '';
+    $('#avgMin').value = '0';
+    $('#avgMax').value = '20';
+
+    /* reset all chip groups */
+    setActiveChip($('#catChips'),    $('#catChips [data-cat="all"]'));
+    setActiveChip($('#lmdChips'),    $('#lmdChips [data-lmd="all"]'));
+    const streamTarget = myStreamCode
+      ? $(`#streamChips [data-stream="${myStreamCode}"]`)
+      : $('#streamChips [data-stream="all"]');
+    setActiveChip($('#streamChips'), streamTarget || $('#streamChips [data-stream="all"]'));
+
+    /* reset new controls */
+    showAllBtn.classList.remove('active');
+    showAllBtn.setAttribute('aria-pressed', 'false');
+    wilayaSelect.value = myWilayaNum != null ? String(myWilayaNum) : '';
+
+    renderCards();
+  });
+
+  const noResultsResetBtn = $('#noResultsReset');
+  if (noResultsResetBtn) {
+    noResultsResetBtn.addEventListener('click', () => $('#resetBtn').click());
+  }
+
+  /* ---- Initial render ---- */
+  renderCards();
+})();
+</script>
+</body>
+</html>

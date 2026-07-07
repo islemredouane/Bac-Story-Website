@@ -1,0 +1,248 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>توجيهي · تسجيل الدخول</title>
+    <meta name="description" content="ادخل إلى توجيهي من BAC STORY — مرشدك الذكي لاختيار التخصص والجامعة في الجزائر.">
+    <meta property="og:title" content="توجيهي · تسجيل الدخول">
+    <meta property="og:description" content="ادخل إلى توجيهي من BAC STORY — مرشدك الذكي لاختيار التخصص والجامعة في الجزائر.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Pattaya&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles/tokens.css">
+    <link rel="stylesheet" href="styles/motion.css">
+    <link rel="stylesheet" href="styles/app.css">
+    <link rel="stylesheet" href="styles/auth.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+    <script src="supabase.js"></script>
+</head>
+<body class="auth-body">
+    <!-- noise texture overlay -->
+    <div class="auth-noise" aria-hidden="true"></div>
+
+    <!-- ambient blobs -->
+    <div class="auth-bg" aria-hidden="true">
+        <span class="auth-blob auth-blob-1"></span>
+        <span class="auth-blob auth-blob-2"></span>
+        <span class="auth-blob auth-blob-3"></span>
+    </div>
+
+    <!-- theme toggle, top corner -->
+    <button class="icon-btn auth-theme" id="themeBtn" aria-label="تبديل الوضع"><i class="fas fa-moon"></i></button>
+
+    <main class="auth-wrap">
+        <section class="auth-card" role="dialog" aria-labelledby="authTitle">
+            <div class="auth-logo">توجيهي</div>
+            <p class="auth-tag">من BAC STORY</p>
+
+            <h1 class="auth-title" id="authTitle">مرحبا بيك 👋</h1>
+            <p class="auth-prop">رفيقك الذكي باه تختار التخصص والجامعة اللي يناسبوك — بكل ثقة وراحة بال.</p>
+
+            <div class="auth-social-proof" aria-label="إحصاء المستخدمين">
+                <i class="fas fa-users"></i>
+                <span>يثق بنا 10,000+ طالب جزائري</span>
+            </div>
+
+            <button class="google-btn" id="googleBtn">
+                <span class="google-g" aria-hidden="true">
+                    <svg viewBox="0 0 48 48" width="20" height="20">
+                        <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+                        <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+                        <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+                        <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+                    </svg>
+                </span>
+                <span class="google-btn-label">المتابعة بحساب Google</span>
+                <i class="fas fa-spinner google-spin" aria-hidden="true"></i>
+            </button>
+
+            <p class="auth-terms">بالمتابعة، أنت توافق على <a href="terms.html">شروط الاستخدام</a> و <a href="privacy.html">سياسة الخصوصية</a>.</p>
+
+            <div class="auth-trust">
+                <i class="fas fa-lock"></i>
+                <span>تسجيل دخول آمن — بياناتك محمية</span>
+            </div>
+
+        </section>
+
+        <p class="auth-foot">  توجيهي - © BAC STORY</p>
+    </main>
+
+    <script>
+    (() => {
+        // Theme logic
+        const root = document.documentElement;
+        const saved = localStorage.getItem('tw-theme') || 'light';
+        root.setAttribute('data-theme', saved);
+        const themeBtn = document.getElementById('themeBtn');
+        const syncIcon = () => {
+            const dark = root.getAttribute('data-theme') === 'dark';
+            themeBtn.innerHTML = `<i class="fas fa-${dark ? 'sun' : 'moon'}"></i>`;
+        };
+        syncIcon();
+        themeBtn.addEventListener('click', () => {
+            const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            root.setAttribute('data-theme', next);
+            localStorage.setItem('tw-theme', next);
+            syncIcon();
+        });
+    })();
+
+    // Toast helper
+    function showToast(msg, color) {
+        let t = document.getElementById('_twToast');
+        if (!t) {
+            t = document.createElement('div');
+            t.id = '_twToast';
+            t.className = 'auth-toast';
+            document.body.appendChild(t);
+        }
+        t.textContent = msg;
+        t.classList.toggle('is-error', !color || color === '#ef4444');
+        t.classList.add('is-visible');
+        clearTimeout(t._hide);
+        t._hide = setTimeout(() => { t.classList.remove('is-visible'); }, 3500);
+    }
+
+    let _handling = false;
+    async function handleSignIn(session) {
+        if (_handling) return;
+        _handling = true;
+        try {
+            const user = session.user;
+            const { data: profile } = await tw_supabase
+                .from('profiles')
+                .select('*')
+                .eq('id', user.id)
+                .single();
+
+            if (profile && profile.completed === true) {
+                localStorage.setItem('tw-auth', JSON.stringify({ provider: 'google', uid: user.id }));
+                localStorage.setItem('tw-profile', JSON.stringify({
+                    ...profile,
+                    name: profile.name || user.user_metadata?.full_name || 'صديقي'
+                }));
+                window.location.href = 'app.html';
+            } else {
+                await tw_supabase.from('profiles').upsert({
+                    id: user.id,
+                    email: user.email,
+                    name: user.user_metadata?.full_name || user.user_metadata?.name || 'صديقي',
+                    avatar_url: user.user_metadata?.avatar_url
+                });
+                await tw_supabase.from('credits').upsert(
+                    { user_id: user.id, balance: 30, total_earned: 30, total_spent: 0 },
+                    { onConflict: 'user_id', ignoreDuplicates: true }
+                );
+                const code = 'TW-' + Math.random().toString(36).slice(2, 7).toUpperCase();
+                await tw_supabase.from('referral_codes').upsert(
+                    { owner_user_id: user.id, code },
+                    { ignoreDuplicates: true }
+                );
+                const refCode = new URLSearchParams(location.search).get('ref');
+                if (refCode) sessionStorage.setItem('tw-pending-ref', refCode);
+                localStorage.setItem('tw-auth', JSON.stringify({ provider: 'google', uid: user.id }));
+                window.location.href = 'onboarding.html';
+            }
+        } catch (err) {
+            console.error('handleSignIn error:', err);
+            // Fallback: store auth and go to onboarding regardless
+            localStorage.setItem('tw-auth', JSON.stringify({ provider: 'google', uid: session.user.id }));
+            window.location.href = 'onboarding.html';
+        }
+    }
+
+    // Handle implicit OAuth callback (#access_token in hash) — bypass SDK entirely
+    if (location.hash.includes('access_token')) {
+        (async () => {
+            try {
+                const p = new URLSearchParams(location.hash.slice(1));
+                const access_token = p.get('access_token');
+                const refresh_token = p.get('refresh_token');
+                if (!access_token) return;
+
+                // Decode JWT payload without verification (add padding for atob)
+                const b64 = access_token.split('.')[1].replace(/-/g, '+').replace(/_/g, '/');
+                const payload = JSON.parse(atob(b64.padEnd(b64.length + (4 - b64.length % 4) % 4, '=')));
+                const uid = payload.sub;
+                const meta = payload.user_metadata || {};
+
+                // Write session into Supabase's own localStorage key so SDK is aware
+                localStorage.setItem(
+                    `sb-${SUPABASE_URL.split('//')[1].split('.')[0]}-auth-token`,
+                    JSON.stringify({ access_token, refresh_token, expires_at: payload.exp, token_type: 'bearer',
+                        user: { id: uid, email: payload.email, user_metadata: meta, app_metadata: payload.app_metadata || {}, role: 'authenticated', aud: 'authenticated' }
+                    })
+                );
+                localStorage.setItem('tw-auth', JSON.stringify({ provider: 'google', uid }));
+
+                // Use raw fetch with Bearer token — no SDK dependency
+                const headers = { apikey: SUPABASE_PUBLISHABLE_KEY, Authorization: `Bearer ${access_token}`, 'Content-Type': 'application/json' };
+                const BASE = SUPABASE_URL + '/rest/v1';
+
+                const profRes = await fetch(`${BASE}/profiles?id=eq.${uid}&select=completed,name,stream,average,wilaya`, { headers });
+                const profiles = profRes.ok ? await profRes.json() : [];
+                const profile = profiles[0];
+
+                if (profile && profile.completed) {
+                    localStorage.setItem('tw-profile', JSON.stringify({ ...profile, email: payload.email, avatar_url: meta.avatar_url }));
+                    window.location.href = 'app.html';
+                    return;
+                }
+
+                // New user — upsert profile + credits
+                await fetch(`${BASE}/profiles`, { method: 'POST', headers: { ...headers, Prefer: 'resolution=merge-duplicates' },
+                    body: JSON.stringify({ id: uid, email: payload.email, name: meta.full_name || meta.name || 'صديقي', avatar_url: meta.avatar_url }) });
+                await fetch(`${BASE}/credits`, { method: 'POST', headers: { ...headers, Prefer: 'resolution=ignore-duplicates' },
+                    body: JSON.stringify({ user_id: uid, balance: 30, total_earned: 30, total_spent: 0 }) });
+                const code = 'TW-' + Math.random().toString(36).slice(2, 7).toUpperCase();
+                await fetch(`${BASE}/referral_codes`, { method: 'POST', headers: { ...headers, Prefer: 'resolution=ignore-duplicates' },
+                    body: JSON.stringify({ owner_user_id: uid, code }) });
+
+                localStorage.setItem('tw-profile', JSON.stringify({ name: meta.full_name || meta.name || 'صديقي', email: payload.email, avatar_url: meta.avatar_url }));
+                window.location.href = 'onboarding.html';
+            } catch (e) {
+                console.error('OAuth callback error:', e);
+                // Still try to redirect — extract uid from hash param if possible
+                try {
+                    const p2 = new URLSearchParams(location.hash.slice(1));
+                    const at = p2.get('access_token');
+                    if (at) {
+                        const b = at.split('.')[1].replace(/-/g,'+').replace(/_/g,'/');
+                        const pl = JSON.parse(atob(b + '=='));
+                        localStorage.setItem('tw-auth', JSON.stringify({ provider: 'google', uid: pl.sub }));
+                    }
+                } catch(_) {}
+                window.location.href = 'onboarding.html';
+            }
+        })();
+    } else {
+        // PKCE / existing session fallback
+        tw_supabase.auth.onAuthStateChange(async (event, session) => {
+            if (event === 'SIGNED_IN' && session) await handleSignIn(session);
+        });
+    }
+
+    // Google button click
+    const gBtn = document.getElementById('googleBtn');
+    gBtn.addEventListener('click', async () => {
+        if (gBtn.classList.contains('is-loading')) return;
+        gBtn.classList.add('is-loading');
+        gBtn.querySelector('.google-btn-label').textContent = 'جاري الدخول…';
+        const { error } = await tw_supabase.auth.signInWithOAuth({
+            provider: 'google',
+            options: { redirectTo: window.location.origin + '/tawjihi/login.html' }
+        });
+        if (error) {
+            gBtn.classList.remove('is-loading');
+            gBtn.querySelector('.google-btn-label').textContent = 'المتابعة بحساب Google';
+            showToast('حدث خطأ أثناء تسجيل الدخول — حاول مرة أخرى');
+        }
+    });
+    </script>
+</body>
+</html>

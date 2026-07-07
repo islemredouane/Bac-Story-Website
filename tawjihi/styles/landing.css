@@ -1,0 +1,1012 @@
+/* ============================================================
+   TAWJIHI — Landing Page (توجيهي by BAC STORY)
+   Depends on tokens.css. Landing-specific styles only.
+   Light is default; [data-theme="dark"] handled via tokens + overrides.
+
+   OWNERSHIP NOTE (Visual/Brand Designer):
+   This file owns STATIC appearance only — layout, color, glass,
+   borders, shadows/glows, badges, typography, spacing, responsive,
+   dark-mode, and :hover TRANSITION states.
+   It does NOT define @keyframes, animation: declarations, or the
+   .reveal/[data-reveal] entrance states — the Motion agent owns those.
+   Transforms on [data-tilt] elements are owned by JS at runtime.
+   ============================================================ */
+
+/* ---------------- LAYOUT HELPERS ---------------- */
+.section { padding-block: var(--sp-8); position: relative; }
+.section-head { text-align: center; max-width: 680px; margin-inline: auto; margin-bottom: var(--sp-6); }
+.section-eyebrow {
+    display: inline-block; font-size: var(--fs-xs); font-weight: 800; letter-spacing: .04em;
+    color: var(--primary);
+    background: color-mix(in srgb, var(--primary) 12%, transparent);
+    border: 1px solid color-mix(in srgb, var(--primary) 22%, transparent);
+    padding: var(--sp-1) var(--sp-3); border-radius: var(--r-pill); margin-bottom: var(--sp-3);
+}
+.section-title {
+    font-size: var(--fs-2xl); line-height: 1.25; font-weight: 800;
+    letter-spacing: -.01em;
+}
+.section-sub { color: var(--text-muted); margin-top: var(--sp-2); font-size: var(--fs-lg); }
+
+/* shared buttons */
+.btn {
+    display: inline-flex; align-items: center; gap: var(--sp-2);
+    padding: var(--sp-3) var(--sp-5); border-radius: var(--r-pill);
+    font-weight: 700; font-size: var(--fs-sm); white-space: nowrap;
+    transition: transform var(--t-fast) var(--ease), box-shadow var(--t-mid) var(--ease), opacity var(--t-fast), border-color var(--t-fast), color var(--t-fast);
+}
+.btn-primary {
+    background: var(--grad-brand); color: #fff;
+    box-shadow: var(--shadow-sm), 0 8px 22px color-mix(in srgb, var(--brand-blue) 35%, transparent);
+}
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md), 0 14px 34px color-mix(in srgb, var(--brand-blue) 42%, transparent);
+}
+.btn-accent {
+    background: var(--grad-accent); color: #fff;
+    box-shadow: var(--shadow-sm), 0 8px 22px color-mix(in srgb, var(--brand-orange) 35%, transparent);
+}
+.btn-accent:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md), 0 14px 34px color-mix(in srgb, var(--brand-orange) 42%, transparent);
+}
+.btn-ghost {
+    background: color-mix(in srgb, var(--surface) 80%, transparent);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    color: var(--text); border: 1px solid var(--border-strong);
+}
+.btn-ghost:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-2px); }
+.btn-lg { padding: var(--sp-4) var(--sp-6); font-size: var(--fs-md); }
+
+/* ============================================================
+   AMBIENT AURORA — fixed parallax background behind everything
+   (Motion animates orb drift; here we only place/size/color them.)
+   ============================================================ */
+.lp-aurora {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+.aurora-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: .55;
+    will-change: transform;
+}
+.orb-blue {
+    width: 46vw; height: 46vw; max-width: 620px; max-height: 620px;
+    inset-block-start: -8vw; inset-inline-end: -6vw;
+    background: radial-gradient(circle at 30% 30%,
+        color-mix(in srgb, var(--brand-blue) 70%, transparent),
+        transparent 68%);
+}
+.orb-orange {
+    width: 38vw; height: 38vw; max-width: 520px; max-height: 520px;
+    inset-block-start: 42vh; inset-inline-start: -8vw;
+    background: radial-gradient(circle at 40% 40%,
+        color-mix(in srgb, var(--brand-orange) 60%, transparent),
+        transparent 66%);
+    opacity: .42;
+}
+.orb-violet {
+    width: 34vw; height: 34vw; max-width: 480px; max-height: 480px;
+    inset-block-start: 86vh; inset-inline-end: 6vw;
+    background: radial-gradient(circle at 50% 50%,
+        color-mix(in srgb, var(--cat-education) 60%, transparent),
+        transparent 66%);
+    opacity: .38;
+}
+.aurora-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(color-mix(in srgb, var(--text) 9%, transparent) 1px, transparent 1px);
+    background-size: 32px 32px;
+    background-position: center;
+    opacity: .5;
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, #000 0%, transparent 75%);
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, #000 0%, transparent 75%);
+}
+
+[data-theme="dark"] .aurora-orb { opacity: .4; filter: blur(110px); }
+[data-theme="dark"] .orb-blue   { opacity: .42; }
+[data-theme="dark"] .orb-orange { opacity: .3; }
+[data-theme="dark"] .orb-violet { opacity: .3; }
+[data-theme="dark"] .aurora-grid {
+    background-image:
+        radial-gradient(color-mix(in srgb, #ffffff 7%, transparent) 1px, transparent 1px);
+    opacity: .6;
+}
+
+/* ============================================================
+   3D STAGE — perspective container for tilt children
+   ============================================================ */
+.lp-stage {
+    perspective: 1200px;
+    perspective-origin: center;
+}
+
+/* ============================================================
+   NAVBAR — scroll-aware glass rail
+   ============================================================ */
+.lp-nav {
+    position: sticky; top: 0; z-index: 100;
+    /* transparent at the top — sits directly over the page background.
+       The glass surface only appears once scrolled (.scrolled). */
+    background: transparent;
+    backdrop-filter: none; -webkit-backdrop-filter: none;
+    border-bottom: 1px solid transparent;
+    box-shadow: none;
+    transition: background var(--t-mid) var(--ease), border-color var(--t-mid) var(--ease),
+                box-shadow var(--t-mid) var(--ease), backdrop-filter var(--t-mid) var(--ease);
+}
+/* condensed state once the user scrolls (JS toggles .scrolled) */
+.lp-nav.scrolled {
+    background: color-mix(in srgb, var(--surface) 82%, transparent);
+    backdrop-filter: blur(18px) saturate(150%); -webkit-backdrop-filter: blur(18px) saturate(150%);
+    border-bottom-color: color-mix(in srgb, var(--border) 85%, transparent);
+    box-shadow: 0 6px 24px color-mix(in srgb, var(--primary) 8%, rgba(20,28,46,.06));
+}
+.lp-nav-inner {
+    height: var(--topbar-h); display: flex; align-items: center; justify-content: space-between; gap: var(--sp-4);
+    transition: height var(--t-mid) var(--ease);
+}
+.lp-nav.scrolled .lp-nav-inner { height: 58px; }
+
+/* --- logo --- */
+.lp-logo {
+    display: inline-flex; align-items: center; gap: var(--sp-2);
+    font-family: var(--font-display); font-size: var(--fs-xl); color: var(--primary);
+    line-height: 1;
+}
+.lp-logo-mark {
+    display: grid; place-items: center; width: 34px; height: 34px; border-radius: 11px;
+    background: var(--grad-brand); color: #fff; font-size: 1.15rem;
+    box-shadow: 0 4px 12px color-mix(in srgb, var(--primary) 35%, transparent);
+}
+.lp-logo-text { transform: translateY(1px); }
+
+/* --- center nav with animated underline + scroll-spy active state --- */
+.lp-nav-center {
+    display: flex; align-items: center; gap: var(--sp-1);
+    margin-inline: auto;
+}
+.lp-link {
+    position: relative; color: var(--text-muted); font-weight: 700; font-size: var(--fs-sm);
+    padding: var(--sp-2) var(--sp-3); border-radius: var(--r-md);
+    transition: color var(--t-fast);
+}
+.lp-link::after {
+    content: ""; position: absolute; inset-inline: var(--sp-3); bottom: 4px; height: 2px;
+    border-radius: 2px; background: var(--grad-brand);
+    transform: scaleX(0); transform-origin: center; transition: transform var(--t-fast) var(--ease);
+}
+.lp-link:hover { color: var(--text); }
+.lp-link:hover::after,
+.lp-link.active::after { transform: scaleX(1); }
+.lp-link.active { color: var(--primary); }
+
+/* --- actions cluster --- */
+.lp-nav-actions { display: flex; align-items: center; gap: var(--sp-2); }
+.lp-icon-btn {
+    width: 42px; height: 42px; border-radius: var(--r-pill); flex-shrink: 0;
+    display: grid; place-items: center; color: var(--text-muted);
+    border: 1px solid transparent;
+    transition: background var(--t-fast), color var(--t-fast), border-color var(--t-fast);
+}
+.lp-icon-btn:hover { background: var(--surface-2); color: var(--text); border-color: var(--border); }
+.lp-login {
+    color: var(--text-muted); font-weight: 700; font-size: var(--fs-sm);
+    padding: var(--sp-2) var(--sp-3); border-radius: var(--r-md);
+    transition: color var(--t-fast), background var(--t-fast);
+}
+.lp-login:hover { color: var(--text); background: var(--surface-2); }
+.lp-cta { box-shadow: 0 6px 18px color-mix(in srgb, var(--primary) 28%, transparent); }
+.lp-cta:hover { box-shadow: 0 10px 26px color-mix(in srgb, var(--primary) 38%, transparent); }
+
+/* --- animated hamburger (morphs to X) --- */
+.lp-burger {
+    display: none; position: relative; width: 44px; height: 44px; flex-shrink: 0;
+    border-radius: var(--r-md); color: var(--text);
+    transition: background var(--t-fast);
+}
+.lp-burger:hover { background: var(--surface-2); }
+.lp-burger span {
+    position: absolute; inset-inline: 11px; height: 2px; border-radius: 2px;
+    background: currentColor;
+    transition: transform var(--t-mid) var(--ease), opacity var(--t-fast) var(--ease), top var(--t-mid) var(--ease);
+}
+.lp-burger span:nth-child(1) { top: 15px; }
+.lp-burger span:nth-child(2) { top: 21px; }
+.lp-burger span:nth-child(3) { top: 27px; }
+.lp-burger.is-open span:nth-child(1) { top: 21px; transform: rotate(45deg); }
+.lp-burger.is-open span:nth-child(2) { opacity: 0; }
+.lp-burger.is-open span:nth-child(3) { top: 21px; transform: rotate(-45deg); }
+
+/* ---------------- HERO ---------------- */
+.hero { padding-block: var(--sp-8) var(--sp-8); overflow: hidden; position: relative; }
+.hero-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-8); align-items: center;
+    position: relative; z-index: var(--z-base);
+}
+.hero-badge {
+    display: inline-flex; align-items: center; gap: var(--sp-2);
+    font-size: var(--fs-xs); font-weight: 700; color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+    padding: var(--sp-1) var(--sp-3); border-radius: var(--r-pill); margin-bottom: var(--sp-4);
+}
+.hero-title { font-size: clamp(1.7rem, 5.5vw, 2.75rem); line-height: 1.18; font-weight: 800; letter-spacing: -.01em; }
+.hero-title .grad {
+    background: var(--grad-brand); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;
+}
+.hero-sub { color: var(--text-muted); font-size: var(--fs-lg); margin-top: var(--sp-4); max-width: 46ch; }
+.hero-cta { display: flex; flex-wrap: wrap; gap: var(--sp-3); margin-top: var(--sp-6); }
+.hero-trust {
+    display: flex; align-items: center; gap: var(--sp-4); margin-top: var(--sp-5);
+    color: var(--text-faint); font-size: var(--fs-xs); flex-wrap: wrap;
+}
+.hero-trust span { display: inline-flex; align-items: center; gap: var(--sp-2); }
+.hero-trust i { color: var(--cat-science); }
+
+/* ---- floating depth badges around the hero ---- */
+.hero-floaters {
+    position: absolute; inset: 0; z-index: var(--z-base);
+    pointer-events: none;
+}
+.hero-float {
+    position: absolute;
+    display: inline-flex; align-items: center; gap: var(--sp-2);
+    font-size: var(--fs-sm); font-weight: 700;
+    color: var(--cat, var(--primary));
+    padding: var(--sp-2) var(--sp-4);
+    border-radius: var(--r-pill);
+    background:
+        radial-gradient(circle at 20% 20%, color-mix(in srgb, var(--cat, var(--primary)) 14%, transparent), transparent 70%),
+        color-mix(in srgb, var(--surface) 75%, transparent);
+    border: 1px solid color-mix(in srgb, var(--cat, var(--primary)) 32%, transparent);
+    backdrop-filter: blur(12px) saturate(140%); -webkit-backdrop-filter: blur(12px) saturate(140%);
+    box-shadow:
+        var(--shadow-md),
+        0 10px 28px color-mix(in srgb, var(--cat, var(--primary)) 28%, transparent);
+    white-space: nowrap;
+    will-change: transform;
+}
+.hero-float i { color: var(--cat, var(--primary)); font-size: 1em; }
+.float-1 { inset-block-start: 6%;  inset-inline-start: 2%; }
+.float-2 { inset-block-start: 18%; inset-inline-end: 4%; }
+.float-3 { inset-block-end: 22%;   inset-inline-start: 4%; }
+.float-4 { inset-block-end: 8%;    inset-inline-end: 8%; }
+
+/* ---- scroll-down cue ---- */
+.hero-scroll-cue {
+    /* Centered via inset 0 + margin-inline auto so Motion can own the
+       bounce transform without colliding with a centering transform. */
+    position: absolute; inset-block-end: var(--sp-4);
+    inset-inline: 0; margin-inline: auto;
+    width: 26px; height: 42px;
+    border: 2px solid color-mix(in srgb, var(--text-muted) 55%, transparent);
+    border-radius: var(--r-pill);
+    display: grid; place-items: start center;
+    padding-top: 7px;
+    z-index: var(--z-raised);
+    transition: border-color var(--t-fast);
+}
+.hero-scroll-cue:hover { border-color: var(--primary); }
+.hero-scroll-cue span {
+    width: 5px; height: 8px; border-radius: var(--r-pill);
+    background: var(--primary);
+    display: block;
+}
+
+/* embedded chat demo */
+.hero-demo {
+    background:
+        radial-gradient(circle at 12% 14%, color-mix(in srgb, var(--brand-blue) 7%, transparent), transparent 55%),
+        color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border: 1px solid color-mix(in srgb, var(--border) 90%, transparent);
+    border-radius: var(--r-xl);
+    box-shadow:
+        var(--shadow-lg),
+        0 24px 60px color-mix(in srgb, var(--brand-blue) 18%, transparent);
+    padding: var(--sp-4); position: relative;
+    transition: box-shadow var(--t-mid) var(--ease);
+    transform-style: preserve-3d;
+}
+/* soft colored glow behind the demo card */
+.demo-glow {
+    content: ""; position: absolute; inset: -18%;
+    z-index: -1; border-radius: var(--r-xl);
+    background:
+        radial-gradient(ellipse at 30% 30%, color-mix(in srgb, var(--brand-blue) 38%, transparent), transparent 60%),
+        radial-gradient(ellipse at 75% 80%, color-mix(in srgb, var(--brand-orange) 26%, transparent), transparent 62%);
+    filter: blur(46px);
+    opacity: .7;
+    pointer-events: none;
+}
+.demo-bar {
+    display: flex; align-items: center; gap: var(--sp-3); padding-bottom: var(--sp-3);
+    margin-bottom: var(--sp-3); border-bottom: 1px solid var(--border);
+}
+.demo-bar .demo-avatar {
+    width: 34px; height: 34px; border-radius: var(--r-pill); background: var(--grad-brand);
+    color: #fff; font-weight: 800; display: grid; place-items: center; font-size: var(--fs-sm);
+    box-shadow: 0 4px 12px color-mix(in srgb, var(--brand-blue) 35%, transparent);
+}
+.demo-bar .demo-who { font-weight: 700; font-size: var(--fs-sm); }
+.demo-bar .demo-status {
+    font-size: var(--fs-xs); color: var(--cat-science);
+    display: inline-flex; align-items: center; gap: var(--sp-1);
+}
+.demo-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--cat-science); display: inline-block; }
+.demo-thread { display: flex; flex-direction: column; gap: var(--sp-3); }
+
+.demo-msg { display: flex; gap: var(--sp-2); }
+.demo-msg .da {
+    width: 30px; height: 30px; border-radius: var(--r-pill); flex-shrink: 0;
+    display: grid; place-items: center; font-size: .8rem; font-weight: 800;
+}
+.demo-msg.ai .da { background: var(--grad-brand); color: #fff; }
+.demo-msg.user .da { background: var(--surface-2); color: var(--text-muted); }
+.demo-bubble {
+    background: var(--surface-2); border-radius: var(--r-md); padding: var(--sp-3) var(--sp-4);
+    font-size: var(--fs-sm); line-height: 1.55;
+}
+.demo-msg.user .demo-bubble { background: color-mix(in srgb, var(--primary) 12%, transparent); }
+.demo-msg.user { flex-direction: row-reverse; }
+
+.demo-cards {
+    display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-2); margin-top: var(--sp-2);
+}
+.demo-spec {
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-sm);
+    padding: var(--sp-3); border-top: 3px solid var(--cat, var(--primary));
+    box-shadow: var(--shadow-sm);
+}
+.demo-spec .ds-name { font-weight: 800; font-size: var(--fs-xs); }
+.demo-spec .ds-meta { color: var(--text-muted); font-size: .72rem; margin-top: 3px; }
+.demo-spec .ds-avg {
+    margin-top: var(--sp-2); font-size: .68rem; font-weight: 700; color: var(--cat, var(--primary));
+    background: color-mix(in srgb, var(--cat, var(--primary)) 12%, transparent);
+    display: inline-block; padding: 2px 8px; border-radius: var(--r-pill);
+}
+.demo-note { font-size: .72rem; color: var(--text-faint); margin-top: var(--sp-2); }
+
+/* ============================================================
+   STATS / TRUST COUNTERS
+   ============================================================ */
+.lp-stats { padding-block: var(--sp-6) var(--sp-8); }
+.stats-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-4);
+}
+.stat-card {
+    position: relative; overflow: hidden;
+    text-align: center;
+    padding: var(--sp-6) var(--sp-4);
+    border-radius: var(--r-lg);
+    background:
+        radial-gradient(circle at 50% 0%, color-mix(in srgb, var(--brand-blue) 7%, transparent), transparent 60%),
+        color-mix(in srgb, var(--surface) 85%, transparent);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border: 1px solid color-mix(in srgb, var(--primary) 38%, var(--border));
+    box-shadow:
+        var(--shadow-lg),
+        0 20px 46px color-mix(in srgb, var(--brand-blue) 22%, transparent);
+    transition: box-shadow var(--t-mid) var(--ease), border-color var(--t-fast);
+    transform-style: preserve-3d;
+}
+.stat-card::before {
+    content: ""; position: absolute; inset-block-start: -50px; inset-inline-start: -50px;
+    width: 150px; height: 150px; border-radius: 50%;
+    background: var(--brand-blue);
+    filter: blur(55px); opacity: .1; z-index: 0; pointer-events: none;
+}
+.stat-card:hover {
+    border-color: color-mix(in srgb, var(--primary) 40%, var(--border));
+    box-shadow:
+        var(--shadow-lg),
+        0 20px 46px color-mix(in srgb, var(--brand-blue) 22%, transparent);
+}
+.stat-num {
+    position: relative; z-index: var(--z-base);
+    font-size: clamp(2rem, 6vw, var(--fs-3xl)); font-weight: 800; line-height: 1;
+    background: var(--grad-brand);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+    letter-spacing: -.02em;
+}
+.stat-label {
+    position: relative; z-index: var(--z-base);
+    margin-top: var(--sp-3);
+    color: var(--text-muted); font-size: var(--fs-sm); font-weight: 600;
+    display: inline-flex; align-items: center; gap: var(--sp-2);
+}
+.stat-label i { color: var(--primary); }
+
+/* ============================================================
+   HOW IT WORKS
+   ============================================================ */
+.steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); }
+.step-card {
+    position: relative; overflow: hidden;
+    background:
+        radial-gradient(circle at 12% 16%, color-mix(in srgb, var(--cat, var(--primary)) 6%, transparent), transparent 55%),
+        color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border: 1px solid color-mix(in srgb, var(--primary) 32%, var(--border));
+    border-radius: var(--r-lg); padding: var(--sp-6) var(--sp-5); text-align: center;
+    box-shadow:
+        var(--shadow-md),
+        0 16px 38px color-mix(in srgb, var(--primary) 18%, transparent);
+    transition: box-shadow var(--t-mid) var(--ease), border-color var(--t-fast);
+    transform-style: preserve-3d;
+}
+.step-card::before {
+    content: ""; position: absolute; inset-block-start: -40px; inset-inline-end: -40px;
+    width: 140px; height: 140px; border-radius: 50%;
+    background: var(--cat, var(--primary));
+    filter: blur(50px); opacity: .1; z-index: 0; pointer-events: none;
+}
+.step-card:hover {
+    box-shadow:
+        var(--shadow-md),
+        0 16px 38px color-mix(in srgb, var(--primary) 18%, transparent);
+    border-color: color-mix(in srgb, var(--primary) 35%, var(--border));
+}
+.step-card > * { position: relative; z-index: var(--z-base); }
+.step-num {
+    position: absolute; inset-block-start: var(--sp-4); inset-inline-end: var(--sp-4);
+    font-family: var(--font-display); font-size: var(--fs-xl); color: var(--border-strong);
+    z-index: var(--z-base);
+}
+.step-icon {
+    width: 64px; height: 64px; border-radius: var(--r-lg); margin: 0 auto var(--sp-4);
+    display: grid; place-items: center; font-size: 1.5rem; color: #fff; background: var(--grad-brand);
+    box-shadow: 0 8px 22px color-mix(in srgb, var(--brand-blue) 35%, transparent);
+}
+.step-card:nth-child(2) .step-icon {
+    background: var(--grad-accent);
+    box-shadow: 0 8px 22px color-mix(in srgb, var(--brand-orange) 35%, transparent);
+}
+.step-card h3 { font-size: var(--fs-lg); }
+.step-card p { color: var(--text-muted); font-size: var(--fs-sm); margin-top: var(--sp-2); }
+
+/* ── SCROLL STACK — step cards pile up on top of each other as you scroll.
+   Each card is sticky with a slightly lower top, so the cards behind peek
+   through like a deck. Cards are made opaque so they cover the ones below. */
+.steps-grid.lp-stack {
+    display: block;
+    max-width: 600px;
+    margin-inline: auto;
+}
+.lp-stack .step-card {
+    position: sticky;
+    margin-bottom: var(--sp-6);
+    /* opaque enough that each card hides the ones stacked behind it */
+    background:
+        radial-gradient(circle at 12% 16%, color-mix(in srgb, var(--cat, var(--primary)) 7%, transparent), transparent 55%),
+        color-mix(in srgb, var(--surface) 97%, transparent);
+    animation: none !important;   /* no tilt drift while stacking */
+}
+.lp-stack .step-card:nth-child(1) { top: 92px;  }
+.lp-stack .step-card:nth-child(2) { top: 112px; }
+.lp-stack .step-card:nth-child(3) { top: 132px; }
+.lp-stack .step-card:last-child { margin-bottom: 0; }
+[data-theme="dark"] .lp-stack .step-card {
+    background:
+        radial-gradient(circle at 14% 16%, color-mix(in srgb, var(--primary) 16%, transparent), transparent 55%),
+        rgba(23, 29, 43, 0.97);
+}
+
+/* ============================================================
+   FEATURES
+   ============================================================ */
+.feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); }
+.feat-card {
+    position: relative; overflow: hidden;
+    background:
+        radial-gradient(circle at 14% 14%, color-mix(in srgb, var(--cat, var(--primary)) 6%, transparent), transparent 55%),
+        color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border: 1px solid color-mix(in srgb, var(--cat, var(--primary)) 36%, var(--border));
+    border-radius: var(--r-lg);
+    padding: var(--sp-6) var(--sp-5);
+    box-shadow:
+        var(--shadow-md),
+        0 16px 40px color-mix(in srgb, var(--cat, var(--primary)) 22%, transparent);
+    transition: box-shadow var(--t-mid) var(--ease), border-color var(--t-fast);
+    transform-style: preserve-3d;
+}
+.feat-card::before {
+    content: ""; position: absolute; inset-block-start: -45px; inset-inline-start: -45px;
+    width: 160px; height: 160px; border-radius: 50%;
+    background: var(--cat, var(--primary));
+    filter: blur(55px); opacity: .1; z-index: 0; pointer-events: none;
+}
+.feat-card > * { position: relative; z-index: var(--z-base); }
+.feat-card:hover {
+    box-shadow:
+        var(--shadow-md),
+        0 16px 40px color-mix(in srgb, var(--cat, var(--primary)) 22%, transparent);
+    border-color: color-mix(in srgb, var(--cat, var(--primary)) 40%, var(--border));
+}
+.feat-card.hero-feat {
+    border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+    background:
+        radial-gradient(circle at 14% 14%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 55%),
+        linear-gradient(160deg, color-mix(in srgb, var(--accent) 8%, var(--surface)), color-mix(in srgb, var(--surface) 90%, transparent));
+}
+.feat-icon {
+    width: 52px; height: 52px; border-radius: var(--r-md); margin-bottom: var(--sp-4);
+    display: grid; place-items: center; font-size: 1.3rem; color: var(--cat, var(--primary));
+    background: color-mix(in srgb, var(--cat, var(--primary)) 14%, transparent);
+    border: 1px solid color-mix(in srgb, var(--cat, var(--primary)) 26%, transparent);
+}
+.feat-card.hero-feat .feat-icon {
+    color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 16%, transparent);
+    border-color: color-mix(in srgb, var(--accent) 30%, transparent);
+}
+.feat-tag {
+    display: inline-block; font-size: var(--fs-xs); font-weight: 800; color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 14%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent) 28%, transparent);
+    padding: 2px 10px; border-radius: var(--r-pill); margin-bottom: var(--sp-2);
+}
+.feat-card h3 { font-size: var(--fs-lg); }
+.feat-card p { color: var(--text-muted); font-size: var(--fs-sm); margin-top: var(--sp-2); }
+.feat-list { list-style: none; margin-top: var(--sp-3); display: flex; flex-direction: column; gap: var(--sp-2); }
+.feat-list li { font-size: var(--fs-sm); color: var(--text-muted); display: flex; align-items: center; gap: var(--sp-2); }
+.feat-list i { color: var(--cat-science); font-size: .8rem; }
+
+/* ============================================================
+   CATEGORIES SHOWCASE (marquee)
+   (Motion scrolls .cats-track + pause-on-hover; we style + mask.)
+   ============================================================ */
+.lp-cats { padding-block: var(--sp-8); overflow: hidden; }
+.cats-marquee {
+    margin-top: var(--sp-5);
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+}
+.cats-track {
+    display: flex; align-items: center; gap: var(--sp-3);
+    width: max-content;
+    padding-inline: var(--sp-3);
+}
+.cat-badge {
+    display: inline-flex; align-items: center; gap: var(--sp-2);
+    flex-shrink: 0;
+    font-size: var(--fs-sm); font-weight: 700;
+    color: var(--cat, var(--primary));
+    padding: var(--sp-3) var(--sp-5);
+    border-radius: var(--r-pill);
+    background: color-mix(in srgb, var(--cat, var(--primary)) 10%, var(--surface));
+    border: 1px solid color-mix(in srgb, var(--cat, var(--primary)) 32%, transparent);
+    box-shadow: 0 4px 14px color-mix(in srgb, var(--cat, var(--primary)) 14%, transparent);
+    white-space: nowrap;
+    transition: box-shadow var(--t-fast), border-color var(--t-fast);
+}
+.cat-badge i { color: var(--cat, var(--primary)); }
+.cat-badge:hover {
+    border-color: color-mix(in srgb, var(--cat, var(--primary)) 50%, transparent);
+    box-shadow: 0 8px 22px color-mix(in srgb, var(--cat, var(--primary)) 26%, transparent);
+}
+
+/* ============================================================
+   SOCIAL PROOF + FAQ
+   ============================================================ */
+.proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); margin-bottom: var(--sp-8); }
+.testimonial {
+    position: relative; overflow: hidden;
+    background:
+        radial-gradient(circle at 14% 14%, color-mix(in srgb, var(--brand-orange) 5%, transparent), transparent 55%),
+        color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border: 1px solid color-mix(in srgb, var(--accent) 30%, var(--border));
+    border-radius: var(--r-lg); padding: var(--sp-5);
+    box-shadow:
+        var(--shadow-md),
+        0 16px 38px color-mix(in srgb, var(--brand-orange) 16%, transparent);
+    transition: box-shadow var(--t-mid) var(--ease), border-color var(--t-fast);
+    transform-style: preserve-3d;
+}
+.testimonial::before {
+    content: ""; position: absolute; inset-block-end: -45px; inset-inline-end: -45px;
+    width: 150px; height: 150px; border-radius: 50%;
+    background: var(--brand-orange);
+    filter: blur(55px); opacity: .08; z-index: 0; pointer-events: none;
+}
+.testimonial > * { position: relative; z-index: var(--z-base); }
+.testimonial:hover {
+    box-shadow:
+        var(--shadow-md),
+        0 16px 38px color-mix(in srgb, var(--brand-orange) 16%, transparent);
+    border-color: color-mix(in srgb, var(--accent) 32%, var(--border));
+}
+.testimonial .t-stars { color: var(--brand-orange); font-size: var(--fs-sm); margin-bottom: var(--sp-3); }
+.testimonial .t-text { font-size: var(--fs-sm); line-height: 1.7; }
+.testimonial .t-who { display: flex; align-items: center; gap: var(--sp-3); margin-top: var(--sp-4); }
+.testimonial .t-ava {
+    width: 40px; height: 40px; border-radius: var(--r-pill);
+    background: color-mix(in srgb, var(--primary) 12%, var(--surface-2));
+    display: grid; place-items: center; color: var(--primary); font-weight: 800;
+}
+.testimonial .t-name { font-weight: 700; font-size: var(--fs-sm); }
+.testimonial .t-meta { color: var(--text-faint); font-size: var(--fs-xs); }
+
+/* telegram CTA banner */
+.tg-cta {
+    position: relative; overflow: hidden;
+    background: var(--grad-brand); border-radius: var(--r-lg); padding: var(--sp-6);
+    display: flex; align-items: center; justify-content: space-between; gap: var(--sp-4);
+    flex-wrap: wrap; margin-bottom: var(--sp-8);
+    box-shadow:
+        var(--shadow-md),
+        0 18px 44px color-mix(in srgb, var(--brand-blue) 32%, transparent);
+}
+.tg-glow {
+    position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    background:
+        radial-gradient(circle at 12% 20%, rgba(255,255,255,.22), transparent 45%),
+        radial-gradient(circle at 88% 90%, color-mix(in srgb, var(--brand-orange) 45%, transparent), transparent 55%);
+    opacity: .9;
+}
+.tg-cta > * { position: relative; z-index: var(--z-base); }
+.tg-cta .tg-text h3 { color: #fff; font-size: var(--fs-xl); display: inline-flex; align-items: center; gap: var(--sp-2); }
+.tg-cta .tg-text p { color: rgba(255,255,255,.85); font-size: var(--fs-sm); margin-top: 4px; }
+.tg-cta .btn { background: #fff; color: var(--brand-blue-strong); box-shadow: 0 8px 22px rgba(0,0,0,.18); }
+.tg-cta .btn:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(0,0,0,.24); }
+
+/* FAQ accordion */
+.faq { max-width: 760px; margin-inline: auto; display: flex; flex-direction: column; gap: var(--sp-3); }
+.faq-item {
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--border); border-radius: var(--r-md); overflow: hidden;
+    transition: border-color var(--t-fast), box-shadow var(--t-fast);
+}
+.faq-item:hover { border-color: color-mix(in srgb, var(--primary) 30%, var(--border)); }
+.faq-item[open] {
+    border-color: var(--primary);
+    box-shadow: 0 8px 24px color-mix(in srgb, var(--brand-blue) 12%, transparent);
+}
+.faq-item summary {
+    list-style: none; cursor: pointer; padding: var(--sp-4) var(--sp-5);
+    font-weight: 700; font-size: var(--fs-md); display: flex; align-items: center; justify-content: space-between; gap: var(--sp-3);
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary .faq-chev { color: var(--primary); transition: transform var(--t-fast) var(--ease); }
+.faq-item[open] summary .faq-chev { transform: rotate(180deg); }
+.faq-item .faq-body { padding: 0 var(--sp-5) var(--sp-4); color: var(--text-muted); font-size: var(--fs-sm); line-height: 1.7; }
+
+/* ---------------- FOOTER ---------------- */
+.lp-footer {
+    border-top: 1px solid var(--border);
+    background: color-mix(in srgb, var(--surface) 92%, transparent);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    padding-block: var(--sp-6); margin-top: var(--sp-8);
+}
+.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: var(--sp-6); }
+.footer-brand .lp-logo { display: inline-block; margin-bottom: var(--sp-2); }
+.footer-brand p { color: var(--text-muted); font-size: var(--fs-sm); max-width: 38ch; }
+.footer-col h4 { font-size: var(--fs-sm); margin-bottom: var(--sp-3); }
+.footer-col a { display: block; color: var(--text-muted); font-size: var(--fs-sm); padding: var(--sp-1) 0; transition: color var(--t-fast); }
+.footer-col a:hover { color: var(--primary); }
+.footer-bottom {
+    display: flex; align-items: center; justify-content: space-between; gap: var(--sp-3);
+    margin-top: var(--sp-6); padding-top: var(--sp-4); border-top: 1px solid var(--border);
+    color: var(--text-faint); font-size: var(--fs-xs); flex-wrap: wrap;
+}
+.footer-social { display: flex; gap: var(--sp-2); }
+.footer-social a {
+    width: 38px; height: 38px; border-radius: var(--r-pill); background: var(--surface-2);
+    display: grid; place-items: center; color: var(--text-muted); transition: background var(--t-fast), color var(--t-fast), transform var(--t-fast);
+}
+.footer-social a:hover { background: var(--primary); color: #fff; transform: translateY(-2px); }
+
+/* ---------------- SCROLL MARGIN (UI-18) ---------------- */
+#features, #how, #faq, #proof, #stats, #cats, #top {
+  scroll-margin-top: calc(var(--topbar-h, 64px) + 1rem);
+}
+
+/* ---------------- TESTIMONIAL CLICKABLE (UI-24) ---------------- */
+.proof-card { cursor: pointer; }
+.testimonial { cursor: pointer; }
+.proof-card-link { text-decoration: none; display: block; color: inherit; }
+
+/* ============================================================
+   MOBILE SHEET — full-screen premium overlay
+   ============================================================ */
+.lp-sheet {
+    position: fixed; inset: 0; z-index: 90;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: calc(var(--topbar-h) + var(--sp-6)) var(--sp-5) var(--sp-6);
+    background: color-mix(in srgb, var(--bg) 92%, transparent);
+    backdrop-filter: blur(12px) saturate(135%); -webkit-backdrop-filter: blur(12px) saturate(135%);
+    opacity: 0; visibility: hidden; pointer-events: none;
+    transition: opacity var(--t-mid) var(--ease), visibility var(--t-mid) var(--ease);
+    overflow: hidden;
+}
+.lp-sheet.is-open { opacity: 1; visibility: visible; pointer-events: auto; }
+.lp-sheet-glow {
+    position: absolute; inset-block-start: -20%; inset-inline-end: -20%;
+    width: 70vw; max-width: 520px; aspect-ratio: 1; border-radius: 50%;
+    background: radial-gradient(circle, color-mix(in srgb, var(--primary) 30%, transparent), transparent 65%);
+    filter: blur(60px); pointer-events: none;
+}
+.lp-sheet-inner {
+    position: relative; z-index: 1; width: 100%; max-width: 460px; margin-inline: auto;
+    display: flex; flex-direction: column; gap: var(--sp-6);
+}
+.lp-sheet-nav { display: flex; flex-direction: column; gap: var(--sp-1); }
+.lp-sheet-link {
+    display: flex; align-items: center; gap: var(--sp-3);
+    padding: var(--sp-4) var(--sp-2);
+    font-size: 1.5rem; font-weight: 800; color: var(--text);
+    border-bottom: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
+    /* staggered entrance — JS opens the sheet, CSS animates each row */
+    opacity: 0; transform: translateY(14px);
+    transition: opacity var(--t-mid) var(--ease), transform var(--t-mid) var(--ease), color var(--t-fast);
+}
+.lp-sheet.is-open .lp-sheet-link { opacity: 1; transform: none; }
+.lp-sheet.is-open .lp-sheet-link:nth-child(1) { transition-delay: 80ms; }
+.lp-sheet.is-open .lp-sheet-link:nth-child(2) { transition-delay: 140ms; }
+.lp-sheet.is-open .lp-sheet-link:nth-child(3) { transition-delay: 200ms; }
+.lp-sheet.is-open .lp-sheet-link:nth-child(4) { transition-delay: 260ms; }
+.lp-sheet.is-open .lp-sheet-link:nth-child(5) { transition-delay: 320ms; }
+.lp-sheet-link:active { color: var(--primary); }
+.lp-sheet-idx {
+    font-family: var(--font-display); font-size: var(--fs-md);
+    color: var(--primary); min-width: 32px; opacity: .7;
+}
+.lp-sheet-foot {
+    display: flex; flex-direction: column; gap: var(--sp-3);
+    opacity: 0; transform: translateY(14px);
+    transition: opacity var(--t-mid) var(--ease) 380ms, transform var(--t-mid) var(--ease) 380ms;
+}
+.lp-sheet.is-open .lp-sheet-foot { opacity: 1; transform: none; }
+.lp-sheet-theme {
+    display: inline-flex; align-items: center; gap: var(--sp-3); align-self: flex-start;
+    padding: var(--sp-3) var(--sp-4); border-radius: var(--r-pill);
+    background: var(--surface-2); border: 1px solid var(--border);
+    color: var(--text-muted); font-weight: 700; font-size: var(--fs-sm);
+    transition: color var(--t-fast), border-color var(--t-fast);
+}
+.lp-sheet-theme:hover { color: var(--text); border-color: var(--primary); }
+.lp-sheet-cta { justify-content: center; width: 100%; }
+
+/* lock body scroll while the sheet is open (JS adds .lp-no-scroll to body) */
+body.lp-no-scroll { overflow: hidden; }
+
+/* ============================================================
+   PREMIUM CARD LAYERS — cursor spotlight, border-beam, particles
+   (Static appearance + masks only. Motion owns the beam rotation;
+    the 3D agent draws on the particle canvas. JS sets --mx/--my.)
+   ============================================================ */
+
+/* 1. Cursor-following spotlight surface.
+   Sits below content (z-index:0) and above the card background, so it
+   reads through the glass without washing out text. JS sets --mx/--my
+   (px from the card's top-left) on pointermove; falls back to center. */
+.feat-card::after,
+.step-card::after,
+.stat-card::after,
+.testimonial::after {
+    content: ""; position: absolute; inset: 0; z-index: 0;
+    pointer-events: none; border-radius: inherit;
+    background: radial-gradient(circle 220px at var(--mx, 50%) var(--my, 50%),
+                color-mix(in srgb, var(--cat, var(--primary)) 22%, transparent), transparent 60%);
+    opacity: 0;
+    transition: opacity var(--t-mid) var(--ease);
+}
+.feat-card:hover::after,
+.step-card:hover::after,
+.stat-card:hover::after,
+.testimonial:hover::after { opacity: 1; }
+
+/* the hero star card spotlights in the accent hue */
+.feat-card.hero-feat::after {
+    background: radial-gradient(circle 220px at var(--mx, 50%) var(--my, 50%),
+                color-mix(in srgb, var(--accent) 24%, transparent), transparent 60%);
+}
+
+/* dark mode: lift the spotlight so it stays visible on the dark surface */
+[data-theme="dark"] .feat-card::after,
+[data-theme="dark"] .step-card::after,
+[data-theme="dark"] .stat-card::after,
+[data-theme="dark"] .testimonial::after {
+    background: radial-gradient(circle 220px at var(--mx, 50%) var(--my, 50%),
+                color-mix(in srgb, var(--cat, var(--primary)) 34%, transparent), transparent 62%);
+}
+[data-theme="dark"] .feat-card.hero-feat::after {
+    background: radial-gradient(circle 220px at var(--mx, 50%) var(--my, 50%),
+                color-mix(in srgb, var(--accent) 36%, transparent), transparent 62%);
+}
+
+/* 2. Border-beam — thin rotating light ring on the hero star card.
+   The padding + mask trick punches out the interior so only a 1.5px
+   ring shows. Motion adds the spin keyframe + animation to ::before. */
+.lp-beam {
+    position: absolute; inset: 0;
+    border-radius: var(--r-lg);
+    padding: 1.5px;
+    pointer-events: none;
+    z-index: 0;
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    overflow: hidden;
+}
+.lp-beam::before {
+    content: ""; position: absolute; inset: -150%;
+    background: conic-gradient(from 0deg,
+                transparent 0%, transparent 75%,
+                var(--cat, var(--primary)) 88%,
+                color-mix(in srgb, var(--cat, var(--primary)) 40%, #fff) 94%,
+                transparent 100%);
+}
+/* dark mode: brighten the beam's leading edge so the ring still pops */
+[data-theme="dark"] .lp-beam::before {
+    background: conic-gradient(from 0deg,
+                transparent 0%, transparent 75%,
+                color-mix(in srgb, var(--cat, var(--primary)) 85%, #fff) 88%,
+                #ffffff 94%,
+                transparent 100%);
+}
+
+/* 3. Particle canvas — full-bleed inside the fixed .lp-aurora layer.
+   The 3D agent draws on it; we only size/place/opacity it. It stays
+   behind page content because .lp-aurora is z-index:-1. */
+.lp-particles {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    opacity: .6;
+}
+[data-theme="dark"] .lp-particles { opacity: .5; }
+
+/* 4. Magnetic buttons — JS owns the transform; we only hint the GPU. */
+[data-magnetic] { will-change: transform; }
+
+/* ============================================================
+   DARK-MODE GLASS / GLOW OVERRIDES
+   ============================================================ */
+[data-theme="dark"] .lp-nav.scrolled {
+    background: color-mix(in srgb, var(--surface) 72%, transparent);
+    box-shadow: 0 6px 24px rgba(0,0,0,.4);
+}
+[data-theme="dark"] .lp-sheet { background: color-mix(in srgb, var(--bg) 93%, transparent); }
+[data-theme="dark"] .stat-card,
+[data-theme="dark"] .step-card,
+[data-theme="dark"] .feat-card,
+[data-theme="dark"] .testimonial,
+[data-theme="dark"] .hero-demo,
+[data-theme="dark"] .faq-item {
+    background:
+        radial-gradient(circle at 14% 16%, color-mix(in srgb, var(--cat, var(--primary)) 14%, transparent), transparent 55%),
+        rgba(23, 29, 43, 0.82);
+    border-color: rgba(91, 134, 232, 0.14);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.30);
+}
+[data-theme="dark"] .feat-card.hero-feat {
+    background:
+        radial-gradient(circle at 14% 16%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 55%),
+        rgba(23, 29, 43, 0.86);
+    border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+}
+[data-theme="dark"] .hero-float {
+    background:
+        radial-gradient(circle at 20% 20%, color-mix(in srgb, var(--cat, var(--primary)) 22%, transparent), transparent 70%),
+        rgba(23, 29, 43, 0.7);
+    border-color: color-mix(in srgb, var(--cat, var(--primary)) 45%, transparent);
+}
+[data-theme="dark"] .cat-badge {
+    background: color-mix(in srgb, var(--cat, var(--primary)) 18%, rgba(23,29,43,0.7));
+    border-color: color-mix(in srgb, var(--cat, var(--primary)) 45%, transparent);
+}
+[data-theme="dark"] .btn-ghost {
+    background: rgba(23, 29, 43, 0.6);
+}
+[data-theme="dark"] .demo-glow {
+    opacity: .55;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1100px) {
+    .hero-float { font-size: var(--fs-xs); padding: var(--sp-1) var(--sp-3); }
+}
+
+/* nav collapses to the burger + full-screen sheet at this breakpoint */
+@media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; gap: var(--sp-6); }
+    .hero-demo { order: -1; }
+    .hero-title { font-size: var(--fs-2xl); }
+    .steps-grid, .feat-grid, .proof-grid { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: 1fr; gap: var(--sp-5); }
+    .demo-cards { grid-template-columns: 1fr; }
+    /* floating depth badges hidden on small screens (per spec) */
+    .hero-floaters { display: none; }
+
+    /* navbar → mobile: keep logo + theme + burger, move the rest into the sheet */
+    .lp-nav-center,
+    .lp-login,
+    .lp-cta { display: none; }
+    .lp-burger { display: block; }
+}
+
+@media (max-width: 700px) {
+    /* scroll cue hidden below 700px (per spec) */
+    .hero-scroll-cue { display: none; }
+}
+
+@media (max-width: 420px) {
+    .lp-sheet-link { font-size: 1.3rem; padding: var(--sp-3) var(--sp-2); }
+    .lp-logo-text { font-size: var(--fs-lg); }
+}
+
+@media (max-width: 560px) {
+    .stats-grid { grid-template-columns: 1fr; }
+    .tg-cta { flex-direction: column; align-items: flex-start; text-align: start; }
+    .tg-cta .btn { width: 100%; justify-content: center; }
+}
+
+@media (max-width: 360px) {
+    .section { padding-block: var(--sp-6); }
+    .cat-badge { font-size: var(--fs-xs); padding: var(--sp-2) var(--sp-4); }
+    .stat-card { padding: var(--sp-5) var(--sp-3); }
+    .feat-card, .step-card { padding: var(--sp-5) var(--sp-4); }
+}
+
+/* ============================================================
+   REDUCED MOTION — keep glass/glow but neutralize hover lift
+   (entrance/keyframe handling lives in Motion's file)
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+    .btn:hover,
+    .footer-social a:hover { transform: none; }
+}
+
+/* ============================================================
+   SCROLLBAR — slim floating pill (matches the app)
+   Transparent border + background-clip:padding-box gives the
+   thumb breathing room so it reads as a rounded pill.
+   ============================================================ */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+    background: rgba(100, 116, 139, 0.35);
+    border-radius: 99px;
+    border: 3px solid transparent;
+    background-clip: padding-box;
+    min-height: 36px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(100, 116, 139, 0.55);
+    background-clip: padding-box;
+}
+::-webkit-scrollbar-corner { background: transparent; }
+
+/* Firefox */
+* { scrollbar-width: thin; scrollbar-color: rgba(100, 116, 139, 0.35) transparent; }
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, 0.30);
+    border: 3px solid transparent;
+    background-clip: padding-box;
+}
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+    background: rgba(148, 163, 184, 0.50);
+    background-clip: padding-box;
+}
+[data-theme="dark"] * { scrollbar-color: rgba(148, 163, 184, 0.30) transparent; }

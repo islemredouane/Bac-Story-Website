@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <script>!function(){var p=location.pathname.split('/').pop();if(['login.html','onboarding.html','index.html',''].indexOf(p)<0){if(!localStorage.getItem('tw-auth'))return void location.replace('login.html');if(!localStorage.getItem('tw-profile'))return void location.replace('onboarding.html')}}()</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>توجيهي · الإحالة والمكافآت</title>
+    <meta name="description" content="شارك توجيهي مع أصدقائك واكسب رسائل مجانية لكلاكما.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@700;800;900&family=Pattaya&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles/tokens.css">
+    <link rel="stylesheet" href="styles/app.css">
+    <link rel="stylesheet" href="styles/dashboard.css">
+    <link rel="stylesheet" href="styles/referral.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+    <script src="supabase.js"></script>
+</head>
+<body>
+<div class="app" id="app">
+    <!-- ===================== SIDEBAR ===================== -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-head">
+            <button class="sidebar-toggle" id="sidebarToggle" aria-label="طي القائمة"><i class="fas fa-bars"></i></button>
+            <span class="sidebar-logo">توجيهي</span>
+        </div>
+
+        <nav class="nav-group">
+            <a class="nav-item" href="app.html"><i class="fas fa-comments"></i><span>المرشد الذكي</span></a>
+            <a class="nav-item" href="specialities.html"><i class="fas fa-compass"></i><span>دليل التخصصات</span></a>
+            <a class="nav-item" href="simulator.html"><i class="fas fa-list-check"></i><span>محاكي بطاقة الرغبات</span></a>
+            <a class="nav-item" href="dashboard.html"><i class="fas fa-gauge-high"></i><span>لوحتي</span></a>
+            <a class="nav-item active" href="referral.html"><i class="fas fa-gift"></i><span>الإحالة والمكافآت</span></a>
+        </nav>
+
+        <div class="sidebar-foot">
+            <a class="nav-item" href="#" onclick="document.getElementById('themeBtn')?.click();return false;"><i class="fas fa-circle-half-stroke" id="themeIconSide"></i><span>الوضع الليلي</span></a>
+            <a class="nav-item" href="login.html"><i class="fas fa-user-circle"></i><span>حسابي</span></a>
+            <a class="nav-item" href="settings.html"><i class="fas fa-gear"></i><span>الإعدادات</span></a>
+            <a class="nav-item" href="#" id="logoutBtn" onclick="if(window.twSignOut){window.twSignOut()}else{localStorage.clear();location.href='login.html'};return false;">
+              <i class="fas fa-right-from-bracket"></i>
+              <span>تسجيل الخروج</span>
+            </a>
+        </div>
+    </aside>
+    <div class="sidebar-scrim" id="scrim"></div>
+
+    <!-- ===================== MAIN ===================== -->
+    <main class="main">
+        <header class="topbar">
+            <div style="display:flex;align-items:center;gap:.5rem">
+                <button class="icon-btn mobile-only" id="drawerBtn" aria-label="القائمة"><i class="fas fa-bars"></i></button>
+                <span class="topbar-title">الإحالة والمكافآت</span>
+            </div>
+            <div class="topbar-actions">
+                <button class="icon-btn" id="themeBtn" aria-label="تبديل الوضع"><i class="fas fa-moon"></i></button>
+            </div>
+        </header>
+
+        <div class="dash-scroll">
+            <div class="dash-inner">
+
+                <!-- ── Hero ── -->
+                <div class="ref-hero-v2">
+                    <div class="ref-hero-v2-inner">
+                        <div class="ref-hero-v2-eyebrow"><i class="fas fa-gift"></i> برنامج الإحالة</div>
+                        <h1 class="ref-hero-v2-title">ادعُ أصدقاءك،<br><span>اكسب رسائل مجانية</span></h1>
+                        <p class="ref-hero-v2-sub">شارك توجيهي مع زملائك — كل إحالة ناجحة تمنحك <strong>+30 رسالة</strong> لك ولصديقك فوراً، بلا انتظار ولا إجراءات.</p>
+                        <!-- Code pill display -->
+                        <div class="ref-code-block">
+                            <span class="ref-code-label">كودك</span>
+                            <span class="ref-code-value" id="refCodeDisplay">…</span>
+                            <button class="ref-code-copy-btn" id="heroCodeCopyBtn">
+                                <i class="far fa-copy"></i> نسخ الكود
+                            </button>
+                        </div>
+                        <div class="ref-hero-v2-badges">
+                            <div class="ref-hero-v2-badge"><i class="fas fa-bolt"></i> يُضاف فوراً</div>
+                            <div class="ref-hero-v2-badge"><i class="fas fa-users"></i> لك ولصديقك</div>
+                            <div class="ref-hero-v2-badge"><i class="fas fa-infinity"></i> بلا حدود</div>
+                            <div class="ref-hero-v2-badge"><i class="fas fa-star"></i> مكافآت كبرى</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── Stats row ── -->
+                <div class="ref-stats-v2">
+
+                    <div class="ref-stat-v2">
+                        <div class="ref-stat-v2-icon"><i class="fas fa-coins"></i></div>
+                        <div class="ref-stat-v2-val" id="statBalance">—</div>
+                        <div class="ref-stat-v2-label">رصيدك الحالي (رسائل)</div>
+                        <div class="ref-progress-v2">
+                            <div class="ref-progress-v2-fill" id="balanceBar" style="width:0%"></div>
+                        </div>
+                        <p style="font-size:var(--fs-xs);color:var(--text-muted);margin-top:var(--sp-1)">من أصل 100 للتجديد التالي</p>
+                    </div>
+
+                    <div class="ref-stat-v2 green">
+                        <div class="ref-stat-v2-icon"><i class="fas fa-user-friends"></i></div>
+                        <div class="ref-stat-v2-val" id="statRefs">—</div>
+                        <div class="ref-stat-v2-label">أصدقاء انضموا عبرك</div>
+                        <p style="font-size:var(--fs-sm);color:var(--text-muted);margin-top:var(--sp-2)">
+                            كسبت <strong style="color:#10b981" id="statRefEarned">—</strong> رسالة من الإحالات
+                        </p>
+                    </div>
+
+                    <div class="ref-stat-v2 orange">
+                        <div class="ref-stat-v2-icon"><i class="fas fa-paper-plane"></i></div>
+                        <div class="ref-stat-v2-val" id="statSpent">—</div>
+                        <div class="ref-stat-v2-label">رسائل أُرسلت</div>
+                        <p style="font-size:var(--fs-sm);color:var(--text-muted);margin-top:var(--sp-2)">واصل الإحالة لتكسب أكثر!</p>
+                    </div>
+
+                </div>
+
+                <!-- ── How it works / reward tiers ── -->
+                <p class="ref-section-heading">
+                    <i class="fas fa-trophy"></i> مراحل المكافآت
+                </p>
+                <div class="ref-reward-grid">
+
+                    <div class="ref-reward-card">
+                        <div class="ref-reward-step">1</div>
+                        <i class="fas fa-share-alt ref-reward-icon"></i>
+                        <div class="ref-reward-title">شارك الرابط</div>
+                        <p class="ref-reward-desc">أرسل رابطك الخاص لأصدقائك عبر واتساب أو تيليغرام.</p>
+                        <span class="ref-reward-pill">الخطوة الأولى</span>
+                    </div>
+
+                    <div class="ref-reward-card">
+                        <div class="ref-reward-step">2</div>
+                        <i class="fas fa-user-plus ref-reward-icon"></i>
+                        <div class="ref-reward-title">صديقك يسجّل</div>
+                        <p class="ref-reward-desc">فور تسجيله عبر رابطك تحصل أنت وهو على مكافأة فورية.</p>
+                        <span class="ref-reward-pill">+30 رسالة لكليكما</span>
+                    </div>
+
+                    <div class="ref-reward-card">
+                        <div class="ref-reward-step">3</div>
+                        <i class="fas fa-coins ref-reward-icon"></i>
+                        <div class="ref-reward-title">الرصيد يُضاف فوراً</div>
+                        <p class="ref-reward-desc">يُضاف لحسابيكما تلقائياً — بلا انتظار ولا إجراءات.</p>
+                        <span class="ref-reward-pill">لحظي وتلقائي</span>
+                    </div>
+
+                    <div class="ref-reward-card gold">
+                        <div class="ref-reward-step">✦</div>
+                        <i class="fas fa-crown ref-reward-icon"></i>
+                        <div class="ref-reward-title">تحدي السفير الذهبي</div>
+                        <p class="ref-reward-desc">أحضر 10 أصدقاء واحصل على مكافأة كبرى ووسام "السفير الذهبي"!</p>
+                        <span class="ref-reward-pill">+300 رسالة + وسام</span>
+                    </div>
+
+                </div>
+
+                <!-- ── Main cols ── -->
+                <div class="ref-cols-v2">
+
+                    <!-- Copy link section -->
+                    <div class="ref-link-section">
+                        <p class="ref-section-heading" style="margin-bottom:var(--sp-2)"><i class="fas fa-link"></i> رابط الدعوة الخاص بك</p>
+                        <p style="font-size:var(--fs-sm);color:var(--text-muted);line-height:1.6;position:relative;z-index:1">
+                            بمجرد تسجيل صديقك عبر هذا الرابط تحصل أنت وهو على 30 رسالة مجانية فوراً!
+                        </p>
+                        <div class="ref-link-box-v2">
+                            <input type="text" class="ref-link-input-v2" id="refLinkInput" readonly value="…">
+                            <button class="ref-copy-btn-v2" id="copyBtn"><i class="far fa-copy"></i> نسخ</button>
+                        </div>
+                        <div class="ref-share-row-v2">
+                            <button class="ref-share-btn-v2 wa" id="waBtn">
+                                <i class="fab fa-whatsapp"></i> واتساب
+                            </button>
+                            <button class="ref-share-btn-v2 tg" id="tgBtn">
+                                <i class="fab fa-telegram-plane"></i> تيليغرام
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Social follow tasks -->
+                    <div class="ref-social-card">
+                        <p class="ref-section-heading" style="margin-bottom:var(--sp-2);position:relative;z-index:1"><i class="fas fa-satellite-dish"></i> تابعنا</p>
+                        <p style="font-size:var(--fs-xs);color:var(--text-muted);margin-bottom:var(--sp-4);position:relative;z-index:1">أول وحد يعرف جديد توجيهي والتخصصات.</p>
+
+                        <div class="social-task-v2">
+                            <div class="social-task-info-v2">
+                                <div class="social-task-icon-v2 insta"><i class="fab fa-instagram"></i></div>
+                                <div>
+                                    <strong style="display:block;font-size:var(--fs-sm);font-weight:800;color:var(--text);margin-bottom:2px">إنستغرام</strong>
+                                    <span style="font-size:var(--fs-xs);color:#ec4899;font-weight:800">@islembacdz</span>
+                                </div>
+                            </div>
+                            <a href="https://www.instagram.com/islembacdz" target="_blank" rel="noopener" class="social-btn-v2">متابعة</a>
+                        </div>
+
+                        <div class="social-task-v2">
+                            <div class="social-task-info-v2">
+                                <div class="social-task-icon-v2 tele"><i class="fab fa-telegram-plane"></i></div>
+                                <div>
+                                    <strong style="display:block;font-size:var(--fs-sm);font-weight:800;color:var(--text);margin-bottom:2px">قناة تيليغرام</strong>
+                                    <span style="font-size:var(--fs-xs);color:#2ca5e0;font-weight:800">@islembacdz</span>
+                                </div>
+                            </div>
+                            <a href="https://t.me/islembacdz" target="_blank" rel="noopener" class="social-btn-v2">انضمام</a>
+                        </div>
+
+                        <div class="social-task-v2">
+                            <div class="social-task-info-v2">
+                                <div class="social-task-icon-v2 tiktok"><i class="fab fa-tiktok"></i></div>
+                                <div>
+                                    <strong style="display:block;font-size:var(--fs-sm);font-weight:800;color:var(--text);margin-bottom:2px">تيك توك</strong>
+                                    <span style="font-size:var(--fs-xs);color:var(--text-muted);font-weight:800">@bacstory</span>
+                                </div>
+                            </div>
+                            <a href="https://tiktok.com/@bacstory" target="_blank" rel="noopener" class="social-btn-v2">متابعة</a>
+                        </div>
+                    </div>
+
+                </div><!-- /ref-cols-v2 -->
+
+                <!-- ── Elite challenge ── -->
+                <div class="elite-challenge-v2">
+                    <div style="position:relative;z-index:1;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--sp-5)">
+                        <div style="flex:1;min-width:260px">
+                            <div style="display:inline-flex;align-items:center;gap:6px;background:#fff;color:#d97706;padding:4px 14px;border-radius:999px;font-size:var(--fs-xs);font-weight:800;border:1px solid #fde68a;margin-bottom:var(--sp-3)">
+                                <i class="fas fa-medal"></i> المهمة الكبرى
+                            </div>
+                            <h3 style="font-size:var(--fs-xl);font-weight:900;color:#92400e;margin-bottom:var(--sp-2)"><i class="fas fa-crown" style="margin-inline-end:8px;font-size:1.1rem"></i>تحدي السفير الذهبي</h3>
+                            <p style="font-size:var(--fs-sm);color:#b45309;line-height:1.6;font-weight:600;margin:0">
+                                أحضر <strong style="color:#78350f">10 أصدقاء</strong> واحصل فوراً على
+                                <strong style="color:#78350f">300 رسالة إضافية</strong> + وسام "السفير الذهبي" في ملفك!
+                            </p>
+                        </div>
+                        <div style="flex-shrink:0;width:100%;max-width:300px">
+                            <div style="display:flex;justify-content:space-between;font-size:var(--fs-xs);font-weight:800;color:#92400e;margin-bottom:var(--sp-2)">
+                                <span>التقدم الحالي</span>
+                                <span><span id="eliteCount">0</span> / 10</span>
+                            </div>
+                            <div class="elite-progress-circles" id="eliteCircles">
+                                <div class="elite-circle" id="ec-1"><i class="fas fa-check"></i></div>
+                                <div class="elite-circle" id="ec-2"><i class="fas fa-check"></i></div>
+                                <div class="elite-circle" id="ec-3"><i class="fas fa-check"></i></div>
+                                <div class="elite-circle" id="ec-4"><i class="fas fa-check"></i></div>
+                                <div class="elite-circle" id="ec-5"><i class="fas fa-check"></i></div>
+                                <div class="elite-circle" id="ec-6"><i class="fas fa-check"></i></div>
+                                <div class="elite-circle" id="ec-7"><i class="fas fa-check"></i></div>
+                                <div class="elite-circle" id="ec-8"><i class="fas fa-check"></i></div>
+                                <div class="elite-circle" id="ec-9"><i class="fas fa-check"></i></div>
+                                <div class="elite-circle" id="ec-10"><i class="fas fa-check"></i></div>
+                            </div>
+                            <p style="font-size:var(--fs-xs);color:#b45309;margin-top:var(--sp-2);text-align:center;font-weight:700">
+                                متبقي <span id="eliteRem">10</span> إحالة للوصول لرتبة الأساطير!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── Usage card ── -->
+                <div class="ref-usage-card">
+                    <p class="ref-section-heading" style="position:relative;z-index:1"><i class="fas fa-gauge-simple-high"></i> استخدامك الحالي</p>
+                    <div style="margin-top:var(--sp-3);display:flex;flex-direction:column;gap:var(--sp-3);position:relative;z-index:1">
+                        <div>
+                            <div style="display:flex;justify-content:space-between;font-size:var(--fs-xs);font-weight:700;color:var(--text-muted);margin-bottom:var(--sp-2)">
+                                <span>رصيد متبقي</span>
+                                <span><span id="usageBalance">—</span> رسالة</span>
+                            </div>
+                            <div class="credits-bar-v2">
+                                <div class="credits-bar-v2-fill" id="usageBar" style="width:0%"></div>
+                            </div>
+                        </div>
+                        <p style="font-size:var(--fs-sm);color:var(--text-muted);margin:0;line-height:1.6">
+                            رصيدك يكفي للرسائل اللي محتاجها الآن. شارك توجيهي مع زملائك لتضمن رصيداً دائماً.
+                            <a href="app.html" style="color:var(--primary);font-weight:800;text-decoration:none;white-space:nowrap">← ابدأ محادثة</a>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Toast -->
+                <div class="ref-toast-v2" id="refToast">تم النسخ!</div>
+
+            </div><!-- /dash-inner -->
+        </div><!-- /dash-scroll -->
+    </main>
+</div>
+
+<script src="shell.js"></script>
+<script src="referral.js"></script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>توجيهي · لنتعرّف عليك</title>
+    <meta name="description" content="جاوب على بعض الأسئلة باش يفهمك المرشد ويرشدك أحسن.">
+    <meta property="og:title" content="توجيهي · لنتعرّف عليك">
+    <meta property="og:description" content="جاوب على بعض الأسئلة باش يفهمك المرشد ويرشدك أحسن.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Pattaya&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles/tokens.css">
+    <link rel="stylesheet" href="styles/motion.css">
+    <link rel="stylesheet" href="styles/app.css">
+    <link rel="stylesheet" href="styles/onboarding.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+    <script src="supabase.js"></script>
+    <script src="eligibility.js"></script>
+    <script src="averages-transport.js"></script>
+</head>
+<body class="ob-body">
+    <!-- noise texture overlay -->
+    <div class="ob-noise" aria-hidden="true"></div>
+    <!-- ambient background blobs -->
+    <div class="ob-bg-blobs" aria-hidden="true">
+        <span class="ob-blob ob-blob-1"></span>
+        <span class="ob-blob ob-blob-2"></span>
+    </div>
+
+    <header class="ob-topbar">
+        <span class="ob-logo">توجيهي</span>
+        <div class="ob-top-right">
+            <span class="ob-step-count" id="stepCount">الخطوة 1 من 6</span>
+            <button class="icon-btn" id="themeBtn" aria-label="تبديل الوضع"><i class="fas fa-moon"></i></button>
+        </div>
+    </header>
+
+    <div class="ob-progress" aria-hidden="true"><span class="ob-progress-bar" id="progressBar"></span></div>
+
+    <main class="ob-main">
+        <form class="ob-form" id="obForm">
+
+            <!-- ① الشعبة -->
+            <section class="ob-step is-active" data-step="0">
+                <p class="ob-kicker"><i class="fas fa-seedling"></i> نبداو بالأساسيات</p>
+                <h1 class="ob-q">شنو هي شعبتك؟</h1>
+                <p class="ob-hint">اختر الشعبة اللي راك فيها (ولا اللي كنت فيها) في الباكالوريا.</p>
+                <div class="ob-choices ob-grid-3" data-field="stream" data-mode="single">
+                    <button type="button" class="ob-choice" data-value="علوم تجريبية"><i class="fas fa-flask"></i><span>علوم تجريبية</span></button>
+                    <button type="button" class="ob-choice" data-value="رياضيات"><i class="fas fa-square-root-variable"></i><span>رياضيات</span></button>
+                    <button type="button" class="ob-choice" data-value="تقني رياضي"><i class="fas fa-gears"></i><span>تقني رياضي</span></button>
+                    <button type="button" class="ob-choice" data-value="تسيير واقتصاد"><i class="fas fa-chart-line"></i><span>تسيير واقتصاد</span></button>
+                    <button type="button" class="ob-choice" data-value="آداب وفلسفة"><i class="fas fa-book-open"></i><span>آداب وفلسفة</span></button>
+                    <button type="button" class="ob-choice" data-value="لغات أجنبية"><i class="fas fa-language"></i><span>لغات أجنبية</span></button>
+                </div>
+                <p class="ob-error" data-error>اختر شعبتك باش نكملو 🙂</p>
+            </section>
+
+            <!-- ② المعدل -->
+            <section class="ob-step" data-step="1">
+                <p class="ob-kicker"><i class="fas fa-percent"></i> المعدل المتوقع</p>
+                <h1 class="ob-q">شحال تتوقع معدلك؟</h1>
+                <p class="ob-hint">ما تكونش قاسي على روحك — تقدير تقريبي يكفي، نقدرو نبدلوه من بعد.</p>
+
+                <!-- استيراد المعدلات من BAC Story -->
+                <details class="ob-import" id="obImport">
+                    <summary class="ob-import-summary">
+                        <i class="fas fa-file-import"></i>
+                        <span>عندك معدلاتك من حاسبة BAC Story؟ استوردها</span>
+                        <i class="fas fa-chevron-down ob-import-chevron"></i>
+                    </summary>
+                    <div class="ob-import-body">
+                        <p class="ob-import-hint">الصق رمز المعدلات اللي نسختو من حاسبة BAC Story، ولا حمّل ملف <code>.json</code>.</p>
+                        <textarea id="obImportCode" class="ob-import-input" rows="3" placeholder="الصق رمز معدلاتك هنا…"></textarea>
+                        <div class="ob-import-actions">
+                            <button type="button" class="ob-btn ob-btn-primary ob-btn-sm" id="obImportBtn"><i class="fas fa-check"></i> استيراد</button>
+                            <label class="ob-btn ob-btn-ghost ob-btn-sm" for="obImportFile"><i class="fas fa-upload"></i> من ملف</label>
+                            <input type="file" id="obImportFile" accept=".json,.bacstory,application/json" hidden>
+                        </div>
+                        <p class="ob-import-msg" id="obImportMsg" role="status"></p>
+                    </div>
+                </details>
+
+                <div class="ob-range-card">
+                    <div class="ob-range-value"><span id="avgValue">12.00</span><small>/ 20</small></div>
+                    <input type="range" class="ob-range" id="avgRange" min="8" max="20" step="0.25" value="12" data-field="average">
+                    <div class="ob-range-scale"><span>08</span><span>14</span><span>20</span></div>
+                </div>
+            </section>
+
+            <!-- ③ الولاية -->
+            <section class="ob-step" data-step="2">
+                <p class="ob-kicker"><i class="fas fa-location-dot"></i> أين تسكن</p>
+                <h1 class="ob-q">من واش ولاية راك؟</h1>
+                <p class="ob-hint">باش نرشدك للجامعات والمدارس القريبة منك ونحسبو الإقامة.</p>
+                <div class="ob-select-wrap">
+                    <i class="fas fa-map-location-dot"></i>
+                    <select class="ob-select" id="wilayaSelect" data-field="wilaya">
+                        <option value="">اختر ولايتك…</option>
+                    </select>
+                    <i class="fas fa-chevron-down ob-select-arrow"></i>
+                </div>
+                <p class="ob-error" data-error>اختر ولايتك من القائمة 🙂</p>
+            </section>
+
+            <!-- ④ الميولات -->
+            <section class="ob-step" data-step="3">
+                <p class="ob-kicker"><i class="fas fa-heart"></i> واش يعجبك</p>
+                <h1 class="ob-q">شنو هي ميولاتك واهتماماتك؟</h1>
+                <p class="ob-hint">اختر كل اللي يجذبك — تقدر تختار أكثر من واحدة (على الأقل وحدة).</p>
+                <div class="ob-chips" data-field="interests" data-mode="multi">
+                    <button type="button" class="ob-chip" data-value="البرمجة والتكنولوجيا"><i class="fas fa-code"></i> البرمجة والتكنولوجيا</button>
+                    <button type="button" class="ob-chip" data-value="الطب والصحة"><i class="fas fa-stethoscope"></i> الطب والصحة</button>
+                    <button type="button" class="ob-chip" data-value="الهندسة"><i class="fas fa-helmet-safety"></i> الهندسة</button>
+                    <button type="button" class="ob-chip" data-value="الأعمال والمال"><i class="fas fa-briefcase"></i> الأعمال والمال</button>
+                    <button type="button" class="ob-chip" data-value="الفنون والتصميم"><i class="fas fa-palette"></i> الفنون والتصميم</button>
+                    <button type="button" class="ob-chip" data-value="العلوم الطبيعية"><i class="fas fa-dna"></i> العلوم الطبيعية</button>
+                    <button type="button" class="ob-chip" data-value="القانون والعلوم السياسية"><i class="fas fa-scale-balanced"></i> القانون والعلوم السياسية</button>
+                    <button type="button" class="ob-chip" data-value="التعليم والتربية"><i class="fas fa-chalkboard-user"></i> التعليم والتربية</button>
+                    <button type="button" class="ob-chip" data-value="اللغات والترجمة"><i class="fas fa-language"></i> اللغات والترجمة</button>
+                    <button type="button" class="ob-chip" data-value="الإعلام والاتصال"><i class="fas fa-tower-broadcast"></i> الإعلام والاتصال</button>
+                    <button type="button" class="ob-chip ob-chip-unsure" data-value="ما نعرفش بعد" data-unsure><i class="fas fa-circle-question"></i> ما نعرفش بعد — ساعدوني نكتشف ميولاتي</button>
+                </div>
+                <p class="ob-error" data-error>اختر اهتمام واحد على الأقل 🙂</p>
+            </section>
+
+            <!-- ⑤ الطموح المهني -->
+            <section class="ob-step" data-step="4">
+                <p class="ob-kicker"><i class="fas fa-rocket"></i> وينك رايح</p>
+                <h1 class="ob-q">شنو طموحك المهني؟</h1>
+                <p class="ob-hint">اختر اللي قريب لقلبك، ولا اكتب حلمك بكلماتك.</p>
+                <div class="ob-choices ob-grid-2" data-field="ambition" data-mode="single">
+                    <button type="button" class="ob-choice ob-choice-row" data-value="وظيفة مستقرة"><i class="fas fa-building-columns"></i><span>وظيفة مستقرة</span></button>
+                    <button type="button" class="ob-choice ob-choice-row" data-value="مشروعي الخاص"><i class="fas fa-store"></i><span>نطلق مشروعي الخاص</span></button>
+                    <button type="button" class="ob-choice ob-choice-row" data-value="البحث العلمي"><i class="fas fa-microscope"></i><span>البحث العلمي والدكتوراه</span></button>
+                    <button type="button" class="ob-choice ob-choice-row" data-value="العمل في الخارج"><i class="fas fa-plane-departure"></i><span>نخدم في الخارج</span></button>
+                </div>
+                <label class="ob-textfield">
+                    <span class="ob-textfield-label">ولا اكتبها بطريقتك (اختياري)</span>
+                    <textarea id="ambitionText" rows="2" placeholder="مثال: نحب نولّي مهندس ذكاء اصطناعي وندير ستارت-آب…" data-field="ambitionText"></textarea>
+                </label>
+                <p class="ob-error" data-error>اختر طموح ولا اكتب واحد 🙂</p>
+            </section>
+
+            <!-- ⑥ الملخص -->
+            <section class="ob-step" data-step="5">
+                <p class="ob-kicker"><i class="fas fa-circle-check"></i> راك جاهز</p>
+                <h1 class="ob-q">هاذي صورتك — واش صحيحة؟</h1>
+                <p class="ob-hint">راجع معلوماتك بسرعة. تقدر ترجع لورا باش تبدّل أي حاجة.</p>
+                <div class="ob-summary" id="summary">
+                    <div class="ob-summary-row"><span class="ob-summary-k"><i class="fas fa-flask"></i> الشعبة</span><span class="ob-summary-v" data-sum="stream">—</span></div>
+                    <div class="ob-summary-row"><span class="ob-summary-k"><i class="fas fa-percent"></i> المعدل المتوقع</span><span class="ob-summary-v" data-sum="average">—</span></div>
+                    <div class="ob-summary-row"><span class="ob-summary-k"><i class="fas fa-location-dot"></i> الولاية</span><span class="ob-summary-v" data-sum="wilaya">—</span></div>
+                    <div class="ob-summary-row"><span class="ob-summary-k"><i class="fas fa-heart"></i> اهتماماتك</span><span class="ob-summary-v" data-sum="interests">—</span></div>
+                    <div class="ob-summary-row"><span class="ob-summary-k"><i class="fas fa-rocket"></i> طموحك</span><span class="ob-summary-v" data-sum="ambition">—</span></div>
+                </div>
+            </section>
+
+            <!-- nav -->
+            <div class="ob-nav">
+                <button type="button" class="ob-btn ob-btn-ghost" id="backBtn"><i class="fas fa-arrow-right"></i> رجوع</button>
+                <button type="button" class="ob-btn ob-btn-primary" id="nextBtn">التالي <i class="fas fa-arrow-left"></i></button>
+                <button type="button" class="ob-btn ob-btn-primary ob-btn-finish" id="finishBtn">ابدأ مع المرشد <i class="fas fa-sparkles"></i></button>
+            </div>
+        </form>
+    </main>
+
+<div class="ob-complete-overlay" id="obCompleteOverlay" aria-hidden="true">
+    <div class="ob-complete-card">
+        <div class="ob-complete-check" id="obCompleteCheck">
+            <svg viewBox="0 0 52 52" class="ob-checkmark-svg" aria-hidden="true">
+                <circle class="ob-check-circle" cx="26" cy="26" r="25" fill="none"/>
+                <path class="ob-check-tick" fill="none" d="M14 27 l8 8 l16-16"/>
+            </svg>
+        </div>
+        <p class="ob-complete-msg">بدأت رحلتك — ننتقل للمرشد الذكي</p>
+    </div>
+</div>
+    <script src="onboarding.js"></script>
+</body>
+</html>

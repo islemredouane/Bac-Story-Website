@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <script>!function(){var p=location.pathname.split('/').pop();if(['login.html','onboarding.html','index.html',''].indexOf(p)<0){if(!localStorage.getItem('tw-auth'))return void location.replace('login.html');if(!localStorage.getItem('tw-profile'))return void location.replace('onboarding.html')}}()</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>توجيهي · محاكي بطاقة الرغبات</title>
+    <meta name="description" content="محاكي بطاقة الرغبات من توجيهي — رتّب رغباتك وشوف فرص قبولك في كل تخصص قبل الإرسال الرسمي.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Pattaya&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles/tokens.css">
+    <link rel="stylesheet" href="styles/motion.css">
+    <link rel="stylesheet" href="styles/app.css">
+    <link rel="stylesheet" href="styles/simulator.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+    <script src="supabase.js"></script>
+</head>
+<body>
+<div class="app" id="app">
+    <!-- ===================== SIDEBAR ===================== -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-head">
+            <button class="sidebar-toggle" id="sidebarToggle" aria-label="طي القائمة"><i class="fas fa-bars"></i></button>
+            <span class="sidebar-logo">توجيهي</span>
+        </div>
+
+        <nav class="nav-group">
+            <a class="nav-item" href="app.html"><i class="fas fa-comments"></i><span>المرشد الذكي</span></a>
+            <a class="nav-item" href="specialities.html"><i class="fas fa-compass"></i><span>دليل التخصصات</span></a>
+            <a class="nav-item active" href="simulator.html"><i class="fas fa-list-check"></i><span>محاكي بطاقة الرغبات</span></a>
+            <a class="nav-item" href="dashboard.html"><i class="fas fa-gauge-high"></i><span>لوحتي</span></a>
+            <a class="nav-item" href="referral.html"><i class="fas fa-gift"></i><span>الإحالة والمكافآت</span></a>
+        </nav>
+
+        <div class="sidebar-foot">
+            <a class="nav-item" href="#" onclick="document.getElementById('themeBtn')?.click();return false;"><i class="fas fa-circle-half-stroke" id="themeIconSide"></i><span>الوضع الليلي</span></a>
+            <a class="nav-item" href="dashboard.html"><i class="fas fa-user-circle"></i><span>حسابي</span></a>
+            <a class="nav-item" href="settings.html"><i class="fas fa-gear"></i><span>الإعدادات</span></a>
+            <a class="nav-item" href="#" id="logoutBtn" onclick="if(window.twSignOut){window.twSignOut()}else{localStorage.clear();location.href='login.html'};return false;">
+              <i class="fas fa-right-from-bracket"></i>
+              <span>تسجيل الخروج</span>
+            </a>
+        </div>
+    </aside>
+    <div class="sidebar-scrim" id="scrim"></div>
+
+    <!-- ===================== MAIN ===================== -->
+    <main class="main">
+        <header class="topbar">
+            <div style="display:flex;align-items:center;gap:.5rem">
+                <button class="icon-btn mobile-only" id="drawerBtn" aria-label="القائمة"><i class="fas fa-bars"></i></button>
+                <span class="topbar-title">محاكي بطاقة الرغبات</span>
+            </div>
+            <div class="topbar-actions">
+                <button class="icon-btn" id="themeBtn" aria-label="تبديل الوضع"><i class="fas fa-moon"></i></button>
+            </div>
+        </header>
+
+        <div class="sim-scroll">
+            <div class="sim-inner">
+                <!-- hero + controls -->
+                <section class="sim-hero">
+                    <div class="sim-hero-body">
+                        <div class="sim-hero-text">
+                            <div class="sim-hero-icon"><i class="fas fa-list-check"></i></div>
+                            <h1>رتّب بطاقة رغباتك بثقة</h1>
+                            <p>زيد التخصصات اللي تحبها، رتّبهم، وشوف فرص قبولك في كل واحد حسب معدلك — قبل ما ترسل رسمياً.</p>
+                        </div>
+                        <div class="sim-controls">
+                            <label class="sim-field">
+                                <span class="sim-field-label"><i class="fas fa-chart-line"></i> معدلك المتوقع</span>
+                                <div class="avg-input-wrap">
+                                    <input type="range" id="avgSlider" min="8" max="20" step="0.25" value="13.50" class="sim-avg-slider">
+                                    <span id="avgDisplay" class="sim-avg-display">13.50</span>
+                                </div>
+                                <span class="sim-field-range">8 — 20</span>
+                            </label>
+                            <div class="sim-controls-sep"></div>
+                            <div class="sim-stream-badge">
+                                <div class="sim-stream-ico"><i class="fas fa-user-graduate"></i></div>
+                                <div class="sim-stream-info">
+                                    <span class="sim-stream-label">شعبتك (من ملفك)</span>
+                                    <strong id="streamDisplay">—</strong>
+                                </div>
+                                <a href="onboarding.html" class="sim-stream-edit" title="تعديل الملف الشخصي">
+                                    <i class="fas fa-pen-to-square"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="sim-layout">
+                    <!-- main: ordered wishlist + analysis -->
+                    <div class="sim-col">
+                        <div class="sim-card">
+                            <div class="sim-card-head">
+                                <h2><i class="fas fa-list-ol"></i> رغباتك المرتّبة</h2>
+                                <span class="sim-count" id="wishCount">0 / 10</span>
+                            </div>
+                            <div class="sim-requirements" id="simRequirements"></div>
+                            <ol class="wishlist" id="wishlist"></ol>
+                            <div class="sim-empty" id="wishEmpty">
+                                <div class="sim-empty-icon">
+                                    <i class="fas fa-compass"></i>
+                                </div>
+                                <p class="sim-empty-title">ابدأ بإضافة تخصصاتك</p>
+                                <p class="sim-empty-body">اختر التخصصات اللي تهمك من القائمة على اليمين، وسنحسب فرص قبولك تلقائياً.</p>
+                                <div class="sim-empty-actions">
+                                    <a class="btn btn-primary" href="specialities.html"><i class="fas fa-compass"></i> استكشف التخصصات</a>
+                                    <button class="btn btn-ghost" id="discoverFromEmpty" onclick="sessionStorage.setItem('tw-pending-q', 'اقترح علي تخصصات مناسبة بناءً على ملفي'); location.href='app.html';"><i class="fas fa-robot"></i> اسألني المرشد يقترح عليك</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sim-analysis" id="analysis"></div>
+                    </div>
+
+                    <!-- side: add + risk distribution -->
+                    <aside class="sim-col sim-side">
+                        <div class="sim-card">
+                            <div class="sim-card-head"><h2><i class="fas fa-plus-circle"></i> أضف تخصص</h2></div>
+                            <input type="search" class="sim-search" id="catSearch" placeholder="ابحث عن تخصص أو مدرسة…">
+                            <div class="catalog" id="catalog"></div>
+                        </div>
+
+                        <div class="sim-card">
+                            <div class="sim-card-head"><h2><i class="fas fa-chart-simple"></i> توزيع المخاطر</h2></div>
+                            <div class="risk-legend">
+                                <span><i class="dot safe"></i> مضمون</span>
+                                <span><i class="dot likely"></i> على الحدّ</span>
+                                <span><i class="dot risk"></i> طموح / خطر</span>
+                            </div>
+                            <div class="risk-bar" id="riskBar"></div>
+                            <p class="risk-tip" id="riskTip">زيد رغباتك باش نوريّك التوزيع.</p>
+                        </div>
+
+                        <div class="sim-actions">
+                            <button class="sim-btn primary" id="saveBtn"><i class="fas fa-floppy-disk"></i> احفظ بطاقتي</button>
+                            <a class="sim-btn ghost" id="askAiBtn" href="app.html"><i class="fas fa-robot"></i> اسأل المرشد</a>
+                            <button class="sim-btn ghost" id="exportBtn"><i class="fas fa-file-export"></i> صدّر القائمة</button>
+                        </div>
+                    </aside>
+                </div>
+
+                <p class="composer-hint">المحاكي تقديري ويعتمد على معدلات السنوات الفايتة — أكّد دائماً ترتيبك على البوابة الرسمية قبل الإرسال.</p>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script src="shell.js"></script>
+<script src="catalog.js"></script>
+<script src="simulator.js"></script>
+</body>
+</html>

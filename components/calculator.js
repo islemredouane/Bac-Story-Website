@@ -199,6 +199,7 @@ function calculateAverage(field) {
     bsRevealData.specialty = getFieldName(field);
 
     document.getElementById('resultSection').style.display = 'none';
+    twRecordGeneral(average, field);
     showReveal();
 
     localStorage.setItem('calculatorState', field + 'Subjects');
@@ -244,6 +245,7 @@ function showReveal() {
 
     if (bsRevealData.mention) setTimeout(bsConfetti, 700);
     bsCountUp('bsOebAvg', bsRevealData.average, 1400);
+    twUpdateExportUI();
 }
 
 function bsSwitchTab(tab) {
@@ -539,6 +541,7 @@ function wcAutoCalc() {
     document.getElementById('wc-result-value').textContent = rounded;
     document.getElementById('wc-result-note').textContent = '';
     document.getElementById('wc-result').classList.add('visible');
+    twRecordWeighted(wcCurrentType, parseFloat(rounded));
 }
 
 function wcFormulaText(type) {
@@ -836,8 +839,175 @@ function validateGradeInput(input) {
     }
 }
 
+/* ═══════════════════════════════════════════════════
+   TAWJIHI EXPORT — accumulate computed averages and
+   emit a code/file the Tawjihi importer (twAvg.decode)
+   can read. See tawjihi/averages-transport.js for the
+   contract this MUST round-trip with.
+═══════════════════════════════════════════════════ */
+const TW_EXPORT_KEY = 'bs-tawjihi-export';
+const TW_WEIGHTED_KEYS = ['math', 'math-physics', 'math-tech', 'bio', 'lang', 'translation'];
+const TW_BAC_YEAR = 2025; // current BAC year default
+
+function twIsAvg(n) {
+    return typeof n === 'number' && isFinite(n) && n >= 0 && n <= 20;
+}
+
+function twLoadAcc() {
+    try {
+        const raw = localStorage.getItem(TW_EXPORT_KEY);
+        const o = raw ? JSON.parse(raw) : null;
+        if (o && typeof o === 'object') {
+            o.weightedAverages = o.weightedAverages || {};
+            return o;
+        }
+    } catch (e) { /* ignore */ }
+    return { generalAverage: undefined, stream: undefined, weightedAverages: {} };
+}
+
+function twSaveAcc(acc) {
+    try { localStorage.setItem(TW_EXPORT_KEY, JSON.stringify(acc)); } catch (e) { /* ignore */ }
+}
+
+// Record the general average + selected stream (called from calculateAverage)
+function twRecordGeneral(average, field) {
+    const acc = twLoadAcc();
+    if (twIsAvg(average)) acc.generalAverage = Math.round(average * 100) / 100;
+    if (field) acc.stream = field; // calculator field code; importer normalizes it
+    twSaveAcc(acc);
+    twUpdateExportUI();
+}
+
+// Record a weighted average under its contract key (called from wcAutoCalc)
+function twRecordWeighted(type, value) {
+    if (TW_WEIGHTED_KEYS.indexOf(type) === -1 || !twIsAvg(value)) return;
+    const acc = twLoadAcc();
+    acc.weightedAverages[type] = Math.round(value * 100) / 100;
+    twSaveAcc(acc);
+    twUpdateExportUI();
+}
+
+// Build the contract payload from the accumulator (only finite [0,20] values).
+function twExportPayload() {
+    const acc = twLoadAcc();
+    const payload = {
+        schemaVersion: 1,
+        source: 'bacstory',
+        issuedAt: new Date().toISOString()
+    };
+    if (twIsAvg(acc.generalAverage)) payload.generalAverage = acc.generalAverage;
+    if (acc.stream) payload.stream = acc.stream;
+    payload.bacYear = TW_BAC_YEAR;
+
+    const weighted = {};
+    if (acc.weightedAverages) {
+        for (const k of TW_WEIGHTED_KEYS) {
+            const v = acc.weightedAverages[k];
+            if (twIsAvg(v)) weighted[k] = v; // omit empty/zero-missing/NaN
+        }
+    }
+    if (Object.keys(weighted).length) payload.weightedAverages = weighted;
+    return payload;
+}
+
+// true once at least one average exists to export
+function twHasExportData() {
+    const p = twExportPayload();
+    return p.generalAverage !== undefined ||
+        (p.weightedAverages && Object.keys(p.weightedAverages).length > 0);
+}
+
+// base64url( UTF-8( JSON ) ) — mirrors twAvg b64url (decode side)
+function twExportEncode() {
+    const json = JSON.stringify(twExportPayload());
+    return btoa(unescape(encodeURIComponent(json)))
+        .replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+}
+
+function twFlashBtn(btn, msg) {
+    if (!btn) return;
+    const orig = btn.getAttribute('data-orig') || btn.innerHTML;
+    btn.setAttribute('data-orig', orig);
+    btn.innerHTML = msg;
+    btn.classList.add('bs-dl-secondary');
+    clearTimeout(btn._twTimer);
+    btn._twTimer = setTimeout(() => {
+        btn.innerHTML = btn.getAttribute('data-orig');
+        btn.classList.remove('bs-dl-secondary');
+    }, 1800);
+}
+
+// Copy the base64url code to clipboard
+function twCopyCode(ev) {
+    const btn = ev && ev.currentTarget;
+    const code = twExportEncode();
+    const done = () => twFlashBtn(btn, '<i class="fas fa-check"></i> تم النسخ ✓');
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(code).then(done).catch(() => twFallbackCopy(code, done));
+    } else {
+        twFallbackCopy(code, done);
+    }
+}
+
+function twFallbackCopy(text, done) {
+    try {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.cssText = 'position:fixed;top:-9999px;left:-9999px';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        if (done) done();
+    } catch (e) { /* ignore */ }
+}
+
+// Download the RAW JSON payload as a .json file (the Tawjihi file-reader
+// accepts raw JSON starting with '{' and re-encodes it itself).
+function twDownloadFile() {
+    const json = JSON.stringify(twExportPayload(), null, 2);
+    const blob = new Blob([json], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.download = 'mes-moyennes-tawjihi.json';
+    link.href = url;
+    link.click();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+// Open the Tawjihi import page, passing the code in the URL FRAGMENT only.
+function twOpenTawjihi() {
+    const code = twExportEncode();
+    window.open('/tawjihi/onboarding.html#code=' + encodeURIComponent(code), '_blank', 'noopener');
+}
+
+// The export panel markup (shared; injected into reveal modal + weighted result)
+function twPanelHTML() {
+    return ''
+        + '<div class="tw-export-panel">'
+        +   '<div class="tw-export-title"><i class="fas fa-graduation-cap"></i> صدّر معدلاتك إلى منصة توجيهي</div>'
+        +   '<p class="tw-export-help">احسب معدلك ثم انسخ الرمز والصقه في منصة توجيهي لاستيراد معدلاتك.</p>'
+        +   '<div class="tw-export-actions">'
+        +     '<button type="button" class="bs-dl-btn" onclick="twCopyCode(event)"><i class="fas fa-copy"></i> انسخ رمز معدلاتي</button>'
+        +     '<button type="button" class="bs-dl-btn bs-dl-secondary" onclick="twDownloadFile()"><i class="fas fa-file-arrow-down"></i> حمّل ملف معدلاتي</button>'
+        +     '<button type="button" class="bs-dl-btn bs-dl-secondary" onclick="twOpenTawjihi()"><i class="fas fa-arrow-left"></i> افتح توجيهي</button>'
+        +   '</div>'
+        + '</div>';
+}
+
+// Inject/refresh the export panels once data exists.
+function twUpdateExportUI() {
+    if (!twHasExportData()) return;
+    const slots = ['tw-export-slot-oeb', 'tw-export-slot-wc'];
+    for (const id of slots) {
+        const slot = document.getElementById(id);
+        if (slot && !slot.innerHTML.trim()) slot.innerHTML = twPanelHTML();
+    }
+}
+
 // Calculator-specific DOMContentLoaded setup
 document.addEventListener('DOMContentLoaded', function () {
+    twUpdateExportUI();
     // Real-time validation + auto-save for all grade inputs
     document.addEventListener('input', function (e) {
         if (e.target.classList.contains('grade-input')) {

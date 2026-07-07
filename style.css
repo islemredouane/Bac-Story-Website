@@ -4649,6 +4649,39 @@ body.pdf-body-lock {
     border-color: rgba(245,240,232,0.4);
     color: #f5f0e8;
 }
+/* ── Tawjihi export panel ── */
+.tw-export-panel {
+    direction: rtl;
+    text-align: center;
+    margin: 18px auto 4px;
+    max-width: 560px;
+    padding: 18px 16px;
+    border: 1.5px dashed rgba(44,92,197,0.35);
+    border-radius: 14px;
+    background: rgba(44,92,197,0.04);
+}
+.tw-export-title {
+    font-family: 'Cairo','Tajawal',sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    color: #1a3a8f;
+    margin-bottom: 6px;
+}
+.tw-export-title i { margin-left: 6px; }
+.tw-export-help {
+    font-family: 'Tajawal',sans-serif;
+    font-size: 0.85rem;
+    color: #444;
+    opacity: 0.85;
+    margin: 0 0 14px;
+    line-height: 1.6;
+}
+.tw-export-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
 #wc-inputs {
     padding: 2rem;
     animation: fadeIn 0.5s ease-out;

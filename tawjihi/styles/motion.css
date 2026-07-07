@@ -1,0 +1,140 @@
+/* ============================================================
+   TAWJIHI — Global Motion System (motion.css)
+   Depends on tokens.css. All animations defined here.
+   Import after tokens.css on every page.
+   ============================================================ */
+
+/* ---- MOT-1: Button :active press feedback ---- */
+button:active:not(:disabled),
+a:active,
+[role="button"]:active {
+    transform: scale(0.96);
+    transition: transform var(--t-micro) var(--ease-in) !important;
+}
+
+/* Exceptions: elements with their own active state */
+.ob-btn:active:not(:disabled),
+.google-btn:active:not(:disabled) {
+    transform: scale(0.97) translateY(0) !important;
+}
+
+/* ---- MOT-2: Theme cross-fade for surfaces/cards ---- */
+.sidebar,
+.topbar,
+.auth-card,
+.spec-card,
+.detail-section,
+.fact-card,
+.dash-card,
+.dash-fiche,
+.side-cta {
+    transition:
+        background var(--t-mid) var(--ease),
+        border-color var(--t-mid) var(--ease),
+        box-shadow var(--t-mid) var(--ease);
+}
+
+/* ---- MOT-6: View Transitions API ---- */
+@keyframes vt-fade-in {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes vt-fade-out {
+    from { opacity: 1; transform: translateY(0); }
+    to   { opacity: 0; transform: translateY(-6px); }
+}
+
+::view-transition-old(root) {
+    animation: vt-fade-out var(--t-mid) var(--ease-in) both;
+}
+::view-transition-new(root) {
+    animation: vt-fade-in var(--t-mid) var(--ease-out) both;
+}
+
+/* ---- MOT-11: Copy checkmark bounce ---- */
+@keyframes check-pop {
+    0%   { transform: scale(0) rotate(-10deg); opacity: 0; }
+    60%  { transform: scale(1.25) rotate(5deg); opacity: 1; }
+    100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.copy-check-icon {
+    animation: check-pop var(--t-mid) var(--ease-spring) both;
+}
+
+/* ---- MOT-12: Like/dislike pulse ---- */
+@keyframes like-pulse {
+    0%   { transform: scale(1); }
+    35%  { transform: scale(1.3); }
+    60%  { transform: scale(0.9); }
+    100% { transform: scale(1); }
+}
+
+.msg-action-btn.is-active i,
+.feedback-btn.is-active i {
+    animation: like-pulse var(--t-mid) var(--ease-spring) both;
+}
+
+/* ---- Shared keyframes (used across the app) ---- */
+@keyframes rise {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ---- MOT-20: Thinking state — spinning halo pill + equalizer bars ---- */
+
+/* Spinning gradient arc border on the pill */
+@keyframes tw-halo-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Equalizer bar pulse — each bar breathes up and down */
+@keyframes tw-eq-beat {
+    0%, 100% { height: 3px;  opacity: .4; }
+    50%       { height: 16px; opacity: 1;  }
+}
+
+/* Animate the ::before arc on the pill */
+.tw-thinking-pill::before {
+    animation: tw-halo-spin 2s linear infinite;
+}
+
+/* Staggered equalizer bars */
+.tw-thinking-eq span:nth-child(1) { animation: tw-eq-beat .85s ease-in-out infinite 0ms;   }
+.tw-thinking-eq span:nth-child(2) { animation: tw-eq-beat .85s ease-in-out infinite 110ms;  }
+.tw-thinking-eq span:nth-child(3) { animation: tw-eq-beat .85s ease-in-out infinite 220ms;  }
+.tw-thinking-eq span:nth-child(4) { animation: tw-eq-beat .85s ease-in-out infinite 330ms;  }
+.tw-thinking-eq span:nth-child(5) { animation: tw-eq-beat .85s ease-in-out infinite 440ms;  }
+
+/* Label cycling: JS adds .is-cycling → fade+slide out, changes text, removes class → fade in */
+.tw-thinking-label {
+    display: inline-block;
+    transition: opacity var(--t-fast) var(--ease), transform var(--t-fast) var(--ease);
+}
+.tw-thinking-label.is-cycling {
+    opacity: 0;
+    transform: translateY(5px);
+}
+
+/* ---- Reduced motion: disable all animations ---- */
+@media (prefers-reduced-motion: reduce) {
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+        animation: none;
+    }
+
+    /* Thinking bubble + stream cursor overrides */
+    .tw-thinking-pill::before,
+    .tw-thinking-eq span,
+    .stream-cursor { animation: none !important; }
+    .tw-thinking-label { transition: none !important; }
+}
