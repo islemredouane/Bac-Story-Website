@@ -566,6 +566,7 @@ var SPEC_KEYWORDS = {
     'ENST': 'tourisme hôtellerie restauration guide touristique patrimoine voyage المدرسة الوطنية العليا للسياحة',
     'ESM': 'management gestion leadership entreprise stratégie المدرسة العليا للمانجمينت تلمسان إدارة',
     'ESSAIA': 'agroalimentaire nutrition qualité alimentaire sécurité alimentaire food science industrie alimentaire المدرسة العليا للعلوم الزراعية والصناعات الغذائية',
+    'INATAA': 'nutrition alimentation industries agroalimentaires constantine sécurité alimentaire تغذية معهد التغذية والتغذي والصناعات الفلاحية الغذائية قسنطينة صناعات فلاحية غذاء',
     'ENSA': 'agronomie agriculture agronome INA zootechnie horticulture علوم زراعية فلاحة الجزائر',
     'ENS': 'enseignement professeur pédagogie éducation formation des enseignants école normale supérieure مدرسة عليا أساتذة أستاذ',
     'MEDCINE': 'médecine générale CHU résidanat médecin docteur généraliste spécialiste طبيب دكتور كلية الطب حكيم',
@@ -668,18 +669,226 @@ var SPEC_KEYWORDS = {
     'CINEMA': 'سينما cinéma arts du spectacle',
     'ARABE': 'لغة وأدب عربي langue littérature arabes',
     'TAMAZIGHT': 'لغة وثقافة أمازيغية tamazight berbère tamazighte',
+    '3D-DESIGN': 'تصميم ثلاثي أبعاد رسوم متحركة 3D design animation infographie',
+    'AEROPORT': 'مطارات نقل جوي aéroport transport aérien gestion aéroportuaire',
+    'AGRO': 'فلاحة زراعة علوم فلاحية agronome ENSA هندسة زراعية تربة نبات حيوان SNV',
+    'ALLEMAND': 'لغة ألمانية أدب ألماني langue allemande littérature',
+    'ANGLAIS': 'لغة إنجليزية أدب إنجليزي littérature anglaise langue étrangère',
+    'AUTO': 'ميكانيك سيارات أتمتة automatique automatisme génie mécanique automobile',
+    'CHERCHALL': 'أكاديمية عسكرية شرشال ضابط مهندس جيش académie militaire cherarall officer défense',
+    'CHILDHOOD': 'طفولة مبكرة علم نفس الطفل petite enfance psychologie développement',
+    'CHINOIS': 'لغة صينية أدب صيني langue chinoise mandarin littérature',
+    'CINEMA-MEDIA': 'سينما إعلام cinéma médias production audiovisuelle',
+    'CIRCULAR-ECONOMY': 'اقتصاد دائري بيئة économie circulaire recyclage développement durable',
+    'CITY-JOBS': 'وظائف مدنية إدارة بلدية métiers de la ville urbanisme services publics',
+    'COMM-IR': 'إعلام علاقات دولية صحافة communication relations internationales journalisme',
+    'COMM-TOURISM': 'إعلام سياحة communication tourisme hospitality',
+    'COMMERCE': 'تجارة دراسات تجارية sciences commerciales licence commerce',
+    'CRIMINOLOGIE': 'علم الإجرام criminologie crime déviance',
+    'CSR': 'مسؤولية اجتماعية مؤسسات responsabilité sociale entreprise RSE développement durable',
+    'DIGITAL-BIZ': 'أعمال رقمية تجارة إلكترونية digital business e-commerce économie numérique',
+    'DIGITAL-PROD': 'إنتاج رقمي production numérique animation digital media',
+    'E-BIZ': 'تجارة إلكترونية e-business digital commerce numérique',
+    'ECO': 'اقتصاد ليسانس économie LMD sciences économiques',
+    'ECO-IR': 'اقتصاد علاقات دولية تجارة خارجية économie relations internationales commerce',
+    'ELECTRO': 'إلكترونيك كهرباء électronique électrotechnique génie électrique',
+    'ENA': 'مدرسة وطنية إدارة ENA إداريون موظفون عموميون administration publique école nationale',
+    'ENMAS': 'متاحف آثار تراث musées archéologie patrimoine conservation',
+    'ENSCRBC': 'محاسبة ENSCRBC comptabilité révision comptable bilan',
+    'ENSJSI': 'صحافة إعلام journalisme sciences de l information ENSJSI',
+    'ENV-SCI': 'علوم بيئة محيط بيئية ecologie environnement pollution sciences de l environnement',
+    'ESAA': 'مدرسة عليا جزائرية أعمال إدارة أعمال تسيير مالية تسويق double degree MBA',
+    'ESI-KOLEA': 'ضرائب جباية مالية عامة مدرسة عليا ضرائب قليعة fiscalité impôts',
+    'ESM-JUSTICE': 'مدرسة عليا قضاء مغنية magistrature justice droit',
+    'ESPAGNOL': 'لغة إسبانية أدب إسباني langue espagnole littérature',
+    'ESSBO': 'علوم بيولوجية وهران بيوتكنولوجيا biotechnologie biologie oran',
+    'ESSP': 'علوم سياسية science politique ESSP',
+    'ESSS': 'المدرسة العليا للعلوم الاجتماعية sciences sociales ESSS',
+    'FINTECH': 'تقنية مالية fintech finance numérique blockchain',
+    'FORENSIQUE': 'أدلة جنائية علم جنائي sciences forensiques criminalistique',
+    'FRANCAIS': 'لغة فرنسية أدب فرنسي littérature française langue étrangère',
+    'GENOMIC-DATA': 'بيانات جينية وراثة DNA بيولوجيا جزيئية génomique bioinformatique',
+    'GESTION': 'تسيير إدارة أعمال gestion management sciences de gestion LMD',
+    'HEALTH-COMM': 'تواصل صحي إعلام طبي communication santé éducation thérapeutique',
+    'HEALTH-INFO': 'صحة معلوماتية informatique médicale e-santé health informatics',
+    'HEALTH-SOC': 'صحة مجتمع علوم اجتماعية santé société sciences sociales',
+    'HISTORY-DATA': 'تاريخ بيانات archivar data history sciences historiques',
+    'HSE': 'صحة سلامة بيئة hygiène sécurité environnement HSE risques industriels',
+    'HYDRO': 'هيدروليك مياه موارد مائية hydraulique ressources en eau irrigation',
+    'IDRI': 'العلاقات الدولية الدراسات الدولية IDRI relations internationales',
+    'IEDF': 'ديمغرافيا وفيزياء demographie physique IEDF',
+    'ITALIEN': 'لغة إيطالية أدب إيطالي langue italienne littérature',
+    'LAW-IR': 'حقوق علاقات دولية قانون دولي droit relations internationales',
+    'MARKETING-COMM': 'تسويق اتصال marketing communication digitale publicité',
+    'MOLECULAR-ENGINEERING': 'هندسة جزيئية كيمياء فيزياء ذكاء اصطناعي ingénierie moléculaire chimie IA',
+    'MUSIC-PERF': 'موسيقى أداء موسيقي musique performance musicale',
+    'PENAL': 'قانون جنائي قانون عقوبات droit pénal criminel',
+    'PETROCHIMIE': 'بتروكيمياء صناعة بترولية pétrochimie chimie industrielle hydrocarbures',
+    'PHILO': 'فلسفة philosophie logique éthique épistémologie pensée',
+    'PROTEINS-SEEDS': 'بروتينات بذور أمن غذائي قمح بقوليات فلاحة semences protéines sécurité alimentaire',
+    'PUBLIC-INNOV': 'ابتكار عام إدارة عامة innovation publique administration',
+    'RUSSE': 'لغة روسية أدب روسي langue russe littérature',
+    'SCENARIO': 'سيناريو كتابة إبداعية scénario écriture créative cinéma',
+    'SOC-LEISURE': 'علم اجتماع وقت الفراغ رفاهية sociologie du loisir loisirs culturels',
+    'TELECOM': 'اتصالات شبكات télécommunications réseaux TIC fibre 5g',
+    'THEATER': 'مسرح فنون مسرحية théâtre arts du spectacle performance',
+    'TRADING': 'تجارة خارجية تجارة دولية commerce international trading import export',
+    'TURC': 'لغة تركية أدب تركي langue turque littérature',
+    'dieteticien': 'دياتيتيسيان حمية تغذية علاجية diététicien nutritionniste régime alimentation thérapeutique',
 };
 
 (function initSpecFilter() {
     var ready = false;
+
+    // ── Synonym expansion map ──────────────────────────────────────────────────
+    // Keys are normalized query words; values are space-separated aliases that
+    // are injected into the haystack before matching.
+    var SEARCH_SYNONYMS = {
+        // Arabic common synonyms & dialect words
+        'طب': 'طبيب دكتور medicine medecin sante',
+        'دكتور': 'طبيب طب medecin doctor docteur',
+        'طبيب': 'دكتور طب medecin',
+        'مهندس': 'هندسه engineering ingenieur genie',
+        'هندسه': 'مهندس engineering ingenieur genie',
+        'محامي': 'حقوق avocat droit juriste',
+        'حقوق': 'قانون droit legal avocat juriste',
+        'قانون': 'حقوق droit legal juridique',
+        'اعلام': 'اعلام الي informatique صحافه communication',
+        'كمبيوتر': 'اعلام الي informatique computer informatique programmation',
+        'كومبيوتر': 'اعلام الي informatique computer programmation',
+        'برمجه': 'informatique اعلام الي code developpement software',
+        'ذكاء': 'intelligence artificielle ia machine learning deep learning',
+        'روبوت': 'robotique systemes autonomes drones',
+        'سيبراني': 'cybersecurite securite informatique hacking reseaux',
+        'امن': 'securite cybersecurite sante',
+        'كهرباء': 'electronique electrotechnique genie electrique',
+        'ميكانيك': 'mecanique genie mecanique automobile thermodynamique',
+        'بناء': 'genie civil construction btp routes ponts architecture',
+        'تعمير': 'architecture urbanisme habitat design',
+        'معماريه': 'architecture urbanisme design',
+        'ري': 'hydraulique eau irrigation ressources hydrologie',
+        'مياه': 'hydraulique eau irrigation ressources hydrologie',
+        'طاقه': 'energie renouvelables solaire eolien hydrogene',
+        'شمسيه': 'solaire energie renouvelables photovoltaique',
+        'نفط': 'petrole gaz sonatrach hydrocarbures',
+        'فلاحه': 'agriculture agronomie زراعه agronome',
+        'زراعه': 'agriculture agronomie فلاحه agronome',
+        'بيولوجيا': 'biologie biotechnologie microbiologie genetique',
+        'كيمياء': 'chimie biochimie chimique',
+        'فيزياء': 'physique biophysique sciences de la matiere',
+        'تغذيه': 'nutrition alimentation dietetique agroalimentaire',
+        'اكل': 'nutrition alimentation agroalimentaire غذاء',
+        'غذاء': 'nutrition alimentation agroalimentaire',
+        'صيدليه': 'pharmacie medicaments drogues',
+        'دواء': 'pharmacie medicaments pharmacien',
+        'صيدلاني': 'pharmacie pharmacien medicaments',
+        'اسنان': 'dentaire dentiste chirurgie dentale',
+        'بيطري': 'veterinaire animaux elevage',
+        'حيوانات': 'veterinaire zootechnie elevage biologie',
+        'ممرض': 'infirmier paramedical soins temoignage',
+        'تمريض': 'infirmier paramedical soins nursing',
+        'اداره': 'gestion management administration entreprise',
+        'تسييير': 'gestion management administration',
+        'مانجمنت': 'management gestion administration entreprise',
+        'اقتصاد': 'economie commerce finance gestion',
+        'تجاره': 'commerce economie marketing finance',
+        'محاسبه': 'comptabilite finance audit bilan',
+        'ماليه': 'finance comptabilite economie banque',
+        'بنك': 'banque finance credit islamique',
+        'بنوك': 'banque finance credit islamique',
+        'سياحه': 'tourisme hotellerie restauration',
+        'فندقه': 'tourisme hotellerie restauration',
+        'اعمال': 'business gestion management entrepreneuriat',
+        'مقاوله': 'entrepreneuriat startup innovation business',
+        'احصاء': 'statistiques econometrie demographie actuariat',
+        'جباءه': 'fiscalite impots taxes finances publiques',
+        'ضرائب': 'fiscalite impots taxes finances publiques',
+        'اجتماع': 'sociologie sciences sociales anthropologie',
+        'نفس': 'psychologie sciences humaines comportement',
+        'تاريخ': 'histoire geographie archeologie patrimoine',
+        'جغرافيا': 'geographie cartographie territoire environnement',
+        'اثار': 'archeologie patrimoine histoire civilisations',
+        'فن': 'arts plastiques cinema musique theater expression',
+        'رياضيات': 'mathematiques statistiques probabilites algebre',
+        'رياضيه': 'staps sport sciences activites physiques',
+        'رياضه': 'staps sport sciences activites physiques sport education',
+        'ادب': 'litterature langue philologie linguistique',
+        'عربيه': 'arabe langue litterature arabe linguistique',
+        'فرنسيه': 'francais langue litterature francaise',
+        'انجليزيه': 'anglais langue litterature anglaise english',
+        'ترجمه': 'traduction interpretation langues linguistique',
+        'صحافه': 'journalisme medias communication presse information',
+        'اعلاميه': 'journalisme communication medias presse',
+        'دبلوماسيه': 'diplomatie relations internationales politique',
+        'سياسه': 'sciences politiques diplomatie relations internationales',
+        'اسلاميه': 'islamique charia fiqh hadith sciences religieuses',
+        'دين': 'islamique charia fiqh religion',
+        'فلسفه': 'philosophie logique ethique epistemologie',
+        'عسكريه': 'militaire armee defense securite nationale',
+        'جيش': 'militaire armee defense officier',
+        'شرطه': 'securite police justice',
+        'فضاء': 'spatial aeronautique aerospace satellites',
+        'طيران': 'aeronautique aerospace aviation pilote avion',
+        'بيئه': 'environnement ecologie pollution developpement durable',
+        'كوكب': 'environnement ecologie geologie sciences de la terre',
+        'جيولوجيا': 'geologie mineralogie sciences de la terre geophysique',
+        'مناجم': 'mines mineralurgie extraction geologie miniere',
+        'نانو': 'nanotechnologie nanosciences materiaux photonique',
+        'مختبر': 'laboratoire analyses biologie chimie microbiologie',
+        'تحاليل': 'laboratoire analyses medicales biologie biochimie',
+        'تصوير': 'radiologie imagerie medicale scanner irm radiographie',
+        'اشعه': 'radiologie imagerie medicale rayons x scanner',
+        'اشغال': 'travaux publics genie civil btp routes ponts infrastructure',
+        'جسور': 'ponts genie civil infrastructure travaux publics',
+        'مدن': 'urbanisme villes architecture habitat ville',
+        'ذكيه': 'smart city villes intelligentes urbanisme numerique',
+        'ataenour': 'ان',  // typo-proof
+        // Common abbreviations and short forms
+        'ia': 'intelligence artificielle machine learning deep learning',
+        'ai': 'intelligence artificielle machine learning deep learning',
+        'ml': 'machine learning intelligence artificielle data science',
+        'bi': 'business intelligence data analytics',
+        'it': 'informatique systemes information reseaux',
+        'hr': 'ressources humaines gestion rh management',
+        'rh': 'ressources humaines management gestion',
+        'btp': 'batiment travaux publics genie civil construction',
+        'lmd': 'licence master doctorat universite',
+        'ing': 'ingenieur engineering genie grande ecole',
+        'esi': 'ecole superieure informatique informatique superieur',
+        'enp': 'polytechnique polytech genie',
+    };
 
     function normalize(s) {
         return (s || '').toLowerCase()
             .replace(/[أإآٱ]/g, 'ا')
             .replace(/ة/g, 'ه')
             .replace(/ى/g, 'ي')
-            .replace(/[ً-ٰٟ]/g, '')
+            .replace(/[ً-ٰٟ]/g, '')
+            .replace(/[،,;:!?]/g, ' ')
             .trim();
+    }
+
+    // Expand a single normalized query word with its synonyms
+    function expandWord(w) {
+        var base = [w];
+        if (SEARCH_SYNONYMS[w]) {
+            SEARCH_SYNONYMS[w].split(/\s+/).forEach(function(syn) {
+                var n = normalize(syn);
+                if (n) base.push(n);
+            });
+        }
+        // Also try stripping a leading "ال" prefix (definite article)
+        var stripped = w.replace(/^ال/, '');
+        if (stripped && stripped !== w) {
+            base.push(stripped);
+            if (SEARCH_SYNONYMS[stripped]) {
+                SEARCH_SYNONYMS[stripped].split(/\s+/).forEach(function(syn) {
+                    var n = normalize(syn);
+                    if (n) base.push(n);
+                });
+            }
+        }
+        return base;
     }
 
     function setup() {
@@ -699,7 +908,7 @@ var SPEC_KEYWORDS = {
 
         function applyFilters() {
             var normQ = normalize(searchText);
-            var words = normQ.split(/\s+/).filter(Boolean);
+            var rawWords = normQ.split(/\s+/).filter(Boolean);
             var visible = 0;
             cards.forEach(function (card) {
                 var cat = card.dataset.category || '';
@@ -707,12 +916,21 @@ var SPEC_KEYWORDS = {
                 var matchCat = activeCategory === 'all' || cat === activeCategory;
                 var matchNew = !activeNew || isNew;
                 var matchSearch = true;
-                if (words.length) {
+                if (rawWords.length) {
                     var onclick = card.getAttribute('onclick') || '';
                     var m = onclick.match(/showSection\(['"]([^'"]+)['"]\)/);
                     var sid = m ? m[1] : '';
                     var haystack = normalize((card.dataset.name || '') + ' ' + (SPEC_KEYWORDS[sid] || ''));
-                    matchSearch = words.every(function (w) { return haystack.indexOf(w) !== -1; });
+                    // For each query word, check if the haystack contains the word itself
+                    // OR any of its synonyms (partial prefix match ≥ 3 chars)
+                    matchSearch = rawWords.every(function(w) {
+                        var candidates = expandWord(w);
+                        return candidates.some(function(cand) {
+                            if (cand.length < 2) return false;
+                            // substring match (handles partial: "هند" → "هندسه")
+                            return haystack.indexOf(cand) !== -1;
+                        });
+                    });
                 }
                 card.style.display = (matchCat && matchNew && matchSearch) ? '' : 'none';
                 if (matchCat && matchNew && matchSearch) visible++;
@@ -743,13 +961,29 @@ var SPEC_KEYWORDS = {
         if (searchInput) {
             searchInput.addEventListener('input', function () {
                 searchText = searchInput.value.trim();
+                if (searchText.length > 0) {
+                    activeCategory = 'all';
+                    chips.forEach(function (c) {
+                        if (c.dataset.filterType === 'category') {
+                            if (c.dataset.filterVal === 'all') {
+                                c.classList.add('active');
+                            } else {
+                                c.classList.remove('active');
+                            }
+                        }
+                    });
+                }
                 applyFilters();
             });
         }
     }
 
     // Run on page load and also when university-section becomes active
-    document.addEventListener('DOMContentLoaded', setup);
+    if (document.readyState !== 'loading') {
+        setup();
+    } else {
+        document.addEventListener('DOMContentLoaded', setup);
+    }
     // Hook into showSection
     var _origShowSection = window.showSection;
     if (typeof _origShowSection === 'function') {
