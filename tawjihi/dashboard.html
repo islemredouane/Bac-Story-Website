@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl" data-theme="light">
 <head>
     <meta charset="UTF-8">
@@ -22,7 +22,7 @@
 </head>
 <body>
 <div class="app" id="app">
-    <!-- ===================== SIDEBAR (reused from app.html) ===================== -->
+    <!-- ===================== SIDEBAR ===================== -->
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-head">
             <button class="sidebar-toggle" id="sidebarToggle" aria-label="طي القائمة"><i class="fas fa-bars"></i></button>
@@ -93,7 +93,10 @@
                         <span class="dash-section-eyebrow"><i class="fas fa-link"></i> ربط البيانات</span>
                         <header class="dash-card-head">
                             <h2><i class="fas fa-file-import"></i> استورد معدلاتك من BAC Story</h2>
-                            <span class="dash-import-state" id="dashImportState" hidden>معدلاتك مستوردة ✓ — يمكنك التحديث</span>
+                            <span class="dash-import-state" id="dashImportState" hidden>
+                                <i class="fas fa-circle-check"></i> معدلاتك مستوردة —
+                                <button type="button" class="dash-import-expand-btn" onclick="document.getElementById('dashImportCard').classList.remove('dash-import-done')">تحديث</button>
+                            </span>
                         </header>
                         <p class="dash-import-help">احسبت معدلك في BAC Story؟ الصق الرمز هنا لتحديث فرصك في كل التخصصات.</p>
                         <textarea id="dashImportCode" dir="ltr" class="dash-import-input" rows="3" placeholder="الصق رمز معدلاتك هنا…"></textarea>
@@ -105,24 +108,15 @@
                         <p class="dash-import-msg" id="dashImportMsg" role="status"></p>
                     </section>
 
-                    <!-- Saved specializations -->
+                    <!-- Unified wishlist card (replaces Saved + Eligibility + Fiche) -->
                     <section class="dash-card dash-card-wide">
-                        <span class="dash-section-eyebrow"><i class="fas fa-bookmark"></i> قائمتك</span>
+                        <span class="dash-section-eyebrow"><i class="fas fa-list-check"></i> قائمتي</span>
                         <header class="dash-card-head">
-                            <h2><i class="fas fa-bookmark"></i> التخصصات المحفوظة</h2>
-                            <a class="dash-link" href="simulator.html">عرض الكل <i class="fas fa-arrow-left"></i></a>
+                            <h2><i class="fas fa-list-check"></i> قائمتي المحفوظة</h2>
+                            <a class="dash-link" href="simulator.html">بطاقة الرغبات <i class="fas fa-arrow-left"></i></a>
                         </header>
                         <div class="dash-spec-row" id="dashSpecRow"></div>
-                    </section>
-
-                    <!-- Eligibility status -->
-                    <section class="dash-card">
-                        <span class="dash-section-eyebrow"><i class="fas fa-shield-halved"></i> تقييمك</span>
-                        <header class="dash-card-head">
-                            <h2><i class="fas fa-clipboard-check"></i> حالة الأهلية</h2>
-                        </header>
-                        <ul class="dash-elig-list" id="dashEligList"></ul>
-                        <p class="dash-disclaimer"><i class="fas fa-circle-info"></i> هذه تقديرات حسب معطياتك ومعدلات 2025 — أكّد على البوابة الرسمية قبل أي قرار.</p>
+                        <div id="dashSpecSummary"></div>
                     </section>
 
                     <!-- Countdown -->
@@ -140,14 +134,26 @@
                         <p class="dash-cd-note">على نتائج باكالوريا 2026 (تاريخ تقديري) — رانا معاك في الانتظار.</p>
                     </section>
 
-                    <!-- Fiche preview -->
+                    <!-- Quick actions -->
                     <section class="dash-card">
-                        <span class="dash-section-eyebrow"><i class="fas fa-list-ol"></i> ترتيبك</span>
+                        <span class="dash-section-eyebrow"><i class="fas fa-bolt"></i> وصول سريع</span>
                         <header class="dash-card-head">
-                            <h2><i class="fas fa-list-ol"></i> بطاقة الرغبات</h2>
-                            <a class="dash-link" href="simulator.html">حرّر الترتيب <i class="fas fa-arrow-left"></i></a>
+                            <h2><i class="fas fa-bolt"></i> إجراءات سريعة</h2>
                         </header>
-                        <ol class="dash-fiche" id="dashFiche"></ol>
+                        <div class="dash-actions-grid">
+                            <a class="dash-action-btn" href="app.html">
+                                <i class="fas fa-comments"></i>
+                                <span>اسأل المرشد</span>
+                            </a>
+                            <a class="dash-action-btn" href="simulator.html">
+                                <i class="fas fa-list-check"></i>
+                                <span>المحاكي</span>
+                            </a>
+                            <a class="dash-action-btn" href="specialities.html">
+                                <i class="fas fa-compass"></i>
+                                <span>استكشف</span>
+                            </a>
+                        </div>
                     </section>
 
                     <!-- Advisor nudges -->
@@ -200,7 +206,6 @@ async function loadDashboardData() {
   let wishIds = JSON.parse(localStorage.getItem('tw-wishlist') || '[]');
   let credits = JSON.parse(localStorage.getItem('tw-credits') || '{"balance":30}');
 
-  // Try to load fresh data from Supabase via API
   if (typeof tw_supabase !== 'undefined') {
     try {
       const { data: { session } } = await tw_supabase.auth.getSession();
@@ -254,12 +259,9 @@ function generateNudges(profile, wishIds) {
   const catalog = typeof TW_CATALOG !== 'undefined' ? TW_CATALOG : [];
   const myAvg = parseFloat(profile.average) || 12;
 
-  // Nudge: wishlist empty
   if (!wishIds || wishIds.length === 0) {
     nudges.push({ icon: 'fa-list-check', text: 'ما زلتش ما بنيتش بطاقة رغباتك — اذهب للمحاكي وابدأ الآن', link: 'simulator.html' });
-  }
-  // Nudge: all high-risk picks
-  else {
+  } else {
     const specs = wishIds.map(id => catalog.find(s => s.id === id)).filter(Boolean);
     const allRisk = specs.every(s => myAvg < s.avg - 1.0);
     const noSafe = !specs.some(s => myAvg >= s.avg + 1.0);
@@ -270,13 +272,10 @@ function generateNudges(profile, wishIds) {
     if (tooFew) nudges.push({ icon: 'fa-plus-circle', text: `عندك ${wishIds.length} رغبات — الحد الأدنى 6، أكمل القائمة`, link: 'simulator.html' });
   }
 
-  // Nudge: profile incomplete
   if (!profile.wilaya) nudges.push({ icon: 'fa-location-dot', text: 'أضف ولايتك لتصفية التخصصات القريبة منك', link: '#' });
-
-  // Nudge: always show AI tip
   nudges.push({ icon: 'fa-comments', text: 'جرّب تسأل المرشد: "شنو التخصص اللي يناسبني بمعدل ' + myAvg + '؟"', link: 'app.html' });
 
-  return nudges.slice(0, 3); // max 3 nudges
+  return nudges.slice(0, 3);
 }
 
 function renderNudges(profile, wishIds) {
@@ -338,7 +337,6 @@ function renderNudges(profile, wishIds) {
     const ringNumEl = document.querySelector('.dash-ring-num');
     const ringWrapEl = document.querySelector('.dash-progress-ring');
     if (ringWrapEl) ringWrapEl.setAttribute('aria-label', `اكتمال الملف ${pct}٪`);
-    // Reset to 0 first, then animate to real value on next frame (MOT-5)
     if (ringEl) ringEl.style.setProperty('--ring-pct', '0%');
     requestAnimationFrame(() => {
         setTimeout(() => {
@@ -357,8 +355,9 @@ function renderNudges(profile, wishIds) {
         no:   '<span class="dash-badge dash-badge-no"><i class="fas fa-circle-xmark"></i> غير مؤهّل</span>',
     };
 
-    /* ---- Saved specs card ---- */
+    /* ---- Unified wishlist card ---- */
     const specRow = $('#dashSpecRow');
+    const specSummary = $('#dashSpecSummary');
     if (wishSpecs.length === 0) {
         specRow.innerHTML = `
   <div class="tw-empty">
@@ -367,10 +366,12 @@ function renderNudges(profile, wishIds) {
     <p class="tw-empty-body">أضف رغباتك في المحاكي وستظهر هنا تلقائياً مع تحليل فرص قبولك.</p>
     <a class="tw-empty-cta" href="simulator.html"><i class="fas fa-list-check"></i> ابدأ بطاقة الرغبات</a>
   </div>`;
+        if (specSummary) specSummary.innerHTML = '';
     } else {
-        specRow.innerHTML = wishSpecs.slice(0, 4).map(s => `
+        specRow.innerHTML = wishSpecs.slice(0, 6).map((s, i) => `
             <article class="dash-spec-card" style="--cat:${s.catVar}">
                 <div class="dash-spec-top">
+                    <span class="dash-spec-rank">${i + 1}</span>
                     <span class="dash-spec-name">${s.name}</span>
                 </div>
                 <span class="dash-spec-meta">${s.location}${s.lmd ? ' · LMD' : ''}</span>
@@ -379,51 +380,21 @@ function renderNudges(profile, wishIds) {
                     ${myAvg > 0 ? BADGE[riskLevel(s.avg)] : ''}
                 </div>
             </article>`).join('');
-    }
 
-    /* ---- Eligibility list ---- */
-    const eligList = $('#dashEligList');
-    if (wishSpecs.length === 0) {
-        eligList.innerHTML = `
-  <li class="tw-empty" style="list-style:none">
-    <div class="tw-empty-icon"><i class="fas fa-clipboard-check"></i></div>
-    <p class="tw-empty-title">لا توجد رغبات للتقييم</p>
-    <p class="tw-empty-body">أضف تخصصاتك في المحاكي وستظهر هنا أهليتك في كل واحد.</p>
-    <a class="tw-empty-cta" href="simulator.html"><i class="fas fa-plus"></i> أضف رغبات</a>
-  </li>`;
-    } else {
-        const ELIG_BADGE = {
-            ok:   '<span class="dash-badge dash-badge-ok"><i class="fas fa-circle-check"></i> مؤهّل</span>',
-            warn: '<span class="dash-badge dash-badge-warn"><i class="fas fa-circle-exclamation"></i> على الحدّ</span>',
-            no:   '<span class="dash-badge dash-badge-no"><i class="fas fa-circle-xmark"></i> غير مؤهّل</span>',
-        };
-        eligList.innerHTML = wishSpecs.slice(0, 6).map(s => `
-            <li>
-                <span class="dash-elig-name">${s.name}</span>
-                ${myAvg > 0 ? ELIG_BADGE[riskLevel(s.avg)] : '<span class="dash-badge">—</span>'}
-            </li>`).join('');
-    }
-
-    /* ---- Fiche preview ---- */
-    const ficheEl = $('#dashFiche');
-    if (wishSpecs.length === 0) {
-        ficheEl.innerHTML = `
-  <li class="tw-empty" style="list-style:none">
-    <div class="tw-empty-icon"><i class="fas fa-list-ol"></i></div>
-    <p class="tw-empty-title">بطاقتك فارغة</p>
-    <p class="tw-empty-body">لم تحدد تخصصاتك بعد — اذهب للمحاكي وابنِ قائمتك.</p>
-    <a class="tw-empty-cta" href="simulator.html"><i class="fas fa-arrow-left"></i> افتح المحاكي</a>
-  </li>`;
-    } else {
-        const shown = wishSpecs.slice(0, 3);
-        const rest  = wishSpecs.length - shown.length;
-        ficheEl.innerHTML = shown.map((s, i) => `
-            <li>
-                <span class="dash-fiche-rank">${i + 1}</span>
-                <span class="dash-fiche-name">${s.name}</span>
-                <i class="fas fa-grip-vertical dash-fiche-grip"></i>
-            </li>`).join('') +
-            (rest > 0 ? `<li class="dash-fiche-more">+ ${rest} رغبات أخرى</li>` : '');
+        if (specSummary && myAvg > 0) {
+            const okC   = wishSpecs.filter(s => riskLevel(s.avg) === 'ok').length;
+            const warnC = wishSpecs.filter(s => riskLevel(s.avg) === 'warn').length;
+            const noC   = wishSpecs.filter(s => riskLevel(s.avg) === 'no').length;
+            specSummary.innerHTML = `
+                <div class="dash-spec-summary">
+                    <span class="sum-ok"><i class="fas fa-circle-check"></i> ${okC} مؤهّل</span>
+                    <span class="sum-warn"><i class="fas fa-circle-exclamation"></i> ${warnC} على الحدّ</span>
+                    <span class="sum-no"><i class="fas fa-circle-xmark"></i> ${noC} غير مؤهّل</span>
+                    <span class="sum-total">${wishSpecs.length} رغبة إجمالاً</span>
+                </div>`;
+        } else if (specSummary) {
+            specSummary.innerHTML = '';
+        }
     }
 
     /* ---- Advisor nudges ---- */
@@ -439,7 +410,10 @@ function renderNudges(profile, wishIds) {
     const importState = $('#dashImportState');
 
     function refreshImportState() {
-        if (importState) importState.hidden = profile.averagesSource !== 'bacstory-import';
+        const imported = profile.averagesSource === 'bacstory-import';
+        if (importState) importState.hidden = !imported;
+        const card = document.getElementById('dashImportCard');
+        if (card) card.classList.toggle('dash-import-done', imported);
     }
     refreshImportState();
 
@@ -449,7 +423,6 @@ function renderNudges(profile, wishIds) {
         importMsg.className = 'dash-import-msg is-shown ' + (kind === 'ok' ? 'is-ok' : 'is-err');
     }
 
-    // Stream code -> Arabic label (the profiles API stores Arabic labels)
     const IMPORT_STREAM_LABELS = {
         sciexp: 'علوم تجريبية', math: 'رياضيات', techmath: 'تقني رياضي',
         gestion: 'تسيير واقتصاد', lettres: 'آداب وفلسفة', langues: 'لغات أجنبية', arts: 'فنون'
@@ -463,7 +436,7 @@ function renderNudges(profile, wishIds) {
             const token = session.access_token;
             const body = { average: profile.average };
             const label = IMPORT_STREAM_LABELS[profile.stream];
-            if (label) body.stream = label; // API only accepts Arabic labels
+            if (label) body.stream = label;
             await fetch('/api/tawjihi-profile', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
@@ -480,8 +453,8 @@ function renderNudges(profile, wishIds) {
         if (!res.ok) { showImportMsg(res.error || 'الرمز غير صالح.', 'err'); return; }
         window.twAvg.mergeIntoProfile(profile, res.payload);
         localStorage.setItem('tw-profile', JSON.stringify(profile));
-        persistToSupabase(); // fire and forget; local data already saved
-        renderProfileWidgets(); // refresh chips, ring, specs, eligibility, fiche, nudges
+        persistToSupabase();
+        renderProfileWidgets();
         refreshImportState();
         const parts = [];
         if (res.payload.generalAverage !== undefined) parts.push('المعدل العام');
@@ -500,8 +473,6 @@ function renderNudges(profile, wishIds) {
             const reader = new FileReader();
             reader.onload = () => {
                 const raw = String(reader.result || '').trim();
-                // File may hold raw JSON OR the base64 code; twAvg.decode expects the
-                // code, so if it looks like JSON, re-encode it to a code first.
                 if (raw.charAt(0) === '{') {
                     try {
                         const code = btoa(unescape(encodeURIComponent(raw))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
@@ -519,7 +490,6 @@ function renderNudges(profile, wishIds) {
     }
 
     /* ---- Countdown to BAC 2026 results ---- */
-    // BAC results announcement date — update each year
     const BAC_RESULTS_DATE = new Date('2026-07-20T10:00:00');
     const target = BAC_RESULTS_DATE.getTime();
     const pad = n => String(Math.max(0, n)).padStart(2, '0');

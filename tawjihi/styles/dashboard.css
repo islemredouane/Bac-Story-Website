@@ -598,5 +598,103 @@
 
 /* Section-specific tints */
 #dashSpecRow .tw-empty-icon { color: var(--cat-engineering, var(--primary)); background: color-mix(in srgb, var(--cat-engineering, var(--primary)) 10%, var(--surface)); }
-#dashFiche .tw-empty-icon,
-.dash-card:has(#dashFiche) .tw-empty-icon { color: var(--accent, #f59e0b); background: color-mix(in srgb, var(--accent, #f59e0b) 10%, var(--surface)); }
+
+/* ---- Rank badge on unified wishlist spec-cards ---- */
+.dash-spec-rank {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: 50%;
+    background: var(--grad-brand, linear-gradient(135deg, #1a3a8f, #2c5cc5));
+    color: #fff;
+    font-size: .65rem;
+    font-weight: 800;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px color-mix(in srgb, var(--primary) 35%, transparent);
+}
+
+/* ---- Eligibility summary bar (below spec-cards) ---- */
+.dash-spec-summary {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-4);
+    flex-wrap: wrap;
+    margin-top: var(--sp-3);
+    padding-top: var(--sp-3);
+    border-top: 1px solid var(--border);
+    font-size: var(--fs-xs);
+    font-weight: 700;
+}
+.sum-ok   { color: var(--cat-science, #1a9d6a); }
+.sum-warn { color: #ca8a04; }
+.sum-no   { color: var(--cat-medical, #e53e3e); }
+.sum-total { color: var(--text-muted); margin-inline-start: auto; font-weight: 600; }
+[data-theme="dark"] .sum-warn { color: #fbbf24; }
+
+/* ---- Quick actions card ---- */
+.dash-actions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-3);
+    margin-top: var(--sp-4);
+}
+.dash-action-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-2);
+    padding: var(--sp-4) var(--sp-2);
+    border-radius: var(--r-md);
+    border: 1.5px solid var(--border);
+    background: var(--surface-2);
+    color: var(--text);
+    text-decoration: none;
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    transition: background var(--t-fast) var(--ease),
+                border-color var(--t-fast) var(--ease),
+                color var(--t-fast) var(--ease),
+                transform var(--t-fast) var(--ease),
+                box-shadow var(--t-fast) var(--ease);
+}
+.dash-action-btn i {
+    font-size: 1.2rem;
+    color: var(--primary);
+    transition: color var(--t-fast) var(--ease);
+}
+.dash-action-btn:hover {
+    background: color-mix(in srgb, var(--primary) 8%, var(--surface-2));
+    border-color: color-mix(in srgb, var(--primary) 35%, transparent);
+    color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px color-mix(in srgb, var(--primary) 14%, transparent);
+}
+.dash-action-btn:hover i { color: var(--primary); }
+@media (max-width: 480px) {
+    .dash-actions-grid { grid-template-columns: 1fr; }
+}
+
+/* ---- Import card — smart collapse after import ---- */
+.dash-card-import.dash-import-done .dash-import-help,
+.dash-card-import.dash-import-done .dash-import-input,
+.dash-card-import.dash-import-done .dash-import-actions,
+.dash-card-import.dash-import-done .dash-import-msg {
+    display: none;
+}
+.dash-import-expand-btn {
+    background: none;
+    border: none;
+    color: inherit;
+    font: inherit;
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 0;
+    opacity: .75;
+    transition: opacity var(--t-fast);
+}
+.dash-import-expand-btn:hover { opacity: 1; }
