@@ -1260,33 +1260,52 @@ img { display: block; max-width: 100%; }
   border-radius: 1.25rem;
   padding: 2rem;
   display: flex; flex-direction: column; gap: .85rem;
+  position: relative; overflow: hidden;
   box-shadow: 0 1px 4px rgba(0,0,0,.04);
   opacity: 0;
-  will-change: transform, opacity, filter;
-  transition: transform .3s var(--ease-out), box-shadow .3s;
+  transform: translateY(28px) scale(.97);
+  transition: opacity .65s cubic-bezier(.22,1,.36,1),
+              transform .65s cubic-bezier(.22,1,.36,1),
+              box-shadow .35s;
 }
-.lv2-trust-card.in-view {
-  animation: lv2CardIn .55s cubic-bezier(.22, 1, .36, 1) both;
-}
-.lv2-trust-card[data-s="1"].in-view { animation-delay: .08s; }
-.lv2-trust-card[data-s="2"].in-view { animation-delay: .16s; }
 
-@keyframes lv2CardIn {
-  from {
-    opacity: 0;
-    transform: translateY(32px) scale(.95);
-    filter: blur(4px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    filter: blur(0);
-  }
+/* Spotlight — radial gradient follows cursor */
+.lv2-trust-card::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(
+    340px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(var(--primary-rgb), .11) 0%,
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity .3s;
+  pointer-events: none; border-radius: inherit;
+}
+.lv2-trust-card:hover::before { opacity: 1; }
+
+/* Gradient border glow on hover */
+.lv2-trust-card::after {
+  content: '';
+  position: absolute; inset: -1px;
+  border-radius: calc(1.25rem + 1px);
+  background: linear-gradient(135deg,
+    rgba(var(--primary-rgb),.35) 0%,
+    rgba(var(--accent-rgb),.2)   50%,
+    rgba(var(--primary-rgb),.0)  100%);
+  opacity: 0;
+  transition: opacity .35s;
+  pointer-events: none; z-index: -1;
+}
+.lv2-trust-card:hover::after { opacity: 1; }
+
+.lv2-trust-card.in-view {
+  opacity: 1;
+  transform: none;
 }
 
 .lv2-trust-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 28px rgba(var(--primary-rgb),.08);
+  box-shadow: 0 12px 40px rgba(var(--primary-rgb),.12);
 }
 
 .lv2-trust-icon {
@@ -1294,6 +1313,11 @@ img { display: block; max-width: 100%; }
   display: grid; place-items: center;
   background: rgba(var(--primary-rgb),.08);
   color: var(--primary);
+  transition: transform .3s cubic-bezier(.34,1.56,.64,1), background .3s;
+}
+.lv2-trust-card:hover .lv2-trust-icon {
+  transform: scale(1.15);
+  background: rgba(var(--primary-rgb),.14);
 }
 .lv2-trust-icon svg { width: 22px; height: 22px; }
 
