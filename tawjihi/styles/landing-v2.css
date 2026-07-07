@@ -19,7 +19,8 @@
   --ink:            #1A1A1A;
   --muted:          #6A6A6A;
   --divider:        #E0E0E0;
-  --deep:           #0F1419;
+  --deep:           #0a1840;
+  --deep-rgb:       10,24,64;
 
   --font-display:   'Plus Jakarta Sans', 'Cairo', system-ui, sans-serif;
   --font-serif:     'Cormorant Garamond', 'Cairo', serif;
@@ -37,7 +38,7 @@
   --ink:        #FAFAFA;
   --muted:      #9A9A9A;
   --divider:    #2A2A2E;
-  --deep:       #090C0F;
+  --deep:       #06102a;
 }
 
 /* ── Reset ─────────────────────────────────────────────────── */
@@ -420,7 +421,7 @@ img { display: block; max-width: 100%; }
 
 .lv2-hero-overlay-1 {
   position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(135deg, rgba(15,20,25,.75) 0%, rgba(15,20,25,.35) 50%, rgba(15,20,25,.65) 100%);
+  background: linear-gradient(135deg, rgba(10,24,64,.78) 0%, rgba(26,58,143,.32) 50%, rgba(10,24,64,.68) 100%);
 }
 
 .lv2-hero-overlay-2 {
@@ -1150,7 +1151,7 @@ img { display: block; max-width: 100%; }
    6 · SERVICES GRID (dark domains)
 ───────────────────────────────────────────────────────────── */
 .lv2-services {
-  background: var(--deep);
+  background: linear-gradient(160deg, #071336 0%, var(--deep) 40%, #0d1e56 100%);
   padding-block: 7rem;
 }
 
@@ -1176,21 +1177,22 @@ img { display: block; max-width: 100%; }
 .lv2-services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  background: rgba(255,255,255,.05);
+  background: rgba(255,255,255,.09);
   gap: 1px;
   border-radius: 1.25rem;
   overflow: hidden;
+  border: 1px solid rgba(255,255,255,.08);
 }
 
 .lv2-service-tile {
-  background: var(--deep);
+  background: rgba(10,24,64,.92);
   padding: 2rem 1.75rem;
   display: flex; flex-direction: column; gap: .6rem;
-  transition: background .25s;
+  transition: background .28s, box-shadow .28s;
   position: relative;
   cursor: pointer;
 }
-.lv2-service-tile:hover { background: rgba(255,255,255,.03); }
+.lv2-service-tile:hover { background: rgba(44,92,197,.18); box-shadow: inset 0 0 0 1px rgba(44,92,197,.3); }
 .lv2-service-tile:hover .lv2-service-icon { transform: scale(1.1); }
 .lv2-service-tile:hover .lv2-service-arrow { opacity: 1; transform: none; }
 
@@ -1396,7 +1398,7 @@ img { display: block; max-width: 100%; }
    9 · FOOTER
 ───────────────────────────────────────────────────────────── */
 .lv2-footer {
-  background: var(--deep);
+  background: linear-gradient(180deg, #0d1e56 0%, #071336 100%);
   padding-block-start: 5rem;
 }
 
