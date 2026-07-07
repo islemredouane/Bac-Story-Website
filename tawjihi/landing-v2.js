@@ -227,22 +227,22 @@
         });
       });
 
-      /* ── Pinned scroll-scrubbed timeline ── */
+      /* ── Scroll-scrubbed timeline (no pin — avoids spacer + layout shift) ── */
       var tl = gsap.timeline({
         scrollTrigger: {
-          trigger:      '.lv2-features',
-          start:        'top top+=80',  /* pin when section hits nav bottom */
-          end:          '+=860',        /* 860px of scroll drives the full anim */
-          scrub:        1,
-          pin:          true,
-          anticipatePin: 1,
-          onLeave: function () {
-            /* Section unpinned — finalise card state for hover */
+          trigger: '.lv2-features',
+          start:   'top 65%',
+          end:     'top 10%',
+          scrub:   1,
+          onLeave: function (self) {
+            self.kill();
+            tl.kill();
             featCards.forEach(function (card) {
-              card.style.transition = '';
+              card.removeAttribute('style'); /* wipe all GSAP inline styles */
               card.classList.add('revealed');
-              gsap.set(card, { clearProps: 'all' });
             });
+            folderEl.removeAttribute('style');
+            folderEl.style.opacity = '0'; /* keep folder hidden */
           }
         }
       });
