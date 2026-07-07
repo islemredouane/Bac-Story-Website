@@ -1218,25 +1218,13 @@
     padding: var(--sp-3) var(--sp-3) var(--sp-4);
 }
 
-/* ── Sidebar logo — same look as landing-v2 nav ───────────── */
+/* ── Sidebar logo — Plus Jakarta Sans, same as landing-v2 ─── */
 .sidebar-logo-brand {
-    font-family: 'Plus Jakarta Sans', 'Cairo', var(--font-ui) !important;
-    font-size: 1.05rem !important;
     font-weight: 800 !important;
     letter-spacing: -.02em;
     color: var(--primary) !important;
-    display: flex !important;
-    align-items: center !important;
-    gap: .45rem !important;
-}
-.sidebar-logo-icon {
-    width: 22px;
-    height: 22px;
-    flex-shrink: 0;
-    color: var(--primary);
 }
 [data-theme="dark"] .sidebar-logo-brand { color: #fff !important; }
-[data-theme="dark"] .sidebar-logo-icon { color: #fff; }
 
 /* ── Active nav item — premium left-border accent ─────────── */
 .nav-item.active {
