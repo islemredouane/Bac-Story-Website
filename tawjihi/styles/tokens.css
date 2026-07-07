@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
+
 /* ============================================================
    TAWJIHI — Design Tokens  (توجيهي by BAC STORY)
    Single source of truth for color, type, spacing, motion.
@@ -48,7 +50,7 @@
     /* ---- Type ---- */
     --font-ui:      'Tajawal', system-ui, sans-serif;
     /* Note: Pattaya is Latin-only. Arabic display text will render in Cairo fallback. */
-    --font-display: 'Pattaya', 'Cairo', var(--font-ui); /* UI-5: added Cairo for Arabic Unicode support */
+    --font-display: 'Plus Jakarta Sans', 'Cairo', var(--font-ui);
     --fs-xs: .78rem;  --fs-sm: .88rem;  --fs-md: 1rem;
     --fs-lg: 1.15rem; --fs-xl: 1.5rem;  --fs-2xl: 2rem; --fs-3xl: 2.75rem;
 
