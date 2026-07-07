@@ -1,4 +1,4 @@
-/* landing-v2.js — Tawjihi Landing V2
+﻿/* landing-v2.js — Tawjihi Landing V2
    Follows build-premium-website skill patterns.
    GSAP loaded via CDN, registered when available. */
 (function () {
@@ -92,6 +92,14 @@
     obs.observe(el);
   });
 
+  /* ── Feature cards — folder reveal handled by initGsap ─── */
+  /* Fallback: if GSAP CDN never loads, reveal via CSS class  */
+  setTimeout(function () {
+    document.querySelectorAll('.feature-card').forEach(function (c) {
+      if (!c.classList.contains('revealed')) c.classList.add('revealed');
+    });
+  }, 4000);
+
   /* ── FAQ accordion ────────────────────────────────────────── */
   document.querySelectorAll('.lv2-faq-q').forEach(function (btn) {
     btn.addEventListener('click', function () {
@@ -177,28 +185,95 @@
       });
     });
 
-    /* Feature cards reveal */
-    gsap.from('.feature-card', {
-      scrollTrigger: {
-        trigger: '#features',
-        start: 'top 75%',
-        once: true
-      },
-      y: 40, opacity: 0,
-      duration: 0.8, stagger: 0.15, ease: 'power3.out'
-    });
-
     /* Pillar counters section reveal */
     gsap.from('.lv2-pillar', {
       scrollTrigger: { trigger: '.lv2-pillars', start: 'top 80%', once: true },
       y: 30, opacity: 0, duration: 0.7, stagger: 0.1, ease: 'power3.out'
     });
 
-    /* Trust cards */
-    gsap.from('.lv2-trust-card', {
-      scrollTrigger: { trigger: '.lv2-trust', start: 'top 80%', once: true },
-      y: 30, opacity: 0, duration: 0.7, stagger: 0.12, ease: 'power3.out'
-    });
+    /* Trust cards — IntersectionObserver, same pattern as Bac Story landing */
+    (function () {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('in-view');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.10, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.lv2-trust-card').forEach(function (el) {
+        io.observe(el);
+      });
+    }());
+
+    /* ── Feature cards: scroll-scrubbed folder reveal (pinned) ── */
+    (function () {
+      var folderEl   = document.getElementById('lv2FolderAnchor');
+      var folderFlap = document.getElementById('lv2FolderFlap');
+      var featCards  = Array.from(document.querySelectorAll('.feature-card'));
+      if (!folderEl || !featCards.length) return;
+
+      /* Folder sits above cards in z-order */
+      gsap.set(folderEl, { zIndex: 20, position: 'relative' });
+
+      /* Stack all cards inside the folder: move each to folder centre, shrink */
+      var fR  = folderEl.getBoundingClientRect();
+      var fCX = fR.left + fR.width  / 2;
+      var fCY = fR.top  + fR.height * 0.65;
+      var fanRot = [7, 0, -7];
+
+      featCards.forEach(function (card, i) {
+        var r  = card.getBoundingClientRect();
+        var dx = fCX - (r.left + r.width  / 2);
+        var dy = fCY - (r.top  + r.height / 2);
+        card.style.transition = 'none';
+        gsap.set(card, {
+          x: dx, y: dy,
+          scale: 0.42,
+          opacity: 1,
+          rotation: fanRot[i],
+          zIndex: i + 1
+        });
+      });
+
+      /* ── Scroll-scrubbed timeline (no pin — avoids spacer + layout shift) ── */
+      var tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: '.lv2-features',
+          start:   'top 65%',
+          end:     'top 10%',
+          scrub:   1,
+          onLeave: function (self) {
+            self.kill();
+            tl.kill();
+            featCards.forEach(function (card) {
+              card.removeAttribute('style'); /* wipe all GSAP inline styles */
+              card.classList.add('revealed');
+            });
+            folderEl.removeAttribute('style');
+            folderEl.style.opacity = '0'; /* keep folder hidden */
+          }
+        }
+      });
+
+      /* Phase 1 (0–22%): folder flap folds back */
+      tl.to(folderFlap, {
+        scaleY: 0, transformOrigin: 'top center', duration: 0.22
+      }, 0);
+
+      /* Phase 2 (15–50%): folder body fades & shrinks */
+      tl.to(folderEl, {
+        opacity: 0, scale: 0.78, duration: 0.35
+      }, 0.15);
+
+      /* Phase 3 (18–100%): cards exit folder, fan to grid columns */
+      featCards.forEach(function (card, i) {
+        tl.to(card, {
+          x: 0, y: 0, scale: 1, rotation: 0,
+          duration: 0.62
+        }, 0.18 + i * 0.19);
+      });
+    }());
 
     /* Protocol sticky-stack scrub */
     var pStack = document.getElementById('lv2ProtocolStack');
@@ -249,5 +324,17 @@
 
   /* Also try immediately in case scripts already loaded */
   if (document.readyState === 'complete') initGsap();
+
+  /* ── Compass logo needle — subtle mouse follow ───────────── */
+  var logoNeedle = document.getElementById('lv2LogoNeedle');
+  if (logoNeedle && !prefersReduced) {
+    document.addEventListener('mousemove', function (e) {
+      var cx = window.innerWidth / 2;
+      var cy = window.innerHeight / 2;
+      var angle = Math.atan2(e.clientX - cx, -(e.clientY - cy)) * (180 / Math.PI);
+      logoNeedle.style.transform = 'rotate(' + angle + 'deg)';
+      logoNeedle.style.transformOrigin = '16px 16px';
+    }, { passive: true });
+  }
 
 })();
