@@ -191,18 +191,40 @@
       y: 30, opacity: 0, duration: 0.7, stagger: 0.1, ease: 'power3.out'
     });
 
-    /* Trust cards — IntersectionObserver, same pattern as Bac Story landing */
+    /* Trust cards — fade-up reveal + 3D tilt + cursor spotlight */
     (function () {
+      var cards = Array.from(document.querySelectorAll('.lv2-trust-card'));
+
       var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (e) {
-          if (e.isIntersecting) {
-            e.target.classList.add('in-view');
-            io.unobserve(e.target);
-          }
+          if (!e.isIntersecting) return;
+          var card = e.target;
+          var delay = parseInt(card.getAttribute('data-s') || '0', 10) * 120;
+          io.unobserve(card);
+          setTimeout(function () { card.classList.add('in-view'); }, delay);
         });
       }, { threshold: 0.10, rootMargin: '0px 0px -40px 0px' });
-      document.querySelectorAll('.lv2-trust-card').forEach(function (el) {
-        io.observe(el);
+
+      cards.forEach(function (card) {
+        io.observe(card);
+
+        card.addEventListener('mousemove', function (e) {
+          if (!card.classList.contains('in-view')) return;
+          var r  = card.getBoundingClientRect();
+          var x  = e.clientX - r.left;
+          var y  = e.clientY - r.top;
+          var cx = r.width  / 2;
+          var cy = r.height / 2;
+          var rx = ((y - cy) / cy * -5).toFixed(2);
+          var ry = ((x - cx) / cx *  5).toFixed(2);
+          card.style.transform = 'perspective(640px) translateY(-4px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg)';
+          card.style.setProperty('--mx', (x / r.width  * 100).toFixed(1) + '%');
+          card.style.setProperty('--my', (y / r.height * 100).toFixed(1) + '%');
+        }, { passive: true });
+
+        card.addEventListener('mouseleave', function () {
+          card.style.transform = '';
+        });
       });
     }());
 
