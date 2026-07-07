@@ -67,25 +67,25 @@
 }
 
 .dash-card {
-    animation: fx-rise 480ms var(--ease-out) both, cardFloat 3.5s ease-in-out infinite;
+    animation: fx-rise 480ms var(--ease-out) both;
 }
-.dash-grid > .dash-card:nth-child(1) { animation-delay:  80ms,  760ms; }
-.dash-grid > .dash-card:nth-child(2) { animation-delay: 150ms,  900ms; }
-.dash-grid > .dash-card:nth-child(3) { animation-delay: 220ms, 1050ms; }
-.dash-grid > .dash-card:nth-child(4) { animation-delay: 290ms, 1200ms; }
-.dash-grid > .dash-card:nth-child(5) { animation-delay: 360ms, 1350ms; }
-.dash-grid > .dash-card:nth-child(6) { animation-delay: 430ms, 1500ms; }
+.dash-grid > .dash-card:nth-child(1) { animation-delay:  80ms; }
+.dash-grid > .dash-card:nth-child(2) { animation-delay: 150ms; }
+.dash-grid > .dash-card:nth-child(3) { animation-delay: 220ms; }
+.dash-grid > .dash-card:nth-child(4) { animation-delay: 290ms; }
+.dash-grid > .dash-card:nth-child(5) { animation-delay: 360ms; }
+.dash-grid > .dash-card:nth-child(6) { animation-delay: 430ms; }
 
 /* inner spec cards get a tiny cascade of their own */
-.dash-spec-row .dash-spec-card { animation: fx-rise 460ms var(--ease-out) both, cardFloat 3.5s ease-in-out infinite; }
-.dash-spec-row .dash-spec-card:nth-child(1) { animation-delay: 260ms, 960ms; }
-.dash-spec-row .dash-spec-card:nth-child(2) { animation-delay: 320ms, 1080ms; }
-.dash-spec-row .dash-spec-card:nth-child(3) { animation-delay: 380ms, 1200ms; }
+.dash-spec-row .dash-spec-card { animation: fx-rise 460ms var(--ease-out) both; }
+.dash-spec-row .dash-spec-card:nth-child(1) { animation-delay: 260ms; }
+.dash-spec-row .dash-spec-card:nth-child(2) { animation-delay: 320ms; }
+.dash-spec-row .dash-spec-card:nth-child(3) { animation-delay: 380ms; }
 
 /* nudge cards stagger */
-.dash-nudges .dash-nudge:nth-child(1) { animation: fx-rise 460ms var(--ease-out) both, cardFloat 3.5s ease-in-out infinite; animation-delay: 480ms, 1140ms; }
-.dash-nudges .dash-nudge:nth-child(2) { animation: fx-rise 460ms var(--ease-out) both, cardFloat 3.5s ease-in-out infinite; animation-delay: 540ms, 1200ms; }
-.dash-nudges .dash-nudge:nth-child(3) { animation: fx-rise 460ms var(--ease-out) both, cardFloat 3.5s ease-in-out infinite; animation-delay: 600ms, 1260ms; }
+.dash-nudges .dash-nudge:nth-child(1) { animation: fx-rise 460ms var(--ease-out) both; animation-delay: 480ms; }
+.dash-nudges .dash-nudge:nth-child(2) { animation: fx-rise 460ms var(--ease-out) both; animation-delay: 540ms; }
+.dash-nudges .dash-nudge:nth-child(3) { animation: fx-rise 460ms var(--ease-out) both; animation-delay: 600ms; }
 
 /* ------------------------------------------------------------
    3) PREMIUM CARD GLOW — always-on border pulse
