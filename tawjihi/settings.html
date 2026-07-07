@@ -8,7 +8,7 @@
     <meta name="description" content="عدّل معلومات ملفّك الشخصي في توجيهي — الشعبة، المعدل، الولاية، الاهتمامات والطموح.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@700;800;900&family=Pattaya&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Tajawal:wght@400;500;700;800&family=Cairo:wght@400;600;700;800&family=Pattaya&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles/tokens.css">
     <link rel="stylesheet" href="styles/app.css">
@@ -17,35 +17,11 @@
     <link rel="stylesheet" href="styles/settings.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
     <script src="supabase.js"></script>
-    <script src="shell.js"></script>
-    <script src="catalog.js"></script>
 </head>
 <body>
 <div class="app" id="app">
-    <!-- ===================== SIDEBAR ===================== -->
-    <aside class="sidebar" id="sidebar">
-        <div class="sidebar-head">
-            <button class="sidebar-toggle" id="sidebarToggle" aria-label="طي القائمة"><i class="fas fa-bars"></i></button>
-            <span class="sidebar-logo">توجيهي</span>
-        </div>
-
-        <nav class="nav-group">
-            <a class="nav-item" href="app.html"><i class="fas fa-comments"></i><span>المرشد الذكي</span></a>
-            <a class="nav-item" href="specialities.html"><i class="fas fa-compass"></i><span>دليل التخصصات</span></a>
-            <a class="nav-item" href="simulator.html"><i class="fas fa-list-check"></i><span>محاكي بطاقة الرغبات</span></a>
-            <a class="nav-item" href="dashboard.html"><i class="fas fa-gauge-high"></i><span>لوحتي</span></a>
-            <a class="nav-item" href="referral.html"><i class="fas fa-gift"></i><span>الإحالة والمكافآت</span></a>
-        </nav>
-
-        <div class="sidebar-foot">
-            <a class="nav-item" href="#" onclick="document.getElementById('themeBtn')?.click();return false;"><i class="fas fa-circle-half-stroke" id="themeIconSide"></i><span>الوضع الليلي</span></a>
-            <a class="nav-item active" href="settings.html"><i class="fas fa-gear"></i><span>الإعدادات</span></a>
-            <a class="nav-item" href="#" id="logoutBtn" onclick="if(window.twSignOut){window.twSignOut()}else{localStorage.clear();location.href='login.html'};return false;">
-              <i class="fas fa-right-from-bracket"></i>
-              <span>تسجيل الخروج</span>
-            </a>
-        </div>
-    </aside>
+    <!-- sidebar injected by shell.js -->
+    <aside class="sidebar" id="sidebar"></aside>
     <div class="sidebar-scrim" id="scrim"></div>
 
     <!-- ===================== MAIN ===================== -->
@@ -201,6 +177,8 @@
     </main>
 </div>
 
+<script src="shell.js"></script>
+<script src="catalog.js"></script>
 <script src="settings.js"></script>
 </body>
 </html>
