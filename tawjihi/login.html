@@ -235,7 +235,7 @@
         gBtn.querySelector('.google-btn-label').textContent = 'جاري الدخول…';
         const { error } = await tw_supabase.auth.signInWithOAuth({
             provider: 'google',
-            options: { redirectTo: window.location.origin + '/tawjihi/login.html' }
+            options: { redirectTo: window.location.origin + window.location.pathname }
         });
         if (error) {
             gBtn.classList.remove('is-loading');
