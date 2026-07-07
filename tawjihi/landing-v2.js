@@ -197,61 +197,72 @@
       y: 30, opacity: 0, duration: 0.7, stagger: 0.12, ease: 'power3.out'
     });
 
-    /* ── Feature cards: folder stack → fan-out reveal ───────── */
+    /* ── Feature cards: scroll-scrubbed folder reveal (pinned) ── */
     (function () {
-      var featGrid = document.querySelector('.lv2-features-grid');
-      var featCards = Array.from(document.querySelectorAll('.feature-card'));
-      if (!featGrid || !featCards.length) return;
+      var folderEl   = document.getElementById('lv2FolderAnchor');
+      var folderFlap = document.getElementById('lv2FolderFlap');
+      var featCards  = Array.from(document.querySelectorAll('.feature-card'));
+      if (!folderEl || !featCards.length) return;
 
-      /* Stack all cards at grid centre with a fan rotation */
-      var gRect = featGrid.getBoundingClientRect();
-      var gCenterX = gRect.left + gRect.width / 2;
-      /* fan: right card (+rot), centre (0), left card (-rot) — in RTL layout */
-      var fanRot   = [ 9,  0, -9];
-      var fanScale = [0.76, 0.72, 0.76];
+      /* Folder sits above cards in z-order */
+      gsap.set(folderEl, { zIndex: 20, position: 'relative' });
+
+      /* Stack all cards inside the folder: move each to folder centre, shrink */
+      var fR  = folderEl.getBoundingClientRect();
+      var fCX = fR.left + fR.width  / 2;
+      var fCY = fR.top  + fR.height * 0.65; /* slightly below folder centre */
+      var fanRot = [7, 0, -7];
 
       featCards.forEach(function (card, i) {
         var r  = card.getBoundingClientRect();
-        var dx = gCenterX - (r.left + r.width / 2);
-        card.style.transition = 'none'; /* freeze CSS transition during GSAP */
+        var dx = fCX - (r.left + r.width  / 2);
+        var dy = fCY - (r.top  + r.height / 2);
+        card.style.transition = 'none';
         gsap.set(card, {
-          x: dx, y: 85,
-          scale: fanScale[i],
-          opacity: 0,
+          x: dx, y: dy,
+          scale: 0.42,
+          opacity: 1,      /* visible but tiny, behind folder */
           rotation: fanRot[i],
-          zIndex: i === 1 ? 3 : 2,
-          transformOrigin: 'center bottom'
+          zIndex: i + 1   /* folder z:20 stays above cards z:1-3 */
         });
       });
 
-      var fTl = gsap.timeline({
-        scrollTrigger: { trigger: '.lv2-features', start: 'top 62%', once: true }
+      /* ── Pinned scroll-scrubbed timeline ── */
+      var tl = gsap.timeline({
+        scrollTrigger: {
+          trigger:      '.lv2-features',
+          start:        'top top+=80',  /* pin when section hits nav bottom */
+          end:          '+=860',        /* 860px of scroll drives the full anim */
+          scrub:        1,
+          pin:          true,
+          anticipatePin: 1,
+          onLeave: function () {
+            /* Section unpinned — finalise card state for hover */
+            featCards.forEach(function (card) {
+              card.style.transition = '';
+              card.classList.add('revealed');
+              gsap.set(card, { clearProps: 'all' });
+            });
+          }
+        }
       });
 
-      /* 1 – folder flap folds back (scaleY 1 → 0 from top edge) */
-      fTl.to('#lv2FolderFlap', {
-        scaleY: 0, duration: 0.28, ease: 'power2.in',
-        transformOrigin: 'top center'
+      /* Phase 1 (0–22%): folder flap folds back */
+      tl.to(folderFlap, {
+        scaleY: 0, transformOrigin: 'top center', duration: 0.22
       }, 0);
 
-      /* 2 – folder body shrinks away */
-      fTl.to('#lv2FolderAnchor', {
-        opacity: 0, scale: 0.88, y: -8,
-        duration: 0.4, ease: 'power2.in'
-      }, 0.18);
+      /* Phase 2 (15–50%): folder body fades & shrinks */
+      tl.to(folderEl, {
+        opacity: 0, scale: 0.78, duration: 0.35
+      }, 0.15);
 
-      /* 3 – cards fly out with staggered back-ease */
+      /* Phase 3 (18–100%): cards exit folder, fan to grid columns */
       featCards.forEach(function (card, i) {
-        fTl.to(card, {
-          x: 0, y: 0, scale: 1, opacity: 1, rotation: 0,
-          duration: 0.92,
-          ease: 'back.out(1.4)',
-          onComplete: function () {
-            card.style.transition = '';          /* restore CSS hover transition */
-            card.classList.add('revealed');
-            gsap.set(card, { clearProps: 'x,y,scale,rotation,zIndex,transformOrigin,opacity' });
-          }
-        }, 0.22 + i * 0.15);
+        tl.to(card, {
+          x: 0, y: 0, scale: 1, rotation: 0,
+          duration: 0.62
+        }, 0.18 + i * 0.19);
       });
     }());
 
