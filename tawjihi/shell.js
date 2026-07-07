@@ -105,6 +105,47 @@
   if (scrim && app) scrim.addEventListener('click', () => app.classList.remove('drawer-open'));
 })();
 
+/* ---- Shared sidebar — injected once, identical on every page ---- */
+(function () {
+    var sidebar = document.getElementById('sidebar');
+    if (!sidebar) return;
+
+    var page = location.pathname.split('/').pop().replace('.html', '') || 'index';
+    /* speciality detail page belongs to the specialities section */
+    var activeId = page === 'speciality' ? 'specialities' : page;
+
+    var NAV = [
+        { id: 'app',          href: 'app.html',          icon: 'fa-comments',   label: 'المرشد الذكي' },
+        { id: 'specialities', href: 'specialities.html', icon: 'fa-compass',    label: 'دليل التخصصات' },
+        { id: 'simulator',    href: 'simulator.html',    icon: 'fa-list-check', label: 'محاكي بطاقة الرغبات' },
+        { id: 'dashboard',    href: 'dashboard.html',    icon: 'fa-gauge-high', label: 'لوحتي' },
+        { id: 'referral',     href: 'referral.html',     icon: 'fa-gift',       label: 'الإحالة والمكافآت' },
+    ];
+
+    sidebar.innerHTML =
+        '<div class="sidebar-head">' +
+            '<button class="sidebar-toggle" id="sidebarToggle" aria-label="طي القائمة"><i class="fas fa-bars"></i></button>' +
+            '<span class="sidebar-logo sidebar-logo-brand">توجيهي</span>' +
+        '</div>' +
+        '<nav class="nav-group">' +
+            NAV.map(function (item) {
+                return '<a class="nav-item' + (activeId === item.id ? ' active' : '') + '" href="' + item.href + '">' +
+                    '<i class="fas ' + item.icon + '"></i><span>' + item.label + '</span>' +
+                '</a>';
+            }).join('') +
+        '</nav>' +
+        '<div class="sidebar-foot">' +
+            '<a class="nav-item" href="#" onclick="document.getElementById(\'themeBtn\')?.click();return false;">' +
+                '<i class="fas fa-circle-half-stroke" id="themeIconSide"></i><span>الوضع الليلي</span>' +
+            '</a>' +
+            '<a class="nav-item" href="dashboard.html"><i class="fas fa-user-circle"></i><span>حسابي</span></a>' +
+            '<a class="nav-item" href="settings.html"><i class="fas fa-gear"></i><span>الإعدادات</span></a>' +
+            '<a class="nav-item" href="#" id="logoutBtn" onclick="if(window.twSignOut){window.twSignOut()}else{localStorage.clear();location.href=\'login.html\'};return false;">' +
+                '<i class="fas fa-right-from-bracket"></i><span>تسجيل الخروج</span>' +
+            '</a>' +
+        '</div>';
+}());
+
 /* ---- Mobile Navigation: Top Bar + Bottom Tab Nav ---- */
 (() => {
   const page = location.pathname.split('/').pop().replace('.html', '') || 'app';
