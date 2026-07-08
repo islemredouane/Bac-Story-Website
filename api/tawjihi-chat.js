@@ -18,6 +18,53 @@ import geoData from '../tawjihi/data/guide/geographic-circles.json' with { type:
 import geoCircles from '../tawjihi/data/kb/geo-circles.json' with { type: 'json' };
 import ministryRulesData from '../tawjihi/data/kb/ministry-rules.json' with { type: 'json' };
 import availabilityMapData from '../tawjihi/data/kb/availability-map.json' with { type: 'json' };
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __apiDir = path.dirname(fileURLToPath(import.meta.url));
+const CONTENT_DIR = path.join(__apiDir, '..', 'tawjihi', 'content');
+
+const CONTENT_CACHE = new Map();
+function loadRichContent(specId) {
+  if (!specId) return [];
+  if (CONTENT_CACHE.has(specId)) return CONTENT_CACHE.get(specId);
+  try {
+    const raw = fs.readFileSync(path.join(CONTENT_DIR, `${specId}.json`), 'utf8');
+    const sections = JSON.parse(raw).sections || [];
+    CONTENT_CACHE.set(specId, sections);
+    return sections;
+  } catch {
+    CONTENT_CACHE.set(specId, []);
+    return [];
+  }
+}
+
+const RICH_SECTION_TYPES = new Set(['pros', 'cons', 'summary']);
+const RICH_HEADING_KEYS = ['فرص العمل', 'واقع سوق العمل', 'التخصصات المتاحة', 'خلاصة', 'مميزات المدرسة'];
+
+function buildRichExcerpt(specId) {
+  const sections = loadRichContent(specId);
+  if (!sections.length) return '';
+  const lines = [];
+  for (const sec of sections) {
+    const isWanted = RICH_SECTION_TYPES.has(sec.type) || RICH_HEADING_KEYS.some(k => (sec.h || '').includes(k));
+    if (!isWanted) continue;
+    if (sec.type === 'pros' || sec.type === 'cons') {
+      const label = sec.type === 'pros' ? 'الإيجابيات' : 'السلبيات';
+      const items = (sec.items || []).slice(0, 4).join(' | ');
+      if (items) lines.push(`${label}: ${items}`);
+    } else if (sec.type === 'summary' && sec.body) {
+      lines.push(`الخلاصة: ${sec.body.slice(0, 300)}`);
+    } else if (sec.body) {
+      lines.push(`${sec.h}: ${sec.body.slice(0, 200)}`);
+    } else if (sec.items) {
+      lines.push(`${sec.h}: ${(sec.items || []).slice(0, 4).join(' | ')}`);
+    }
+    if (lines.length >= 4) break;
+  }
+  return lines.join('\n');
+}
 
 const SPECIALITIES = specialitiesKb.specialities || [];
 const ADM_ROWS = admissionsFull.rows || [];
@@ -804,6 +851,7 @@ function buildContext(specs, wilayaKey = null) {
   return specs
     .map((spec) => {
       const sections = pickSections(spec.sections);
+      const richExcerpt = buildRichExcerpt(spec.id);
       const rows = rowsForSpec(spec, 6).map(formatRow);
       const parts = [
         `### [${spec.id}] ${spec.name_ar} / ${spec.name_fr}`,
@@ -815,6 +863,7 @@ function buildContext(specs, wilayaKey = null) {
       // Availability note: override generic "غير متوفر" with specific wilaya list
       if (availNotes[spec.id]) parts.push(availNotes[spec.id]);
       if (sections.length) parts.push(sections.join('\n'));
+      if (richExcerpt) parts.push(richExcerpt);
       if (rows.length) parts.push('مؤسسات مرجعية:\n- ' + rows.join('\n- '));
       return parts.join('\n');
     })
@@ -831,7 +880,7 @@ function buildGuideContext(profile) {
   if (!code) return '';
 
   const wilaya = p.wilaya && p.wilaya !== 'غير محددة' ? p.wilaya : null;
-  const wNum = wilaya ? WILAYA_TO_NUM[wilaya] : null;
+  const wNum = wilaya ? (WILAYA_TO_NUM[wilaya] || WILAYA_TO_NUM[wilaya.replace(/^\d+\s*[-–]\s*/, '').trim()] || null) : null;
 
   const streamProgs = GUIDE_BY_STREAM[code] || [];
   if (streamProgs.length === 0) return '';
@@ -969,7 +1018,7 @@ function buildWebBlock(results) {
 }
 
 /* ---- System prompt (CHAT-CONTRACT.md §4) -------------------------------- */
-function buildSystemPrompt(profile, contextBlock, guideBlock, orientationMode = false, emptyContext = false, intent = {}, wilayaAr = null, webBlock = '', ministryBlock = '', geoZoneAr = null) {
+function buildSystemPrompt(profile, contextBlock, guideBlock, orientationMode = false, emptyContext = false, intent = {}, wilayaAr = null, webBlock = '', ministryBlock = '', geoZoneAr = null, wishlist = []) {
   const p = profile || {};
   const code = streamCode(p.stream);
   const streamLabel = code ? STREAM_AR[code] || p.stream : p.stream || 'غير محددة';
@@ -1031,6 +1080,7 @@ function buildSystemPrompt(profile, contextBlock, guideBlock, orientationMode = 
 - الولاية: ${p.wilaya || 'غير محددة'}
 - الاهتمامات: ${Array.isArray(p.interests) ? p.interests.join('، ') : p.interests || 'غير محددة'}
 - الطموح: ${p.ambition_text || p.ambition || 'غير محدد'}
+${wishlist && wishlist.length > 0 ? `- بطاقة الرغبات (الأولويات الحالية): ${wishlist.slice(0, 5).join('، ')}` : ''}
 
 ${orientationMode ? `
 # وضع الاستكشاف (مُفعَّل — الطالب لا يعرف مجاله)
@@ -1039,7 +1089,7 @@ ${p.stream ? `ملاحظة أهليّة (AI-10): المستخدم في شعبة 
 1. اسأل سؤالاً واحداً فقط في كل رد — لا تجمع أسئلة.
 2. استعمل دائماً كتلة \`\`\`question\`\`\` لكل سؤال (لا تكتب الخيارات في النص).
 3. انتظر إجابة الطالب قبل الانتقال للسؤال التالي.
-4. بعد 4-5 أسئلة، حلّل الإجابات وأوصِ بـ 3-5 تخصصات مناسبة مع \`\`\`spec-cards\`\`\`.
+4. بعد 7-8 أسئلة، حلّل الإجابات وأوصِ بـ 3-5 تخصصات مناسبة مع \`\`\`spec-cards\`\`\`.
 5. لا تعطِ توصيات نهائية قبل فهم ميوله من عدة زوايا.
 
 ### الأسئلة بهذا الترتيب (صيغها في كتلة question):
@@ -1048,6 +1098,9 @@ ${p.stream ? `ملاحظة أهليّة (AI-10): المستخدم في شعبة 
 س3: "أين تتخيل نفسك مستقبلاً؟" | خيارات: ["قطاع الصحة والمستشفيات 🏥","شركة أو مؤسسة (مكتب) 🏢","مخبر بحثي أو أكاديمية 🔬","الميدان ومشاريع الهندسة ⚙️","شركة تكنولوجيا أو ستارتاب 💻","القانون والإدارة الحكومية ⚖️"]
 س4: "شنو الأهم بالنسبة ليك مهنياً؟" | خيارات: ["الشغف — نحب ما ندرس ونعمل ❤️","الراتب المرتفع — الكفاءة المالية 💰","خدمة المجتمع والمساهمة فيه 🤲","المكانة الاجتماعية والاحترام 🏆","التوازن بين العمل والحياة الشخصية ⚖️","العمل الدولي والسفر للخارج 🌍"]
 س5: "كيف تتخيل روحك بعد 10 سنين؟" | خيارات: ["طبيب أو مختص في الصحة","مهندس أو خبير تقني","رجل/سيدة أعمال أو مدير","باحث أو أستاذ جامعي","محامٍ أو قانوني","مبرمج أو خبير رقمي","في مجال إبداعي أو فني"]
+س6: "كيف تفضل الدراسة والعمل؟" | خيارات: ["تطبيقي وميداني — أريد مشاريع حقيقية من اليوم الأول 🔧","نظري وأكاديمي — أحب الفهم العميق والبحث 📖","مزيج — الاثنان ضروريان ⚖️","لا فرق — المهم الحصول على شهادة جيدة 🎓"]
+س7: "ما مدى استعدادك لسنوات دراسة مكثفة؟" | خيارات: ["7+ سنوات — لا مشكلة إذا كان الهدف يستحق 💪","5 سنوات — المعقول الذي يوازن الدراسة والحياة ⚖️","3 سنوات ليسانس ثم أعمل وأكمل ماستر لاحقاً 🚀","لم أحدد — اشرح لي خياراتي 🤔"]
+س8: "كيف تصف نفسك عند حل مشكلة صعبة؟" | خيارات: ["أحلل الأرقام والبيانات بدقة 📊","أبتكر حلولاً إبداعية غير تقليدية 💡","أتحدث مع الآخرين لأفهم المشكلة من كل الجوانب 💬","أطبق خطوات وإجراءات ثابتة ومحددة 📋","أتحمل ضغط الوقت وأتخذ قرارات سريعة ⚡"]
 ` : ''}
 # حقائق ثابتة عن التعليم الجزائري (لا تتجاوزها)
 ## الشعب الست الوحيدة في الثانوية الجزائرية (لا تذكر شعبة غير هذه الست أبداً):
@@ -1089,6 +1142,11 @@ ${p.stream ? `ملاحظة أهليّة (AI-10): المستخدم في شعبة 
 - قل "جامعة قسنطينة 1 فرحات عباس" أو "قسنطينة 3 صالح بوبنيدر" (لا "قسنطينة" فقط)
 - المستشفى الجامعي للطب في العاصمة: Mustapha Pacha, Lamine Debaghine, Nafissa Hamoud
 - جامعة علوم الصحة (الزيانية) = المؤسسة الجديدة للطب في الجزائر العاصمة (منذ 2023)
+
+## المحاكي والبطاقة (للإشارة فقط)
+- المحاكي في منصة توجيهي يسمح بتجربة ترتيب الرغبات ومعرفة فرص القبول — أرشد المستخدم لصفحة المحاكي (simulator.html) إذا سأل.
+- بطاقة الرغبات (بطاقة الأماني) تُرتَّب من الأكثر أولوية للأقل — نفس نظام ONEC الرسمي.
+- إذا سأل المستخدم عن معلوماته الشخصية (معدله، شعبته، ولايته)، اعرض ما هو في ملف الطالب أعلاه.
 
 ## مدارس الإعلام الآلي في الجزائر — الحقيقة الكاملة:
 ⚠️ معلومة أساسية لا تتجاهلها: هذه المدارس مجانية كلياً (لا رسوم دراسية)، الدخول إليها حسب المعدل الموزون في البكالوريا فقط — لا مسابقة قبول خارجية مطلوبة. الإيواء مضمون في مدينة جامعية. المنحة الحكومية متاحة. المسابقة الوطنية في نهاية السنة الثانية هي تصنيف داخلي بين الطلاب المسجلين أصلاً لاختيار التخصص والمدرسة — ليست مسابقة دخول خارجية.
@@ -1464,7 +1522,7 @@ export default async function handler(req, res) {
   }
 
   // Parse request body (profile is NOT trusted from client — fetched from DB below)
-  const { message, messages = [], sessionId, orientationMode = false } = req.body;
+  const { message, messages = [], sessionId, orientationMode = false, wishlist = [] } = req.body;
 
   // SEC-2: Fetch real profile from DB — prevents prompt-injection via crafted profile fields
   const { data: profileFromDB } = await adminSupabase
@@ -1534,7 +1592,7 @@ export default async function handler(req, res) {
   // Merge extra blocks into ministryBlock (they all go into the same slot in the prompt)
   const combinedMinistryBlock = [ministryBlock, wilayaListingBlock, zoneContextBlock].filter(Boolean).join('\n\n');
 
-  const systemPrompt = buildSystemPrompt(profile, contextBlock, guideBlock, orientationMode, selected.length === 0, intent, wilayaKey ? wilayaArName(wilayaKey) : null, webBlock, combinedMinistryBlock, geoZoneAr);
+  const systemPrompt = buildSystemPrompt(profile, contextBlock, guideBlock, orientationMode, selected.length === 0, intent, wilayaKey ? wilayaArName(wilayaKey) : null, webBlock, combinedMinistryBlock, geoZoneAr, wishlist);
 
   // Stream as SSE
   res.setHeader('Content-Type', 'text/event-stream');
