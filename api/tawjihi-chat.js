@@ -1603,15 +1603,18 @@ export default async function handler(req, res) {
   let fullResponse = '';
   let streamSucceeded = false;
   const useWebSearch = selected.length === 0;
+  const providerErrors = [];
 
   // Build provider queue — skip cooled-down ones; if all are cooled use least-recently-cooled
   let queue = PROVIDERS.filter((p) => !isOnCooldown(p.label));
-  if (queue.length === 0) {
+  if (queue.length === 0 && PROVIDERS.length > 0) {
     // All on cooldown — pick the one whose cooldown expires soonest as last resort
     queue = [PROVIDERS.reduce((a, b) =>
       (_cooldowns.get(a.label) ?? 0) < (_cooldowns.get(b.label) ?? 0) ? a : b
     )];
   }
+
+  console.log(`[ai-router] queue length: ${queue.length}, total providers: ${PROVIDERS.length}`);
 
   for (const provider of queue) {
     let providerYielded = false;
@@ -1635,18 +1638,21 @@ export default async function handler(req, res) {
         res.end();
         return;
       }
+      const errMsg = `${provider.label}: ${err.message || err.status || 'unknown'}`;
+      providerErrors.push(errMsg);
       if (isRateLimit(err)) {
         markCooldown(provider.label);
-        // continue to next provider
+        console.warn(`[ai-router] ${errMsg} → rate-limited`);
       } else {
-        console.error(`[ai-router] ${provider.label} error:`, err.message);
-        // non-rate-limit error — still try next provider
+        console.error(`[ai-router] ${errMsg}`);
       }
     }
   }
 
   if (!streamSucceeded) {
-    res.write(`data: ${JSON.stringify({ error: 'all_providers_exhausted' })}\n\n`);
+    const firstErrors = providerErrors.slice(0, 3).join(' | ');
+    console.error(`[ai-router] all_providers_exhausted. Errors: ${firstErrors}`);
+    res.write(`data: ${JSON.stringify({ error: 'all_providers_exhausted', debug: firstErrors })}\n\n`);
     res.write('data: [DONE]\n\n');
     res.end();
     return;
