@@ -789,7 +789,11 @@
         try {
           const parsed = JSON.parse(raw);
           if (parsed.error) {
-            textEl.innerHTML = '<p style="color:var(--danger,#e33)">حدث خطأ في المعالجة — حاول مرة أخرى.</p>';
+            const msg = parsed.error === 'all_providers_exhausted'
+              ? 'المساعد الذكي غير متاح حالياً — حاول مرة أخرى بعد دقيقة.'
+              : 'حدث خطأ في المعالجة — حاول مرة أخرى.';
+            console.error('[tawjihi-chat] error:', parsed.error, parsed.debug || '');
+            textEl.innerHTML = `<p style="color:var(--danger,#e33)">${msg}</p>`;
             done && done('');
             return;
           }

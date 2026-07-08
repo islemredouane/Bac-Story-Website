@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/islemredouane/islemredouane.github.io#readme",
   "dependencies": {
+    "@google/genai": "^2.10.0",
     "@google/generative-ai": "^0.21.0",
     "@supabase/supabase-js": "^2.50.0",
     "groq-sdk": "^0.9.0",
