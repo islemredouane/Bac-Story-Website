@@ -7,17 +7,17 @@ import { createClient } from '@supabase/supabase-js';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import Groq from 'groq-sdk';
 
-/* ---- Knowledge base (static JSON, bundled by Vercel via import attributes) ---- */
-import specialitiesKb from '../tawjihi/data/kb/specialities-kb.json' with { type: 'json' };
-import admissionsFull from '../tawjihi/data/kb/admissions-full.json' with { type: 'json' };
-import filiereIndex from '../tawjihi/data/kb/filiere-index.json' with { type: 'json' };
-/* ---- Official guide data (الدليل الوزاري) ---- */
-import guidePrograms from '../tawjihi/data/guide/programs.json' with { type: 'json' };
-import geoData from '../tawjihi/data/guide/geographic-circles.json' with { type: 'json' };
-/* ---- New KB files: geographic zones, ministry rules, availability map ---- */
-import geoCircles from '../tawjihi/data/kb/geo-circles.json' with { type: 'json' };
-import ministryRulesData from '../tawjihi/data/kb/ministry-rules.json' with { type: 'json' };
-import availabilityMapData from '../tawjihi/data/kb/availability-map.json' with { type: 'json' };
+/* ---- Knowledge base — migrated to pgvector RAG (retrieveContext) ---- */
+/* Stub fallbacks keep wilaya/intent/ministry helper functions non-crashing.
+   Actual knowledge is now served at query-time via Supabase search_kb RPC. */
+const specialitiesKb = { specialities: [] };
+const admissionsFull = { rows: [] };
+const filiereIndex = { filieres: {} };
+const guidePrograms = { programs: [] };
+const geoData = { wilayas: [] };
+const geoCircles = { wilayaToCircle: {}, circles: [], rules: {} };
+const ministryRulesData = { rules: [] };
+const availabilityMapData = { specialities: {} };
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -1017,6 +1017,46 @@ function buildWebBlock(results) {
   return lines.join('\n');
 }
 
+/* ---- pgvector RAG retrieval --------------------------------------------- */
+/* Embeds the user message with Gemini text-embedding-004, then calls the
+   search_kb RPC on Supabase to fetch the top semantically relevant KB chunks.
+   Returns a concatenated string for injection into the system prompt, or ''
+   on any failure so the chat always proceeds (graceful degradation). */
+async function retrieveContext(userMessage, adminSupabase) {
+  try {
+    const embeddingKey = process.env.GEMINI_API_KEY_1 || process.env.GEMINI_API_KEY_2 || process.env.GEMINI_API_KEY_3;
+    if (!embeddingKey) return '';
+
+    const jinaKey = process.env.JINA_API_KEY;
+    if (!jinaKey) return '';
+    const embedRes = await fetch('https://api.jina.ai/v1/embeddings', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${jinaKey}` },
+      body: JSON.stringify({ input: [userMessage], model: 'jina-embeddings-v3', dimensions: 768 }),
+    });
+    if (!embedRes.ok) throw new Error(`jina embed ${embedRes.status}`);
+    const embedJson = await embedRes.json();
+    const embedding = embedJson.data[0].embedding;
+
+    const { data, error } = await adminSupabase.rpc('search_kb', {
+      query_embedding: embedding,
+      match_threshold: 0.70,
+      match_count: 5,
+    });
+
+    if (error) {
+      console.error('[rag] search_kb error:', error.message);
+      return '';
+    }
+    if (!data?.length) return '';
+
+    return data.map((chunk) => chunk.content).join('\n\n---\n\n');
+  } catch (err) {
+    console.error('[rag] retrieveContext failed:', err.message);
+    return ''; // Graceful fallback — continue without RAG context
+  }
+}
+
 /* ---- System prompt (CHAT-CONTRACT.md §4) -------------------------------- */
 function buildSystemPrompt(profile, contextBlock, guideBlock, orientationMode = false, emptyContext = false, intent = {}, wilayaAr = null, webBlock = '', ministryBlock = '', geoZoneAr = null, wishlist = []) {
   const p = profile || {};
@@ -1522,7 +1562,7 @@ export default async function handler(req, res) {
   }
 
   // Parse request body (profile is NOT trusted from client — fetched from DB below)
-  const { message, messages = [], sessionId, orientationMode = false, wishlist = [] } = req.body;
+  const { message, messages = [], sessionId, orientationMode = false, wishlist = [], isLastMessage = false } = req.body;
 
   // SEC-2: Fetch real profile from DB — prevents prompt-injection via crafted profile fields
   const { data: profileFromDB } = await adminSupabase
@@ -1540,17 +1580,23 @@ export default async function handler(req, res) {
     return res.status(402).json({ error: 'insufficient_credits' });
   }
 
-  // Build RAG context from the real knowledge base
-  // AI-2: retrieve() returns [] when all scores are 0 — avoids misleading CS-heavy defaults
-  const selected = retrieve(message, messages, profile, 4);
   // Wilaya detection: current message first (authoritative), recent context as fallback
   const recentText = (messages || []).slice(-4).map((m) => m.content || '').join(' ');
   const wilayaKey = detectWilaya(message) || detectWilaya(recentText);
-  const contextBlock = buildContext(selected, wilayaKey);
-  // Guide context: official program eligibility from الدليل الوزاري (stream + wilaya aware)
-  const guideBlock = buildGuideContext(profile);
   // Intent signals for targeted knowledge-block injection in the system prompt
   const intent = detectIntent(`${message} ${recentText}`);
+
+  // pgvector RAG — embed the user message and fetch semantically relevant KB chunks
+  const lastUserMessage = message || messages.filter((m) => m.role === 'user').pop()?.content || '';
+  const ragContext = await retrieveContext(lastUserMessage, adminSupabase);
+  console.log(`[rag] context length: ${ragContext.length} chars`);
+
+  // Guide context: official program eligibility from الدليل الوزاري (stream + wilaya aware)
+  const guideBlock = buildGuideContext(profile);
+
+  // Legacy keyword-retrieval (runs against empty SPECIALITIES stub — always returns []).
+  // Kept for topScore used by the Tavily web-search trigger below.
+  const selected = retrieve(message, messages, profile, 4);
 
   // Optional Tavily web-search augmentation (inert unless TAVILY_API_KEY is set).
   // Trigger: low-confidence retrieval (topScore < threshold — no explicit name/id
@@ -1592,7 +1638,7 @@ export default async function handler(req, res) {
   // Merge extra blocks into ministryBlock (they all go into the same slot in the prompt)
   const combinedMinistryBlock = [ministryBlock, wilayaListingBlock, zoneContextBlock].filter(Boolean).join('\n\n');
 
-  const systemPrompt = buildSystemPrompt(profile, contextBlock, guideBlock, orientationMode, selected.length === 0, intent, wilayaKey ? wilayaArName(wilayaKey) : null, webBlock, combinedMinistryBlock, geoZoneAr, wishlist);
+  const systemPrompt = buildSystemPrompt(profile, ragContext, guideBlock, orientationMode, !ragContext, intent, wilayaKey ? wilayaArName(wilayaKey) : null, webBlock, combinedMinistryBlock, geoZoneAr, wishlist);
 
   // Stream as SSE
   res.setHeader('Content-Type', 'text/event-stream');
@@ -1602,7 +1648,7 @@ export default async function handler(req, res) {
 
   let fullResponse = '';
   let streamSucceeded = false;
-  const useWebSearch = selected.length === 0;
+  const useWebSearch = !ragContext;
   const providerErrors = [];
 
   // Build provider queue — skip cooled-down ones; if all are cooled use least-recently-cooled
@@ -1676,10 +1722,61 @@ export default async function handler(req, res) {
       role: 'assistant',
       content: fullResponse,
     });
+
+    // Session summary — generated when the client signals this is the last message
+    if (isLastMessage) {
+      await saveSessionSummary(messages, adminSupabase, user.id, sessionId);
+    }
   }
 
   res.write('data: [DONE]\n\n');
   res.end();
+}
+
+/* ---- Session summary (fire-and-forget after stream completes) ------------ */
+/* Generates a 2-3 sentence Arabic summary of the conversation using the
+   cheapest available provider (Groq Llama 8B), then upserts into chat_sessions.
+   Skips gracefully when userId, sessionId, or sufficient turns are missing. */
+async function saveSessionSummary(messages, adminSupabase, userId, sessionId) {
+  try {
+    if (!userId || !sessionId || messages.length < 4) return;
+
+    const chatText = messages
+      .slice(-20) // Last 20 messages max for summary
+      .map((m) => `${m.role === 'user' ? 'طالب' : 'مساعد'}: ${String(m.content || '').slice(0, 200)}`)
+      .join('\n');
+
+    const summaryPrompt = `لخِّص هذه المحادثة في جملتين أو ثلاث بالعربية.
+ركِّز على: ما سأل عنه الطالب، والتخصصات أو البرامج التي نوقشت، وأي قرارات اتُّخذت.
+المحادثة:\n${chatText}`;
+
+    let summary = null;
+    const groqKey = process.env.GROQ_API_KEY || process.env.GROQ_API_KEY_2;
+    if (groqKey) {
+      try {
+        const groq = new Groq({ apiKey: groqKey });
+        const resp = await groq.chat.completions.create({
+          model: 'llama-3.1-8b-instant',
+          messages: [{ role: 'user', content: summaryPrompt }],
+          max_tokens: 200,
+        });
+        summary = resp.choices[0]?.message?.content;
+      } catch (e) {
+        console.error('[session] Groq summary failed:', e.message);
+      }
+    }
+    if (!summary) return;
+
+    await adminSupabase.from('chat_sessions').upsert({
+      id: sessionId,
+      user_id: userId,
+      summary,
+      turn_count: Math.floor(messages.length / 2),
+      updated_at: new Date().toISOString(),
+    }, { onConflict: 'id' });
+  } catch (err) {
+    console.error('[session] saveSessionSummary failed:', err.message);
+  }
 }
 
 /* ---- Exports for local verification harness (no side effects) ---- */
