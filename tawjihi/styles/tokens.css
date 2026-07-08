@@ -166,3 +166,81 @@ textarea:focus-visible {
     /* inputs already have border-color focus — just ensure box-shadow */
     box-shadow: var(--focus-ring), 0 1px 3px rgba(0,0,0,0.08);
 }
+
+/* ============================================================
+   GLOBAL GLASS AMBIENT — gradient background behind glass layers
+   All pages share this ambient gradient via body pseudo-elements.
+   ============================================================ */
+
+body {
+    background: var(--bg);
+    position: relative;
+    isolation: isolate;
+}
+
+/* Two ambient glow orbs fixed in place */
+body::before,
+body::after {
+    content: '';
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    filter: blur(90px);
+}
+
+body::before {
+    width: 600px; height: 600px;
+    top: -150px; right: -150px;
+    background: radial-gradient(circle,
+        color-mix(in srgb, var(--primary) 16%, transparent) 0%,
+        color-mix(in srgb, var(--primary) 6%, transparent) 50%,
+        transparent 70%);
+    animation: bodyOrbA 20s ease-in-out infinite alternate;
+}
+
+body::after {
+    width: 500px; height: 500px;
+    bottom: -100px; left: -100px;
+    background: radial-gradient(circle,
+        color-mix(in srgb, var(--accent) 12%, transparent) 0%,
+        color-mix(in srgb, var(--accent) 5%, transparent) 50%,
+        transparent 70%);
+    animation: bodyOrbB 24s ease-in-out infinite alternate;
+}
+
+@keyframes bodyOrbA {
+    0%   { transform: translate(0,0)        scale(1);    }
+    50%  { transform: translate(40px,-30px)  scale(1.08); }
+    100% { transform: translate(-20px, 20px) scale(0.95); }
+}
+@keyframes bodyOrbB {
+    0%   { transform: translate(0,0)        scale(1);    }
+    50%  { transform: translate(-30px,25px)  scale(1.06); }
+    100% { transform: translate(15px,-15px)  scale(0.97); }
+}
+
+/* Dark mode: slightly stronger orbs on deep bg */
+[data-theme="dark"] body::before {
+    background: radial-gradient(circle,
+        color-mix(in srgb, var(--primary) 22%, transparent) 0%,
+        color-mix(in srgb, var(--primary) 9%, transparent) 50%,
+        transparent 70%);
+}
+[data-theme="dark"] body::after {
+    background: radial-gradient(circle,
+        color-mix(in srgb, var(--accent) 18%, transparent) 0%,
+        color-mix(in srgb, var(--accent) 7%, transparent) 50%,
+        transparent 70%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body::before, body::after { animation: none; }
+}
+
+/* All page root containers float above the ambient orbs */
+#app, .app, .page-wrapper, .auth-wrapper, .sim-wrapper,
+.spec-browser, .catalog-root, .sim-root {
+    position: relative;
+    z-index: 1;
+}

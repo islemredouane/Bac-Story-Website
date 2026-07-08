@@ -493,6 +493,23 @@
   animation: msgSlideUp 0.32s cubic-bezier(.16,1,.3,1) both !important;
 }
 
+/* ── AI message text area — subtle frosted glass card ─────── */
+.msg.ai .msg-text {
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 18px 18px 18px 4px;
+    padding: 0.85rem 1.1rem;
+    box-shadow: 0 4px 20px rgba(44, 92, 197, 0.06), 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="dark"] .msg.ai .msg-text {
+    background: rgba(23, 29, 43, 0.78);
+    border: 1px solid rgba(91, 134, 232, 0.14);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
 /* ── User messages — primary blue gradient bubble ─────────── */
 .msg.user .msg-body {
     background: linear-gradient(135deg, #2c5cc5 0%, #1a3a8f 100%) !important;
@@ -510,33 +527,15 @@
     -webkit-text-fill-color: #fff !important;
 }
 
-/* ── AI messages — clean card with left accent border ─────── */
+/* ── AI messages — clean, no divider border ─────────────── */
 .msg.ai .msg-body {
     position: relative;
-    border-inline-start: 3px solid rgba(44, 92, 197, .45);
-    padding-inline-start: 1rem;
+    padding-inline-start: 0.25rem;
     background: transparent;
 }
-/* AI name label */
+/* AI name label — hidden */
 .msg.ai .msg-name {
-    font-family: 'Plus Jakarta Sans', 'Cairo', var(--font-ui, system-ui);
-    font-size: 0.78rem;
-    font-weight: 800;
-    letter-spacing: .01em;
-    color: #2c5cc5;
-    margin-bottom: 0.4rem;
-    display: flex;
-    align-items: center;
-    gap: 0.4em;
-}
-.msg.ai .msg-name::before {
-    content: '';
-    display: inline-block;
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #2c5cc5, #ff6b35);
-    flex-shrink: 0;
+    display: none;
 }
 
 /* ── Code blocks — dark navy like landing-v2 deep sections ── */
@@ -585,14 +584,9 @@
     box-shadow: 0 4px 18px rgba(44, 92, 197, .5) !important;
 }
 [data-theme="dark"] .msg.ai .msg-body {
-    border-inline-start-color: rgba(91, 134, 232, .5);
+    /* no border */
 }
-[data-theme="dark"] .msg.ai .msg-name {
-    color: #7aa0f0;
-}
-[data-theme="dark"] .msg.ai .msg-name::before {
-    background: linear-gradient(135deg, #5b86e8, #ff885e);
-}
+/* msg-name hidden in both themes */
 
 /* ── Question directive chips — premium style ────────────── */
 .tw-q-chip {

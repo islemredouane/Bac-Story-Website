@@ -636,7 +636,24 @@
     return html || '<p></p>';
   }
 
-  const aiShell = () => {
+  const aiShell = (userMessage = '') => {
+    // Context-aware first thinking label
+    const q = (userMessage || '').toLowerCase();
+    const firstState = (() => {
+        if (/طب|صيدل|دكتور|دنتست|بيطر/.test(q))        return '🔬 البحث في تخصصات الطب...';
+        if (/هندس|إعلام آلي|معلوماتية|مهندس/.test(q))    return '⚙️ البحث في تخصصات الهندسة...';
+        if (/قانون|حقوق|قضاء/.test(q))                    return '⚖️ البحث في تخصصات الحقوق...';
+        if (/اقتصاد|تسيير|تجارة|مالية/.test(q))           return '📊 البحث في الاقتصاد والتسيير...';
+        if (/أدب|فلسف|لغ/.test(q))                        return '📚 البحث في الآداب والفلسفة...';
+        if (/معدل|قبول|سنة|نقطة|12|13|14|15/.test(q))    return '📈 مراجعة معدلات القبول...';
+        if (/بطاقة|رغب|ترتيب/.test(q))                    return '📋 تحليل بطاقة الرغبات...';
+        if (/ولاية|دائرة|منطقة|جهة/.test(q))              return '🗺️ البحث في البيانات الجغرافية...';
+        if (/مدرسة|معهد|جامعة|مؤسسة/.test(q))            return '🏛️ البحث في قائمة المؤسسات...';
+        if (/شبه طبي|تمريض|مساعد طبي/.test(q))            return '🩺 البحث في الشبه طبي...';
+        if (/رياضيات|فيزياء|كيمياء/.test(q))              return '🧪 البحث في العلوم...';
+        return '🤔 تحليل سؤالك...';
+    })();
+
     const el = document.createElement('div');
     el.className = 'msg ai';
     el.innerHTML = `<div class="msg-avatar">ت</div>
@@ -646,7 +663,7 @@
           <div class="tw-thinking">
             <div class="tw-thinking-pill">
               <span class="tw-thinking-glyph">ت</span>
-              <span class="tw-thinking-label">تفكير...</span>
+              <span class="tw-thinking-label">${firstState}</span>
               <div class="tw-thinking-eq"><span></span><span></span><span></span><span></span><span></span></div>
             </div>
           </div>
@@ -655,13 +672,24 @@
     inner.appendChild(el);
     scrollDown();
 
-    const STATES = [
-        'تفكير...',
-        'البحث في دليل التخصصات...',
-        'مراجعة معدلات القبول...',
-        'تحليل الملف الدراسي...',
-        'إعداد الإجابة...',
+    const ROTATION = [
+        'البحث في قاعدة البيانات...',
+        'مراجعة دليل الوزارة...',
+        'التحقق من شروط الأهلية...',
+        'فحص معدلات هذا العام...',
+        'تجميع المعلومات المناسبة...',
+        'مقارنة الخيارات المتاحة...',
+        'تحليل البيانات الإحصائية...',
+        'مراجعة التغييرات الجديدة لـ2025...',
+        'إعداد إجابة مخصصة لك...',
+        'التدقيق في التفاصيل...',
     ];
+    const shuffled = [...ROTATION];
+    for (let k = shuffled.length - 1; k > 0; k--) {
+        const j = Math.floor(Math.random() * (k + 1));
+        [shuffled[k], shuffled[j]] = [shuffled[j], shuffled[k]];
+    }
+    const STATES = [firstState, ...shuffled];
     let stateIdx = 0;
     el._thinkingInterval = setInterval(() => {
         const label = el.querySelector('.tw-thinking-label');
@@ -672,7 +700,7 @@
             label.textContent = STATES[stateIdx];
             label.classList.remove('is-cycling');
         }, 140);
-    }, 1800);
+    }, 2000);
 
     return el;
   };
@@ -779,7 +807,17 @@
           return;
         }
         try {
-          const { content } = JSON.parse(raw);
+          const parsed = JSON.parse(raw);
+          if (parsed.error) {
+            const msg = parsed.error === 'all_providers_exhausted'
+              ? 'المساعد الذكي غير متاح حالياً — حاول مرة أخرى بعد دقيقة.'
+              : 'حدث خطأ في المعالجة — حاول مرة أخرى.';
+            textEl.innerHTML = `<p style="color:var(--danger,#e33)">${msg}</p>`;
+            console.error('[tawjihi-chat] provider error:', parsed.error);
+            done && done('');
+            return;
+          }
+          const { content } = parsed;
           if (content) {
             if (firstToken) {
               firstToken = false;
@@ -829,7 +867,7 @@
 
   /* ---- Send message to real AI API ---- */
   async function sendToAI(q, files = []) {
-    const shell = aiShell();
+    const shell = aiShell(q);
     isSending = true;
     sendBtn.disabled = true;
     const textEl = shell.querySelector('.msg-text');
