@@ -121,13 +121,6 @@
         container.appendChild(h); i++; continue;
       }
 
-      if (/^#### /.test(line)) {
-        const h = document.createElement('h4');
-        h.className = 'tw-md-h4';
-        h.innerHTML = inlineHtml(line.slice(5).trim());
-        container.appendChild(h); i++; continue;
-      }
-
       if (/^### /.test(line)) {
         const h = document.createElement('h3');
         h.className = 'tw-md-h3';
@@ -631,7 +624,6 @@
             .replace(/\*([^*\n]+)\*/g,   '<em>$1</em>')
             .replace(/`([^`\n]+)`/g,     '<code>$1</code>');
 
-        if (line.startsWith('#### '))    { html += `<h4>${inline(esc(line.slice(5)))}</h4>`; continue; }
         if (line.startsWith('### '))     { html += `<h3>${inline(esc(line.slice(4)))}</h3>`; continue; }
         if (line.startsWith('## '))      { html += `<h2>${inline(esc(line.slice(3)))}</h2>`; continue; }
         if (line.startsWith('# '))       { html += `<h1>${inline(esc(line.slice(2)))}</h1>`; continue; }
@@ -644,7 +636,24 @@
     return html || '<p></p>';
   }
 
-  const aiShell = () => {
+  const aiShell = (userMessage = '') => {
+    // Context-aware first thinking label
+    const q = (userMessage || '').toLowerCase();
+    const firstState = (() => {
+        if (/طب|صيدل|دكتور|دنتست|بيطر/.test(q))        return '🔬 البحث في تخصصات الطب...';
+        if (/هندس|إعلام آلي|معلوماتية|مهندس/.test(q))    return '⚙️ البحث في تخصصات الهندسة...';
+        if (/قانون|حقوق|قضاء/.test(q))                    return '⚖️ البحث في تخصصات الحقوق...';
+        if (/اقتصاد|تسيير|تجارة|مالية/.test(q))           return '📊 البحث في الاقتصاد والتسيير...';
+        if (/أدب|فلسف|لغ/.test(q))                        return '📚 البحث في الآداب والفلسفة...';
+        if (/معدل|قبول|سنة|نقطة|12|13|14|15/.test(q))    return '📈 مراجعة معدلات القبول...';
+        if (/بطاقة|رغب|ترتيب/.test(q))                    return '📋 تحليل بطاقة الرغبات...';
+        if (/ولاية|دائرة|منطقة|جهة/.test(q))              return '🗺️ البحث في البيانات الجغرافية...';
+        if (/مدرسة|معهد|جامعة|مؤسسة/.test(q))            return '🏛️ البحث في قائمة المؤسسات...';
+        if (/شبه طبي|تمريض|مساعد طبي/.test(q))            return '🩺 البحث في الشبه طبي...';
+        if (/رياضيات|فيزياء|كيمياء/.test(q))              return '🧪 البحث في العلوم...';
+        return '🤔 تحليل سؤالك...';
+    })();
+
     const el = document.createElement('div');
     el.className = 'msg ai';
     el.innerHTML = `<div class="msg-avatar">ت</div>
@@ -654,7 +663,7 @@
           <div class="tw-thinking">
             <div class="tw-thinking-pill">
               <span class="tw-thinking-glyph">ت</span>
-              <span class="tw-thinking-label">تفكير...</span>
+              <span class="tw-thinking-label">${firstState}</span>
               <div class="tw-thinking-eq"><span></span><span></span><span></span><span></span><span></span></div>
             </div>
           </div>
@@ -663,13 +672,24 @@
     inner.appendChild(el);
     scrollDown();
 
-    const STATES = [
-        'تفكير...',
-        'البحث في دليل التخصصات...',
-        'مراجعة معدلات القبول...',
-        'تحليل الملف الدراسي...',
-        'إعداد الإجابة...',
+    const ROTATION = [
+        'البحث في قاعدة البيانات...',
+        'مراجعة دليل الوزارة...',
+        'التحقق من شروط الأهلية...',
+        'فحص معدلات هذا العام...',
+        'تجميع المعلومات المناسبة...',
+        'مقارنة الخيارات المتاحة...',
+        'تحليل البيانات الإحصائية...',
+        'مراجعة التغييرات الجديدة لـ2025...',
+        'إعداد إجابة مخصصة لك...',
+        'التدقيق في التفاصيل...',
     ];
+    const shuffled = [...ROTATION];
+    for (let k = shuffled.length - 1; k > 0; k--) {
+        const j = Math.floor(Math.random() * (k + 1));
+        [shuffled[k], shuffled[j]] = [shuffled[j], shuffled[k]];
+    }
+    const STATES = [firstState, ...shuffled];
     let stateIdx = 0;
     el._thinkingInterval = setInterval(() => {
         const label = el.querySelector('.tw-thinking-label');
@@ -680,7 +700,7 @@
             label.textContent = STATES[stateIdx];
             label.classList.remove('is-cycling');
         }, 140);
-    }, 1800);
+    }, 2000);
 
     return el;
   };
@@ -792,8 +812,8 @@
             const msg = parsed.error === 'all_providers_exhausted'
               ? 'المساعد الذكي غير متاح حالياً — حاول مرة أخرى بعد دقيقة.'
               : 'حدث خطأ في المعالجة — حاول مرة أخرى.';
-            console.error('[tawjihi-chat] error:', parsed.error, parsed.debug || '');
             textEl.innerHTML = `<p style="color:var(--danger,#e33)">${msg}</p>`;
+            console.error('[tawjihi-chat] provider error:', parsed.error);
             done && done('');
             return;
           }
@@ -847,7 +867,7 @@
 
   /* ---- Send message to real AI API ---- */
   async function sendToAI(q, files = []) {
-    const shell = aiShell();
+    const shell = aiShell(q);
     isSending = true;
     sendBtn.disabled = true;
     const textEl = shell.querySelector('.msg-text');
@@ -902,34 +922,26 @@
       await streamFromSSE(textEl, response,
         () => scrollDown(),
         (fullText) => {
-          if (!fullText) {
-            if (!textEl.querySelector('[style*="danger"]')) {
-              textEl.innerHTML = '<p style="color:var(--danger,#e33)">لم يصل رد — حاول مرة أخرى.</p>';
-            }
-            conversationMessages.pop();
-            return;
-          }
           conversationMessages.push({ role: 'assistant', content: fullText });
           if (conversationMessages.length > 20) conversationMessages.splice(0, 2);
           saveMessageToSession('assistant', fullText);
 
-          /* Defer the heavy full-markdown re-render to the next frame so the
-             browser can paint the "stream finished" state before blocking. */
-          requestAnimationFrame(() => {
-            const followups = renderAiMessage(textEl, fullText);
+          /* Replace streaming raw text with properly rendered markdown + components */
+          const followups = renderAiMessage(textEl, fullText);
 
-            const note = document.createElement('p');
-            note.className = 'tw-disclaimer';
-            note.textContent = 'المعلومات مبنية على بيانات الدليل الوزاري 2025 — أكّد دائماً اختيارك على البوابة الرسمية.';
-            textEl.appendChild(note);
+          /* Disclaimer */
+          const note = document.createElement('p');
+          note.className = 'tw-disclaimer';
+          note.textContent = 'المعلومات مبنية على بيانات الدليل الوزاري 2025 — أكّد دائماً اختيارك على البوابة الرسمية.';
+          textEl.appendChild(note);
 
-            shell.querySelector('.msg-body').appendChild(actionsBar());
-            if (followups && followups.length > 0) {
-              shell.querySelector('.msg-body').appendChild(followupChips(followups));
-            }
-            scrollDown();
-            isSending = false;
-          });
+          shell.querySelector('.msg-body').appendChild(actionsBar());
+          /* Only show follow-up chips when the AI explicitly provided them */
+          if (followups && followups.length > 0) {
+            shell.querySelector('.msg-body').appendChild(followupChips(followups));
+          }
+          scrollDown();
+          isSending = false;
         }
       );
     } catch (err) {

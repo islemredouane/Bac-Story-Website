@@ -531,6 +531,23 @@
     -webkit-text-fill-color: transparent;
 }
 
+/* -- Dash hero glass upgrade -- */
+.dash-hero {
+    background:
+        radial-gradient(600px 200px at 90% -40%, color-mix(in srgb, var(--primary) 10%, transparent), transparent),
+        rgba(255, 255, 255, 0.88) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-color: rgba(255, 255, 255, 0.55) !important;
+    box-shadow: 0 6px 30px rgba(44, 92, 197, 0.09) !important;
+}
+[data-theme="dark"] .dash-hero {
+    background:
+        radial-gradient(600px 200px at 90% -40%, color-mix(in srgb, var(--primary) 14%, transparent), transparent),
+        rgba(19, 25, 39, 0.88) !important;
+    border-color: rgba(91, 134, 232, 0.14) !important;
+}
+
 /* ============================================================
    EMPTY STATES — shared across dashboard sections
    ============================================================ */
