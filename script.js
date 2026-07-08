@@ -112,7 +112,7 @@ window.addEventListener('popstate', (event) => {
 });
 
 const TIMERS_CONFIG = [
-    { suffix: '2', target: new Date(2026, 6, 9, 8, 0, 0) },  // July 9 - النتائج
+    { suffix: '2', target: new Date(2026, 6, 12, 10, 0, 0) }, // July 12 - النتائج
     { suffix: '3', target: new Date(2027, 5, 7,  8, 30, 0) }, // June 7 2027 - بكالوريا 2027
 ];
 
@@ -149,6 +149,7 @@ function stopTimer() {
     clearInterval(timerInterval);
     timerInterval = null;
 }
+startTimer();
 document.addEventListener('visibilitychange', () => {
     if (document.hidden) stopTimer();
     else startTimer();
