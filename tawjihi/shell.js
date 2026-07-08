@@ -135,7 +135,7 @@
             }).join('') +
         '</nav>' +
         '<div class="sidebar-foot">' +
-            '<a class="nav-item" href="#" onclick="document.getElementById(\'themeBtn\')?.click();return false;">' +
+            '<a class="nav-item" href="#" onclick="(function(){var r=document.documentElement;var n=r.getAttribute(\'data-theme\')==\'dark\'?\'light\':\'dark\';r.setAttribute(\'data-theme\',n);localStorage.setItem(\'tw-theme\',n);var ic=document.getElementById(\'themeIconSide\');if(ic){ic.className=\'fas fa-\'+(n===\'dark\'?\'sun\':\'moon\');}})();return false;">' +
                 '<i class="fas fa-circle-half-stroke" id="themeIconSide"></i><span>الوضع الليلي</span>' +
             '</a>' +
             '<a class="nav-item" href="dashboard.html"><i class="fas fa-user-circle"></i><span>حسابي</span></a>' +

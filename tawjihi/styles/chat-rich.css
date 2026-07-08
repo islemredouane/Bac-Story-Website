@@ -493,21 +493,18 @@
   animation: msgSlideUp 0.32s cubic-bezier(.16,1,.3,1) both !important;
 }
 
-/* ── AI message text area — subtle frosted glass card ─────── */
+/* ── AI message text — no container, writes directly on background ── */
 .msg.ai .msg-text {
-    background: rgba(255, 255, 255, 0.72);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border: 1px solid rgba(255, 255, 255, 0.55);
-    border-radius: 18px 18px 18px 4px;
-    padding: 0.85rem 1.1rem;
-    box-shadow: 0 4px 20px rgba(44, 92, 197, 0.06), 0 1px 4px rgba(0, 0, 0, 0.04);
+    background: none;
+    border: none;
+    padding: 0;
+    box-shadow: none;
 }
 
 [data-theme="dark"] .msg.ai .msg-text {
-    background: rgba(23, 29, 43, 0.78);
-    border: 1px solid rgba(91, 134, 232, 0.14);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    background: none;
+    border: none;
+    box-shadow: none;
 }
 
 /* ── User messages — primary blue gradient bubble ─────────── */

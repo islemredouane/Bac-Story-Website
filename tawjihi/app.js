@@ -662,7 +662,6 @@
         <div class="msg-text">
           <div class="tw-thinking">
             <div class="tw-thinking-pill">
-              <span class="tw-thinking-glyph">ت</span>
               <span class="tw-thinking-label">${firstState}</span>
               <div class="tw-thinking-eq"><span></span><span></span><span></span><span></span><span></span></div>
             </div>
