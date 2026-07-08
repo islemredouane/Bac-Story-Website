@@ -15,6 +15,22 @@
     <link rel="stylesheet" href="styles/motion.css">
     <link rel="stylesheet" href="styles/app.css">
     <link rel="stylesheet" href="styles/specialities.css">
+    <style>
+      /* ── Dynamic content sections ── */
+      .dyn-section { margin-bottom: var(--sp-5); }
+      .dyn-section h2 { font-size: var(--fs-base); font-weight: 800; color: var(--text-primary); margin-bottom: var(--sp-3); display:flex; align-items:center; gap:.5rem; }
+      .dyn-section h2 i { color: var(--cat, var(--primary)); font-size:.9em; }
+      .dyn-section p { color: var(--text-secondary); line-height: 1.75; margin-bottom: var(--sp-2); font-size: var(--fs-sm); }
+      .dyn-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--sp-2); }
+      .dyn-list li { display: flex; align-items: flex-start; gap: var(--sp-2); font-size: var(--fs-sm); color: var(--text-secondary); line-height: 1.6; }
+      .dyn-list li i { margin-top: 3px; flex-shrink: 0; font-size: .8em; color: var(--cat, var(--primary)); }
+      .pros-list li i { color: #10b981; }
+      .cons-list li i { color: #ef4444; }
+      .summary-box { background: color-mix(in srgb, var(--cat, var(--primary)) 8%, transparent); border: 1.5px solid color-mix(in srgb, var(--cat, var(--primary)) 25%, transparent); border-radius: var(--r-md); padding: var(--sp-4); }
+      .summary-box p { color: var(--text-primary); font-weight: 600; margin: 0; }
+      .grid-2cols { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-3); }
+      @media (max-width: 640px) { .grid-2cols { grid-template-columns: 1fr; } }
+    </style>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
     <script src="supabase.js"></script>
 </head>
@@ -63,6 +79,9 @@
                             <div id="specDescription"></div>
                         </section>
 
+                        <!-- Dynamic sections (content/<id>.json) -->
+                        <div id="specSections"></div>
+
                         <!-- الشعب المؤهلة -->
                         <section class="detail-section">
                             <h2><i class="fas fa-graduation-cap"></i> الشعب المؤهلة</h2>
@@ -92,7 +111,7 @@
                             </table>
                             <div class="honesty-note">
                                 <i class="fas fa-circle-info"></i>
-                                <span>معدلات تقديرية — أكّد على البوابة الرسمية.</span>
+                                <span>معدلات BAC 2025 — مرجعية حتى صدور نتائج BAC 2026. أكّد على البوابة الرسمية.</span>
                             </div>
                         </section>
 
@@ -193,7 +212,7 @@
     : '';
 
   document.getElementById('specChips').innerHTML = `
-    <span class="detail-chip accent"><i class="fas fa-percent"></i> معدل القبول 2025 ~ ${(spec.avg || 0).toFixed(2)}</span>
+    <span class="detail-chip accent"><i class="fas fa-percent"></i> معدل القبول 2025 (مرجعي) ~ ${(spec.avg || 0).toFixed(2)}</span>
     <span class="detail-chip" style="${demandColor}"><i class="fas fa-fire"></i> الطلب: ${spec.demand}</span>
     <span class="detail-chip"><i class="fas fa-clock"></i> ${spec.duration}</span>
     <span class="detail-chip"><i class="fas fa-language"></i> ${spec.language}</span>
@@ -493,6 +512,78 @@
     setWish(wish);
     syncWishBtn();
   });
+
+  /* ---- DYNAMIC SECTIONS from content/<id>.json ---- */
+  (() => {
+    const el = document.getElementById('specSections');
+    if (!el) return;
+    const SKIP_KEYS = ['التعريف بالتخصص','التعريف','معدلات القبول','الشعب المؤهلة','فرص العمل','آفاق العمل'];
+    const shouldSkip = h => SKIP_KEYS.some(k => h.includes(k) || k.includes(h));
+    const ICONS = {
+      'نظام الدراسة':'fa-book-open','لغة التدريس':'fa-language','المواد المدروسة':'fa-list-check',
+      'المواد الدراسية':'fa-list-check','تخصصات الماستر':'fa-graduation-cap','التخصصات المتاحة':'fa-graduation-cap',
+      'الإيجابيات':'fa-thumbs-up','السلبيات':'fa-thumbs-down','خلاصة':'fa-star',
+      'صعوبة الدراسة':'fa-fire','المشاريع والتربصات':'fa-flask','قواعد الإعادة':'fa-rotate-left',
+      'مستوى الدكاترة':'fa-user-graduate','معلومات المدرسة':'fa-circle-info',
+      'التكوين والمناهج':'fa-list-check','مميزات المدرسة':'fa-thumbs-up',
+    };
+    fetch('content/' + id + '.json')
+      .then(r => r.ok ? r.json() : null)
+      .then(data => {
+        if (!data || !Array.isArray(data.sections) || !data.sections.length) return;
+        const sections = data.sections.filter(s => !shouldSkip(s.h));
+        if (!sections.length) return;
+
+        // group pros+cons side by side
+        const html = [];
+        let i = 0;
+        while (i < sections.length) {
+          const s = sections[i];
+          const icon = ICONS[s.h] || 'fa-circle-info';
+          const next = sections[i+1];
+          const isPros = s.type === 'pros';
+          const isConsNext = next && next.type === 'cons';
+
+          if (isPros && isConsNext) {
+            // render pros + cons in a 2-col grid inside one section card
+            const renderList = (sec) => {
+              const cls = sec.type === 'pros' ? 'pros-list' : 'cons-list';
+              const ico = sec.type === 'pros' ? 'fa-check-circle' : 'fa-times-circle';
+              return `<div>
+                <h2 style="font-size:var(--fs-sm);font-weight:800;margin-bottom:var(--sp-2);display:flex;gap:.4rem;align-items:center">
+                  <i class="fas ${sec.type==='pros'?'fa-thumbs-up':'fa-thumbs-down'}" style="color:${sec.type==='pros'?'#10b981':'#ef4444'}"></i> ${sec.h}
+                </h2>
+                <ul class="dyn-list ${cls}">${(sec.items||[]).map(it=>`<li><i class="fas ${ico}"></i><span>${it}</span></li>`).join('')}</ul>
+              </div>`;
+            };
+            html.push(`<section class="detail-section dyn-section">
+              <div class="grid-2cols">${renderList(s)}${renderList(next)}</div>
+            </section>`);
+            i += 2;
+            continue;
+          }
+
+          let content = '';
+          if (s.type === 'summary') {
+            content = `<div class="summary-box">${(s.body||'').split('\n').filter(p=>p.trim()).map(p=>`<p>${p}</p>`).join('')}</div>`;
+          } else if (s.type === 'pros') {
+            content = `<ul class="dyn-list pros-list">${(s.items||[]).map(it=>`<li><i class="fas fa-check-circle"></i><span>${it}</span></li>`).join('')}</ul>`;
+          } else if (s.type === 'cons') {
+            content = `<ul class="dyn-list cons-list">${(s.items||[]).map(it=>`<li><i class="fas fa-times-circle"></i><span>${it}</span></li>`).join('')}</ul>`;
+          } else if (Array.isArray(s.items) && s.items.length) {
+            content = `<ul class="dyn-list">${s.items.map(it=>`<li><i class="fas fa-chevron-left"></i><span>${it}</span></li>`).join('')}</ul>`;
+          } else if (s.body) {
+            content = s.body.split('\n').filter(p=>p.trim()).map(p=>`<p>${p}</p>`).join('');
+          }
+          html.push(`<section class="detail-section dyn-section">
+            <h2><i class="fas ${icon}"></i> ${s.h}</h2>${content}
+          </section>`);
+          i++;
+        }
+        el.innerHTML = html.join('');
+      })
+      .catch(() => {});
+  })();
 
   /* ---- "Ask AI" cross-link: pre-fill chat with spec name ---- */
   document.querySelectorAll('a[href="app.html"]').forEach(link => {

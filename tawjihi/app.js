@@ -33,10 +33,11 @@
 
   /* ---- Composer: autosize + enable/disable + Enter to send ---- */
   const input = $('#input'), sendBtn = $('#sendBtn'), form = $('#composer');
+  let isSending = false;
   const autosize = () => { input.style.height = 'auto'; input.style.height = Math.min(input.scrollHeight, 160) + 'px'; };
   input.addEventListener('input', () => { autosize(); sendBtn.disabled = !input.value.trim(); });
   input.addEventListener('keydown', e => {
-    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); form.requestSubmit(); }
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); if (!isSending) form.requestSubmit(); }
   });
 
   /* ---- Suggestion cards ---- */
@@ -829,6 +830,8 @@
   /* ---- Send message to real AI API ---- */
   async function sendToAI(q, files = []) {
     const shell = aiShell();
+    isSending = true;
+    sendBtn.disabled = true;
     const textEl = shell.querySelector('.msg-text');
 
     const token = await getAuthToken();
@@ -872,6 +875,7 @@
         textEl.innerHTML = '';
         showNoCredits();
         conversationMessages.pop();
+        isSending = false;
         return;
       }
 
@@ -899,11 +903,13 @@
             shell.querySelector('.msg-body').appendChild(followupChips(followups));
           }
           scrollDown();
+          isSending = false;
         }
       );
     } catch (err) {
       textEl.innerHTML = '<p style="color:var(--danger)">حدث خطأ في الاتصال — حاول مرة أخرى.</p>';
       conversationMessages.pop();
+      isSending = false;
       console.error('Chat error:', err);
     }
   }
@@ -920,6 +926,7 @@
   /* ---- Form submit ---- */
   form.addEventListener('submit', e => {
     e.preventDefault();
+    if (isSending) return;
     const q = input.value.trim(); if (!q) return;
     if (hero && mainEl && !mainEl.classList.contains('chat-started')) {
       mainEl.classList.add('chat-started');
