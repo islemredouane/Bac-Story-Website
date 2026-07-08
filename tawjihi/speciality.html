@@ -111,7 +111,7 @@
                             </table>
                             <div class="honesty-note">
                                 <i class="fas fa-circle-info"></i>
-                                <span>معدلات تقديرية — أكّد على البوابة الرسمية.</span>
+                                <span>معدلات BAC 2025 — مرجعية حتى صدور نتائج BAC 2026. أكّد على البوابة الرسمية.</span>
                             </div>
                         </section>
 
@@ -212,7 +212,7 @@
     : '';
 
   document.getElementById('specChips').innerHTML = `
-    <span class="detail-chip accent"><i class="fas fa-percent"></i> معدل القبول 2025 ~ ${(spec.avg || 0).toFixed(2)}</span>
+    <span class="detail-chip accent"><i class="fas fa-percent"></i> معدل القبول 2025 (مرجعي) ~ ${(spec.avg || 0).toFixed(2)}</span>
     <span class="detail-chip" style="${demandColor}"><i class="fas fa-fire"></i> الطلب: ${spec.demand}</span>
     <span class="detail-chip"><i class="fas fa-clock"></i> ${spec.duration}</span>
     <span class="detail-chip"><i class="fas fa-language"></i> ${spec.language}</span>
@@ -517,7 +517,8 @@
   (() => {
     const el = document.getElementById('specSections');
     if (!el) return;
-    const SKIP = new Set(['التعريف بالتخصص','التعريف','معدلات القبول','الشعب المؤهلة','فرص العمل','آفاق العمل']);
+    const SKIP_KEYS = ['التعريف بالتخصص','التعريف','معدلات القبول','الشعب المؤهلة','فرص العمل','آفاق العمل'];
+    const shouldSkip = h => SKIP_KEYS.some(k => h.includes(k) || k.includes(h));
     const ICONS = {
       'نظام الدراسة':'fa-book-open','لغة التدريس':'fa-language','المواد المدروسة':'fa-list-check',
       'المواد الدراسية':'fa-list-check','تخصصات الماستر':'fa-graduation-cap','التخصصات المتاحة':'fa-graduation-cap',
@@ -530,7 +531,7 @@
       .then(r => r.ok ? r.json() : null)
       .then(data => {
         if (!data || !Array.isArray(data.sections) || !data.sections.length) return;
-        const sections = data.sections.filter(s => !SKIP.has(s.h));
+        const sections = data.sections.filter(s => !shouldSkip(s.h));
         if (!sections.length) return;
 
         // group pros+cons side by side

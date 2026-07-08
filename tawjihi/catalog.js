@@ -280,7 +280,7 @@ const TW_CATALOG = [
     ],
   },
   {
-    id: 'esc', name: 'علوم تجارية ومالية', nameEn: 'Commerce & Finance – ESC',
+    id: 'esc', name: 'المدرسة العليا للتجارة — القليعة', nameEn: 'Commerce & Finance – ESC',
     subtitle: 'اقتصاد وتسيير', subtitleIcon: 'fa-chart-line',
     cat: 'business', catVar: 'var(--cat-business)', lmd: false,
     avg: 14.00, minAvg: 12.50,
@@ -288,7 +288,7 @@ const TW_CATALOG = [
     streams: ['تسيير واقتصاد','رياضيات','تقني رياضي','علوم تجريبية','آداب وفلسفة'],
     duration: '3 سنوات', language: 'عربية + فرنسية',
     degree: 'ليسانس في العلوم التجارية', demand: 'متوسط',
-    img: 'images/esc2024.jpg', location: 'ESC · القليعة، الجزائر',
+    img: 'images/esc.jpg', location: 'ESC · القليعة، الجزائر',
     description: [
       'المدرسة العليا للتجارة تُكوّن إطارات في التسيير، التسويق، المالية، والتجارة الدولية. تقع في القليعة ولاية الجزائر.',
       'من أفضل المؤسسات في مجال الاقتصاد بالجزائر مع انتقائية معتدلة.',
@@ -381,7 +381,7 @@ const TW_CATALOG = [
     streams: ['رياضيات','تقني رياضي'],
     duration: '3 سنوات (ليسانس) / 5 سنوات (ماستر)', language: 'عربية + فرنسية',
     degree: 'ليسانس ثم ماستر', demand: 'متوسط',
-    img: 'images/Math Pattern Photos - Download Free High-Quality Pictures _ Freepik.jpeg', location: 'جامعات عبر الوطن',
+    img: 'images/math.jpeg', location: 'جامعات عبر الوطن',
     description: [
       'ليسانس الرياضيات يُدرّس الجبر، التحليل، الرياضيات التطبيقية والإحصاء. بوابة للدكتوراه والبحث العلمي.',
       'يمكن لخريجيه التوجه للتعليم، الإحصاء التطبيقي، أو القطاع المالي والتأميني.',
@@ -413,7 +413,7 @@ const TW_CATALOG = [
     streams: ['آداب وفلسفة','لغات أجنبية','علوم تجريبية','تسيير واقتصاد'],
     duration: '3 سنوات (ليسانس) / 5 سنوات (ماستر)', language: 'عربية',
     degree: 'ليسانس ثم ماستر', demand: 'متوسط',
-    img: 'images/education.jpg', location: 'جامعات عبر الوطن',
+    img: 'images/childhood.png', location: 'جامعات عبر الوطن',
     description: [
       'علوم التربية تدرس أسس التعليم والتكوين، علم النفس التربوي، وإدارة المؤسسات التعليمية.',
       'يُمكّن حامله من العمل في التعليم، الإرشاد التربوي، وإدارة المؤسسات.',
@@ -535,7 +535,7 @@ const TW_CATALOG = [
     cat: 'humanities', catVar: 'var(--cat-humanities)', lmd: true,
     avg: 10.58, minAvg: 10.58, duration: '3 إلى 5 سنوات',
     language: 'فرنسية', degree: 'ليسانس / ماستر',
-    demand: 'متوسط', img: 'images/education.jpg',
+    demand: 'متوسط', img: '',
     location: 'جامعات عدة',
     description: [
       'دراسة متعمقة للغة الفرنسية وآدابها — لغويات، ترجمة، وأدب مقارن.',
@@ -565,7 +565,7 @@ const TW_CATALOG = [
     cat: 'humanities', catVar: 'var(--cat-humanities)', lmd: true,
     avg: 11.00, minAvg: 11.00, duration: '3 إلى 5 سنوات',
     language: 'عربية + فرنسية', degree: 'ليسانس / ماستر',
-    demand: 'متوسط', img: 'images/education.jpg',
+    demand: 'متوسط', img: 'images/med-psy.png',
     location: 'جامعات عدة',
     description: [
       'دراسة السلوك الإنساني والعمليات الذهنية — علم نفس إكلينيكي، تربوي، وتنظيمي.',
@@ -817,7 +817,7 @@ const TW_CATALOG = [
     avg: 17.96, minAvg: 17.96,
     streamCodes: ['math','sciexp','techmath'], streams: ['رياضيات','علوم تجريبية','تقني رياضي'],
     duration: '5 سنوات', language: 'فرنسية + إنجليزية', degree: 'مهندس دولة', demand: 'مرتفع',
-    img: 'images/photo_6032980517781097186_y.jpg', location: 'ENSSN · الجزائر العاصمة',
+    img: '', location: 'ENSSN · الجزائر العاصمة',
     description: [
       'تخصص في دراسة المواد والظواهر على المستوى النانوي (أجزاء من المليار من المتر)، مع تطبيقات في الطب والإلكترونيات والطاقة.',
     ],

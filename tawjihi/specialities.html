@@ -47,6 +47,16 @@
                     <p>تصفّح التخصصات الجامعية والمدارس العليا في الجزائر، واكتشف معدلات القبول وآفاق العمل قبل ما تعمّر بطاقة رغباتك.</p>
                 </section>
 
+                <!-- 2026-2027 new feature banner -->
+                <div class="info-banner" id="doubleDegBanner" style="display:flex;align-items:flex-start;gap:.75rem;background:color-mix(in srgb,var(--primary) 8%,transparent);border:1.5px solid color-mix(in srgb,var(--primary) 25%,transparent);border-radius:var(--r-md);padding:var(--sp-3) var(--sp-4);margin-bottom:var(--sp-4);font-size:var(--fs-sm)">
+                  <i class="fas fa-star" style="color:var(--primary);margin-top:2px;flex-shrink:0"></i>
+                  <div>
+                    <strong>جديد 2026-2027:</strong> يمكنك الآن التسجيل في <strong>مسارين تكوينيين بالتوازي</strong> للحصول على شهادة مزدوجة — اختر تخصصين متاحين لشعبتك!
+                    <button onclick="this.closest('.info-banner').remove();localStorage.setItem('tw-hide-dbl-banner','1')" style="background:none;border:none;cursor:pointer;color:var(--text-muted);font-size:1rem;padding:0 0 0 .5rem;float:left">×</button>
+                  </div>
+                </div>
+                <script>if(localStorage.getItem('tw-hide-dbl-banner'))document.getElementById('doubleDegBanner')?.remove();</script>
+
                 <!-- ===== FILTER BAR ===== -->
                 <div class="spec-filter-bar">
 
