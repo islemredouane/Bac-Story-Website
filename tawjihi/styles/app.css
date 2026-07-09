@@ -1005,27 +1005,18 @@
 /* Override --topbar-h so calc() usages resolve correctly */
 :root { --topbar-h: 0px; }
 
-/* Use the topbar container as the glass background on mobile */
+/* Collapse the topbar shell entirely */
 .topbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 76px !important;
-    min-height: 76px !important;
+    height: 0 !important;
+    min-height: 0 !important;
     padding: 0 !important;
     border: none !important;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
-    background: rgba(248, 249, 255, 0.75) !important;
+    background: transparent !important;
     box-shadow: none !important;
-    backdrop-filter: blur(16px) !important;
-    -webkit-backdrop-filter: blur(16px) !important;
-    z-index: 98;
-    pointer-events: none; /* Let clicks pass through except on the buttons inside */
-}
-[data-theme="dark"] .topbar {
-    background: rgba(17, 24, 39, 0.75) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    overflow: visible;
+    pointer-events: none;
 }
 .topbar-title { display: none !important; }
 #themeBtn { display: none !important; }
@@ -1104,8 +1095,8 @@
     left: calc(var(--sp-4) + 98px + 8px);
     right: calc(var(--sp-4) + 52px + 8px);
     height: 52px;           /* matches topbar-actions total height exactly */
-    align-items: center;
-    justify-content: center;
+    line-height: 52px;
+    text-align: center;
     padding: 0 0.9em;
     background: rgba(255, 255, 255, 0.90);
     backdrop-filter: blur(16px);
@@ -1134,7 +1125,7 @@
 
 /* Show only on mobile */
 @media (max-width: 768px) {
-    .chat-title-pill { display: flex; }
+    .chat-title-pill { display: block; }
 }
 
 [data-theme="dark"] .chat-title-pill {
