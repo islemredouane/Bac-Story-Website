@@ -817,45 +817,59 @@
 ::-webkit-scrollbar-button:end:increment { display: none; }
 
 /* Thin floating track */
-::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb {
-    background: rgba(100, 116, 139, 0.3);
-    border-radius: 6px;
+    background: rgba(100, 116, 139, 0.35);
+    border-radius: 99px;
+    border: 3px solid transparent;
+    background-clip: padding-box;
+    min-height: 36px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(100, 116, 139, 0.5);
+    background: rgba(100, 116, 139, 0.55);
+    background-clip: padding-box;
 }
 ::-webkit-scrollbar-corner { background: transparent; }
 
 /* Firefox */
-* { scrollbar-width: thin; scrollbar-color: rgba(100, 116, 139, 0.3) transparent; }
+* { scrollbar-width: thin; scrollbar-color: rgba(100, 116, 139, 0.35) transparent; }
 
 [data-theme="dark"] ::-webkit-scrollbar-thumb {
-    background: rgba(148, 163, 184, 0.25);
+    background: rgba(148, 163, 184, 0.30);
+    border: 3px solid transparent;
+    background-clip: padding-box;
 }
 [data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
-    background: rgba(148, 163, 184, 0.45);
+    background: rgba(148, 163, 184, 0.50);
+    background-clip: padding-box;
 }
-[data-theme="dark"] * { scrollbar-color: rgba(148, 163, 184, 0.25) transparent; }
+[data-theme="dark"] * { scrollbar-color: rgba(148, 163, 184, 0.30) transparent; }
 
 /* Chat page scroll area */
 .chat-scroll { scrollbar-gutter: stable; }
-.chat-scroll::-webkit-scrollbar { width: 6px; height: 6px; }
+.chat-scroll::-webkit-scrollbar { width: 10px; height: 10px; }
 .chat-scroll::-webkit-scrollbar-button { display: none; width: 0; height: 0; opacity: 0; }
 .chat-scroll::-webkit-scrollbar-track { background: transparent; }
 .chat-scroll::-webkit-scrollbar-thumb {
-    background: rgba(100, 116, 139, 0.3);
-    border-radius: 6px;
+    background: rgba(100, 116, 139, 0.35);
+    border-radius: 99px;
+    border: 3px solid transparent;
+    background-clip: padding-box;
+    min-height: 36px;
 }
 .chat-scroll::-webkit-scrollbar-thumb:hover {
-    background: rgba(100, 116, 139, 0.5);
+    background: rgba(100, 116, 139, 0.55);
+    background-clip: padding-box;
 }
 [data-theme="dark"] .chat-scroll::-webkit-scrollbar-thumb {
-    background: rgba(148, 163, 184, 0.25);
+    background: rgba(148, 163, 184, 0.30);
+    border: 3px solid transparent;
+    background-clip: padding-box;
 }
 [data-theme="dark"] .chat-scroll::-webkit-scrollbar-thumb:hover {
-    background: rgba(148, 163, 184, 0.45);
+    background: rgba(148, 163, 184, 0.50);
+    background-clip: padding-box;
 }
 
 /* ============================================================
