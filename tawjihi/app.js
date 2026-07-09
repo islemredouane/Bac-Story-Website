@@ -189,7 +189,7 @@
      DIRECTIVE BLOCK PARSER (output contract v2 §5)
      Extracts fenced directive blocks and removes them from prose.
      ============================================================ */
-  const BLOCK_RE = /```(spec-cards|compare|verdict|question|followups)[ \t]*\n([\s\S]*?)\n?```/g;
+  const BLOCK_RE = /```(spec-cards|compare|verdict|question|followups|alert|file|steps)[ \t]*\n([\s\S]*?)\n?```/g;
 
   function parseDirectives(text) {
     const blocks = [];
@@ -218,6 +218,41 @@
     return row;
   }
 
+  /* Helper: download compare table as CSV */
+  function downloadTableAsCSV(data) {
+    if (!data || !data.items || !data.fields) return;
+    const bom = "\uFEFF";
+    const headerRow = ["المعيار"];
+    data.items.forEach(item => headerRow.push(`"${String(item.name).replace(/"/g, '""')}"`));
+    
+    const rows = [headerRow.join(",")];
+    
+    data.fields.forEach(field => {
+      const row = [`"${String(field.label).replace(/"/g, '""')}"`];
+      data.items.forEach(item => {
+        let val = item[field.key];
+        if (field.key === 'avg' && typeof TW_CATALOG !== 'undefined') {
+          const cat = TW_CATALOG.find(c => c.id === (item.id?.toLowerCase()));
+          val = cat ? cat.avg : val;
+        }
+        val = val || '—';
+        row.push(`"${String(val).replace(/"/g, '""')}"`);
+      });
+      rows.push(row.join(","));
+    });
+    
+    const csvData = rows.join("\n");
+    const blob = new Blob([bom + csvData], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.setAttribute("href", url);
+    link.setAttribute("download", `${data.title ? data.title.replace(/\s+/g, '_') : 'مقارنة'}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    setTimeout(() => URL.revokeObjectURL(url), 100);
+  }
+
   /* compare — RTL comparison table (output contract v2 §3b)
      Defensive avg override: if id is in TW_CATALOG, use catalog avg. */
   function renderCompareBlock(data) {
@@ -226,10 +261,21 @@
     wrap.className = 'tw-compare';
 
     if (data.title) {
+      const headerRow = document.createElement('div');
+      headerRow.className = 'tw-compare-header-row';
+
       const title = document.createElement('div');
       title.className = 'tw-compare-title';
       title.textContent = data.title;
-      wrap.appendChild(title);
+      headerRow.appendChild(title);
+
+      const downloadBtn = document.createElement('button');
+      downloadBtn.className = 'tw-compare-download';
+      downloadBtn.innerHTML = '<i class="fas fa-download"></i> تحميل CSV';
+      downloadBtn.addEventListener('click', () => downloadTableAsCSV(data));
+      headerRow.appendChild(downloadBtn);
+
+      wrap.appendChild(headerRow);
     }
 
     const scroll = document.createElement('div');
@@ -473,6 +519,84 @@
     return card;
   }
 
+  /* alert — Premium status block (gold, green, red, blue, gray) */
+  function renderAlertBlock(data) {
+    if (!data || !data.type || !data.text) return null;
+    const wrap = document.createElement('div');
+    wrap.className = `tw-alert tw-alert-${data.type}`;
+    const iconMap = { gold: 'fa-exclamation-triangle', green: 'fa-check-circle', red: 'fa-times-circle', blue: 'fa-info-circle', gray: 'fa-bell' };
+    const icon = iconMap[data.type] || 'fa-info-circle';
+    wrap.innerHTML = `
+      <i class="fas ${icon} tw-alert-icon"></i>
+      <div class="tw-alert-text">${esc(data.text)}</div>
+    `;
+    return wrap;
+  }
+
+  /* file — Downloadable document card */
+  function renderFileBlock(data) {
+    if (!data || !data.title) return null;
+    const wrap = document.createElement('a');
+    wrap.className = 'tw-file-card';
+    
+    // Robust download handler
+    if (data.content) {
+      const blob = new Blob([data.content], { type: 'text/plain;charset=utf-8' });
+      wrap.href = URL.createObjectURL(blob);
+      wrap.download = data.title;
+    } else if (data.url) {
+      wrap.href = data.url;
+      wrap.download = data.title;
+    } else {
+      wrap.href = '#';
+      wrap.addEventListener('click', (e) => e.preventDefault());
+    }
+    const ext = data.title.split('.').pop().toLowerCase();
+    let icon = 'fa-file-alt';
+    if (ext === 'pdf') icon = 'fa-file-pdf';
+    else if (['doc', 'docx'].includes(ext)) icon = 'fa-file-word';
+    else if (['xls', 'xlsx'].includes(ext)) icon = 'fa-file-excel';
+    
+    wrap.innerHTML = `
+      <div class="tw-fc-icon"><i class="fas ${data.icon || icon}"></i></div>
+      <div class="tw-fc-body">
+        <div class="tw-fc-title">${esc(data.title)}</div>
+        ${data.desc ? `<div class="tw-fc-meta">${esc(data.desc)}</div>` : ''}
+      </div>
+      <div class="tw-fc-action"><i class="fas fa-download"></i></div>
+    `;
+    return wrap;
+  }
+
+  /* steps — Explicit premium timeline/step-by-step block */
+  function renderStepsBlock(data) {
+    if (!data || !Array.isArray(data.items)) return null;
+    const wrap = document.createElement('div');
+    wrap.className = 'tw-steps-block';
+    if (data.title) {
+      const title = document.createElement('div');
+      title.className = 'tw-steps-title';
+      title.textContent = data.title;
+      wrap.appendChild(title);
+    }
+    const list = document.createElement('div');
+    list.className = 'tw-steps-list';
+    data.items.forEach((item, index) => {
+      const step = document.createElement('div');
+      step.className = 'tw-step-item';
+      step.innerHTML = `
+        <div class="tw-step-marker">${index + 1}</div>
+        <div class="tw-step-content">
+          ${item.title ? `<div class="tw-step-header">${esc(item.title)}</div>` : ''}
+          <div class="tw-step-text">${esc(item.text || item)}</div>
+        </div>
+      `;
+      list.appendChild(step);
+    });
+    wrap.appendChild(list);
+    return wrap;
+  }
+
   /* Render a complete AI message (markdown + components) into a textEl container.
      Returns an array of follow-up question strings if the AI provided them, else null. */
   function renderAiMessage(textEl, fullText) {
@@ -493,6 +617,15 @@
       } else if (blk.type === 'question') {
         const q = renderQuestionBlock(blk.data);
         if (q) textEl.appendChild(q);
+      } else if (blk.type === 'alert') {
+        const a = renderAlertBlock(blk.data);
+        if (a) textEl.appendChild(a);
+      } else if (blk.type === 'file') {
+        const f = renderFileBlock(blk.data);
+        if (f) textEl.appendChild(f);
+      } else if (blk.type === 'steps') {
+        const s = renderStepsBlock(blk.data);
+        if (s) textEl.appendChild(s);
       } else if (blk.type === 'followups' && Array.isArray(blk.data)) {
         followups = blk.data.filter(q => typeof q === 'string' && q.trim());
       }

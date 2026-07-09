@@ -97,55 +97,79 @@
   padding: 0.65em 1em;
   font-weight: 800;
   font-size: 0.97rem;
-  color: var(--primary);
-  background: color-mix(in srgb, var(--primary) 7%, var(--surface));
-  border-bottom: 1.5px solid color-mix(in srgb, var(--primary) 16%, transparent);
 }
 
 .tw-compare-scroll {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 8px;
+    margin: 0 -0.5em;
+    padding: 0 0.5em 8px;
 }
-
 .tw-compare-table {
-  width: 100%;
-  min-width: 340px;
-  border-collapse: collapse;
-  font-size: 0.9rem;
-  direction: rtl;
+    width: 100%;
+    min-width: 400px;
+    border-collapse: separate;
+    border-spacing: 0;
+    text-align: right;
+    font-size: 0.9rem;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface);
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.02);
 }
-
-.tw-compare-table thead tr th {
-  padding: 0.55em 0.9em;
-  font-weight: 800;
-  color: var(--primary);
-  background: color-mix(in srgb, var(--primary) 5%, var(--surface));
-  text-align: center;
-  border-bottom: 1.5px solid var(--border, #e2e8f0);
+.tw-compare-table th {
+    background: color-mix(in srgb, var(--primary) 4%, var(--surface));
+    padding: 0.9em 1em;
+    font-weight: 800;
+    color: var(--text);
+    border-bottom: 1.5px solid var(--border);
+    white-space: nowrap;
 }
-.tw-compare-table thead tr th:first-child {
-  text-align: start;
-  width: 38%;
+.tw-compare-table td {
+    padding: 0.85em 1em;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-muted);
+    transition: background 0.15s;
 }
-
-.tw-compare-table tbody tr:nth-child(even) {
-  background: color-mix(in srgb, var(--primary) 3%, var(--surface));
+.tw-compare-table tbody tr:last-child td {
+    border-bottom: none;
 }
-
-.tw-compare-table tbody td {
-  padding: 0.5em 0.9em;
-  border-bottom: 1px solid var(--border, #e2e8f0);
-  text-align: center;
-  color: var(--text);
+.tw-compare-table tbody tr:hover td {
+    background: color-mix(in srgb, var(--primary) 2%, var(--surface));
 }
-.tw-compare-table tbody td:last-child { border-bottom: none; }
-.tw-compare-table tbody tr:last-child td { border-bottom: none; }
-
 .tw-compare-label {
-  text-align: start !important;
-  font-weight: 600;
-  color: var(--text-muted) !important;
-  white-space: nowrap;
+    font-weight: 700 !important;
+    color: var(--text) !important;
+    background: color-mix(in srgb, var(--surface-alt) 30%, var(--surface));
+    width: 130px;
+}
+.tw-compare-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.8em;
+}
+.tw-compare-download {
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+    padding: 0.4em 0.85em;
+    background: color-mix(in srgb, var(--primary) 8%, var(--surface));
+    color: var(--primary);
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    border: 1.5px solid color-mix(in srgb, var(--primary) 12%, transparent);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.tw-compare-download:hover {
+    background: var(--primary);
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px color-mix(in srgb, var(--primary) 20%, transparent);
 }
 
 /* ============================================================
@@ -156,29 +180,39 @@
   align-items: flex-start;
   gap: 0.9em;
   margin: 0.9em 0 0.5em;
-  padding: 0.85em 1.1em;
-  border-radius: 14px;
-  border: 2px solid transparent;
+  padding: 0.95em 1.15em;
+  border-radius: 16px;
+  border: 1.5px solid transparent;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   background: var(--surface);
-  transition: background 0.2s;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s;
+}
+.tw-verdict:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.05);
 }
 
 .tw-verdict[data-status="safe"] {
-  background: color-mix(in srgb, var(--acc-safe, #22c55e) 10%, var(--surface));
-  border-color: color-mix(in srgb, var(--acc-safe, #22c55e) 30%, transparent);
+  background: color-mix(in srgb, var(--acc-safe, #22c55e) 6%, var(--surface));
+  border-color: color-mix(in srgb, var(--acc-safe, #22c55e) 22%, transparent);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--acc-safe, #22c55e) 8%, transparent);
 }
 .tw-verdict[data-status="likely"] {
-  background: color-mix(in srgb, var(--acc-likely, #f59e0b) 10%, var(--surface));
-  border-color: color-mix(in srgb, var(--acc-likely, #f59e0b) 30%, transparent);
+  background: color-mix(in srgb, var(--acc-likely, #f59e0b) 6%, var(--surface));
+  border-color: color-mix(in srgb, var(--acc-likely, #f59e0b) 26%, transparent);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--acc-likely, #f59e0b) 8%, transparent);
 }
 .tw-verdict[data-status="risk"] {
-  background: color-mix(in srgb, var(--acc-risk, #ef4444) 10%, var(--surface));
-  border-color: color-mix(in srgb, var(--acc-risk, #ef4444) 25%, transparent);
+  background: color-mix(in srgb, var(--acc-risk, #ef4444) 6%, var(--surface));
+  border-color: color-mix(in srgb, var(--acc-risk, #ef4444) 22%, transparent);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--acc-risk, #ef4444) 8%, transparent);
 }
 .tw-verdict[data-status="inelig"],
 .tw-verdict[data-status="unknown"] {
-  background: color-mix(in srgb, var(--acc-inelig, #94a3b8) 10%, var(--surface));
-  border-color: color-mix(in srgb, var(--acc-inelig, #94a3b8) 22%, transparent);
+  background: color-mix(in srgb, var(--acc-inelig, #94a3b8) 6%, var(--surface));
+  border-color: color-mix(in srgb, var(--acc-inelig, #94a3b8) 20%, transparent);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--acc-inelig, #94a3b8) 6%, transparent);
 }
 
 .tw-verdict-icon {
@@ -627,4 +661,195 @@
 /* ── Hero brand gradient heading ─────────────────────────── */
 .chat-hero h1 {
     font-family: 'Plus Jakarta Sans', 'Cairo', var(--font-ui, system-ui);
+}
+
+/* ============================================================
+   PREMIUM AI OUTPUT COMPONENTS (Alerts, Files, Steps)
+   ============================================================ */
+
+/* ── 1. Alert / Status Blocks ────────────────────────────── */
+.tw-alert {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8em;
+    margin: 0.85em 0;
+    padding: 0.85em 1.1em;
+    border-radius: 14px;
+    background: color-mix(in srgb, var(--alert-bg, #f1f5f9) 60%, var(--surface));
+    border-inline-start: 4px solid var(--alert-edge, #94a3b8);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+.tw-alert-icon {
+    font-size: 1.25rem;
+    margin-top: 0.15em;
+    color: var(--alert-edge, #94a3b8);
+    flex-shrink: 0;
+}
+.tw-alert-text {
+    color: var(--text);
+    font-weight: 500;
+}
+.tw-alert-text strong {
+    font-weight: 800;
+    color: var(--alert-edge);
+}
+
+/* Color variations */
+.tw-alert-gold  { --alert-bg: #fef3c7; --alert-edge: #f59e0b; }
+.tw-alert-green { --alert-bg: #dcfce7; --alert-edge: #10b981; }
+.tw-alert-red   { --alert-bg: #fee2e2; --alert-edge: #ef4444; }
+.tw-alert-blue  { --alert-bg: #e0e7ff; --alert-edge: #3b82f6; }
+.tw-alert-gray  { --alert-bg: #f1f5f9; --alert-edge: #64748b; }
+
+[data-theme="dark"] .tw-alert-gold  { --alert-bg: rgba(245,158,11,0.15); }
+[data-theme="dark"] .tw-alert-green { --alert-bg: rgba(16,185,129,0.15); }
+[data-theme="dark"] .tw-alert-red   { --alert-bg: rgba(239,68,68,0.15); }
+[data-theme="dark"] .tw-alert-blue  { --alert-bg: rgba(59,130,246,0.15); }
+[data-theme="dark"] .tw-alert-gray  { --alert-bg: rgba(100,116,139,0.15); }
+
+/* ── 2. Downloadable File Cards ──────────────────────────── */
+.tw-file-card {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    margin: 0.85em 0;
+    padding: 0.85em 1em;
+    border-radius: 14px;
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    text-decoration: none;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+}
+.tw-file-card:hover {
+    border-color: color-mix(in srgb, var(--primary) 30%, transparent);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(44,92,197,0.08);
+}
+.tw-fc-icon {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: color-mix(in srgb, var(--primary) 10%, var(--surface));
+    color: var(--primary);
+    border-radius: 10px;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+}
+.tw-fc-body {
+    flex: 1;
+    min-width: 0;
+}
+.tw-fc-title {
+    font-weight: 800;
+    font-size: 0.95rem;
+    color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.tw-fc-meta {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 0.15em;
+}
+.tw-fc-action {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--primary) 8%, var(--surface));
+    color: var(--primary);
+    font-size: 1rem;
+    flex-shrink: 0;
+    transition: background 0.15s, color 0.15s;
+}
+.tw-file-card:hover .tw-fc-action {
+    background: var(--primary);
+    color: #fff;
+}
+
+[data-theme="dark"] .tw-file-card {
+    background: color-mix(in srgb, var(--primary) 4%, var(--surface));
+}
+
+/* ── 3. Explicit Step-by-Step UI ─────────────────────────── */
+.tw-steps-block {
+    margin: 1.5em 0;
+    padding: 1.25em 1.5em;
+    background: color-mix(in srgb, var(--primary) 4%, var(--surface));
+    border-radius: 18px;
+    border: 1.5px solid color-mix(in srgb, var(--primary) 10%, transparent);
+}
+.tw-steps-title {
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--primary);
+    margin-bottom: 1.2em;
+    padding-bottom: 0.6em;
+    border-bottom: 1px solid color-mix(in srgb, var(--primary) 10%, transparent);
+}
+.tw-steps-list {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+/* Vertical line connecting steps */
+.tw-steps-list::before {
+    content: '';
+    position: absolute;
+    inset-inline-start: 15px;
+    top: 15px;
+    bottom: 30px;
+    width: 2px;
+    background: color-mix(in srgb, var(--primary) 15%, transparent);
+    z-index: 0;
+}
+.tw-step-item {
+    display: flex;
+    gap: 1.1em;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 1.2em;
+}
+.tw-step-item:last-child {
+    margin-bottom: 0;
+}
+.tw-step-marker {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #fff;
+    font-weight: 800;
+    font-size: 0.95rem;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px color-mix(in srgb, var(--primary) 30%, transparent);
+    border: 3px solid var(--surface);
+    margin-top: -2px;
+}
+.tw-step-content {
+    flex: 1;
+    min-width: 0;
+    padding-top: 2px;
+}
+.tw-step-header {
+    font-weight: 800;
+    font-size: 0.98rem;
+    color: var(--text);
+    margin-bottom: 0.25em;
+}
+.tw-step-text {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: var(--text-muted);
 }
