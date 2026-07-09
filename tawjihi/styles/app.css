@@ -175,7 +175,7 @@
 
 /* empty state / greeting */
 .chat-hero {
-    min-height: calc(100dvh - var(--topbar-h, 64px) - 120px);
+    margin: auto 0; /* Auto margin top/bottom to center perfectly in flex container */
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     text-align: center; padding: var(--sp-5) var(--sp-5);
     transition: opacity .4s var(--ease), transform .4s var(--ease);
