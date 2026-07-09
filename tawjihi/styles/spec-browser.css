@@ -217,23 +217,6 @@
 .avg-input:focus { border-color: var(--primary); }
 .avg-sep { color: var(--text-faint); font-size: var(--fs-sm); }
 
-/* Show all streams toggle */
-.streamall-chip {
-    margin-inline-start: auto;
-    display: inline-flex; align-items: center; gap: 0.35rem;
-    padding: 0.28rem 0.75rem;
-    border-radius: var(--r-pill); border: 1.5px solid var(--border);
-    background: transparent; color: var(--text-muted);
-    font-size: var(--fs-xs); font-weight: 700; font-family: var(--font-ui);
-    cursor: pointer; white-space: nowrap; user-select: none;
-    transition: border-color var(--t-fast), color var(--t-fast), background var(--t-fast);
-}
-.streamall-chip:hover { border-color: var(--primary); color: var(--primary); }
-.streamall-chip.active {
-    background: color-mix(in srgb, var(--primary) 12%, transparent);
-    border-color: var(--primary); color: var(--primary); font-weight: 800;
-}
-
 /* Regional note */
 .regional-note {
     margin-top: 0.6rem;
