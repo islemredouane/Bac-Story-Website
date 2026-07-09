@@ -807,29 +807,13 @@
 .hist-item-time { font-size: var(--fs-xs, .75rem); color: var(--text-faint); font-weight: 400; }
 
 /* ============================================================
-/* ============================================================
-/* No arrows — every pseudo-element variant browsers expose */
-::-webkit-scrollbar-button              { display: none !important; width: 0 !important; height: 0 !important; opacity: 0 !important; }
-::-webkit-scrollbar-button:single-button { display: none !important; width: 0 !important; height: 0 !important; }
-::-webkit-scrollbar-button:vertical:decrement { display: none !important; height: 0 !important; }
-::-webkit-scrollbar-button:vertical:increment { display: none !important; height: 0 !important; }
-::-webkit-scrollbar-button:horizontal:decrement { display: none !important; width: 0 !important; }
-::-webkit-scrollbar-button:horizontal:increment { display: none !important; width: 0 !important; }
-
-/* Thin floating track */
-::-webkit-scrollbar { width: 10px; height: 10px; }
+   SCROLLBAR — ultra-minimalist, Gemini-style
+   ============================================================ */
+::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb {
-    background: rgba(100, 116, 139, 0.35);
-    border-radius: 99px;
-    border: 3px solid transparent;
-    background-clip: padding-box;
-    min-height: 36px;
-}
-::-webkit-scrollbar-thumb:hover {
-    background: rgba(100, 116, 139, 0.55);
-    background-clip: padding-box;
-}
+::-webkit-scrollbar-thumb { background: rgba(100, 116, 139, 0.3); border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(100, 116, 139, 0.5); }
+::-webkit-scrollbar-button { display: none; width: 0; height: 0; }
 ::-webkit-scrollbar-corner { background: transparent; }
 
 /* Firefox */
@@ -848,28 +832,13 @@
 
 /* Chat page scroll area */
 .chat-scroll { scrollbar-gutter: stable; }
-.chat-scroll::-webkit-scrollbar { width: 10px; height: 10px; }
+.chat-scroll::-webkit-scrollbar { width: 6px; height: 6px; }
 .chat-scroll::-webkit-scrollbar-track { background: transparent; }
-.chat-scroll::-webkit-scrollbar-thumb {
-    background: rgba(100, 116, 139, 0.35);
-    border-radius: 99px;
-    border: 3px solid transparent;
-    background-clip: padding-box;
-    min-height: 36px;
-}
-.chat-scroll::-webkit-scrollbar-thumb:hover {
-    background: rgba(100, 116, 139, 0.55);
-    background-clip: padding-box;
-}
-[data-theme="dark"] .chat-scroll::-webkit-scrollbar-thumb {
-    background: rgba(148, 163, 184, 0.30);
-    border: 3px solid transparent;
-    background-clip: padding-box;
-}
-[data-theme="dark"] .chat-scroll::-webkit-scrollbar-thumb:hover {
-    background: rgba(148, 163, 184, 0.50);
-    background-clip: padding-box;
-}
+.chat-scroll::-webkit-scrollbar-thumb { background: rgba(100, 116, 139, 0.3); border-radius: 6px; }
+.chat-scroll::-webkit-scrollbar-thumb:hover { background: rgba(100, 116, 139, 0.5); }
+.chat-scroll::-webkit-scrollbar-button { display: none; width: 0; height: 0; }
+[data-theme="dark"] .chat-scroll::-webkit-scrollbar-thumb { background: rgba(148, 163, 184, 0.25); }
+[data-theme="dark"] .chat-scroll::-webkit-scrollbar-thumb:hover { background: rgba(148, 163, 184, 0.45); }
 
 /* ============================================================
    AMBIENT BACKGROUND — gradient orbs behind the glass layers
