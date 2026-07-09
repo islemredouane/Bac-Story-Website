@@ -44,7 +44,7 @@
     min-width: 0;
     transition: gap var(--t-mid) var(--ease);
 }
-.app.sidebar-collapsed .sidebar-logo-link { gap: 0; }
+.app.sidebar-collapsed .sidebar-logo-link { gap: 0; justify-content: center; }
 .sidebar-logo-link:hover { opacity: 0.8; }
 .sidebar-logo-svg {
     width: 32px; height: 32px; flex-shrink: 0;
