@@ -41,7 +41,7 @@
 .sidebar-logo-link {
     display: flex; align-items: center; gap: var(--sp-3);
     color: var(--primary); text-decoration: none;
-    min-width: 0;
+    width: 100%; min-width: 0;
     transition: gap var(--t-mid) var(--ease);
 }
 .app.sidebar-collapsed .sidebar-logo-link { gap: 0; justify-content: center; }
