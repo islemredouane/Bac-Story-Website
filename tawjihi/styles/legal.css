@@ -164,9 +164,22 @@
 }
 @media (max-width: 900px) {
     .legal-toc { display: none; }
-    .legal-main { flex-direction: column; }
+    .legal-main { flex-direction: column; padding: var(--sp-4); }
     .legal-content-area { min-width: 0; }
+    .legal-hero { padding: var(--sp-6) var(--sp-4); margin-bottom: var(--sp-4); }
+    .legal-hero-back { position: relative; inset: auto; margin-bottom: var(--sp-3); display: inline-flex; }
+    .legal-section { padding: var(--sp-4); }
 }
+
+@media (max-width: 480px) {
+    .legal-main { padding: var(--sp-2); }
+    .legal-section { padding: var(--sp-3); }
+    .legal-body { font-size: 0.95rem; }
+    .legal-body ul li { padding: var(--sp-2) var(--sp-3); font-size: 0.9rem; }
+    .legal-footer { padding: var(--sp-4); gap: var(--sp-3); justify-content: center; text-align: center; }
+    .legal-footer-brand { flex-direction: column; gap: 4px; }
+}
+
 
 /* ── Content area ── */
 .legal-content-area {

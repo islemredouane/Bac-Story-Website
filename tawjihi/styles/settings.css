@@ -254,6 +254,20 @@
 @media (max-width: 520px) {
     .ob-choices.ob-grid-3 { grid-template-columns: repeat(2, 1fr); }
 }
+@media (max-width: 420px) {
+    .ob-choices.ob-grid-3 { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+    .settings-page-header-inner {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: var(--sp-3);
+    }
+    .settings-page-header {
+        padding: var(--sp-6) var(--sp-4);
+    }
+}
 .ob-choice {
     display: flex;
     flex-direction: column;
