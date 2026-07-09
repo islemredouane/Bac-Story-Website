@@ -42,7 +42,9 @@
     display: flex; align-items: center; gap: var(--sp-3);
     color: var(--primary); text-decoration: none;
     min-width: 0;
+    transition: gap var(--t-mid) var(--ease);
 }
+.app.sidebar-collapsed .sidebar-logo-link { gap: 0; }
 .sidebar-logo-link:hover { opacity: 0.8; }
 .sidebar-logo-svg {
     width: 32px; height: 32px; flex-shrink: 0;

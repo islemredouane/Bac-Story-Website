@@ -157,14 +157,21 @@
 
     /* Append the collapse tab directly to #app (not inside #sidebar) so
        position:absolute works relative to the grid container, not the
-       sticky sidebar element which breaks cross-browser. */
+       sticky sidebar element which breaks cross-browser.
+       Listener is attached here so ALL pages get toggle — app.js and
+       dashboard.html guard against double-attaching via data-tw-toggle. */
     var appEl = document.getElementById('app');
     if (appEl && !document.getElementById('sidebarToggle')) {
         var tab = document.createElement('button');
         tab.id = 'sidebarToggle';
         tab.className = 'sidebar-collapse-tab';
         tab.setAttribute('aria-label', 'طي القائمة');
+        tab.setAttribute('data-tw-toggle', '1');
         tab.innerHTML = '<i class="fas fa-chevron-right"></i>';
+        tab.addEventListener('click', function () {
+            if (window.innerWidth <= 900) appEl.classList.remove('drawer-open');
+            else appEl.classList.toggle('sidebar-collapsed');
+        });
         appEl.appendChild(tab);
     }
 }());

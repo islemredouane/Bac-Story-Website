@@ -24,10 +24,13 @@
   });
 
   /* ---- Sidebar collapse (desktop) + drawer (mobile) ---- */
-  $('#sidebarToggle').addEventListener('click', () => {
-    if (window.innerWidth <= 900) app.classList.remove('drawer-open');
-    else app.classList.toggle('sidebar-collapsed');
-  });
+  const _stBtn = $('#sidebarToggle');
+  if (_stBtn && !_stBtn.dataset.twToggle) {
+    _stBtn.addEventListener('click', () => {
+      if (window.innerWidth <= 900) app.classList.remove('drawer-open');
+      else app.classList.toggle('sidebar-collapsed');
+    });
+  }
   $('#drawerBtn').addEventListener('click', () => app.classList.add('drawer-open'));
   $('#scrim').addEventListener('click', () => app.classList.remove('drawer-open'));
 
