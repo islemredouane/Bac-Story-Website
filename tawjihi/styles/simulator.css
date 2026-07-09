@@ -9,26 +9,22 @@
 /* ---- hero + controls ---- */
 .sim-hero {
     position: relative; overflow: hidden;
-    background: linear-gradient(160deg, #071336 0%, #0a1840 40%, #0d1e56 100%);
-    border: 1px solid rgba(44, 92, 197, 0.35);
+    background:
+        radial-gradient(ellipse 80% 140% at 110% -20%, rgba(44,92,197,.22) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 80% at -10% 110%, rgba(255,107,53,.10) 0%, transparent 55%),
+        linear-gradient(160deg, #071336 0%, #0a1840 40%, #0d1e56 100%);
+    border: 1px solid rgba(44,92,197,.30);
     border-radius: 20px;
     padding: var(--sp-6);
-    box-shadow: 0 12px 40px rgba(7, 19, 54, 0.45), 0 2px 8px rgba(44, 92, 197, 0.2);
+    box-shadow: 0 8px 32px rgba(7,19,54,.35), 0 2px 8px rgba(44,92,197,.15);
     margin-bottom: var(--sp-6);
     animation: rise var(--t-slow) var(--ease-out) both;
 }
-/* Radial ambient glow in the corner */
-.sim-hero::after {
-    content: ''; position: absolute;
-    top: -60px; right: -60px;
-    width: 280px; height: 280px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(44, 92, 197, 0.22), transparent 65%);
-    pointer-events: none;
-}
+.sim-hero::after { display: none; }
 .sim-hero::before {
     content: ''; position: absolute; inset: 0 0 auto 0;
-    height: 3.5px;
-    background: linear-gradient(90deg, rgba(255,107,53,0.7) 0%, #2c5cc5 40%, #3d6ee0 100%);
+    height: 3px;
+    background: linear-gradient(90deg, transparent, rgba(255,107,53,.7) 10%, #2c5cc5 45%, transparent 100%);
     z-index: 2;
 }
 .sim-hero h1 {

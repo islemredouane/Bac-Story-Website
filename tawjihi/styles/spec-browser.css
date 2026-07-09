@@ -7,45 +7,38 @@
 .page-scroll { flex: 1; overflow-y: auto; }
 .page-inner { max-width: var(--content-max); margin-inline: auto; padding: var(--sp-6) var(--sp-5) var(--sp-8); }
 
-/* ---- hero strip (premium dark navy banner) ---- */
+/* ---- hero strip — glass card, consistent with dash-hero ---- */
 .spec-hero {
     position: relative; overflow: hidden;
-    background: linear-gradient(160deg, #071336 0%, #0a1840 40%, #0d1e56 100%);
-    border: 1px solid rgba(44, 92, 197, 0.3);
+    background:
+        radial-gradient(ellipse 90% 160% at 110% -30%, rgba(44,92,197,.10) 0%, transparent 55%),
+        radial-gradient(ellipse 60% 100% at -10% 110%, rgba(255,107,53,.05) 0%, transparent 55%),
+        var(--surface);
+    border: 1.5px solid color-mix(in srgb, var(--primary) 20%, var(--border));
     border-radius: 20px;
     padding: var(--sp-8) var(--sp-6);
     margin-bottom: var(--sp-5);
     text-align: center;
-    box-shadow: 0 12px 40px rgba(7, 19, 54, 0.4), 0 2px 8px rgba(44, 92, 197, 0.15);
+    box-shadow: 0 8px 40px rgba(44,92,197,.10), 0 2px 8px rgba(44,92,197,.05),
+                inset 0 1px 0 rgba(255,255,255,.6);
     animation: rise var(--t-slow) var(--ease-out) both;
 }
-/* Top accent line */
 .spec-hero::before {
-    content: ''; position: absolute; inset: 0 0 auto 0;
-    height: 3px;
-    background: linear-gradient(90deg, rgba(255,107,53,0.7) 0%, #2c5cc5 45%, transparent 100%);
+    content: ''; position: absolute; inset: 0 0 auto 0; height: 3px;
+    background: linear-gradient(90deg, transparent, rgba(255,107,53,.6) 10%, #2c5cc5 45%, transparent 100%);
 }
-/* Ambient glow ball */
-.spec-hero::after {
-    content: ''; position: absolute;
-    top: -80px; right: -80px;
-    width: 350px; height: 350px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(44, 92, 197, 0.2), transparent 65%);
-    pointer-events: none;
-}
+.spec-hero::after { display: none; }
 .spec-hero .hero-icon {
-    font-size: 2.4rem; color: #7da4f0; margin-bottom: var(--sp-3);
+    font-size: 2rem; color: var(--primary); margin-bottom: var(--sp-3);
     position: relative; z-index: 1;
-    filter: drop-shadow(0 2px 12px rgba(44, 92, 197, 0.5));
 }
 .spec-hero h1 {
     font-size: var(--fs-2xl); font-weight: 800; line-height: 1.25;
-    background: linear-gradient(135deg, #ffffff 0%, #a8c4f8 60%, #7da4f0 100%);
-    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    color: var(--text);
     position: relative; z-index: 1;
 }
 .spec-hero p {
-    color: rgba(168,196,248,0.8); margin-top: var(--sp-2);
+    color: var(--text-muted); margin-top: var(--sp-2);
     max-width: 65ch; margin-inline: auto;
     position: relative; z-index: 1;
 }

@@ -9,82 +9,59 @@
     max-width: 780px;
 }
 
-/* ── Page header ── */
+/* ── Page header — glass card ── */
 .settings-page-header {
     position: relative;
-    background: linear-gradient(160deg, #071336 0%, #0a1840 40%, #0d1e56 100%);
+    background:
+        radial-gradient(ellipse 90% 160% at 110% -30%, rgba(44,92,197,.10) 0%, transparent 55%),
+        radial-gradient(ellipse 60% 100% at -10% 110%, rgba(255,107,53,.05) 0%, transparent 55%),
+        var(--surface);
+    border: 1.5px solid color-mix(in srgb, var(--primary) 20%, var(--border));
     border-radius: var(--r-xl);
-    padding: var(--sp-8) var(--sp-6);
+    padding: var(--sp-7) var(--sp-6);
     margin-bottom: var(--sp-8);
     overflow: hidden;
-    box-shadow: 0 20px 60px rgba(10,24,64,.45);
+    box-shadow: 0 8px 40px rgba(44,92,197,.10), 0 2px 8px rgba(44,92,197,.05),
+                inset 0 1px 0 rgba(255,255,255,.6);
 }
 .settings-page-header::before {
     content: '';
-    position: absolute;
-    inset: 0;
-    background:
-        radial-gradient(ellipse 60% 80% at 100% 0%, rgba(44,92,197,.25) 0%, transparent 60%),
-        radial-gradient(ellipse 40% 50% at 0% 100%, rgba(255,107,53,.12) 0%, transparent 50%);
+    position: absolute; inset: 0 0 auto 0; height: 3px;
+    background: linear-gradient(90deg, transparent, rgba(255,107,53,.6) 10%, #2c5cc5 45%, transparent 100%);
     pointer-events: none;
 }
-.settings-page-header::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Ccircle cx='200' cy='200' r='180' fill='none' stroke='rgba(255,255,255,0.03)' stroke-width='1'/%3E%3Ccircle cx='200' cy='200' r='140' fill='none' stroke='rgba(255,255,255,0.025)' stroke-width='1'/%3E%3C/svg%3E")
-        right -100px top -100px / 400px 400px no-repeat;
-    pointer-events: none;
-}
+.settings-page-header::after { display: none; }
 .settings-page-header-inner {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    gap: var(--sp-5);
+    position: relative; z-index: 1;
+    display: flex; align-items: center; gap: var(--sp-5);
 }
 .settings-page-icon {
-    width: 64px;
-    height: 64px;
-    flex-shrink: 0;
-    background: rgba(255,255,255,.08);
-    border: 1.5px solid rgba(255,255,255,.15);
-    border-radius: 18px;
-    display: grid;
-    place-items: center;
-    color: #fff;
-    font-size: 1.6rem;
-    backdrop-filter: blur(8px);
+    width: 60px; height: 60px; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--primary), #5b86e8);
+    border-radius: 16px;
+    display: grid; place-items: center;
+    color: #fff; font-size: 1.5rem;
+    box-shadow: 0 6px 24px rgba(44,92,197,.28);
 }
 .settings-page-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: rgba(255,255,255,.08);
-    border: 1px solid rgba(255,255,255,.14);
-    color: rgba(255,255,255,.75);
-    font-size: .72rem;
-    font-weight: 700;
-    letter-spacing: .08em;
-    text-transform: uppercase;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: color-mix(in srgb, var(--primary) 10%, transparent);
+    border: 1px solid color-mix(in srgb, var(--primary) 22%, transparent);
+    color: var(--primary);
+    font-size: .72rem; font-weight: 700;
+    letter-spacing: .06em; text-transform: uppercase;
     font-family: 'Plus Jakarta Sans', 'Cairo', system-ui, sans-serif;
-    padding: 4px 12px;
-    border-radius: 999px;
-    margin-bottom: var(--sp-2);
+    padding: 4px 12px; border-radius: 999px; margin-bottom: var(--sp-2);
 }
 .settings-page-title {
-    font-size: 1.85rem;
-    font-weight: 800;
-    color: #fff;
-    letter-spacing: -.02em;
-    margin-bottom: var(--sp-1);
+    font-size: 1.75rem; font-weight: 800;
+    color: var(--text);
+    letter-spacing: -.02em; margin-bottom: var(--sp-1);
     font-family: 'Plus Jakarta Sans', 'Cairo', system-ui, sans-serif;
 }
 .settings-page-subtitle {
-    color: rgba(255,255,255,.6);
-    font-size: .92rem;
-    line-height: 1.6;
-    margin: 0;
+    color: var(--text-muted);
+    font-size: .92rem; line-height: 1.6; margin: 0;
 }
 
 /* ── Settings card ── */
