@@ -124,9 +124,22 @@
 
     sidebar.innerHTML =
         '<div class="sidebar-head">' +
-            '<button class="sidebar-toggle" id="sidebarToggle" aria-label="طي القائمة"><i class="fas fa-bars"></i></button>' +
-            '<span class="sidebar-logo sidebar-logo-brand">توجيهي</span>' +
+            '<a href="dashboard.html" class="sidebar-logo-link" aria-label="توجيهي — الرئيسية">' +
+                '<svg class="sidebar-logo-svg" viewBox="0 0 32 32" fill="none" aria-hidden="true">' +
+                    '<circle cx="16" cy="16" r="13" stroke="currentColor" stroke-width="1.5"/>' +
+                    '<circle cx="16" cy="16" r="2.5" fill="currentColor"/>' +
+                    '<line x1="16" y1="3" x2="16" y2="9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>' +
+                    '<line x1="16" y1="23" x2="16" y2="29" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>' +
+                    '<line x1="3" y1="16" x2="9" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>' +
+                    '<line x1="23" y1="16" x2="29" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>' +
+                    '<line x1="16" y1="16" x2="16" y2="7" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>' +
+                '</svg>' +
+                '<span class="sidebar-logo sidebar-logo-brand">توجيهي</span>' +
+            '</a>' +
         '</div>' +
+        '<button class="sidebar-collapse-tab" id="sidebarToggle" aria-label="طي القائمة">' +
+            '<i class="fas fa-chevron-right"></i>' +
+        '</button>' +
         '<nav class="nav-group">' +
             NAV.map(function (item) {
                 return '<a class="nav-item' + (activeId === item.id ? ' active' : '') + '" href="' + item.href + '">' +
