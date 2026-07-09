@@ -851,14 +851,34 @@
   }
 
   /* Smart scroll: don't hijack if user scrolled up to read */
+  const scrollToBottomBtn = $('#scrollToBottomBtn');
   let userScrolledUp = false;
+  
   scroll.addEventListener('scroll', () => {
+    // Determine if we're near the bottom (120px threshold)
     const nearBottom = scroll.scrollHeight - scroll.scrollTop - scroll.clientHeight < 120;
-    if (nearBottom) userScrolledUp = false;
+    
+    if (nearBottom) {
+      userScrolledUp = false;
+      if (scrollToBottomBtn) scrollToBottomBtn.classList.remove('visible');
+    } else {
+      userScrolledUp = true;
+      if (scrollToBottomBtn) scrollToBottomBtn.classList.add('visible');
+    }
   }, { passive: true });
+  
   const scrollDown = () => {
     if (!userScrolledUp) scroll.scrollTo({ top: scroll.scrollHeight, behavior: 'smooth' });
   };
+
+  if (scrollToBottomBtn) {
+    scrollToBottomBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      userScrolledUp = false;
+      scroll.scrollTo({ top: scroll.scrollHeight, behavior: 'smooth' });
+      scrollToBottomBtn.classList.remove('visible');
+    });
+  }
 
   const userMsg = (text, files = []) => {
     userScrolledUp = false;
