@@ -1442,6 +1442,7 @@
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    padding-bottom: 0.2em; /* Prevents Arabic descenders (ق، غ، ي) from being clipped */
 }
 
 /* ── Hero discover button — stronger CTA ─────────────────── */

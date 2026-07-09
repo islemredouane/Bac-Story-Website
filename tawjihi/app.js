@@ -1292,30 +1292,27 @@
     document.getElementById('app').appendChild(pill);
   })();
 
-  /* ---- Rotate Hero Title ---- */
-  (function rotateHeroTitle() {
+  /* ---- Randomize Hero Title ---- */
+  const heroQuestions = [
+    "كيف يمكنني مساعدتك اليوم؟",
+    "بماذا يمكنني إفادتك في توجيهك الجامعي؟",
+    "ما هي استفساراتك حول التخصصات الجامعية؟",
+    "كيف أستطيع توجيهك في اختياراتك؟"
+  ];
+  
+  function randomizeHeroTitle() {
     const titleEl = document.getElementById('chatHeroTitle');
-    if (!titleEl) return;
-    const questions = [
-      "كيف يمكنني مساعدتك اليوم؟",
-      "بماذا يمكنني إفادتك في توجيهك الجامعي؟",
-      "ما هي استفساراتك حول التخصصات الجامعية؟",
-      "كيف أستطيع توجيهك في اختياراتك؟"
-    ];
-    let idx = 0;
-    setInterval(() => {
-      idx = (idx + 1) % questions.length;
-      titleEl.style.opacity = '0';
-      setTimeout(() => {
-        titleEl.textContent = questions[idx];
-        titleEl.style.opacity = '1';
-      }, 400); // Wait for fade out
-    }, 4000); // Change every 4 seconds
-  })();
+    if (titleEl) {
+      const q = heroQuestions[Math.floor(Math.random() * heroQuestions.length)];
+      titleEl.textContent = q;
+    }
+  }
+  
+  randomizeHeroTitle();
 
   const resetChat = () => {
     inner.querySelectorAll('.msg').forEach(m => m.remove());
-    if (hero) { hero.style.display = ''; }
+    if (hero) { hero.style.display = ''; randomizeHeroTitle(); }
     if (mainEl) mainEl.classList.remove('chat-started');
     attachedFiles = []; renderAttachChips();
     input.value = ''; autosize(); sendBtn.disabled = true;
