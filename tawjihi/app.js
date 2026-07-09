@@ -1290,7 +1290,7 @@
     const pill = document.createElement('div');
     pill.id = 'chatTitlePill';
     pill.className = 'chat-title-pill';
-    document.body.appendChild(pill);
+    document.getElementById('app').appendChild(pill);
   })();
 
   const resetChat = () => {
