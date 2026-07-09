@@ -47,11 +47,28 @@
                         </div>
                         <div>
                             <div class="settings-page-eyebrow"><i class="fas fa-sliders"></i> إعدادات الحساب</div>
-                            <h1 class="settings-page-title">عدّل ملفك الشخصي</h1>
-                            <p class="settings-page-subtitle">معلوماتك الشخصية وملف BAC الخاص بك — التغييرات تُحفظ فوراً في حسابك.</p>
+                            <h1 class="settings-page-title">أهلاً <span id="settingsHeroName">صديقي</span> 👋</h1>
+                            <p class="settings-page-subtitle">عدّل ملفك الشخصي وبيانات BAC الخاصة بك — التغييرات تُحفظ فوراً.</p>
+                            <div class="settings-hero-chips">
+                                <span class="settings-hero-chip" id="settingsHeroStream"><i class="fas fa-flask"></i> الشعبة: —</span>
+                                <span class="settings-hero-chip" id="settingsHeroAvg"><i class="fas fa-percent"></i> المعدل: —</span>
+                                <span class="settings-hero-chip" id="settingsHeroWilaya"><i class="fas fa-location-dot"></i> الولاية: —</span>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <script>
+                (function(){try{
+                    var p=JSON.parse(localStorage.getItem('tw-profile')||'{}');
+                    if(p.name)document.getElementById('settingsHeroName').textContent=p.name;
+                    var se=document.getElementById('settingsHeroStream');
+                    var av=document.getElementById('settingsHeroAvg');
+                    var wi=document.getElementById('settingsHeroWilaya');
+                    if(se&&p.stream)se.innerHTML='<i class="fas fa-flask"></i> '+p.stream;
+                    if(av&&p.average)av.innerHTML='<i class="fas fa-percent"></i> معدل '+parseFloat(p.average).toFixed(2);
+                    if(wi&&p.wilaya)wi.innerHTML='<i class="fas fa-location-dot"></i> '+p.wilaya;
+                }catch(e){}}());
+                </script>
 
                 <!-- Card 1: معلومات شخصية -->
                 <div class="settings-card">

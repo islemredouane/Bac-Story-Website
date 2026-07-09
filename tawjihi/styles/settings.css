@@ -386,6 +386,20 @@
     border-color: rgba(91, 134, 232, 0.12) !important;
 }
 
+/* ── Hero profile chips ── */
+.settings-hero-chips {
+    display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-top: var(--sp-3);
+}
+.settings-hero-chip {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: color-mix(in srgb, var(--primary) 8%, transparent);
+    border: 1px solid color-mix(in srgb, var(--primary) 18%, transparent);
+    color: var(--text-muted);
+    padding: 4px 12px; border-radius: 999px;
+    font-size: .78rem; font-weight: 700;
+}
+.settings-hero-chip i { color: var(--primary); font-size: .75rem; }
+
 /* ── Save button ── */
 .settings-save-wrap {
     display: flex;

@@ -42,10 +42,24 @@
             <div class="page-inner">
                 <!-- ===== HERO STRIP ===== -->
                 <section class="spec-hero">
-                    <i class="fas fa-compass hero-icon" aria-hidden="true"></i>
-                    <h1>دليل التخصصات والمدارس العليا</h1>
-                    <p>تصفّح التخصصات الجامعية والمدارس العليا في الجزائر، واكتشف معدلات القبول وآفاق العمل قبل ما تعمّر بطاقة رغباتك.</p>
+                    <span class="spec-hero-eyebrow"><i class="fas fa-compass"></i> دليل التخصصات</span>
+                    <h1>تخصصات ومدارس عليا</h1>
+                    <p>تصفّح التخصصات الجامعية والمدارس العليا في الجزائر، واكتشف معدلات القبول وآفاق العمل قبل ما تعمّر بطاقتك.</p>
+                    <div class="spec-hero-chips">
+                        <span class="spec-hero-chip" id="specHeroStream"><i class="fas fa-flask"></i> الشعبة: —</span>
+                        <span class="spec-hero-chip" id="specHeroAvg"><i class="fas fa-percent"></i> المعدل: —</span>
+                        <span class="spec-hero-chip spec-hero-chip-accent"><i class="fas fa-layer-group"></i> 121 تخصص</span>
+                    </div>
                 </section>
+                <script>
+                (function(){try{
+                    var p=JSON.parse(localStorage.getItem('tw-profile')||'{}');
+                    var se=document.getElementById('specHeroStream');
+                    var av=document.getElementById('specHeroAvg');
+                    if(se&&p.stream)se.innerHTML='<i class="fas fa-flask"></i> '+p.stream;
+                    if(av&&p.average)av.innerHTML='<i class="fas fa-percent"></i> معدل '+parseFloat(p.average).toFixed(2);
+                }catch(e){}}());
+                </script>
 
                 <!-- 2026-2027 new feature banner -->
                 <div class="info-banner" id="doubleDegBanner" style="display:flex;align-items:flex-start;gap:.75rem;background:color-mix(in srgb,var(--primary) 8%,transparent);border:1.5px solid color-mix(in srgb,var(--primary) 25%,transparent);border-radius:var(--r-md);padding:var(--sp-3) var(--sp-4);margin-bottom:var(--sp-4);font-size:var(--fs-sm)">
