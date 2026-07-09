@@ -139,29 +139,37 @@
     box-shadow: 0 6px 18px rgba(44, 92, 197, 0.18);
 }
 
-/* edit chip — distinct ghost / outline pill */
+/* edit chip — distinct outline pill */
 .dash-chip.dash-chip-edit {
     color: var(--primary);
-    background: transparent;
-    border: 1.5px dashed color-mix(in srgb, var(--primary) 45%, var(--border));
+    background: color-mix(in srgb, var(--primary) 8%, transparent);
+    border: 1.5px solid color-mix(in srgb, var(--primary) 22%, transparent);
     text-decoration: none;
 }
-
 .dash-chip.dash-chip-edit i {
     color: var(--primary);
 }
-
 .dash-chip.dash-chip-edit:hover {
     transform: translateY(-2px);
-    color: var(--on-primary, #fff);
-    background: var(--primary);
-    border-color: var(--primary);
-    border-style: solid;
-    box-shadow: 0 6px 20px rgba(44, 92, 197, 0.35);
+    background: color-mix(in srgb, var(--primary) 15%, transparent);
+    box-shadow: 0 4px 12px rgba(44, 92, 197, 0.12);
 }
 
-.dash-chip.dash-chip-edit:hover i {
-    color: inherit;
+/* primary chip — solid brand button */
+.dash-chip.dash-chip-primary {
+    background: var(--grad-brand) !important;
+    color: #fff !important;
+    border: none !important;
+    box-shadow: 0 4px 14px rgba(44, 92, 197, 0.3) !important;
+    text-decoration: none;
+}
+.dash-chip.dash-chip-primary i {
+    color: #fff !important;
+}
+.dash-chip.dash-chip-primary:hover {
+    transform: translateY(-2px);
+    background: var(--primary) !important;
+    box-shadow: 0 6px 20px rgba(44, 92, 197, 0.45) !important;
 }
 
 /* ---- Progress ring ------------------------------------------- */
