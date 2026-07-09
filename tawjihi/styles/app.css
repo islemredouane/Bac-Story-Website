@@ -152,30 +152,6 @@
 /* ---------------- MAIN ---------------- */
 .main { display: flex; flex-direction: column; min-width: 0; height: 100dvh; position: relative; z-index: 1; }
 
-/* ── Mobile topbar glass background ─────────────────────────
-   Sits below the pills (z-index 98), providing a blurred header
-   area so scrolled text doesn't clash with the buttons.
-   ──────────────────────────────────────────────────────────── */
-@media (max-width: 768px) {
-    body::after {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 76px; /* 16px top padding + 52px pill height + 8px bottom padding */
-        background: rgba(248, 249, 255, 0.75);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        z-index: 98;
-        pointer-events: none;
-    }
-    [data-theme="dark"] body::after {
-        background: rgba(17, 24, 39, 0.75);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    }
-}
 .topbar {
     height: var(--topbar-h); display: flex; align-items: center;
     justify-content: space-between; padding-inline: var(--sp-5);
@@ -1029,18 +1005,27 @@
 /* Override --topbar-h so calc() usages resolve correctly */
 :root { --topbar-h: 0px; }
 
-/* Collapse the topbar shell entirely */
+/* Use the topbar container as the glass background on mobile */
 .topbar {
-    height: 0 !important;
-    min-height: 0 !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 76px !important;
+    min-height: 76px !important;
     padding: 0 !important;
     border: none !important;
-    background: transparent !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+    background: rgba(248, 249, 255, 0.75) !important;
     box-shadow: none !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    overflow: visible;
-    pointer-events: none;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    z-index: 98;
+    pointer-events: none; /* Let clicks pass through except on the buttons inside */
+}
+[data-theme="dark"] .topbar {
+    background: rgba(17, 24, 39, 0.75) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
 }
 .topbar-title { display: none !important; }
 #themeBtn { display: none !important; }
