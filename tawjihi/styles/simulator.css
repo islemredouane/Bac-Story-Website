@@ -114,14 +114,29 @@
 .wishlist { list-style: none; display: flex; flex-direction: column; gap: var(--sp-3); }
 .wish-item {
     display: flex; align-items: center; gap: var(--sp-3);
-    background: var(--surface-2); border: 1px solid var(--border); border-inline-start: 4px solid var(--cat, var(--primary));
-    border-radius: var(--r-md); padding: var(--sp-3) var(--sp-4); animation: rise var(--t-mid) var(--ease-out) both;
+    background: rgba(255,255,255,.82);
+    backdrop-filter: blur(16px) saturate(1.5);
+    -webkit-backdrop-filter: blur(16px) saturate(1.5);
+    border: 1px solid rgba(255,255,255,.6);
+    border-inline-start: 4px solid var(--cat, var(--primary));
+    border-radius: 14px;
+    padding: var(--sp-3) var(--sp-4);
+    box-shadow: 0 4px 20px rgba(44,92,197,.08), 0 1px 4px rgba(0,0,0,.04);
+    animation: rise var(--t-mid) var(--ease-out) both;
     transition: transform var(--t-fast) var(--ease), box-shadow var(--t-fast), border-color var(--t-fast);
 }
 .wish-item:hover {
-    transform: translateX(3px); /* RTL: move right (away from left edge) toward inline-start border */
-    box-shadow: var(--shadow-sm);
-    border-color: color-mix(in srgb, var(--cat, var(--primary)) 35%, transparent);
+    transform: translateX(3px);
+    box-shadow: 0 8px 32px rgba(44,92,197,.13), 0 2px 8px rgba(0,0,0,.06);
+    border-color: rgba(255,255,255,.85);
+}
+[data-theme="dark"] .wish-item {
+    background: rgba(17,24,39,.78);
+    border-color: rgba(91,134,232,.14);
+}
+[data-theme="dark"] .wish-item:hover {
+    border-color: rgba(91,134,232,.28);
+    box-shadow: 0 8px 32px rgba(44,92,197,.18);
 }
 .wish-rank {
     width: 34px; height: 34px; flex-shrink: 0; border-radius: var(--r-pill);
