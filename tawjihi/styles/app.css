@@ -1487,3 +1487,7 @@
     background: rgba(91, 134, 232, .06) !important;
 }
 [data-theme="dark"] .noise-overlay { mix-blend-mode: screen; opacity: .035; }
+
+/* ── Logout button — red tint ──────────────────────────────── */
+#logoutBtn { color: #e03535; }
+#logoutBtn:hover { background: rgba(224, 53, 53, .08); color: #c72020; }
