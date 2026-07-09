@@ -118,12 +118,22 @@
     backdrop-filter: blur(16px) saturate(1.5);
     -webkit-backdrop-filter: blur(16px) saturate(1.5);
     border: 1px solid rgba(255,255,255,.6);
-    border-inline-start: 4px solid var(--cat, var(--primary));
     border-radius: 14px;
     padding: var(--sp-3) var(--sp-4);
     box-shadow: 0 4px 20px rgba(44,92,197,.08), 0 1px 4px rgba(0,0,0,.04);
     animation: rise var(--t-mid) var(--ease-out) both;
     transition: transform var(--t-fast) var(--ease), box-shadow var(--t-fast), border-color var(--t-fast);
+    position: relative;
+}
+/* Gradient right border (RTL inline-start = physical right) */
+.wish-item::after {
+    content: '';
+    position: absolute;
+    inset-block: 6px;
+    inset-inline-start: 0;
+    width: 4px;
+    border-radius: 4px;
+    background: linear-gradient(to bottom, rgba(255,107,53,.75), #2c5cc5 55%, rgba(44,92,197,.25));
 }
 .wish-item:hover {
     transform: translateX(3px);
@@ -138,9 +148,22 @@
     border-color: rgba(91,134,232,.28);
     box-shadow: 0 8px 32px rgba(44,92,197,.18);
 }
+/* Glass rank badge */
 .wish-rank {
-    width: 34px; height: 34px; flex-shrink: 0; border-radius: var(--r-pill);
-    background: var(--grad-brand); color: var(--on-primary, #fff); font-weight: 800; display: grid; place-items: center;
+    width: 36px; height: 36px; flex-shrink: 0; border-radius: 10px;
+    background: rgba(255,255,255,.88);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(44,92,197,.15);
+    color: var(--primary); font-weight: 800; font-size: var(--fs-sm);
+    display: grid; place-items: center;
+    box-shadow: 0 2px 10px rgba(44,92,197,.14), inset 0 1px 0 rgba(255,255,255,.9);
+}
+[data-theme="dark"] .wish-rank {
+    background: rgba(44,92,197,.18);
+    border-color: rgba(91,134,232,.28);
+    color: #a8c4f8;
+    box-shadow: 0 2px 10px rgba(44,92,197,.22);
 }
 .wish-info { flex: 1; min-width: 0; }
 .wish-name { font-weight: 700; font-size: var(--fs-sm); }
