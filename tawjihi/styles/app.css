@@ -789,7 +789,10 @@
     flex: 1; border: none; background: none; resize: none; outline: none;
     font-family: inherit; font-size: var(--fs-md); color: var(--text);
     max-height: 180px; padding: var(--sp-2) var(--sp-1); line-height: 1.6; min-height: 40px;
+    overflow-y: hidden; /* no scrollbar inside the input */
+    scrollbar-width: none; /* Firefox */
 }
+.composer textarea::-webkit-scrollbar { display: none; } /* Chrome/Safari */
 .composer textarea::placeholder { color: var(--text-faint); }
 /* Suppress inner focus ring — the composer container already shows :focus-within ring */
 .composer textarea:focus-visible { box-shadow: none; outline: none; }
