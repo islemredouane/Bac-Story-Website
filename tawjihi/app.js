@@ -244,7 +244,17 @@
     ].join(';');
     header.innerHTML = `
       <div style="display:flex;align-items:center;gap:10px;">
-        <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#2C5CC5,#4f8ef7);display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;font-weight:800;">ت</div>
+        <div style="width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,#2C5CC5,#4f8ef7);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 12px rgba(44,92,197,0.28);">
+          <svg viewBox="0 0 32 32" fill="none" width="24" height="24" aria-hidden="true">
+            <circle cx="16" cy="16" r="13" stroke="rgba(255,255,255,0.7)" stroke-width="1.5"/>
+            <circle cx="16" cy="16" r="2.5" fill="white"/>
+            <line x1="16" y1="3" x2="16" y2="9" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="16" y1="23" x2="16" y2="29" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="3" y1="16" x2="9" y2="16" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="23" y1="16" x2="29" y2="16" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="16" y1="16" x2="16" y2="7" stroke="#ffe97a" stroke-width="2.2" stroke-linecap="round"/>
+          </svg>
+        </div>
         <div>
           <div style="font-weight:800;font-size:16px;color:#1e293b;">توجيهي</div>
           <div style="font-size:11px;color:#64748b;margin-top:1px;">مرشدك الجامعي الذكي · tawjihi.dz</div>
