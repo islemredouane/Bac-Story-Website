@@ -1354,6 +1354,13 @@
     currentChatId = sessionId;
     renderHistory(); // highlight the now-active item
 
+    // Restore title pill from stored history
+    const allHistory = JSON.parse(localStorage.getItem('tw-history') || '[]');
+    const histEntry = allHistory.find(h => h.id === sessionId);
+    if (histEntry && histEntry.title) {
+      setChatTitlePill(generateChatTitle(histEntry.title));
+    }
+
     /* Fast path: messages cached locally.
        Defer rendering one rAF so the browser paints the closed overlay first. */
     const saved = JSON.parse(localStorage.getItem(`tw-sess-${sessionId}`) || '[]');
