@@ -8,55 +8,99 @@
 
 /* ---- hero ---- */
 .sim-hero {
-    position: relative; overflow: hidden;
-    background:
-        radial-gradient(ellipse 90% 160% at 110% -30%, rgba(44,92,197,.10) 0%, transparent 55%),
-        radial-gradient(ellipse 60% 100% at -10% 110%, rgba(255,107,53,.05) 0%, transparent 55%),
-        var(--surface);
-    border: 1.5px solid color-mix(in srgb, var(--primary) 20%, var(--border));
-    border-radius: 20px;
-    padding: var(--sp-7) var(--sp-6);
-    box-shadow: 0 8px 40px rgba(44,92,197,.10), 0 2px 8px rgba(44,92,197,.05),
-                inset 0 1px 0 rgba(255,255,255,.6);
+    position: relative;
+    overflow: hidden;
+    background: color-mix(in srgb, var(--surface) 65%, transparent);
+    backdrop-filter: blur(24px) saturate(1.2);
+    -webkit-backdrop-filter: blur(24px) saturate(1.2);
+    border: 1.5px solid var(--border-strong);
+    border-radius: 28px;
+    padding: var(--sp-8) var(--sp-6);
     margin-bottom: var(--sp-6);
+    box-shadow: 
+        0 12px 40px rgba(44, 92, 197, 0.08), 
+        0 2px 10px rgba(0, 0, 0, 0.03),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
     animation: rise var(--t-slow) var(--ease-out) both;
-    display: flex; flex-direction: column; gap: var(--sp-5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: var(--sp-5);
 }
-.sim-hero::after { display: none; }
+.sim-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 0%, color-mix(in srgb, var(--primary) 8%, transparent), transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
 .sim-hero::before {
-    content: ''; position: absolute; inset: 0 0 auto 0;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, rgba(255,107,53,.6) 10%, #2c5cc5 45%, transparent 100%);
+    content: '';
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 4px;
+    background: linear-gradient(90deg, #ff6b35 0%, #2c5cc5 50%, #5b86e8 100%);
     z-index: 2;
 }
 /* hero text block */
-.sim-hero-text { position: relative; z-index: 1; }
+.sim-hero-text {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .sim-eyebrow {
-    display: inline-flex; align-items: center; gap: 6px;
-    background: color-mix(in srgb, var(--primary) 10%, transparent);
-    border: 1px solid color-mix(in srgb, var(--primary) 22%, transparent);
-    color: var(--primary); font-size: .72rem; font-weight: 700;
-    letter-spacing: .06em; text-transform: uppercase;
-    font-family: 'Plus Jakarta Sans', 'Cairo', system-ui, sans-serif;
-    padding: 4px 12px; border-radius: 999px; margin-bottom: var(--sp-2);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: color-mix(in srgb, var(--primary) 8%, transparent);
+    border: 1.5px solid color-mix(in srgb, var(--primary) 18%, transparent);
+    color: var(--primary);
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 6px 16px;
+    border-radius: 28px;
+    margin-bottom: var(--sp-3);
+    position: relative;
+    z-index: 1;
 }
 .sim-hero h1 {
-    font-size: var(--fs-2xl); font-weight: 800; line-height: 1.2;
-    color: var(--text); margin-bottom: var(--sp-2);
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 800;
+    line-height: 1.25;
+    color: var(--text);
+    margin-bottom: var(--sp-2);
+    letter-spacing: -0.02em;
 }
-.sim-hero p { color: var(--text-muted); max-width: 60ch; }
+.sim-hero p {
+    color: var(--text-muted);
+    max-width: 65ch;
+    margin-inline: auto;
+    font-size: var(--fs-md);
+    line-height: 1.65;
+}
 /* controls row — glass cards */
 .sim-hero-controls {
-    display: flex; gap: var(--sp-3); flex-wrap: wrap;
-    position: relative; z-index: 1;
+    display: flex;
+    gap: var(--sp-3);
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+    justify-content: center;
+    width: 100%;
+    max-width: 720px;
 }
 .sim-ctrl-card {
-    background: rgba(255,255,255,.75);
-    backdrop-filter: blur(14px) saturate(1.4);
-    -webkit-backdrop-filter: blur(14px) saturate(1.4);
-    border: 1px solid rgba(255,255,255,.6);
-    border-radius: 14px;
-    box-shadow: 0 2px 16px rgba(44,92,197,.07), inset 0 1px 0 rgba(255,255,255,.9);
+    background: color-mix(in srgb, var(--surface) 60%, transparent);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1.5px solid var(--border-strong);
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(44, 92, 197, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 [data-theme="dark"] .sim-ctrl-card {
     background: rgba(17,24,39,.65);
