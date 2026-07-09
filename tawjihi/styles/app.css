@@ -199,6 +199,7 @@
     background: var(--grad-brand); -webkit-background-clip: text; background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: rise var(--t-mid) 120ms var(--ease-out) both;
+    transition: opacity 0.4s ease;
 }
 .chat-hero p {
     color: var(--text-faint); margin-top: var(--sp-2); font-size: var(--fs-sm); max-width: 360px;
@@ -724,8 +725,8 @@
     .hero-chip { font-size: .78rem; padding: 0.35em 0.75em; }
     .hero-discover-btn { font-size: .85rem; padding: 0.6em 1.2em; }
     .msg.user .msg-body { max-width: 92%; }
-    .chat-inner { padding: var(--sp-2) var(--sp-2) var(--sp-5); }
-    .composer-wrap { padding: var(--sp-2) var(--sp-2) calc(var(--sp-3) + env(safe-area-inset-bottom, 0px)); }
+    .chat-inner { padding: var(--sp-2) var(--sp-4) var(--sp-5); } /* Increased horizontal padding */
+    .composer-wrap { padding: var(--sp-2) var(--sp-3) calc(var(--sp-3) + env(safe-area-inset-bottom, 0px)); }
 }
 
 /* ---------------- ANIMATIONS ---------------- */
@@ -1069,6 +1070,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+@media (min-width: 901px) {
+    #drawerBtn { display: none !important; }
 }
 
 /* Pad all content scroll areas so content clears the floating pill */
