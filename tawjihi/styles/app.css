@@ -1025,7 +1025,7 @@
     position: fixed;
     top: var(--sp-4);
     left: var(--sp-4);
-    z-index: 50;
+    z-index: 100;
     display: flex;
     gap: 4px;
     background: rgba(255, 255, 255, 0.90);
@@ -1045,7 +1045,7 @@
     position: fixed;
     top: var(--sp-4);
     right: var(--sp-4);
-    z-index: 50;
+    z-index: 100;
     background: rgba(255, 255, 255, 0.90) !important;
     backdrop-filter: blur(16px) !important;
     -webkit-backdrop-filter: blur(16px) !important;
@@ -1294,7 +1294,7 @@
     }
 
     /* RES-4: Reduce backdrop-filter blur on mobile for mid-range GPU performance */
-    .sidebar, .topbar, .mobile-topbar, .mobile-nav, .composer-wrap {
+    .sidebar, .mobile-topbar, .mobile-nav, .composer-wrap {
         backdrop-filter: blur(8px) !important;
         -webkit-backdrop-filter: blur(8px) !important;
     }
