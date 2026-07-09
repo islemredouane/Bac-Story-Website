@@ -53,14 +53,13 @@
 }
 .sidebar-logo-link:hover .sidebar-logo-svg { transform: rotate(15deg); }
 
-/* Collapse tab — child of #app (not sidebar), anchored to sidebar left edge */
+/* Collapse tab — fixed to viewport so it stays put while page scrolls.
+   RTL: sidebar occupies right side, tab sits on its left edge. */
 .sidebar-collapse-tab {
-    position: absolute;
-    top: 50%;
-    /* RTL: sidebar is right column. right: var(--sidebar-w) = sidebar's left edge.
-       Subtract half button diameter (14px) to center the circle on the edge. */
-    right: calc(var(--sidebar-w) - 14px);
+    position: fixed;
+    top: 50vh;
     transform: translateY(-50%);
+    right: calc(var(--sidebar-w) - 14px);
     width: 28px; height: 28px;
     border-radius: 50%;
     background: var(--surface);
@@ -69,7 +68,7 @@
     cursor: pointer;
     color: var(--text-faint);
     font-size: .7rem;
-    z-index: 50;
+    z-index: 200;
     transition: background var(--t-fast), color var(--t-fast),
                 box-shadow var(--t-fast), right var(--t-mid) var(--ease);
     box-shadow: 0 2px 8px rgba(44, 92, 197, .12);
