@@ -345,6 +345,16 @@
     });
   }
 
+  // Auto-import from URL parameter ?import=CODE
+  const params = new URLSearchParams(window.location.search);
+  const urlImportCode = params.get('import');
+  if (urlImportCode) {
+    if (importCode) importCode.value = urlImportCode;
+    applyImport(urlImportCode);
+    const newUrl = window.location.pathname + window.location.hash;
+    window.history.replaceState({}, '', newUrl);
+  }
+
   hydrate();
   render();
 })();

@@ -46,19 +46,19 @@
                     <div class="dash-hero-text">
                         <span class="dash-hero-eyebrow"><i class="fas fa-gauge-high"></i> لوحة التحكم الشخصية</span>
                         <h1>مرحبا <span id="userName">صديقي</span> 👋</h1>
-                        <p>هاذي صورة سريعة عن مسارك. كمّل اللي بقى، وخلّي المرشد يعاونك في القرار.</p>
+                        <p>هاذي صورة سريعة عن مسارك الجامعي. كمّل معلومات ملفك باه يقدر المرشد يعاونك في اختيار التخصص الأنسب لمعدلك.</p>
                         <div class="dash-chips" id="profileChips">
                             <span class="dash-chip"><i class="fas fa-flask"></i> <span data-chip="stream">—</span></span>
                             <span class="dash-chip"><i class="fas fa-percent"></i> معدل <span data-chip="average">—</span></span>
                             <span class="dash-chip"><i class="fas fa-location-dot"></i> <span data-chip="wilaya">—</span></span>
-                            <a class="dash-chip dash-chip-primary" href="onboarding.html"><i class="fas fa-pen"></i> عدّل ملفّي</a>
+                            <a class="dash-chip dash-chip-edit" href="onboarding.html"><i class="fas fa-pen"></i> تعديل الملف</a>
                         </div>
                     </div>
-                    <div class="dash-progress-ring" aria-label="اكتمال الملف 80٪">
+                    <div class="dash-progress-ring" aria-label="اكتمال الملف">
                         <div class="dash-ring">
                             <span class="dash-ring-num">—</span>
                         </div>
-                        <span class="dash-ring-label">اكتمال ملفّك</span>
+                        <span class="dash-ring-label">نسبة اكتمال ملفّك</span>
                     </div>
                 </section>
 
@@ -466,7 +466,16 @@ function renderNudges(profile, wishIds) {
             };
             reader.onerror = () => showImportMsg('تعذّر قراءة الملف.', 'err');
             reader.readAsText(f);
-        });
+    }
+
+    // Auto-import from URL parameter ?import=CODE
+    const params = new URLSearchParams(window.location.search);
+    const urlImportCode = params.get('import');
+    if (urlImportCode) {
+        if (importCode) importCode.value = urlImportCode;
+        applyImport(urlImportCode);
+        const newUrl = window.location.pathname + window.location.hash;
+        window.history.replaceState({}, '', newUrl);
     }
 
     /* ---- Countdown to BAC 2026 results ---- */
