@@ -60,9 +60,9 @@
                 <!-- ===== FILTER BAR ===== -->
                 <div class="spec-filter-bar">
 
-                    <!-- Stream filter chips (visible row) -->
-                    <div class="stream-chips-row" id="streamChips">
-                        <button class="stream-chip active" data-stream="all">الكل (شعبة)</button>
+                    <!-- Stream chips: hidden from view, kept in DOM for JS compatibility -->
+                    <div class="stream-chips-row" id="streamChips" aria-hidden="true" style="display:none">
+                        <button class="stream-chip active" data-stream="all">الكل</button>
                         <button class="stream-chip" data-stream="sciexp">علوم تجريبية</button>
                         <button class="stream-chip" data-stream="math">رياضيات</button>
                         <button class="stream-chip" data-stream="techmath">تقني رياضي</button>
@@ -72,24 +72,15 @@
                         <button class="stream-chip" data-stream="arts">فنون</button>
                     </div>
 
-                    <!-- Eligibility controls: show-all-streams toggle + wilaya filter -->
-                    <div class="elig-row" id="eligRow">
-                        <button class="streamall-chip" id="showAllStreams" type="button" aria-pressed="false">
-                            <i class="fas fa-layer-group"></i> أظهر كل الشعب
-                        </button>
-                        <span class="elig-row-label"><i class="fas fa-location-dot"></i> الولاية:</span>
-                        <select class="wilaya-select" id="wilayaSelect" aria-label="تصفية حسب الولاية">
-                            <option value="">كل الولايات</option>
-                        </select>
-                    </div>
-                    <div class="regional-note is-hidden" id="regionalNote">
-                        <i class="fas fa-circle-info"></i>
-                        <span id="regionalNoteText"></span>
+                    <!-- Search — prominent, at top -->
+                    <div class="spec-search-wrap">
+                        <i class="fas fa-magnifying-glass"></i>
+                        <input type="text" class="spec-search-input" id="searchInput" placeholder="ابحث عن مدرسة أو تخصص..." autocomplete="off">
                     </div>
 
-                    <hr class="filter-section-divider">
+                    <div class="filter-divider"></div>
 
-                    <!-- Category chips -->
+                    <!-- Category chips — horizontal scrollable -->
                     <div class="spec-chips-row" id="catChips">
                         <button class="filter-chip active" data-cat="all">الكل</button>
                         <button class="filter-chip" data-cat="engineering">هندسة</button>
@@ -102,35 +93,39 @@
                         <button class="filter-chip" data-cat="double">مسارات مزدوجة</button>
                     </div>
 
-                    <hr class="filter-section-divider">
+                    <div class="filter-divider"></div>
 
-                    <!-- LMD / Grande École toggle -->
-                    <div class="lmd-row" id="lmdChips">
-                        <span class="lmd-row-label">نوع المؤسسة:</span>
-                        <button class="lmd-chip active" data-lmd="all">الكل</button>
-                        <button class="lmd-chip" data-lmd="lmd">جامعة (LMD)</button>
-                        <button class="lmd-chip" data-lmd="grande">مدرسة عليا</button>
+                    <!-- Secondary filters — all in one compact row -->
+                    <div class="filter-secondary-row">
+                        <div class="filter-group" id="lmdChips">
+                            <span class="filter-group-label">نوع:</span>
+                            <button class="lmd-chip active" data-lmd="all">الكل</button>
+                            <button class="lmd-chip" data-lmd="lmd">جامعة</button>
+                            <button class="lmd-chip" data-lmd="grande">مدرسة عليا</button>
+                        </div>
+
+                        <div class="filter-group">
+                            <i class="fas fa-location-dot filter-group-label"></i>
+                            <select class="wilaya-select" id="wilayaSelect" aria-label="الولاية">
+                                <option value="">كل الولايات</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-group">
+                            <span class="filter-group-label">معدل:</span>
+                            <input class="avg-input" type="number" id="avgMin" min="0" max="20" step="0.1" value="0" aria-label="الحد الأدنى للمعدل">
+                            <span class="avg-sep">—</span>
+                            <input class="avg-input" type="number" id="avgMax" min="0" max="20" step="0.1" value="20" aria-label="الحد الأقصى للمعدل">
+                        </div>
+
+                        <button class="streamall-chip" id="showAllStreams" type="button" aria-pressed="false">
+                            <i class="fas fa-layer-group"></i> كل الشعب
+                        </button>
                     </div>
 
-                    <!-- Avg range filter -->
-                    <div class="avg-row">
-                        <span class="avg-row-label">نطاق المعدل:</span>
-                        <div class="avg-input-group">
-                            <span>من</span>
-                            <input class="avg-input" type="number" id="avgMin" min="0" max="20" step="0.1" value="0">
-                        </div>
-                        <div class="avg-input-group">
-                            <span>إلى</span>
-                            <input class="avg-input" type="number" id="avgMax" min="0" max="20" step="0.1" value="20">
-                        </div>
-                    </div>
-
-                    <hr class="filter-section-divider">
-
-                    <!-- Search -->
-                    <div class="spec-search-wrap">
-                        <i class="fas fa-search"></i>
-                        <input type="text" class="spec-search-input" id="searchInput" placeholder="ابحث عن مدرسة أو تخصص..." autocomplete="off">
+                    <div class="regional-note is-hidden" id="regionalNote">
+                        <i class="fas fa-circle-info"></i>
+                        <span id="regionalNoteText"></span>
                     </div>
                 </div>
 
