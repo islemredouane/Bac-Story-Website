@@ -113,15 +113,15 @@ window.addEventListener('popstate', (event) => {
 
 const TIMERS_CONFIG = [
     { suffix: '2', target: new Date(2026, 6, 12, 10, 0, 0) }, // July 12 - النتائج
-    { suffix: '3', target: new Date(2027, 5, 7,  8, 30, 0) }, // June 7 2027 - بكالوريا 2027
+    { suffix: '3', target: new Date(2027, 5, 7, 8, 30, 0) }, // June 7 2027 - بكالوريا 2027
 ];
 
 function updateAllTimers() {
     const now = new Date();
-    TIMERS_CONFIG.forEach(function(cfg) {
+    TIMERS_CONFIG.forEach(function (cfg) {
         const diff = cfg.target - now;
         const s = cfg.suffix;
-        const set = function(id, val) {
+        const set = function (id, val) {
             const el = document.getElementById(id + s);
             if (el) el.textContent = String(Math.max(0, val)).padStart(2, '0');
         };
@@ -133,8 +133,8 @@ function updateAllTimers() {
         }
         set('t-days-', Math.floor(diff / 86400000));
         set('t-hours-', Math.floor((diff % 86400000) / 3600000));
-        set('t-min-',   Math.floor((diff % 3600000)  / 60000));
-        set('t-sec-',   Math.floor((diff % 60000)    / 1000));
+        set('t-min-', Math.floor((diff % 3600000) / 60000));
+        set('t-sec-', Math.floor((diff % 60000) / 1000));
     });
 }
 
@@ -174,41 +174,41 @@ document.addEventListener('visibilitychange', () => {
             '<span class="share-card__handle"></span>' +
             /* ── Gradient hero header ── */
             '<div class="share-card__hero">' +
-                '<div class="share-card__hero-icon"><i class="fas fa-share-nodes"></i></div>' +
-                '<div class="share-card__hero-text">' +
-                    '<strong>شارك الملف</strong>' +
-                    '<span id="sc-subject"></span>' +
-                '</div>' +
-                '<button class="share-card__close" aria-label="إغلاق"><i class="fas fa-times"></i></button>' +
+            '<div class="share-card__hero-icon"><i class="fas fa-share-nodes"></i></div>' +
+            '<div class="share-card__hero-text">' +
+            '<strong>شارك الملف</strong>' +
+            '<span id="sc-subject"></span>' +
+            '</div>' +
+            '<button class="share-card__close" aria-label="إغلاق"><i class="fas fa-times"></i></button>' +
             '</div>' +
             /* — Body — */
             '<div class="share-card__body">' +
-                '<p class="share-card__label">مشاركة عبر</p>' +
-                '<div class="share-card__options">' +
-                    '<button class="share-option share-option--wa"  onclick="scShare(\'wa\')">' +
-                        '<div class="share-option__icon"><i class="fab fa-whatsapp"></i></div>' +
-                        '<span>واتساب</span></button>' +
-                    '<button class="share-option share-option--tg"  onclick="scShare(\'tg\')">' +
-                        '<div class="share-option__icon"><i class="fab fa-telegram-plane"></i></div>' +
-                        '<span>تيليغرام</span></button>' +
-                    '<button class="share-option share-option--fb"  onclick="scShare(\'fb\')">' +
-                        '<div class="share-option__icon"><i class="fab fa-facebook-f"></i></div>' +
-                        '<span>فيسبوك</span></button>' +
-                    '<button class="share-option share-option--copy" onclick="scShare(\'copy\')">' +
-                        '<div class="share-option__icon" id="sc-copy-icon"><i class="fas fa-link"></i></div>' +
-                        '<span>نسخ الرابط</span></button>' +
-                '</div>' +
-                '<div class="share-card__url-row">' +
-                    '<span class="share-card__url" id="sc-url-text"></span>' +
-                    '<button class="share-card__copy-url" onclick="scShare(\'copy\')">' +
-                        '<i class="fas fa-copy"></i> نسخ' +
-                    '</button>' +
-                '</div>' +
+            '<p class="share-card__label">مشاركة عبر</p>' +
+            '<div class="share-card__options">' +
+            '<button class="share-option share-option--wa"  onclick="scShare(\'wa\')">' +
+            '<div class="share-option__icon"><i class="fab fa-whatsapp"></i></div>' +
+            '<span>واتساب</span></button>' +
+            '<button class="share-option share-option--tg"  onclick="scShare(\'tg\')">' +
+            '<div class="share-option__icon"><i class="fab fa-telegram-plane"></i></div>' +
+            '<span>تيليغرام</span></button>' +
+            '<button class="share-option share-option--fb"  onclick="scShare(\'fb\')">' +
+            '<div class="share-option__icon"><i class="fab fa-facebook-f"></i></div>' +
+            '<span>فيسبوك</span></button>' +
+            '<button class="share-option share-option--copy" onclick="scShare(\'copy\')">' +
+            '<div class="share-option__icon" id="sc-copy-icon"><i class="fas fa-link"></i></div>' +
+            '<span>نسخ الرابط</span></button>' +
+            '</div>' +
+            '<div class="share-card__url-row">' +
+            '<span class="share-card__url" id="sc-url-text"></span>' +
+            '<button class="share-card__copy-url" onclick="scShare(\'copy\')">' +
+            '<i class="fas fa-copy"></i> نسخ' +
+            '</button>' +
+            '</div>' +
             '</div>';
 
         card.querySelector('.share-card__close').addEventListener('click', closeCard);
         cardSubject = card.querySelector('#sc-subject');
-        cardUrl     = card.querySelector('#sc-url-text');
+        cardUrl = card.querySelector('#sc-url-text');
 
         document.body.appendChild(overlay);
         document.body.appendChild(card);
@@ -218,7 +218,7 @@ document.addEventListener('visibilitychange', () => {
         if (!overlay) buildCard();
         cardSubject.textContent = title;
         cardUrl.textContent = url;
-        card.dataset.url   = url;
+        card.dataset.url = url;
         card.dataset.title = title;
         overlay.classList.add('active');
         requestAnimationFrame(function () { card.classList.add('active'); });
@@ -239,14 +239,14 @@ document.addEventListener('visibilitychange', () => {
 
     // exposed globally
     window.scShare = function (type) {
-        var url   = card.dataset.url;
+        var url = card.dataset.url;
         var title = card.dataset.title;
         var encoded = encodeURIComponent(title + '\n' + url);
-        if (type === 'wa')   window.open('https://wa.me/?text=' + encoded, '_blank', 'noopener');
-        if (type === 'tg')   window.open('https://t.me/share/url?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(title), '_blank', 'noopener');
-        if (type === 'fb')   window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url), '_blank', 'noopener');
+        if (type === 'wa') window.open('https://wa.me/?text=' + encoded, '_blank', 'noopener');
+        if (type === 'tg') window.open('https://t.me/share/url?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(title), '_blank', 'noopener');
+        if (type === 'fb') window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url), '_blank', 'noopener');
         if (type === 'copy') {
-            var icon    = document.getElementById('sc-copy-icon');
+            var icon = document.getElementById('sc-copy-icon');
             var copyBtn = card.querySelector('.share-card__copy-url');
 
             function onCopied() {
@@ -293,14 +293,14 @@ document.addEventListener('visibilitychange', () => {
 
 function shareOnWhatsApp(btn) {
     var section = btn.closest('.resource-content');
-    var title   = (section && section.querySelector('h2'))
+    var title = (section && section.querySelector('h2'))
         ? section.querySelector('h2').textContent.trim()
         : 'مواضيع بكالوريا 2026';
 
     // Read the section ID directly from the DOM — always accurate, no window.location dependency
     var sectionId = section ? section.id : '';
     var base = window.location.origin + window.location.pathname.replace(/\/$/, '');
-    var url  = sectionId ? (base + '#' + sectionId) : base;
+    var url = sectionId ? (base + '#' + sectionId) : base;
 
     window._openShareCard(title, url);
 }
@@ -377,11 +377,11 @@ if (contactForm) {
 // Fullscreen toggler for multiple PDF viewers
 // Strategy: try native Fullscreen API (desktop) → catch failure → CSS overlay (mobile/iOS)
 function toggleFullScreen(event) {
-    const btn     = event.currentTarget;
+    const btn = event.currentTarget;
     const wrapper = btn.closest('.pdf-wrapper');
-    const iframe  = wrapper.querySelector('iframe');
+    const iframe = wrapper.querySelector('iframe');
 
-    const ICON_EXPAND  = '<i class="fa-solid fa-expand"></i> تكبير الملف';
+    const ICON_EXPAND = '<i class="fa-solid fa-expand"></i> تكبير الملف';
     const ICON_COMPRESS = '<i class="fa-solid fa-compress"></i> تصغير الملف';
 
     // ── CSS overlay helpers ──────────────────────────────────────────────────
@@ -411,8 +411,8 @@ function toggleFullScreen(event) {
 
     // ── Try native fullscreen; fall back to CSS on rejection (Android) ───────
     const reqFS = iframe.requestFullscreen
-               || iframe.webkitRequestFullscreen
-               || iframe.msRequestFullscreen;
+        || iframe.webkitRequestFullscreen
+        || iframe.msRequestFullscreen;
 
     if (reqFS) {
         reqFS.call(iframe).catch(() => enterCSSFullscreen());
@@ -570,6 +570,7 @@ var SPEC_KEYWORDS = {
     'INATAA': 'nutrition alimentation industries agroalimentaires constantine sécurité alimentaire تغذية معهد التغذية والتغذي والصناعات الفلاحية الغذائية قسنطينة صناعات فلاحية غذاء',
     'ENSA': 'agronomie agriculture agronome INA zootechnie horticulture علوم زراعية فلاحة الجزائر',
     'ENS': 'enseignement professeur pédagogie éducation formation des enseignants école normale supérieure مدرسة عليا أساتذة أستاذ',
+    'military-health': 'صحة عسكرية طب عسكري عين النعجة عسكرية قضي بكير ضابط طبيب صيدلة أسنان شبه طبي عسكري military health medicine',
     'MEDCINE': 'médecine générale CHU résidanat médecin docteur généraliste spécialiste طبيب دكتور كلية الطب حكيم',
     'MEDCINE-DENTAIRE': 'dentiste chirurgie dentaire orthodontie implant dentaire prothèse carie أسنان دكتور أسنان طب الفم كلية طب الأسنان',
     'PHARMACIE': 'pharmacien médicaments officine pharmacologie biochimie دواء الصيدلة صيدلاني',
@@ -873,7 +874,7 @@ var SPEC_KEYWORDS = {
     function expandWord(w) {
         var base = [w];
         if (SEARCH_SYNONYMS[w]) {
-            SEARCH_SYNONYMS[w].split(/\s+/).forEach(function(syn) {
+            SEARCH_SYNONYMS[w].split(/\s+/).forEach(function (syn) {
                 var n = normalize(syn);
                 if (n) base.push(n);
             });
@@ -883,7 +884,7 @@ var SPEC_KEYWORDS = {
         if (stripped && stripped !== w) {
             base.push(stripped);
             if (SEARCH_SYNONYMS[stripped]) {
-                SEARCH_SYNONYMS[stripped].split(/\s+/).forEach(function(syn) {
+                SEARCH_SYNONYMS[stripped].split(/\s+/).forEach(function (syn) {
                     var n = normalize(syn);
                     if (n) base.push(n);
                 });
@@ -924,9 +925,9 @@ var SPEC_KEYWORDS = {
                     var haystack = normalize((card.dataset.name || '') + ' ' + (SPEC_KEYWORDS[sid] || ''));
                     // For each query word, check if the haystack contains the word itself
                     // OR any of its synonyms (partial prefix match ≥ 3 chars)
-                    matchSearch = rawWords.every(function(w) {
+                    matchSearch = rawWords.every(function (w) {
                         var candidates = expandWord(w);
-                        return candidates.some(function(cand) {
+                        return candidates.some(function (cand) {
                             if (cand.length < 2) return false;
                             // substring match (handles partial: "هند" → "هندسه")
                             return haystack.indexOf(cand) !== -1;
