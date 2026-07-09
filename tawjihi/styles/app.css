@@ -151,6 +151,36 @@
 
 /* ---------------- MAIN ---------------- */
 .main { display: flex; flex-direction: column; min-width: 0; height: 100dvh; position: relative; z-index: 1; }
+
+/* ── Mobile topbar gradient fade-mask ─────────────────────────
+   Soft gradient from surface → transparent sits below the pills.
+   z-index: 98 → above content, below pills (99/100).
+   pointer-events: none → never blocks clicks or scrolling.
+   ──────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    body::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 82px;                       /* pill top (16px) + pill height (44px) + 22px soft tail */
+        background: linear-gradient(
+            to bottom,
+            var(--surface, #f8f9ff) 48%,    /* solid cover behind pills */
+            rgba(248, 249, 255, 0) 100%     /* feathers to transparent */
+        );
+        z-index: 98;
+        pointer-events: none;
+    }
+    [data-theme="dark"] body::after {
+        background: linear-gradient(
+            to bottom,
+            var(--surface, #111827) 48%,
+            rgba(17, 24, 39, 0) 100%
+        );
+    }
+}
 .topbar {
     height: var(--topbar-h); display: flex; align-items: center;
     justify-content: space-between; padding-inline: var(--sp-5);
