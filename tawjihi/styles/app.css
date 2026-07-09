@@ -152,10 +152,9 @@
 /* ---------------- MAIN ---------------- */
 .main { display: flex; flex-direction: column; min-width: 0; height: 100dvh; position: relative; z-index: 1; }
 
-/* ── Mobile topbar gradient fade-mask ─────────────────────────
-   Soft gradient from surface → transparent sits below the pills.
-   z-index: 98 → above content, below pills (99/100).
-   pointer-events: none → never blocks clicks or scrolling.
+/* ── Mobile topbar glass background ─────────────────────────
+   Sits below the pills (z-index 98), providing a blurred header
+   area so scrolled text doesn't clash with the buttons.
    ──────────────────────────────────────────────────────────── */
 @media (max-width: 768px) {
     body::after {
@@ -164,24 +163,17 @@
         top: 0;
         left: 0;
         right: 0;
-        height: 100px;
-        /* Using explicit RGB values for the gradient to ensure a hard stop and clean fade */
-        background: linear-gradient(
-            to bottom,
-            rgba(248, 249, 255, 1) 0%,
-            rgba(248, 249, 255, 1) 50px,
-            rgba(248, 249, 255, 0) 100%
-        );
+        height: 76px; /* 16px top padding + 52px pill height + 8px bottom padding */
+        background: rgba(248, 249, 255, 0.75);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         z-index: 98;
         pointer-events: none;
     }
     [data-theme="dark"] body::after {
-        background: linear-gradient(
-            to bottom,
-            rgba(17, 24, 39, 1) 0%,
-            rgba(17, 24, 39, 1) 50px,
-            rgba(17, 24, 39, 0) 100%
-        );
+        background: rgba(17, 24, 39, 0.75);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 }
 .topbar {
