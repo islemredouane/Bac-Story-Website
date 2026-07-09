@@ -92,6 +92,13 @@
       else app.classList.toggle('sidebar-collapsed');
     });
   }
+  /* Hide floating actions pill when it has no visible buttons */
+  const actionsEl = $('.topbar-actions');
+  if (actionsEl) {
+    const hasVisible = [...actionsEl.children].some(el => el.id !== 'themeBtn');
+    if (!hasVisible) actionsEl.style.display = 'none';
+  }
+
   const drawerBtn = $('#drawerBtn');
   if (drawerBtn && app) drawerBtn.addEventListener('click', () => app.classList.add('drawer-open'));
   const scrim = $('#scrim');
@@ -167,12 +174,6 @@
         });
         appEl.appendChild(tab);
     }
-
-    /* Populate topbar avatar initial from saved profile */
-    var _prof = {};
-    try { _prof = JSON.parse(localStorage.getItem('tw-profile') || '{}'); } catch {}
-    var _init = (_prof.name || '').trim().charAt(0) || '?';
-    document.querySelectorAll('#topbarInitials').forEach(function (el) { el.textContent = _init; });
 }());
 
 /* ---- Mobile Navigation: Top Bar + Bottom Tab Nav ---- */

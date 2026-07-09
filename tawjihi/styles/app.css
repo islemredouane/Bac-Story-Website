@@ -155,38 +155,9 @@
     height: var(--topbar-h); display: flex; align-items: center;
     justify-content: space-between; padding-inline: var(--sp-5);
     border-bottom: 1px solid var(--border); background: var(--surface);
-    position: relative;
 }
-/* subtle brand accent at bottom edge */
-.topbar::after {
-    content: ''; position: absolute; bottom: 0;
-    inset-inline-start: var(--sp-5); inset-inline-end: var(--sp-5);
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(44,92,197,.22), transparent);
-    pointer-events: none;
-}
-.topbar-start { display: flex; align-items: center; gap: var(--sp-3); }
-.topbar-page-id { display: flex; align-items: center; gap: var(--sp-2); min-width: 0; }
-.topbar-icon {
-    width: 34px; height: 34px; border-radius: var(--r-md); flex-shrink: 0;
-    background: color-mix(in srgb, var(--primary) 10%, transparent);
-    display: grid; place-items: center;
-    color: var(--primary); font-size: .82rem;
-}
-.topbar-page-text { display: flex; flex-direction: column; gap: 0; min-width: 0; }
-.topbar-title { font-weight: 800; font-size: .88rem; line-height: 1.25; color: var(--text); white-space: nowrap; }
-.topbar-subtitle { font-size: .68rem; font-weight: 600; color: var(--text-faint); line-height: 1.2; white-space: nowrap; }
+.topbar-title { font-weight: 700; }
 .topbar-actions { display: flex; align-items: center; gap: var(--sp-2); }
-.topbar-avatar {
-    width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0;
-    background: linear-gradient(135deg, var(--primary), #5b86e8);
-    display: grid; place-items: center;
-    color: #fff; font-size: .78rem; font-weight: 800; font-family: var(--font-ui);
-    text-decoration: none; letter-spacing: 0;
-    box-shadow: 0 2px 8px rgba(44,92,197,.28);
-    transition: box-shadow var(--t-fast), transform var(--t-fast);
-}
-.topbar-avatar:hover { box-shadow: 0 4px 16px rgba(44,92,197,.38); transform: translateY(-1px); }
 .icon-btn {
     width: 42px; height: 42px; border-radius: var(--r-pill);
     display: grid; place-items: center; color: var(--text-muted);
