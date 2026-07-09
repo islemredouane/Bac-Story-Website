@@ -637,6 +637,128 @@
 }
 [data-theme="dark"] .scroll-bottom-btn:hover { background: rgba(40, 53, 76, 0.95); }
 
+/* ── Premium Credit Banner ───────────────────────────────── */
+.credit-banner {
+    max-width: 820px;
+    margin: 0 auto var(--sp-3);
+    display: flex;
+    align-items: center;
+    gap: var(--sp-4);
+    padding: 14px 18px;
+    background: rgba(20, 25, 40, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(91, 134, 232, 0.18);
+    border-radius: 18px;
+    box-shadow:
+        0 4px 24px rgba(44, 92, 197, 0.15),
+        0 1px 4px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    animation: bannerSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+    position: relative;
+    overflow: hidden;
+}
+/* subtle shimmer accent line at top */
+.credit-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(91, 134, 232, 0.5), transparent);
+}
+.credit-banner-icon {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(44, 92, 197, 0.25), rgba(91, 134, 232, 0.15));
+    border: 1px solid rgba(91, 134, 232, 0.25);
+    display: grid;
+    place-items: center;
+    font-size: 1rem;
+    color: #7aa3f5;
+}
+.credit-banner-body {
+    flex: 1;
+    min-width: 0;
+}
+.credit-banner-title {
+    font-weight: 700;
+    font-size: var(--fs-sm);
+    color: #e8edf8;
+    margin: 0 0 2px;
+    line-height: 1.3;
+}
+.credit-banner-desc {
+    font-size: var(--fs-xs);
+    color: rgba(180, 195, 225, 0.72);
+    margin: 0;
+    line-height: 1.5;
+}
+.credit-banner-actions {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+    align-items: center;
+}
+.credit-banner-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: var(--fs-xs);
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+    white-space: nowrap;
+}
+.credit-banner-cta.primary {
+    background: linear-gradient(135deg, #2c5cc5, #5b86e8);
+    color: #fff;
+    box-shadow: 0 2px 12px rgba(44, 92, 197, 0.35);
+}
+.credit-banner-cta.primary:hover { transform: translateY(-1px); box-shadow: 0 4px 18px rgba(44, 92, 197, 0.5); }
+.credit-banner-cta.secondary {
+    background: rgba(255, 255, 255, 0.07);
+    color: rgba(200, 215, 240, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.credit-banner-cta.secondary:hover { background: rgba(255, 255, 255, 0.12); }
+.credit-banner-dismiss {
+    width: 28px; height: 28px;
+    border-radius: 8px;
+    background: transparent;
+    border: none;
+    color: rgba(180, 195, 225, 0.45);
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: color 0.15s, background 0.15s;
+    flex-shrink: 0;
+}
+.credit-banner-dismiss:hover { color: rgba(200, 215, 240, 0.9); background: rgba(255,255,255,0.08); }
+
+/* light mode overrides */
+[data-theme="light"] .credit-banner {
+    background: rgba(15, 22, 42, 0.88);
+}
+
+@keyframes bannerSlideIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile — stack vertically */
+@media (max-width: 600px) {
+    .credit-banner { flex-direction: column; align-items: flex-start; gap: var(--sp-3); }
+    .credit-banner-actions { width: 100%; }
+    .credit-banner-cta { flex: 1; justify-content: center; }
+}
+
 .composer-wrap {
     position: relative; /* Anchor for scroll button */
     padding: var(--sp-4) var(--sp-5) calc(var(--sp-5) + env(safe-area-inset-bottom, 0px));

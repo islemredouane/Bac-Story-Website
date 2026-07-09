@@ -1143,20 +1143,34 @@
     try { return JSON.parse(localStorage.getItem('tw-profile') || '{}'); } catch { return {}; }
   }
 
-  /* ---- No-credits UI ---- */
+  /* ---- No-credits UI (premium banner above input) ---- */
   function showNoCredits() {
-    const shell = aiShell();
-    const textEl = shell.querySelector('.msg-text');
-    textEl.innerHTML = `
-      <p>نفد رصيدك من الرسائل المجانية 😔</p>
-      <p style="font-size:var(--fs-sm);color:var(--text-muted);margin-top:8px">
-        شارك توجيهي مع أصدقائك واكسب +30 رسالة لكلاكما — الإحالة مجانية تماماً!
-      </p>
-      <a href="referral.html" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;
-        background:var(--primary);color:#fff;padding:8px 18px;border-radius:10px;font-weight:800;
-        font-size:var(--fs-sm);text-decoration:none;">
-        <i class="fas fa-gift"></i> اكسب رسائل مجانية
-      </a>`;
+    const banner = document.getElementById('creditBanner');
+    if (!banner) return;
+
+    banner.innerHTML = `
+      <div class="credit-banner-icon"><i class="fas fa-bolt"></i></div>
+      <div class="credit-banner-body">
+        <p class="credit-banner-title">نفدت رسائلك المجانية</p>
+        <p class="credit-banner-desc">شارك توجيهي مع صديق واكسب +30 رسالة لكلاكما — الإحالة مجانية تماماً.</p>
+      </div>
+      <div class="credit-banner-actions">
+        <a href="referral.html" class="credit-banner-cta primary">
+          <i class="fas fa-gift"></i> اكسب رسائل
+        </a>
+        <button class="credit-banner-dismiss" id="creditDismiss" aria-label="إغلاق">
+          <i class="fas fa-xmark"></i>
+        </button>
+      </div>
+    `;
+    banner.hidden = false;
+    document.getElementById('creditDismiss')?.addEventListener('click', () => {
+      banner.style.animation = 'none';
+      banner.style.opacity = '0';
+      banner.style.transform = 'translateY(6px)';
+      banner.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
+      setTimeout(() => { banner.hidden = true; banner.innerHTML = ''; }, 260);
+    });
   }
 
   /* ---- Send message to real AI API ---- */
