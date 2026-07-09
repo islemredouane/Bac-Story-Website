@@ -183,22 +183,11 @@
     pointer-events: none;
     z-index: 1;
 }
-.wilaya-chevron {
-    position: absolute;
-    inset-inline-end: 0.65rem;
-    font-size: 0.6rem;
-    color: var(--text-faint);
-    pointer-events: none;
-    z-index: 1;
-    transition: transform var(--t-fast);
-}
 .wilaya-select {
-    appearance: none;
-    -webkit-appearance: none;
     background: transparent;
     border: none;
     outline: none;
-    padding: 0.3rem 1.9rem 0.3rem 1.9rem;
+    padding: 0.3rem 2rem 0.3rem 0.6rem;
     font-size: var(--fs-xs);
     font-weight: 700;
     font-family: var(--font-ui);
@@ -206,8 +195,6 @@
     cursor: pointer;
     direction: rtl;
     min-width: 9rem;
-    position: relative;
-    z-index: 2;
 }
 .wilaya-select option {
     background: var(--surface);
