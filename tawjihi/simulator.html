@@ -37,34 +37,31 @@
 
         <div class="sim-scroll">
             <div class="sim-inner">
-                <!-- hero + controls -->
+                <!-- hero -->
                 <section class="sim-hero">
-                    <div class="sim-hero-body">
-                        <div class="sim-hero-text">
-                            <div class="sim-hero-icon"><i class="fas fa-list-check"></i></div>
-                            <h1>رتّب بطاقة رغباتك بثقة</h1>
-                            <p>زيد التخصصات اللي تحبها، رتّبهم، وشوف فرص قبولك في كل واحد حسب معدلك — قبل ما ترسل رسمياً.</p>
-                        </div>
-                        <div class="sim-controls">
-                            <label class="sim-field">
-                                <span class="sim-field-label"><i class="fas fa-chart-line"></i> معدلك المتوقع</span>
-                                <div class="avg-input-wrap">
-                                    <input type="range" id="avgSlider" min="8" max="20" step="0.25" value="13.50" class="sim-avg-slider">
-                                    <span id="avgDisplay" class="sim-avg-display">13.50</span>
-                                </div>
-                                <span class="sim-field-range">8 — 20</span>
-                            </label>
-                            <div class="sim-controls-sep"></div>
-                            <div class="sim-stream-badge">
-                                <div class="sim-stream-ico"><i class="fas fa-user-graduate"></i></div>
-                                <div class="sim-stream-info">
-                                    <span class="sim-stream-label">شعبتك (من ملفك)</span>
-                                    <strong id="streamDisplay">—</strong>
-                                </div>
-                                <a href="onboarding.html" class="sim-stream-edit" title="تعديل الملف الشخصي">
-                                    <i class="fas fa-pen-to-square"></i>
-                                </a>
+                    <div class="sim-hero-text">
+                        <span class="sim-eyebrow"><i class="fas fa-list-check"></i> محاكي بطاقة الرغبات</span>
+                        <h1>رتّب بطاقة رغباتك بثقة</h1>
+                        <p>زيد التخصصات اللي تحبها، رتّبهم، وشوف فرصك في كل تخصص حسب معدلك — قبل ما ترسل رسمياً.</p>
+                    </div>
+                    <div class="sim-hero-controls">
+                        <label class="sim-ctrl-card sim-ctrl-avg" for="avgSlider">
+                            <span class="sim-field-label"><i class="fas fa-chart-line"></i> معدلك المتوقع</span>
+                            <div class="avg-input-wrap">
+                                <input type="range" id="avgSlider" min="8" max="20" step="0.25" value="13.50" class="sim-avg-slider">
+                                <span id="avgDisplay" class="sim-avg-display">13.50</span>
                             </div>
+                            <span class="sim-field-range">8 — 20</span>
+                        </label>
+                        <div class="sim-ctrl-card sim-ctrl-stream">
+                            <div class="sim-stream-ico"><i class="fas fa-user-graduate"></i></div>
+                            <div class="sim-stream-info">
+                                <span class="sim-stream-label">شعبتك</span>
+                                <strong id="streamDisplay">—</strong>
+                            </div>
+                            <a href="onboarding.html" class="sim-stream-edit" title="تعديل الملف الشخصي">
+                                <i class="fas fa-pen-to-square"></i>
+                            </a>
                         </div>
                     </div>
                 </section>

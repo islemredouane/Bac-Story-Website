@@ -6,50 +6,81 @@
 .sim-scroll { flex: 1; overflow-y: auto; }
 .sim-inner { max-width: var(--content-max); margin-inline: auto; padding: var(--sp-6) var(--sp-5) var(--sp-8); }
 
-/* ---- hero + controls ---- */
+/* ---- hero ---- */
 .sim-hero {
     position: relative; overflow: hidden;
     background:
-        radial-gradient(ellipse 80% 140% at 110% -20%, rgba(44,92,197,.22) 0%, transparent 55%),
-        radial-gradient(ellipse 50% 80% at -10% 110%, rgba(255,107,53,.10) 0%, transparent 55%),
-        linear-gradient(160deg, #071336 0%, #0a1840 40%, #0d1e56 100%);
-    border: 1px solid rgba(44,92,197,.30);
+        radial-gradient(ellipse 90% 160% at 110% -30%, rgba(44,92,197,.10) 0%, transparent 55%),
+        radial-gradient(ellipse 60% 100% at -10% 110%, rgba(255,107,53,.05) 0%, transparent 55%),
+        var(--surface);
+    border: 1.5px solid color-mix(in srgb, var(--primary) 20%, var(--border));
     border-radius: 20px;
-    padding: var(--sp-6);
-    box-shadow: 0 8px 32px rgba(7,19,54,.35), 0 2px 8px rgba(44,92,197,.15);
+    padding: var(--sp-7) var(--sp-6);
+    box-shadow: 0 8px 40px rgba(44,92,197,.10), 0 2px 8px rgba(44,92,197,.05),
+                inset 0 1px 0 rgba(255,255,255,.6);
     margin-bottom: var(--sp-6);
     animation: rise var(--t-slow) var(--ease-out) both;
+    display: flex; flex-direction: column; gap: var(--sp-5);
 }
 .sim-hero::after { display: none; }
 .sim-hero::before {
     content: ''; position: absolute; inset: 0 0 auto 0;
     height: 3px;
-    background: linear-gradient(90deg, transparent, rgba(255,107,53,.7) 10%, #2c5cc5 45%, transparent 100%);
+    background: linear-gradient(90deg, transparent, rgba(255,107,53,.6) 10%, #2c5cc5 45%, transparent 100%);
     z-index: 2;
+}
+/* hero text block */
+.sim-hero-text { position: relative; z-index: 1; }
+.sim-eyebrow {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: color-mix(in srgb, var(--primary) 10%, transparent);
+    border: 1px solid color-mix(in srgb, var(--primary) 22%, transparent);
+    color: var(--primary); font-size: .72rem; font-weight: 700;
+    letter-spacing: .06em; text-transform: uppercase;
+    font-family: 'Plus Jakarta Sans', 'Cairo', system-ui, sans-serif;
+    padding: 4px 12px; border-radius: 999px; margin-bottom: var(--sp-2);
 }
 .sim-hero h1 {
     font-size: var(--fs-2xl); font-weight: 800; line-height: 1.2;
-    color: var(--text);
+    color: var(--text); margin-bottom: var(--sp-2);
+}
+.sim-hero p { color: var(--text-muted); max-width: 60ch; }
+/* controls row — glass cards */
+.sim-hero-controls {
+    display: flex; gap: var(--sp-3); flex-wrap: wrap;
     position: relative; z-index: 1;
 }
-.sim-hero p { color: var(--text-muted); margin-top: var(--sp-2); max-width: 60ch; position: relative; z-index: 1; }
-/* hero layout */
-.sim-hero-body {
-    display: flex; align-items: center; justify-content: space-between;
-    gap: var(--sp-6); flex-wrap: wrap;
+.sim-ctrl-card {
+    background: rgba(255,255,255,.75);
+    backdrop-filter: blur(14px) saturate(1.4);
+    -webkit-backdrop-filter: blur(14px) saturate(1.4);
+    border: 1px solid rgba(255,255,255,.6);
+    border-radius: 14px;
+    box-shadow: 0 2px 16px rgba(44,92,197,.07), inset 0 1px 0 rgba(255,255,255,.9);
 }
-.sim-hero-text { flex: 1; min-width: 0; }
-
-.sim-controls { display: flex; align-items: center; flex-wrap: wrap; gap: var(--sp-3); flex-shrink: 0; }
-.sim-field { display: flex; flex-direction: column; gap: 6px; }
-.sim-field-label { font-size: var(--fs-xs); font-weight: 700; color: var(--text-muted); }
-.sim-field input {
-    font-family: inherit; font-size: var(--fs-xl); font-weight: 800; color: var(--text);
-    background: var(--surface); border: 1.5px solid var(--border-strong); border-radius: var(--r-md);
-    padding: var(--sp-3) var(--sp-4); width: 130px; outline: none; text-align: center;
-    transition: border-color var(--t-fast), box-shadow var(--t-fast);
+[data-theme="dark"] .sim-ctrl-card {
+    background: rgba(17,24,39,.65);
+    border-color: rgba(91,134,232,.15);
+    box-shadow: 0 2px 16px rgba(0,0,0,.2);
 }
-.sim-field input:focus { border-color: var(--primary); box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 14%, transparent); }
+.sim-ctrl-avg {
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+    padding: var(--sp-4) var(--sp-5); gap: 4px;
+    flex: 1; min-width: 200px; cursor: default;
+}
+.sim-ctrl-stream {
+    display: flex; align-items: center; gap: var(--sp-3);
+    padding: var(--sp-4) var(--sp-5);
+    flex-shrink: 0;
+}
+/* field label + range text */
+.sim-field-label {
+    display: flex; align-items: center; gap: 5px;
+    font-size: var(--fs-xs); font-weight: 700; color: var(--text-muted);
+    letter-spacing: .04em; text-transform: uppercase; white-space: nowrap;
+}
+.sim-field-label i { color: var(--primary); font-size: .8rem; }
+.sim-field-range { font-size: .68rem; color: var(--text-muted); font-weight: 700; direction: ltr; display: block; }
 
 /* stream read-only badge */
 .sim-stream-badge {
@@ -352,9 +383,9 @@
     }
 }
 
-/* Tablet: hero body still side-by-side but tighter */
+/* Tablet */
 @media (max-width: 760px) {
-    .sim-hero { padding: var(--sp-4) var(--sp-4) var(--sp-5); }
+    .sim-hero { padding: var(--sp-5) var(--sp-4); }
     .sim-hero h1 { font-size: var(--fs-xl); }
     .sim-inner { padding-inline: var(--sp-4); }
 }
@@ -363,28 +394,13 @@
     .sim-inner { padding-inline: var(--sp-2); }
 }
 
-/* Phone: stack controls below hero text */
+/* Phone: stack ctrl cards */
 @media (max-width: 640px) {
-    .sim-hero-body { flex-direction: column; gap: var(--sp-4); }
-    .sim-hero-text { width: 100%; }
-    .sim-controls { width: 100%; flex-direction: column; }
-    /* Separator becomes horizontal */
-    .sim-controls-sep {
-        width: auto; height: 1px; align-self: stretch;
-        background: linear-gradient(to right, transparent 0%, rgba(44,92,197,0.15) 20%, rgba(44,92,197,0.15) 80%, transparent 100%);
-    }
-    /* Field becomes column with slider spanning full width */
-    .sim-field {
-        flex-direction: column; align-items: stretch;
-        text-align: start;
-        padding: var(--sp-3) var(--sp-4); gap: var(--sp-3);
-        width: 100%;
-    }
-    .sim-field-label { letter-spacing: 0; text-transform: none; font-size: var(--fs-sm); }
-    .sim-field input { width: 90px; text-align: center; font-size: var(--fs-xl); }
+    .sim-hero-controls { flex-direction: column; }
+    .sim-ctrl-avg { align-items: flex-start; text-align: start; min-width: 0; width: 100%; }
+    .sim-ctrl-stream { width: 100%; }
     .avg-input-wrap { width: 100%; }
     .sim-avg-display { font-size: var(--fs-2xl); }
-    .sim-stream-badge { justify-content: flex-start; }
 }
 
 /* Phone: 3-column grid — [rank RIGHT] [name/badge MIDDLE] [controls LEFT] */
@@ -586,90 +602,9 @@
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
-/* ============================================================
-   SIM-HERO REDESIGN — icon, glass controls panel, display font
-   ============================================================ */
-
-/* -- Branded icon -- */
-.sim-hero-icon {
-    width: 60px; height: 60px;
-    background: linear-gradient(135deg, #2c5cc5 0%, #3d6ee0 100%);
-    border-radius: 16px;
-    display: grid; place-items: center;
-    color: #fff; font-size: 1.4rem;
-    box-shadow: 0 6px 24px rgba(44, 92, 197, 0.45), inset 0 1px 0 rgba(255,255,255,0.2);
-    margin-bottom: var(--sp-3);
-    animation: rise var(--t-mid) 40ms var(--ease-out) both;
-    position: relative; z-index: 1;
-}
-
-/* -- Controls: unified glass panel -- */
-.sim-controls {
-    gap: 0;
-    background: rgba(255, 255, 255, 0.10);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    border: 1.5px solid rgba(255, 255, 255, 0.18);
-    border-radius: var(--r-lg);
-    box-shadow: 0 8px 32px rgba(7, 19, 54, 0.35), inset 0 1px 0 rgba(255,255,255,0.12);
-    overflow: hidden;
-    align-items: stretch;
-    position: relative; z-index: 1;
-}
-
-/* -- Average input field -- */
-.sim-field {
-    align-items: center;
-    text-align: center;
-    padding: var(--sp-4) var(--sp-5);
-    gap: 4px;
-}
-.sim-field-label {
-    font-size: var(--fs-xs); font-weight: 700;
-    color: rgba(168, 196, 248, 0.75);
-    display: flex; align-items: center; gap: 5px;
-    letter-spacing: 0.04em; text-transform: uppercase;
-    white-space: nowrap;
-}
-.sim-field-label i { color: #7da4f0; font-size: .8rem; }
-.sim-field input {
-    font-family: var(--font-display);
-    font-size: var(--fs-2xl); font-weight: 800;
-    color: #fff;
-    background: transparent;
-    border: none; border-radius: 0;
-    padding: var(--sp-1) 0;
-    width: 108px; outline: none;
-    box-shadow: none;
-    transition: color var(--t-fast);
-}
-.sim-field input:focus {
-    color: #a8c4f8;
-    box-shadow: none;
-}
-.sim-field-range {
-    font-size: .68rem; color: rgba(168, 196, 248, 0.55);
-    font-weight: 700; letter-spacing: 0.05em;
-    direction: ltr; display: block;
-}
-
-/* -- Vertical separator -- */
-.sim-controls-sep {
-    width: 1px; flex-shrink: 0; align-self: stretch;
-    background: linear-gradient(
-        to bottom,
-        transparent 0%,
-        var(--border) 20%,
-        var(--border) 80%,
-        transparent 100%
-    );
-}
-
-/* -- Stream badge -- */
+/* -- Stream badge inner layout (used inside .sim-ctrl-stream) -- */
 .sim-stream-badge {
-    background: transparent;
-    border: none; border-radius: 0;
-    padding: var(--sp-4) var(--sp-5);
+    display: contents; /* let parent sim-ctrl-stream handle layout */
 }
 .sim-stream-ico {
     width: 40px; height: 40px; border-radius: var(--r-md); flex-shrink: 0;
