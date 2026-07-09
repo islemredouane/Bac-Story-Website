@@ -7,6 +7,7 @@
     display: grid;
     grid-template-columns: var(--sidebar-w) 1fr;
     min-height: 100dvh;
+    position: relative;
     transition: grid-template-columns var(--t-mid) var(--ease);
 }
 .app.sidebar-collapsed { grid-template-columns: var(--sidebar-w-collapsed) 1fr; }
@@ -23,7 +24,7 @@
     position: sticky;
     top: 0;
     height: 100dvh;
-    overflow: visible;
+    overflow: hidden;
 }
 .sidebar-head {
     display: flex; align-items: center; gap: var(--sp-3);
@@ -50,35 +51,45 @@
 }
 .sidebar-logo-link:hover .sidebar-logo-svg { transform: rotate(15deg); }
 
-/* Collapse tab — centered on sidebar edge, protrudes into content area */
+/* Collapse tab — child of #app (not sidebar), anchored to sidebar left edge */
 .sidebar-collapse-tab {
     position: absolute;
     top: 50%;
+    /* RTL: sidebar is right column. right: var(--sidebar-w) = sidebar's left edge.
+       Subtract half button width (9px) to center the tab on the edge. */
+    right: calc(var(--sidebar-w) - 9px);
     transform: translateY(-50%);
-    inset-inline-end: -18px;
     width: 18px; height: 48px;
     background: var(--surface);
     border: 1px solid var(--border);
-    border-inline-start: none;
-    border-radius: 0 var(--r-sm) var(--r-sm) 0;
+    border-right: none;
+    border-radius: var(--r-sm) 0 0 var(--r-sm);
     display: grid; place-items: center;
     cursor: pointer;
     color: var(--text-faint);
     font-size: .7rem;
-    z-index: 20;
-    transition: background var(--t-fast), color var(--t-fast), box-shadow var(--t-fast);
-    box-shadow: 3px 0 10px rgba(44, 92, 197, .08);
+    z-index: 50;
+    transition: background var(--t-fast), color var(--t-fast),
+                box-shadow var(--t-fast), right var(--t-mid) var(--ease);
+    box-shadow: -3px 0 10px rgba(44, 92, 197, .08);
+}
+.app.sidebar-collapsed .sidebar-collapse-tab {
+    right: calc(var(--sidebar-w-collapsed) - 9px);
 }
 .sidebar-collapse-tab:hover {
     background: var(--surface-2);
     color: var(--primary);
-    box-shadow: 3px 0 14px rgba(44, 92, 197, .15);
+    box-shadow: -3px 0 14px rgba(44, 92, 197, .18);
 }
 .sidebar-collapse-tab i {
     transition: transform var(--t-mid) var(--ease);
 }
 .app.sidebar-collapsed .sidebar-collapse-tab i {
     transform: rotate(180deg);
+}
+/* Hide on mobile — drawer handles open/close there */
+@media (max-width: 900px) {
+    .sidebar-collapse-tab { display: none; }
 }
 
 .new-chat-btn {

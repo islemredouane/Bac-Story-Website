@@ -137,9 +137,6 @@
                 '<span class="sidebar-logo sidebar-logo-brand">توجيهي</span>' +
             '</a>' +
         '</div>' +
-        '<button class="sidebar-collapse-tab" id="sidebarToggle" aria-label="طي القائمة">' +
-            '<i class="fas fa-chevron-right"></i>' +
-        '</button>' +
         '<nav class="nav-group">' +
             NAV.map(function (item) {
                 return '<a class="nav-item' + (activeId === item.id ? ' active' : '') + '" href="' + item.href + '">' +
@@ -157,6 +154,19 @@
                 '<i class="fas fa-right-from-bracket"></i><span>تسجيل الخروج</span>' +
             '</a>' +
         '</div>';
+
+    /* Append the collapse tab directly to #app (not inside #sidebar) so
+       position:absolute works relative to the grid container, not the
+       sticky sidebar element which breaks cross-browser. */
+    var appEl = document.getElementById('app');
+    if (appEl && !document.getElementById('sidebarToggle')) {
+        var tab = document.createElement('button');
+        tab.id = 'sidebarToggle';
+        tab.className = 'sidebar-collapse-tab';
+        tab.setAttribute('aria-label', 'طي القائمة');
+        tab.innerHTML = '<i class="fas fa-chevron-right"></i>';
+        appEl.appendChild(tab);
+    }
 }());
 
 /* ---- Mobile Navigation: Top Bar + Bottom Tab Nav ---- */
