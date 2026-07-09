@@ -113,6 +113,7 @@
 /* ---- wishlist (ordered, reorderable) ---- */
 .wishlist { list-style: none; display: flex; flex-direction: column; gap: var(--sp-3); }
 .wish-item {
+    --border-accent: var(--primary);
     display: flex; align-items: center; gap: var(--sp-3);
     background: rgba(255,255,255,.82);
     backdrop-filter: blur(16px) saturate(1.5);
@@ -125,7 +126,11 @@
     transition: transform var(--t-fast) var(--ease), box-shadow var(--t-fast), border-color var(--t-fast);
     position: relative;
 }
-/* Gradient right border (RTL inline-start = physical right) */
+/* Border accent color matches the state badge */
+.wish-item:has(.wish-badge.safe)   { --border-accent: var(--acc-safe); }
+.wish-item:has(.wish-badge.likely) { --border-accent: var(--acc-likely); }
+.wish-item:has(.wish-badge.risk)   { --border-accent: var(--acc-risk); }
+/* Single-color gradient border (RTL inline-start = physical right) */
 .wish-item::after {
     content: '';
     position: absolute;
@@ -133,7 +138,7 @@
     inset-inline-start: 0;
     width: 4px;
     border-radius: 4px;
-    background: linear-gradient(to bottom, rgba(255,107,53,.75), #2c5cc5 55%, rgba(44,92,197,.25));
+    background: linear-gradient(to bottom, transparent, var(--border-accent) 35%, var(--border-accent) 65%, transparent);
 }
 .wish-item:hover {
     transform: translateX(3px);
