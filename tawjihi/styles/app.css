@@ -1070,12 +1070,19 @@
 }
 .topbar-actions .icon-btn { opacity: 1 !important; }
 
-/* Mobile hamburger — floats top-right (inline-start in RTL = visual right) */
+/* Mobile hamburger — floats top-right — matches topbar-actions height */
 #drawerBtn {
     position: fixed;
     top: var(--sp-4);
     right: var(--sp-4);
     z-index: 100;
+    width: 42px;
+    height: 42px;
+    /* Wrap inside a pill of the same height as .topbar-actions (42px icon + 5px pad×2 = 52px)
+       by giving the button itself extra padding so it hits 52px total */
+    padding: 5px !important;
+    width: 52px  !important;
+    height: 52px !important;
     background: rgba(255, 255, 255, 0.90) !important;
     backdrop-filter: blur(16px) !important;
     -webkit-backdrop-filter: blur(16px) !important;
@@ -1084,6 +1091,9 @@
     box-shadow: 0 4px 20px rgba(44, 92, 197, 0.12), 0 1px 4px rgba(0, 0, 0, 0.05);
     pointer-events: all;
     color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Pad all content scroll areas so content clears the floating pill */
@@ -1100,44 +1110,51 @@
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35), 0 1px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* ── Chat title pill — centered between left buttons & hamburger ── */
+/* ── Chat title pill — fills exact gap between left pill & hamburger ─────
+   Left pill width  = 5px pad + 42px btn + 4px gap + 42px btn + 5px pad = 98px
+   Right pill width = 52px (hamburger with 5px padding each side)
+   Gap between each pill and title = 8px
+   So: left  = var(--sp-4) + 98px + 8px = 16+98+8 = 122px
+       right = var(--sp-4) + 52px + 8px = 16+52+8  =  76px
+   ──────────────────────────────────────────────────────────────────────── */
 .chat-title-pill {
+    display: none;          /* hidden on desktop; shown via media query below */
     position: fixed;
     top: var(--sp-4);
-    left: 50%;
-    transform: translateX(-50%) translateY(-4px);
-    z-index: 99;
-    max-width: calc(100vw - 190px);
-    height: 44px;
-    display: flex;
+    left: calc(var(--sp-4) + 98px + 8px);
+    right: calc(var(--sp-4) + 52px + 8px);
+    height: 52px;           /* matches topbar-actions total height exactly */
     align-items: center;
-    padding: 0 1em;
+    justify-content: center;
+    padding: 0 0.9em;
     background: rgba(255, 255, 255, 0.90);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border: 1.5px solid rgba(44, 92, 197, 0.12);
     border-radius: var(--r-pill);
     box-shadow: 0 4px 20px rgba(44, 92, 197, 0.12), 0 1px 4px rgba(0, 0, 0, 0.05);
-    font-size: 0.83rem;
+    z-index: 99;
+    font-size: 0.82rem;
     font-weight: 700;
     color: var(--text);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     pointer-events: none;
-    /* Hidden by default */
+    /* Animate in/out */
     opacity: 0;
+    transform: translateY(-4px);
     transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
                 transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .chat-title-pill.visible {
     opacity: 1;
-    transform: translateX(-50%) translateY(0);
+    transform: translateY(0);
 }
 
-/* Don't show on desktop — only mobile */
-@media (min-width: 769px) {
-    .chat-title-pill { display: none !important; }
+/* Show only on mobile */
+@media (max-width: 768px) {
+    .chat-title-pill { display: flex; }
 }
 
 [data-theme="dark"] .chat-title-pill {
