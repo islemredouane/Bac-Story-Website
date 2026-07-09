@@ -23,24 +23,14 @@
     border-radius: 28px;
     overflow: hidden;
     /* Glass surface — picks up bg from CSS variables */
-    background: color-mix(in srgb, var(--surface) 65%, transparent);
+    background: color-mix(in srgb, var(--primary) 9%, var(--surface));
     backdrop-filter: blur(24px) saturate(1.2);
     -webkit-backdrop-filter: blur(24px) saturate(1.2);
-    border: 1.5px solid var(--border-strong);
+    border: 1.5px solid color-mix(in srgb, var(--primary) 18%, transparent);
     box-shadow:
-        0 12px 40px rgba(44, 92, 197, 0.08),
-        0 2px 10px rgba(0, 0, 0, 0.03),
-        inset 0 1px 0 rgba(255, 255, 255, 0.8);
-}
-
-/* Strong 4px gradient top accent line */
-.dash-hero::before {
-    content: "";
-    position: absolute;
-    inset: 0 0 auto 0;
-    height: 4px;
-    background: linear-gradient(90deg, #ff6b35 0%, #2c5cc5 50%, #5b86e8 100%);
-    z-index: 2;
+        0 12px 40px rgba(44, 92, 197, 0.06),
+        0 2px 10px rgba(0, 0, 0, 0.02),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
 /* Decorative blurred orb in background (right side) */

@@ -534,18 +534,18 @@
 /* -- Dash hero glass upgrade -- */
 /* -- Dash hero glass upgrade -- */
 .dash-hero {
-    background: color-mix(in srgb, var(--surface) 65%, transparent) !important;
+    background: color-mix(in srgb, var(--primary) 9%, var(--surface)) !important;
     backdrop-filter: blur(24px) saturate(1.2) !important;
     -webkit-backdrop-filter: blur(24px) saturate(1.2) !important;
-    border: 1.5px solid var(--border-strong) !important;
+    border: 1.5px solid color-mix(in srgb, var(--primary) 18%, transparent) !important;
     box-shadow: 
-        0 12px 40px rgba(44, 92, 197, 0.08), 
-        0 2px 10px rgba(0, 0, 0, 0.03),
-        inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+        0 12px 40px rgba(44, 92, 197, 0.06), 
+        0 2px 10px rgba(0, 0, 0, 0.02),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
 }
 [data-theme="dark"] .dash-hero {
-    background: color-mix(in srgb, var(--surface) 75%, transparent) !important;
-    border-color: rgba(91, 134, 232, 0.22) !important;
+    background: color-mix(in srgb, var(--primary) 9%, var(--surface)) !important;
+    border-color: color-mix(in srgb, var(--primary) 18%, transparent) !important;
 }
 
 /* ============================================================
