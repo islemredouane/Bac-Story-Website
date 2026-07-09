@@ -56,14 +56,13 @@
     position: absolute;
     top: 50%;
     /* RTL: sidebar is right column. right: var(--sidebar-w) = sidebar's left edge.
-       Subtract half button width (9px) to center the tab on the edge. */
-    right: calc(var(--sidebar-w) - 9px);
+       Subtract half button diameter (14px) to center the circle on the edge. */
+    right: calc(var(--sidebar-w) - 14px);
     transform: translateY(-50%);
-    width: 18px; height: 48px;
+    width: 28px; height: 28px;
+    border-radius: 50%;
     background: var(--surface);
     border: 1px solid var(--border);
-    border-right: none;
-    border-radius: var(--r-sm) 0 0 var(--r-sm);
     display: grid; place-items: center;
     cursor: pointer;
     color: var(--text-faint);
@@ -71,15 +70,15 @@
     z-index: 50;
     transition: background var(--t-fast), color var(--t-fast),
                 box-shadow var(--t-fast), right var(--t-mid) var(--ease);
-    box-shadow: -3px 0 10px rgba(44, 92, 197, .08);
+    box-shadow: 0 2px 8px rgba(44, 92, 197, .12);
 }
 .app.sidebar-collapsed .sidebar-collapse-tab {
-    right: calc(var(--sidebar-w-collapsed) - 9px);
+    right: calc(var(--sidebar-w-collapsed) - 14px);
 }
 .sidebar-collapse-tab:hover {
     background: var(--surface-2);
     color: var(--primary);
-    box-shadow: -3px 0 14px rgba(44, 92, 197, .18);
+    box-shadow: 0 4px 16px rgba(44, 92, 197, .22);
 }
 .sidebar-collapse-tab i {
     transition: transform var(--t-mid) var(--ease);
