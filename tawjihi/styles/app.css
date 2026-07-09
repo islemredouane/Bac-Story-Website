@@ -147,7 +147,7 @@
 /* History list still uses display:none — no content to animate */
 .app.sidebar-collapsed .sidebar-history { display: none; }
 .app.sidebar-collapsed .new-chat-btn,
-.app.sidebar-collapsed .nav-item { justify-content: center; }
+.app.sidebar-collapsed .nav-item { justify-content: center; gap: 0; }
 
 /* ---------------- MAIN ---------------- */
 .main { display: flex; flex-direction: column; min-width: 0; height: 100dvh; position: relative; z-index: 1; }
