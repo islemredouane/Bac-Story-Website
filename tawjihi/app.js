@@ -784,6 +784,45 @@
     });
   }
 
+  /* ── Smart chat title generator (Gemini-style) ─────────── */
+  function generateChatTitle(q) {
+    // Strip common Arabic filler words and question prefixes
+    const fillers = [
+      /^(شنو|كيفاش|كيف|هل|هل يمكن|هل ممكن|ممكن|أريد|بغيت|عندي سؤال عن|سؤال عن|اخبرني عن|أخبرني|قولي|قارن بين|فرق بين|ما هو|ما هي|ما هي الفرق|ماهو|ماهي|أيهما|قارن|فرق|شرح|اشرح|explain|what is|what are|how to|tell me about|compare)/i,
+    ];
+    let t = q.trim();
+    for (const rx of fillers) t = t.replace(rx, '').trim();
+    // Remove trailing question marks and punctuation
+    t = t.replace(/[؟?!،,\.]+$/g, '').trim();
+    // Capitalize first char if latin
+    if (t && /[a-z]/.test(t[0])) t = t[0].toUpperCase() + t.slice(1);
+    // Truncate to ~28 chars
+    if (t.length > 28) {
+      const words = t.split(/\s+/);
+      let result = '';
+      for (const w of words) {
+        if ((result + ' ' + w).trim().length > 28) break;
+        result = (result + ' ' + w).trim();
+      }
+      t = result + '…';
+    }
+    return t || q.slice(0, 28);
+  }
+
+  /* Update mobile chat title pill */
+  function setChatTitlePill(title) {
+    const pill = document.getElementById('chatTitlePill');
+    if (!pill) return;
+    pill.textContent = title;
+    pill.classList.add('visible');
+  }
+  function clearChatTitlePill() {
+    const pill = document.getElementById('chatTitlePill');
+    if (!pill) return;
+    pill.textContent = '';
+    pill.classList.remove('visible');
+  }
+
   function saveToHistory(title) {
     currentChatId = Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
     const history = JSON.parse(localStorage.getItem('tw-history') || '[]');
@@ -799,6 +838,8 @@
     localStorage.setItem('tw-history', JSON.stringify(history));
     localStorage.setItem(`tw-sess-${currentChatId}`, JSON.stringify([]));
     renderHistory();
+    // Set the smart title in the mobile top bar
+    setChatTitlePill(generateChatTitle(title));
   }
 
   function saveMessageToSession(role, content) {
@@ -1224,6 +1265,14 @@
   renderHistory();
 
   /* ---- New chat ---- */
+  /* ── Mobile title pill: inject into DOM ─────────────────── */
+  (function injectChatTitlePill() {
+    const pill = document.createElement('div');
+    pill.id = 'chatTitlePill';
+    pill.className = 'chat-title-pill';
+    document.body.appendChild(pill);
+  })();
+
   const resetChat = () => {
     inner.querySelectorAll('.msg').forEach(m => m.remove());
     if (hero) { hero.style.display = ''; }
@@ -1235,6 +1284,7 @@
     orientationMode = false;
     closeHist();
     renderHistory();
+    clearChatTitlePill();
     input.focus();
   };
   $('#newChatBtn')?.addEventListener('click', resetChat);

@@ -1070,6 +1070,52 @@
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35), 0 1px 4px rgba(0, 0, 0, 0.2);
 }
 
+/* ── Chat title pill — centered between left buttons & hamburger ── */
+.chat-title-pill {
+    position: fixed;
+    top: var(--sp-4);
+    left: 50%;
+    transform: translateX(-50%) translateY(-4px);
+    z-index: 99;
+    max-width: calc(100vw - 190px);
+    height: 44px;
+    display: flex;
+    align-items: center;
+    padding: 0 1em;
+    background: rgba(255, 255, 255, 0.90);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1.5px solid rgba(44, 92, 197, 0.12);
+    border-radius: var(--r-pill);
+    box-shadow: 0 4px 20px rgba(44, 92, 197, 0.12), 0 1px 4px rgba(0, 0, 0, 0.05);
+    font-size: 0.83rem;
+    font-weight: 700;
+    color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    pointer-events: none;
+    /* Hidden by default */
+    opacity: 0;
+    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.chat-title-pill.visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Don't show on desktop — only mobile */
+@media (min-width: 769px) {
+    .chat-title-pill { display: none !important; }
+}
+
+[data-theme="dark"] .chat-title-pill {
+    background: rgba(23, 29, 43, 0.92);
+    border-color: rgba(91, 134, 232, 0.15);
+    color: var(--text);
+}
+
 /* ============================================================
    RESPONSIVE — global shell
    ============================================================ */
