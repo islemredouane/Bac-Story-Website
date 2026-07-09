@@ -647,16 +647,16 @@
     display: flex;
     align-items: center;
     gap: var(--sp-4);
-    padding: 14px 18px;
-    /* Glass surface — picks up bg from CSS variables */
-    background: color-mix(in srgb, var(--surface) 75%, transparent);
+    padding: 14px 20px;
+    /* Same glass tint as user chat bubble */
+    background: color-mix(in srgb, var(--primary) 9%, var(--surface));
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid var(--border-strong);
+    border: 1.5px solid color-mix(in srgb, var(--primary) 18%, transparent);
     border-radius: 28px;
     box-shadow:
         0 4px 24px rgba(44, 92, 197, 0.10),
-        0 1px 4px rgba(0, 0, 0, 0.06),
+        0 1px 4px rgba(0, 0, 0, 0.04),
         inset 0 1px 0 rgba(255, 255, 255, 0.08);
     animation: bannerSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
     position: relative;
@@ -668,15 +668,17 @@
     position: absolute;
     inset: 0 0 auto 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--primary) 50%, transparent), transparent);
+    background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--primary) 40%, transparent), transparent);
 }
 .credit-banner-icon {
-    width: 38px;
-    height: 38px;
+    width: 40px;
+    height: 40px;
     flex-shrink: 0;
-    border-radius: 12px;
-    background: color-mix(in srgb, var(--primary) 12%, transparent);
-    border: 1px solid color-mix(in srgb, var(--primary) 25%, transparent);
+    border-radius: 28px; /* pill — matches input */
+    background: color-mix(in srgb, var(--primary) 9%, var(--surface));
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1.5px solid color-mix(in srgb, var(--primary) 18%, transparent);
     display: grid;
     place-items: center;
     font-size: 1rem;
@@ -709,8 +711,8 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 8px 16px;
-    border-radius: 12px;
+    padding: 9px 18px;
+    border-radius: 28px; /* matches input */
     font-weight: 700;
     font-size: var(--fs-xs);
     text-decoration: none;
@@ -719,23 +721,23 @@
     transition: transform 0.15s ease, box-shadow 0.15s ease;
     white-space: nowrap;
 }
+/* CTA primary — same glass tint as user bubble but stronger */
 .credit-banner-cta.primary {
-    background: var(--grad-brand);
-    color: #fff;
-    box-shadow: 0 2px 12px rgba(44, 92, 197, 0.30);
+    background: color-mix(in srgb, var(--primary) 18%, var(--surface));
+    color: var(--primary);
+    border: 1.5px solid color-mix(in srgb, var(--primary) 30%, transparent);
+    box-shadow: 0 2px 10px rgba(44, 92, 197, 0.15);
 }
-.credit-banner-cta.primary:hover { transform: translateY(-1px); box-shadow: 0 4px 18px rgba(44, 92, 197, 0.45); }
-.credit-banner-cta.secondary {
-    background: color-mix(in srgb, var(--text) 6%, transparent);
-    color: var(--text-muted);
-    border: 1px solid var(--border);
+.credit-banner-cta.primary:hover {
+    background: color-mix(in srgb, var(--primary) 25%, var(--surface));
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(44, 92, 197, 0.25);
 }
-.credit-banner-cta.secondary:hover { background: color-mix(in srgb, var(--text) 10%, transparent); color: var(--text); }
 .credit-banner-dismiss {
-    width: 28px; height: 28px;
-    border-radius: 8px;
-    background: transparent;
-    border: none;
+    width: 30px; height: 30px;
+    border-radius: 28px;
+    background: color-mix(in srgb, var(--primary) 6%, var(--surface));
+    border: 1.5px solid color-mix(in srgb, var(--primary) 12%, transparent);
     color: var(--text-faint);
     display: grid;
     place-items: center;
@@ -744,7 +746,7 @@
     transition: color 0.15s, background 0.15s;
     flex-shrink: 0;
 }
-.credit-banner-dismiss:hover { color: var(--text); background: color-mix(in srgb, var(--text) 8%, transparent); }
+.credit-banner-dismiss:hover { color: var(--text); background: color-mix(in srgb, var(--primary) 14%, var(--surface)); }
 
 @keyframes bannerSlideIn {
     from { opacity: 0; transform: translateY(10px); }
