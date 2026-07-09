@@ -788,7 +788,7 @@
   function generateChatTitle(q) {
     // Strip common Arabic filler words and question prefixes
     const fillers = [
-      /^(شنو|كيفاش|كيف|هل|هل يمكن|هل ممكن|ممكن|أريد|بغيت|عندي سؤال عن|سؤال عن|اخبرني عن|أخبرني|قولي|قارن بين|فرق بين|ما هو|ما هي|ما هي الفرق|ماهو|ماهي|أيهما|قارن|فرق|شرح|اشرح|explain|what is|what are|how to|tell me about|compare)/i,
+      /^(كيفاش|كيف|هل|هل يمكن|هل ممكن|ممكن|أريد|بغيت|عندي سؤال عن|سؤال عن|اخبرني عن|أخبرني|قولي|قارن بين|فرق بين|ما هو|ما هي|ما هي الفرق|ماهو|ماهي|أيهما|قارن|فرق|شرح|اشرح|explain|what is|what are|how to|tell me about|compare)/i,
     ];
     let t = q.trim();
     for (const rx of fillers) t = t.replace(rx, '').trim();
@@ -974,7 +974,7 @@
         'تجميع المعلومات المناسبة...',
         'مقارنة الخيارات المتاحة...',
         'تحليل البيانات الإحصائية...',
-        'مراجعة التغييرات الجديدة لـ2025...',
+        'مراجعة التغييرات الجديدة لـ2026...',
         'إعداد إجابة مخصصة لك...',
         'التدقيق في التفاصيل...',
     ];
@@ -1226,7 +1226,7 @@
           /* Disclaimer */
           const note = document.createElement('p');
           note.className = 'tw-disclaimer';
-          note.textContent = 'المعلومات مبنية على بيانات الدليل الوزاري 2025 — أكّد دائماً اختيارك على البوابة الرسمية.';
+          note.textContent = 'المعلومات مبنية على بيانات الدليل الوزاري 2026 — أكّد دائماً اختيارك على البوابة الرسمية.';
           textEl.appendChild(note);
 
           shell.querySelector('.msg-body').appendChild(actionsBar());
@@ -1285,12 +1285,32 @@
   renderHistory();
 
   /* ---- New chat ---- */
-  /* ── Mobile title pill: inject into DOM ─────────────────── */
   (function injectChatTitlePill() {
     const pill = document.createElement('div');
     pill.id = 'chatTitlePill';
     pill.className = 'chat-title-pill';
     document.getElementById('app').appendChild(pill);
+  })();
+
+  /* ---- Rotate Hero Title ---- */
+  (function rotateHeroTitle() {
+    const titleEl = document.getElementById('chatHeroTitle');
+    if (!titleEl) return;
+    const questions = [
+      "كيف يمكنني مساعدتك اليوم؟",
+      "بماذا يمكنني إفادتك في توجيهك الجامعي؟",
+      "ما هي استفساراتك حول التخصصات الجامعية؟",
+      "كيف أستطيع توجيهك في اختياراتك؟"
+    ];
+    let idx = 0;
+    setInterval(() => {
+      idx = (idx + 1) % questions.length;
+      titleEl.style.opacity = '0';
+      setTimeout(() => {
+        titleEl.textContent = questions[idx];
+        titleEl.style.opacity = '1';
+      }, 400); // Wait for fade out
+    }, 4000); // Change every 4 seconds
   })();
 
   const resetChat = () => {

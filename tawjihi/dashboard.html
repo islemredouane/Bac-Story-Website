@@ -250,7 +250,7 @@ function generateNudges(profile, wishIds) {
   }
 
   if (!profile.wilaya) nudges.push({ icon: 'fa-location-dot', text: 'أضف ولايتك لتصفية التخصصات القريبة منك', link: '#' });
-  nudges.push({ icon: 'fa-comments', text: 'جرّب تسأل المرشد: "شنو التخصص اللي يناسبني بمعدل ' + myAvg + '؟"', link: 'app.html' });
+  nudges.push({ icon: 'fa-comments', text: 'جرّب تسأل المرشد: "ماهو التخصص اللي يناسبني بمعدل ' + myAvg + '؟"', link: 'app.html' });
 
   return nudges.slice(0, 3);
 }
