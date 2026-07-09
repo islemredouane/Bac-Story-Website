@@ -218,39 +218,127 @@
     return row;
   }
 
-  /* Helper: download compare table as CSV */
-  function downloadTableAsCSV(data) {
-    if (!data || !data.items || !data.fields) return;
-    const bom = "\uFEFF";
-    const headerRow = ["المعيار"];
-    data.items.forEach(item => headerRow.push(`"${String(item.name).replace(/"/g, '""')}"`));
-    
-    const rows = [headerRow.join(",")];
-    
-    data.fields.forEach(field => {
-      const row = [`"${String(field.label).replace(/"/g, '""')}"`];
+  /* Helper: download compare table as branded PNG */
+  async function downloadTableAsPNG(data, tableEl) {
+    if (typeof html2canvas === 'undefined') {
+      console.warn('html2canvas not loaded');
+      return;
+    }
+
+    // Build an off-screen branded card
+    const card = document.createElement('div');
+    card.style.cssText = [
+      'position:fixed', 'left:-9999px', 'top:0',
+      'direction:rtl', 'font-family:Cairo,Tajawal,sans-serif',
+      'background:#ffffff', 'border-radius:20px',
+      'padding:28px 28px 20px', 'min-width:480px', 'max-width:700px',
+      'box-shadow:0 8px 32px rgba(44,92,197,0.15)',
+    ].join(';');
+
+    // Brand header
+    const header = document.createElement('div');
+    header.style.cssText = [
+      'display:flex', 'align-items:center', 'justify-content:space-between',
+      'margin-bottom:18px', 'padding-bottom:14px',
+      'border-bottom:2px solid #f1f5f9',
+    ].join(';');
+    header.innerHTML = `
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#2C5CC5,#4f8ef7);display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;font-weight:800;">ت</div>
+        <div>
+          <div style="font-weight:800;font-size:16px;color:#1e293b;">توجيهي</div>
+          <div style="font-size:11px;color:#64748b;margin-top:1px;">مرشدك الجامعي الذكي · tawjihi.dz</div>
+        </div>
+      </div>
+      <div style="font-weight:700;font-size:15px;color:#1e293b;">${data.title || 'مقارنة تخصصات'}</div>
+    `;
+    card.appendChild(header);
+
+    // Table
+    const tbl = document.createElement('table');
+    tbl.style.cssText = [
+      'width:100%', 'border-collapse:collapse',
+      'font-size:13px', 'direction:rtl',
+    ].join(';');
+
+    // Header row
+    const thead = document.createElement('thead');
+    const hr = document.createElement('tr');
+    const th0 = document.createElement('th');
+    th0.style.cssText = 'padding:10px 12px;background:#f8fafc;font-weight:800;color:#475569;text-align:right;border-bottom:2px solid #e2e8f0;';
+    th0.textContent = 'المعيار';
+    hr.appendChild(th0);
+    data.items.forEach(item => {
+      const th = document.createElement('th');
+      th.style.cssText = 'padding:10px 12px;background:#f8fafc;font-weight:800;color:#2C5CC5;text-align:center;border-bottom:2px solid #e2e8f0;white-space:nowrap;';
+      th.textContent = item.name;
+      hr.appendChild(th);
+    });
+    thead.appendChild(hr);
+    tbl.appendChild(thead);
+
+    // Body rows
+    const tbody = document.createElement('tbody');
+    data.fields.forEach((field, idx) => {
+      const tr = document.createElement('tr');
+      const bg = idx % 2 === 0 ? '#ffffff' : '#f8fafc';
+      const tdLabel = document.createElement('td');
+      tdLabel.style.cssText = `padding:10px 12px;font-weight:700;color:#334155;text-align:right;background:${bg};border-bottom:1px solid #f1f5f9;`;
+      tdLabel.textContent = field.label;
+      tr.appendChild(tdLabel);
       data.items.forEach(item => {
+        const td = document.createElement('td');
+        td.style.cssText = `padding:10px 12px;color:#475569;text-align:center;background:${bg};border-bottom:1px solid #f1f5f9;`;
         let val = item[field.key];
         if (field.key === 'avg' && typeof TW_CATALOG !== 'undefined') {
           const cat = TW_CATALOG.find(c => c.id === (item.id?.toLowerCase()));
           val = cat ? cat.avg : val;
         }
-        val = val || '—';
-        row.push(`"${String(val).replace(/"/g, '""')}"`);
+        td.textContent = String(val || '—');
+        tr.appendChild(td);
       });
-      rows.push(row.join(","));
+      tbody.appendChild(tr);
     });
-    
-    const csvData = rows.join("\n");
-    const blob = new Blob([bom + csvData], { type: 'text/csv;charset=utf-8;' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    link.setAttribute("href", url);
-    link.setAttribute("download", `${data.title ? data.title.replace(/\s+/g, '_') : 'مقارنة'}.csv`);
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    setTimeout(() => URL.revokeObjectURL(url), 100);
+    tbl.appendChild(tbody);
+    card.appendChild(tbl);
+
+    // Footer watermark
+    const footer = document.createElement('div');
+    footer.style.cssText = 'margin-top:14px;padding-top:10px;border-top:1px solid #f1f5f9;text-align:center;font-size:11px;color:#94a3b8;';
+    footer.textContent = '© توجيهي — المرشد الجامعي الذكي للجزائر · tawjihi.dz';
+    card.appendChild(footer);
+
+    document.body.appendChild(card);
+    await document.fonts.ready;
+
+    try {
+      const canvas = await html2canvas(card, {
+        scale: 3,
+        useCORS: true,
+        backgroundColor: '#ffffff',
+        logging: false,
+      });
+
+      // Add drop-shadow composite
+      const sp = 40;
+      const out = document.createElement('canvas');
+      out.width = canvas.width + sp * 2;
+      out.height = canvas.height + sp * 2;
+      const ctx = out.getContext('2d');
+      ctx.fillStyle = '#f8fafc';
+      ctx.fillRect(0, 0, out.width, out.height);
+      ctx.shadowColor = 'rgba(44,92,197,0.18)';
+      ctx.shadowBlur = 60;
+      ctx.shadowOffsetY = 10;
+      ctx.drawImage(canvas, sp, sp);
+
+      const link = document.createElement('a');
+      link.download = `توجيهي_${(data.title || 'مقارنة').replace(/\s+/g, '_')}.png`;
+      link.href = out.toDataURL('image/png');
+      link.click();
+    } finally {
+      document.body.removeChild(card);
+    }
   }
 
   /* compare — RTL comparison table (output contract v2 §3b)
@@ -271,8 +359,8 @@
 
       const downloadBtn = document.createElement('button');
       downloadBtn.className = 'tw-compare-download';
-      downloadBtn.innerHTML = '<i class="fas fa-download"></i> تحميل CSV';
-      downloadBtn.addEventListener('click', () => downloadTableAsCSV(data));
+      downloadBtn.innerHTML = '<i class="fas fa-image"></i> تحميل صورة';
+      downloadBtn.addEventListener('click', () => downloadTableAsPNG(data, scroll));
       headerRow.appendChild(downloadBtn);
 
       wrap.appendChild(headerRow);
