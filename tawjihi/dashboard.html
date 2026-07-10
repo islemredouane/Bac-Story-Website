@@ -408,37 +408,74 @@ function renderNudges(profile, wishIds) {
         if (filledState) filledState.hidden = !imported;
         
         if (imported && grid) {
-            const labels = {
-                'bio': 'أساسي: علوم طبيعية',
-                'math': 'أساسي: رياضيات',
-                'math-physics': 'مدمج: رياضيات وفيزياء',
-                'math-tech': 'مدمج: رياضيات وتكنولوجيا',
-                'lang': 'أساسي: لغات أجنبية',
-                'translation': 'ميدان الترجمة'
-            };
-            const classes = {
-                'bio': 'stat-bio',
-                'math': 'stat-math',
-                'math-physics': 'stat-physics',
-                'math-tech': 'stat-math',
-                'lang': 'stat-lang',
-                'translation': 'stat-translation'
+            const metadata = {
+                'general': {
+                    title: 'المعدل العام',
+                    formula: 'المعدل العام للبكالوريا',
+                    icon: 'fa-graduation-cap',
+                    class: 'stat-general'
+                },
+                'bio': {
+                    title: 'أساسي: علوم طبيعية',
+                    formula: '(المعدل × 2 + العلوم) / 3',
+                    icon: 'fa-dna',
+                    class: 'stat-bio'
+                },
+                'math': {
+                    title: 'أساسي: رياضيات',
+                    formula: '(المعدل × 2 + الرياضيات) / 3',
+                    icon: 'fa-calculator',
+                    class: 'stat-math'
+                },
+                'math-physics': {
+                    title: 'مدمج: رياضيات وفيزياء',
+                    formula: '(المعدل × 2 + متوسط المادتين) / 3',
+                    icon: 'fa-atom',
+                    class: 'stat-physics'
+                },
+                'math-tech': {
+                    title: 'مدمج: رياضيات وتكنولوجيا',
+                    formula: '(المعدل × 2 + متوسط المادتين) / 3',
+                    icon: 'fa-microchip',
+                    class: 'stat-tech'
+                },
+                'lang': {
+                    title: 'أساسي: لغات أجنبية',
+                    formula: '(المعدل × 2 + اللغة الأجنبية) / 3',
+                    icon: 'fa-language',
+                    class: 'stat-lang'
+                },
+                'translation': {
+                    title: 'ميدان الترجمة',
+                    formula: '(المعدل × 2 + متوسط اللغات) / 3',
+                    icon: 'fa-globe',
+                    class: 'stat-translation'
+                }
             };
             
             let html = `
-                <div class="dash-academic-stat stat-general">
-                    <span class="dash-academic-stat-title">المعدل العام</span>
+                <div class="dash-academic-stat ${metadata.general.class}">
+                    <div class="dash-academic-stat-top">
+                        <span class="dash-academic-stat-title">${metadata.general.title}</span>
+                        <span class="dash-academic-stat-icon"><i class="fas ${metadata.general.icon}"></i></span>
+                    </div>
                     <span class="dash-academic-stat-val">${(profile.average || 0).toFixed(2)}</span>
+                    <span class="dash-academic-stat-formula">${metadata.general.formula}</span>
                 </div>
             `;
             
             if (profile.weightedAverages) {
                 for (const [key, val] of Object.entries(profile.weightedAverages)) {
-                    if (labels[key]) {
+                    const meta = metadata[key];
+                    if (meta) {
                         html += `
-                            <div class="dash-academic-stat ${classes[key]}">
-                                <span class="dash-academic-stat-title">الموزون: ${labels[key]}</span>
+                            <div class="dash-academic-stat ${meta.class}">
+                                <div class="dash-academic-stat-top">
+                                    <span class="dash-academic-stat-title">${meta.title}</span>
+                                    <span class="dash-academic-stat-icon"><i class="fas ${meta.icon}"></i></span>
+                                </div>
                                 <span class="dash-academic-stat-val">${parseFloat(val).toFixed(2)}</span>
+                                <span class="dash-academic-stat-formula">${meta.formula}</span>
                             </div>
                         `;
                     }

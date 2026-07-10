@@ -472,25 +472,60 @@
         0 22px 48px color-mix(in srgb, var(--card-theme) 14%, transparent),
         0 4px 12px color-mix(in srgb, var(--card-theme) 6%, transparent);
 }
-.dash-academic-stat-title {
-    font-size: var(--fs-xs);
-    color: var(--text-muted);
-    font-weight: 700;
+.dash-academic-stat-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-2);
+    width: 100%;
     position: relative;
     z-index: 1;
 }
+.dash-academic-stat-icon {
+    color: var(--card-theme);
+    background: color-mix(in srgb, var(--card-theme) 12%, transparent);
+    width: 32px;
+    height: 32px;
+    border-radius: var(--r-md);
+    display: grid;
+    place-items: center;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+.dash-academic-stat-title {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 800;
+    position: relative;
+    z-index: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 .dash-academic-stat-val {
-    font-size: 2rem;
+    font-size: 2.1rem;
     font-weight: 900;
     color: var(--card-theme);
     position: relative;
     z-index: 1;
+    margin-top: var(--sp-1);
+    line-height: 1.1;
+}
+.dash-academic-stat-formula {
+    font-size: 10px;
+    color: var(--text-muted);
+    position: relative;
+    z-index: 1;
+    margin-top: auto;
+    font-weight: 500;
+    opacity: 0.85;
 }
 /* Colorful stat theme overrides */
 .stat-general { --card-theme: var(--primary); }
 .stat-bio { --card-theme: var(--cat-science, #1a9d6a); }
 .stat-math { --card-theme: var(--cat-tech, #eab308); }
 .stat-physics { --card-theme: var(--cat-medical, #ef4444); }
+.stat-tech { --card-theme: var(--cat-tech, #eab308); }
 .stat-lang { --card-theme: var(--cat-humanities, #8b5cf6); }
 .stat-translation { --card-theme: var(--cat-humanities, #8b5cf6); }
 
