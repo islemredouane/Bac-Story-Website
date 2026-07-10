@@ -1354,7 +1354,9 @@
         font-size: 1.15rem;
         font-weight: 800;
         color: currentColor;
-        padding-bottom: 2px; /* Prevent font descender clipping */
+        line-height: 1;
+        display: inline-flex;
+        align-items: center;
     }
 
     .mtb-logo-link .lv2-logo-icon {
