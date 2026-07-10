@@ -163,6 +163,9 @@
     position: relative;
     z-index: 1;
 }
+.settings-field:has(.custom-select-container.open) {
+    z-index: 10;
+}
 .settings-label {
     display: flex;
     align-items: center;
