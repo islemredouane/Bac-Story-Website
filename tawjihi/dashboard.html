@@ -411,16 +411,18 @@ function renderNudges(profile, wishIds) {
             const labels = {
                 'bio': 'أساسي: علوم طبيعية',
                 'math': 'أساسي: رياضيات',
-                'math-physics': 'مدمج: رياضيات + فيزياء',
-                'math-tech': 'مدمج: رياضيات + هندسة',
-                'lang': 'أساسي: لغات أجنبية'
+                'math-physics': 'مدمج: رياضيات وفيزياء',
+                'math-tech': 'مدمج: رياضيات وتكنولوجيا',
+                'lang': 'أساسي: لغات أجنبية',
+                'translation': 'ميدان الترجمة'
             };
             const classes = {
                 'bio': 'stat-bio',
                 'math': 'stat-math',
                 'math-physics': 'stat-physics',
                 'math-tech': 'stat-math',
-                'lang': 'stat-lang'
+                'lang': 'stat-lang',
+                'translation': 'stat-lang'
             };
             
             let html = `
@@ -431,13 +433,12 @@ function renderNudges(profile, wishIds) {
             `;
             
             if (profile.weightedAverages) {
-                const orderedKeys = ['math', 'bio', 'math-physics', 'math-tech', 'lang'];
-                for (const key of orderedKeys) {
-                    if (profile.weightedAverages[key] !== undefined && labels[key]) {
+                for (const [key, val] of Object.entries(profile.weightedAverages)) {
+                    if (labels[key]) {
                         html += `
                             <div class="dash-academic-stat ${classes[key]}">
                                 <span class="dash-academic-stat-title">الموزون: ${labels[key]}</span>
-                                <span class="dash-academic-stat-val">${parseFloat(profile.weightedAverages[key]).toFixed(2)}</span>
+                                <span class="dash-academic-stat-val">${parseFloat(val).toFixed(2)}</span>
                             </div>
                         `;
                     }
