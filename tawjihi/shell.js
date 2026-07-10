@@ -190,17 +190,30 @@
   const root = document.documentElement;
   const appEl = document.getElementById('app');
 
-  /* ── Top Bar: [hamburger] [logo centered] [theme] ── */
+  /* ── Top Bar: [Branding right] [Actions left] ── */
   const topbar = document.createElement('header');
   topbar.className = 'mobile-topbar';
   topbar.innerHTML = `
-    <a class="mtb-btn" href="settings.html" aria-label="الحساب والإعدادات">
-      <i class="fas fa-user-circle"></i>
+    <a class="mtb-logo-link" href="dashboard.html" aria-label="توجيهي — الرئيسية">
+      <svg class="lv2-logo-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <circle cx="16" cy="16" r="13" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="16" cy="16" r="2.5" fill="currentColor"/>
+        <line x1="16" y1="3" x2="16" y2="9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="16" y1="23" x2="16" y2="29" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="3" y1="16" x2="9" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="23" y1="16" x2="29" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <line id="lv2LogoNeedle" x1="16" y1="16" x2="16" y2="7" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span class="mtb-logo-text">توجيهي</span>
     </a>
-    <span class="mtb-logo">توجيهي</span>
-    <button class="mtb-btn" id="mobileThemeBtn" aria-label="تبديل الوضع">
-      <i class="fas fa-${root.getAttribute('data-theme') === 'dark' ? 'sun' : 'moon'}"></i>
-    </button>
+    <div class="mtb-actions">
+      <button class="mtb-btn" id="mobileThemeBtn" aria-label="تبديل الوضع">
+        <i class="fas fa-${root.getAttribute('data-theme') === 'dark' ? 'sun' : 'moon'}"></i>
+      </button>
+      <a class="mtb-btn" href="settings.html" aria-label="الإعدادات">
+        <i class="fas fa-gear"></i>
+      </a>
+    </div>
   `;
   document.body.appendChild(topbar);
 
