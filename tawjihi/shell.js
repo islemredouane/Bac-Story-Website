@@ -179,7 +179,7 @@
 /* ---- Mobile Navigation: Top Bar + Bottom Tab Nav ---- */
 (() => {
   const page = location.pathname.split('/').pop().replace('.html', '') || 'app';
-  if (['login', 'onboarding', 'index'].includes(page)) return;
+  if (['login', 'onboarding', 'index', 'speciality'].includes(page)) return;
 
   /* Chat page: keep old floating pills, skip mobile nav entirely */
   if (page === 'app') {

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl" data-theme="light">
 <head>
     <meta charset="UTF-8">
@@ -417,10 +417,10 @@
         ? `<span class="trend-up"><i class="fas fa-arrow-up"></i> +${diff}</span>`
         : `<span class="trend-down"><i class="fas fa-arrow-down"></i> −${diff}</span>`;
       return `<tr>
-        <td>${r.uni}</td>
-        <td>${(r.y2024 || 0).toFixed(2)}</td>
-        <td><span class="val">${(r.y2025 || 0).toFixed(2)}</span></td>
-        <td>${trendHtml}</td>
+        <td data-label="المؤسسة">${r.uni}</td>
+        <td data-label="معدل 2024">${(r.y2024 || 0).toFixed(2)}</td>
+        <td data-label="معدل 2025"><span class="val">${(r.y2025 || 0).toFixed(2)}</span></td>
+        <td data-label="الاتجاه">${trendHtml}</td>
       </tr>`;
     }).join('');
   }
@@ -480,6 +480,13 @@
     wishBtn.innerHTML = inWish
       ? '<i class="fas fa-check"></i> في بطاقة رغباتك'
       : '<i class="fas fa-heart"></i> أضف لبطاقة رغباتي';
+
+    const stickyWish = document.getElementById('stickyWishBtn');
+    if (stickyWish) {
+      stickyWish.classList.toggle('is-added', inWish);
+      stickyWish.querySelector('span').textContent = inWish ? 'في الرغبات' : 'أضف للرغبات';
+      stickyWish.querySelector('i').className = inWish ? 'fas fa-check' : 'fas fa-heart';
+    }
   };
   syncWishBtn();
 
@@ -594,7 +601,43 @@
       location.href = 'app.html';
     });
   });
+
+  /* ---- Sticky actions trigger & sync click events ---- */
+  const stickyWishBtn = document.getElementById('stickyWishBtn');
+  if (stickyWishBtn) {
+    stickyWishBtn.addEventListener('click', () => {
+      wishBtn.click();
+    });
+  }
+
+  const specActions = document.getElementById('specActions');
+  const stickyBar = document.getElementById('stickyActionBar');
+  if (specActions && stickyBar) {
+    const obs = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+      if (!entry.isIntersecting) {
+        stickyBar.classList.add('is-visible');
+      } else {
+        stickyBar.classList.remove('is-visible');
+      }
+    }, { threshold: 0, rootMargin: '0px 0px -50px 0px' });
+    obs.observe(specActions);
+  }
 })();
 </script>
+
+<!-- Sticky Bottom Action Bar for Mobile Viewports -->
+<div class="sticky-action-bar" id="stickyActionBar">
+    <div class="sab-container">
+        <button class="sab-btn sab-btn-wish" id="stickyWishBtn" type="button">
+            <i class="fas fa-heart"></i>
+            <span>أضف للرغبات</span>
+        </button>
+        <a class="sab-btn sab-btn-primary" id="stickyAskBtn" href="app.html">
+            <i class="fas fa-comments"></i>
+            <span>اسأل المرشد</span>
+        </a>
+    </div>
+</div>
 </body>
 </html>

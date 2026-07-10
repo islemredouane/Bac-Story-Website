@@ -1,4 +1,4 @@
-﻿/* ============================================================
+/* ============================================================
    TAWJIHI — Specialities browser + detail (page-specific)
    Depends on tokens.css + app.css. Reuses the app shell.
    Only uses existing tokens — no new colors invented.
@@ -638,7 +638,6 @@
 /* ---------------- MOBILE ---------------- */
 @media (max-width: 900px) {
     .detail-grid { grid-template-columns: 1fr; }
-    .detail-side { order: -1; }
     .spec-hero .hero-icon { display: none; }
     .filter-bar { position: static; }
 }
@@ -662,7 +661,7 @@
     .detail-header h1 { font-size: var(--fs-xl); }
     /* Detail sections tighter */
     .detail-section { padding: var(--sp-4); }
-    .career-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
+    .career-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
 }
 @media (max-width: 560px) {
     .spec-grid { grid-template-columns: 1fr; }
@@ -750,4 +749,120 @@
 /* detail-header stays the same dark navy in both modes */
 [data-theme="dark"] .detail-header {
     box-shadow: 0 16px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* ── Sticky Bottom Action Bar ── */
+.sticky-action-bar {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 90; /* Above normal content, below sidebars/modals */
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid var(--border);
+    padding: var(--sp-3) var(--sp-4) calc(var(--sp-3) + env(safe-area-inset-bottom, 0px));
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
+    transform: translateY(105%);
+    transition: transform var(--t-mid) var(--ease-out);
+    display: none;
+}
+.sticky-action-bar.is-visible {
+    transform: translateY(0);
+}
+.sab-container {
+    max-width: 600px;
+    margin-inline: auto;
+    display: flex;
+    gap: var(--sp-3);
+    width: 100%;
+}
+.sab-btn {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-2);
+    height: 48px;
+    border-radius: var(--r-pill);
+    font-weight: 700;
+    font-size: var(--fs-sm);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background var(--t-fast), border-color var(--t-fast), transform var(--t-fast);
+}
+.sab-btn-wish {
+    background: var(--surface-2);
+    border: 1.5px solid var(--border);
+    color: var(--text);
+}
+.sab-btn-wish.is-added {
+    background: color-mix(in srgb, var(--acc-safe) 12%, transparent);
+    border-color: color-mix(in srgb, var(--acc-safe) 35%, transparent);
+    color: var(--acc-safe);
+}
+.sab-btn-primary {
+    background: var(--grad-brand);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(44, 92, 197, 0.25);
+}
+.sab-btn:active {
+    transform: scale(0.97);
+}
+
+/* Dark theme overrides for sticky bar */
+[data-theme="dark"] .sticky-action-bar {
+    background: rgba(23, 29, 43, 0.90);
+    border-color: rgba(91, 134, 232, 0.12);
+    box-shadow: 0 -4px 25px rgba(0, 0, 0, 0.35);
+}
+[data-theme="dark"] .sab-btn-wish {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* ── Responsive table layout ── */
+@media (max-width: 480px) {
+    .avg-table-wrap {
+        border: none;
+        margin-top: var(--sp-3);
+    }
+    .avg-table, .avg-table thead, .avg-table tbody, .avg-table th, .avg-table td, .avg-table tr {
+        display: block;
+        width: 100%;
+        min-width: 0;
+    }
+    .avg-table thead {
+        display: none;
+    }
+    .avg-table tr {
+        background: color-mix(in srgb, var(--primary) 3%, var(--surface-2));
+        border: 1px solid var(--border);
+        border-radius: var(--r-md);
+        padding: var(--sp-3) var(--sp-4);
+        margin-bottom: var(--sp-3);
+    }
+    .avg-table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--sp-2) 0;
+        border-bottom: 1.5px dashed var(--border);
+    }
+    .avg-table td:last-child {
+        border-bottom: none;
+    }
+    .avg-table td::before {
+        content: attr(data-label);
+        font-weight: 700;
+        color: var(--text-faint);
+        font-size: var(--fs-xs);
+    }
+}
+
+@media (max-width: 900px) {
+    .sticky-action-bar {
+        display: block;
+    }
 }
