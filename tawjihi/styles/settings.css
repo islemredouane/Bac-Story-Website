@@ -456,6 +456,17 @@
     bottom: var(--sp-4);
     z-index: 10;
 }
+
+@media (max-width: 900px) {
+    .settings-save-wrap {
+        bottom: calc(18px + 72px + var(--sp-3));
+        justify-content: flex-start;
+        background: transparent;
+    }
+    .settings-main {
+        padding-bottom: 120px !important;
+    }
+}
 #saveBtn {
     display: inline-flex;
     align-items: center;
@@ -485,10 +496,4 @@
 }
 #saveBtn:not(:disabled):active {
     transform: translateY(0);
-}
-
-@media (max-width: 900px) {
-    .settings-main {
-        padding-bottom: 120px !important;
-    }
 }
