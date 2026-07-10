@@ -409,9 +409,9 @@
 @media (max-width: 980px) {
     .sim-layout { grid-template-columns: 1fr; }
     .sim-side { position: static; }
-    /* UI-16: catalog/controls panel above wishlist on mobile */
-    .sim-side { order: 1; }
-    .sim-col:not(.sim-side) { order: 2; }
+    /* Swap order on mobile: wishlist at the top, catalog/actions at the bottom */
+    .sim-side { order: 2; }
+    .sim-col:not(.sim-side) { order: 1; }
     /* Restore scrollability on mobile to keep page layout clean and compact */
     .catalog {
         max-height: 320px;
