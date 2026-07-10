@@ -99,14 +99,34 @@
 
 /* ---- Logo ---- */
 .auth-logo {
-    font-family: 'Plus Jakarta Sans', 'Cairo', var(--font-ui);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    color: #fff;
+    text-decoration: none;
+    transition: opacity var(--t-fast);
+    padding-block: 0.15em; /* Prevent clipping */
+}
+.auth-logo:hover {
+    opacity: 0.9;
+}
+.auth-logo .lv2-logo-icon {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    color: #fff;
+}
+.auth-logo-text {
+    font-family: var(--font-display);
     font-size: 2.75rem;
     font-weight: 800;
-    line-height: 1;
+    line-height: 1.15;
     background: linear-gradient(135deg, #6a9bff 0%, #ffffff 55%, #a8c4ff 100%);
     -webkit-background-clip: text; background-clip: text;
     -webkit-text-fill-color: transparent;
     letter-spacing: -.01em;
+    padding-bottom: 2px; /* Prevent clipping at the bottom */
 }
 .auth-tag {
     color: rgba(255, 255, 255, 0.45);
@@ -281,5 +301,6 @@
 /* ---- Responsive ---- */
 @media (max-width: 480px) {
     .auth-card { padding: var(--sp-6) var(--sp-5) var(--sp-5); }
-    .auth-logo { font-size: 2.25rem; }
+    .auth-logo-text { font-size: 2.25rem; }
+    .auth-logo .lv2-logo-icon { width: 28px; height: 28px; }
 }
