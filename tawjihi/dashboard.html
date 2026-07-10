@@ -519,6 +519,7 @@ function renderNudges(profile, wishIds) {
             };
             reader.onerror = () => showImportMsg('تعذّر قراءة الملف.', 'err');
             reader.readAsText(f);
+        });
     }
 
     // Auto-import from URL parameter ?import=CODE
