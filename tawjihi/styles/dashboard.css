@@ -431,35 +431,59 @@
     width: 100%;
 }
 .dash-academic-stat {
-    background: var(--surface-2);
-    border: 1px solid var(--border);
-    border-radius: var(--r-md);
-    padding: var(--sp-3);
+    --card-theme: var(--primary);
+    position: relative;
+    overflow: hidden;
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 1.25rem;
+    padding: var(--sp-4);
+    border-color: color-mix(in srgb, var(--card-theme) 38%, transparent);
+    box-shadow: 0 16px 38px color-mix(in srgb, var(--card-theme) 18%, transparent);
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    transition: transform var(--t-fast), border-color var(--t-fast);
+    gap: var(--sp-2);
+    transition: box-shadow .3s, border-color .3s, transform .3s;
+}
+.dash-academic-stat::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+        220px circle at 50% 50%,
+        color-mix(in srgb, var(--card-theme) .09, transparent) 0%,
+        transparent 70%);
+    opacity: .55;
+    pointer-events: none;
+    z-index: 0;
 }
 .dash-academic-stat:hover {
     transform: translateY(-2px);
-    border-color: var(--border-hover);
+    border-color: color-mix(in srgb, var(--card-theme) 60%, transparent);
+    box-shadow: 0 20px 48px color-mix(in srgb, var(--card-theme) 25%, transparent);
 }
 .dash-academic-stat-title {
     font-size: var(--fs-xs);
     color: var(--text-muted);
     font-weight: 700;
+    position: relative;
+    z-index: 1;
 }
 .dash-academic-stat-val {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--text);
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--card-theme);
+    position: relative;
+    z-index: 1;
 }
-/* Colorful stat variants */
-.stat-general .dash-academic-stat-val { color: var(--primary); }
-.stat-bio .dash-academic-stat-val { color: var(--cat-science, #1a9d6a); }
-.stat-math .dash-academic-stat-val { color: var(--cat-tech, #eab308); }
-.stat-physics .dash-academic-stat-val { color: var(--cat-medical, #ef4444); }
-.stat-lang .dash-academic-stat-val { color: var(--cat-humanities, #8b5cf6); }
+/* Colorful stat theme overrides */
+.stat-general { --card-theme: var(--primary); }
+.stat-bio { --card-theme: var(--cat-science, #1a9d6a); }
+.stat-math { --card-theme: var(--cat-tech, #eab308); }
+.stat-physics { --card-theme: var(--cat-medical, #ef4444); }
+.stat-lang { --card-theme: var(--cat-humanities, #8b5cf6); }
+.stat-translation { --card-theme: var(--cat-humanities, #8b5cf6); }
 
 .dash-import-help { color: var(--text-muted); font-size: var(--fs-sm); margin-bottom: var(--sp-3); line-height: 1.6; }
 .dash-import-msg { display: none; margin-top: var(--sp-3); font-size: var(--fs-sm); font-weight: 700; }
