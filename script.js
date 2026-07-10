@@ -571,6 +571,7 @@ var SPEC_KEYWORDS = {
     'ENSA': 'agronomie agriculture agronome INA zootechnie horticulture علوم زراعية فلاحة الجزائر',
     'ENS': 'enseignement professeur pédagogie éducation formation des enseignants école normale supérieure مدرسة عليا أساتذة أستاذ',
     'military-health': 'صحة عسكرية طب عسكري عين النعجة عسكرية قضي بكير ضابط طبيب صيدلة أسنان شبه طبي عسكري military health medicine',
+    'military-media': 'المدرسة العليا العسكرية للإعلام والاتصال سيدي فرج عسكري صحافة إعلام تلفزيون مجلة ضابط صحفي جيش وطني شعبي آداب لغات اقتصاد communication media officer',
     'MEDCINE': 'médecine générale CHU résidanat médecin docteur généraliste spécialiste طبيب دكتور كلية الطب حكيم',
     'MEDCINE-DENTAIRE': 'dentiste chirurgie dentaire orthodontie implant dentaire prothèse carie أسنان دكتور أسنان طب الفم كلية طب الأسنان',
     'PHARMACIE': 'pharmacien médicaments officine pharmacologie biochimie دواء الصيدلة صيدلاني',
