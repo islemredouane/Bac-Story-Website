@@ -20,6 +20,14 @@
     const nameInput = $('#nameInput');
     if (nameInput && profile.name) nameInput.value = profile.name;
 
+    // Welcome title update as a UI/UX helper!
+    const welcomeTitle = $('#welcomeTitle');
+    if (welcomeTitle) {
+      welcomeTitle.innerHTML = profile.name 
+        ? `أهلاً <span class="text-primary">${profile.name}</span> 👋` 
+        : `أهلاً صديقي 👋`;
+    }
+
     // Stream: mark the matching choice card
     $$('#streamChoices .ob-choice').forEach(btn => {
       btn.classList.toggle('is-selected', btn.dataset.value === profile.stream);
@@ -173,6 +181,7 @@
                 'Authorization': `Bearer ${session.access_token}`
               },
               body: JSON.stringify({
+                name: profile.name,
                 stream: profile.stream,
                 average: profile.average,
                 wilaya: profile.wilaya,
@@ -192,6 +201,15 @@
       saveBtn.style.background = 'var(--success, #22c55e)';
       recordInitialState();
       checkForChanges();
+      
+      // Update welcome text live on save!
+      const welcomeTitle = $('#welcomeTitle');
+      if (welcomeTitle) {
+        welcomeTitle.innerHTML = profile.name 
+          ? `أهلاً <span class="text-primary">${profile.name}</span> 👋` 
+          : `أهلاً صديقي 👋`;
+      }
+
       setTimeout(() => {
         saveBtn.disabled = false;
         saveBtn.innerHTML = '<i class="fas fa-floppy-disk"></i> حفظ التغييرات';
@@ -199,4 +217,39 @@
       }, 2000);
     });
   }
+
+  /* ---- Sync with Supabase on load ---- */
+  async function syncFromSupabase() {
+    try {
+      if (typeof tw_supabase !== 'undefined') {
+        const { data: { session } } = await tw_supabase.auth.getSession();
+        if (session) {
+          const res = await fetch('/api/tawjihi-profile', {
+            headers: {
+              'Authorization': `Bearer ${session.access_token}`
+            }
+          });
+          if (res.ok) {
+            const dbProfile = await res.json();
+            if (dbProfile && Object.keys(dbProfile).length > 0) {
+              // Merge Supabase profile into localStorage
+              Object.assign(profile, dbProfile);
+            }
+            // Fallback for OAuth metadata full name if db profile doesn't have it yet
+            if (!profile.name && session.user.user_metadata) {
+              profile.name = session.user.user_metadata.full_name || session.user.user_metadata.name || '';
+            }
+            
+            localStorage.setItem(STORE_KEY, JSON.stringify(profile));
+            hydrate();
+            recordInitialState();
+            checkForChanges();
+          }
+        }
+      }
+    } catch (e) {
+      console.warn('Load sync failed:', e);
+    }
+  }
+  syncFromSupabase();
 })();

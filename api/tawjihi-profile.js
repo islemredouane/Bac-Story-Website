@@ -68,7 +68,7 @@ export default async function handler(req, res) {
   // POST — upsert the user's profile
   if (req.method === 'POST') {
     try {
-      const { stream, average, wilaya, interests, ambition, ambition_text, completed, weighted_averages } = req.body || {};
+      const { name, stream, average, wilaya, interests, ambition, ambition_text, completed, weighted_averages } = req.body || {};
 
       // Validate stream if provided
       if (stream !== undefined && !VALID_STREAMS.includes(stream)) {
@@ -94,6 +94,7 @@ export default async function handler(req, res) {
         updated_at: new Date().toISOString(),
       };
 
+      if (name !== undefined) updates.name = name;
       if (stream !== undefined) updates.stream = stream;
       if (average !== undefined) updates.average = Number(average);
       if (wilaya !== undefined) updates.wilaya = wilaya;

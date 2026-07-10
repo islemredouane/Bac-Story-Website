@@ -367,27 +367,34 @@
     color: var(--accent);
 }
 
-/* ── Select wrap ── */
+/* ── Select wrap overrides ── */
 .ob-select-wrap {
     position: relative;
     display: flex;
     align-items: center;
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    width: 100%;
 }
 .ob-select-wrap > i:first-child {
     position: absolute;
-    right: 1.1rem;
-    color: var(--primary);
-    font-size: .9rem;
+    right: 1.25rem;
+    color: var(--primary) !important;
+    font-size: .95rem !important;
     pointer-events: none;
     z-index: 1;
 }
 .ob-select {
     width: 100%;
-    padding: .8rem 2.8rem .8rem 2.5rem;
-    border: 1.5px solid var(--border);
-    border-radius: var(--r-md);
-    background: var(--bg);
-    color: var(--text);
+    padding: .85rem 2.8rem .85rem 2.5rem !important;
+    border: 1.5px solid var(--border) !important;
+    border-radius: var(--r-md) !important;
+    background: var(--bg) !important;
+    color: var(--text) !important;
     font-family: var(--font-ui);
     font-size: .95rem;
     font-weight: 500;
@@ -398,14 +405,14 @@
 }
 .ob-select:focus {
     outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 4px rgba(44,92,197,.1);
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 4px rgba(44,92,197,.1) !important;
 }
 .ob-select-arrow {
     position: absolute;
-    left: 1rem;
-    color: var(--text-muted);
-    font-size: .8rem;
+    left: 1.25rem;
+    color: var(--text-muted) !important;
+    font-size: .8rem !important;
     pointer-events: none;
 }
 
