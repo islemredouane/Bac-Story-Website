@@ -43,7 +43,14 @@
 
     // Wilaya
     const sel = $('#wilayaSelect');
-    if (sel && profile.wilaya) sel.value = profile.wilaya;
+    if (sel && profile.wilaya) {
+      sel.value = profile.wilaya;
+      const triggerText = $('.custom-select-trigger .trigger-text');
+      if (triggerText) triggerText.textContent = profile.wilaya;
+      $$('.custom-option').forEach(opt => {
+        opt.classList.toggle('selected', opt.dataset.value === profile.wilaya);
+      });
+    }
 
     // Interests chips
     const interests = Array.isArray(profile.interests) ? profile.interests : [];
@@ -93,6 +100,54 @@
   $('#nameInput')?.addEventListener('input', checkForChanges);
   $('#ambitionText')?.addEventListener('input', checkForChanges);
   $('#wilayaSelect')?.addEventListener('change', checkForChanges);
+
+  /* ---- Custom Select Dropdown Toggle & Click ---- */
+  const customSelect = $('.custom-select-container');
+  const selectTrigger = $('#wilayaTrigger');
+  const selectOptions = $('#wilayaOptions');
+  const hiddenSelect = $('#wilayaSelect');
+
+  if (selectTrigger && selectOptions && hiddenSelect) {
+    selectTrigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      customSelect?.classList.toggle('open');
+      selectOptions.classList.toggle('open');
+    });
+
+    selectOptions.querySelectorAll('.custom-option').forEach(opt => {
+      opt.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const val = opt.dataset.value;
+        
+        // Update hidden select
+        hiddenSelect.value = val;
+        
+        // Update trigger text
+        const triggerText = selectTrigger.querySelector('.trigger-text');
+        if (triggerText) {
+          triggerText.textContent = opt.textContent;
+        }
+
+        // Highlight selected
+        selectOptions.querySelectorAll('.custom-option').forEach(o => {
+          o.classList.toggle('selected', o === opt);
+        });
+
+        // Close
+        customSelect?.classList.remove('open');
+        selectOptions.classList.remove('open');
+
+        // Dispatch change event to notify change tracking logic
+        hiddenSelect.dispatchEvent(new Event('change'));
+      });
+    });
+
+    // Close on click outside
+    document.addEventListener('click', () => {
+      customSelect?.classList.remove('open');
+      selectOptions.classList.remove('open');
+    });
+  }
 
   /* ---- Stream choice cards ---- */
   $$('#streamChoices .ob-choice').forEach(btn => {

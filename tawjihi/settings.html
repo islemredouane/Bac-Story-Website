@@ -125,9 +125,64 @@
                     <!-- Wilaya -->
                     <div class="settings-field">
                         <label class="settings-label" for="wilayaSelect"><i class="fas fa-location-dot" style="margin-left:.3rem"></i>الولاية</label>
-                        <div class="ob-select-wrap">
+                        <div class="ob-select-wrap custom-select-container">
                             <i class="fas fa-map-location-dot"></i>
-                            <select class="ob-select" id="wilayaSelect">
+                            <div class="ob-select custom-select-trigger" id="wilayaTrigger">
+                                <span class="trigger-text">اختر ولايتك…</span>
+                            </div>
+                            <i class="fas fa-chevron-down ob-select-arrow"></i>
+                            <div class="custom-select-options" id="wilayaOptions">
+                                <div class="custom-option selected" data-value="">اختر ولايتك…</div>
+                                <div class="custom-option" data-value="أدرار">أدرار</div>
+                                <div class="custom-option" data-value="الشلف">الشلف</div>
+                                <div class="custom-option" data-value="الأغواط">الأغواط</div>
+                                <div class="custom-option" data-value="أم البواقي">أم البواقي</div>
+                                <div class="custom-option" data-value="باتنة">باتنة</div>
+                                <div class="custom-option" data-value="بجاية">بجاية</div>
+                                <div class="custom-option" data-value="بسكرة">بسكرة</div>
+                                <div class="custom-option" data-value="بشار">بشار</div>
+                                <div class="custom-option" data-value="البليدة">البليدة</div>
+                                <div class="custom-option" data-value="البويرة">البويرة</div>
+                                <div class="custom-option" data-value="تمنراست">تمنراست</div>
+                                <div class="custom-option" data-value="تبسة">تبسة</div>
+                                <div class="custom-option" data-value="تلمسان">تلمسان</div>
+                                <div class="custom-option" data-value="تيارت">تيارت</div>
+                                <div class="custom-option" data-value="تيزي وزو">تيزي وزو</div>
+                                <div class="custom-option" data-value="الجزائر">الجزائر</div>
+                                <div class="custom-option" data-value="الجلفة">الجلفة</div>
+                                <div class="custom-option" data-value="جيجل">جيجل</div>
+                                <div class="custom-option" data-value="سطيف">سطيف</div>
+                                <div class="custom-option" data-value="سعيدة">سعيدة</div>
+                                <div class="custom-option" data-value="سكيكدة">سكيكدة</div>
+                                <div class="custom-option" data-value="سيدي بلعباس">سيدي بلعباس</div>
+                                <div class="custom-option" data-value="عنابة">عنابة</div>
+                                <div class="custom-option" data-value="قالمة">قالمة</div>
+                                <div class="custom-option" data-value="قسنطينة">قسنطينة</div>
+                                <div class="custom-option" data-value="المدية">المدية</div>
+                                <div class="custom-option" data-value="مستغانم">مستغانم</div>
+                                <div class="custom-option" data-value="المسيلة">المسيلة</div>
+                                <div class="custom-option" data-value="معسكر">معسكر</div>
+                                <div class="custom-option" data-value="ورقلة">ورقلة</div>
+                                <div class="custom-option" data-value="وهران">وهران</div>
+                                <div class="custom-option" data-value="البيض">البيض</div>
+                                <div class="custom-option" data-value="إليزي">إليزي</div>
+                                <div class="custom-option" data-value="برج بوعريريج">برج بوعريريج</div>
+                                <div class="custom-option" data-value="بومرداس">بومرداس</div>
+                                <div class="custom-option" data-value="الطارف">الطارف</div>
+                                <div class="custom-option" data-value="تندوف">تندوف</div>
+                                <div class="custom-option" data-value="تيسمسيلت">تيسمسيلت</div>
+                                <div class="custom-option" data-value="الوادي">الوادي</div>
+                                <div class="custom-option" data-value="خنشلة">خنشلة</div>
+                                <div class="custom-option" data-value="سوق أهراس">سوق أهراس</div>
+                                <div class="custom-option" data-value="تيبازة">تيبازة</div>
+                                <div class="custom-option" data-value="ميلة">ميلة</div>
+                                <div class="custom-option" data-value="عين الدفلى">عين الدفلى</div>
+                                <div class="custom-option" data-value="النعامة">النعامة</div>
+                                <div class="custom-option" data-value="عين تموشنت">عين تموشنت</div>
+                                <div class="custom-option" data-value="غرداية">غرداية</div>
+                                <div class="custom-option" data-value="غليزان">غليزان</div>
+                            </div>
+                            <select id="wilayaSelect" style="display: none;">
                                 <option value="">اختر ولايتك…</option>
                                 <option>أدرار</option><option>الشلف</option><option>الأغواط</option>
                                 <option>أم البواقي</option><option>باتنة</option><option>بجاية</option>
@@ -146,7 +201,6 @@
                                 <option>ميلة</option><option>عين الدفلى</option><option>النعامة</option>
                                 <option>عين تموشنت</option><option>غرداية</option><option>غليزان</option>
                             </select>
-                            <i class="fas fa-chevron-down ob-select-arrow"></i>
                         </div>
                     </div>
 
