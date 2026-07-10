@@ -1334,25 +1334,157 @@ html {
 }
 
 .gcta-btn {
-    background: #fff;
+    background: linear-gradient(135deg, #ffffff 0%, #f4f7ff 100%);
     color: #1a3a8f;
     font-family: 'Tajawal', sans-serif;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 800;
-    padding: 0.5rem 1.1rem;
+    padding: 0.65rem 1.15rem;
     border-radius: 50px;
     white-space: nowrap;
     display: flex;
     align-items: center;
     gap: 6px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 10px 24px rgba(26, 58, 143, 0.22), 0 2px 6px rgba(15, 23, 42, 0.08);
     flex-shrink: 0;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    overflow: hidden;
+    transform: translateY(0);
+    transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease, color 0.22s ease, border-color 0.22s ease;
 }
 
 .gcta-card:hover .gcta-btn {
-    transform: scale(1.05);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+    transform: translateY(-2px) scale(1.03);
+    background: linear-gradient(135deg, #ffffff 0%, #eaf0ff 100%);
+    border-color: rgba(44, 92, 197, 0.18);
+    box-shadow: 0 14px 28px rgba(26, 58, 143, 0.28), 0 4px 10px rgba(15, 23, 42, 0.1);
+}
+
+.gcta-btn i {
+    transition: transform 0.22s ease;
+}
+
+.gcta-card:hover .gcta-btn i {
+    transform: translateX(-2px);
+}
+
+/* ============================================================
+   UNIVERSITY SPECIALTY NAVIGATION
+   ============================================================ */
+.spec-navigation-buttons {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 14px !important;
+    max-width: 860px;
+    width: calc(100% - 2rem);
+    margin: 40px auto 0 !important;
+    padding: 0 !important;
+    border-top: none !important;
+}
+
+.spec-navigation-buttons .spec-nav-btn {
+    height: 76px;
+    min-height: 76px;
+    padding: 0.8rem 1rem !important;
+    border-radius: 18px !important;
+    border: 1px solid rgba(44, 92, 195, 0.14) !important;
+    box-shadow: 0 8px 24px rgba(26, 58, 143, 0.08);
+    color: var(--primary-color) !important;
+    background: #ffffff !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    text-align: center !important;
+    font-weight: 800 !important;
+    font-size: 0.9rem;
+    line-height: 1.2;
+    text-decoration: none !important;
+    white-space: normal;
+    transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease, color 0.22s ease;
+    direction: rtl;
+}
+
+.spec-navigation-buttons .spec-nav-label {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.25;
+    max-height: 2.5em;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.spec-navigation-buttons .spec-nav-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 32px rgba(26, 58, 143, 0.16);
+}
+
+.spec-navigation-buttons .spec-nav-btn:focus-visible {
+    outline: 3px solid rgba(44, 92, 195, 0.22);
+    outline-offset: 2px;
+}
+
+.spec-navigation-buttons .prev-btn,
+.spec-navigation-buttons .next-btn {
+    background: linear-gradient(180deg, #ffffff 0%, #f7faff 100%) !important;
+}
+
+.spec-navigation-buttons .prev-btn:hover,
+.spec-navigation-buttons .next-btn:hover {
+    background: linear-gradient(180deg, #ffffff 0%, #eef4ff 100%) !important;
+}
+
+.spec-navigation-buttons .all-btn {
+    background: linear-gradient(135deg, #1a3a8f 0%, #2c5cc5 55%, #3d6ee0 100%) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    box-shadow: 0 12px 30px rgba(26, 58, 143, 0.26);
+}
+
+.spec-navigation-buttons .all-btn:hover {
+    box-shadow: 0 16px 36px rgba(26, 58, 143, 0.32);
+}
+
+.spec-navigation-buttons .spec-nav-btn i {
+    font-size: 0.95em;
+}
+
+.spec-navigation-buttons.spec-navigation-buttons--two {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.spec-navigation-buttons.spec-navigation-buttons--two .spec-nav-btn {
+    min-width: 0;
+}
+
+@media (max-width: 860px) {
+    .spec-navigation-buttons {
+        grid-template-columns: 1fr;
+        width: calc(100% - 2rem);
+        gap: 12px !important;
+        margin: 28px auto 0 !important;
+    }
+
+    .spec-navigation-buttons .spec-nav-btn {
+        height: 64px;
+        min-height: 64px;
+        padding: 0.7rem 0.9rem !important;
+        font-size: 0.8rem;
+    }
+
+    .spec-navigation-buttons .spec-nav-label {
+        -webkit-line-clamp: 2;
+        max-height: 2.35em;
+    }
+
+    #global-cta-placeholder {
+        margin-top: 28px;
+    }
 }
 
 /* — Mobile dots — */
