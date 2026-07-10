@@ -256,8 +256,8 @@
     const iconRect = iconEl.getBoundingClientRect();
 
     /* Centre the fixed-size pill over the icon — width/height stay constant (set in CSS) */
-    const PILL_W = 52;
-    const PILL_H = 34;
+    const PILL_W = 58;
+    const PILL_H = 38;
     const dx = iconRect.left + iconRect.width  / 2 - navRect.left - PILL_W / 2;
     const dy = iconRect.top  + iconRect.height / 2 - navRect.top  - PILL_H / 2;
 
