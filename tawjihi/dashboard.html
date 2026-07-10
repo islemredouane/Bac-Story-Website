@@ -252,21 +252,37 @@ function generateNudges(profile, wishIds) {
   const catalog = typeof TW_CATALOG !== 'undefined' ? TW_CATALOG : [];
   const myAvg = parseFloat(profile.average) || 12;
 
+  /* Profile-aware fragments — every one degrades gracefully when missing */
+  const NUDGE_STREAM_AR = {
+    sciexp: 'علوم تجريبية', math: 'رياضيات', techmath: 'تقني رياضي',
+    gestion: 'تسيير واقتصاد', lettres: 'آداب وفلسفة', langues: 'لغات أجنبية', arts: 'فنون'
+  };
+  const nm = (profile.name && profile.name !== 'صديقي') ? ' يا ' + profile.name : '';
+  const streamAr = NUDGE_STREAM_AR[profile.stream] || profile.stream || '';
+  const avgTxt = Number.isFinite(parseFloat(profile.average)) ? String(+parseFloat(profile.average).toFixed(2)) : '';
+
   if (!wishIds || wishIds.length === 0) {
-    nudges.push({ icon: 'fa-list-check', text: 'ما زلتش ما بنيتش بطاقة رغباتك — اذهب للمحاكي وابدأ الآن', link: 'simulator.html' });
+    nudges.push({ icon: 'fa-list-check', text: 'مازال ما بنيتش بطاقة رغباتك' + nm + ' — ادخل للمحاكي وابدأها دروك', link: 'simulator.html' });
   } else {
     const specs = wishIds.map(id => catalog.find(s => s.id === id)).filter(Boolean);
     const allRisk = specs.every(s => myAvg < s.avg - 1.0);
     const noSafe = !specs.some(s => myAvg >= s.avg + 1.0);
     const tooFew = wishIds.length < 6;
 
-    if (allRisk) nudges.push({ icon: 'fa-triangle-exclamation', text: 'كل تخصصاتك المختارة فوق معدلك — أضف تخصصاً آمناً للأمان', link: 'simulator.html' });
-    if (noSafe && !allRisk) nudges.push({ icon: 'fa-shield', text: 'ما عندك تخصص آمن في قائمتك — أضف واحد كضمان', link: 'simulator.html' });
-    if (tooFew) nudges.push({ icon: 'fa-plus-circle', text: `عندك ${wishIds.length} رغبات — الحد الأدنى 6، أكمل القائمة`, link: 'simulator.html' });
+    if (allRisk) nudges.push({ icon: 'fa-triangle-exclamation', text: 'كل التخصصات اللي في قائمتك فوق معدلك' + (avgTxt ? ' (' + avgTxt + ')' : '') + ' — زيد تخصص آمن باش تأمّن روحك', link: 'simulator.html' });
+    if (noSafe && !allRisk) nudges.push({ icon: 'fa-shield', text: 'ما عندكش حتى تخصص آمن في قائمتك' + nm + ' — زيد واحد كضمان', link: 'simulator.html' });
+    if (tooFew) nudges.push({ icon: 'fa-plus-circle', text: 'عندك ' + wishIds.length + ' رغبات برك — الحد الأدنى 6، كمّل قائمتك', link: 'simulator.html' });
   }
 
-  if (!profile.wilaya) nudges.push({ icon: 'fa-location-dot', text: 'أضف ولايتك لتصفية التخصصات القريبة منك', link: '#' });
-  nudges.push({ icon: 'fa-comments', text: 'جرّب تسأل المرشد: "ماهو التخصص اللي يناسبني بمعدل ' + myAvg + '؟"', link: 'app.html' });
+  /* Weighted averages not imported yet -> point to the existing BAC Story import card */
+  const hasWeighted = profile.weightedAverages && Object.keys(profile.weightedAverages).length > 0;
+  if (!hasWeighted) nudges.push({ icon: 'fa-calculator', text: 'استورد معدلاتك الموزونة من حاسبة BAC Story' + nm + ' — بيها تحليل فرص القبول يولي أدقّ بزاف', link: '#dashAcademicCard' });
+
+  if (!profile.wilaya) nudges.push({ icon: 'fa-location-dot', text: 'زيد ولايتك باش نوريولك التخصصات القريبة منك', link: 'onboarding.html' });
+
+  nudges.push({ icon: 'fa-comments', text: (streamAr && avgTxt)
+    ? 'جرّب تسأل المرشد: "واش هو التخصص اللي يناسبني بمعدل ' + avgTxt + ' في شعبة ' + streamAr + '؟"'
+    : 'جرّب تسأل المرشد: "واش هو التخصص اللي يناسبني بمعدل ' + myAvg + '؟"', link: 'app.html' });
 
   return nudges.slice(0, 3);
 }
