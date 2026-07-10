@@ -1,0 +1,1930 @@
+[
+ {
+  "catalogId": "estin",
+  "kbId": "estin",
+  "sectionId": "ESTIN",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "المدرسة العليا لعلوم وتكنولوجيات الإعلام الآلي والرقمنة – ESTIN",
+    "catalog": "المدرسة العليا في علوم وتكنولوجيات الإعلام الآلي والرقمنة — بجاية",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "avg",
+    "severity": "review",
+    "html": 18.15,
+    "catalog": 17.45,
+    "htmlAllNumbers": [
+     17.45,
+     17.79,
+     18.15
+    ],
+    "htmlRawText": "شعبة رياضيات : 17,45 | شعبة علوم تجرببية : 17,79 | شعبة تقني رياضي : 18,15 | احسب معدلك الموزون",
+    "note": "html max acceptance number vs catalog avg — html likely carries newer 2025 thresholds"
+   }
+  ]
+ },
+ {
+  "catalogId": "esi",
+  "kbId": "esi-alger",
+  "sectionId": "ESI-ALGER",
+  "matchedVia": "alias",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "المدرسة العليا للإعلام الآلي – ESI الجزائر العاصمة",
+    "catalog": "المدرسة الوطنية العليا للإعلام الآلي — الجزائر",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "avg",
+    "severity": "review",
+    "html": 18.93,
+    "catalog": 18.19,
+    "htmlAllNumbers": [
+     18.19,
+     18.55,
+     18.93
+    ],
+    "htmlRawText": "شعبة رياضيات: 18.19 | شعبة علوم تجريبية: 18.55 | شعبة تقني رياضي: 18.93 | 📌 أعلى معدلات بين المدارس الثلاث — ESI الجزائر العاصمة هي الأكثر تنافسية. | احسب معدلك الموزون",
+    "note": "html max acceptance number vs catalog avg — html likely carries newer 2025 thresholds"
+   },
+   {
+    "field": "name_ar(kb)",
+    "severity": "info",
+    "html": "المدرسة العليا للإعلام الآلي – ESI الجزائر العاصمة",
+    "kb": "المدرسة العليا للإعلام الآلي"
+   }
+  ]
+ },
+ {
+  "catalogId": "esi-sba",
+  "kbId": "esi-sba",
+  "sectionId": "ESI-SBA",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "المدرسة العليا للإعلام الآلي – ESI سيدي بلعباس",
+    "catalog": "المدرسة العليا للإعلام الآلي — سيدي بلعباس",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "avg",
+    "severity": "review",
+    "html": 18.06,
+    "catalog": 17.36,
+    "htmlAllNumbers": [
+     17.36,
+     17.7,
+     18.06
+    ],
+    "htmlRawText": "شعبة رياضيات: 17.36 | شعبة علوم تجريبية: 17.70 | شعبة تقني رياضي: 18.06 | 📌 معدلاتها أقل من ESI الجزائر العاصمة وقريبة من ESTIN — يعني أكثر قابلية للدخول إذا كان معدلك في هذا النطاق. | احسب معدلك الموزون",
+    "note": "html max acceptance number vs catalog avg — html likely carries newer 2025 thresholds"
+   }
+  ]
+ },
+ {
+  "catalogId": "ensia",
+  "kbId": "ensia",
+  "sectionId": "ENSIA",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "المدرسة العليا للذكاء الإصطناعي – ENSIA",
+    "catalog": "المدرسة الوطنية العليا للذكاء الاصطناعي — سيدي عبد الله",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "avg",
+    "severity": "review",
+    "html": 19.37,
+    "catalog": 18.59,
+    "htmlAllNumbers": [
+     18.59,
+     18.95,
+     19.37
+    ],
+    "htmlRawText": "شعبة رياضيات: 18.59 | شعبة علوم تجريبية: 18.95 | شعبة تقني رياضي: 19.37 | احسب معدلك الموزون",
+    "note": "html max acceptance number vs catalog avg — html likely carries newer 2025 thresholds"
+   }
+  ]
+ },
+ {
+  "catalogId": "enscs",
+  "kbId": "enscs",
+  "sectionId": "ENSCS",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "المدرسة العليا للأمن السيبيراني – ENSCS",
+    "catalog": "المدرسة الوطنية العليا للأمن السيبراني — سيدي عبد الله",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "avg",
+    "severity": "review",
+    "html": 19.07,
+    "catalog": 18.34,
+    "htmlAllNumbers": [
+     18.34,
+     18.7,
+     19.07
+    ],
+    "htmlRawText": "شعبة رياضيات : 18,34 | شعبة علوم تجرببية : 18,70 | شعبة تقني رياضي : 19,07 | احسب معدلك الموزون",
+    "note": "html max acceptance number vs catalog avg — html likely carries newer 2025 thresholds"
+   }
+  ]
+ },
+ {
+  "catalogId": "ensta",
+  "kbId": "ensta",
+  "sectionId": "ENSTA",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "المدرسة الوطنية العليا للتكنولوجيات المتقدمة – ENSTA درقانة",
+    "catalog": "المدرسة الوطنية العليا للتكنولوجيا المتقدمة — الجزائر",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "avg",
+    "severity": "review",
+    "html": 18.1,
+    "catalog": 17.15,
+    "htmlAllNumbers": [
+     17.39,
+     17.75,
+     18.1
+    ],
+    "htmlRawText": "شعبة رياضيات: 17.39 | شعبة علوم تجريبية: 17.75 | شعبة تقني رياضي: 18.10 | احسب معدلك الموزون",
+    "note": "html max acceptance number vs catalog avg — html likely carries newer 2025 thresholds"
+   }
+  ]
+ },
+ {
+  "catalogId": "ensttic",
+  "kbId": "ensttic",
+  "sectionId": "ENSTTIC",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "المدرسة الوطنية العليا للاتصالات وتكنولوجيا الإعلام – ENSTTIC",
+    "catalog": "المدرسة الوطنية العليا لتكنولوجيات الإعلام والاتصال والبريد — تلمسان",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "avg",
+    "severity": "review",
+    "html": 18.41,
+    "catalog": 16.69,
+    "htmlAllNumbers": [
+     16.69,
+     17.17,
+     17.57,
+     18.41
+    ],
+    "htmlRawText": "شعبتي رياضيات و تقني رياضي : 17,17 | شعبة علوم تجريبية : 18,41 | شعبتي رياضيات و تقني رياضي : 16,69 | شعبة علوم تجريبية : 17,57 | احسب معدلك الموزون",
+    "note": "html max acceptance number vs catalog avg — html likely carries newer 2025 thresholds"
+   }
+  ]
+ },
+ {
+  "catalogId": "nhsm",
+  "kbId": "nhsm",
+  "sectionId": "NHSM",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "المدرسة الوطنية العليا للرياضيات – NHSM",
+    "catalog": "المدرسة الوطنية العليا للرياضيات — الجزائر",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "avg",
+    "severity": "review",
+    "html": 18.15,
+    "catalog": 17.43,
+    "htmlAllNumbers": [
+     17.43,
+     17.77,
+     18.15
+    ],
+    "htmlRawText": "شعبة رياضيات : 17,43 | شعبة علوم تجرببية : 17,77 | شعبة تقني رياضي : 18,15 | احسب معدلك الموزون",
+    "note": "html max acceptance number vs catalog avg — html likely carries newer 2025 thresholds"
+   }
+  ]
+ },
+ {
+  "catalogId": "polytech",
+  "kbId": "polytech",
+  "sectionId": "POLYTECH",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "المدرسة الوطنية متعددة التقنيات – POLYTECH",
+    "catalog": "المدرسة الوطنية المتعددة التقنيات",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "avg",
+    "severity": "review",
+    "html": 17.73,
+    "catalog": 16.65,
+    "htmlAllNumbers": [
+     16.65,
+     16.79,
+     17.73
+    ],
+    "htmlRawText": "العاصمة : 17,73 | وهران : 16,79 | قسنطينة : 16,65 | احسب معدلك الموزون",
+    "note": "html max acceptance number vs catalog avg — html likely carries newer 2025 thresholds"
+   }
+  ]
+ },
+ {
+  "catalogId": "archi",
+  "kbId": "epau",
+  "sectionId": "EPAU",
+  "matchedVia": "alias",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "المدرسة متعددة التقنيات للهندسة المعمارية والعمران – EPAU",
+    "catalog": "المدرسة البوليتكنيكية للعمارة والتعمير — الجزائر",
+    "note": "display-name difference (catalog uses short names)"
+   }
+  ]
+ },
+ {
+  "catalogId": "enssn",
+  "kbId": "enssn",
+  "sectionId": "ENSSN",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "المدرسة العليا في علوم النانو وتكنولوجيا النانو – ENSSN",
+    "catalog": "المدرسة الوطنية العليا لعلوم النانو والنانوتكنولوجيا — الجزائر",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "category",
+    "severity": "review",
+    "html": "science",
+    "catalog": "engineering"
+   }
+  ]
+ },
+ {
+  "catalogId": "ensas",
+  "kbId": "ensas",
+  "sectionId": "ENSAS",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "المدرسة العليا للأنظمة المستقلة – NHSAST",
+    "catalog": "المدرسة الوطنية العليا للأنظمة المستقلة — الجزائر",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "name_ar(kb)",
+    "severity": "info",
+    "html": "المدرسة العليا للأنظمة المستقلة – NHSAST",
+    "kb": "المدرسة العليا للأنظمة المستقلة – ENSAS"
+   }
+  ]
+ },
+ {
+  "catalogId": "enstp",
+  "kbId": "enstp",
+  "sectionId": "ENSTP",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "المدرسة العليا للأشغال العمومية – ENSTP",
+    "catalog": "المدرسة الوطنية العليا للأشغال العمومية — الجزائر",
+    "note": "display-name difference (catalog uses short names)"
+   }
+  ]
+ },
+ {
+  "catalogId": "ensh",
+  "kbId": "ensh",
+  "sectionId": "ENSH",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "المدرسة الوطنية العليا للهيدروليك – ENSH البليدة",
+    "catalog": "المدرسة الوطنية العليا للهيدروليك — البليدة",
+    "note": "display-name difference (catalog uses short names)"
+   }
+  ]
+ },
+ {
+  "catalogId": "igee",
+  "kbId": "igee",
+  "sectionId": "IGEE",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "معهد الإلكترونيك بومرداس – IGEE",
+    "catalog": "معهد الكهرباء والإلكترونيك — بومرداس",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "avg",
+    "severity": "review",
+    "html": 16.85,
+    "catalog": 14.0,
+    "htmlAllNumbers": [
+     16.85
+    ],
+    "htmlRawText": "🌟 علوم تجريبية / رياضيات / تقني رياضي: 16.85 | احسب معدلك الموزون",
+    "note": "html max acceptance number vs catalog avg — html likely carries newer 2025 thresholds"
+   }
+  ]
+ },
+ {
+  "catalogId": "ensee",
+  "kbId": "ensee",
+  "sectionId": "ENSEE",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "المدرسة العليا للهندسة الكهربائية والطاقوية – ENSEE وهران",
+    "catalog": "المدرسة الوطنية العليا للطاقات المتجددة والبيئة والتنمية المستدامة — باتنة",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "avg",
+    "severity": "review",
+    "html": 15.48,
+    "catalog": 16.15,
+    "htmlAllNumbers": [
+     15.48
+    ],
+    "htmlRawText": "📊 معدل القبول 2024: 15.48 – لكل الشعب العلمية | 📌 الشعب المقبولة: رياضيات، علوم تجريبية، تقني رياضي | 🔹 يُحتسب المعدل الموزون (الرياضيات والفيزياء يدخلو بثقل أكبر) | 🔹 أو معدل البكالوريا العام – التسجيل وطني | احسب معدلك الموزون",
+    "note": "html max acceptance number vs catalog avg — html likely carries newer 2025 thresholds"
+   }
+  ]
+ },
+ {
+  "catalogId": "essa",
+  "kbId": "essa",
+  "sectionId": "ESSA",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "المدرسة العليا للعلوم التطبيقية – ESSA",
+    "catalog": "المدرسة الوطنية العليا للملاحة الجوية",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "avg",
+    "severity": "review",
+    "html": 14.41,
+    "catalog": 15.38,
+    "htmlAllNumbers": [
+     14.41
+    ],
+    "htmlRawText": "📊 معدل القبول 2024: 14.41 | 📌 الشعب المقبولة: رياضيات | علوم تجريبية | تقني رياضي | 🔹 الترتيب وطني حسب المعدل الموزون أو معدل البكالوريا | احسب معدلك الموزون",
+    "note": "html max acceptance number vs catalog avg — html likely carries newer 2025 thresholds"
+   }
+  ]
+ },
+ {
+  "catalogId": "hnsre",
+  "kbId": "hnsre",
+  "sectionId": "HNSRE",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "المدرسة الوطنية العليا للطاقات المتجددة – HNSRE باتنة",
+    "catalog": "المدرسة الوطنية العليا للطاقات المتجددة — حاسي مسعود",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "avg",
+    "severity": "review",
+    "html": 14.98,
+    "catalog": 15.64,
+    "htmlAllNumbers": [
+     14.98
+    ],
+    "htmlRawText": "📊 معدل القبول الوطني 2024: 14.98 | 📌 كل الشعب العلمية بنفس الأولوية: رياضيات | علوم تجريبية | تقني رياضي | احسب معدلك الموزون",
+    "note": "html max acceptance number vs catalog avg — html likely carries newer 2025 thresholds"
+   }
+  ]
+ },
+ {
+  "catalogId": "aeronautique",
+  "kbId": "aeronautique",
+  "sectionId": "AERONAUTIQUE",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "تخصص هندسة الطيران – Aéronautique",
+    "catalog": "هندسة الطيران — جامعي",
+    "note": "display-name difference (catalog uses short names)"
+   }
+  ]
+ },
+ {
+  "catalogId": "esc",
+  "kbId": "ensc",
+  "sectionId": "ENSC",
+  "matchedVia": "alias",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "المدرسة العليا للتجارة – ENSC",
+    "catalog": "المدرسة العليا للتجارة — القليعة",
+    "note": "display-name difference (catalog uses short names)"
+   }
+  ]
+ },
+ {
+  "catalogId": "ehec",
+  "kbId": "ehec",
+  "sectionId": "EHEC",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "المدرسة العليا للدراسات التجارية – EHEC",
+    "catalog": "مدرسة الدراسات العليا التجارية — القليعة",
+    "note": "display-name difference (catalog uses short names)"
+   }
+  ]
+ },
+ {
+  "catalogId": "esgen",
+  "kbId": "esgen",
+  "sectionId": "ESGEN",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "المدرسة العليا للتسيير والاقتصاد الرقمي – ESGEN",
+    "catalog": "المدرسة العليا للتسيير والاقتصاد الرقمي — القليعة",
+    "note": "display-name difference (catalog uses short names)"
+   }
+  ]
+ },
+ {
+  "catalogId": "enssea",
+  "kbId": "enssea",
+  "sectionId": "ENSSEA",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "المدرسة الوطنية العليا للإحصاء والاقتصاد التطبيقي – ENSSEA",
+    "catalog": "المدرسة الوطنية العليا للإحصاء والاقتصاد التطبيقي — القليعة",
+    "note": "display-name difference (catalog uses short names)"
+   }
+  ]
+ },
+ {
+  "catalogId": "esm",
+  "kbId": "ensm",
+  "sectionId": "ENSM",
+  "matchedVia": "alias",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "المدرسة الوطنية العليا للمناجمنت – ENSM القليعة",
+    "catalog": "المدرسة الوطنية العليا للمناجمنت — الجزائر",
+    "note": "display-name difference (catalog uses short names)"
+   }
+  ]
+ },
+ {
+  "catalogId": "esb",
+  "kbId": "esb",
+  "sectionId": "ESB",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "المدرسة العليا للمصرفة والبنوك – ESB الجزائر",
+    "catalog": "المدرسة العليا للبنوك — الجزائر",
+    "note": "display-name difference (catalog uses short names)"
+   }
+  ]
+ },
+ {
+  "catalogId": "esm",
+  "kbId": "esm",
+  "sectionId": "ESM",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "المدرسة العليا لإدارة الأعمال – ESM تلمسان",
+    "catalog": "المدرسة الوطنية العليا للمناجمنت — الجزائر",
+    "note": "display-name difference (catalog uses short names)"
+   }
+  ]
+ },
+ {
+  "catalogId": "essg",
+  "kbId": "essg",
+  "sectionId": "ESSG",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "المدرسة العليا لعلوم التسيير – ESSG عنابة",
+    "catalog": "المدرسة العليا لعلوم التسيير — عنابة",
+    "note": "display-name difference (catalog uses short names)"
+   }
+  ]
+ },
+ {
+  "catalogId": "escf",
+  "kbId": "escf",
+  "sectionId": "ESCF",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "المدرسة العليا للمحاسبة والمالية – ESCF قسنطينة",
+    "catalog": "المدرسة العليا في المحاسبة والمالية — قسنطينة",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "avg",
+    "severity": "review",
+    "html": 14.83,
+    "catalog": 12.5,
+    "htmlAllNumbers": [
+     14.83
+    ],
+    "htmlRawText": "معدل القبول 2025: 14.83 — معدل موحد لجميع الشعب المقبولة | الطلب عليها كبير — تخصصات المالية والمحاسبة تُعدّ الأكثر أماناً في سوق الشغل | احسب معدلك الموزون",
+    "note": "html max acceptance number vs catalog avg — html likely carries newer 2025 thresholds"
+   }
+  ]
+ },
+ {
+  "catalogId": "ese",
+  "kbId": "ese",
+  "sectionId": "ESE",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "المدرسة العليا للاقتصاد – ESE وهران",
+    "catalog": "المدرسة العليا للاقتصاد — وهران",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "avg",
+    "severity": "review",
+    "html": 14.63,
+    "catalog": 13.74,
+    "htmlAllNumbers": [
+     14.63
+    ],
+    "htmlRawText": "معدل القبول 2025: 14.63 — معدل موحد لجميع الشعب المقبولة | أفضلية واضحة للشعب العلمية والتقنية — الاقتصاد الحديث مبني على نماذج رياضية | احسب معدلك الموزون",
+    "note": "html max acceptance number vs catalog avg — html likely carries newer 2025 thresholds"
+   }
+  ]
+ },
+ {
+  "catalogId": "essaia",
+  "kbId": "essaia",
+  "sectionId": "ESSAIA",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "المدرسة العليا لعلوم التغذية والصناعات الغذائية – ESSAIA",
+    "catalog": "المدرسة العليا لعلوم التغذية والصناعات الغذائية — الجزائر",
+    "note": "display-name difference (catalog uses short names)"
+   }
+  ]
+ },
+ {
+  "catalogId": "ensa-agro",
+  "kbId": "ensa",
+  "sectionId": "ENSA",
+  "matchedVia": "alias",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "المدرسة العليا للفلاحة – ENSA",
+    "catalog": "المدرسة الوطنية العليا الزراعية — الحراش",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "category",
+    "severity": "review",
+    "html": "science",
+    "catalog": "engineering"
+   },
+   {
+    "field": "avg",
+    "severity": "review",
+    "html": 15.68,
+    "catalog": 13.5,
+    "htmlAllNumbers": [
+     12.29,
+     12.81,
+     12.91,
+     13.51,
+     13.87,
+     14.58,
+     14.91,
+     15.68
+    ],
+    "htmlRawText": "⭐️ الجزائر العاصمة: علوم تجريبية: 14.91 | رياضيات/تقني رياضي: 15.68 | ⭐️ مستغانم: علوم تجريبية: 13.87 | رياضيات/تقني رياضي: 14.58 | ⭐️ أدرار: علوم تجريبية: 12.29 | رياضيات/تقني رياضي: 12.91 | ⭐️ الوادي: علوم تجريبية: 12.81 | رياضيات/تقني رياضي: 13.51 | احسب معدلك الموزون",
+    "note": "html max acceptance number vs catalog avg — html likely carries newer 2025 thresholds"
+   }
+  ]
+ },
+ {
+  "catalogId": "ens",
+  "kbId": "ens",
+  "sectionId": "ENS",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "المدارس العليا للأساتذة – ENS",
+    "catalog": "المدرسة العليا للأساتذة",
+    "note": "display-name difference (catalog uses short names)"
+   }
+  ]
+ },
+ {
+  "catalogId": "med",
+  "kbId": "medcine",
+  "sectionId": "MEDCINE",
+  "matchedVia": "alias",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "تخصص الطب – MÉDECINE",
+    "catalog": "طب",
+    "note": "display-name difference (catalog uses short names)"
+   }
+  ]
+ },
+ {
+  "catalogId": "dent",
+  "kbId": "medcine-dentaire",
+  "sectionId": "MEDCINE-DENTAIRE",
+  "matchedVia": "alias",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "تخصص طب الأسنان – MÉDECINE DENTAIRE",
+    "catalog": "طب الأسنان",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "avg",
+    "severity": "review",
+    "html": 17.5,
+    "catalog": 16.65,
+    "htmlAllNumbers": [
+     16.99,
+     17.5
+    ],
+    "htmlRawText": "علوم تجريبية + رياضيات : 16,99 | تقني رياضي: 17,50 | التوجيه يتم حسب ولايتك: إذا كان التخصص متوفر فيها، يوجّهوك ليها، وإلا يبعثوك لأقرب جامعة توفر طب الأسنان. | احسب معدلك",
+    "note": "html max acceptance number vs catalog avg — html likely carries newer 2025 thresholds"
+   }
+  ]
+ },
+ {
+  "catalogId": "pharm",
+  "kbId": "pharmacie",
+  "sectionId": "PHARMACIE",
+  "matchedVia": "alias",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "تخصص الصيدلة – PHARMACIE",
+    "catalog": "صيدلة",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "avg",
+    "severity": "review",
+    "html": 16.76,
+    "catalog": 16.26,
+    "htmlAllNumbers": [
+     16.76
+    ],
+    "htmlRawText": "✅ علوم تجريبية + رياضيات: 16ة26 ✅ تقني رياضي: 16,76 | التوجيه يتم حسب ولايتك: إذا كان التخصص متوفر فيها، يوجّهوك ليها، وإلا يبعثوك لأقرب جامعة توفر التخصص. | احسب معدلك",
+    "note": "html max acceptance number vs catalog avg — html likely carries newer 2025 thresholds"
+   }
+  ]
+ },
+ {
+  "catalogId": "paramedical",
+  "kbId": "paramedical",
+  "sectionId": "PARAMEDICAL",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "تخصصات الشبه طبي – PARAMEDICAL",
+    "catalog": "شبه طبي — تمريض وعلاج",
+    "note": "display-name difference (catalog uses short names)"
+   }
+  ]
+ },
+ {
+  "catalogId": "sage-femme",
+  "kbId": "sage-femme",
+  "sectionId": "Sage-Femme",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "قابلة الصحة العمومية – Sage Femme",
+    "catalog": "قابلة / توليد",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "avg",
+    "severity": "review",
+    "html": 16.89,
+    "catalog": 12.5,
+    "htmlAllNumbers": [
+     15.35,
+     15.38,
+     15.58,
+     15.87,
+     16.17,
+     16.75,
+     16.77,
+     16.89
+    ],
+    "htmlRawText": "الجزائر العاصمة: 15.38 – 16.89 قسنطينة: 15.58 – 16.77 وهران: 15.35 – 16.17 باتنة: 15.87 – 16.75 📌 المعدلات في الشمال الكبرى تتراوح بين 15.35 و16.89. | احسب معدلك",
+    "note": "html max acceptance number vs catalog avg — html likely carries newer 2025 thresholds"
+   }
+  ]
+ },
+ {
+  "catalogId": "pharm-ind",
+  "kbId": "pharmacie-industrielle",
+  "sectionId": "PHARMACIE-INDUSTRIELLE",
+  "matchedVia": "alias",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "تخصص الصيدلة الصناعية – PHARMACIE INDUSTRIELLE",
+    "catalog": "صيدلة صناعية",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "avg",
+    "severity": "review",
+    "html": 16.68,
+    "catalog": 12.8,
+    "htmlAllNumbers": [
+     15.41,
+     16.11,
+     16.19,
+     16.68
+    ],
+    "htmlRawText": "🧪 الصيدلة الصناعية: 16.19 / 16.68 🧪 أعوان صيدلة: 15.41 / 16.11 📌 يُحسب بالمعدل العام أو الموزون | 🏫 متوفر فقط في جامعة علوم الصحة (الزيانية – الجزائر العاصمة) | 👥 عدد الطلبة محدود: أقل من 450 طالب | احسب معدلك الموزون",
+    "note": "html max acceptance number vs catalog avg — html likely carries newer 2025 thresholds"
+   }
+  ]
+ },
+ {
+  "catalogId": "vet",
+  "kbId": "vetrinaire",
+  "sectionId": "vetrinaire",
+  "matchedVia": "alias",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "تخصص الطب البيطري – Vétérinaire",
+    "catalog": "طب بيطري",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "avg",
+    "severity": "review",
+    "html": 16.11,
+    "catalog": 12.26,
+    "htmlAllNumbers": [
+     12.26,
+     12.92,
+     13.3,
+     14.02,
+     14.21,
+     14.76,
+     14.97,
+     15.3,
+     15.95,
+     16.11
+    ],
+    "htmlRawText": "📍المدرسة العليا للبيطرة (الجزائر العاصمة): 15.30 / 16.11 | 📍جامعة البليدة: 14.21 / 14.97 | 📍جامعة قسنطينة: 14.02 / 14.76 | 📍جامعة معسكر: 12.26 / 12.92 | 📍جامعة الطارف: 13.30 | ⚠️ تقني رياضي: حتى 15.95 | احسب معدلك",
+    "note": "html max acceptance number vs catalog avg — html likely carries newer 2025 thresholds"
+   }
+  ]
+ },
+ {
+  "catalogId": "med-bio",
+  "kbId": "med-bio",
+  "sectionId": "MED-BIO",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "تخصص مزدوج طب + بيولوجيا – Médecine & Biologie",
+    "catalog": "علوم طبية بيولوجية",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "category",
+    "severity": "review",
+    "html": "double",
+    "catalog": "medical"
+   },
+   {
+    "field": "avg",
+    "severity": "review",
+    "html": 18.54,
+    "catalog": 16.65,
+    "htmlAllNumbers": [
+     18.19,
+     18.54
+    ],
+    "htmlRawText": "📅 أول دفعة (2024): 18.54 | 📅 ثاني دفعة (2025): 18.19 | الشعب المقبولة : علوم تجريبية + رياضيات بنفس الأولوية | 📌 المعدل في انخفاض تدريجي مع توسّع الدفعات — لكن يبقى من بين أعلى المعدلات. | احسب معدلك الموزون",
+    "note": "html max acceptance number vs catalog avg — html likely carries newer 2025 thresholds"
+   }
+  ]
+ },
+ {
+  "catalogId": "med-info",
+  "kbId": "med-info",
+  "sectionId": "MED-INFO",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "تخصص مزدوج طب + إعلام آلي – Médecine & Informatique",
+    "catalog": "معلوماتية طبية",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "category",
+    "severity": "review",
+    "html": "double",
+    "catalog": "medical"
+   },
+   {
+    "field": "avg",
+    "severity": "review",
+    "html": 18.54,
+    "catalog": 10.04,
+    "htmlAllNumbers": [
+     16.0,
+     17.5,
+     18.0,
+     18.54
+    ],
+    "htmlRawText": "📋 الشرط الأدنى الرسمي (الوزارة): معدل ≥ 16.00 | 📈 المعدل الحقيقي — جامعة بجاية: 18.54 | 📈 المعدل الحقيقي — باتنة / عنابة / سطيف: بين 17.50 و18.00 | 📌 المقاعد محدودة جداً في كل ولاية — التنافسية شديدة بين صفوة الطلبة. | احسب معدلك الموزون",
+    "note": "html max acceptance number vs catalog avg — html likely carries newer 2025 thresholds"
+   }
+  ]
+ },
+ {
+  "catalogId": "med-eco",
+  "kbId": "med-eco",
+  "sectionId": "MED-ECO",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "تخصص مزدوج: الطب + اقتصاد الصحة – MÉDECINE & ÉCONOMIE DE LA SANTÉ",
+    "catalog": "طب + اقتصاد الصحة (مسار مزدوج)",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "avg",
+    "severity": "review",
+    "html": 18.17,
+    "catalog": 13.74,
+    "htmlAllNumbers": [
+     16.31,
+     17.48,
+     18.0,
+     18.17
+    ],
+    "htmlRawText": "⚠️ التفوق هنا ماشي مجرد رقم على ورق — التخصص محجوز حصراً للنخبة: | 🔵 جامعة قسنطينة: علوم تجريبية / رياضيات → 18.00 | 🟡 جامعة سطيف: علوم تجريبية / رياضيات → 17.48 | تقني رياضي → 18.17 | 🟢 جامعة ورقلة: علوم تجريبية / رياضيات → 16.31 | احسب معدلك الموزون",
+    "note": "html max acceptance number vs catalog avg — html likely carries newer 2025 thresholds"
+   }
+  ]
+ },
+ {
+  "catalogId": "med-psy",
+  "kbId": "med-psy",
+  "sectionId": "MED-PSY",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "تخصص مزدوج: الطب + علم النفس العيادي – MÉDECINE & PSYCHOLOGIE CLINIQUE",
+    "catalog": "طب + علم النفس العيادي (مسار مزدوج)",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "avg",
+    "severity": "review",
+    "html": 18.25,
+    "catalog": 16.65,
+    "htmlAllNumbers": [
+     17.67,
+     18.25
+    ],
+    "htmlRawText": "شعبة علوم تجريبية / رياضيات: 17.67 | شعبة تقني رياضي: 18.25 | احسب معدلك الموزون",
+    "note": "html max acceptance number vs catalog avg — html likely carries newer 2025 thresholds"
+   }
+  ]
+ },
+ {
+  "catalogId": "essb",
+  "kbId": "essbo",
+  "sectionId": "ESSBO",
+  "matchedVia": "alias",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "المدرسة العليا للعلوم البيولوجية – ESSBO وهران",
+    "catalog": "المدرسة العليا للعلوم البيولوجية — وهران",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "avg",
+    "severity": "review",
+    "html": 16.0,
+    "catalog": 15.05,
+    "htmlAllNumbers": [
+     15.13,
+     16.0
+    ],
+    "htmlRawText": "📊 علوم تجريبية / رياضيات 2024: 15.13 | 📊 تقني رياضي 2024: 16.00 | 🔹 الشعب المقبولة: علوم تجريبية (أولوية)، رياضيات، تقني رياضي | احسب معدلك الموزون",
+    "note": "html max acceptance number vs catalog avg — html likely carries newer 2025 thresholds"
+   },
+   {
+    "field": "name_ar(kb)",
+    "severity": "info",
+    "html": "المدرسة العليا للعلوم البيولوجية – ESSBO وهران",
+    "kb": "المدرسة العليا للعلوم البيولوجية – ESSB وهران"
+   }
+  ]
+ },
+ {
+  "catalogId": "ensb",
+  "kbId": "ensb",
+  "sectionId": "ENSB",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "المدرسة العليا للبيوتكنولوجيا – ENSB",
+    "catalog": "المدرسة الوطنية العليا للتكنولوجيا الحيوية — قسنطينة",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "category",
+    "severity": "review",
+    "html": "science",
+    "catalog": "medical"
+   }
+  ]
+ },
+ {
+  "catalogId": "enssmal",
+  "kbId": "enssmal",
+  "sectionId": "ENSSMAL",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "المدرسة الوطنية العليا لعلوم البحر وتهيئة الساحل – ENSSMAL",
+    "catalog": "المدرسة الوطنية العليا للعلوم البحرية وتهيئة الساحل — الجزائر",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "category",
+    "severity": "review",
+    "html": "science",
+    "catalog": "medical"
+   }
+  ]
+ },
+ {
+  "catalogId": "info",
+  "kbId": "informatique",
+  "sectionId": "INFORMATIQUE",
+  "matchedVia": "alias",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "تخصص الإعلام الآلي – INFORMATIQUE",
+    "catalog": "إعلام آلي (LMD)",
+    "note": "display-name difference (catalog uses short names)"
+   }
+  ]
+ },
+ {
+  "catalogId": "math",
+  "kbId": "math",
+  "sectionId": "MATH",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "تخصص الرياضيات – MATH",
+    "catalog": "رياضيات",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "avg",
+    "severity": "review",
+    "html": 12.0,
+    "catalog": 10.0,
+    "htmlAllNumbers": [
+     12.0
+    ],
+    "htmlRawText": "في العادة يكون حوالي 12.00 أو أقل (لكن يختلف حسب الولايات والسنوات). ماش من التخصصات لي يتطلبو معدلات عالية، بصح يتطلب صبر و حب المادة.",
+    "note": "html max acceptance number vs catalog avg — html likely carries newer 2025 thresholds"
+   }
+  ]
+ },
+ {
+  "catalogId": "st",
+  "kbId": "st",
+  "sectionId": "ST",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "تخصص علوم وتكنولوجيا – ST",
+    "catalog": "علوم وتكنولوجيا (LMD)",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "category",
+    "severity": "review",
+    "html": "science",
+    "catalog": "engineering"
+   }
+  ]
+ },
+ {
+  "catalogId": "sm",
+  "kbId": "sm",
+  "sectionId": "SM",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "تخصص علوم المادة – SM",
+    "catalog": "علوم المادة — فيزياء وكيمياء",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "avg",
+    "severity": "review",
+    "html": 12.0,
+    "catalog": 10.57,
+    "htmlAllNumbers": [
+     10.0,
+     12.0
+    ],
+    "htmlRawText": "يختلف من ولاية لولاية، لكن غالباً يكون في حدود: 📌 بين 10.00 و 12.00 (حسب التوجيه، عدد المقاعد و الناجحين) | احسب معدلك الموزون",
+    "note": "html max acceptance number vs catalog avg — html likely carries newer 2025 thresholds"
+   }
+  ]
+ },
+ {
+  "catalogId": "bio",
+  "kbId": "biologie",
+  "sectionId": "BIOLOGIE",
+  "matchedVia": "alias",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "تخصص البيولوجيا – BIOLOGIE",
+    "catalog": "علوم الطبيعة والحياة",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "avg",
+    "severity": "review",
+    "html": 13.0,
+    "catalog": 15.05,
+    "htmlAllNumbers": [
+     10.0,
+     13.0
+    ],
+    "htmlRawText": "يتبدل حسب الجامعة وعدد المقاعد. غالبًا يكون المعدل بين 10.00 و13.00 حسب الشعب العلمية. الشعب المقبولة: علوم تجريبية، رياضيات، تقني رياضي. | احسب معدلك الموزون",
+    "note": "html max acceptance number vs catalog avg — html likely carries newer 2025 thresholds"
+   }
+  ]
+ },
+ {
+  "catalogId": "hydrocarbures",
+  "kbId": "hydrocarbures",
+  "sectionId": "HYDROCARBURES",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "تخصص المحروقات – HYDROCARBURES",
+    "catalog": "هندسة الطاقة والمحروقات",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "category",
+    "severity": "review",
+    "html": "science",
+    "catalog": "engineering"
+   },
+   {
+    "field": "avg",
+    "severity": "review",
+    "html": 15.5,
+    "catalog": 14.42,
+    "htmlAllNumbers": [
+     15.5
+    ],
+    "htmlRawText": "📌 عادةً ما تكون بين 13 إلى 16 حسب نوع التخصص والجامعة. مثال: في بومرداس (IGC) قد تصل إلى 15.5 أو أكثر. 🔸 الأولوية الأولى: شعبة رياضيات 🔸 الأولوية الثانية: شعبتي علوم تجريبية و تقني رياضي | احسب معدلك الموزون",
+    "note": "html max acceptance number vs catalog avg — html likely carries newer 2025 thresholds"
+   }
+  ]
+ },
+ {
+  "catalogId": "optique",
+  "kbId": "optique",
+  "sectionId": "Optique",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "تخصص البصريات وميكانيك الدقة – Optique & Mécanique",
+    "catalog": "بصريات وميكاترونيك",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "category",
+    "severity": "review",
+    "html": "science",
+    "catalog": "engineering"
+   },
+   {
+    "field": "avg",
+    "severity": "review",
+    "html": 15.97,
+    "catalog": 12.5,
+    "htmlAllNumbers": [
+     12.68,
+     13.81,
+     14.05,
+     14.35,
+     14.45,
+     14.7,
+     15.03,
+     15.97
+    ],
+    "htmlRawText": "💠 سطيف: زوج مسارات | Technologie des matériaux / Mécanique appliquée (A11IAN03): 14.35 (رياضيات/تقني رياضي/علوم تجريبية) | Tronc commun ST (A11LAN01): 12.68 (رياضيات/تقني رياضي/علوم تجريبية) | 💠 وهران: زوج مسارات | Optométrie – قياس وتصحيح البصر (A11TPN01): 15.03 (رياضيات/علوم تجريبية), 15.97 (تقني رياضي) | Métrologie et contrôle industriel – مراقبة الجودة (A11TPN04): 13.81 (رياضيات/علوم تجريبية),",
+    "note": "html max acceptance number vs catalog avg — html likely carries newer 2025 thresholds"
+   }
+  ]
+ },
+ {
+  "catalogId": "gp",
+  "kbId": "gp",
+  "sectionId": "GP",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "تخصص هندسة الطرائق – Génie des Procédés",
+    "catalog": "هندسة العمليات الكيميائية",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "category",
+    "severity": "review",
+    "html": "science",
+    "catalog": "engineering"
+   },
+   {
+    "field": "avg",
+    "severity": "review",
+    "html": 14.0,
+    "catalog": 10.21,
+    "htmlAllNumbers": [
+     11.0,
+     14.0
+    ],
+    "htmlRawText": "المعدل يختلف من جامعة لأخرى، بصح غالبا يكون بين 11.00 و 14.00 حسب الجامعة والنظام (كلاسيكي أو LMD). 📌 الشعب المقبولة: علوم تجريبية، رياضيات، تقني رياضي. | احسب معدلك الموزون",
+    "note": "html max acceptance number vs catalog avg — html likely carries newer 2025 thresholds"
+   }
+  ]
+ },
+ {
+  "catalogId": "gi",
+  "kbId": "gi",
+  "sectionId": "GI",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "تخصص الهندسة الصناعية – Génie Industriel",
+    "catalog": "هندسة صناعية",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "avg",
+    "severity": "review",
+    "html": 14.54,
+    "catalog": 11.19,
+    "htmlAllNumbers": [
+     11.81,
+     13.82,
+     14.54
+    ],
+    "htmlRawText": "📌 جامعة تلمسان: 11.81 | 📌 جامعة وهران – الأولوية 1 (رياضيات/تقني رياضي): 13.82 | 📌 جامعة وهران – الأولوية 2 (علوم تجريبية): 14.54 | احسب معدلك الموزون",
+    "note": "html max acceptance number vs catalog avg — html likely carries newer 2025 thresholds"
+   }
+  ]
+ },
+ {
+  "catalogId": "marine-eng",
+  "kbId": "marine",
+  "sectionId": "MARINE",
+  "matchedVia": "alias",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "تخصص الهندسة البحرية – Marine Engineering",
+    "catalog": "هندسة بحرية وأنظمة سفن",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "avg",
+    "severity": "review",
+    "html": 14.0,
+    "catalog": 13.0,
+    "htmlAllNumbers": [
+     13.0,
+     14.0
+    ],
+    "htmlRawText": "المعدل يتراوح بين 13.00 و 14.00 . الشعب المقبولة: علوم تجريبية، رياضيات، تقني رياضي. | احسب معدلك الموزون",
+    "note": "html max acceptance number vs catalog avg — html likely carries newer 2025 thresholds"
+   }
+  ]
+ },
+ {
+  "catalogId": "gt",
+  "kbId": "gt",
+  "sectionId": "GT",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "تخصص هندسة النقل – Génie du Transport",
+    "catalog": "هندسة النقل والمواصلات",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "avg",
+    "severity": "review",
+    "html": 11.68,
+    "catalog": 11.02,
+    "htmlAllNumbers": [
+     11.68
+    ],
+    "htmlRawText": "معدل القبول 11.68 لجميع الشعب العلمية: علوم تجريبية، رياضيات، تقني رياضي. | احسب معدلك الموزون",
+    "note": "html max acceptance number vs catalog avg — html likely carries newer 2025 thresholds"
+   }
+  ]
+ },
+ {
+  "catalogId": "gm",
+  "kbId": "gm",
+  "sectionId": "GM",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "تخصص هندسة التعدين – Génie Minier",
+    "catalog": "هندسة المناجم والجيولوجيا",
+    "note": "display-name difference (catalog uses short names)"
+   }
+  ]
+ },
+ {
+  "catalogId": "genie-civil",
+  "kbId": "gc",
+  "sectionId": "GC",
+  "matchedVia": "alias",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "تخصص الهندسة المدنية – Génie Civil",
+    "catalog": "هندسة مدنية",
+    "note": "display-name difference (catalog uses short names)"
+   }
+  ]
+ },
+ {
+  "catalogId": "gmec",
+  "kbId": "gmec",
+  "sectionId": "GMEC",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "تخصص الهندسة الميكانيكية – Génie Mécanique",
+    "catalog": "هندسة المواد والميكاترونيك",
+    "note": "display-name difference (catalog uses short names)"
+   }
+  ]
+ },
+ {
+  "catalogId": "droit",
+  "kbId": "droit",
+  "sectionId": "DROIT",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "تخصص الحقوق – Droit",
+    "catalog": "دراسات قانونية",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "avg",
+    "severity": "review",
+    "html": 13.2,
+    "catalog": 10.37,
+    "htmlAllNumbers": [
+     10.0,
+     12.18,
+     13.2
+    ],
+    "htmlRawText": "تخصص الحقوق متوفر في كل الولايات الكبرى والصغرى عبر الوطن، ومن أشهر كلياتها: كليات الحقوق بـ (سعيد حمدين) جامعة الجزائر 1، وهران، قسنطينة، سطيف، تيزي وزو، باتنة، وغرداية. | 📊 معدلات القبول: | 📌 الأولوية الأولى (آداب وفلسفة، لغات أجنبية، تسيير واقتصاد): يتراوح بين 10.00 و 12.18 حسب الجامعة | 📌 الأولوية الثانية (شعب علمية): يتطلب معدلات أعلى تصل إلى 13.20 | احسب معدلك الموزون",
+    "note": "html max acceptance number vs catalog avg — html likely carries newer 2025 thresholds"
+   }
+  ]
+ },
+ {
+  "catalogId": "traduction",
+  "kbId": "traduction",
+  "sectionId": "TRADUCTION",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "تخصص الترجمة – Traduction",
+    "catalog": "ترجمة ولسانيات",
+    "note": "display-name difference (catalog uses short names)"
+   }
+  ]
+ },
+ {
+  "catalogId": "commu",
+  "kbId": "commu",
+  "sectionId": "COMMU",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "تخصص علوم الإعلام والاتصال – Communication",
+    "catalog": "إعلام واتصال",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "avg",
+    "severity": "review",
+    "html": 13.5,
+    "catalog": 10.02,
+    "htmlAllNumbers": [
+     10.0,
+     13.5
+    ],
+    "htmlRawText": "📍 جامعة الجزائر 3 – أكبر معهد إعلام في الجزائر (INFOCOM) | 📍 جامعة قسنطينة 3 – علوم الإعلام والاتصال | 📍 جامعة وهران 1 – تخصص إعلام واتصال | 📍 جامعة عنابة – قسم إعلام واتصال نشيط | 📍 جامعة بجاية – تخصص إعلام واتصال | 📍 جامعة تيزي وزو – إعلام واتصال | ⚠️ المعدل بين 10.00 و 13.50 حسب الجامعة. الأولوية: آداب وفلسفة، لغات أجنبية، علوم تجريبية. | احسب معدلك الموزون",
+    "note": "html max acceptance number vs catalog avg — html likely carries newer 2025 thresholds"
+   }
+  ]
+ },
+ {
+  "catalogId": "langues",
+  "kbId": "langues",
+  "sectionId": "LANGUES",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "تخصص اللغات الأجنبية – Langues Étrangères",
+    "catalog": "لغة فرنسية",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "avg",
+    "severity": "review",
+    "html": 12.0,
+    "catalog": 10.58,
+    "htmlAllNumbers": [
+     9.0,
+     12.0
+    ],
+    "htmlRawText": "📍 جامعة الجزائر 2 (Bouzaréah) – فرنسي وإنجليزي وإسباني وألماني | 📍 جامعة وهران 1 – لغات متنوعة | 📍 جامعة قسنطينة 1 – فرنسي وإنجليزي | 📍 جامعة بجاية – فرنسي وإنجليزي | 📍 جامعة تلمسان وعنابة وسطيف – لغات أجنبية | 📍 التخصص متوفر في أغلب الجامعات الجزائرية | ⚠️ المعدل بين 09.00 و 12.00 حسب الجامعة. الأولوية: آداب وفلسفة، لغات أجنبية. مسموح أيضاً: علوم تجريبية، رياضيات. | احسب معدلك الموزون",
+    "note": "html max acceptance number vs catalog avg — html likely carries newer 2025 thresholds"
+   }
+  ]
+ },
+ {
+  "catalogId": "charia",
+  "kbId": "charia",
+  "sectionId": "CHARIA",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "تخصص العلوم الإسلامية – Sciences Islamiques",
+    "catalog": "الشريعة والقانون الإسلامي",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "avg",
+    "severity": "review",
+    "html": 16.42,
+    "catalog": 10.0,
+    "htmlAllNumbers": [
+     10.0,
+     11.26,
+     12.0,
+     12.21,
+     13.88,
+     16.11,
+     16.42
+    ],
+    "htmlRawText": "📍 جامعة الأمير عبد القادر: حوالي 11.26 للأولوية الأولى (أدبيين) و 12.21 للأولوية الثانية (علميين) | 📍 تخصص الإمامة (دار الإمام): حوالي 13.88 | 📍 أستاذ تعليم ثانوي (المدرسة العليا): حوالي 16.11 إلى 16.42 | 📍 الجامعات الأخرى: عموماً بين 10.00 و 12.00 | احسب معدلك الموزون",
+    "note": "html max acceptance number vs catalog avg — html likely carries newer 2025 thresholds"
+   }
+  ]
+ },
+ {
+  "catalogId": "sciences-po",
+  "kbId": "sciences-po",
+  "sectionId": "SCIENCES-PO",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "تخصص العلوم السياسية – Sciences Politiques",
+    "catalog": "علوم سياسية وعلاقات دولية",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "avg",
+    "severity": "review",
+    "html": 13.0,
+    "catalog": 10.0,
+    "htmlAllNumbers": [
+     10.0,
+     13.0
+    ],
+    "htmlRawText": "📍 جامعة الجزائر 3 – كلية العلوم السياسية والعلاقات الدولية (الأشهر) | 📍 جامعة قسنطينة 3 – علوم سياسية وعلاقات دولية | 📍 جامعة وهران 1 – قسم العلوم السياسية | 📍 جامعة بجاية – علوم سياسية | 📍 جامعة باتنة 1 – علوم سياسية | ⚠️ المعدل بين 10.00 و 13.00 . الأولوية: آداب وفلسفة، علوم تجريبية. مسموح أيضاً لبقية الشعب. | احسب معدلك الموزون",
+    "note": "html max acceptance number vs catalog avg — html likely carries newer 2025 thresholds"
+   }
+  ]
+ },
+ {
+  "catalogId": "sciences-hum",
+  "kbId": "sciences-hum",
+  "sectionId": "SCIENCES-HUM",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "تخصص العلوم الإنسانية – Sciences Humaines",
+    "catalog": "علوم إنسانية واجتماعية",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "avg",
+    "severity": "review",
+    "html": 11.5,
+    "catalog": 10.0,
+    "htmlAllNumbers": [
+     9.0,
+     11.5
+    ],
+    "htmlRawText": "📍 التاريخ: متوفر في جميع الجامعات – معدل بين 09.00 و 11.50 | 📍 الجغرافيا: متوفر في أغلب الجامعات – معدل مشابه | 📍 الآثار وعلم ما قبل التاريخ: جامعة الجزائر 2، جامعة وهران 1، جامعة قسنطينة 2 | 📍 علم المكتبات والتوثيق: جامعة الجزائر 1 (معهد علم المكتبات) | ⚠️ الأولوية: آداب وفلسفة. مسموح لجميع الشعب. | احسب معدلك الموزون",
+    "note": "html max acceptance number vs catalog avg — html likely carries newer 2025 thresholds"
+   }
+  ]
+ },
+ {
+  "catalogId": "med-ai",
+  "kbId": "med-ai",
+  "sectionId": "MED-AI",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "الذكاء الاصطناعي الطبي – Medical AI",
+    "catalog": "الطب والذكاء الاصطناعي",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "category",
+    "severity": "review",
+    "html": "engineering",
+    "catalog": "double"
+   }
+  ]
+ },
+ {
+  "catalogId": "it-int",
+  "kbId": "it-int",
+  "sectionId": "IT-INT",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "التشغيل البيني لأنظمة المعلومات – Interoperability",
+    "catalog": "معلوماتية وأعمال دولية",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "category",
+    "severity": "review",
+    "html": "engineering",
+    "catalog": "double"
+   }
+  ]
+ },
+ {
+  "catalogId": "space-tech",
+  "kbId": "space-tech",
+  "sectionId": "SPACE-TECH",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "تكنولوجيا الفضاء – Space Technology",
+    "catalog": "تكنولوجيا الفضاء والأقمار الصناعية",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "category",
+    "severity": "review",
+    "html": "engineering",
+    "catalog": "double"
+   }
+  ]
+ },
+ {
+  "catalogId": "digital-agro",
+  "kbId": "digital-agro",
+  "sectionId": "DIGITAL-AGRO",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "الهندسة الزراعية الرقمية – Digital Agronomy",
+    "catalog": "الزراعة الذكية والتكنولوجيا الرقمية",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "category",
+    "severity": "review",
+    "html": "engineering",
+    "catalog": "double"
+   }
+  ]
+ },
+ {
+  "catalogId": "quantum",
+  "kbId": "quantum",
+  "sectionId": "QUANTUM",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "الفيزياء الكمومية – Quantum Physics",
+    "catalog": "الفيزياء الكمية والحوسبة",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "category",
+    "severity": "review",
+    "html": "science",
+    "catalog": "double"
+   }
+  ]
+ },
+ {
+  "catalogId": "math-eco",
+  "kbId": "math-eco",
+  "sectionId": "MATH-ECO",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "تخصص مزدوج: رياضيات تطبيقية + علوم اقتصادية – APPLIED MATHEMATICS & ECONOMICS",
+    "catalog": "رياضيات تطبيقية + علوم اقتصادية (مسار مزدوج)",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "avg",
+    "severity": "review",
+    "html": 13.65,
+    "catalog": 10.0,
+    "htmlAllNumbers": [
+     12.29,
+     12.96,
+     13.0,
+     13.65
+    ],
+    "htmlRawText": "🔹 الأولوية 1 — رياضيات / تقني رياضي: شرط إضافي: نقطة الرياضيات في الباك ≥ 12/20 | 🔹 الأولوية 2 — علوم تجريبية، اقتصاد وتسيير، علوم تجارية | 📊 معدلات القبول 2025 (حسب الجامعة): | جامعة الجزائر 1 + جامعة الجزائر 3: 13.00 (أولوية 1) — 13.65 (أولوية 2) | جامعة المدية: 12.29 (أولوية 1) — 12.96 (أولوية 2) | جامعة الأغواط / المسيلة: قبول بالترتيب (لا يوجد حد أدنى محدد) | احسب معدلك الموزون",
+    "note": "html max acceptance number vs catalog avg — html likely carries newer 2025 thresholds"
+   }
+  ]
+ },
+ {
+  "catalogId": "tech-media",
+  "kbId": "tech-media",
+  "sectionId": "TECH-MEDIA",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "إعلام آلي + علوم الإعلام والاتصال - TECH-MEDIA & DIGITAL COMMUNICATIONS",
+    "catalog": "إعلام آلي + علوم الإعلام والاتصال (مسار مزدوج)",
+    "note": "display-name difference (catalog uses short names)"
+   }
+  ]
+ },
+ {
+  "catalogId": "eco",
+  "kbId": "eco",
+  "sectionId": "ECO",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "تخصص العلوم الاقتصادية – Sciences Économiques",
+    "catalog": "علوم اقتصادية وتسيير",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "avg",
+    "severity": "review",
+    "html": 17.31,
+    "catalog": 11.45,
+    "htmlAllNumbers": [
+     10.0,
+     10.08,
+     10.32,
+     10.35,
+     10.4,
+     10.56,
+     10.88,
+     10.98,
+     11.09,
+     11.45,
+     11.47,
+     11.54,
+     11.72,
+     12.06,
+     12.19,
+     12.2,
+     12.59,
+     12.73,
+     13.0,
+     13.43,
+     13.65,
+     13.74,
+     13.94,
+     14.21,
+     14.37,
+     14.89,
+     16.49,
+     17.31
+    ],
+    "htmlRawText": "📌 الثلاثة تخصصات (اقتصاد، تسيير، تجارة) تدخل كلها عبر جذع مشترك واحد: SEGC — السنة الأولى مشتركة بينهم. | 🔹 الأولوية 1 (تسيير واقتصاد): 10.00 – 10.98 موزون | 🔹 الأولوية 2 (رياضيات): 10.00 – 12.19 موزون | 🔹 الأولوية 3 (علوم تجريبية): 10.08 – 13.94 موزون | 📊 أمثلة من جامعات مختلفة (أرقام PROGRES الفعلية — P1 / P2 / P3): | 💠 جامعة قسنطينة 2: 10.88 / 12.06 / 13.43 | 💠 جامعة عنابة: 10.35 / 11.47 / 13.9",
+    "note": "html max acceptance number vs catalog avg — html likely carries newer 2025 thresholds"
+   },
+   {
+    "field": "name_ar(kb)",
+    "severity": "info",
+    "html": "تخصص العلوم الاقتصادية – Sciences Économiques",
+    "kb": "تخصص العلوم الاقتصادية"
+   }
+  ]
+ },
+ {
+  "catalogId": "kine",
+  "kbId": "kine",
+  "sectionId": "kiné",
+  "matchedVia": "kb-id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "مختص في العلاج الطبيعي و الفيزيائي – La kinésithérapie",
+    "catalog": "كيناسيولوجيا وإعادة التأهيل",
+    "note": "display-name difference (catalog uses short names)"
+   }
+  ]
+ },
+ {
+  "catalogId": "labo",
+  "kbId": "labo",
+  "sectionId": "labo",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "مخبري للصحة العمومية – Laborantin de santé publique",
+    "catalog": "تقنيات مخبرية طبية",
+    "note": "display-name difference (catalog uses short names)"
+   },
+   {
+    "field": "avg",
+    "severity": "review",
+    "html": 15.95,
+    "catalog": 12.0,
+    "htmlAllNumbers": [
+     11.96,
+     15.09,
+     15.52,
+     15.69,
+     15.93,
+     15.95
+    ],
+    "htmlRawText": "تتبدل من ولاية لولاية. بعض الأمثلة: 🔸 قسنطينة: 15.93 🔸 سطيف: 15.95 🔸 الجزائر: 15.69 🔸 بجاية: 15,09 🔸 وهران: 15.52 🔸 تمنراست: 11.96 (و القائمة طويلة.. المعدل يتراوح غالبا بين 12 و 17 حسب الولاية وعدد المناصب). | احسب معدلك",
+    "note": "html max acceptance number vs catalog avg — html likely carries newer 2025 thresholds"
+   }
+  ]
+ },
+ {
+  "catalogId": "radio",
+  "kbId": "radio",
+  "sectionId": "radio",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "مشغل أجهزة التصوير الطبي للصحة العمومية – Radio",
+    "catalog": "تقنيات أشعة وتصوير طبي",
+    "note": "display-name difference (catalog uses short names)"
+   }
+  ]
+ },
+ {
+  "catalogId": "isp",
+  "kbId": "isp",
+  "sectionId": "isp",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "ممرض الصحة العمومية – Infirmier de Santé Publique",
+    "catalog": "ممرض الصحة العمومية — وطني",
+    "note": "display-name difference (catalog uses short names)"
+   }
+  ]
+ },
+ {
+  "catalogId": "psychomotricien",
+  "kbId": "psychomotricien",
+  "sectionId": "Psychomotricien",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "مقومو الحركة النفسية للصحة العمومية – Psychomotricien",
+    "catalog": "مقوم الحركة النفسية — وطني",
+    "note": "display-name difference (catalog uses short names)"
+   }
+  ]
+ },
+ {
+  "catalogId": "dental-prosthetist",
+  "kbId": "dental-prosthetist",
+  "sectionId": "dental-prosthetist",
+  "matchedVia": "id",
+  "conflicts": [
+   {
+    "field": "name",
+    "severity": "info",
+    "html": "مرمم الأسنان للصحة العمومية – Prothésiste Dentaire",
+    "catalog": "مرمم الأسنان للصحة العمومية — وطني",
+    "note": "display-name difference (catalog uses short names)"
+   }
+  ]
+ }
+]
