@@ -82,8 +82,16 @@
     range.value = profile.average;
     $('#avgValue').textContent = Number(profile.average).toFixed(2);
     // select (wilaya stored as {num, ar})
-    $('#wilayaSelect').value = profile.wilaya && profile.wilaya.num != null
-      ? String(profile.wilaya.num) : '';
+    const wVal = profile.wilaya && profile.wilaya.num != null ? String(profile.wilaya.num) : '';
+    $('#wilayaSelect').value = wVal;
+    const wTriggerText = $('.custom-select-trigger .trigger-text');
+    if (wTriggerText) {
+      const activeOpt = $$('.custom-option').find(o => o.dataset.value === wVal);
+      wTriggerText.textContent = activeOpt ? activeOpt.textContent : 'اختر ولايتك…';
+    }
+    $$('.custom-option').forEach(o => {
+      o.classList.toggle('selected', o.dataset.value === wVal);
+    });
     // text
     $('#ambitionText').value = profile.ambitionText || '';
   }
@@ -145,27 +153,89 @@
 
   /* ---- Select (wilaya) — populated from the clean 58-wilaya master list ---- */
   const wilayaSelect = $('#wilayaSelect');
+  const wilayaOptions = $('#wilayaOptions');
+  const wilayaTrigger = $('#wilayaTrigger');
+  const customSelect = $('.custom-select-container');
+
   // Populate options from eligibility.js (window.twWilayaList) when available.
   (function populateWilayas() {
     const list = (window.twWilayaList ? window.twWilayaList() : []) || [];
     if (!list.length) return; // keep static fallback if list unavailable
+    
     const frag = document.createDocumentFragment();
+    const customFrag = document.createDocumentFragment();
+
     list.forEach(w => {
+      // 1. Native Select Option
       const opt = document.createElement('option');
       opt.value = String(w.num);
       opt.textContent = w.ar;
       frag.appendChild(opt);
+
+      // 2. Custom Option Div
+      const div = document.createElement('div');
+      div.className = 'custom-option';
+      div.dataset.value = String(w.num);
+      div.textContent = w.ar;
+      customFrag.appendChild(div);
     });
+    
     wilayaSelect.appendChild(frag);
+    if (wilayaOptions) wilayaOptions.appendChild(customFrag);
   })();
+
   const wilayaName = (num) =>
-    window.twWilayaName ? window.twWilayaName(num) : (wilayaSelect.selectedOptions[0]?.textContent || '');
+    window.twWilayaName ? window.twWilayaName(num) : (wilayaSelect.querySelector(`option[value="${num}"]`)?.textContent || '');
+
   wilayaSelect.addEventListener('change', () => {
     const num = parseInt(wilayaSelect.value, 10);
-    profile.wilaya = isNaN(num) ? null : { num, ar: wilayaName(num) || wilayaSelect.selectedOptions[0]?.textContent || '' };
+    profile.wilaya = isNaN(num) ? null : { num, ar: wilayaName(num) };
     clearError(steps[2]);
     save();
   });
+
+  // Custom dropdown event handling
+  if (wilayaTrigger && wilayaOptions && wilayaSelect) {
+    wilayaTrigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      customSelect?.classList.toggle('open');
+      wilayaOptions.classList.toggle('open');
+    });
+
+    // Delegate option clicks
+    wilayaOptions.addEventListener('click', (e) => {
+      const opt = e.target.closest('.custom-option');
+      if (!opt) return;
+      e.stopPropagation();
+
+      const val = opt.dataset.value;
+      
+      // Update native select
+      wilayaSelect.value = val;
+      
+      // Update trigger text
+      const triggerText = wilayaTrigger.querySelector('.trigger-text');
+      if (triggerText) triggerText.textContent = opt.textContent;
+
+      // Update selected class
+      wilayaOptions.querySelectorAll('.custom-option').forEach(o => {
+        o.classList.toggle('selected', o === opt);
+      });
+
+      // Close dropdown
+      customSelect?.classList.remove('open');
+      wilayaOptions.classList.remove('open');
+
+      // Trigger change event and validation
+      wilayaSelect.dispatchEvent(new Event('change'));
+    });
+
+    // Close on click outside
+    document.addEventListener('click', () => {
+      customSelect?.classList.remove('open');
+      wilayaOptions.classList.remove('open');
+    });
+  }
 
   /* ---- Free text (ambition) ---- */
   const ambitionText = $('#ambitionText');

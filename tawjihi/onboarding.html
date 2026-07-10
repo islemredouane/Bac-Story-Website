@@ -97,12 +97,20 @@
                 <p class="ob-kicker"><i class="fas fa-location-dot"></i> أين تسكن</p>
                 <h1 class="ob-q">من واش ولاية راك؟</h1>
                 <p class="ob-hint">باش نرشدك للجامعات والمدارس القريبة منك ونحسبو الإقامة.</p>
-                <div class="ob-select-wrap">
+                <div class="ob-select-wrap custom-select-container">
                     <i class="fas fa-map-location-dot"></i>
-                    <select class="ob-select" id="wilayaSelect" data-field="wilaya">
+                    <div class="ob-select custom-select-trigger" id="wilayaTrigger">
+                        <span class="trigger-text">اختر ولايتك…</span>
+                    </div>
+                    <i class="fas fa-chevron-down ob-select-arrow"></i>
+                    
+                    <div class="custom-select-options" id="wilayaOptions">
+                        <div class="custom-option selected" data-value="">اختر ولايتك…</div>
+                    </div>
+
+                    <select id="wilayaSelect" data-field="wilaya" style="display: none;">
                         <option value="">اختر ولايتك…</option>
                     </select>
-                    <i class="fas fa-chevron-down ob-select-arrow"></i>
                 </div>
                 <p class="ob-error" data-error>اختر ولايتك من القائمة 🙂</p>
             </section>

@@ -52,6 +52,7 @@
 
 /* ---- Topbar ---- */
 .ob-topbar {
+    --topbar-h: 64px;
     height: calc(var(--topbar-h) + env(safe-area-inset-top, 0px));
     padding-top: env(safe-area-inset-top, 0px);
     display: flex; align-items: center; justify-content: space-between;
@@ -562,4 +563,79 @@
     font-weight: 700;
     color: rgba(255,255,255,.65);
     animation: rise var(--t-slow) var(--ease-out) 0.9s both;
+}
+
+/* ── Onboarding Custom Select ── */
+.custom-select-container {
+    position: relative;
+}
+.custom-select-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+    width: 100%;
+}
+.custom-select-options {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    max-height: 240px;
+    overflow-y: auto;
+    background: rgba(10, 24, 64, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--r-md);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: opacity 0.25s var(--ease), transform 0.25s var(--ease);
+}
+.custom-select-options.open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+.custom-option {
+    padding: 0.75rem 1.25rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: var(--fs-md);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--t-fast);
+    text-align: right;
+}
+.custom-option:hover {
+    background: rgba(44, 92, 197, 0.3);
+    color: #fff;
+}
+.custom-option.selected {
+    background: rgba(44, 92, 197, 0.5);
+    color: #fff;
+    font-weight: 700;
+}
+.ob-select-arrow {
+    transition: transform var(--t-fast) var(--ease);
+}
+.custom-select-container.open .ob-select-arrow {
+    transform: rotate(180deg);
+}
+
+/* Custom Scrollbar for Onboarding select options */
+.custom-select-options::-webkit-scrollbar {
+    width: 6px;
+}
+.custom-select-options::-webkit-scrollbar-track {
+    background: transparent;
+}
+.custom-select-options::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 99px;
+}
+.custom-select-options::-webkit-scrollbar-thumb:hover {
+    background: rgba(44, 92, 197, 0.6);
 }
