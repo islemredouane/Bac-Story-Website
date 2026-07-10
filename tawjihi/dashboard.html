@@ -206,7 +206,14 @@ async function loadDashboardData() {
         ]);
 
         if (profileRes.status === 'fulfilled' && profileRes.value.ok) {
-          profile = await profileRes.value.json();
+          const dbProfile = await profileRes.value.json();
+          profile = {
+            ...dbProfile,
+            weightedAverages: dbProfile.weighted_averages || dbProfile.weightedAverages || {}
+          };
+          if (Object.keys(profile.weightedAverages).length > 0) {
+            profile.averagesSource = 'bacstory-import';
+          }
           localStorage.setItem('tw-profile', JSON.stringify(profile));
         }
         if (wishRes.status === 'fulfilled' && wishRes.value.ok) {
@@ -503,7 +510,10 @@ function renderNudges(profile, wishIds) {
             const { data: { session } } = await tw_supabase.auth.getSession();
             if (!session) return;
             const token = session.access_token;
-            const body = { average: profile.average };
+            const body = { 
+                average: profile.average,
+                weighted_averages: profile.weightedAverages
+            };
             const label = IMPORT_STREAM_LABELS[profile.stream];
             if (label) body.stream = label;
             await fetch('/api/tawjihi-profile', {

@@ -68,7 +68,7 @@ export default async function handler(req, res) {
   // POST — upsert the user's profile
   if (req.method === 'POST') {
     try {
-      const { stream, average, wilaya, interests, ambition, ambition_text, completed } = req.body || {};
+      const { stream, average, wilaya, interests, ambition, ambition_text, completed, weighted_averages } = req.body || {};
 
       // Validate stream if provided
       if (stream !== undefined && !VALID_STREAMS.includes(stream)) {
@@ -101,6 +101,7 @@ export default async function handler(req, res) {
       if (ambition !== undefined) updates.ambition = ambition;
       if (ambition_text !== undefined) updates.ambition_text = ambition_text;
       if (completed !== undefined) updates.completed = completed;
+      if (weighted_averages !== undefined) updates.weighted_averages = weighted_averages;
 
       const { error } = await adminSupabase
         .from('profiles')
