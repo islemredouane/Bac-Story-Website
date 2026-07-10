@@ -372,7 +372,40 @@
 
 /* ---- Import averages from BAC Story ---- */
 .dash-card-import { --card-theme: var(--primary); }
+/* ---- Premium Buttons for Dashboard ---- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-2);
+    padding: 0.75rem 1.5rem;
+    font-family: inherit;
+    font-size: var(--fs-sm);
+    font-weight: 700;
+    border-radius: var(--r-md);
+    border: none;
+    cursor: pointer;
+    transition: transform var(--t-fast) var(--ease-out), box-shadow var(--t-fast) var(--ease-out), background-color var(--t-fast) var(--ease-out);
+    text-decoration: none;
+}
+.btn-primary {
+    background: var(--primary);
+    color: #fff;
+    box-shadow: 0 4px 14px color-mix(in srgb, var(--primary) 25%, transparent);
+}
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px color-mix(in srgb, var(--primary) 40%, transparent);
+    color: #fff;
+}
+.btn-primary:active {
+    transform: translateY(0);
+}
+
 /* ---- Academic Profile (Import Card) ---- */
+.dash-card-academic {
+    background: linear-gradient(135deg, var(--surface) 0%, color-mix(in srgb, var(--primary) 4%, var(--surface)) 100%) !important;
+}
 .dash-academic-empty[hidden],
 .dash-academic-filled[hidden] {
     display: none !important;
@@ -383,6 +416,7 @@
     align-items: flex-start;
     position: relative;
     z-index: 1;
+    gap: var(--sp-3);
 }
 .dash-academic-filled {
     display: flex;
