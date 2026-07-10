@@ -1338,8 +1338,9 @@
     }
 
     .mtb-logo-link {
-        display: flex;
+        display: inline-flex;
         align-items: center;
+        height: 100%;
         gap: 0.45rem;
         text-decoration: none;
         color: var(--primary) !important;
