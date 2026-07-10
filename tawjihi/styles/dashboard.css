@@ -373,12 +373,28 @@
 /* ---- Import averages from BAC Story ---- */
 .dash-card-import { --card-theme: var(--primary); }
 /* ---- Academic Profile (Import Card) ---- */
-.dash-academic-empty { display: flex; flex-direction: column; }
-.dash-academic-filled { display: flex; flex-direction: column; }
+.dash-academic-empty[hidden],
+.dash-academic-filled[hidden] {
+    display: none !important;
+}
+.dash-academic-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    z-index: 1;
+}
+.dash-academic-filled {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+}
 .dash-academic-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
     gap: var(--sp-3);
+    width: 100%;
 }
 .dash-academic-stat {
     background: var(--surface-2);
