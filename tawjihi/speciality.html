@@ -61,11 +61,8 @@
                 <header class="detail-header" id="specHeader">
                     <span class="detail-eyebrow" id="specEyebrow"><i class="fas fa-compass"></i> جاري التحميل…</span>
                     <h1 id="specTitle">—</h1>
-                    <div class="detail-chips" id="specChips"></div>
-                    <div class="detail-actions" id="specActions">
-                        <a class="btn btn-primary" href="app.html"><i class="fas fa-comments"></i> اسأل المرشد عن هذا التخصص</a>
-                        <button class="btn btn-outline" id="wishBtn" type="button"><i class="fas fa-heart"></i> أضف لبطاقة رغباتي</button>
-                    </div>
+                    <div class="detail-stats-grid" id="specStatsGrid"></div>
+                    <button class="btn-wishlist" id="wishBtn" type="button"><i class="fas fa-heart"></i> أضف لبطاقة رغباتي</button>
                 </header>
 
                 <!-- ===== BODY GRID ===== -->
@@ -199,26 +196,25 @@
   document.getElementById('specTitle').innerHTML =
     `${spec.name} <span class="detail-en">· ${spec.nameEn}</span>`;
 
-  /* ---- CHIPS ---- */
-  // Demand badge color
-  const demandColor = spec.demand === 'مرتفع جداً'
-    ? 'color:var(--danger,#ef4444);background:color-mix(in srgb,#ef4444 12%,transparent);border-color:color-mix(in srgb,#ef4444 30%,transparent)'
-    : spec.demand === 'مرتفع'
-    ? 'color:var(--warning,#f59e0b);background:color-mix(in srgb,#f59e0b 12%,transparent);border-color:color-mix(in srgb,#f59e0b 30%,transparent)'
-    : 'color:var(--success,#10b981);background:color-mix(in srgb,#10b981 12%,transparent);border-color:color-mix(in srgb,#10b981 30%,transparent)';
-
-  const lmdBadge = spec.lmd
-    ? `<span class="detail-chip" style="color:var(--accent,#8b5cf6);background:color-mix(in srgb,#8b5cf6 12%,transparent);border-color:color-mix(in srgb,#8b5cf6 30%,transparent)"><i class="fas fa-university"></i> نظام LMD</span>`
-    : '';
-
-  document.getElementById('specChips').innerHTML = `
-    <span class="detail-chip accent"><i class="fas fa-percent"></i> معدل القبول 2025 (مرجعي) ~ ${(spec.avg || 0).toFixed(2)}</span>
-    <span class="detail-chip" style="${demandColor}"><i class="fas fa-fire"></i> الطلب: ${spec.demand}</span>
-    <span class="detail-chip"><i class="fas fa-clock"></i> ${spec.duration}</span>
-    <span class="detail-chip"><i class="fas fa-language"></i> ${spec.language}</span>
-    <span class="detail-chip"><i class="fas fa-certificate"></i> ${spec.degree}</span>
-    <span class="detail-chip"><i class="fas fa-location-dot"></i> ${spec.location}</span>
-    ${lmdBadge}`;
+  /* ---- STATS GRID ---- */
+  document.getElementById('specStatsGrid').innerHTML = `
+    <div class="detail-stat-card accent">
+      <div class="detail-stat-label"><i class="fas fa-percent"></i> معدل القبول (مرجعي)</div>
+      <div class="detail-stat-value">~ ${(spec.avg || 0).toFixed(2)}</div>
+    </div>
+    <div class="detail-stat-card">
+      <div class="detail-stat-label"><i class="fas fa-clock"></i> مدة الدراسة</div>
+      <div class="detail-stat-value">${spec.duration}</div>
+    </div>
+    <div class="detail-stat-card">
+      <div class="detail-stat-label"><i class="fas fa-language"></i> لغة التدريس</div>
+      <div class="detail-stat-value">${spec.language}</div>
+    </div>
+    <div class="detail-stat-card">
+      <div class="detail-stat-label"><i class="fas fa-certificate"></i> الشهادة</div>
+      <div class="detail-stat-value">${spec.degree}</div>
+    </div>
+  `;
 
   /* ---- DESCRIPTION ---- */
   const desc = Array.isArray(spec.description) ? spec.description : [];
@@ -480,13 +476,6 @@
     wishBtn.innerHTML = inWish
       ? '<i class="fas fa-check"></i> في بطاقة رغباتك'
       : '<i class="fas fa-heart"></i> أضف لبطاقة رغباتي';
-
-    const stickyWish = document.getElementById('stickyWishBtn');
-    if (stickyWish) {
-      stickyWish.classList.toggle('is-added', inWish);
-      stickyWish.querySelector('span').textContent = inWish ? 'في الرغبات' : 'أضف للرغبات';
-      stickyWish.querySelector('i').className = inWish ? 'fas fa-check' : 'fas fa-heart';
-    }
   };
   syncWishBtn();
 
@@ -593,7 +582,7 @@
   })();
 
   /* ---- "Ask AI" cross-link: pre-fill chat with spec name ---- */
-  document.querySelectorAll('a[href="app.html"]').forEach(link => {
+  document.querySelectorAll('a[href="app.html"], a.floating-ask-btn').forEach(link => {
     link.addEventListener('click', e => {
       e.preventDefault();
       const q = `أعطني معلومات تفصيلية عن ${spec.name}${spec.nameEn ? ' (' + spec.nameEn + ')' : ''}`;
@@ -601,43 +590,12 @@
       location.href = 'app.html';
     });
   });
-
-  /* ---- Sticky actions trigger & sync click events ---- */
-  const stickyWishBtn = document.getElementById('stickyWishBtn');
-  if (stickyWishBtn) {
-    stickyWishBtn.addEventListener('click', () => {
-      wishBtn.click();
-    });
-  }
-
-  const specActions = document.getElementById('specActions');
-  const stickyBar = document.getElementById('stickyActionBar');
-  if (specActions && stickyBar) {
-    const obs = new IntersectionObserver((entries) => {
-      const entry = entries[0];
-      if (!entry.isIntersecting) {
-        stickyBar.classList.add('is-visible');
-      } else {
-        stickyBar.classList.remove('is-visible');
-      }
-    }, { threshold: 0, rootMargin: '0px 0px -50px 0px' });
-    obs.observe(specActions);
-  }
 })();
 </script>
 
-<!-- Sticky Bottom Action Bar for Mobile Viewports -->
-<div class="sticky-action-bar" id="stickyActionBar">
-    <div class="sab-container">
-        <button class="sab-btn sab-btn-wish" id="stickyWishBtn" type="button">
-            <i class="fas fa-heart"></i>
-            <span>أضف للرغبات</span>
-        </button>
-        <a class="sab-btn sab-btn-primary" id="stickyAskBtn" href="app.html">
-            <i class="fas fa-comments"></i>
-            <span>اسأل المرشد</span>
-        </a>
-    </div>
-</div>
+<!-- Floating Ask AI Button -->
+<a href="app.html" class="floating-ask-btn" id="floatingAskBtn" aria-label="اسأل المرشد">
+    <i class="fas fa-comments"></i>
+</a>
 </body>
 </html>

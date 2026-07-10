@@ -329,18 +329,39 @@
 
 /* =====================================================
    DETAIL PAGE
-   ===================================================== */
-.detail-back {
-    display: inline-flex;
+   ====================================================.detail-back {
+    display: none !important; /* Hidden because mobile topbar handles it */
+}
+
+/* Mobile topbar customized for speciality details */
+.mtb-back-link {
+    display: flex;
     align-items: center;
-    gap: var(--sp-2);
-    font-size: var(--fs-sm);
-    font-weight: 600;
+    gap: 0.35rem;
+    text-decoration: none;
     color: var(--text-muted);
-    margin-bottom: var(--sp-4);
+    font-weight: 800;
+    font-size: var(--fs-sm);
     transition: color var(--t-fast);
 }
-.detail-back:hover { color: var(--primary); }
+.mtb-back-link:hover {
+    color: var(--primary);
+}
+.mtb-back-link i {
+    font-size: 1rem;
+}
+.mtb-page-title {
+    font-family: var(--font-display);
+    font-size: var(--fs-md);
+    font-weight: 800;
+    color: var(--text);
+    justify-self: center;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 15ch;
+}
 
 .detail-header {
     position: relative; overflow: hidden;
@@ -348,10 +369,12 @@
     border: 1px solid rgba(44, 92, 197, 0.3);
     border-top: 4px solid var(--cat, var(--primary));
     border-radius: var(--r-lg);
-    padding: var(--sp-6) var(--sp-5);
+    padding: var(--sp-5);
     box-shadow: 0 12px 40px rgba(7, 19, 54, 0.4);
     animation: rise var(--t-slow) var(--ease-out) both;
     color: #fff;
+    display: flex;
+    flex-direction: column;
 }
 /* Ambient glow */
 .detail-header::before {
@@ -374,75 +397,125 @@
     border: 1px solid rgba(91, 134, 232, 0.3);
     padding: 5px 14px;
     border-radius: var(--r-pill);
+    align-self: flex-start;
 }
 .detail-header h1 {
     font-family: var(--font-display);
-    font-size: var(--fs-2xl);
-    line-height: 1.25;
+    font-size: var(--fs-xl);
+    line-height: 1.3;
     margin-top: var(--sp-3);
     color: #fff;
     background: linear-gradient(135deg, #ffffff 0%, #a8c4f8 70%, #7da4f0 100%);
     -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
 }
-.detail-header .detail-en { color: rgba(168, 196, 248, 0.65); font-size: var(--fs-md); font-weight: 600; }
+.detail-header .detail-en { color: rgba(168, 196, 248, 0.65); font-size: var(--fs-sm); font-weight: 600; display: block; margin-top: 2px; }
 
-.detail-chips { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-top: var(--sp-4); }
-.detail-chip {
-    display: inline-flex;
+/* Clean modern stats grid */
+.detail-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: var(--sp-3);
+    margin-top: var(--sp-4);
+}
+.detail-stat-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--r-md);
+    padding: var(--sp-3);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+.detail-stat-card.accent {
+    background: linear-gradient(135deg, rgba(44,92,197,0.35), rgba(61,110,224,0.25));
+    border-color: rgba(91, 134, 232, 0.4);
+}
+.detail-stat-label {
+    font-size: var(--fs-xs);
+    color: rgba(168, 196, 248, 0.7);
+    font-weight: 700;
+    display: flex;
     align-items: center;
     gap: var(--sp-2);
-    font-size: var(--fs-sm);
-    font-weight: 700;
-    padding: var(--sp-2) var(--sp-4);
-    border-radius: var(--r-pill);
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    color: rgba(232, 235, 243, 0.9);
 }
-/* The admission threshold chip — big and prominent */
-.detail-chip.accent {
-    background: linear-gradient(135deg, rgba(44,92,197,0.45), rgba(61,110,224,0.35));
-    border-color: rgba(91, 134, 232, 0.5);
+.detail-stat-value {
+    font-size: var(--fs-sm);
+    font-weight: 800;
+    color: #ffffff;
+}
+.detail-stat-card.accent .detail-stat-value {
     color: #a8c4f8;
     font-size: var(--fs-md);
-    font-weight: 800;
-    padding: var(--sp-2) var(--sp-5);
-    box-shadow: 0 4px 16px rgba(44, 92, 197, 0.3);
 }
 
-.detail-actions { display: flex; flex-wrap: wrap; gap: var(--sp-3); margin-top: var(--sp-5); }
-.btn {
+/* Wishlist pill button inside header */
+.btn-wishlist {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: var(--sp-2);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    color: #e8ebf3;
     font-weight: 700;
     font-size: var(--fs-sm);
-    padding: var(--sp-3) var(--sp-5);
+    padding: 10px 22px;
     border-radius: var(--r-pill);
-    transition: transform var(--t-fast) var(--ease), box-shadow var(--t-fast), background var(--t-fast);
-}
-.btn-primary {
-    background: linear-gradient(135deg, #2c5cc5 0%, #3d6ee0 100%);
-    color: #fff;
-    box-shadow: 0 4px 16px rgba(44, 92, 197, 0.4);
-}
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(44, 92, 197, 0.5); }
-/* Outlined button on dark hero background */
-.btn-outline {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1.5px solid rgba(255, 255, 255, 0.25);
-    color: #e8ebf3;
+    cursor: pointer;
+    transition: background var(--t-fast), border-color var(--t-fast), transform var(--t-fast);
+    margin-top: var(--sp-4);
     backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    align-self: flex-start;
 }
-.btn-outline:hover {
-    background: rgba(255, 255, 255, 0.18);
-    border-color: rgba(255, 255, 255, 0.4);
+.btn-wishlist:hover {
+    background: rgba(255, 255, 255, 0.16);
+    border-color: rgba(255, 255, 255, 0.35);
     color: #fff;
 }
-.btn-outline.is-added {
-    background: color-mix(in srgb, var(--acc-safe) 18%, rgba(0,0,0,0.1));
-    border-color: color-mix(in srgb, var(--acc-safe) 45%, transparent);
+.btn-wishlist:active {
+    transform: scale(0.97);
+}
+.btn-wishlist.is-added {
+    background: color-mix(in srgb, var(--acc-safe) 20%, rgba(0,0,0,0.1));
+    border-color: color-mix(in srgb, var(--acc-safe) 50%, transparent);
     color: var(--acc-safe);
+}
+
+/* Floating Ask AI Button */
+.floating-ask-btn {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    z-index: 100;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--grad-brand);
+    color: #fff !important;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 8px 32px rgba(44, 92, 197, 0.45);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: transform var(--t-fast) var(--ease), box-shadow var(--t-fast);
+    animation: fabPulse 2.5s infinite, rise var(--t-slow) var(--ease-out) both;
+}
+.floating-ask-btn i {
+    font-size: 1.45rem;
+}
+.floating-ask-btn:hover {
+    transform: scale(1.08) translateY(-2px);
+    box-shadow: 0 12px 40px rgba(44, 92, 197, 0.6);
+}
+.floating-ask-btn:active {
+    transform: scale(0.95);
+}
+@keyframes fabPulse {
+    0%, 100% { box-shadow: 0 8px 32px rgba(44, 92, 197, 0.45); }
+    50% { box-shadow: 0 8px 32px rgba(44, 92, 197, 0.45), 0 0 0 10px color-mix(in srgb, var(--primary) 22%, transparent); }
 }
 
 /* layout: main column + side rail */
