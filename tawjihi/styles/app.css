@@ -1342,20 +1342,25 @@
         align-items: center;
         gap: 0.45rem;
         text-decoration: none;
+        color: var(--primary) !important;
+        transition: color var(--t-fast), opacity var(--t-fast);
+    }
+    .mtb-logo-link:hover {
+        opacity: 0.9;
     }
 
     .mtb-logo-text {
         font-family: var(--font-display);
         font-size: 1.15rem;
         font-weight: 800;
-        color: var(--text);
+        color: currentColor;
         padding-bottom: 2px; /* Prevent font descender clipping */
     }
 
     .mtb-logo-link .lv2-logo-icon {
         width: 24px;
         height: 24px;
-        color: var(--primary);
+        color: currentColor;
     }
 
     .mtb-actions {
@@ -1536,6 +1541,9 @@
         background: rgba(19, 25, 39, 0.94);
         border-color: rgba(91, 134, 232, 0.1);
         box-shadow: -2px 0 20px rgba(0, 0, 0, 0.2);
+    }
+    [data-theme="dark"] .mtb-logo-link {
+        color: #fff !important;
     }
     [data-theme="dark"] .mobile-nav {
         background:

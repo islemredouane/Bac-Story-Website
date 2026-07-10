@@ -211,7 +211,7 @@
         <i class="fas fa-${root.getAttribute('data-theme') === 'dark' ? 'sun' : 'moon'}"></i>
       </button>
       <a class="mtb-btn" href="settings.html" aria-label="الإعدادات">
-        <i class="fas fa-gear"></i>
+        <i class="fas fa-user-circle"></i>
       </a>
     </div>
   `;
