@@ -794,8 +794,8 @@
     background: radial-gradient(circle, rgba(44, 92, 197, 0.1), transparent 65%);
     pointer-events: none;
 }
-.side-cta i { font-size: 2rem; margin-bottom: var(--sp-2); display: block; color: var(--primary); position: relative; z-index: 1; }
-[data-theme="dark"] .side-cta i { color: #7da4f0; }
+.side-cta > i { font-size: 2.2rem; margin-bottom: var(--sp-2); display: block; color: var(--primary); position: relative; z-index: 1; }
+[data-theme="dark"] .side-cta > i { color: #7da4f0; }
 .side-cta h3 { font-size: var(--fs-md); position: relative; z-index: 1; color: var(--detail-cta-text); }
 .side-cta p { font-size: var(--fs-xs); color: var(--text-muted); margin: var(--sp-2) 0 var(--sp-4); position: relative; z-index: 1; }
 [data-theme="dark"] .side-cta p { color: rgba(168, 196, 248, 0.85); }
@@ -821,6 +821,12 @@
     color: var(--detail-cta-btn-text); width: 100%; justify-content: center;
     position: relative; z-index: 1;
     box-shadow: var(--shadow-sm);
+}
+.side-cta .btn-light i {
+    font-size: 1rem !important;
+    display: inline-block !important;
+    margin-bottom: 0 !important;
+    color: #ffffff !important; /* Make icon white so it is visible against blue! */
 }
 .side-cta .btn-light:hover {
     transform: translateY(-2px);
