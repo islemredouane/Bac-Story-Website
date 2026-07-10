@@ -1341,7 +1341,11 @@
         font-family: var(--font-display);
         font-size: var(--fs-xl);
         color: var(--primary);
-        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        line-height: 1;
     }
 
     .mtb-btn {
