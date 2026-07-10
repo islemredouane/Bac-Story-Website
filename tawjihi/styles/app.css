@@ -1346,6 +1346,7 @@
         justify-content: center;
         height: 100%;
         line-height: 1;
+        transform: translateY(-3.5px);
     }
 
     .mtb-btn {
