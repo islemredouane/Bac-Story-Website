@@ -52,10 +52,11 @@
 .page-inner {
     max-width: var(--content-max);
     margin-inline: auto;
-    padding: var(--sp-5) var(--sp-5) var(--sp-8);
+    padding: var(--sp-4) var(--sp-5) var(--sp-8) !important;
     display: flex;
     flex-direction: column;
 }
+
 
 /* ---------------- HERO STRIP (individual specialty detail page) ---------------- */
 .spec-hero {
