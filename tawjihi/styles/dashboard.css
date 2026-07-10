@@ -372,42 +372,46 @@
 
 /* ---- Import averages from BAC Story ---- */
 .dash-card-import { --card-theme: var(--primary); }
-.dash-import-state {
-    display: inline-flex; align-items: center;
-    font-size: var(--fs-xs); font-weight: 800;
-    color: var(--cat-science, #1a9d6a);
-    background: color-mix(in srgb, var(--cat-science, #1a9d6a) 14%, transparent);
-    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--cat-science, #1a9d6a) 22%, transparent);
-    padding: 5px 11px; border-radius: var(--r-pill);
-    white-space: nowrap;
+/* ---- Academic Profile (Import Card) ---- */
+.dash-academic-empty { display: flex; flex-direction: column; }
+.dash-academic-filled { display: flex; flex-direction: column; }
+.dash-academic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: var(--sp-3);
 }
-.dash-import-help { color: var(--text-muted); font-size: var(--fs-sm); margin-bottom: var(--sp-3); line-height: 1.6; }
-.dash-import-actions {
+.dash-academic-stat {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+    padding: var(--sp-3);
     display: flex;
-    gap: 0; /* Input group layout */
-    margin-top: var(--sp-3);
-    align-items: stretch;
+    flex-direction: column;
+    gap: 4px;
+    transition: transform var(--t-fast), border-color var(--t-fast);
 }
-.dash-import-input {
-    flex: 1;
-    min-width: 0;
-    border: 2px solid var(--border);
-    border-left: none;
-    border-radius: 0 var(--r-md) var(--r-md) 0;
-    background: var(--surface-2); color: var(--text);
-    padding: var(--sp-3) var(--sp-4);
-    font-family: inherit; font-size: var(--fs-sm);
-    transition: border-color var(--t-fast);
+.dash-academic-stat:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-hover);
 }
-.dash-import-input:focus { outline: none; border-color: var(--primary); }
-.dash-import-actions .dash-import-btn {
-    border-radius: var(--r-md) 0 0 var(--r-md);
-    margin: 0;
-    white-space: nowrap;
+.dash-academic-stat-title {
+    font-size: var(--fs-xs);
+    color: var(--text-muted);
+    font-weight: 700;
 }
-.dash-import-file-label {
-    display: none; /* Removed from UI but class kept for safety */
+.dash-academic-stat-val {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text);
 }
+/* Colorful stat variants */
+.stat-general .dash-academic-stat-val { color: var(--primary); }
+.stat-bio .dash-academic-stat-val { color: var(--cat-science, #1a9d6a); }
+.stat-math .dash-academic-stat-val { color: var(--cat-tech, #eab308); }
+.stat-physics .dash-academic-stat-val { color: var(--cat-medical, #ef4444); }
+.stat-lang .dash-academic-stat-val { color: var(--cat-humanities, #8b5cf6); }
+
+.dash-import-help { color: var(--text-muted); font-size: var(--fs-sm); margin-bottom: var(--sp-3); line-height: 1.6; }
 .dash-import-msg { display: none; margin-top: var(--sp-3); font-size: var(--fs-sm); font-weight: 700; }
 .dash-import-msg.is-shown { display: block; animation: rise var(--t-fast) var(--ease-out) both; }
 .dash-import-msg.is-ok { color: var(--cat-science, #1a9d6a); }
@@ -702,31 +706,7 @@
     .dash-actions-grid { grid-template-columns: 1fr; }
 }
 
-/* ---- Import card — smart collapse after import ---- */
-.dash-card-import.dash-import-done {
-    padding: var(--sp-3) var(--sp-4);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    min-height: 0; /* Override any card min-height */
-}
-.dash-card-import.dash-import-done .dash-section-eyebrow {
-    display: none;
-}
-.dash-card-import.dash-import-done .dash-card-head {
-    margin: 0;
-    width: 100%;
-}
-.dash-card-import.dash-import-done .dash-card-head h2 {
-    font-size: var(--fs-base);
-    color: var(--text-muted);
-}
-.dash-card-import.dash-import-done .dash-import-help,
-.dash-card-import.dash-import-done .dash-import-input,
-.dash-card-import.dash-import-done .dash-import-actions,
-.dash-card-import.dash-import-done .dash-import-msg {
-    display: none;
-}
+/* ---- End of Import Card styles ---- */
 .dash-import-expand-btn {
     background: none;
     border: none;

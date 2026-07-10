@@ -65,22 +65,32 @@
                 <!-- ===== Grid of cards ===== -->
                 <div class="dash-grid">
 
-                    <!-- Import averages from BAC Story -->
-                    <section class="dash-card dash-card-wide dash-card-import" id="dashImportCard">
-                        <span class="dash-section-eyebrow"><i class="fas fa-link"></i> ربط البيانات</span>
-                        <header class="dash-card-head">
-                            <h2><i class="fas fa-magic"></i> مزامنة مع BAC Story</h2>
-                            <span class="dash-import-state" id="dashImportState" hidden>
-                                <i class="fas fa-circle-check"></i> متصل —
-                                <button type="button" class="dash-import-expand-btn" onclick="document.getElementById('dashImportCard').classList.remove('dash-import-done')">تحديث</button>
-                            </span>
-                        </header>
-                        <p class="dash-import-help">هل لديك معدلاتك الموزونة في BAC Story؟ الصق رمز المزامنة هنا.</p>
-                        <div class="dash-import-actions">
-                            <input type="text" id="dashImportCode" dir="ltr" class="dash-import-input" placeholder="الصق الرمز هنا (مثال: eyJhdmVyYW...)">
-                            <button type="button" class="btn btn-primary dash-import-btn" id="dashImportBtn"><i class="fas fa-bolt"></i> مزامنة</button>
+                    <!-- Academic Profile (BAC Story Import) -->
+                    <section class="dash-card dash-card-wide dash-card-academic" id="dashAcademicCard">
+                        <span class="dash-section-eyebrow"><i class="fas fa-graduation-cap"></i> ملفك الأكاديمي</span>
+                        
+                        <!-- Empty State: CTA -->
+                        <div class="dash-academic-empty" id="dashAcademicEmpty">
+                            <header class="dash-card-head">
+                                <h2><i class="fas fa-magic"></i> هل حسبت معدلك الموزون؟</h2>
+                            </header>
+                            <p class="dash-import-help" style="margin-bottom: var(--sp-4);">اربط حسابك الآن مع حاسبة BAC Story لاستيراد معدلاتك الموزونة بدقة وتحديث فرص القبول الخاصة بك تلقائياً.</p>
+                            <a href="https://bacstory.vercel.app/tools.html" target="_blank" class="btn btn-primary">
+                                <i class="fas fa-calculator"></i> احسب معدلك وقم بالمزامنة
+                            </a>
+                            <!-- Hidden fallback for manual paste or URL auto-import -->
+                            <input type="text" id="dashImportCode" hidden>
                         </div>
-                        <input type="file" id="dashImportFile" accept=".json,.bacstory,application/json" hidden>
+                        
+                        <!-- Filled State: Grid -->
+                        <div class="dash-academic-filled" id="dashAcademicFilled" hidden>
+                            <header class="dash-card-head" style="margin-bottom: var(--sp-4);">
+                                <h2><i class="fas fa-chart-pie"></i> معدلاتك الأكاديمية</h2>
+                                <a href="https://bacstory.vercel.app/tools.html" target="_blank" class="dash-link">تعديل <i class="fas fa-arrow-left"></i></a>
+                            </header>
+                            <div class="dash-academic-grid" id="dashAcademicGrid"></div>
+                        </div>
+
                         <p class="dash-import-msg" id="dashImportMsg" role="status"></p>
                     </section>
 
@@ -389,10 +399,51 @@ function renderNudges(profile, wishIds) {
     const importState = $('#dashImportState');
 
     function refreshImportState() {
-        const imported = profile.averagesSource === 'bacstory-import';
-        if (importState) importState.hidden = !imported;
-        const card = document.getElementById('dashImportCard');
-        if (card) card.classList.toggle('dash-import-done', imported);
+        const imported = profile.averagesSource === 'bacstory-import' && profile.weightedAverages;
+        const emptyState = document.getElementById('dashAcademicEmpty');
+        const filledState = document.getElementById('dashAcademicFilled');
+        const grid = document.getElementById('dashAcademicGrid');
+        
+        if (emptyState) emptyState.hidden = !!imported;
+        if (filledState) filledState.hidden = !imported;
+        
+        if (imported && grid) {
+            const labels = {
+                'bio': 'طبيعة وحياة (طب)',
+                'math': 'رياضيات (إعلام آلي)',
+                'math-physics': 'فيزياء',
+                'math-tech': 'هندسة / تكنولوجيا',
+                'lang': 'لغات أجنبية'
+            };
+            const classes = {
+                'bio': 'stat-bio',
+                'math': 'stat-math',
+                'math-physics': 'stat-physics',
+                'math-tech': 'stat-math',
+                'lang': 'stat-lang'
+            };
+            
+            let html = `
+                <div class="dash-academic-stat stat-general">
+                    <span class="dash-academic-stat-title">المعدل العام</span>
+                    <span class="dash-academic-stat-val">${(profile.average || 0).toFixed(2)}</span>
+                </div>
+            `;
+            
+            if (profile.weightedAverages) {
+                for (const [key, val] of Object.entries(profile.weightedAverages)) {
+                    if (labels[key]) {
+                        html += `
+                            <div class="dash-academic-stat ${classes[key]}">
+                                <span class="dash-academic-stat-title">الموزون: ${labels[key]}</span>
+                                <span class="dash-academic-stat-val">${parseFloat(val).toFixed(2)}</span>
+                            </div>
+                        `;
+                    }
+                }
+            }
+            grid.innerHTML = html;
+        }
     }
     refreshImportState();
 
@@ -431,6 +482,7 @@ function renderNudges(profile, wishIds) {
         const res = window.twAvg.decode(code);
         if (!res.ok) { showImportMsg(res.error || 'الرمز غير صالح.', 'err'); return; }
         window.twAvg.mergeIntoProfile(profile, res.payload);
+        profile.weightedAverages = res.payload.weightedAverages || {};
         localStorage.setItem('tw-profile', JSON.stringify(profile));
         persistToSupabase();
         renderProfileWidgets();
