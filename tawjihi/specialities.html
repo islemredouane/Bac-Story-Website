@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <script>!function(){var p=location.pathname.split('/').pop();if(['login.html','onboarding.html','index.html',''].indexOf(p)<0){if(!localStorage.getItem('tw-auth'))return void location.replace('login.html');if(!localStorage.getItem('tw-profile'))return void location.replace('onboarding.html')}}()</script>
+    <script>!function(){var p=location.pathname.split('/').pop();if(['login.html','onboarding.html','index.html',''].indexOf(p)<0){if(!localStorage.getItem('tw-auth'))return void location.replace('login.html'+location.search);if(!localStorage.getItem('tw-profile'))return void location.replace('onboarding.html'+location.search)}}()</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <title>توجيهي · دليل التخصصات والمدارس العليا</title>

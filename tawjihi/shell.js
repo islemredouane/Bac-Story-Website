@@ -26,16 +26,16 @@
       if (session) {
         localStorage.setItem('tw-auth', JSON.stringify({ provider: 'google', uid: session.user.id }));
         document.body.classList.remove('auth-checking');
-        if (!localStorage.getItem('tw-profile')) { location.replace('onboarding.html'); return; }
+        if (!localStorage.getItem('tw-profile')) { location.replace('onboarding.html' + location.search); return; }
       } else {
         localStorage.removeItem('tw-auth');
         localStorage.removeItem('tw-profile');
-        location.replace('login.html'); return;
+        location.replace('login.html' + location.search); return;
       }
     } else {
       localStorage.removeItem('tw-auth');
       localStorage.removeItem('tw-profile');
-      location.replace('login.html'); return;
+      location.replace('login.html' + location.search); return;
     }
   } else {
     // tw-auth exists — confirm the Supabase session is still valid before revealing content
@@ -47,7 +47,7 @@
         // Session expired — clear local state and redirect
         localStorage.removeItem('tw-auth');
         localStorage.removeItem('tw-profile');
-        location.replace('login.html'); return;
+        location.replace('login.html' + location.search); return;
       }
     } else {
       // Supabase unavailable — allow render but clear class
@@ -55,7 +55,7 @@
     }
   }
 
-  if (!localStorage.getItem('tw-profile')) { location.replace('onboarding.html'); return; }
+  if (!localStorage.getItem('tw-profile')) { location.replace('onboarding.html' + location.search); return; }
 }());
 
 (() => {
