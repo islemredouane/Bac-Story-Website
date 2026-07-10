@@ -799,11 +799,28 @@
 .side-cta h3 { font-size: var(--fs-md); position: relative; z-index: 1; color: var(--detail-cta-text); }
 .side-cta p { font-size: var(--fs-xs); color: var(--text-muted); margin: var(--sp-2) 0 var(--sp-4); position: relative; z-index: 1; }
 [data-theme="dark"] .side-cta p { color: rgba(168, 196, 248, 0.85); }
+/* Base Button Styles */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-2);
+    font-weight: 700;
+    font-size: var(--fs-sm);
+    padding: var(--sp-3) var(--sp-5);
+    border-radius: var(--r-pill);
+    transition: transform var(--t-fast) var(--ease), box-shadow var(--t-fast), background var(--t-fast);
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+}
+
 .side-cta .btn-light {
     background: var(--detail-cta-btn-bg);
     border: 1.5px solid var(--detail-cta-btn-border);
     color: var(--detail-cta-btn-text); width: 100%; justify-content: center;
     position: relative; z-index: 1;
+    box-shadow: var(--shadow-sm);
 }
 .side-cta .btn-light:hover {
     transform: translateY(-2px);
