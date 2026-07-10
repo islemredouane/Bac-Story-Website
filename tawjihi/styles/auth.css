@@ -136,6 +136,14 @@
     text-transform: uppercase;
     margin-top: var(--sp-1);
 }
+.pattaya-text {
+    font-family: 'Pattaya', cursive;
+    text-transform: none; /* Preserve case */
+    font-weight: 400;
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
+    display: inline-block;
+}
 
 /* ---- Headline + subtitle ---- */
 .auth-title {
