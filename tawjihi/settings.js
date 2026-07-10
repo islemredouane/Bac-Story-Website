@@ -52,11 +52,46 @@
 
   hydrate();
 
+  /* ---- Change Tracking Logic ---- */
+  let initialState = {};
+  function recordInitialState() {
+    initialState = {
+      name: $('#nameInput')?.value.trim() || '',
+      stream: $('#streamChoices .ob-choice.is-selected')?.dataset.value || '',
+      average: parseFloat($('#avgRange')?.value ?? 12),
+      wilaya: $('#wilayaSelect')?.value || '',
+      interests: $$('#interestChips .ob-chip.is-selected').map(c => c.dataset.value).sort().join(','),
+      ambition_text: $('#ambitionText')?.value.trim() || ''
+    };
+  }
+
+  function checkForChanges() {
+    const currentState = {
+      name: $('#nameInput')?.value.trim() || '',
+      stream: $('#streamChoices .ob-choice.is-selected')?.dataset.value || '',
+      average: parseFloat($('#avgRange')?.value ?? 12),
+      wilaya: $('#wilayaSelect')?.value || '',
+      interests: $$('#interestChips .ob-chip.is-selected').map(c => c.dataset.value).sort().join(','),
+      ambition_text: $('#ambitionText')?.value.trim() || ''
+    };
+    const hasChanges = Object.keys(initialState).some(k => initialState[k] !== currentState[k]);
+    $('.settings-save-wrap')?.classList.toggle('is-visible', hasChanges);
+  }
+
+  // Record original state right after hydration
+  recordInitialState();
+
+  // Watch text inputs
+  $('#nameInput')?.addEventListener('input', checkForChanges);
+  $('#ambitionText')?.addEventListener('input', checkForChanges);
+  $('#wilayaSelect')?.addEventListener('change', checkForChanges);
+
   /* ---- Stream choice cards ---- */
   $$('#streamChoices .ob-choice').forEach(btn => {
     btn.addEventListener('click', () => {
       $$('#streamChoices .ob-choice').forEach(b => b.classList.remove('is-selected'));
       btn.classList.add('is-selected');
+      checkForChanges();
     });
   });
 
@@ -66,6 +101,7 @@
   if (range && avgDisplay) {
     range.addEventListener('input', () => {
       avgDisplay.textContent = Number(range.value).toFixed(2);
+      checkForChanges();
     });
   }
 
@@ -92,6 +128,7 @@
           // Plain toggle
           btn.classList.toggle('is-selected');
         }
+        checkForChanges();
       });
     });
   }
@@ -153,6 +190,8 @@
       /* Success feedback */
       saveBtn.innerHTML = '<i class="fas fa-check"></i> تم الحفظ';
       saveBtn.style.background = 'var(--success, #22c55e)';
+      recordInitialState();
+      checkForChanges();
       setTimeout(() => {
         saveBtn.disabled = false;
         saveBtn.innerHTML = '<i class="fas fa-floppy-disk"></i> حفظ التغييرات';

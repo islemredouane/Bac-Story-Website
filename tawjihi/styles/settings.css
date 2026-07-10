@@ -455,6 +455,15 @@
     position: sticky;
     bottom: var(--sp-4);
     z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px);
+    transition: opacity 0.3s var(--ease), transform 0.3s var(--ease), bottom 0.3s;
+}
+.settings-save-wrap.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
 }
 
 @media (max-width: 900px) {
