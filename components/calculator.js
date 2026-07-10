@@ -198,6 +198,117 @@ function calculateAverage(field) {
     bsRevealData.mention   = bsGetMention(average);
     bsRevealData.specialty = getFieldName(field);
 
+    // Calculate weighted averages based on official ministry formulas
+    const weighted = {};
+    const getVal = (id) => {
+        const el = document.getElementById(id);
+        return el ? parseFloat(el.value) || 0 : 0;
+    };
+
+    if (field === 'science') {
+        const bio = getVal('science-science-grade');
+        const math = getVal('science-math-grade');
+        const phys = getVal('science-physics-grade');
+        const fr = getVal('science-french-grade');
+        const en = getVal('science-english-grade');
+
+        weighted['w_science'] = (average * 2 + bio) / 3;
+        weighted['w_math'] = (average * 2 + math) / 3;
+        weighted['w_math_physics'] = (average * 2 + math + phys) / 4;
+        weighted['w_translation'] = (average * 2 + Math.max(fr, en)) / 3;
+    } else if (field === 'math') {
+        const math = getVal('math-math-grade');
+        const phys = getVal('math-physics-grade');
+        const bio = getVal('math-science-grade');
+        const fr = getVal('math-french-grade');
+        const en = getVal('math-english-grade');
+
+        weighted['w_science'] = (average * 2 + bio) / 3;
+        weighted['w_math'] = (average * 2 + math) / 3;
+        weighted['w_math_physics'] = (average * 2 + math + phys) / 4;
+        weighted['w_translation'] = (average * 2 + Math.max(fr, en)) / 3;
+    } else if (field === 'tech') {
+        const math = getVal('tech-math-grade');
+        const phys = getVal('tech-physics-grade');
+        const tech = getVal('tech-tech-grade');
+        const fr = getVal('tech-french-grade');
+        const en = getVal('tech-english-grade');
+
+        weighted['w_math'] = (average * 2 + math) / 3;
+        weighted['w_math_physics'] = (average * 2 + math + phys) / 4;
+        weighted['w_math_tech'] = (average * 2 + math + tech) / 4;
+        weighted['w_translation'] = (average * 2 + Math.max(fr, en)) / 3;
+    } else if (field === 'management') {
+        const math = getVal('management-math-grade');
+        const fr = getVal('management-french-grade');
+        const en = getVal('management-english-grade');
+
+        weighted['w_math'] = (average * 2 + math) / 3;
+        weighted['w_translation'] = (average * 2 + Math.max(fr, en)) / 3;
+    } else if (field === 'languages') {
+        const fr = getVal('languages-french-grade');
+        const en = getVal('languages-english-grade');
+        const lang3 = getVal('languages-lang3-grade');
+
+        weighted['w_languages'] = (average * 2 + ((fr + en + lang3) / 3)) / 3;
+        weighted['w_translation'] = (average * 2 + Math.max(fr, en, lang3)) / 3;
+    } else if (field === 'literature') {
+        const fr = getVal('literature-french-grade');
+        const en = getVal('literature-english-grade');
+
+        weighted['w_translation'] = (average * 2 + Math.max(fr, en)) / 3;
+    }
+
+    // Format all calculated averages to 2 decimal places
+    for (const key in weighted) {
+        weighted[key] = parseFloat(weighted[key].toFixed(2));
+    }
+
+    // Map BAC Story internal field code to Tawjihi canonical stream code
+    const streamMap = {
+        science: 'sciexp',
+        tech: 'techmath',
+        management: 'gestion',
+        literature: 'lettres',
+        languages: 'langues',
+        math: 'math'
+    };
+
+    // Build the export payload
+    const payload = {
+        schemaVersion: 1,
+        source: 'bacstory',
+        issuedAt: new Date().toISOString(),
+        generalAverage: parseFloat(average.toFixed(2)),
+        stream: streamMap[field] || field,
+        bacYear: 2026,
+        weightedAverages: weighted
+    };
+
+    // Base64url encode the payload
+    let exportCode = '';
+    try {
+        const jsonStr = JSON.stringify(payload);
+        const base64 = btoa(unescape(encodeURIComponent(jsonStr)));
+        exportCode = base64.replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+    } catch (e) {
+        console.error('Failed to generate export code', e);
+    }
+
+    if (exportCode) {
+        const exportUrl = `https://tawjihi-bacstory.vercel.app/dashboard.html?import=${exportCode}`;
+        const btnOeb = document.getElementById('bsTawjihiExportBtnOeb');
+        const btnGazette = document.getElementById('bsTawjihiExportBtnGazette');
+        if (btnOeb) {
+            btnOeb.href = exportUrl;
+            btnOeb.style.display = 'flex';
+        }
+        if (btnGazette) {
+            btnGazette.href = exportUrl;
+            btnGazette.style.display = 'flex';
+        }
+    }
+
     document.getElementById('resultSection').style.display = 'none';
     showReveal();
 
