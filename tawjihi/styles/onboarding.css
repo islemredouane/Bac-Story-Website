@@ -64,7 +64,24 @@
     -webkit-backdrop-filter: blur(12px);
 }
 .ob-logo {
-    font-family: 'Plus Jakarta Sans', 'Cairo', var(--font-ui);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #fff;
+    text-decoration: none;
+    transition: opacity var(--t-fast);
+}
+.ob-logo:hover {
+    opacity: 0.9;
+}
+.lv2-logo-icon {
+    width: 26px;
+    height: 26px;
+    flex-shrink: 0;
+    color: #fff;
+}
+.ob-logo-text {
+    font-family: var(--font-display);
     font-size: var(--fs-xl);
     font-weight: 800;
     background: linear-gradient(135deg, #6a9bff 0%, #ffffff 60%);
