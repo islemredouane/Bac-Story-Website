@@ -456,16 +456,6 @@
     bottom: var(--sp-4);
     z-index: 10;
 }
-@media (max-width: 900px) {
-    .settings-save-wrap {
-        bottom: calc(18px + 72px + var(--sp-3));
-        justify-content: center;
-        padding-top: var(--sp-4);
-        padding-bottom: var(--sp-2);
-        background: linear-gradient(to top, var(--surface) 60%, transparent);
-        margin-inline: calc(var(--sp-4) * -1);
-    }
-}
 #saveBtn {
     display: inline-flex;
     align-items: center;
@@ -495,4 +485,10 @@
 }
 #saveBtn:not(:disabled):active {
     transform: translateY(0);
+}
+
+@media (max-width: 900px) {
+    .settings-main {
+        padding-bottom: 120px !important;
+    }
 }
