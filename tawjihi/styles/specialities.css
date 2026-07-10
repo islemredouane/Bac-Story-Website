@@ -53,6 +53,8 @@
     max-width: var(--content-max);
     margin-inline: auto;
     padding: var(--sp-5) var(--sp-5) var(--sp-8);
+    display: flex;
+    flex-direction: column;
 }
 
 /* ---------------- HERO STRIP (individual specialty detail page) ---------------- */
@@ -816,7 +818,6 @@
     .detail-grid { grid-template-columns: 1fr; }
     .spec-hero .hero-icon { display: none; }
     .filter-bar { position: static; }
-    .detail-back { display: none !important; }
 }
 @media (max-width: 640px) {
     .spec-hero { padding: var(--sp-4) var(--sp-4); }

@@ -193,43 +193,28 @@
   /* ── Top Bar: [Branding right] [Actions left] ── */
   const topbar = document.createElement('header');
   topbar.className = 'mobile-topbar';
-  if (page === 'speciality') {
-    topbar.innerHTML = `
-      <a class="mtb-back-link" href="specialities.html" onclick="event.preventDefault(); history.length > 1 ? history.back() : location.href='specialities.html'" aria-label="رجوع">
-        <i class="fas fa-arrow-right"></i>
-        <span class="mtb-back-text">التخصصات</span>
+  topbar.innerHTML = `
+    <a class="mtb-logo-link" href="dashboard.html" aria-label="توجيهي — الرئيسية">
+      <svg class="lv2-logo-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <circle cx="16" cy="16" r="13" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="16" cy="16" r="2.5" fill="currentColor"/>
+        <line x1="16" y1="3" x2="16" y2="9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="16" y1="23" x2="16" y2="29" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="3" y1="16" x2="9" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="23" y1="16" x2="29" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <line id="lv2LogoNeedle" x1="16" y1="16" x2="16" y2="7" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span class="mtb-logo-text">توجيهي</span>
+    </a>
+    <div class="mtb-actions">
+      <button class="mtb-btn" id="mobileThemeBtn" aria-label="تبديل الوضع">
+        <i class="fas fa-${root.getAttribute('data-theme') === 'dark' ? 'sun' : 'moon'}"></i>
+      </button>
+      <a class="mtb-btn" href="settings.html" aria-label="الإعدادات">
+        <i class="fas fa-user-circle"></i>
       </a>
-      <span class="mtb-page-title">تفاصيل التخصص</span>
-      <div class="mtb-actions">
-        <button class="mtb-btn" id="mobileThemeBtn" aria-label="تبديل الوضع">
-          <i class="fas fa-${root.getAttribute('data-theme') === 'dark' ? 'sun' : 'moon'}"></i>
-        </button>
-      </div>
-    `;
-  } else {
-    topbar.innerHTML = `
-      <a class="mtb-logo-link" href="dashboard.html" aria-label="توجيهي — الرئيسية">
-        <svg class="lv2-logo-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-          <circle cx="16" cy="16" r="13" stroke="currentColor" stroke-width="1.5"/>
-          <circle cx="16" cy="16" r="2.5" fill="currentColor"/>
-          <line x1="16" y1="3" x2="16" y2="9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          <line x1="16" y1="23" x2="16" y2="29" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          <line x1="3" y1="16" x2="9" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          <line x1="23" y1="16" x2="29" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          <line id="lv2LogoNeedle" x1="16" y1="16" x2="16" y2="7" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-        <span class="mtb-logo-text">توجيهي</span>
-      </a>
-      <div class="mtb-actions">
-        <button class="mtb-btn" id="mobileThemeBtn" aria-label="تبديل الوضع">
-          <i class="fas fa-${root.getAttribute('data-theme') === 'dark' ? 'sun' : 'moon'}"></i>
-        </button>
-        <a class="mtb-btn" href="settings.html" aria-label="الإعدادات">
-          <i class="fas fa-user-circle"></i>
-        </a>
-      </div>
-    `;
-  }
+    </div>
+  `;
   document.body.appendChild(topbar);
 
   /* Hamburger → open sidebar drawer */
