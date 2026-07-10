@@ -14,8 +14,10 @@ const specialitiesKb = { specialities: [] };
 const admissionsFull = { rows: [] };
 const filiereIndex = { filieres: {} };
 const guidePrograms = { programs: [] };
-const geoData = { wilayas: [] };
-const geoCircles = { wilayaToCircle: {}, circles: [], rules: {} };
+/* Geo data restored (small: 3.2KB + 8.9KB) — powers wilaya→circle resolution,
+   zone lines in the student profile block, and buildGuideContext filtering. */
+import geoData from '../tawjihi/data/guide/geographic-circles.json' with { type: 'json' };
+import geoCircles from '../tawjihi/data/kb/geo-circles.json' with { type: 'json' };
 const ministryRulesData = { rules: [] };
 const availabilityMapData = { specialities: {} };
 import fs from 'fs';
