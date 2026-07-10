@@ -69,19 +69,18 @@
                     <section class="dash-card dash-card-wide dash-card-import" id="dashImportCard">
                         <span class="dash-section-eyebrow"><i class="fas fa-link"></i> ربط البيانات</span>
                         <header class="dash-card-head">
-                            <h2><i class="fas fa-file-import"></i> استورد معدلاتك من BAC Story</h2>
+                            <h2><i class="fas fa-magic"></i> مزامنة مع BAC Story</h2>
                             <span class="dash-import-state" id="dashImportState" hidden>
-                                <i class="fas fa-circle-check"></i> معدلاتك مستوردة —
+                                <i class="fas fa-circle-check"></i> متصل —
                                 <button type="button" class="dash-import-expand-btn" onclick="document.getElementById('dashImportCard').classList.remove('dash-import-done')">تحديث</button>
                             </span>
                         </header>
-                        <p class="dash-import-help">احسبت معدلك في BAC Story؟ الصق الرمز هنا لتحديث فرصك في كل التخصصات.</p>
-                        <textarea id="dashImportCode" dir="ltr" class="dash-import-input" rows="3" placeholder="الصق رمز معدلاتك هنا…"></textarea>
+                        <p class="dash-import-help">هل لديك معدلاتك الموزونة في BAC Story؟ الصق رمز المزامنة هنا.</p>
                         <div class="dash-import-actions">
-                            <button type="button" class="btn btn-primary dash-import-btn" id="dashImportBtn"><i class="fas fa-check"></i> استيراد</button>
-                            <label class="btn dash-import-file-label" for="dashImportFile"><i class="fas fa-upload"></i> من ملف</label>
-                            <input type="file" id="dashImportFile" accept=".json,.bacstory,application/json" hidden>
+                            <input type="text" id="dashImportCode" dir="ltr" class="dash-import-input" placeholder="الصق الرمز هنا (مثال: eyJhdmVyYW...)">
+                            <button type="button" class="btn btn-primary dash-import-btn" id="dashImportBtn"><i class="fas fa-bolt"></i> مزامنة</button>
                         </div>
+                        <input type="file" id="dashImportFile" accept=".json,.bacstory,application/json" hidden>
                         <p class="dash-import-msg" id="dashImportMsg" role="status"></p>
                     </section>
 
