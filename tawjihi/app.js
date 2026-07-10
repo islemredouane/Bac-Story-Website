@@ -312,7 +312,7 @@
       <a class="chat-spec-card" href="speciality.html?id=${esc(s.id)}" target="_self" style="--cat:${esc(s.color)}">
         <div class="csc-name">${esc(s.name)}</div>
         <div class="csc-meta">${esc(s.meta)}</div>
-        <div class="csc-avg">معدل القبول ~ ${esc(String(s.avg))}</div>
+        <div class="csc-avg">${s.avg != null && s.avg !== 'null' ? `معدل القبول ~ ${esc(String(s.avg))}` : 'قبول بمسابقة خاصة'}</div>
         <div class="csc-link">عرض التفاصيل <i class="fas fa-arrow-left"></i></div>
       </a>`).join('');
     return row;
@@ -507,7 +507,7 @@
         /* Defensive override for avg from authoritative catalog */
         if (field.key === 'avg' && typeof TW_CATALOG !== 'undefined') {
           const cat = TW_CATALOG.find(c => c.id === (item.id?.toLowerCase()));
-          td.textContent = cat ? String(cat.avg) : String(item[field.key] || '—');
+          td.textContent = (cat && cat.avg != null) ? String(cat.avg) : String(item[field.key] || '—');
         } else {
           td.textContent = String(item[field.key] || '—');
         }

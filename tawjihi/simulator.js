@@ -34,7 +34,8 @@
   /* ---- state ---- */
   let wish = [];
 
-  const riskOf  = (specAvg) => myAvg >= specAvg + 1 ? 'safe' : (myAvg >= specAvg - 1 ? 'likely' : 'risk');
+  /* null avg = concours-based admission → treat as ambitious/unknown (never "safe") */
+  const riskOf  = (specAvg) => specAvg == null ? 'risk' : (myAvg >= specAvg + 1 ? 'safe' : (myAvg >= specAvg - 1 ? 'likely' : 'risk'));
   const LABEL   = { safe: 'مضمون', likely: 'على الحدّ', risk: 'طموح / خطر' };
   const byId    = (id) => TW_CATALOG.find(c => c.id === id);
   const lmdCount = () => wish.filter(id => (byId(id) || {}).lmd).length;
@@ -75,7 +76,7 @@
         <span class="cat-dot" style="background:${c.catVar}"></span>
         <span class="cat-info">
           <span class="cat-name">${c.name}${lmdTag}</span>
-          <span class="cat-meta">معدل ~ ${c.avg.toFixed(2)} · ${metaText}</span>
+          <span class="cat-meta">${c.avg != null ? `معدل ~ ${c.avg.toFixed(2)}` : 'قبول بمسابقة'} · ${metaText}</span>
         </span>
         <span class="cat-add"><i class="fas fa-${added ? 'check' : atMax ? 'lock' : 'plus'}"></i></span>
       </button>`;
@@ -127,7 +128,7 @@
         <span class="wish-rank">${i + 1}</span>
         <span class="wish-info">
           <span class="wish-name">${c.name}${lmdTag}</span>
-          <span class="wish-meta">معدل القبول ~ ${c.avg.toFixed(2)} · معدلك ${myAvg.toFixed(2)}</span>
+          <span class="wish-meta">${c.avg != null ? `معدل القبول ~ ${c.avg.toFixed(2)}` : 'قبول بمسابقة خاصة'} · معدلك ${myAvg.toFixed(2)}</span>
         </span>
         <span class="wish-badge ${r}">${LABEL[r]}</span>
         <span class="wish-ctrls">
@@ -268,7 +269,7 @@
 
     // Candidates within ±3 points of the student's average
     const nearAvg = [...eligible]
-      .filter(s => s.avg >= avg - 3 && s.avg <= avg + 3)
+      .filter(s => s.avg != null && s.avg >= avg - 3 && s.avg <= avg + 3)
       .sort(byProximity);
 
     // Separate LMD from grandes écoles in the near-avg pool
@@ -332,7 +333,7 @@
   document.getElementById('exportBtn')?.addEventListener('click', () => {
     const lines = wish.map((id, i) => {
       const s = TW_CATALOG.find(c => c.id === id);
-      return s ? `${i+1}. ${s.name} — معدل القبول ~ ${s.avg}` : `${i+1}. ${id}`;
+      return s ? `${i+1}. ${s.name} — ${s.avg != null ? `معدل القبول ~ ${s.avg}` : 'قبول بمسابقة خاصة'}` : `${i+1}. ${id}`;
     });
     const text = `بطاقة رغباتي (توجيهي)\n\n${lines.join('\n')}\n\nتم التصدير من تطبيق توجيهي`;
     const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });

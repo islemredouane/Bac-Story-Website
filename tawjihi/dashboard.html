@@ -388,15 +388,15 @@ function renderNudges(profile, wishIds) {
                 </div>
                 <span class="dash-spec-meta">${s.location}${s.lmd ? ' · LMD' : ''}</span>
                 <div class="dash-spec-foot">
-                    <span class="dash-spec-avg">معدل القبول ~ ${s.avg.toFixed(2)}</span>
-                    ${myAvg > 0 ? BADGE[riskLevel(s.avg)] : ''}
+                    <span class="dash-spec-avg">${s.avg != null ? `معدل القبول ~ ${s.avg.toFixed(2)}` : 'قبول بمسابقة خاصة'}</span>
+                    ${myAvg > 0 && s.avg != null ? BADGE[riskLevel(s.avg)] : ''}
                 </div>
             </article>`).join('');
 
         if (specSummary && myAvg > 0) {
-            const okC   = wishSpecs.filter(s => riskLevel(s.avg) === 'ok').length;
-            const warnC = wishSpecs.filter(s => riskLevel(s.avg) === 'warn').length;
-            const noC   = wishSpecs.filter(s => riskLevel(s.avg) === 'no').length;
+            const okC   = wishSpecs.filter(s => s.avg != null && riskLevel(s.avg) === 'ok').length;
+            const warnC = wishSpecs.filter(s => s.avg != null && riskLevel(s.avg) === 'warn').length;
+            const noC   = wishSpecs.filter(s => s.avg != null && riskLevel(s.avg) === 'no').length;
             specSummary.innerHTML = `
                 <div class="dash-spec-summary">
                     <span class="sum-ok"><i class="fas fa-circle-check"></i> ${okC} مؤهّل</span>

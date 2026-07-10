@@ -199,8 +199,8 @@
   /* ---- STATS GRID ---- */
   document.getElementById('specStatsGrid').innerHTML = `
     <div class="detail-stat-card accent">
-      <div class="detail-stat-label"><i class="fas fa-percent"></i> معدل القبول (مرجعي)</div>
-      <div class="detail-stat-value">~ ${(spec.avg || 0).toFixed(2)}</div>
+      <div class="detail-stat-label"><i class="fas fa-percent"></i> ${spec.avg != null ? 'معدل القبول (مرجعي)' : 'القبول'}</div>
+      <div class="detail-stat-value">${spec.avg != null ? `~ ${spec.avg.toFixed(2)}` : 'مسابقة / انتقاء خاص'}</div>
     </div>
     <div class="detail-stat-card">
       <div class="detail-stat-label"><i class="fas fa-clock"></i> مدة الدراسة</div>
@@ -458,7 +458,7 @@
     <div class="fact-row"><span class="fact-key"><i class="fas fa-clock"></i> المدة</span><span class="fact-val">${spec.duration}</span></div>
     <div class="fact-row"><span class="fact-key"><i class="fas fa-certificate"></i> الشهادة</span><span class="fact-val">${spec.degree}</span></div>
     <div class="fact-row"><span class="fact-key"><i class="fas fa-location-dot"></i> الموقع</span><span class="fact-val" style="text-align:end;max-width:140px">${spec.location}</span></div>
-    <div class="fact-row"><span class="fact-key"><i class="fas fa-percent"></i> أدنى معدل تقديري</span><span class="fact-val">~ ${(spec.minAvg || 0).toFixed(2)}</span></div>
+    <div class="fact-row"><span class="fact-key"><i class="fas fa-percent"></i> أدنى معدل تقديري</span><span class="fact-val">${spec.minAvg != null ? `~ ${spec.minAvg.toFixed(2)}` : 'قبول بمسابقة'}</span></div>
     <div class="fact-row"><span class="fact-key"><i class="fas fa-fire"></i> الطلب على التخصص</span><span class="fact-val">${spec.demand}</span></div>`;
 
   /* ---- WISHLIST BUTTON ---- */
