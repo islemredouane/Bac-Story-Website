@@ -194,9 +194,9 @@
   const topbar = document.createElement('header');
   topbar.className = 'mobile-topbar';
   topbar.innerHTML = `
-    <button class="mtb-btn" id="mobileDrawerBtn" aria-label="القائمة">
-      <i class="fas fa-bars"></i>
-    </button>
+    <a class="mtb-btn" href="settings.html" aria-label="الحساب والإعدادات">
+      <i class="fas fa-user-circle"></i>
+    </a>
     <span class="mtb-logo">توجيهي</span>
     <button class="mtb-btn" id="mobileThemeBtn" aria-label="تبديل الوضع">
       <i class="fas fa-${root.getAttribute('data-theme') === 'dark' ? 'sun' : 'moon'}"></i>
