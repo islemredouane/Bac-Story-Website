@@ -174,3 +174,18 @@ source page. **Result: 10/10 exact matches**, including correct discrimination o
   domain/filière) with the Guide BAC 2025 priority matrix
   (`tawjihi/data/guide-bac2025-extracted.md`), then map priority أ1/أ2/أ3 → streams
   per filière.
+
+---
+
+## 7. Independent deterministic verification (2026-07-10)
+
+Per the owner's request, the full table was re-extracted with a deterministic
+Python script (`scripts/extract_minima_2025.py`, pdfplumber table extraction —
+same method as the owner's previous CSV workflow). Result:
+
+- Script rows: **4,445** — identical count to this extraction.
+- Multiset comparison of (etb_code, code, min1, min2, min3) signatures:
+  **0 differences in either direction.** Status distributions identical.
+- CSV artifact: `minima-phase1-2025.csv` (utf-8-sig, Excel-ready).
+
+Both methods agree on 100% of values — the dataset is double-verified.
