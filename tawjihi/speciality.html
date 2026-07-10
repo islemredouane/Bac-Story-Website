@@ -30,6 +30,9 @@
       .summary-box p { color: var(--text-primary); font-weight: 600; margin: 0; }
       .grid-2cols { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-3); }
       @media (max-width: 640px) { .grid-2cols { grid-template-columns: 1fr; } }
+      .reg-link-btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; width: 100%; margin-top: var(--sp-3); padding: .7rem 1rem; background: var(--cat, var(--primary)); color: #fff; border-radius: var(--r-md); font-size: var(--fs-sm); font-weight: 800; text-decoration: none; transition: opacity var(--t-fast), transform var(--t-fast); }
+      .reg-link-btn:hover { opacity: .9; transform: translateY(-1px); }
+      .dyn-section a.inline-link, .summary-box a.inline-link { color: var(--cat, var(--primary)); font-weight: 700; text-decoration: underline; word-break: break-all; }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
     <script src="supabase.js"></script>
@@ -459,7 +462,8 @@
     <div class="fact-row"><span class="fact-key"><i class="fas fa-certificate"></i> الشهادة</span><span class="fact-val">${spec.degree}</span></div>
     <div class="fact-row"><span class="fact-key"><i class="fas fa-location-dot"></i> الموقع</span><span class="fact-val" style="text-align:end;max-width:140px">${spec.location}</span></div>
     <div class="fact-row"><span class="fact-key"><i class="fas fa-percent"></i> أدنى معدل تقديري</span><span class="fact-val">${spec.minAvg != null ? `~ ${spec.minAvg.toFixed(2)}` : 'قبول بمسابقة'}</span></div>
-    <div class="fact-row"><span class="fact-key"><i class="fas fa-fire"></i> الطلب على التخصص</span><span class="fact-val">${spec.demand}</span></div>`;
+    <div class="fact-row"><span class="fact-key"><i class="fas fa-fire"></i> الطلب على التخصص</span><span class="fact-val">${spec.demand}</span></div>
+    ${spec.regLink ? `<a class="reg-link-btn" href="${spec.regLink}" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> التسجيل الأولي — منصة وزارة الدفاع</a>` : ''}`;
 
   /* ---- WISHLIST BUTTON ---- */
   const wishBtn = document.getElementById('wishBtn');
@@ -533,6 +537,11 @@
         // group pros+cons side by side
         const html = [];
         let i = 0;
+        /* linkify bare URLs and known registration domains in section text */
+        const linkify = (t) => String(t || '')
+          .replace(/(https?:\/\/[^\s<)]+)/g, '<a class="inline-link" href="$1" target="_blank" rel="noopener">$1</a>')
+          .replace(/(^|[\s(：:])((?:preinscription\.mdn\.dz|inscription\.mesrs\.dz|progres\.mesrs\.dz)\/?)(?![^<]*<\/a>)/g,
+                   '$1<a class="inline-link" href="https://$2" target="_blank" rel="noopener">$2</a>');
         while (i < sections.length) {
           const s = sections[i];
           const icon = ICONS[s.h] || 'fa-circle-info';
@@ -549,7 +558,7 @@
                 <h2 style="font-size:var(--fs-sm);font-weight:800;margin-bottom:var(--sp-2);display:flex;gap:.4rem;align-items:center">
                   <i class="fas ${sec.type==='pros'?'fa-thumbs-up':'fa-thumbs-down'}" style="color:${sec.type==='pros'?'#10b981':'#ef4444'}"></i> ${sec.h}
                 </h2>
-                <ul class="dyn-list ${cls}">${(sec.items||[]).map(it=>`<li><i class="fas ${ico}"></i><span>${it}</span></li>`).join('')}</ul>
+                <ul class="dyn-list ${cls}">${(sec.items||[]).map(it=>`<li><i class="fas ${ico}"></i><span>${linkify(it)}</span></li>`).join('')}</ul>
               </div>`;
             };
             html.push(`<section class="detail-section dyn-section">
@@ -561,15 +570,15 @@
 
           let content = '';
           if (s.type === 'summary') {
-            content = `<div class="summary-box">${(s.body||'').split('\n').filter(p=>p.trim()).map(p=>`<p>${p}</p>`).join('')}</div>`;
+            content = `<div class="summary-box">${(s.body||'').split('\n').filter(p=>p.trim()).map(p=>`<p>${linkify(p)}</p>`).join('')}</div>`;
           } else if (s.type === 'pros') {
-            content = `<ul class="dyn-list pros-list">${(s.items||[]).map(it=>`<li><i class="fas fa-check-circle"></i><span>${it}</span></li>`).join('')}</ul>`;
+            content = `<ul class="dyn-list pros-list">${(s.items||[]).map(it=>`<li><i class="fas fa-check-circle"></i><span>${linkify(it)}</span></li>`).join('')}</ul>`;
           } else if (s.type === 'cons') {
-            content = `<ul class="dyn-list cons-list">${(s.items||[]).map(it=>`<li><i class="fas fa-times-circle"></i><span>${it}</span></li>`).join('')}</ul>`;
+            content = `<ul class="dyn-list cons-list">${(s.items||[]).map(it=>`<li><i class="fas fa-times-circle"></i><span>${linkify(it)}</span></li>`).join('')}</ul>`;
           } else if (Array.isArray(s.items) && s.items.length) {
-            content = `<ul class="dyn-list">${s.items.map(it=>`<li><i class="fas fa-chevron-left"></i><span>${it}</span></li>`).join('')}</ul>`;
+            content = `<ul class="dyn-list">${s.items.map(it=>`<li><i class="fas fa-chevron-left"></i><span>${linkify(it)}</span></li>`).join('')}</ul>`;
           } else if (s.body) {
-            content = s.body.split('\n').filter(p=>p.trim()).map(p=>`<p>${p}</p>`).join('');
+            content = s.body.split('\n').filter(p=>p.trim()).map(p=>`<p>${linkify(p)}</p>`).join('');
           }
           html.push(`<section class="detail-section dyn-section">
             <h2><i class="fas ${icon}"></i> ${s.h}</h2>${content}
