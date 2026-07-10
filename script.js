@@ -3,60 +3,6 @@
 // lives in components/calculator.js — loaded only on tools.html.
 let calculatorState = 'fieldSelection';
 
-function getUniversityLinkContext() {
-    var path = (window.location.pathname || '').replace(/\\/g, '/');
-    if (/\/university\/speciality\//.test(path)) return 'speciality';
-    if (/\/university\//.test(path)) return 'university';
-    return 'root';
-}
-
-function resolveUniversityHref(target) {
-    if (!target || target.charAt(0) !== '/') return target;
-
-    var context = getUniversityLinkContext();
-
-    if (target === '/university.html') {
-        if (context === 'speciality') return '../../university.html';
-        if (context === 'university') return '../university.html';
-        return 'university.html';
-    }
-
-    if (target.indexOf('/university/speciality/') === 0) {
-        var specialityRest = target.slice('/university/speciality/'.length);
-        if (context === 'speciality') return specialityRest;
-        if (context === 'university') return 'speciality/' + specialityRest;
-        return 'university/speciality/' + specialityRest;
-    }
-
-    if (target.indexOf('/university/') === 0) {
-        var universityRest = target.slice('/university/'.length);
-        if (context === 'speciality') return '../' + universityRest;
-        if (context === 'university') return universityRest;
-        return 'university/' + universityRest;
-    }
-
-    return target;
-}
-
-function normalizeUniversityLinks(root) {
-    if (!root || !root.querySelectorAll) return;
-
-    root.querySelectorAll('a[href^="/university"], a[href="/university.html"]').forEach(function (link) {
-        var href = link.getAttribute('href');
-        if (!href) return;
-        link.setAttribute('href', resolveUniversityHref(href));
-    });
-
-    root.querySelectorAll('[onclick*="/university"]').forEach(function (el) {
-        var onclick = el.getAttribute('onclick');
-        if (!onclick) return;
-        var updated = onclick.replace(/(['"])(\/university(?:[^'"]*)?)\1/g, function (match, quote, target) {
-            return quote + resolveUniversityHref(target) + quote;
-        });
-        if (updated !== onclick) el.setAttribute('onclick', updated);
-    });
-}
-
 function showSection(id, push = true) {
     if (id === 'calculator') {
         const savedState = localStorage.getItem('calculatorState') || 'fieldSelection';
@@ -116,9 +62,8 @@ function showSection(id, push = true) {
         'exam-sheet': 'tools.html',
         'weighted-calc': 'tools.html',
         'university-system': 'university.html',
-        'university-section': 'university/specialities.html',
-        'averages-of-acceptance': 'university/averages-of-acceptance.html',
-        'ministry-guide': 'university/ministry-guide.html',
+        'university-section': 'university.html',
+        'averages-of-acceptance': 'university.html',
         'oqba': 'oqba.html'
     };
 
@@ -126,18 +71,7 @@ function showSection(id, push = true) {
 
     // If section doesn't exist on this page, but exists in our map, redirect there!
     if (!section && pageMapping[id] && !window.location.pathname.includes(pageMapping[id])) {
-        var mappedTarget = resolveUniversityHref('/' + pageMapping[id]);
-        if (pageMapping[id].includes('university')) {
-            window.location.href = mappedTarget;
-        } else {
-            window.location.href = mappedTarget + `#${id}`;
-        }
-        return;
-    }
-
-    // If section doesn't exist on this page and is not in our map, redirect to its individual specialty page
-    if (!section && !pageMapping[id]) {
-        window.location.href = resolveUniversityHref(`/university/speciality/${id.toLowerCase()}.html`);
+        window.location.href = `/${pageMapping[id]}#${id}`;
         return;
     }
 
@@ -519,32 +453,16 @@ document.addEventListener('keydown', function (e) {
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Initial Section Loading — replaceState stamps the initial entry so
     //    the popstate handler always gets valid state when the user presses back.
-    const activeSection = document.querySelector('.resource-content.active');
-    const initial = location.hash.slice(1) || (activeSection ? activeSection.id : '');
+    const initial = location.hash.slice(1) || 'home';
     const savedState = localStorage.getItem('calculatorState') || 'fieldSelection';
 
     if (initial === 'calculator') {
         calculatorState = savedState;
         history.replaceState({ section: 'calculator', calculatorState: savedState }, '', location.href);
         showSection(savedState, false);
-    } else if (initial) {
+    } else {
         history.replaceState({ section: initial, calculatorState: savedState }, '', location.href);
         showSection(initial, false);
-    }
-
-    normalizeUniversityLinks(document);
-
-    if (window.MutationObserver && document.body) {
-        var universityLinkObserver = new MutationObserver(function (mutations) {
-            mutations.forEach(function (mutation) {
-                mutation.addedNodes.forEach(function (node) {
-                    if (node && node.nodeType === 1) {
-                        normalizeUniversityLinks(node);
-                    }
-                });
-            });
-        });
-        universityLinkObserver.observe(document.body, { childList: true, subtree: true });
     }
 
     // 2. Timer Setup — start immediately if timer elements exist on this page
