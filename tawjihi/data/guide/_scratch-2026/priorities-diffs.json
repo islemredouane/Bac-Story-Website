@@ -1,0 +1,4572 @@
+[
+ {
+  "code": "P04VAN01",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "techmath",
+    "priority": 4
+   }
+  ],
+  "new": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "A19LAN01",
+  "old": [
+   {
+    "stream": "math",
+    "priority": null
+   },
+   {
+    "stream": "techmath",
+    "priority": null
+   }
+  ],
+  "new": [
+   {
+    "stream": "sciexp",
+    "priority": null
+   },
+   {
+    "stream": "techmath",
+    "priority": null
+   },
+   {
+    "stream": "math",
+    "priority": null
+   }
+  ]
+ },
+ {
+  "code": "A19LAN02",
+  "old": [
+   {
+    "stream": "math",
+    "priority": null
+   },
+   {
+    "stream": "techmath",
+    "priority": null
+   }
+  ],
+  "new": [
+   {
+    "stream": "sciexp",
+    "priority": null
+   },
+   {
+    "stream": "techmath",
+    "priority": null
+   },
+   {
+    "stream": "math",
+    "priority": null
+   }
+  ]
+ },
+ {
+  "code": "A07LAN01",
+  "old": [
+   {
+    "stream": "math",
+    "priority": null
+   },
+   {
+    "stream": "techmath",
+    "priority": null
+   }
+  ],
+  "new": [
+   {
+    "stream": "sciexp",
+    "priority": null
+   },
+   {
+    "stream": "techmath",
+    "priority": null
+   },
+   {
+    "stream": "math",
+    "priority": null
+   }
+  ]
+ },
+ {
+  "code": "A02LAN01",
+  "old": [
+   {
+    "stream": "math",
+    "priority": null
+   },
+   {
+    "stream": "techmath",
+    "priority": null
+   }
+  ],
+  "new": [
+   {
+    "stream": "sciexp",
+    "priority": null
+   },
+   {
+    "stream": "techmath",
+    "priority": null
+   },
+   {
+    "stream": "math",
+    "priority": null
+   }
+  ]
+ },
+ {
+  "code": "A19TPN01",
+  "old": [
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "techmath",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 3
+   }
+  ],
+  "new": [
+   {
+    "stream": "techmath",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 2
+   },
+   {
+    "stream": "sciexp",
+    "priority": 3
+   }
+  ]
+ },
+ {
+  "code": "A19TPN03",
+  "old": [
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "techmath",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 3
+   }
+  ],
+  "new": [
+   {
+    "stream": "techmath",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 2
+   },
+   {
+    "stream": "sciexp",
+    "priority": 3
+   }
+  ]
+ },
+ {
+  "code": "A07TPN01",
+  "old": [
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "techmath",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 3
+   }
+  ],
+  "new": [
+   {
+    "stream": "techmath",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 2
+   },
+   {
+    "stream": "sciexp",
+    "priority": 3
+   }
+  ]
+ },
+ {
+  "code": "B00LAL01",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": null
+   }
+  ],
+  "new": [
+   {
+    "stream": "sciexp",
+    "priority": null
+   },
+   {
+    "stream": "techmath",
+    "priority": null
+   },
+   {
+    "stream": "math",
+    "priority": null
+   }
+  ]
+ },
+ {
+  "code": "B00LAL02",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": null
+   }
+  ],
+  "new": [
+   {
+    "stream": "sciexp",
+    "priority": null
+   },
+   {
+    "stream": "techmath",
+    "priority": null
+   },
+   {
+    "stream": "math",
+    "priority": null
+   }
+  ]
+ },
+ {
+  "code": "B00LAL03",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": null
+   }
+  ],
+  "new": [
+   {
+    "stream": "sciexp",
+    "priority": null
+   },
+   {
+    "stream": "techmath",
+    "priority": null
+   },
+   {
+    "stream": "math",
+    "priority": null
+   }
+  ]
+ },
+ {
+  "code": "D05FPN01",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": null
+   },
+   {
+    "stream": "math",
+    "priority": null
+   }
+  ],
+  "new": [
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 3
+   }
+  ]
+ },
+ {
+  "code": "F01FPN02",
+  "old": [
+   {
+    "stream": "gestion",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "math",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   },
+   {
+    "stream": "langues",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "gestion",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   },
+   {
+    "stream": "math",
+    "priority": 2
+   },
+   {
+    "stream": "langues",
+    "priority": 3
+   }
+  ]
+ },
+ {
+  "code": "F02FPN01",
+  "old": [
+   {
+    "stream": "gestion",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "math",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   },
+   {
+    "stream": "langues",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "gestion",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   },
+   {
+    "stream": "math",
+    "priority": 2
+   },
+   {
+    "stream": "langues",
+    "priority": 3
+   }
+  ]
+ },
+ {
+  "code": "F01LAN01",
+  "old": [
+   {
+    "stream": "gestion",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "math",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   },
+   {
+    "stream": "langues",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "gestion",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   },
+   {
+    "stream": "math",
+    "priority": 2
+   },
+   {
+    "stream": "langues",
+    "priority": 3
+   }
+  ]
+ },
+ {
+  "code": "F02LAN01",
+  "old": [
+   {
+    "stream": "gestion",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "math",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   },
+   {
+    "stream": "langues",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "gestion",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   },
+   {
+    "stream": "math",
+    "priority": 2
+   },
+   {
+    "stream": "langues",
+    "priority": 3
+   }
+  ]
+ },
+ {
+  "code": "F00TPN02",
+  "old": [
+   {
+    "stream": "gestion",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   },
+   {
+    "stream": "langues",
+    "priority": 3
+   }
+  ],
+  "new": [
+   {
+    "stream": "gestion",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   },
+   {
+    "stream": "math",
+    "priority": 2
+   },
+   {
+    "stream": "langues",
+    "priority": 3
+   }
+  ]
+ },
+ {
+  "code": "F02TPN09",
+  "old": [
+   {
+    "stream": "gestion",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   },
+   {
+    "stream": "langues",
+    "priority": 3
+   }
+  ],
+  "new": [
+   {
+    "stream": "gestion",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   },
+   {
+    "stream": "math",
+    "priority": 2
+   },
+   {
+    "stream": "langues",
+    "priority": 3
+   }
+  ]
+ },
+ {
+  "code": "F00CAN01",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": null
+   },
+   {
+    "stream": "math",
+    "priority": null
+   },
+   {
+    "stream": "techmath",
+    "priority": null
+   }
+  ],
+  "new": [
+   {
+    "stream": "sciexp",
+    "priority": null
+   },
+   {
+    "stream": "techmath",
+    "priority": null
+   },
+   {
+    "stream": "math",
+    "priority": null
+   },
+   {
+    "stream": "gestion",
+    "priority": null
+   }
+  ]
+ },
+ {
+  "code": "F00CAN02",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": null
+   },
+   {
+    "stream": "math",
+    "priority": null
+   },
+   {
+    "stream": "techmath",
+    "priority": null
+   }
+  ],
+  "new": [
+   {
+    "stream": "sciexp",
+    "priority": null
+   },
+   {
+    "stream": "techmath",
+    "priority": null
+   },
+   {
+    "stream": "math",
+    "priority": null
+   },
+   {
+    "stream": "gestion",
+    "priority": null
+   }
+  ]
+ },
+ {
+  "code": "F00CAN03",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": null
+   },
+   {
+    "stream": "math",
+    "priority": null
+   },
+   {
+    "stream": "techmath",
+    "priority": null
+   }
+  ],
+  "new": [
+   {
+    "stream": "sciexp",
+    "priority": null
+   },
+   {
+    "stream": "techmath",
+    "priority": null
+   },
+   {
+    "stream": "math",
+    "priority": null
+   },
+   {
+    "stream": "gestion",
+    "priority": null
+   }
+  ]
+ },
+ {
+  "code": "F00CAN04",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": null
+   },
+   {
+    "stream": "math",
+    "priority": null
+   },
+   {
+    "stream": "techmath",
+    "priority": null
+   }
+  ],
+  "new": [
+   {
+    "stream": "sciexp",
+    "priority": null
+   },
+   {
+    "stream": "techmath",
+    "priority": null
+   },
+   {
+    "stream": "math",
+    "priority": null
+   },
+   {
+    "stream": "gestion",
+    "priority": null
+   }
+  ]
+ },
+ {
+  "code": "F00CAN05",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": null
+   },
+   {
+    "stream": "math",
+    "priority": null
+   },
+   {
+    "stream": "techmath",
+    "priority": null
+   }
+  ],
+  "new": [
+   {
+    "stream": "sciexp",
+    "priority": null
+   },
+   {
+    "stream": "techmath",
+    "priority": null
+   },
+   {
+    "stream": "math",
+    "priority": null
+   },
+   {
+    "stream": "gestion",
+    "priority": null
+   }
+  ]
+ },
+ {
+  "code": "F00CAN06",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": null
+   },
+   {
+    "stream": "math",
+    "priority": null
+   },
+   {
+    "stream": "techmath",
+    "priority": null
+   }
+  ],
+  "new": [
+   {
+    "stream": "sciexp",
+    "priority": null
+   },
+   {
+    "stream": "techmath",
+    "priority": null
+   },
+   {
+    "stream": "math",
+    "priority": null
+   },
+   {
+    "stream": "gestion",
+    "priority": null
+   }
+  ]
+ },
+ {
+  "code": "F00CAN07",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": null
+   },
+   {
+    "stream": "math",
+    "priority": null
+   },
+   {
+    "stream": "techmath",
+    "priority": null
+   }
+  ],
+  "new": [
+   {
+    "stream": "sciexp",
+    "priority": null
+   },
+   {
+    "stream": "techmath",
+    "priority": null
+   },
+   {
+    "stream": "math",
+    "priority": null
+   },
+   {
+    "stream": "gestion",
+    "priority": null
+   }
+  ]
+ },
+ {
+  "code": "F00CAN08",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": null
+   },
+   {
+    "stream": "math",
+    "priority": null
+   },
+   {
+    "stream": "techmath",
+    "priority": null
+   }
+  ],
+  "new": [
+   {
+    "stream": "sciexp",
+    "priority": null
+   },
+   {
+    "stream": "techmath",
+    "priority": null
+   },
+   {
+    "stream": "math",
+    "priority": null
+   },
+   {
+    "stream": "gestion",
+    "priority": null
+   }
+  ]
+ },
+ {
+  "code": "G02LAL01",
+  "old": [
+   {
+    "stream": "gestion",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 1
+   },
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "arts",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "math",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "gestion",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 1
+   },
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "arts",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "math",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 3
+   }
+  ]
+ },
+ {
+  "code": "G02LAL02",
+  "old": [
+   {
+    "stream": "gestion",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 1
+   },
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "arts",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "math",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "gestion",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 1
+   },
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "arts",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "math",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 3
+   }
+  ]
+ },
+ {
+  "code": "G02LAL03",
+  "old": [
+   {
+    "stream": "gestion",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 1
+   },
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "arts",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "math",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "gestion",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 1
+   },
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "arts",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "math",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 3
+   }
+  ]
+ },
+ {
+  "code": "H06LAL01",
+  "old": [
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   },
+   {
+    "stream": "sciexp",
+    "priority": 3
+   },
+   {
+    "stream": "arts",
+    "priority": 3
+   }
+  ],
+  "new": [
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   },
+   {
+    "stream": "sciexp",
+    "priority": 3
+   },
+   {
+    "stream": "gestion",
+    "priority": 3
+   },
+   {
+    "stream": "arts",
+    "priority": 3
+   }
+  ]
+ },
+ {
+  "code": "H06LAL02",
+  "old": [
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   },
+   {
+    "stream": "sciexp",
+    "priority": 3
+   },
+   {
+    "stream": "arts",
+    "priority": 3
+   }
+  ],
+  "new": [
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   },
+   {
+    "stream": "sciexp",
+    "priority": 3
+   },
+   {
+    "stream": "gestion",
+    "priority": 3
+   },
+   {
+    "stream": "arts",
+    "priority": 3
+   }
+  ]
+ },
+ {
+  "code": "H06LAL03",
+  "old": [
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   },
+   {
+    "stream": "sciexp",
+    "priority": 3
+   },
+   {
+    "stream": "arts",
+    "priority": 3
+   }
+  ],
+  "new": [
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   },
+   {
+    "stream": "sciexp",
+    "priority": 3
+   },
+   {
+    "stream": "gestion",
+    "priority": 3
+   },
+   {
+    "stream": "arts",
+    "priority": 3
+   }
+  ]
+ },
+ {
+  "code": "H02LAL01",
+  "old": [
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 4
+   },
+   {
+    "stream": "arts",
+    "priority": 4
+   }
+  ],
+  "new": [
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   },
+   {
+    "stream": "sciexp",
+    "priority": 3
+   },
+   {
+    "stream": "gestion",
+    "priority": 3
+   },
+   {
+    "stream": "arts",
+    "priority": 3
+   }
+  ]
+ },
+ {
+  "code": "H04LAL01",
+  "old": [
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 4
+   },
+   {
+    "stream": "sciexp",
+    "priority": 4
+   },
+   {
+    "stream": "arts",
+    "priority": 4
+   }
+  ],
+  "new": [
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   },
+   {
+    "stream": "sciexp",
+    "priority": 3
+   },
+   {
+    "stream": "gestion",
+    "priority": 3
+   },
+   {
+    "stream": "arts",
+    "priority": 3
+   }
+  ]
+ },
+ {
+  "code": "H03IAL01",
+  "old": [
+   {
+    "stream": "langues",
+    "priority": 0
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "H03IAL02",
+  "old": [
+   {
+    "stream": "langues",
+    "priority": 0
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "H03IAL03",
+  "old": [
+   {
+    "stream": "langues",
+    "priority": 0
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "H03IAL04",
+  "old": [
+   {
+    "stream": "langues",
+    "priority": 0
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "H03IAL05",
+  "old": [
+   {
+    "stream": "langues",
+    "priority": 0
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "H03IAL09",
+  "old": [
+   {
+    "stream": "langues",
+    "priority": 0
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "H03IAL10",
+  "old": [
+   {
+    "stream": "langues",
+    "priority": 0
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "H03IAL13",
+  "old": [
+   {
+    "stream": "langues",
+    "priority": 0
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "H03IAL14",
+  "old": [
+   {
+    "stream": "langues",
+    "priority": 0
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "H03IAL15",
+  "old": [
+   {
+    "stream": "langues",
+    "priority": 0
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "H03IAL16",
+  "old": [
+   {
+    "stream": "langues",
+    "priority": 0
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "H03IAL17",
+  "old": [
+   {
+    "stream": "langues",
+    "priority": 0
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "H03IAL18",
+  "old": [
+   {
+    "stream": "langues",
+    "priority": 0
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "H03IAL19",
+  "old": [
+   {
+    "stream": "langues",
+    "priority": 0
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "H03IAL20",
+  "old": [
+   {
+    "stream": "langues",
+    "priority": 0
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "H03IAL21",
+  "old": [
+   {
+    "stream": "langues",
+    "priority": 0
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "H03IAL22",
+  "old": [
+   {
+    "stream": "langues",
+    "priority": 0
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "H03IAL23",
+  "old": [
+   {
+    "stream": "langues",
+    "priority": 0
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "H03IAL24",
+  "old": [
+   {
+    "stream": "langues",
+    "priority": 0
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "H03IAL25",
+  "old": [
+   {
+    "stream": "langues",
+    "priority": 0
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "H03IAN07",
+  "old": [
+   {
+    "stream": "langues",
+    "priority": 0
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "H03IAN08",
+  "old": [
+   {
+    "stream": "langues",
+    "priority": 0
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "H03IAN11",
+  "old": [
+   {
+    "stream": "langues",
+    "priority": 0
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "H03IAN12",
+  "old": [
+   {
+    "stream": "langues",
+    "priority": 0
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "H03IAL26",
+  "old": [
+   {
+    "stream": "langues",
+    "priority": 0
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "H03IAN25",
+  "old": [
+   {
+    "stream": "langues",
+    "priority": 0
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "L00LAL01",
+  "old": [
+   {
+    "stream": "lettres",
+    "priority": 1
+   },
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "arts",
+    "priority": 1
+   },
+   {
+    "stream": "gestion",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "lettres",
+    "priority": 1
+   },
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "arts",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "gestion",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "L00LAL02",
+  "old": [
+   {
+    "stream": "lettres",
+    "priority": 1
+   },
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "arts",
+    "priority": 1
+   },
+   {
+    "stream": "gestion",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "lettres",
+    "priority": 1
+   },
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "arts",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "gestion",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "L00LAL03",
+  "old": [
+   {
+    "stream": "lettres",
+    "priority": 1
+   },
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "arts",
+    "priority": 1
+   },
+   {
+    "stream": "gestion",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "lettres",
+    "priority": 1
+   },
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "arts",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "gestion",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "N02TPN01",
+  "old": [
+   {
+    "stream": "math",
+    "priority": 0
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "techmath",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "N01FPN04",
+  "old": [
+   {
+    "stream": "math",
+    "priority": 0
+   },
+   {
+    "stream": "techmath",
+    "priority": 0
+   }
+  ],
+  "new": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "N02FPN06",
+  "old": [
+   {
+    "stream": "math",
+    "priority": 0
+   },
+   {
+    "stream": "techmath",
+    "priority": 0
+   }
+  ],
+  "new": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "N02FPN07",
+  "old": [
+   {
+    "stream": "math",
+    "priority": 0
+   },
+   {
+    "stream": "techmath",
+    "priority": 0
+   }
+  ],
+  "new": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "F04EAN01",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "math",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   },
+   {
+    "stream": "langues",
+    "priority": 3
+   }
+  ],
+  "new": [
+   {
+    "stream": "gestion",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   },
+   {
+    "stream": "math",
+    "priority": 2
+   },
+   {
+    "stream": "langues",
+    "priority": 3
+   }
+  ]
+ },
+ {
+  "code": "H06EAN01",
+  "old": [
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   },
+   {
+    "stream": "gestion",
+    "priority": 3
+   },
+   {
+    "stream": "arts",
+    "priority": 3
+   }
+  ],
+  "new": [
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   },
+   {
+    "stream": "sciexp",
+    "priority": 3
+   },
+   {
+    "stream": "gestion",
+    "priority": 3
+   },
+   {
+    "stream": "arts",
+    "priority": 3
+   }
+  ]
+ },
+ {
+  "code": "F04EAN03",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "techmath",
+    "priority": 1
+   },
+   {
+    "stream": "gestion",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 1
+   },
+   {
+    "stream": "langues",
+    "priority": 3
+   }
+  ],
+  "new": [
+   {
+    "stream": "gestion",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   },
+   {
+    "stream": "math",
+    "priority": 2
+   },
+   {
+    "stream": "langues",
+    "priority": 3
+   }
+  ]
+ },
+ {
+  "code": "H06FCL02",
+  "old": [
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   },
+   {
+    "stream": "sciexp",
+    "priority": 3
+   },
+   {
+    "stream": "math",
+    "priority": 3
+   },
+   {
+    "stream": "gestion",
+    "priority": 3
+   },
+   {
+    "stream": "arts",
+    "priority": 3
+   }
+  ],
+  "new": [
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   },
+   {
+    "stream": "sciexp",
+    "priority": 3
+   },
+   {
+    "stream": "techmath",
+    "priority": 3
+   },
+   {
+    "stream": "math",
+    "priority": 3
+   },
+   {
+    "stream": "gestion",
+    "priority": 3
+   },
+   {
+    "stream": "arts",
+    "priority": 3
+   }
+  ]
+ },
+ {
+  "code": "H06FCL01",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   }
+  ],
+  "new": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "H06FCL06",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   }
+  ],
+  "new": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "H06FCL00",
+  "old": [
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   },
+   {
+    "stream": "sciexp",
+    "priority": 3
+   },
+   {
+    "stream": "math",
+    "priority": 3
+   },
+   {
+    "stream": "gestion",
+    "priority": 3
+   },
+   {
+    "stream": "arts",
+    "priority": 3
+   }
+  ],
+  "new": [
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 2
+   },
+   {
+    "stream": "sciexp",
+    "priority": 3
+   },
+   {
+    "stream": "techmath",
+    "priority": 3
+   },
+   {
+    "stream": "math",
+    "priority": 3
+   },
+   {
+    "stream": "gestion",
+    "priority": 3
+   },
+   {
+    "stream": "arts",
+    "priority": 3
+   }
+  ]
+ },
+ {
+  "code": "GC0LAN01",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "techmath",
+    "priority": 1
+   }
+  ],
+  "new": [
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "FH0LAN01",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": null
+   },
+   {
+    "stream": "math",
+    "priority": null
+   },
+   {
+    "stream": "langues",
+    "priority": null
+   }
+  ],
+  "new": [
+   {
+    "stream": "gestion",
+    "priority": 1
+   },
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "math",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "CF0LPN02",
+  "old": [
+   {
+    "stream": "gestion",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "gestion",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "HF0LAN01",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": null
+   },
+   {
+    "stream": "math",
+    "priority": null
+   },
+   {
+    "stream": "gestion",
+    "priority": null
+   },
+   {
+    "stream": "langues",
+    "priority": null
+   }
+  ],
+  "new": [
+   {
+    "stream": "gestion",
+    "priority": 1
+   },
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "math",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "CA0LAN01",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "techmath",
+    "priority": 1
+   }
+  ],
+  "new": [
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "GG0LAN01",
+  "old": [
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "arts",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "math",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 4
+   }
+  ],
+  "new": [
+   {
+    "stream": "gestion",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 1
+   },
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "arts",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "math",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 3
+   }
+  ]
+ },
+ {
+  "code": "CF0LAN03",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   }
+  ],
+  "new": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "gestion",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "GF0LAN01",
+  "old": [
+   {
+    "stream": "gestion",
+    "priority": 4
+   },
+   {
+    "stream": "math",
+    "priority": 4
+   },
+   {
+    "stream": "techmath",
+    "priority": 4
+   }
+  ],
+  "new": [
+   {
+    "stream": "gestion",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 2
+   },
+   {
+    "stream": "sciexp",
+    "priority": 3
+   },
+   {
+    "stream": "techmath",
+    "priority": 3
+   }
+  ]
+ },
+ {
+  "code": "CF0LAN04",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   }
+  ],
+  "new": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "gestion",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "CF0LAN05",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": 0
+   },
+   {
+    "stream": "math",
+    "priority": 0
+   },
+   {
+    "stream": "gestion",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "gestion",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "NI0LAN01",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": null
+   },
+   {
+    "stream": "techmath",
+    "priority": null
+   }
+  ],
+  "new": [
+   {
+    "stream": "sciexp",
+    "priority": null
+   },
+   {
+    "stream": "techmath",
+    "priority": null
+   },
+   {
+    "stream": "math",
+    "priority": null
+   }
+  ]
+ },
+ {
+  "code": "CF0LAN06",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   }
+  ],
+  "new": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "gestion",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "IF0LAN01",
+  "old": [
+   {
+    "stream": "gestion",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 2
+   },
+   {
+    "stream": "sciexp",
+    "priority": 4
+   },
+   {
+    "stream": "techmath",
+    "priority": 4
+   }
+  ],
+  "new": [
+   {
+    "stream": "gestion",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 2
+   },
+   {
+    "stream": "sciexp",
+    "priority": 3
+   },
+   {
+    "stream": "techmath",
+    "priority": 3
+   }
+  ]
+ },
+ {
+  "code": "IG0LAN01",
+  "old": [
+   {
+    "stream": "gestion",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 1
+   },
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "math",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 4
+   }
+  ],
+  "new": [
+   {
+    "stream": "gestion",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 1
+   },
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "math",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 3
+   }
+  ]
+ },
+ {
+  "code": "GH0LAN01",
+  "old": [
+   {
+    "stream": "lettres",
+    "priority": 4
+   },
+   {
+    "stream": "langues",
+    "priority": 4
+   },
+   {
+    "stream": "sciexp",
+    "priority": 4
+   },
+   {
+    "stream": "gestion",
+    "priority": 4
+   }
+  ],
+  "new": [
+   {
+    "stream": "lettres",
+    "priority": 1
+   },
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "gestion",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "GG0LAN02",
+  "old": [
+   {
+    "stream": "gestion",
+    "priority": 4
+   },
+   {
+    "stream": "lettres",
+    "priority": 4
+   },
+   {
+    "stream": "langues",
+    "priority": 4
+   },
+   {
+    "stream": "arts",
+    "priority": 4
+   },
+   {
+    "stream": "sciexp",
+    "priority": 4
+   },
+   {
+    "stream": "math",
+    "priority": 4
+   },
+   {
+    "stream": "techmath",
+    "priority": 4
+   }
+  ],
+  "new": [
+   {
+    "stream": "gestion",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 1
+   },
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "arts",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "math",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 3
+   }
+  ]
+ },
+ {
+  "code": "IJ0LAN02",
+  "old": [
+   {
+    "stream": "lettres",
+    "priority": 4
+   },
+   {
+    "stream": "langues",
+    "priority": 4
+   },
+   {
+    "stream": "arts",
+    "priority": 4
+   },
+   {
+    "stream": "sciexp",
+    "priority": 4
+   }
+  ],
+  "new": [
+   {
+    "stream": "lettres",
+    "priority": 1
+   },
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "arts",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "CF0LAN07",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   }
+  ],
+  "new": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "gestion",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "GG0LAN03",
+  "old": [
+   {
+    "stream": "gestion",
+    "priority": 4
+   },
+   {
+    "stream": "lettres",
+    "priority": 4
+   },
+   {
+    "stream": "langues",
+    "priority": 4
+   },
+   {
+    "stream": "arts",
+    "priority": 4
+   },
+   {
+    "stream": "sciexp",
+    "priority": 4
+   },
+   {
+    "stream": "math",
+    "priority": 4
+   },
+   {
+    "stream": "techmath",
+    "priority": 4
+   }
+  ],
+  "new": [
+   {
+    "stream": "gestion",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 1
+   },
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "arts",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "math",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 3
+   }
+  ]
+ },
+ {
+  "code": "PI0LAN01",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "techmath",
+    "priority": 4
+   }
+  ],
+  "new": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "PC0LAN01",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "techmath",
+    "priority": 4
+   }
+  ],
+  "new": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "PC0LAN02",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "techmath",
+    "priority": 4
+   }
+  ],
+  "new": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "PC0LAN03",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "techmath",
+    "priority": 4
+   }
+  ],
+  "new": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "PC0LAN04",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "techmath",
+    "priority": 4
+   }
+  ],
+  "new": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "PF0LAN01",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "techmath",
+    "priority": 4
+   }
+  ],
+  "new": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "PF0LAN02",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "techmath",
+    "priority": 4
+   }
+  ],
+  "new": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "PF0LAN03",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "techmath",
+    "priority": 4
+   }
+  ],
+  "new": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "CF0LAN08",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   }
+  ],
+  "new": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "gestion",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "PF0LAN04",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "techmath",
+    "priority": 4
+   }
+  ],
+  "new": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "CI1LPN01",
+  "old": [
+   {
+    "stream": "math",
+    "priority": 0
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "CI1LPN02",
+  "old": [
+   {
+    "stream": "math",
+    "priority": 0
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "CI1LPN03",
+  "old": [
+   {
+    "stream": "math",
+    "priority": 0
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "CF1LPN01",
+  "old": [
+   {
+    "stream": "math",
+    "priority": 0
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "CF1LPN02",
+  "old": [
+   {
+    "stream": "math",
+    "priority": 0
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "CF1LPN03",
+  "old": [
+   {
+    "stream": "math",
+    "priority": 0
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "FC1LPN01",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": 0
+   },
+   {
+    "stream": "math",
+    "priority": 0
+   },
+   {
+    "stream": "techmath",
+    "priority": 0
+   },
+   {
+    "stream": "gestion",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "techmath",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "gestion",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "FC1LPN02",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": 4
+   },
+   {
+    "stream": "math",
+    "priority": 4
+   },
+   {
+    "stream": "techmath",
+    "priority": 4
+   },
+   {
+    "stream": "langues",
+    "priority": 4
+   }
+  ],
+  "new": [
+   {
+    "stream": "gestion",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   },
+   {
+    "stream": "math",
+    "priority": 2
+   },
+   {
+    "stream": "langues",
+    "priority": 3
+   }
+  ]
+ },
+ {
+  "code": "CC1LPN01",
+  "old": [
+   {
+    "stream": "math",
+    "priority": 0
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "FI1LPN01",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": 4
+   },
+   {
+    "stream": "math",
+    "priority": 4
+   },
+   {
+    "stream": "techmath",
+    "priority": 4
+   },
+   {
+    "stream": "langues",
+    "priority": 4
+   }
+  ],
+  "new": [
+   {
+    "stream": "gestion",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   },
+   {
+    "stream": "math",
+    "priority": 2
+   },
+   {
+    "stream": "langues",
+    "priority": 3
+   }
+  ]
+ },
+ {
+  "code": "FF1LPN01",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": 4
+   },
+   {
+    "stream": "math",
+    "priority": 4
+   },
+   {
+    "stream": "techmath",
+    "priority": 4
+   }
+  ],
+  "new": [
+   {
+    "stream": "gestion",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   },
+   {
+    "stream": "math",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "FC1LAN03",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": 4
+   },
+   {
+    "stream": "math",
+    "priority": 4
+   },
+   {
+    "stream": "techmath",
+    "priority": 4
+   }
+  ],
+  "new": [
+   {
+    "stream": "gestion",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   },
+   {
+    "stream": "math",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "IF1LPN01",
+  "old": [
+   {
+    "stream": "gestion",
+    "priority": 4
+   },
+   {
+    "stream": "langues",
+    "priority": 4
+   },
+   {
+    "stream": "sciexp",
+    "priority": 4
+   },
+   {
+    "stream": "math",
+    "priority": 4
+   }
+  ],
+  "new": [
+   {
+    "stream": "gestion",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 1
+   },
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "math",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "II1LPN01",
+  "old": [
+   {
+    "stream": "gestion",
+    "priority": 4
+   },
+   {
+    "stream": "lettres",
+    "priority": 4
+   },
+   {
+    "stream": "langues",
+    "priority": 4
+   },
+   {
+    "stream": "sciexp",
+    "priority": 4
+   },
+   {
+    "stream": "math",
+    "priority": 4
+   }
+  ],
+  "new": [
+   {
+    "stream": "gestion",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 1
+   },
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "math",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "KK1LPN01",
+  "old": [
+   {
+    "stream": "lettres",
+    "priority": 4
+   },
+   {
+    "stream": "langues",
+    "priority": 4
+   },
+   {
+    "stream": "arts",
+    "priority": 4
+   },
+   {
+    "stream": "sciexp",
+    "priority": 4
+   },
+   {
+    "stream": "math",
+    "priority": 4
+   }
+  ],
+  "new": [
+   {
+    "stream": "lettres",
+    "priority": 1
+   },
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "arts",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "math",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "GG1LPN01",
+  "old": [
+   {
+    "stream": "gestion",
+    "priority": 4
+   },
+   {
+    "stream": "lettres",
+    "priority": 4
+   },
+   {
+    "stream": "langues",
+    "priority": 4
+   },
+   {
+    "stream": "arts",
+    "priority": 4
+   },
+   {
+    "stream": "sciexp",
+    "priority": 4
+   },
+   {
+    "stream": "math",
+    "priority": 4
+   },
+   {
+    "stream": "techmath",
+    "priority": 4
+   }
+  ],
+  "new": [
+   {
+    "stream": "gestion",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 1
+   },
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "arts",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "math",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 3
+   }
+  ]
+ },
+ {
+  "code": "FF1LPN02",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": 0
+   },
+   {
+    "stream": "math",
+    "priority": 0
+   },
+   {
+    "stream": "techmath",
+    "priority": 0
+   },
+   {
+    "stream": "gestion",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "techmath",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "gestion",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "FC1LPN03",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": 0
+   },
+   {
+    "stream": "math",
+    "priority": 0
+   },
+   {
+    "stream": "techmath",
+    "priority": 0
+   },
+   {
+    "stream": "gestion",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "techmath",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "gestion",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "FC1LPN04",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": 0
+   },
+   {
+    "stream": "math",
+    "priority": 0
+   },
+   {
+    "stream": "techmath",
+    "priority": 0
+   },
+   {
+    "stream": "gestion",
+    "priority": 2
+   }
+  ],
+  "new": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "techmath",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "gestion",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "JI1LPN01",
+  "old": [
+   {
+    "stream": "gestion",
+    "priority": 4
+   },
+   {
+    "stream": "lettres",
+    "priority": 4
+   },
+   {
+    "stream": "langues",
+    "priority": 4
+   },
+   {
+    "stream": "arts",
+    "priority": 4
+   },
+   {
+    "stream": "sciexp",
+    "priority": 4
+   },
+   {
+    "stream": "math",
+    "priority": 4
+   },
+   {
+    "stream": "techmath",
+    "priority": 4
+   }
+  ],
+  "new": [
+   {
+    "stream": "gestion",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 1
+   },
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "arts",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   },
+   {
+    "stream": "math",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "GC1LAN01",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": 4
+   },
+   {
+    "stream": "techmath",
+    "priority": 4
+   },
+   {
+    "stream": "gestion",
+    "priority": 3
+   },
+   {
+    "stream": "lettres",
+    "priority": 3
+   },
+   {
+    "stream": "langues",
+    "priority": 3
+   }
+  ],
+  "new": [
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   },
+   {
+    "stream": "gestion",
+    "priority": 3
+   },
+   {
+    "stream": "lettres",
+    "priority": 3
+   },
+   {
+    "stream": "langues",
+    "priority": 3
+   }
+  ]
+ },
+ {
+  "code": "GC1LAN02",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": 4
+   },
+   {
+    "stream": "techmath",
+    "priority": 4
+   },
+   {
+    "stream": "gestion",
+    "priority": 3
+   },
+   {
+    "stream": "lettres",
+    "priority": 3
+   },
+   {
+    "stream": "langues",
+    "priority": 3
+   }
+  ],
+  "new": [
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   },
+   {
+    "stream": "gestion",
+    "priority": 3
+   },
+   {
+    "stream": "lettres",
+    "priority": 3
+   },
+   {
+    "stream": "langues",
+    "priority": 3
+   }
+  ]
+ },
+ {
+  "code": "GI1LAN01",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": 4
+   },
+   {
+    "stream": "math",
+    "priority": 4
+   },
+   {
+    "stream": "techmath",
+    "priority": 4
+   }
+  ],
+  "new": [
+   {
+    "stream": "gestion",
+    "priority": 1
+   },
+   {
+    "stream": "lettres",
+    "priority": 1
+   },
+   {
+    "stream": "langues",
+    "priority": 1
+   },
+   {
+    "stream": "arts",
+    "priority": 1
+   },
+   {
+    "stream": "sciexp",
+    "priority": 2
+   },
+   {
+    "stream": "math",
+    "priority": 2
+   },
+   {
+    "stream": "techmath",
+    "priority": 3
+   }
+  ]
+ },
+ {
+  "code": "P04VAN02",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "techmath",
+    "priority": 4
+   }
+  ],
+  "new": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "P04VAN03",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "techmath",
+    "priority": 4
+   }
+  ],
+  "new": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "P04VAN04",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "techmath",
+    "priority": 4
+   }
+  ],
+  "new": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   }
+  ]
+ },
+ {
+  "code": "P04VAL01",
+  "old": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "techmath",
+    "priority": 4
+   }
+  ],
+  "new": [
+   {
+    "stream": "sciexp",
+    "priority": 1
+   },
+   {
+    "stream": "math",
+    "priority": 1
+   },
+   {
+    "stream": "techmath",
+    "priority": 2
+   }
+  ]
+ }
+]

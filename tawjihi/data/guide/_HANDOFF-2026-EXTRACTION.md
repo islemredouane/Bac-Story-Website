@@ -1,5 +1,43 @@
 # HANDOFF — Circulaire 2026 Extraction (incomplete, resume here)
 
+**STATUS UPDATE (2026-07-11, streams+priorities agent):**
+- **Step 1 DONE — streams+priorities:** `_scratch-2026/priorities2026.json` holds
+  432/496 codes as `{code: {streams:[{stream,priority}], source, page, note}}`.
+  Sources: 400 table text (pdfplumber, `extract_streams.py`), 17 visual page reads
+  (PDF p34/71/87/88/145), 14 same-specialty sibling inheritance, 1 fitz-text fallback
+  (`fallback_streams.py`). Priorities: 541×P1, 421×P2, 133×P3, 423 with no explicit
+  priority markers (= single group per guide; kept null + note `no_explicit_priority`,
+  per owner rule fewer groups ≠ exclusion). Unresolved 64 = 59 ENS-annex codes
+  (annexe 09, EXCLUDED by owner) + A00TCN01/A05TCN00/B00IAN01/F01TPN01 (index-only,
+  no detail row anywhere in the PDF) + I03LAN00 (visual check p88: garbled duplicate
+  of I03LAN01/02). The old canon2026 `streams` had garbled priorities (0/4 values,
+  collapsed groups) — priorities2026.json supersedes it; 3 diffs ground-truthed
+  visually, all in favor of the new parse.
+- **Step 2 DONE — final assembly:** `programs.json` REPLACED with 2026 data
+  (496 programs; 2025 baseline saved to `_scratch-2026/programs-2025-baseline.json`).
+  Schema preserved exactly (same keys as 2025). 2025→2026: 341→496 programs,
+  163 new codes, 8 removed, of 333 kept codes 69 changed scope and 27 changed
+  minThreshold. 432 programs carry allowedStreams with real priorities
+  (2025 had all-null priorities); 64 have empty allowedStreams (59 ENS + 5 noted
+  in `_note`). field_ar: canon > 2025-same-code > code-prefix majority > فهرس
+  header (E=علوم الأرض والكون, G=حقوق وعلوم سياسية). scope: extracted, else code
+  type-suffix rule (6th char N=national/L=regional — validated 368/370 against
+  extracted scopes; noted `scope_from_code_suffix`). Institution names
+  lam-alef-normalized (األ→الأ etc.). The other 5 guide JSONs
+  (streams/weighted-formulas/geographic-circles/eligibility-matrix/
+  acceptance-types) left at 2025 baseline — no differing 2026 data extracted
+  for them. Validation: all 6 JSONs parse (python+node), 58 wilayas, every
+  program has code/field_ar/scope∈{national,regional}, wilaya nums all 1-58.
+  Scripts: `_scratch-2026/extract_streams.py`, `fallback_streams.py`,
+  `integrate2026.py`.
+
+**STILL REMAINING (out of this pass's scope):** ENS annexe 09 (59 codes: layout,
+streams, institutions), ~20 garbled institution cells (needvisual.json leftovers),
+`kb/guide-bac2026-reference.md`, `_EXTRACTION-REPORT-2026.md`, ministry-rules.json
+check, and 4 index-only codes with no detail row in the PDF
+(A00TCN01, A05TCN00, B00IAN01, F01TPN01) + I03LAN00 (garbled duplicate, consider
+deleting from canon).
+
 **Status:** ~75% done. The extraction agent was killed repeatedly by session limits.
 All of its surviving working artifacts were copied into `_scratch-2026/` in this folder.
 **Nothing in the final guide JSONs has been updated yet** — `programs.json`,
