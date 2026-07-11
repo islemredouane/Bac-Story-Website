@@ -44,10 +44,10 @@ const env = loadEnv(path.join(ROOT, '.env.local'));
 
 const SUPABASE_URL = env.SUPABASE_URL;
 const SUPABASE_SERVICE_ROLE_KEY = env.SUPABASE_SERVICE_ROLE_KEY;
-const GEMINI_API_KEY = env.GEMINI_API_KEY_1;
 
-if (!SUPABASE_URL || !SUPABASE_SERVICE_ROLE_KEY || !GEMINI_API_KEY) {
-  throw new Error('Missing required env vars: SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, GEMINI_API_KEY_1');
+// Embeddings are 100% Jina (below) — the old GEMINI_API_KEY_1 requirement was stale.
+if (!SUPABASE_URL || !SUPABASE_SERVICE_ROLE_KEY) {
+  throw new Error('Missing required env vars: SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY');
 }
 
 // ── Clients ──────────────────────────────────────────────────────────────────
