@@ -341,7 +341,7 @@ if (typeof window.showSection === 'undefined') {
 }
 
 // ─── BAC 2026 ANNOUNCEMENT MODAL ──────────────────────────────────────────────────
-const BAC2026_ANNOUNCE_KEY = 'bs_seen_bac2026_announce_v2';
+const BAC2026_ANNOUNCE_KEY = 'bs_seen_competition_announce_v1';
 
 function showBac2026AnnouncementModal() {
     if (localStorage.getItem(BAC2026_ANNOUNCE_KEY)) return;
@@ -353,23 +353,14 @@ function showBac2026AnnouncementModal() {
     overlay.innerHTML = `
         <div class="welcome-announcement-card modal-version">
             <button class="announcement-modal-close" aria-label="إغلاق">&times;</button>
-            <div class="welcome-badge-pill">
-                <i class="fas fa-check-circle"></i> التصحيحات النموذجية متوفرة
+            <div class="welcome-badge-pill" style="background: rgba(255, 193, 7, 0.15); color: #ff9800;">
+                <i class="fas fa-gift"></i> مسابقة وهدية بانتظارك!
             </div>
-            <h3>ماذا يجب عليك فعله الآن؟ 🎓</h3>
-            <p style="margin-bottom: 1rem;">صحح لنفسك، احسب معدلك واكتشف تخصصك الجامعي من خلال موقعنا و قناتنا على التلغرام</p>
+            <h3>تحدي جديد على التلغرام 🎁</h3>
+            <p style="margin-bottom: 1rem;">لقد أطلقنا مسابقة جديدة مع هدية مميزة! تفقد التفاصيل وشارك في التحدي الآن عبر قناتنا على التلغرام.</p>
             <div class="card-cta-group">
-                <a href="/bac-2026.html" class="card-cta-btn card-cta-primary">
-                    <i class="fas fa-check-double"></i> التصحيحات النموذجية
-                </a>
-                <a href="/tools.html#calculator" class="card-cta-btn card-cta-secondary">
-                    <i class="fas fa-calculator"></i> احسب معدلك
-                </a>
-                <a href="/university.html#university-section" class="card-cta-btn card-cta-secondary">
-                    <i class="fas fa-university"></i> اكتشف تخصصك الجامعي
-                </a>
-                <a href="https://t.me/islembacdz" target="_blank" class="card-cta-btn card-cta-telegram">
-                    <i class="fab fa-telegram-plane"></i> قناتنا على التلغرام
+                <a href="https://t.me/islembacdz" target="_blank" class="card-cta-btn card-cta-telegram" style="width: 100%; justify-content: center; font-size: 1.1rem; padding: 12px;">
+                    <i class="fab fa-telegram-plane"></i> اكتشف التفاصيل على التلغرام
                 </a>
             </div>
         </div>
