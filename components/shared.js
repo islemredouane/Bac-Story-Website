@@ -341,7 +341,7 @@ if (typeof window.showSection === 'undefined') {
 }
 
 // ─── BAC 2026 ANNOUNCEMENT MODAL ──────────────────────────────────────────────────
-const BAC2026_ANNOUNCE_KEY = 'bs_seen_competition_announce_v1';
+const BAC2026_ANNOUNCE_KEY = 'bs_seen_competition_announce_v2';
 
 function showBac2026AnnouncementModal() {
     if (localStorage.getItem(BAC2026_ANNOUNCE_KEY)) return;
@@ -356,11 +356,11 @@ function showBac2026AnnouncementModal() {
             <div class="welcome-badge-pill" style="background: rgba(255, 193, 7, 0.15); color: #ff9800;">
                 <i class="fas fa-gift"></i> مسابقة وهدية بانتظارك!
             </div>
-            <h3>تحدي جديد على التلغرام 🎁</h3>
-            <p style="margin-bottom: 1rem;">لقد أطلقنا مسابقة جديدة مع هدية مميزة! تفقد التفاصيل وشارك في التحدي الآن عبر قناتنا على التلغرام.</p>
+            <h3>أصحاب أعلى المعدلات 🎁⭐️</h3>
+            <p style="margin-bottom: 1rem;">دوك نحتاجكم تعمرو هذا الإستجواب نشوفو أصحاب أعلى المعدلات لي راح تكون عندهم هدية 🎁⭐️<br><br>رابط الإستجواب متوفر حصرياً في قناتنا على التلغرام، التحقوا بنا الآن!</p>
             <div class="card-cta-group">
                 <a href="https://t.me/islembacdz" target="_blank" class="card-cta-btn card-cta-telegram" style="width: 100%; justify-content: center; font-size: 1.1rem; padding: 12px;">
-                    <i class="fab fa-telegram-plane"></i> اكتشف التفاصيل على التلغرام
+                    <i class="fab fa-telegram-plane"></i> الذهاب إلى التلغرام
                 </a>
             </div>
         </div>
