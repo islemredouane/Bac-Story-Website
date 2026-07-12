@@ -354,13 +354,13 @@ function showBac2026AnnouncementModal() {
         <div class="welcome-announcement-card modal-version">
             <button class="announcement-modal-close" aria-label="إغلاق">&times;</button>
             <div class="welcome-badge-pill" style="background: rgba(255, 193, 7, 0.15); color: #ff9800;">
-                <i class="fas fa-gift"></i> مسابقة وهدية بانتظارك!
+                <i class="fas fa-award"></i> تكريم للمتفوقين!
             </div>
-            <h3>أصحاب أعلى المعدلات 🎁⭐️</h3>
-            <p style="margin-bottom: 1rem;">دوك نحتاجكم تعمرو هذا الإستجواب نشوفو أصحاب أعلى المعدلات لي راح تكون عندهم هدية 🎁⭐️<br><br>رابط الإستجواب متوفر حصرياً في قناتنا على التلغرام، التحقوا بنا الآن!</p>
+            <h3>إحصاء أعلى المعدلات 🎓✨</h3>
+            <p style="margin-bottom: 1rem;">ندعو جميع المتفوقين للمشاركة في هذا الإستبيان لإحصاء أصحاب أعلى المعدلات، حيث خصصنا جوائز قيمة للمتميزين 🎁⭐️.<br><br>رابط الإستبيان متوفر حصرياً عبر قناتنا الرسمية على التلغرام، نتشرف بانضمامكم!</p>
             <div class="card-cta-group">
                 <a href="https://t.me/islembacdz" target="_blank" class="card-cta-btn card-cta-telegram" style="width: 100%; justify-content: center; font-size: 1.1rem; padding: 12px;">
-                    <i class="fab fa-telegram-plane"></i> الذهاب إلى التلغرام
+                    <i class="fab fa-telegram-plane"></i> الانتقال إلى التلغرام
                 </a>
             </div>
         </div>
