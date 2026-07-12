@@ -357,7 +357,7 @@ function showBac2026AnnouncementModal() {
                 <i class="fas fa-award"></i> تكريم للمتفوقين!
             </div>
             <h3>إحصاء أعلى المعدلات 🎓✨</h3>
-            <p style="margin-bottom: 1rem;">ندعو جميع المتفوقين للمشاركة في هذا الإستبيان لإحصاء أصحاب أعلى المعدلات، حيث خصصنا جوائز قيمة للمتميزين 🎁⭐️.<br><br>رابط الإستبيان متوفر حصرياً عبر قناتنا الرسمية على التلغرام، نتشرف بانضمامكم!</p>
+            <p style="margin-bottom: 1rem;">ندعو جميع المتفوقين للمشاركة في إستبيان خاص بقناتنا لإحصاء أصحاب أعلى المعدلات، حيث خصصنا جوائز قيمة للمتميزين 🎁⭐️.<br><br>رابط الإستبيان متوفر حصرياً عبر قناتنا الرسمية على التلغرام، نتشرف بانضمامكم!</p>
             <div class="card-cta-group">
                 <a href="https://t.me/islembacdz" target="_blank" class="card-cta-btn card-cta-telegram" style="width: 100%; justify-content: center; font-size: 1.1rem; padding: 12px;">
                     <i class="fab fa-telegram-plane"></i> الانتقال إلى التلغرام
