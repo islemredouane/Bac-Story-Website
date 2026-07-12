@@ -12855,6 +12855,28 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
     box-shadow: var(--shadow-md);
 }
 
+/* ── Revision Image ── */
+.revision-image-wrapper {
+    text-align: center;
+    margin: 32px auto;
+    max-width: 500px;
+    padding: 0 16px;
+}
+
+.revision-image {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg, 20px);
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(44, 92, 195, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.revision-image:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
 /* ── CTA Button ── */
 .results-main-cta {
     display: flex;
@@ -13460,6 +13482,10 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
     .results-channel-icon {
         width: 50px; height: 50px;
         font-size: 1.5rem;
+    }
+    .revision-image-wrapper {
+        margin: 24px auto;
+        padding: 0 12px;
     }
 }
 
