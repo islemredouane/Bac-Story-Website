@@ -526,6 +526,7 @@
     safe:    { icon: 'fa-circle-check',        ar: 'في المتناول' },
     likely:  { icon: 'fa-circle-check',        ar: 'على الحدّ' },
     risk:    { icon: 'fa-triangle-exclamation',ar: 'طموح' },
+    impossible: { icon: 'fa-ban',              ar: 'مستبعد جداً' },
     inelig:  { icon: 'fa-circle-xmark',        ar: 'غير متاح لشعبتك' },
     unknown: { icon: 'fa-circle-question',     ar: 'بيانات غير متوفرة' },
   };
@@ -534,20 +535,36 @@
   function getRelevantAvg(profile, specId) {
     const id = specId?.toLowerCase() || '';
     const wa = profile?.weightedAverages || {};
+    
+    // Check if twElig tells us it's general
+    let rankingBasis = 'weighted_or_general';
+    if (typeof window.twElig === 'function') {
+      const rec = window.twElig(id);
+      if (rec && rec.rankingBasis) rankingBasis = rec.rankingBasis;
+    }
+    
+    // If explicitly general, skip weighted average entirely
+    if (rankingBasis === 'general') {
+      return parseFloat(profile?.average || 0);
+    }
+    
+    // Attempt to dynamically find category if TW_CATALOG is loaded
+    let cat = null;
+    if (typeof TW_CATALOG !== 'undefined') {
+      const spec = TW_CATALOG.find(c => c.id === id);
+      if (spec) cat = spec.category;
+    }
+    
     // Medical fields use bio weighted average
-    if (['med','pharm','dent','vet','med-bio','med-info'].includes(id)) {
+    if (cat === 'medical' || ['med','pharm','dent','vet','med-bio','med-info'].includes(id)) {
       return parseFloat(wa.bio || profile?.average || 0);
     }
-    // Computer science / math schools use math-physics or math
-    if (['esi','estin','esi-sba','ensia','nhsm','enscs','ensta','enssn','ensas'].includes(id)) {
-      return parseFloat(wa['math-physics'] || wa.math || profile?.average || 0);
-    }
-    // Engineering schools
-    if (['essa','igee','enstp','ensttic','polytech'].includes(id)) {
-      return parseFloat(wa['math-tech'] || wa['math-physics'] || profile?.average || 0);
+    // Computer science / engineering / math schools use math-physics or math-tech
+    if (cat === 'engineering' || ['esi','estin','esi-sba','ensia','nhsm','enscs','ensta','enssn','ensas','essa','igee','enstp','ensttic','polytech'].includes(id)) {
+      return parseFloat(wa['math-physics'] || wa['math-tech'] || wa.math || profile?.average || 0);
     }
     // Language/translation
-    if (['traduction','langues'].includes(id)) {
+    if (cat === 'arts' || ['traduction','langues'].includes(id)) {
       return parseFloat(wa.lang || wa.translation || profile?.average || 0);
     }
     // Default: general average

@@ -3726,9 +3726,10 @@
         : "no user average provided";
       return base;
     }
-    if (userAvg >= thr + 1)      base.status = "safe";
-    else if (userAvg >= thr - 1) base.status = "likely";
-    else                         base.status = "risk";
+    if (userAvg >= thr + 0.30)        base.status = "safe";
+    else if (userAvg >= thr - 0.15)   base.status = "likely";
+    else if (userAvg >= thr - 0.75)   base.status = "risk";
+    else                              base.status = "impossible";
     base.note = "compared to per-stream admission minimum (2025-2026)";
     return base;
   }
