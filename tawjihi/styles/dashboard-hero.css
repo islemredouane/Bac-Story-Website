@@ -197,9 +197,8 @@
     background:
         conic-gradient(
             #1a3a8f 0,
-            #2c5cc5 calc(var(--ring-pct) * 0.6),
-            #ff6b35 calc(var(--ring-pct) * 0.85),
-            color-mix(in srgb, #ff6b35 60%, #2c5cc5) var(--ring-pct),
+            #2c5cc5 calc(var(--ring-pct) * 0.5),
+            #5b86e8 var(--ring-pct),
             var(--surface-2) 0
         );
     box-shadow:

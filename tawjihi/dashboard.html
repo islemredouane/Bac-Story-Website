@@ -264,6 +264,7 @@ function calcCompletion(profile) {
     !!(profile.interests && profile.interests.length > 0),
     !!(profile.ambition || profile.ambition_text),
     !!(profile.name && profile.name !== 'صديقي'),
+    !!(profile.weightedAverages && Object.keys(profile.weightedAverages).length > 0),
   ];
   const filled = fields.filter(Boolean).length;
   return Math.round((filled / fields.length) * 100);
