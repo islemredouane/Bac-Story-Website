@@ -411,12 +411,51 @@
     display: none !important;
 }
 .dash-academic-empty {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    position: relative;
+    width: 100%;
+}
+.dash-sync-promo {
+    position: relative; overflow: hidden;
+    background: radial-gradient(circle at top right, color-mix(in srgb, var(--primary) 6%, transparent), transparent 70%),
+                rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid color-mix(in srgb, var(--primary) 15%, transparent);
+    border-radius: var(--r-xl);
+    padding: var(--sp-6) var(--sp-5);
+    display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--sp-4);
+    box-shadow: 0 8px 30px rgba(44, 92, 197, 0.04), inset 0 1px 0 rgba(255,255,255,1);
     z-index: 1;
-    gap: var(--sp-3);
+}
+[data-theme="dark"] .dash-sync-promo {
+    background: radial-gradient(circle at top right, rgba(91,134,232,0.1), transparent 70%),
+                rgba(17, 24, 39, 0.4);
+    border-color: rgba(91,134,232,0.2);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+}
+.dash-sync-promo-icon {
+    width: 64px; height: 64px;
+    background: linear-gradient(135deg, var(--primary) 0%, #7da4f0 100%);
+    border-radius: 20px;
+    display: grid; place-items: center;
+    color: white; font-size: 1.8rem;
+    box-shadow: 0 8px 24px color-mix(in srgb, var(--primary) 30%, transparent);
+    position: relative; z-index: 2;
+}
+.dash-sync-promo-content h3 {
+    font-size: var(--fs-xl); font-weight: 800; color: var(--text);
+    margin-bottom: var(--sp-2);
+}
+.dash-sync-promo-content p {
+    font-size: var(--fs-sm); color: var(--text-muted); line-height: 1.6;
+    max-width: 480px; margin: 0 auto var(--sp-5);
+}
+.dash-sync-promo-actions {
+    display: flex; justify-content: center; position: relative; z-index: 2;
+}
+.dash-sync-promo-glow {
+    position: absolute; top: -50px; left: -50px;
+    width: 200px; height: 200px;
+    background: var(--primary); filter: blur(80px);
+    opacity: 0.15; z-index: 0; pointer-events: none;
 }
 .dash-academic-filled {
     display: flex;

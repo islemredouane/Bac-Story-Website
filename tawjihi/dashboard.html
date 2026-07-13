@@ -86,15 +86,20 @@
                     <section class="dash-card dash-card-wide dash-card-academic" id="dashAcademicCard">
                         <span class="dash-section-eyebrow"><i class="fas fa-graduation-cap"></i> ملفك الأكاديمي</span>
                         
-                        <!-- Empty State: CTA -->
-                        <div class="dash-academic-empty" id="dashAcademicEmpty">
-                            <header class="dash-card-head">
-                                <h2><i class="fas fa-magic"></i> هل حسبت معدلك الموزون؟</h2>
-                            </header>
-                            <p class="dash-import-help" style="margin-bottom: var(--sp-4);">اربط حسابك الآن مع حاسبة BAC Story لاستيراد معدلاتك الموزونة بدقة وتحديث فرص القبول الخاصة بك تلقائياً.</p>
-                            <a href="http://127.0.0.1:5500/tools.html#calculator" target="_blank" class="btn btn-primary">
-                                <i class="fas fa-calculator"></i> احسب معدلك وقم بالمزامنة
-                            </a>
+                        <!-- Empty State: Premium Promo -->
+                        <div class="dash-academic-empty dash-sync-promo" id="dashAcademicEmpty">
+                            <div class="dash-sync-promo-glow"></div>
+                            <div class="dash-sync-promo-icon"><i class="fas fa-link"></i></div>
+                            <div class="dash-sync-promo-content">
+                                <h3>هل حسبت معدلك الموزون؟</h3>
+                                <p>اربط حسابك الآن مع حاسبة BAC Story لتأكيد حظوظك ومطابقة رغباتك بدقة متناهية. سيتم استيراد ومزامنة معدلاتك الموزونة آلياً مع نظام توجيهي.</p>
+                                <div class="dash-sync-promo-actions">
+                                    <a href="http://127.0.0.1:5500/tools.html#calculator" target="_blank" class="btn-primary magnetic-btn" style="padding: 12px 24px;">
+                                        <i class="fas fa-calculator"></i>
+                                        احسب ومزامنة معدلك الموزون
+                                    </a>
+                                </div>
+                            </div>
                             <!-- Hidden fallback for manual paste or URL auto-import -->
                             <input dir="ltr" type="text" id="dashImportCode" hidden>
                         </div>
