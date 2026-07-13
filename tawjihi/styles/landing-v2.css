@@ -1112,6 +1112,40 @@ img { display: block; max-width: 100%; }
   border: 1px solid var(--divider);
   display: flex; align-items: center; justify-content: center;
   position: relative;
+
+  /* Local design token overrides for mocks */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 20px;
+  --r-pill: 999px;
+
+  --t-fast: 140ms;
+  --ease: cubic-bezier(.22,.61,.36,1);
+
+  --acc-safe: #1a9d4e;
+  --acc-likely: #d98a07;
+  --acc-risk: #d8413a;
+
+  --text: var(--ink);
+  --text-muted: var(--muted);
+  --border: var(--divider);
+  --border-strong: var(--divider);
+  --bg: var(--background);
+
+  --fs-xs: .78rem;
+  --fs-sm: .88rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.15rem;
+  --fs-xl: 1.5rem;
+  --fs-2xl: 2rem;
+  --fs-3xl: 2.75rem;
 }
 
 .lv2-protocol-visual-num {
