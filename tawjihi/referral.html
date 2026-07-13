@@ -252,21 +252,51 @@
 
                 <!-- ── Usage card ── -->
                 <div class="ref-usage-card">
-                    <p class="ref-section-heading" style="position:relative;z-index:1"><i class="fas fa-gauge-simple-high"></i> استخدامك الحالي</p>
-                    <div style="margin-top:var(--sp-3);display:flex;flex-direction:column;gap:var(--sp-3);position:relative;z-index:1">
-                        <div>
-                            <div style="display:flex;justify-content:space-between;font-size:var(--fs-xs);font-weight:700;color:var(--text-muted);margin-bottom:var(--sp-2)">
-                                <span>رصيد متبقي</span>
-                                <span><span id="usageBalance">—</span> رسالة</span>
+                    <!-- decorative ambient blob -->
+                    <div class="ref-usage-blob" aria-hidden="true"></div>
+
+                    <!-- header: icon + title -->
+                    <div class="ref-usage-header">
+                        <div class="ref-usage-icon">
+                            <i class="fas fa-gauge-simple-high"></i>
+                        </div>
+                        <div class="ref-usage-header-text">
+                            <p class="ref-section-heading" style="margin:0">استخدامك الحالي</p>
+                            <p class="ref-usage-sub">تابع رصيدك وابقَ دائماً جاهزاً للمحادثات</p>
+                        </div>
+                    </div>
+
+                    <!-- big number + earn button -->
+                    <div class="ref-usage-body">
+                        <div class="ref-usage-number-row">
+                            <div>
+                                <div class="ref-usage-number" id="usageBalance">—</div>
+                                <div class="ref-usage-number-label">رسالة متبقية</div>
                             </div>
+                            <a href="referral.html" class="ref-usage-earn-btn">
+                                <i class="fas fa-plus"></i> اكسب المزيد
+                            </a>
+                        </div>
+
+                        <div class="ref-usage-bar-wrap">
                             <div class="credits-bar-v2">
                                 <div class="credits-bar-v2-fill" id="usageBar" style="width:0%"></div>
                             </div>
+                            <div class="ref-usage-bar-labels">
+                                <span class="ref-usage-bar-label-start">0</span>
+                                <span class="ref-usage-bar-label-end" id="usageMax">100</span>
+                            </div>
                         </div>
-                        <p style="font-size:var(--fs-sm);color:var(--text-muted);margin:0;line-height:1.6">
-                            رصيدك يكفي للرسائل اللي محتاجها الآن. شارك توجيهي مع زملائك لتضمن رصيداً دائماً.
-                            <a href="app.html" style="color:var(--primary);font-weight:800;text-decoration:none;white-space:nowrap">← ابدأ محادثة</a>
-                        </p>
+                    </div>
+
+                    <!-- footer: hint + CTA -->
+                    <div class="ref-usage-footer">
+                        <i class="fas fa-circle-info ref-usage-hint-icon"></i>
+                        <p class="ref-usage-hint" id="usageHintMsg">رصيدك يكفي للرسائل اللي محتاجها الآن. شارك توجيهي مع زملائك لتضمن رصيداً دائماً.</p>
+                        <a href="app.html" class="ref-usage-cta-btn">
+                            <i class="fas fa-comment-dots"></i>
+                            ابدأ محادثة
+                        </a>
                     </div>
                 </div>
 

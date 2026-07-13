@@ -72,14 +72,31 @@
     document.getElementById('refLinkInput').value = refLink;
 
     /* ---- usage bar ---- */
-    document.getElementById('usageBalance').textContent = credits.balance;
+    const usageNum = document.getElementById('usageBalance');
+    usageNum.textContent = credits.balance;
+    document.getElementById('usageMax').textContent = credits.totalEarned || Math.max(100, credits.balance);
+
     const usagePct = credits.totalEarned > 0
-      ? Math.max(credits.balance / credits.totalEarned * 100, 0)
-      : 0;
+      ? Math.max((credits.balance / credits.totalEarned) * 100, 0)
+      : (credits.balance > 0 ? (credits.balance / Math.max(100, credits.balance) * 100) : 0);
+
     const usageBar = document.getElementById('usageBar');
     usageBar.style.width = Math.min(usagePct, 100) + '%';
-    if (usagePct < 20) usageBar.classList.add('low');
-    else if (usagePct < 50) usageBar.classList.add('warn');
+    
+    usageBar.className = 'credits-bar-v2-fill';
+    usageNum.className = 'ref-usage-number';
+    
+    if (usagePct < 20) {
+      usageBar.classList.add('low');
+      usageNum.classList.add('low');
+    }
+    else if (usagePct < 50) {
+      usageBar.classList.add('warn');
+      usageNum.classList.add('warn');
+    }
+    else if (usagePct >= 80) {
+      usageNum.classList.add('great');
+    }
 
     /* ---- elite circles ---- */
     document.getElementById('eliteCount').textContent = ref.refs;
