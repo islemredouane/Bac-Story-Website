@@ -504,6 +504,7 @@
 .social-task-icon-v2.insta  { background: rgba(236,72,153,.12); color: #ec4899; }
 .social-task-icon-v2.tele   { background: rgba(44,165,224,.12); color: #2ca5e0; }
 .social-task-icon-v2.tiktok { background: rgba(15,23,42,.08);   color: var(--text); }
+.social-task-icon-v2.facebook { background: rgba(24, 119, 242, .12); color: #1877F2; }
 .social-btn-v2 {
     display: inline-flex;
     align-items: center;
