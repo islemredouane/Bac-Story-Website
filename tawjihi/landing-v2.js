@@ -274,19 +274,24 @@
     var pStack = document.getElementById('lv2ProtocolStack');
     if (pStack) {
       var pCards = pStack.querySelectorAll('.lv2-protocol-card');
-      pCards.forEach(function (card, i) {
-        if (i === pCards.length - 1) return; // last card stays
-        gsap.to(card, {
-          scrollTrigger: {
-            trigger: card,
-            start: 'top top+=80',
-            end: '+=420',
-            scrub: 1
-          },
-          scale: 0.93,
-          filter: 'blur(4px) saturate(0.6)',
-          opacity: 0.45,
-          ease: 'none'
+      var mm = gsap.matchMedia();
+
+      /* Only apply sticky-stack scrub on desktop */
+      mm.add("(min-width: 1025px)", function() {
+        pCards.forEach(function (card, i) {
+          if (i === pCards.length - 1) return; // last card stays
+          gsap.to(card, {
+            scrollTrigger: {
+              trigger: card,
+              start: 'top top+=80',
+              end: '+=420',
+              scrub: 1
+            },
+            scale: 0.93,
+            filter: 'blur(4px) saturate(0.6)',
+            opacity: 0.45,
+            ease: 'none'
+          });
         });
       });
     }
