@@ -124,9 +124,9 @@
 
                     <!-- Countdown -->
                     <section class="dash-card dash-card-countdown">
-                        <span class="dash-section-eyebrow"><i class="fas fa-clock"></i> الموعد المنتظر</span>
+                        <span class="dash-section-eyebrow"><i class="fas fa-clock"></i> <span id="cdEyebrow">المواعيد الجامعية الهامة</span></span>
                         <header class="dash-card-head">
-                            <h2><i class="fas fa-hourglass-half"></i> العد التنازلي للنتائج</h2>
+                            <h2 id="cdTitle"><i class="fas fa-hourglass-half"></i> العد التنازلي</h2>
                         </header>
                         <div class="dash-countdown" id="countdown" aria-live="polite">
                             <div class="dash-cd-unit"><span class="dash-cd-num" data-cd="days">00</span><span class="dash-cd-label">يوم</span></div>
@@ -134,7 +134,7 @@
                             <div class="dash-cd-unit"><span class="dash-cd-num" data-cd="mins">00</span><span class="dash-cd-label">دقيقة</span></div>
                             <div class="dash-cd-unit"><span class="dash-cd-num" data-cd="secs">00</span><span class="dash-cd-label">ثانية</span></div>
                         </div>
-                        <p class="dash-cd-note">على نتائج باكالوريا 2026 (تاريخ تقديري) — رانا معاك في الانتظار.</p>
+                        <p class="dash-cd-note" id="cdNote">رانا معاك في الانتظار.</p>
                     </section>
 
                     <!-- Quick actions -->
@@ -614,24 +614,74 @@ function renderNudges(profile, wishIds) {
         window.history.replaceState({}, '', newUrl);
     }
 
-    /* ---- Countdown to BAC 2026 results ---- */
-    const BAC_RESULTS_DATE = new Date('2026-07-20T10:00:00');
-    const target = BAC_RESULTS_DATE.getTime();
-    const pad = n => String(Math.max(0, n)).padStart(2, '0');
+    /* ---- Dynamic Countdown to BAC Phases 2026 ---- */
+    const phases = [
+        {
+            title: "نهاية التسجيل الأولي",
+            date: new Date('2026-07-19T23:59:59').getTime(),
+            note: "على نهاية فترة التسجيلات الأولية في الموقع الرسمي."
+        },
+        {
+            title: "نهاية تأكيد التسجيل",
+            date: new Date('2026-07-22T23:59:59').getTime(),
+            note: "على نهاية فترة تأكيد التسجيل الأولي (يمكنك تغيير رغباتك قبل التأكيد النهائي)."
+        },
+        {
+            title: "نتائج التوجيه الجامعي",
+            date: new Date('2026-07-30T18:00:00').getTime(),
+            note: "على إعلان نتائج توجيه حاملي شهادة البكالوريا الجدد."
+        }
+    ];
+
     const cd = {
         days:  $('[data-cd="days"]'),
         hours: $('[data-cd="hours"]'),
         mins:  $('[data-cd="mins"]'),
         secs:  $('[data-cd="secs"]'),
+        title: $('#cdTitle'),
+        note:  $('#cdNote')
     };
+
+    let currentPhaseIdx = 0;
+
+    function updatePhase() {
+        const now = Date.now();
+        currentPhaseIdx = phases.findIndex(p => p.date > now);
+        
+        if (currentPhaseIdx === -1) {
+            // All phases ended
+            if (cd.title) cd.title.innerHTML = '<i class="fas fa-check-circle"></i> انتهت التسجيلات';
+            if (cd.note) cd.note.textContent = "تم إعلان نتائج التوجيه وانتهت كافة مراحل التسجيل.";
+            return null;
+        }
+
+        const phase = phases[currentPhaseIdx];
+        if (cd.title && cd.title.textContent.indexOf(phase.title) === -1) {
+            cd.title.innerHTML = `<i class="fas fa-hourglass-half"></i> ${phase.title}`;
+            if (cd.note) cd.note.textContent = phase.note;
+        }
+        return phase.date;
+    }
+
+    const pad = n => String(Math.max(0, n)).padStart(2, '0');
+    
     function tickCountdown() {
+        const target = updatePhase();
+        if (!target) {
+            cd.days.textContent = "00"; cd.hours.textContent = "00";
+            cd.mins.textContent = "00"; cd.secs.textContent = "00";
+            return;
+        }
+        
         let diff = Math.floor((target - Date.now()) / 1000);
         if (diff < 0) diff = 0;
+        
         cd.days.textContent  = pad(Math.floor(diff / 86400));
         cd.hours.textContent = pad(Math.floor((diff % 86400) / 3600));
         cd.mins.textContent  = pad(Math.floor((diff % 3600) / 60));
         cd.secs.textContent  = pad(diff % 60);
     }
+    
     tickCountdown();
     setInterval(tickCountdown, 1000);
 })();
