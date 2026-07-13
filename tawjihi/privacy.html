@@ -38,16 +38,61 @@
     <meta name="view-transition" content="same-origin">
 </head>
 <body>
-    <!-- Simple Navbar -->
-    <header style="background: var(--deep); padding: 1rem; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: center;">
-        <div style="width: 100%; max-width: 1100px; display: flex; justify-content: space-between; align-items: center; padding: 0 1.5rem;">
-            <a href="index.html" style="color: white; text-decoration: none; font-family: var(--font-display); font-weight: 800; font-size: 1.25rem; display: flex; align-items: center; gap: 0.5rem;">
-                <span style="background: var(--accent); color: white; width: 28px; height: 28px; display: grid; place-items: center; border-radius: 50%; font-size: 0.9rem;">ت</span>
-                توجيهي
-            </a>
-            <a href="index.html" style="color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.95rem; transition: color 0.2s;">العودة للرئيسية</a>
-        </div>
-    </header>
+    <header class="lv2-nav scrolled" id="lv2Nav" style="background: var(--deep); border-bottom: 1px solid rgba(255,255,255,0.05); position: sticky; top: 0;">
+  <div class="lv2-nav-pill" id="lv2NavPill">
+
+    <a href="index.html" class="lv2-logo lift-on-hover" aria-label="توجيهي — الصفحة الرئيسية">
+      <svg class="lv2-logo-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <circle cx="16" cy="16" r="13" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="16" cy="16" r="2.5" fill="currentColor"/>
+        <line x1="16" y1="3" x2="16" y2="9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="16" y1="23" x2="16" y2="29" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="3" y1="16" x2="9" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="23" y1="16" x2="29" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <line id="lv2LogoNeedle" x1="16" y1="16" x2="16" y2="7" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span>توجيهي</span>
+    </a>
+
+    <nav class="lv2-nav-links" aria-label="التنقل الرئيسي">
+      <a href="index.html#features" class="lv2-nav-link lift-on-hover">المميزات</a>
+      <a href="index.html#protocol" class="lv2-nav-link lift-on-hover">كيفاش يخدم؟</a>
+      <a href="index.html#services" class="lv2-nav-link lift-on-hover">المجالات</a>
+      <a href="index.html#faq" class="lv2-nav-link lift-on-hover">أسئلة</a>
+    </nav>
+
+    <div class="lv2-nav-actions">
+      <button class="lv2-theme-btn magnetic-btn" id="themeBtn" aria-label="تبديل الوضع الليلي">
+        <svg class="icon-sun" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <circle cx="10" cy="10" r="4"/><line x1="10" y1="1" x2="10" y2="3"/><line x1="10" y1="17" x2="10" y2="19"/>
+          <line x1="1" y1="10" x2="3" y2="10"/><line x1="17" y1="10" x2="19" y2="10"/>
+          <line x1="3.5" y1="3.5" x2="5" y2="5"/><line x1="15" y1="15" x2="16.5" y2="16.5"/>
+          <line x1="16.5" y1="3.5" x2="15" y2="5"/><line x1="5" y1="15" x2="3.5" y2="16.5"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+        </svg>
+      </button>
+      <a href="login.html" class="lv2-nav-login lift-on-hover">دخول</a>
+      <a href="app.html" class="btn-primary magnetic-btn">ابدأ مجاناً ←</a>
+      <button class="lv2-burger" id="lv2Burger" aria-label="القائمة" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<!-- Mobile full-screen menu -->
+<div class="lv2-mobile-menu" id="lv2MobileMenu" aria-hidden="true">
+  <a href="index.html#features"  class="lv2-mobile-link">المميزات</a>
+  <a href="index.html#protocol"  class="lv2-mobile-link">كيفاش يخدم؟</a>
+  <a href="index.html#services"  class="lv2-mobile-link">المجالات</a>
+  <a href="index.html#faq"       class="lv2-mobile-link">أسئلة</a>
+  <div style="height:1rem"></div>
+  <a href="login.html" class="lv2-mobile-link" style="font-size:1.1rem;color:rgba(255,255,255,.5)">دخول</a>
+  <a href="app.html"   class="btn-accent magnetic-btn" style="margin-block-start:1rem">ابدأ مجاناً ←</a>
+</div>
 
     <div style="max-width: 1100px; margin: 0 auto; padding: 0;">
         <!-- Page hero -->
@@ -240,5 +285,6 @@
     </div>
   </div>
 </footer>
+<script src="landing-v2.js" defer></script>
 </body>
 </html>
