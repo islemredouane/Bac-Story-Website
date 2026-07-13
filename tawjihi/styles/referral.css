@@ -486,7 +486,7 @@
 [data-theme="dark"] .social-task-v2 { background: rgba(35,44,65,.7); }
 .social-task-v2:last-child { margin-bottom: 0; }
 .social-task-v2:hover {
-    transform: translateX(-3px);
+    transform: translateX(3px);
     border-color: rgba(44,92,197,.3);
     box-shadow: 0 4px 16px rgba(44,92,197,.1);
 }
@@ -533,15 +533,83 @@
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 1.25rem;
-    padding: var(--sp-5);
+    padding: var(--sp-6);
+    transition: border-color var(--t-mid), box-shadow var(--t-mid);
+    isolation: isolate;
+}
+/* Animated gradient border glow */
+.ref-social-card::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, rgba(236,72,153,.3) 0%, rgba(44,165,224,.2) 50%, transparent 100%);
+    animation: statBorderPulse 3.5s ease-in-out infinite;
+    pointer-events: none;
+    z-index: -1;
 }
 .ref-social-card::before {
     content: '';
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    background: radial-gradient(280px circle at 50% 0%, rgba(44,92,197,.06) 0%, transparent 65%);
+    background: radial-gradient(320px circle at 50% 0%, rgba(236,72,153,.06) 0%, transparent 65%);
     pointer-events: none;
+    z-index: 0;
+}
+
+/* Platform-colored follow buttons */
+.social-btn-v2.insta {
+    border-color: rgba(236,72,153,.35);
+    color: #ec4899;
+}
+.social-btn-v2.insta:hover {
+    background: rgba(236,72,153,.1);
+    border-color: #ec4899;
+    box-shadow: 0 2px 8px rgba(236,72,153,.2);
+}
+.social-btn-v2.tele {
+    border-color: rgba(44,165,224,.35);
+    color: #2ca5e0;
+}
+.social-btn-v2.tele:hover {
+    background: rgba(44,165,224,.1);
+    border-color: #2ca5e0;
+    box-shadow: 0 2px 8px rgba(44,165,224,.2);
+}
+.social-btn-v2.tiktok {
+    border-color: rgba(0,0,0,.15);
+    color: var(--text);
+}
+[data-theme="dark"] .social-btn-v2.tiktok {
+    border-color: rgba(255,255,255,.15);
+}
+.social-btn-v2.tiktok:hover {
+    background: rgba(0,0,0,.06);
+    border-color: rgba(0,0,0,.3);
+    box-shadow: 0 2px 8px rgba(0,0,0,.1);
+}
+[data-theme="dark"] .social-btn-v2.tiktok:hover {
+    background: rgba(255,255,255,.08);
+    border-color: rgba(255,255,255,.3);
+}
+.social-btn-v2.facebook {
+    border-color: rgba(24,119,242,.35);
+    color: #1877F2;
+}
+.social-btn-v2.facebook:hover {
+    background: rgba(24,119,242,.1);
+    border-color: #1877F2;
+    box-shadow: 0 2px 8px rgba(24,119,242,.2);
+}
+.social-btn-v2.tele-join {
+    border-color: rgba(44,165,224,.35);
+    color: #2ca5e0;
+}
+.social-btn-v2.tele-join:hover {
+    background: rgba(44,165,224,.1);
+    border-color: #2ca5e0;
+    box-shadow: 0 2px 8px rgba(44,165,224,.2);
 }
 
 /* ── Elite challenge ── */
