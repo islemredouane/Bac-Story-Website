@@ -36,6 +36,21 @@
       }
     </script>
     <meta name="view-transition" content="same-origin">
+    <style>
+      /* Force dark text for transparent navbar state on light mode */
+      [data-theme="light"] .lv2-nav:not(.scrolled) .lv2-logo,
+      [data-theme="light"] .lv2-nav:not(.scrolled) .lv2-nav-link,
+      [data-theme="light"] .lv2-nav:not(.scrolled) .lv2-nav-login,
+      [data-theme="light"] .lv2-nav:not(.scrolled) .lv2-theme-btn {
+          color: var(--ink) !important;
+      }
+      [data-theme="light"] .lv2-nav:not(.scrolled) .lv2-nav-link:hover {
+          background: rgba(var(--primary-rgb),.07) !important;
+      }
+      [data-theme="light"] .lv2-nav:not(.scrolled) .lv2-burger span {
+          background: var(--ink) !important;
+      }
+    </style>
 </head>
 <body>
     <header class="lv2-nav scrolled" id="lv2Nav" style="position: sticky; top: 0;">
