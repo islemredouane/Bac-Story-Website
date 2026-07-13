@@ -13510,3 +13510,65 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
         padding: 16px 12px;
     }
 }
+
+/* --- Speciality Navigation Buttons UI/UX Overrides --- */
+.spec-navigation-buttons {
+    display: flex !important;
+    gap: 12px !important;
+    margin-top: 32px !important;
+    padding: 24px 0 16px !important;
+    flex-wrap: wrap !important;
+}
+
+.spec-nav-btn {
+    padding: 10px 14px !important;
+    font-size: 14px !important;
+    border-radius: 12px !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    min-height: 44px !important; /* Touch friendly minimum */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.03) !important;
+}
+
+.spec-nav-btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08) !important;
+}
+
+.spec-nav-btn:active {
+    transform: translateY(0) !important;
+}
+
+.spec-nav-btn.all-btn {
+    font-size: 15px !important;
+    padding: 10px 20px !important;
+    box-shadow: 0 4px 12px rgba(26, 58, 143, 0.15) !important;
+}
+
+.spec-nav-btn.all-btn:hover {
+    box-shadow: 0 6px 16px rgba(26, 58, 143, 0.25) !important;
+}
+
+/* Responsive UI/UX adjustments */
+@media (max-width: 768px) {
+    .spec-navigation-buttons {
+        gap: 10px !important;
+        flex-direction: column !important;
+    }
+
+    .spec-nav-btn {
+        width: 100% !important;
+        justify-content: center !important;
+        text-align: center !important;
+        font-size: 14px !important;
+        padding: 12px 16px !important;
+    }
+    
+    .spec-nav-btn.prev-btn, .spec-nav-btn.next-btn {
+        flex: none !important;
+    }
+    
+    .spec-nav-btn.all-btn {
+        order: -1 !important; /* Bring "All specialities" to top on mobile */
+        margin-bottom: 4px !important;
+    }
+}
