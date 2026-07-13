@@ -997,7 +997,7 @@
 
   function liveRender(text) {
     const lines = text.split('\n');
-    let html = '';
+    let html = '<div class="tw-md">';
     let inCode = false;
     let codeBuffer = '';
 
@@ -1017,18 +1017,21 @@
         const inline = s => s
             .replace(/\*\*([^*\n]+)\*\*/g, '<strong>$1</strong>')
             .replace(/\*([^*\n]+)\*/g,   '<em>$1</em>')
-            .replace(/`([^`\n]+)`/g,     '<code>$1</code>');
+            .replace(/`([^`\n]+)`/g,     '<code>$1</code>')
+            .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
 
         if (line.startsWith('### '))     { html += `<h3>${inline(esc(line.slice(4)))}</h3>`; continue; }
         if (line.startsWith('## '))      { html += `<h2>${inline(esc(line.slice(3)))}</h2>`; continue; }
         if (line.startsWith('# '))       { html += `<h1>${inline(esc(line.slice(2)))}</h1>`; continue; }
         if (line.match(/^[-*]\s/))       { html += `<li>${inline(esc(line.slice(2)))}</li>`; continue; }
         if (line.match(/^\d+\.\s/))      { html += `<li>${inline(esc(line.replace(/^\d+\.\s/, '')))}</li>`; continue; }
+        if (line.startsWith('> '))       { html += `<blockquote>${inline(esc(line.slice(2)))}</blockquote>`; continue; }
         if (!line.trim())                { html += '<br>'; continue; }
         html += `<p>${inline(e)}</p>`;
     }
     if (inCode) html += `<pre><code>${esc(codeBuffer)}</code></pre>`;
-    return html || '<p></p>';
+    html += '</div>';
+    return html;
   }
 
   const aiShell = (userMessage = '') => {

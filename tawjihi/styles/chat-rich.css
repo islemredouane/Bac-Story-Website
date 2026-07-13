@@ -16,7 +16,7 @@
 }
 .tw-md p:last-child { margin-bottom: 0; }
 
-.tw-md-h2 {
+.tw-md h2, .tw-md-h2 {
   font-size: 1.08rem;
   font-weight: 800;
   color: var(--primary);
@@ -24,7 +24,7 @@
   padding-bottom: 0.2em;
   border-bottom: 2px solid color-mix(in srgb, var(--primary) 18%, transparent);
 }
-.tw-md-h3 {
+.tw-md h3, .tw-md-h3 {
   font-size: 0.97rem;
   font-weight: 700;
   color: var(--text);
@@ -37,16 +37,19 @@
   margin: 0.9em 0;
 }
 
+.tw-md ul, .tw-md ol,
 .tw-md-ul,
 .tw-md-ol {
   margin: 0.35em 0 0.65em;
   padding-inline-start: 1.35em;
 }
+.tw-md ul li, .tw-md ol li,
 .tw-md-ul li,
 .tw-md-ol li {
   margin-bottom: 0.3em;
 }
 
+.tw-md blockquote,
 .tw-callout {
   border-inline-start: 3px solid var(--accent, #f59e0b);
   background: color-mix(in srgb, var(--accent, #f59e0b) 8%, transparent);
@@ -57,6 +60,7 @@
   font-style: normal;
 }
 
+.tw-md code,
 .tw-code {
   background: color-mix(in srgb, var(--primary) 9%, var(--surface));
   color: var(--primary);
@@ -66,11 +70,13 @@
   font-size: 0.88em;
 }
 
+.tw-md a,
 .tw-link {
   color: var(--primary);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
+.tw-md a:hover,
 .tw-link:hover { opacity: 0.8; }
 
 /* ---- Disclaimer line ---- */
