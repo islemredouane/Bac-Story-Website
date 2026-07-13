@@ -425,6 +425,93 @@
     window.history.replaceState({}, '', newUrl);
   }
 
+  /* ──────────────────────────────────────────────────────────
+     REFERRAL CODE CARD — summary step
+     ────────────────────────────────────────────────────────── */
+  (function initRefCard() {
+    const card      = document.getElementById('obRefCard');
+    const toggle    = document.getElementById('obRefToggle');
+    const body      = document.getElementById('obRefBody');
+    const input     = document.getElementById('obRefInput');
+    const applyBtn  = document.getElementById('obRefApplyBtn');
+    const status    = document.getElementById('obRefStatus');
+
+    if (!card) return;
+
+    /* -- helpers -- */
+    function normalizeCode(raw) {
+      let v = raw.trim().toUpperCase().replace(/\s+/g, '');
+      if (v && !v.startsWith('TW-')) v = 'TW-' + v;
+      return v;
+    }
+
+    function setApplied(code) {
+      card.classList.add('is-applied');
+      card.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      body.setAttribute('aria-hidden', 'true');
+      input.value = code;
+      applyBtn.classList.add('is-done');
+      applyBtn.innerHTML = '<i class="fas fa-check"></i> تم';
+      showStatus('✓ كود صاحبك تم تطبيقه — كلاكما تكسبوا 30 رسالة! 🎉', 'ok');
+    }
+
+    function showStatus(msg, type) {
+      status.textContent = msg;
+      status.className = 'ob-ref-status is-shown ' + (type === 'ok' ? 'is-ok' : 'is-err');
+    }
+
+    function hideStatus() {
+      status.className = 'ob-ref-status';
+      status.textContent = '';
+    }
+
+    /* -- check if a code was already set via URL ?ref= or prior apply -- */
+    const pending = sessionStorage.getItem('tw-pending-ref');
+    if (pending) {
+      input.value = pending;
+      setApplied(pending);
+    }
+
+    /* -- toggle open/close -- */
+    toggle.addEventListener('click', function () {
+      if (card.classList.contains('is-applied')) return; // don't re-open after applied
+      const isOpen = card.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+      body.setAttribute('aria-hidden', String(!isOpen));
+      if (isOpen) setTimeout(() => input.focus(), 50);
+    });
+
+    /* -- auto-format input: uppercase, strip spaces, clamp to TW-XXXXX -- */
+    input.addEventListener('input', function () {
+      hideStatus();
+      applyBtn.classList.remove('is-done');
+      applyBtn.innerHTML = '<i class="fas fa-check"></i> تطبيق';
+      let raw = input.value.replace(/[^a-zA-Z0-9\-]/g, '').toUpperCase();
+      // Auto-prefix TW- if user starts typing letters without it
+      if (raw.length >= 2 && !raw.startsWith('TW')) raw = 'TW-' + raw.replace(/^TW-?/, '');
+      input.value = raw.slice(0, 8); // TW-XXXXX = 8 chars max
+    });
+
+    /* -- apply button -- */
+    applyBtn.addEventListener('click', function () {
+      const code = normalizeCode(input.value);
+      const valid = /^TW-[A-Z0-9]{5}$/.test(code);
+      if (!valid) {
+        showStatus('الكود غير صحيح — مثال: TW-ABC12', 'err');
+        input.focus();
+        return;
+      }
+      sessionStorage.setItem('tw-pending-ref', code);
+      setApplied(code);
+    });
+
+    /* -- also allow pressing Enter in the input -- */
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') { e.preventDefault(); applyBtn.click(); }
+    });
+  })();
+
   hydrate();
   render();
 })();

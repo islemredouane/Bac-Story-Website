@@ -194,6 +194,37 @@
                     <div class="ob-summary-row"><span class="ob-summary-k"><i class="fas fa-heart"></i> اهتماماتك</span><span class="ob-summary-v" data-sum="interests">—</span></div>
                     <div class="ob-summary-row"><span class="ob-summary-k"><i class="fas fa-rocket"></i> طموحك</span><span class="ob-summary-v" data-sum="ambition">—</span></div>
                 </div>
+
+                <!-- Referral code card -->
+                <div class="ob-ref-card" id="obRefCard">
+                    <button type="button" class="ob-ref-toggle" id="obRefToggle" aria-expanded="false">
+                        <i class="fas fa-gift"></i>
+                        <span>عندك كود إحالة من صاحبك؟</span>
+                        <span class="ob-ref-applied-badge" id="obRefAppliedBadge">
+                            <i class="fas fa-check-circle"></i> تم تطبيق الكود
+                        </span>
+                        <i class="fas fa-chevron-down ob-ref-chevron"></i>
+                    </button>
+                    <div class="ob-ref-body" id="obRefBody" aria-hidden="true">
+                        <p class="ob-ref-hint">أدخل كود صاحبك — كلاكما تكسبوا <strong style="color:#a8c4ff">30 رسالة مجانية</strong> 🎉</p>
+                        <div class="ob-ref-input-row">
+                            <input
+                                type="text"
+                                class="ob-ref-input"
+                                id="obRefInput"
+                                placeholder="TW-XXXXX"
+                                maxlength="8"
+                                autocomplete="off"
+                                spellcheck="false"
+                            >
+                            <button type="button" class="ob-ref-apply-btn" id="obRefApplyBtn">
+                                <i class="fas fa-check"></i> تطبيق
+                            </button>
+                        </div>
+                        <p class="ob-ref-status" id="obRefStatus"></p>
+                    </div>
+                </div>
+
             </section>
 
             <!-- nav -->

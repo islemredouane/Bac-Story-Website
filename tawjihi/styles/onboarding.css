@@ -516,6 +516,150 @@
 .ob-import-msg.is-ok { color: #4ade80; }
 .ob-import-msg.is-err { color: #f87171; }
 
+/* ---- Referral code card (summary step) ---- */
+.ob-ref-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px dashed rgba(91, 134, 232, 0.3);
+    border-radius: var(--r-md);
+    margin-top: var(--sp-4);
+    overflow: hidden;
+    transition: border-color var(--t-fast), border-style var(--t-fast);
+}
+.ob-ref-card.is-open {
+    border-style: solid;
+    border-color: rgba(91, 134, 232, 0.45);
+}
+.ob-ref-card.is-applied {
+    border-style: solid;
+    border-color: rgba(74, 222, 128, 0.4);
+    background: rgba(74, 222, 128, 0.04);
+}
+
+.ob-ref-toggle {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    padding: var(--sp-4);
+    cursor: pointer;
+    font-weight: 700;
+    font-size: var(--fs-sm);
+    color: rgba(255, 255, 255, 0.7);
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: inherit;
+    transition: color var(--t-fast);
+}
+.ob-ref-toggle:hover { color: rgba(255, 255, 255, 0.9); }
+.ob-ref-toggle > i:first-child { color: #ffe08a; font-size: 1rem; flex-shrink: 0; }
+.ob-ref-toggle .ob-ref-chevron {
+    margin-inline-start: auto;
+    color: rgba(255, 255, 255, 0.3);
+    transition: transform var(--t-fast) var(--ease-out), color var(--t-fast);
+    font-size: 0.85rem;
+}
+.ob-ref-card.is-open .ob-ref-toggle .ob-ref-chevron {
+    transform: rotate(180deg);
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* applied state toggle: show checkmark instead of chevron */
+.ob-ref-applied-badge {
+    display: none;
+    align-items: center;
+    gap: 6px;
+    margin-inline-start: auto;
+    color: #4ade80;
+    font-size: var(--fs-xs);
+    font-weight: 800;
+    letter-spacing: .02em;
+}
+.ob-ref-card.is-applied .ob-ref-applied-badge { display: inline-flex; }
+.ob-ref-card.is-applied .ob-ref-chevron { display: none; }
+
+.ob-ref-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s cubic-bezier(.4,0,.2,1), opacity 0.25s;
+    opacity: 0;
+    padding: 0 var(--sp-4);
+}
+.ob-ref-card.is-open .ob-ref-body {
+    max-height: 160px;
+    opacity: 1;
+    padding-bottom: var(--sp-4);
+}
+
+.ob-ref-hint {
+    font-size: var(--fs-xs);
+    color: rgba(255, 255, 255, 0.38);
+    margin-bottom: var(--sp-3);
+    line-height: 1.5;
+}
+
+.ob-ref-input-row {
+    display: flex;
+    gap: var(--sp-3);
+    align-items: center;
+}
+.ob-ref-input {
+    flex: 1;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: var(--r-md);
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.9);
+    font-family: 'JetBrains Mono', 'Plus Jakarta Sans', monospace;
+    font-size: var(--fs-sm);
+    font-weight: 700;
+    letter-spacing: .08em;
+    padding: var(--sp-3) var(--sp-4);
+    outline: none;
+    direction: ltr;
+    text-align: center;
+    transition: border-color var(--t-fast), box-shadow var(--t-fast);
+}
+.ob-ref-input::placeholder { color: rgba(255, 255, 255, 0.2); letter-spacing: .04em; }
+.ob-ref-input:focus {
+    border-color: rgba(91, 134, 232, 0.6);
+    box-shadow: 0 0 0 3px rgba(44, 92, 197, 0.2);
+}
+
+.ob-ref-apply-btn {
+    flex-shrink: 0;
+    display: inline-flex; align-items: center; gap: var(--sp-2);
+    padding: var(--sp-3) var(--sp-4);
+    border-radius: var(--r-pill);
+    font-size: var(--fs-sm); font-weight: 700;
+    background: rgba(44, 92, 197, 0.25);
+    border: 1px solid rgba(91, 134, 232, 0.45);
+    color: #a8c4ff;
+    transition: background var(--t-fast), box-shadow var(--t-fast), transform var(--t-fast), color var(--t-fast);
+    white-space: nowrap;
+}
+.ob-ref-apply-btn:hover {
+    background: rgba(44, 92, 197, 0.4);
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(44, 92, 197, 0.3);
+}
+.ob-ref-apply-btn:active { transform: none; }
+.ob-ref-apply-btn.is-done {
+    background: rgba(74, 222, 128, 0.18);
+    border-color: rgba(74, 222, 128, 0.4);
+    color: #4ade80;
+}
+
+.ob-ref-status {
+    display: none;
+    margin-top: var(--sp-3);
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    animation: rise var(--t-fast) var(--ease-out) both;
+}
+.ob-ref-status.is-shown { display: block; }
+.ob-ref-status.is-ok  { color: #4ade80; }
+.ob-ref-status.is-err { color: #f87171; }
+
 /* ---- Responsive ---- */
 @media (max-width: 640px) {
     .ob-grid-3 { grid-template-columns: repeat(2, 1fr); }
