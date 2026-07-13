@@ -24,9 +24,7 @@
   const myStreamCode = profile && profile.stream ? STREAM_MAP[profile.stream] : null;
 
   const avgSlider = $('#avgSlider');
-  const avgDisplay = $('#avgDisplay');
-  avgSlider.value = myAvg.toFixed(2);
-  if (avgDisplay) avgDisplay.textContent = myAvg.toFixed(2);
+  if (avgSlider) avgSlider.value = myAvg.toFixed(2);
 
   const streamDisplay = $('#streamDisplay');
   if (streamDisplay) streamDisplay.textContent = (profile && profile.stream) || 'غير محدد';
@@ -216,9 +214,8 @@
 
   /* ---- events ---- */
   avgSlider.addEventListener('input', () => {
-    myAvg = parseFloat(avgSlider.value);
-    if (avgDisplay) avgDisplay.textContent = myAvg.toFixed(2);
-    renderAll();
+    myAvg = parseFloat(avgSlider.value) || 10;
+    debounceRecompute();
   });
   $('#catSearch').addEventListener('input', renderCatalog);
 

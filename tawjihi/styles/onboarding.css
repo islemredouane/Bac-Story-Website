@@ -218,57 +218,7 @@
 }
 .ob-choice-row i { font-size: 1.3rem; width: 28px; }
 
-/* ---- Range / slider ---- */
-.ob-range-card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: var(--r-lg);
-    padding: var(--sp-6) var(--sp-5) var(--sp-5);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    box-shadow: 0 4px 20px rgba(0,0,0,.25);
-}
-.ob-range-value {
-    text-align: center;
-    font-family: 'Plus Jakarta Sans', var(--font-ui);
-    font-size: var(--fs-3xl);
-    font-weight: 800;
-    line-height: 1;
-    color: #a8c4ff;
-    margin-bottom: var(--sp-5);
-}
-.ob-range-value small { font-size: var(--fs-lg); color: rgba(255,255,255,.3); margin-inline-start: 4px; }
-
-.ob-range {
-    -webkit-appearance: none; appearance: none;
-    width: 100%; height: 8px; border-radius: var(--r-pill);
-    background: rgba(255,255,255,.12);
-    outline: none;
-    direction: ltr;
-}
-.ob-range::-webkit-slider-thumb {
-    -webkit-appearance: none; appearance: none;
-    width: 28px; height: 28px; border-radius: 50%;
-    background: linear-gradient(135deg, #2c5cc5, #5b86e8);
-    border: 3px solid rgba(255,255,255,.9);
-    box-shadow: 0 2px 12px rgba(44,92,197,.6);
-    cursor: pointer;
-    transition: transform var(--t-fast) var(--ease);
-}
-.ob-range::-webkit-slider-thumb:hover { transform: scale(1.15); }
-.ob-range::-moz-range-thumb {
-    width: 28px; height: 28px; border-radius: 50%;
-    background: #2c5cc5;
-    border: 3px solid rgba(255,255,255,.9);
-    box-shadow: 0 2px 12px rgba(44,92,197,.6);
-    cursor: pointer;
-}
-.ob-range-scale {
-    display: flex; justify-content: space-between;
-    margin-top: var(--sp-3);
-    color: rgba(255,255,255,.3); font-size: var(--fs-xs); font-weight: 700;
-    direction: ltr;
-}
+/* ---- Removed Slider (now using numeric input) ---- */
 
 /* ---- Select ---- */
 .ob-select-wrap {
@@ -463,42 +413,34 @@
 .ob-btn-finish i { color: #ffe08a; }
 
 /* ---- Import averages from BAC Story ---- */
-.ob-import {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px dashed rgba(255, 255, 255, 0.15);
-    border-radius: var(--r-md);
+.ob-import-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(91, 134, 232, 0.4);
+    border-radius: var(--r-lg);
     margin-bottom: var(--sp-5);
     overflow: hidden;
+    box-shadow: 0 8px 32px rgba(44, 92, 197, 0.15);
 }
-.ob-import[open] {
-    border-style: solid;
-    border-color: rgba(91, 134, 232, 0.35);
-}
-.ob-import-summary {
+.ob-import-header {
     display: flex; align-items: center; gap: var(--sp-3);
-    padding: var(--sp-4);
-    cursor: pointer; list-style: none;
-    font-weight: 700; font-size: var(--fs-sm);
-    color: rgba(255,255,255,.7);
+    padding: var(--sp-4) var(--sp-5);
+    background: rgba(44, 92, 197, 0.15);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
 }
-.ob-import-summary::-webkit-details-marker { display: none; }
-.ob-import-summary > i:first-child { color: #7ab0ff; }
-.ob-import-chevron {
-    margin-inline-start: auto;
-    transition: transform var(--t-fast) var(--ease-out);
-    color: rgba(255,255,255,.3);
+.ob-import-header strong {
+    display: block; font-size: var(--fs-md); color: #fff; margin-bottom: 2px;
 }
-.ob-import[open] .ob-import-chevron { transform: rotate(180deg); }
-.ob-import-body { padding: 0 var(--sp-4) var(--sp-4); }
-.ob-import-hint {
-    font-size: var(--fs-xs); color: rgba(255,255,255,.4);
-    margin-bottom: var(--sp-3);
+.ob-import-header span {
+    display: block; font-size: var(--fs-xs); color: rgba(255,255,255,0.6);
 }
-.ob-import-hint code {
-    background: rgba(255,255,255,.08);
-    padding: 0 4px; border-radius: 4px;
-    color: #a8c4ff;
+.ob-import-icon {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: linear-gradient(135deg, #f59e0b, #fbbf24);
+    color: #fff; display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(245,158,11,0.3);
 }
+.ob-import-body { padding: var(--sp-4) var(--sp-5); }
 .ob-import-input {
     width: 100%;
     border: 1px solid rgba(255,255,255,.14); border-radius: var(--r-md);
@@ -515,6 +457,46 @@
 .ob-import-msg.is-shown { display: block; animation: rise var(--t-fast) var(--ease-out) both; }
 .ob-import-msg.is-ok { color: #4ade80; }
 .ob-import-msg.is-err { color: #f87171; }
+
+/* ---- Manual average input ---- */
+.ob-divider {
+    text-align: center; margin: var(--sp-5) 0; position: relative;
+}
+.ob-divider::before {
+    content: ''; position: absolute; top: 50%; left: 0; right: 0;
+    border-top: 1px solid rgba(255,255,255,.1); z-index: 1;
+}
+.ob-divider span {
+    position: relative; z-index: 2; background: var(--bg);
+    padding: 0 var(--sp-3); font-size: var(--fs-xs); color: rgba(255,255,255,.4);
+}
+.ob-manual-avg {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--r-md);
+    padding: var(--sp-5);
+}
+.ob-input-wrapper {
+    position: relative; display: flex; align-items: center;
+    background: rgba(255,255,255,.05); border-radius: var(--r-md);
+    border: 1px solid rgba(255,255,255,.15);
+    overflow: hidden;
+    transition: border-color var(--t-fast);
+}
+.ob-input-wrapper:focus-within { border-color: rgba(91, 134, 232, 0.6); box-shadow: 0 0 0 3px rgba(44, 92, 197, 0.22); }
+.ob-input-avg {
+    flex: 1; background: none; border: none; outline: none;
+    font-family: 'Plus Jakarta Sans', var(--font-ui);
+    font-size: var(--fs-2xl); font-weight: 800; color: #a8c4ff;
+    padding: var(--sp-3) var(--sp-4); text-align: left; direction: ltr;
+}
+.ob-input-avg::placeholder { color: rgba(255,255,255,.15); }
+.ob-input-avg::-webkit-outer-spin-button, .ob-input-avg::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.ob-input-suffix {
+    padding-inline-end: var(--sp-4);
+    font-family: 'Plus Jakarta Sans', var(--font-ui);
+    font-size: var(--fs-lg); color: rgba(255,255,255,.3); font-weight: 700;
+}
 
 /* ---- Referral code card (summary step) ---- */
 .ob-ref-card {

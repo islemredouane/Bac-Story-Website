@@ -33,12 +33,10 @@
       btn.classList.toggle('is-selected', btn.dataset.value === profile.stream);
     });
 
-    // Average slider
-    const range = $('#avgRange');
-    const avgDisplay = $('#avgValue');
-    if (range) {
-      range.value = profile.average != null ? profile.average : 12;
-      if (avgDisplay) avgDisplay.textContent = Number(range.value).toFixed(2);
+    // Average input
+    const avgInput = $('#avgInput');
+    if (avgInput) {
+      avgInput.value = profile.average != null ? Number(profile.average).toFixed(2) : '12.00';
     }
 
     // Wilaya
@@ -73,7 +71,7 @@
     initialState = {
       name: $('#nameInput')?.value.trim() || '',
       stream: $('#streamChoices .ob-choice.is-selected')?.dataset.value || '',
-      average: parseFloat($('#avgRange')?.value ?? 12),
+      average: parseFloat($('#avgInput')?.value ?? 12),
       wilaya: $('#wilayaSelect')?.value || '',
       interests: $$('#interestChips .ob-chip.is-selected').map(c => c.dataset.value).sort().join(','),
       ambition_text: $('#ambitionText')?.value.trim() || ''
@@ -84,7 +82,7 @@
     const currentState = {
       name: $('#nameInput')?.value.trim() || '',
       stream: $('#streamChoices .ob-choice.is-selected')?.dataset.value || '',
-      average: parseFloat($('#avgRange')?.value ?? 12),
+      average: parseFloat($('#avgInput')?.value ?? 12),
       wilaya: $('#wilayaSelect')?.value || '',
       interests: $$('#interestChips .ob-chip.is-selected').map(c => c.dataset.value).sort().join(','),
       ambition_text: $('#ambitionText')?.value.trim() || ''
@@ -158,12 +156,10 @@
     });
   });
 
-  /* ---- Average slider live update ---- */
-  const range = $('#avgRange');
-  const avgDisplay = $('#avgValue');
-  if (range && avgDisplay) {
-    range.addEventListener('input', () => {
-      avgDisplay.textContent = Number(range.value).toFixed(2);
+  /* ---- Average live update ---- */
+  const avgInput = $('#avgInput');
+  if (avgInput) {
+    avgInput.addEventListener('input', () => {
       checkForChanges();
     });
   }
@@ -210,7 +206,7 @@
       const selectedStream = $('#streamChoices .ob-choice.is-selected');
       if (selectedStream) profile.stream = selectedStream.dataset.value;
 
-      profile.average = parseFloat($('#avgRange')?.value ?? profile.average);
+      profile.average = parseFloat($('#avgInput')?.value ?? profile.average);
 
       const wilayaVal = $('#wilayaSelect')?.value;
       if (wilayaVal) profile.wilaya = wilayaVal;

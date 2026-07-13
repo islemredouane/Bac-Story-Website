@@ -560,23 +560,19 @@
     gap: var(--sp-3);
     width: 100%;
 }
-.sim-avg-slider {
-    flex: 1;
-    height: 6px;
-    accent-color: var(--primary);
-    cursor: pointer;
-    min-width: 0;
+.sim-avg-input {
+    flex: 1; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: var(--r-md);
+    outline: none; font-family: 'Plus Jakarta Sans', var(--font-ui);
+    font-size: var(--fs-xl); font-weight: 800; color: #a8c4ff;
+    padding: var(--sp-2) var(--sp-3); text-align: left; direction: ltr;
+    min-width: 0; transition: border-color var(--t-fast);
 }
-.sim-avg-display {
-    font-family: var(--font-display);
-    font-weight: 800;
-    color: var(--primary);
-    min-width: 3.5rem;
-    text-align: center;
-    font-size: var(--fs-2xl);
-    line-height: 1;
-    background: linear-gradient(135deg, var(--primary) 0%, #7da4f0 100%);
-    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+.sim-avg-input:focus { border-color: rgba(91, 134, 232, 0.6); box-shadow: 0 0 0 3px rgba(44, 92, 197, 0.22); }
+.sim-avg-input::placeholder { color: rgba(255,255,255,.15); }
+.sim-avg-input::-webkit-outer-spin-button, .sim-avg-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.sim-avg-suffix {
+    font-family: 'Plus Jakarta Sans', var(--font-ui);
+    font-weight: 700; color: var(--text-muted); font-size: var(--fs-md);
 }
 
 /* ---- reduced motion ---- */

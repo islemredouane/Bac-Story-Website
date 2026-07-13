@@ -90,20 +90,21 @@
 
             <!-- ② المعدل -->
             <section class="ob-step" data-step="1">
-                <p class="ob-kicker"><i class="fas fa-percent"></i> المعدل المتوقع</p>
-                <h1 class="ob-q">شحال تتوقع معدلك؟</h1>
-                <p class="ob-hint">ما تكونش قاسي على روحك — تقدير تقريبي يكفي، نقدرو نبدلوه من بعد.</p>
+                <p class="ob-kicker"><i class="fas fa-percent"></i> معدل البكالوريا</p>
+                <h1 class="ob-q">شحال ديت معدل؟</h1>
+                <p class="ob-hint">أدخل معدلك، أو استورد معدلاتك الموزونة من منصة BAC Story لحساب فرص القبول بشكل أدق.</p>
 
-                <!-- استيراد المعدلات من BAC Story -->
-                <details class="ob-import" id="obImport">
-                    <summary class="ob-import-summary">
-                        <i class="fas fa-file-import"></i>
-                        <span>عندك معدلاتك من حاسبة BAC Story؟ استوردها</span>
-                        <i class="fas fa-chevron-down ob-import-chevron"></i>
-                    </summary>
+                <!-- استيراد المعدلات من BAC Story (الموصى به) -->
+                <div class="ob-import-card">
+                    <div class="ob-import-header">
+                        <div class="ob-import-icon"><i class="fas fa-bolt"></i></div>
+                        <div>
+                            <strong>استيراد ذكي (موصى به)</strong>
+                            <span>اضمن دقة 100% برفع معدلاتك الموزونة من حاسبتنا.</span>
+                        </div>
+                    </div>
                     <div class="ob-import-body">
-                        <p class="ob-import-hint">الصق رمز المعدلات اللي نسختو من حاسبة BAC Story، ولا حمّل ملف <code>.json</code>.</p>
-                        <textarea id="obImportCode" class="ob-import-input" rows="3" placeholder="الصق رمز معدلاتك هنا…"></textarea>
+                        <textarea id="obImportCode" class="ob-import-input" rows="2" placeholder="الصق رمز معدلاتك هنا…"></textarea>
                         <div class="ob-import-actions">
                             <button type="button" class="ob-btn ob-btn-primary ob-btn-sm" id="obImportBtn"><i class="fas fa-check"></i> استيراد</button>
                             <label class="ob-btn ob-btn-ghost ob-btn-sm" for="obImportFile"><i class="fas fa-upload"></i> من ملف</label>
@@ -111,12 +112,16 @@
                         </div>
                         <p class="ob-import-msg" id="obImportMsg" role="status"></p>
                     </div>
-                </details>
+                </div>
 
-                <div class="ob-range-card">
-                    <div class="ob-range-value"><span id="avgValue">12.00</span><small>/ 20</small></div>
-                    <input type="range" class="ob-range" id="avgRange" min="8" max="20" step="0.25" value="12" data-field="average">
-                    <div class="ob-range-scale"><span>08</span><span>14</span><span>20</span></div>
+                <div class="ob-divider"><span>أو إدخال يدوي</span></div>
+
+                <div class="ob-manual-avg">
+                    <label for="avgInput" style="display:block;font-size:var(--fs-sm);font-weight:700;color:var(--text);margin-bottom:8px">المعدل العام (بدون معدلات موزونة)</label>
+                    <div class="ob-input-wrapper">
+                        <input type="number" id="avgInput" class="ob-input-avg" min="8" max="20" step="0.01" placeholder="10.00" data-field="average">
+                        <span class="ob-input-suffix">/ 20</span>
+                    </div>
                 </div>
             </section>
 

@@ -77,10 +77,9 @@
         btn.classList.toggle('is-selected', profile.interests.includes(btn.dataset.value));
       });
     }
-    // range
-    const range = $('#avgRange');
-    range.value = profile.average;
-    $('#avgValue').textContent = Number(profile.average).toFixed(2);
+    // average input
+    const avgInput = $('#avgInput');
+    if (avgInput) avgInput.value = Number(profile.average).toFixed(2);
     // select (wilaya stored as {num, ar})
     const wVal = profile.wilaya && profile.wilaya.num != null ? String(profile.wilaya.num) : '';
     $('#wilayaSelect').value = wVal;
@@ -143,13 +142,14 @@
     });
   });
 
-  /* ---- Range ---- */
-  const range = $('#avgRange'), avgValue = $('#avgValue');
-  range.addEventListener('input', () => {
-    profile.average = parseFloat(range.value);
-    avgValue.textContent = profile.average.toFixed(2);
-    save();
-  });
+  /* ---- Average Input ---- */
+  const avgInput = $('#avgInput');
+  if (avgInput) {
+    avgInput.addEventListener('input', () => {
+      profile.average = parseFloat(avgInput.value) || 10;
+      save();
+    });
+  }
 
   /* ---- Select (wilaya) — populated from the clean 58-wilaya master list ---- */
   const wilayaSelect = $('#wilayaSelect');
