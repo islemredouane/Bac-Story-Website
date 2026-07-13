@@ -92,13 +92,16 @@
     obs.observe(el);
   });
 
-  /* ── Feature cards — folder reveal handled by initGsap ─── */
-  /* Fallback: if GSAP CDN never loads, reveal via CSS class  */
+  /* ── Feature cards — fallback: reveal after 4s if observer never fires */
   setTimeout(function () {
     document.querySelectorAll('.feature-card').forEach(function (c) {
-      if (!c.classList.contains('revealed')) c.classList.add('revealed');
+      if (!c.classList.contains('revealed')) {
+        c.classList.add('revealed');
+        c.classList.add('interactive');
+      }
     });
   }, 4000);
+
 
   /* ── FAQ accordion ────────────────────────────────────────── */
   document.querySelectorAll('.lv2-faq-q').forEach(function (btn) {
@@ -231,27 +234,41 @@
       });
     }());
 
-    /* ── Feature cards: stagger fade-up reveal ── */
+    /* ── Feature cards: premium stagger reveal (blur + scale + rise) ── */
     (function () {
       var featCards = Array.from(document.querySelectorAll('.feature-card'));
       if (!featCards.length) return;
+
+      /* Assign stagger index as data-s (CSS uses it for animation-delay) */
+      featCards.forEach(function (card, i) {
+        if (i > 0) card.setAttribute('data-s', String(i));
+      });
 
       var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (e) {
           if (!e.isIntersecting) return;
           var card = e.target;
-          var i = featCards.indexOf(card);
+          var delay = (parseInt(card.getAttribute('data-s') || '0', 10) * 120);
           io.unobserve(card);
+
           setTimeout(function () {
             card.classList.add('revealed');
-          }, i * 150);
+
+            /* After the CSS animation finishes, switch to interactive mode
+               (animation: none + full hover transitions) */
+            var animDuration = 650 + delay;
+            setTimeout(function () {
+              card.classList.add('interactive');
+            }, animDuration);
+          }, 0);
         });
-      }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
       featCards.forEach(function (c) {
         io.observe(c);
       });
     }());
+
 
     /* Protocol sticky-stack scrub */
     var pStack = document.getElementById('lv2ProtocolStack');

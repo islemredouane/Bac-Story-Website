@@ -624,6 +624,21 @@ img { display: block; max-width: 100%; }
 /* ─────────────────────────────────────────────────────────────
    3 · FEATURES
 ───────────────────────────────────────────────────────────── */
+
+/* ── Premium card entrance (inspired by ReactBits / BAC STORY) */
+@keyframes feat-card-in {
+  from {
+    opacity: 0;
+    transform: translateY(36px) scale(0.93);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
 .lv2-features {
   padding-block: 7rem 6rem;
   background: var(--background);
@@ -637,13 +652,12 @@ img { display: block; max-width: 100%; }
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
+  align-items: start;
 }
 
 
-
-/* ── Feature cards ─────────────────────────────────────────── */
+/* ── Feature cards ─────────────────────────────────────────────────── */
 .feature-card {
-  /* Gradient border that respects border-radius */
   background:
     linear-gradient(var(--surface), var(--surface)) padding-box,
     linear-gradient(145deg, rgba(var(--primary-rgb),.25) 0%, rgba(var(--accent-rgb),.1) 100%) border-box;
@@ -656,10 +670,9 @@ img { display: block; max-width: 100%; }
   position: relative;
   overflow: hidden;
   box-shadow: 0 4px 24px rgba(0,0,0,.06), inset 0 1px 0 rgba(255,255,255,.45);
-  /* opacity/transform driven by GSAP; only box-shadow/border transitions here */
-  transition: box-shadow .35s var(--ease-out);
-  opacity: 0; /* initial — GSAP reveals */
-  will-change: transform, opacity;
+  transition: box-shadow .35s var(--ease-out), transform .45s var(--ease-spring);
+  opacity: 0;
+  will-change: transform, opacity, filter;
 }
 
 [data-theme="dark"] .feature-card {
@@ -677,15 +690,30 @@ img { display: block; max-width: 100%; }
   opacity: 0.65;
 }
 
-/* After GSAP reveal — enable hover transitions */
+/* ── Premium stagger entrance: blur + scale + rise (ReactBits style) */
 .feature-card.revealed {
+  animation: feat-card-in .65s cubic-bezier(.22, 1, .36, 1) both;
   opacity: 1;
-  transition: box-shadow .35s var(--ease-out), transform .45s var(--ease-spring);
 }
 
-.feature-card.revealed:hover {
-  transform: translateY(-8px) scale(1.025);
-  box-shadow: 0 20px 52px rgba(var(--primary-rgb),.18), inset 0 1px 0 rgba(255,255,255,.5);
+.feature-card.revealed[data-s="1"] { animation-delay: .12s; }
+.feature-card.revealed[data-s="2"] { animation-delay: .24s; }
+
+/* After animation settles — switch to hover-ready state */
+.feature-card.interactive {
+  animation: none;
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+.feature-card.interactive:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 24px 56px rgba(var(--primary-rgb),.16), inset 0 1px 0 rgba(255,255,255,.5);
+}
+
+[data-theme="dark"] .feature-card.interactive:hover {
+  box-shadow: 0 24px 56px rgba(0,0,0,.4), 0 0 32px rgba(var(--primary-rgb),.12);
 }
 
 .feature-card-eyebrow {
@@ -731,18 +759,24 @@ img { display: block; max-width: 100%; }
 
 /* ── Shuffler demo (card 1) ─── */
 .lv2-shuffler {
-  flex: 1;
-  position: relative; height: 140px;
+  position: relative;
+  height: 120px;
   margin-block: .25rem;
+  min-height: 100px;
+  max-height: 150px;
 }
 
 .lv2-shuffler-card {
-  position: absolute; inset: 0;
+  position: absolute;
+  inset: 0;
   background: var(--background);
   border: 1px solid var(--divider);
   border-radius: 1rem;
-  padding: 1rem;
-  display: flex; flex-direction: column; gap: .4rem;
+  padding: .85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+  overflow: hidden;
   transition: transform .5s var(--ease-out), opacity .5s;
 }
 
@@ -770,12 +804,12 @@ img { display: block; max-width: 100%; }
 
 /* ── Signature animation (card 2) — Compass/Route ─── */
 .lv2-sig-wrap {
-  flex: 1;
   background: linear-gradient(180deg, #0e2254 0%, #1a3a8f 55%, #2c5cc5 100%);
   border-radius: 1.25rem;
   overflow: hidden;
   position: relative;
-  height: 144px;
+  height: 130px;
+  min-height: 110px;
   margin-block: .25rem;
 }
 
@@ -1457,6 +1491,38 @@ img { display: block; max-width: 100%; }
   .lv2-trust-grid    { grid-template-columns: 1fr; }
   .lv2-features-grid { grid-template-columns: 1fr; }
 
+  /* ── Feature card inner widget fixes for mobile */
+  .feature-card {
+    padding: 1.5rem 1.25rem;
+    border-radius: 1.25rem;
+  }
+
+  /* Shuffler: fixed height on mobile so it doesn't collapse */
+  .lv2-shuffler {
+    height: 110px;
+    min-height: 90px;
+  }
+
+  /* sig-wrap: tighter on mobile */
+  .lv2-sig-wrap {
+    height: 120px;
+    min-height: 100px;
+  }
+
+  /* Wishlist demo: ensure it doesn't stretch too tall */
+  .lv2-wishlist-demo {
+    max-height: 200px;
+    overflow: hidden;
+  }
+
+  /* Shuffler label: prevent overflow */
+  .lv2-shuffler-label,
+  .lv2-shuffler-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
   .lv2-footer-grid { grid-template-columns: 1fr; }
   .lv2-footer-bottom { flex-direction: column; align-items: flex-start; }
 }
@@ -1466,4 +1532,6 @@ img { display: block; max-width: 100%; }
     animation-duration: .01ms !important;
     transition-duration: .01ms !important;
   }
+  /* Reveal immediately without animation */
+  .feature-card { opacity: 1; }
 }
