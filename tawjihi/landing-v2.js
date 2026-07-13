@@ -1,4 +1,4 @@
-﻿/* landing-v2.js — Tawjihi Landing V2
+/* landing-v2.js — Tawjihi Landing V2
    Follows build-premium-website skill patterns.
    GSAP loaded via CDN, registered when available. */
 (function () {
@@ -231,72 +231,25 @@
       });
     }());
 
-    /* ── Feature cards: scroll-scrubbed folder reveal (pinned) ── */
+    /* ── Feature cards: stagger fade-up reveal ── */
     (function () {
-      var folderEl   = document.getElementById('lv2FolderAnchor');
-      var folderFlap = document.getElementById('lv2FolderFlap');
-      var featCards  = Array.from(document.querySelectorAll('.feature-card'));
-      if (!folderEl || !featCards.length) return;
+      var featCards = Array.from(document.querySelectorAll('.feature-card'));
+      if (!featCards.length) return;
 
-      /* Folder sits above cards in z-order */
-      gsap.set(folderEl, { zIndex: 20, position: 'relative' });
-
-      /* Stack all cards inside the folder: move each to folder centre, shrink */
-      var fR  = folderEl.getBoundingClientRect();
-      var fCX = fR.left + fR.width  / 2;
-      var fCY = fR.top  + fR.height * 0.65; /* slightly below folder centre */
-      var fanRot = [7, 0, -7];
-
-      featCards.forEach(function (card, i) {
-        var r  = card.getBoundingClientRect();
-        var dx = fCX - (r.left + r.width  / 2);
-        var dy = fCY - (r.top  + r.height / 2);
-        card.style.transition = 'none';
-        gsap.set(card, {
-          x: dx, y: dy,
-          scale: 0.42,
-          opacity: 1,      /* visible but tiny, behind folder */
-          rotation: fanRot[i],
-          zIndex: i + 1   /* folder z:20 stays above cards z:1-3 */
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          var card = e.target;
+          var i = featCards.indexOf(card);
+          io.unobserve(card);
+          setTimeout(function () {
+            card.classList.add('revealed');
+          }, i * 150);
         });
-      });
+      }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
 
-      /* ── Scroll-scrubbed timeline (no pin — avoids spacer + layout shift) ── */
-      var tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: '.lv2-features',
-          start:   'top 65%',
-          end:     'top 10%',
-          scrub:   1,
-          onLeave: function (self) {
-            self.kill();
-            tl.kill();
-            featCards.forEach(function (card) {
-              card.removeAttribute('style'); /* wipe all GSAP inline styles */
-              card.classList.add('revealed');
-            });
-            folderEl.removeAttribute('style');
-            folderEl.style.opacity = '0'; /* keep folder hidden */
-          }
-        }
-      });
-
-      /* Phase 1 (0–22%): folder flap folds back */
-      tl.to(folderFlap, {
-        scaleY: 0, transformOrigin: 'top center', duration: 0.22
-      }, 0);
-
-      /* Phase 2 (15–50%): folder body fades & shrinks */
-      tl.to(folderEl, {
-        opacity: 0, scale: 0.78, duration: 0.35
-      }, 0.15);
-
-      /* Phase 3 (18–100%): cards exit folder, fan to grid columns */
-      featCards.forEach(function (card, i) {
-        tl.to(card, {
-          x: 0, y: 0, scale: 1, rotation: 0,
-          duration: 0.62
-        }, 0.18 + i * 0.19);
+      featCards.forEach(function (c) {
+        io.observe(c);
       });
     }());
 

@@ -639,66 +639,7 @@ img { display: block; max-width: 100%; }
   gap: 1.5rem;
 }
 
-/* ── Folder anchor (animation stage) ──────────────────────── */
-.lv2-folder-anchor {
-  position: relative;
-  width: 176px;
-  height: 118px;
-  margin: 0 auto 1.75rem;
-}
 
-.lv2-fd-tab {
-  position: absolute;
-  top: 0;
-  inset-inline-start: 0;
-  width: 46%;
-  height: 22px;
-  background: linear-gradient(135deg, rgba(var(--primary-rgb),.2), rgba(var(--primary-rgb),.1));
-  border: 1.5px solid rgba(var(--primary-rgb),.32);
-  border-radius: 8px 8px 0 0;
-  border-bottom: none;
-}
-
-.lv2-fd-flap {
-  position: absolute;
-  top: 14px;
-  inset-inline: 0;
-  height: 22px;
-  background: rgba(var(--primary-rgb),.16);
-  border-bottom: 1.5px solid rgba(var(--primary-rgb),.28);
-  transform-origin: top center;
-  z-index: 1;
-}
-
-.lv2-fd-body {
-  position: absolute;
-  top: 14px;
-  inset-inline: 0;
-  bottom: 0;
-  background: linear-gradient(170deg, rgba(var(--primary-rgb),.1) 0%, rgba(var(--primary-rgb),.04) 100%);
-  border: 1.5px solid rgba(var(--primary-rgb),.22);
-  border-radius: 2px 10px 10px 10px;
-  border-top: none;
-  overflow: hidden;
-}
-
-.lv2-fd-paper {
-  position: absolute;
-  inset-inline: 14px;
-  height: 3px;
-  border-radius: 2px;
-  background: rgba(var(--primary-rgb),.22);
-}
-.lv2-fd-paper:nth-child(1) { top: 38px; }
-.lv2-fd-paper:nth-child(2) { top: 52px; inset-inline-end: 40px; }
-.lv2-fd-paper:nth-child(3) { top: 66px; inset-inline-end: 60px; }
-
-[data-theme="dark"] .lv2-fd-tab    { background: rgba(var(--primary-rgb),.28); border-color: rgba(var(--primary-rgb),.45); }
-[data-theme="dark"] .lv2-fd-flap   { background: rgba(var(--primary-rgb),.22); border-color: rgba(var(--primary-rgb),.4); }
-[data-theme="dark"] .lv2-fd-body   { background: linear-gradient(170deg, rgba(var(--primary-rgb),.18), rgba(var(--primary-rgb),.07)); border-color: rgba(var(--primary-rgb),.38); }
-[data-theme="dark"] .lv2-fd-paper  { background: rgba(var(--primary-rgb),.35); }
-
-@media (max-width: 767px) { .lv2-folder-anchor { display: none; } }
 
 /* ── Feature cards ─────────────────────────────────────────── */
 .feature-card {
@@ -1260,64 +1201,57 @@ img { display: block; max-width: 100%; }
   background: var(--surface);
   border: 1px solid var(--divider);
   border-radius: 1.25rem;
-  padding: 2rem;
-  display: flex; flex-direction: column; gap: .85rem;
+  padding: 2.5rem 2rem;
+  display: flex; flex-direction: column; gap: 1rem; align-items: center; text-align: center;
   position: relative; overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0,0,0,.05);
+  box-shadow: 0 4px 20px rgba(0,0,0,.04);
   opacity: 0;
-  transform: translateY(28px) scale(.97);
-  transition: opacity .65s cubic-bezier(.22,1,.36,1),
-              transform .65s cubic-bezier(.22,1,.36,1),
-              box-shadow .4s;
+  transform: translateY(30px);
+  transition: opacity .6s cubic-bezier(.22,1,.36,1),
+              transform .6s cubic-bezier(.22,1,.36,1),
+              box-shadow .4s, transform .4s;
+  cursor: default;
 }
 
-/* Spotlight — always on, follows cursor */
+[data-theme="dark"] .lv2-trust-card {
+  background: linear-gradient(145deg, rgba(var(--primary-rgb),0.05), rgba(var(--accent-rgb),0.02));
+  border-color: rgba(255,255,255,0.05);
+  box-shadow: 0 4px 24px rgba(0,0,0,.2);
+}
+
+/* Premium Hover Effect */
+.lv2-trust-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(var(--primary-rgb),.12);
+  border-color: rgba(var(--primary-rgb),.3);
+}
+
+[data-theme="dark"] .lv2-trust-card:hover {
+  box-shadow: 0 16px 40px rgba(0,0,0,.4), 0 0 20px rgba(var(--primary-rgb),.15);
+  border-color: rgba(var(--primary-rgb),.4);
+}
+
+/* Spotlight effect */
 .lv2-trust-card::before {
   content: '';
   position: absolute; inset: 0;
   background: radial-gradient(
-    300px circle at var(--mx, 50%) var(--my, 50%),
-    rgba(var(--primary-rgb), .12) 0%,
-    transparent 65%
+    400px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(var(--primary-rgb), .08) 0%,
+    transparent 70%
   );
-  opacity: .6;
-  transition: opacity .3s;
+  opacity: 0;
+  transition: opacity .4s;
   pointer-events: none; border-radius: inherit;
+  z-index: 1;
 }
 .lv2-trust-card:hover::before { opacity: 1; }
-
-/* Gradient border — always on, breathing */
-.lv2-trust-card::after {
-  content: '';
-  position: absolute; inset: -1px;
-  border-radius: calc(1.25rem + 1px);
-  background: linear-gradient(135deg,
-    rgba(var(--primary-rgb),.4) 0%,
-    rgba(var(--accent-rgb),.25)  50%,
-    rgba(var(--primary-rgb),.0)  100%);
-  animation: borderPulse 3.5s ease-in-out infinite;
-  pointer-events: none; z-index: -1;
-}
-@keyframes borderPulse {
-  0%, 100% { opacity: .3; }
-  50%       { opacity: .7; }
-}
-.lv2-trust-card[data-s="1"]::after { animation-delay: -1.16s; }
-.lv2-trust-card[data-s="2"]::after { animation-delay: -2.33s; }
 
 /* Entrance */
 .lv2-trust-card.in-view {
   opacity: 1;
   transform: none;
 }
-
-/* After entrance: infinite float via CSS `translate` (independent from `transform`) */
-.lv2-trust-card.lv2-anim {
-  transition: transform .25s ease-out, box-shadow .4s;
-  animation: cardFloat 3.5s ease-in-out infinite;
-}
-.lv2-trust-card[data-s="1"].lv2-anim { animation-delay: -1.16s; }
-.lv2-trust-card[data-s="2"].lv2-anim { animation-delay: -2.33s; }
 
 @keyframes cardFloat {
   0%, 100% { translate: 0 0; }
