@@ -133,6 +133,7 @@
                     <nav class="legal-toc" aria-label="فهرس المحتوى">
                         <div class="legal-toc-title">فهرس المحتوى</div>
                         <ul class="legal-toc-list">
+                            <div class="legal-toc-slider" aria-hidden="true"></div>
                             <li><a href="#priv-1">ما المعلومات التي نجمعها؟</a></li>
                             <li><a href="#priv-2">كيف نستخدم معلوماتك؟</a></li>
                             <li><a href="#priv-3">هل نشارك بياناتك؟</a></li>
@@ -313,5 +314,64 @@
   </div>
 </footer>
 <script src="landing-v2.js" defer></script>
+<script>
+/* ── TOC Scroll-spy with sliding pill ── */
+(function () {
+  var tocList  = document.querySelector('.legal-toc-list');
+  var slider   = document.querySelector('.legal-toc-slider');
+  var links    = Array.from(document.querySelectorAll('.legal-toc-list a'));
+  var sections = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+
+  if (!tocList || !slider || !links.length) return;
+
+  function moveSlider(link) {
+    if (!link) return;
+    var listRect = tocList.getBoundingClientRect();
+    var linkRect = link.getBoundingClientRect();
+    var topOffset = linkRect.top - listRect.top + tocList.scrollTop;
+    slider.style.height  = linkRect.height + 'px';
+    slider.style.transform = 'translateY(' + topOffset + 'px)';
+    slider.style.opacity = '1';
+  }
+
+  var currentActive = null;
+
+  function setActive(id) {
+    links.forEach(function(a){ a.classList.remove('active'); });
+    var activeLink = links.find(function(a){ return a.getAttribute('href') === '#' + id; });
+    if (activeLink) {
+      activeLink.classList.add('active');
+      if (currentActive !== id) {
+        moveSlider(activeLink);
+        currentActive = id;
+      }
+    }
+  }
+
+  // IntersectionObserver: mark as active when section enters viewport
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) setActive(entry.target.id);
+    });
+  }, { rootMargin: '-20% 0px -60% 0px', threshold: 0 });
+
+  sections.forEach(function(s){ if (s) io.observe(s); });
+
+  // Init slider on first visible
+  setTimeout(function(){
+    var first = links[0];
+    if (first) { first.classList.add('active'); moveSlider(first); }
+  }, 100);
+
+  // Smooth scroll on click
+  links.forEach(function(a){
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      var target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+})();
+</script>
 </body>
 </html>
