@@ -7,7 +7,8 @@
 .app {
     display: grid;
     grid-template-columns: var(--sidebar-w) 1fr;
-    height: 100%; min-height: -webkit-fill-available;
+    height: 100vh; height: 100dvh;
+    overflow: hidden;
     position: relative;
     transition: grid-template-columns var(--t-mid) var(--ease);
 }
@@ -151,7 +152,7 @@
 .app.sidebar-collapsed .nav-item { justify-content: center; gap: 0; }
 
 /* ---------------- MAIN ---------------- */
-.main { display: flex; flex-direction: column; min-width: 0; height: 100%; min-height: -webkit-fill-available; position: relative; z-index: 1; }
+.main { display: flex; flex-direction: column; min-width: 0; height: 100%; position: relative; z-index: 1; overflow: hidden; }
 
 .topbar {
     height: var(--topbar-h); display: flex; align-items: center;
