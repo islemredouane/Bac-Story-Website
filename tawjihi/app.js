@@ -309,7 +309,7 @@
     const row = document.createElement('div');
     row.className = 'chat-spec-row';
     row.innerHTML = list.map(s => `
-      <a class="chat-spec-card" href="speciality.html?id=${esc(s.id)}" target="_self" style="--cat:${esc(s.color)}">
+      <a class="chat-spec-card" href="speciality?id=${esc(s.id)}" target="_self" style="--cat:${esc(s.color)}">
         <div class="csc-name">${esc(s.name)}</div>
         <div class="csc-meta">${esc(s.meta)}</div>
         <div class="csc-avg">${s.avg != null && s.avg !== 'null' ? `معدل القبول ~ ${esc(String(s.avg))}` : 'قبول بمسابقة خاصة'}</div>
@@ -1289,7 +1289,7 @@
         <p class="credit-banner-desc">شارك توجيهي مع صديق واكسب +30 رسالة لكلاكما — الإحالة مجانية تماماً.</p>
       </div>
       <div class="credit-banner-actions">
-        <a href="referral.html" class="credit-banner-cta primary">
+        <a href="referral" class="credit-banner-cta primary">
           <i class="fas fa-gift"></i> اكسب رسائل
         </a>
         <button class="credit-banner-dismiss" id="creditDismiss" aria-label="إغلاق">

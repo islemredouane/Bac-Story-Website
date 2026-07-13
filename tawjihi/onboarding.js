@@ -358,7 +358,7 @@
       overlay.classList.add('is-visible');
       await new Promise(r => setTimeout(r, 1600));
     }
-    window.location.href = 'app.html';
+    window.location.href = 'app';
   });
 
   /* ---- Import averages from BAC Story (paste code or file) ---- */

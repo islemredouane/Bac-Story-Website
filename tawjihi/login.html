@@ -37,7 +37,7 @@
 
     <main class="auth-wrap">
         <section class="auth-card" role="dialog" aria-labelledby="authTitle">
-            <a href="index.html" class="auth-logo" aria-label="توجيهي — الصفحة الرئيسية">
+            <a href="" class="auth-logo" aria-label="توجيهي — الصفحة الرئيسية">
                 <svg class="lv2-logo-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
                     <circle cx="16" cy="16" r="13" stroke="currentColor" stroke-width="1.5"/>
                     <circle cx="16" cy="16" r="2.5" fill="currentColor"/>
@@ -72,7 +72,7 @@
                 <i class="fas fa-spinner google-spin" aria-hidden="true"></i>
             </button>
 
-            <p class="auth-terms">بالمتابعة، أنت توافق على <a href="terms.html">شروط الاستخدام</a> و <a href="privacy.html">سياسة الخصوصية</a>.</p>
+            <p class="auth-terms">بالمتابعة، أنت توافق على <a href="terms">شروط الاستخدام</a> و <a href="privacy">سياسة الخصوصية</a>.</p>
 
             <div class="auth-trust">
                 <i class="fas fa-lock"></i>
@@ -138,7 +138,7 @@
                     ...profile,
                     name: profile.name || user.user_metadata?.full_name || 'صديقي'
                 }));
-                window.location.href = 'app.html' + window.location.search;
+                window.location.href = 'app' + window.location.search;
             } else {
                 await tw_supabase.from('profiles').upsert({
                     id: user.id,
@@ -158,13 +158,13 @@
                 const refCode = new URLSearchParams(location.search).get('ref');
                 if (refCode) sessionStorage.setItem('tw-pending-ref', refCode);
                 localStorage.setItem('tw-auth', JSON.stringify({ provider: 'google', uid: user.id }));
-                window.location.href = 'onboarding.html' + window.location.search;
+                window.location.href = 'onboarding' + window.location.search;
             }
         } catch (err) {
             console.error('handleSignIn error:', err);
             // Fallback: store auth and go to onboarding regardless
             localStorage.setItem('tw-auth', JSON.stringify({ provider: 'google', uid: session.user.id }));
-            window.location.href = 'onboarding.html' + window.location.search;
+            window.location.href = 'onboarding' + window.location.search;
         }
     }
 
@@ -202,7 +202,7 @@
 
                 if (profile && profile.completed) {
                     localStorage.setItem('tw-profile', JSON.stringify({ ...profile, email: payload.email, avatar_url: meta.avatar_url }));
-                    window.location.href = 'app.html' + window.location.search;
+                    window.location.href = 'app' + window.location.search;
                     return;
                 }
 
@@ -216,7 +216,7 @@
                     body: JSON.stringify({ owner_user_id: uid, code }) });
 
                 localStorage.setItem('tw-profile', JSON.stringify({ name: meta.full_name || meta.name || 'صديقي', email: payload.email, avatar_url: meta.avatar_url }));
-                window.location.href = 'onboarding.html' + window.location.search;
+                window.location.href = 'onboarding' + window.location.search;
             } catch (e) {
                 console.error('OAuth callback error:', e);
                 // Still try to redirect — extract uid from hash param if possible
@@ -229,7 +229,7 @@
                         localStorage.setItem('tw-auth', JSON.stringify({ provider: 'google', uid: pl.sub }));
                     }
                 } catch(_) {}
-                window.location.href = 'onboarding.html' + window.location.search;
+                window.location.href = 'onboarding' + window.location.search;
             }
         })();
     } else {

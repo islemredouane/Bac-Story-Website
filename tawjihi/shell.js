@@ -124,7 +124,7 @@
 
     sidebar.innerHTML =
         '<div class="sidebar-head">' +
-            '<a href="dashboard.html" class="sidebar-logo-link" aria-label="توجيهي — الرئيسية">' +
+            '<a href="dashboard" class="sidebar-logo-link" aria-label="توجيهي — الرئيسية">' +
                 '<svg class="sidebar-logo-svg" viewBox="0 0 32 32" fill="none" aria-hidden="true">' +
                     '<circle cx="16" cy="16" r="13" stroke="currentColor" stroke-width="1.5"/>' +
                     '<circle cx="16" cy="16" r="2.5" fill="currentColor"/>' +
@@ -148,8 +148,8 @@
             '<a class="nav-item" href="#" onclick="(function(){var r=document.documentElement;var n=r.getAttribute(\'data-theme\')==\'dark\'?\'light\':\'dark\';r.setAttribute(\'data-theme\',n);localStorage.setItem(\'tw-theme\',n);var ic=document.getElementById(\'themeIconSide\');if(ic){ic.className=\'fas fa-\'+(n===\'dark\'?\'sun\':\'moon\');}})();return false;">' +
                 '<i class="fas fa-circle-half-stroke" id="themeIconSide"></i><span>الوضع الليلي</span>' +
             '</a>' +
-            '<a class="nav-item" href="dashboard.html"><i class="fas fa-user-circle"></i><span>حسابي</span></a>' +
-            '<a class="nav-item" href="settings.html"><i class="fas fa-gear"></i><span>الإعدادات</span></a>' +
+            '<a class="nav-item" href="dashboard"><i class="fas fa-user-circle"></i><span>حسابي</span></a>' +
+            '<a class="nav-item" href="settings"><i class="fas fa-gear"></i><span>الإعدادات</span></a>' +
             '<a class="nav-item" href="#" id="logoutBtn" onclick="if(window.twSignOut){window.twSignOut()}else{localStorage.clear();location.href=\'login.html\'};return false;">' +
                 '<i class="fas fa-right-from-bracket"></i><span>تسجيل الخروج</span>' +
             '</a>' +
@@ -194,7 +194,7 @@
   const topbar = document.createElement('header');
   topbar.className = 'mobile-topbar';
   topbar.innerHTML = `
-    <a class="mtb-logo-link" href="dashboard.html" aria-label="توجيهي — الرئيسية">
+    <a class="mtb-logo-link" href="dashboard" aria-label="توجيهي — الرئيسية">
       <svg class="lv2-logo-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
         <circle cx="16" cy="16" r="13" stroke="currentColor" stroke-width="1.5"/>
         <circle cx="16" cy="16" r="2.5" fill="currentColor"/>
@@ -210,7 +210,7 @@
       <button class="mtb-btn" id="mobileThemeBtn" aria-label="تبديل الوضع">
         <i class="fas fa-${root.getAttribute('data-theme') === 'dark' ? 'sun' : 'moon'}"></i>
       </button>
-      <a class="mtb-btn" href="settings.html" aria-label="الإعدادات">
+      <a class="mtb-btn" href="settings" aria-label="الإعدادات">
         <i class="fas fa-user-circle"></i>
       </a>
     </div>
@@ -337,5 +337,5 @@
 window.twSignOut = async function () {
   if (typeof tw_supabase !== 'undefined') await tw_supabase.auth.signOut();
   ['tw-auth','tw-profile','tw-wishlist','tw-history','tw-credits','tw-referral'].forEach(k => localStorage.removeItem(k));
-  window.location.href = '/tawjihi/login.html';
+  window.location.href = '/tawjihi/login';
 };

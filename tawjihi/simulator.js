@@ -323,7 +323,7 @@
     }).join('، ');
     const q = `ساعدني في تحليل وتحسين بطاقة رغباتي. رغباتي الحالية هي: ${names}`;
     sessionStorage.setItem('tw-pending-q', q);
-    location.href = 'app.html';
+    location.href = 'app';
   });
 
   /* ---- Export wishlist as plain-text file ---- */

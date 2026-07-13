@@ -68,7 +68,7 @@
                             <span class="dash-chip"><i class="fas fa-flask"></i> <span data-chip="stream">—</span></span>
                             <span class="dash-chip"><i class="fas fa-percent"></i> معدل <span data-chip="average">—</span></span>
                             <span class="dash-chip"><i class="fas fa-location-dot"></i> <span data-chip="wilaya">—</span></span>
-                            <a class="dash-chip dash-chip-edit" href="onboarding.html"><i class="fas fa-pen"></i> تعديل الملف</a>
+                            <a class="dash-chip dash-chip-edit" href="onboarding"><i class="fas fa-pen"></i> تعديل الملف</a>
                         </div>
                     </div>
                     <div class="dash-progress-ring" aria-label="اكتمال الملف">
@@ -94,7 +94,7 @@
                                 <h3>هل حسبت معدلك الموزون؟</h3>
                                 <p>احسب معدلاتك الموزونة في منصة BAC Story وسيتم جلبها إلى حسابك تلقائياً لتعرف فرص قبولك بدقة.</p>
                                 <div class="dash-sync-promo-actions">
-                                    <a href="http://127.0.0.1:5500/tools.html#calculator" target="_blank" class="btn btn-primary magnetic-btn" style="padding: 12px 24px;">
+                                    <a href="https://bacstory.vercel.app/tools#calculator" target="_blank" class="btn btn-primary magnetic-btn" style="padding: 12px 24px;">
                                         <i class="fas fa-calculator"></i>
                                         احسب ومزامنة معدلك الموزون
                                     </a>
@@ -108,7 +108,7 @@
                         <div class="dash-academic-filled" id="dashAcademicFilled" hidden>
                             <header class="dash-card-head" style="margin-bottom: var(--sp-4);">
                                 <h2><i class="fas fa-chart-pie"></i> معدلاتك الأكاديمية</h2>
-                                <a href="http://127.0.0.1:5500/tools.html#calculator" target="_blank" class="dash-link">تعديل <i class="fas fa-arrow-left"></i></a>
+                                <a href="https://bacstory.vercel.app/tools#calculator" target="_blank" class="dash-link">تعديل <i class="fas fa-arrow-left"></i></a>
                             </header>
                             <div class="dash-academic-grid" id="dashAcademicGrid"></div>
                         </div>
@@ -121,7 +121,7 @@
                         <span class="dash-section-eyebrow"><i class="fas fa-list-check"></i> قائمتي</span>
                         <header class="dash-card-head">
                             <h2><i class="fas fa-list-check"></i> قائمتي المحفوظة</h2>
-                            <a class="dash-link" href="simulator.html">بطاقة الرغبات <i class="fas fa-arrow-left"></i></a>
+                            <a class="dash-link" href="simulator">بطاقة الرغبات <i class="fas fa-arrow-left"></i></a>
                         </header>
                         <div class="dash-spec-row" id="dashSpecRow"></div>
                         <div id="dashSpecSummary"></div>
@@ -149,15 +149,15 @@
                             <h2><i class="fas fa-bolt"></i> إجراءات سريعة</h2>
                         </header>
                         <div class="dash-actions-grid">
-                            <a class="dash-action-btn" href="app.html">
+                            <a class="dash-action-btn" href="app">
                                 <i class="fas fa-comments"></i>
                                 <span>اسأل المرشد</span>
                             </a>
-                            <a class="dash-action-btn" href="simulator.html">
+                            <a class="dash-action-btn" href="simulator">
                                 <i class="fas fa-list-check"></i>
                                 <span>المحاكي</span>
                             </a>
-                            <a class="dash-action-btn" href="specialities.html">
+                            <a class="dash-action-btn" href="specialities">
                                 <i class="fas fa-compass"></i>
                                 <span>استكشف</span>
                             </a>
@@ -171,7 +171,7 @@
                             <h2><i class="fas fa-lightbulb"></i> نصائح المرشد</h2>
                         </header>
                         <div class="dash-nudges">
-                            <a class="dash-nudge" href="app.html">
+                            <a class="dash-nudge" href="app">
                                 <span class="dash-nudge-ico" style="--cat:var(--cat-engineering)"><i class="fas fa-wand-magic-sparkles"></i></span>
                                 <span class="dash-nudge-body">
                                     <span class="dash-nudge-title">رتّب بطاقة رغباتك بذكاء</span>
@@ -179,7 +179,7 @@
                                 </span>
                                 <i class="fas fa-arrow-left dash-nudge-arrow"></i>
                             </a>
-                            <a class="dash-nudge" href="app.html">
+                            <a class="dash-nudge" href="app">
                                 <span class="dash-nudge-ico" style="--cat:var(--cat-medical)"><i class="fas fa-triangle-exclamation"></i></span>
                                 <span class="dash-nudge-body">
                                     <span class="dash-nudge-title">معدّلك على حدّ القبول في الطب</span>
@@ -187,7 +187,7 @@
                                 </span>
                                 <i class="fas fa-arrow-left dash-nudge-arrow"></i>
                             </a>
-                            <a class="dash-nudge" href="onboarding.html">
+                            <a class="dash-nudge" href="onboarding">
                                 <span class="dash-nudge-ico" style="--cat:var(--cat-science)"><i class="fas fa-user-pen"></i></span>
                                 <span class="dash-nudge-body">
                                     <span class="dash-nudge-title">كمّل ملفّك (20٪ باقية)</span>
@@ -399,7 +399,7 @@ function renderNudges(profile, wishIds) {
     <div class="tw-empty-icon"><i class="fas fa-bookmark"></i></div>
     <p class="tw-empty-title">ما عندك حتى تخصص محفوظ</p>
     <p class="tw-empty-body">أضف رغباتك في المحاكي وستظهر هنا تلقائياً مع تحليل فرص قبولك.</p>
-    <a class="tw-empty-cta" href="simulator.html"><i class="fas fa-list-check"></i> ابدأ بطاقة الرغبات</a>
+    <a class="tw-empty-cta" href="simulator"><i class="fas fa-list-check"></i> ابدأ بطاقة الرغبات</a>
   </div>`;
         if (specSummary) specSummary.innerHTML = '';
     } else {

@@ -75,7 +75,7 @@
         <div class="page-scroll">
             <div class="page-inner" id="pageInner" style="--cat:var(--cat-engineering)">
 
-                <a class="detail-back" href="specialities.html" onclick="event.preventDefault(); history.length > 1 ? history.back() : location.href='specialities.html'" aria-label="رجوع"><i class="fas fa-chevron-right"></i> <span>رجوع</span></a>
+                <a class="detail-back" href="specialities" onclick="event.preventDefault(); history.length > 1 ? history.back() : location.href='specialities'" aria-label="رجوع"><i class="fas fa-chevron-right"></i> <span>رجوع</span></a>
 
                 <!-- ===== HEADER ===== -->
                 <header class="detail-header" id="specHeader">
@@ -158,7 +158,7 @@
                             <i class="fas fa-robot"></i>
                             <h3>محتار في اختيارك؟</h3>
                             <p>اسأل مرشد توجيهي وقارن هذا التخصص بمعدلك وشعبتك.</p>
-                            <a class="btn btn-light" href="app.html"><i class="fas fa-comments"></i> اسأل المرشد</a>
+                            <a class="btn btn-light" href="app"><i class="fas fa-comments"></i> اسأل المرشد</a>
                         </div>
 
                         <div class="fact-card">
@@ -189,12 +189,12 @@
     const pageInner = document.getElementById('pageInner');
     if (pageInner) {
       pageInner.innerHTML = `
-        <a class="detail-back" href="specialities.html" onclick="event.preventDefault(); history.length > 1 ? history.back() : location.href='specialities.html'"><i class="fas fa-arrow-right"></i> رجوع لدليل التخصصات</a>
+        <a class="detail-back" href="specialities" onclick="event.preventDefault(); history.length > 1 ? history.back() : location.href='specialities'"><i class="fas fa-arrow-right"></i> رجوع لدليل التخصصات</a>
         <div style="text-align:center;padding:60px 20px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow-sm);margin-top:var(--sp-4)">
           <i class="fas fa-search" style="font-size:3rem;color:var(--primary);margin-bottom:16px;display:block"></i>
           <h2 style="font-size:var(--fs-xl);margin-bottom:var(--sp-3)">التخصص غير موجود</h2>
           <p style="color:var(--text-muted);margin:0 auto;max-width:40ch">الرابط قد يكون خاطئاً أو التخصص غير متاح حالياً في دليلنا.</p>
-          <a href="specialities.html" style="display:inline-flex;gap:8px;align-items:center;margin-top:24px;
+          <a href="specialities" style="display:inline-flex;gap:8px;align-items:center;margin-top:24px;
             background:var(--grad-brand);color:#fff;padding:12px 28px;border-radius:50px;
             text-decoration:none;font-weight:700;font-size:var(--fs-sm);box-shadow:var(--shadow-sm)">
             <i class="fas fa-compass"></i> تصفح دليل التخصصات
@@ -608,19 +608,19 @@
   })();
 
   /* ---- "Ask AI" cross-link: pre-fill chat with spec name ---- */
-  document.querySelectorAll('a[href="app.html"], a.floating-ask-btn').forEach(link => {
+  document.querySelectorAll('a[href="app"], a.floating-ask-btn').forEach(link => {
     link.addEventListener('click', e => {
       e.preventDefault();
       const q = `أعطني معلومات تفصيلية عن ${spec.name}${spec.nameEn ? ' (' + spec.nameEn + ')' : ''}`;
       sessionStorage.setItem('tw-pending-q', q);
-      location.href = 'app.html';
+      location.href = 'app';
     });
   });
 })();
 </script>
 
 <!-- Floating Ask AI Button (Extended FAB) -->
-<a href="app.html" class="floating-ask-btn" id="floatingAskBtn" aria-label="اسأل المرشد">
+<a href="app" class="floating-ask-btn" id="floatingAskBtn" aria-label="اسأل المرشد">
     <i class="fas fa-comments"></i>
     <span class="fab-text">اسأل المرشد</span>
 </a>
