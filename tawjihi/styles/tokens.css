@@ -22,6 +22,8 @@
     --cat-law:         #0d7a85;
     --cat-humanities:  #c01890;
     --cat-double:      #c8960c;
+    --cat-military:    #4e6e35; /* olive — military schools (ANP) */
+    --cat-arts:        #c2185b; /* matches spec-browser arts gradient start for AA contrast on white */
 
     /* ---- Semantic surfaces (LIGHT) ---- */
     --bg:            #f6f8fc;

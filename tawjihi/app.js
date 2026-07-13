@@ -43,6 +43,106 @@
     if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); if (!isSending) form.requestSubmit(); }
   });
 
+  /* ============================================================
+     HERO PERSONALIZATION — greeting + suggestion chips from tw-profile
+     Pure, table-driven; falls back to the static markup when the
+     profile is empty. (esc/getProfile are hoisted function decls.)
+     ============================================================ */
+
+  /* Stream code -> Arabic label (profile may carry either form) */
+  const STREAM_AR = {
+    sciexp: 'علوم تجريبية', math: 'رياضيات', techmath: 'تقني رياضي',
+    gestion: 'تسيير واقتصاد', lettres: 'آداب وفلسفة', langues: 'لغات أجنبية', arts: 'فنون',
+  };
+  const streamLabel = p => STREAM_AR[p.stream] || p.stream || '';
+  const wilayaLabel = p => (p.wilaya && p.wilaya.ar) || (typeof p.wilaya === 'string' ? p.wilaya : '');
+  const avgLabel = p => {
+    const n = parseFloat(p.average);
+    return Number.isFinite(n) && n > 0 ? String(+n.toFixed(2)) : '';
+  };
+  const UNSURE_INTEREST = 'ما نعرفش بعد';
+  const realInterests = p =>
+    (Array.isArray(p.interests) ? p.interests : []).filter(x => x && x !== UNSURE_INTEREST);
+  const displayName = p => {
+    const n = (p.name || '').trim();
+    return (n && n !== 'صديقي') ? n : '';
+  };
+
+  /* Onboarding interest label -> hero chip. Add a row to extend. */
+  const INTEREST_CHIPS = {
+    'البرمجة والتكنولوجيا':    { e: '💻', label: 'الإعلام الآلي',      q: 'واش هي أحسن مدارس ومعاهد الإعلام الآلي في الجزائر ومعدلات القبول تاعها؟' },
+    'الطب والصحة':             { e: '🩺', label: 'الطب والصحة',        q: 'واش هو معدل القبول في الطب والصيدلة هذا العام؟' },
+    'الهندسة':                 { e: '⚙️', label: 'الهندسة',            q: 'واش هي تخصصات الهندسة المتاحة ومعدلات القبول تاعها؟' },
+    'الأعمال والمال':          { e: '💼', label: 'الاقتصاد والتسيير',  q: 'واش هي تخصصات الاقتصاد والتسيير اللي عندها مستقبل مليح في الجزائر؟' },
+    'الفنون والتصميم':         { e: '🎨', label: 'الفنون والتصميم',    q: 'واش هي تخصصات الفنون والتصميم المتاحة وكيفاش القبول فيها؟' },
+    'العلوم الطبيعية':         { e: '🧬', label: 'العلوم الطبيعية',    q: 'واش هي تخصصات العلوم الطبيعية والبيولوجيا اللي نقدر ندخلها؟' },
+    'القانون والعلوم السياسية': { e: '⚖️', label: 'الحقوق',            q: 'واش هي آفاق تخصص الحقوق والعلوم السياسية في الجزائر؟' },
+    'التعليم والتربية':        { e: '📚', label: 'التعليم',            q: 'كيفاش ندخل للمدارس العليا للأساتذة وواش هي معدلات القبول تاعها؟' },
+    'اللغات والترجمة':         { e: '🌍', label: 'اللغات والترجمة',    q: 'واش هي تخصصات اللغات والترجمة ومعدلات القبول تاعها؟' },
+    'الإعلام والاتصال':        { e: '📡', label: 'الإعلام والاتصال',   q: 'واش هي تخصصات الإعلام والاتصال وين نقدر نقراها؟' },
+  };
+
+  /* Pure: profile + wishlist -> array of {e, label, q} (max 5). */
+  function buildHeroChips(profile, wishlist) {
+    const chips = [];
+    const avg = avgLabel(profile), stream = streamLabel(profile), wilaya = wilayaLabel(profile);
+
+    /* (a) 1-2 chips from declared interests */
+    realInterests(profile).slice(0, 2).forEach(interest => {
+      chips.push(INTEREST_CHIPS[interest] ||
+        { e: '✨', label: interest, q: `واش هي التخصصات الجامعية اللي عندها علاقة بـ${interest}؟` });
+    });
+
+    /* (b) stream + average aware */
+    if (avg && stream) {
+      chips.push({ e: '🎯', label: `معدلي ${avg}`,
+        q: `واش نقدر ندخل بمعدل ${avg} في شعبة ${stream}؟ وريلي التخصصات اللي في المتناول.` });
+    }
+
+    /* (c) wilaya aware */
+    if (wilaya) {
+      chips.push({ e: '📍', label: wilaya,
+        q: `واش كاين من تخصصات مليحة في ولاية ${wilaya}؟ نحب نقرا قريب من الدار.` });
+    }
+
+    /* (d) wishlist state */
+    if (Array.isArray(wishlist) && wishlist.length > 0) {
+      chips.push({ e: '📋', label: 'قيّم بطاقة رغباتي',
+        q: 'قيّم بطاقة رغباتي الحالية وقولي واش لازم نبدّل فيها.' });
+    } else {
+      chips.push({ e: '📋', label: 'نبدا بطاقة الرغبات',
+        q: 'كيفاش نبدا نبني بطاقة الرغبات تاعي بطريقة صحيحة؟' });
+    }
+
+    return chips.slice(0, 5);
+  }
+
+  function personalizeHero() {
+    const profile = getProfile();
+    let wishlist = [];
+    try { wishlist = JSON.parse(localStorage.getItem('tw-wishlist') || '[]'); } catch {}
+
+    /* Only replace static chips when the profile carries a real signal */
+    const hasSignal = realInterests(profile).length > 0
+      || (avgLabel(profile) && streamLabel(profile))
+      || !!wilayaLabel(profile);
+    if (hasSignal) {
+      const box = document.getElementById('heroSuggestions') || document.querySelector('.hero-suggestions');
+      if (box) {
+        box.innerHTML = buildHeroChips(profile, wishlist).map(c =>
+          `<button class="hero-chip" data-q="${esc(c.q)}">${c.e} ${esc(c.label)}</button>`).join('');
+      }
+    }
+
+    /* Discover button: reference the first declared interest */
+    const ints = realInterests(profile);
+    const disc = document.getElementById('discoverBtn');
+    if (disc && ints.length > 0) {
+      disc.innerHTML = `<i class="fas fa-compass"></i> مهتم بـ${esc(ints[0])}؟ اكتشف مجالك أكثر`;
+    }
+  }
+  personalizeHero();
+
   /* ---- Suggestion cards ---- */
   document.querySelectorAll('[data-q]').forEach(el =>
     el.addEventListener('click', () => { input.value = el.dataset.q; autosize(); sendBtn.disabled = false; form.requestSubmit(); }));
@@ -212,7 +312,7 @@
       <a class="chat-spec-card" href="speciality.html?id=${esc(s.id)}" target="_self" style="--cat:${esc(s.color)}">
         <div class="csc-name">${esc(s.name)}</div>
         <div class="csc-meta">${esc(s.meta)}</div>
-        <div class="csc-avg">معدل القبول ~ ${esc(String(s.avg))}</div>
+        <div class="csc-avg">${s.avg != null && s.avg !== 'null' ? `معدل القبول ~ ${esc(String(s.avg))}` : 'قبول بمسابقة خاصة'}</div>
         <div class="csc-link">عرض التفاصيل <i class="fas fa-arrow-left"></i></div>
       </a>`).join('');
     return row;
@@ -407,7 +507,7 @@
         /* Defensive override for avg from authoritative catalog */
         if (field.key === 'avg' && typeof TW_CATALOG !== 'undefined') {
           const cat = TW_CATALOG.find(c => c.id === (item.id?.toLowerCase()));
-          td.textContent = cat ? String(cat.avg) : String(item[field.key] || '—');
+          td.textContent = (cat && cat.avg != null) ? String(cat.avg) : String(item[field.key] || '—');
         } else {
           td.textContent = String(item[field.key] || '—');
         }
@@ -1309,22 +1409,47 @@
     document.getElementById('app').appendChild(pill);
   })();
 
-  /* ---- Randomize Hero Title ---- */
+  /* ---- Personalized rotating hero greeting ---- */
   const heroQuestions = [
     "كيف يمكنني مساعدتك اليوم؟",
     "بماذا يمكنني إفادتك في توجيهك الجامعي؟",
     "ما هي استفساراتك حول التخصصات الجامعية؟",
     "كيف أستطيع توجيهك في اختياراتك؟"
   ];
-  
+
+  /* Pure: profile -> {title, sub}. Rotating darja variants anchored on
+     name/stream/average; falls back to the generic questions. */
+  function heroGreeting(profile) {
+    const name = displayName(profile);
+    const avg = avgLabel(profile), stream = streamLabel(profile);
+    const n = parseFloat(profile.average);
+
+    const titles = name ? [
+      `واش راك يا ${name}؟`,
+      `مرحبا بيك يا ${name} 👋`,
+      `أهلا ${name}، نكملو مشوارك؟`,
+      `يا ${name}، واش حاب تعرف اليوم؟`,
+    ] : heroQuestions;
+
+    let sub = '';
+    if (avg && stream) {
+      if (n >= 15)      sub = `بمعدل ${avg} في ${stream} عندك خيارات مليحة بزاف — نعاونك تختار المليح فيهم.`;
+      else if (n >= 12) sub = `بمعدل ${avg} في ${stream} كاين تخصصات مليحة تستناك — نعاونك تلقى المناسب.`;
+      else              sub = `بمعدل ${avg} في ${stream} مازال كاين خيارات مناسبة — نعاونك نلقاوها مع بعض.`;
+    } else if (stream) {
+      sub = `شعبة ${stream} فيها بزاف تخصصات — اسألني على اللي يعجبك فيهم.`;
+    }
+    return { title: titles[Math.floor(Math.random() * titles.length)], sub };
+  }
+
   function randomizeHeroTitle() {
     const titleEl = document.getElementById('chatHeroTitle');
-    if (titleEl) {
-      const q = heroQuestions[Math.floor(Math.random() * heroQuestions.length)];
-      titleEl.textContent = q;
-    }
+    const subEl = document.getElementById('chatHeroSub');
+    const g = heroGreeting(getProfile());
+    if (titleEl) titleEl.textContent = g.title;
+    if (subEl && g.sub) subEl.textContent = g.sub;
   }
-  
+
   randomizeHeroTitle();
 
   const resetChat = () => {

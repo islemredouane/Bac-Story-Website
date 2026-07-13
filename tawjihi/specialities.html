@@ -106,6 +106,8 @@
                         <button class="filter-chip" data-cat="law">قانون</button>
                         <button class="filter-chip" data-cat="humanities">إنسانيات</button>
                         <button class="filter-chip" data-cat="double">مسارات مزدوجة</button>
+                        <button class="filter-chip" data-cat="military">عسكري</button>
+                        <button class="filter-chip" data-cat="arts">فنون</button>
                     </div>
 
                     <div class="filter-divider"></div>
@@ -186,6 +188,8 @@
     law:         'قانون',
     humanities:  'إنسانيات',
     double:      'مسارات مزدوجة',
+    military:    'عسكري',
+    arts:        'فنون',
   };
 
   /* ---- Arabic label → stream code (covers labels + legacy values) ---- */
@@ -376,7 +380,8 @@
     const avgSpan = document.createElement('span');
     avgSpan.className = 'spec-meta-avg';
     avgSpan.innerHTML = `<i class="fas fa-percent"></i>`;
-    avgSpan.appendChild(document.createTextNode(` معدل القبول 2025 ~ ${s.avg.toFixed(2)}`));
+    avgSpan.appendChild(document.createTextNode(
+      s.avg != null ? ` معدل القبول 2025 ~ ${s.avg.toFixed(2)}` : ' القبول: مسابقة / انتقاء خاص'));
 
     const locSpan = document.createElement('span');
     locSpan.className = 'spec-meta-loc';
@@ -440,7 +445,10 @@
       const matchLmd    = state.lmd === 'all'
                           || (state.lmd === 'lmd'    &&  s.lmd)
                           || (state.lmd === 'grande' && !s.lmd);
-      const matchAvg    = s.avg >= state.avgMin && s.avg <= state.avgMax;
+      /* null avg = concours-based admission — only filtered out when the user narrows the range */
+      const matchAvg    = s.avg == null
+                          ? (state.avgMin <= 0 && state.avgMax >= 20)
+                          : (s.avg >= state.avgMin && s.avg <= state.avgMax);
 
       /* ----- شعبة filtering -----
          If a chip is explicitly selected, honour it (exact streamCodes match).

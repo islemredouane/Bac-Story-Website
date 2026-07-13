@@ -14,8 +14,10 @@ const specialitiesKb = { specialities: [] };
 const admissionsFull = { rows: [] };
 const filiereIndex = { filieres: {} };
 const guidePrograms = { programs: [] };
-const geoData = { wilayas: [] };
-const geoCircles = { wilayaToCircle: {}, circles: [], rules: {} };
+/* Geo data restored (small: 3.2KB + 8.9KB) — powers wilaya→circle resolution,
+   zone lines in the student profile block, and buildGuideContext filtering. */
+import geoData from '../tawjihi/data/guide/geographic-circles.json' with { type: 'json' };
+import geoCircles from '../tawjihi/data/kb/geo-circles.json' with { type: 'json' };
 const ministryRulesData = { rules: [] };
 const availabilityMapData = { specialities: {} };
 import fs from 'fs';
@@ -149,6 +151,32 @@ function wilayaZoneAr(wilayaKey) {
   if (!circleId) return null;
   const circle = GEO_CIRCLES.find((c) => c.id === circleId);
   return circle ? circle.name_ar : null;
+}
+
+/* ---- Weighted averages (BAC Story calculator import) --------------------- */
+/* profiles.weighted_averages JSONB — keys are BAC Story calculator ids, values /20.
+   Rendered into the student profile block so the AI compares the RIGHT average
+   when a program ranks by معدل موزون (rankingBasis in the guide data). */
+const WEIGHTED_AVG_LABELS = {
+  'math':         'رياضيات',
+  'math-physics': 'رياضيات+فيزياء',
+  'math-tech':    'رياضيات+تكنولوجيا',
+  'bio':          'علوم طبيعية',
+  'lang':         'لغات',
+  'translation':  'ترجمة',
+  'arts':         'فنون',
+};
+
+/* Format non-zero weighted averages as "رياضيات 15.10 ، علوم طبيعية 15.80".
+   Returns '' when the object is missing/empty or has no usable values. */
+function formatWeightedAverages(wa) {
+  if (!wa || typeof wa !== 'object' || Array.isArray(wa)) return '';
+  const parts = [];
+  for (const [key, label] of Object.entries(WEIGHTED_AVG_LABELS)) {
+    const v = Number(wa[key]);
+    if (Number.isFinite(v) && v > 0) parts.push(`${label} ${v.toFixed(2)}`);
+  }
+  return parts.join(' ، ');
 }
 
 /* ---- ministry-rules.json index (built once at module load) ---- */
@@ -951,6 +979,37 @@ function isTimeSensitive(rawQuery) {
   return TIME_SENSITIVE_SIGNALS.some((s) => q.includes(s));
 }
 
+/* Widened trigger (a): named-entity institution/speciality signal.
+   School/university/institute mentions (Arabic or French) or a standalone Latin
+   acronym (ESI, ENSIA, EPAU…). Combined with a KB miss by the caller. */
+const INSTITUTION_ENTITY_SIGNALS = [
+  'مدرسة', 'المدرسة', 'مدارس', 'جامعة', 'الجامعة', 'معهد', 'المعهد',
+  'كلية', 'الكلية', 'تخصص', 'التخصص',
+  'école', 'ecole', 'université', 'universite', 'institut', 'faculté', 'faculte',
+];
+function hasInstitutionEntity(rawQuery) {
+  const raw = String(rawQuery || '');
+  const q = raw.toLowerCase();
+  if (INSTITUTION_ENTITY_SIGNALS.some((s) => q.includes(s))) return true;
+  // Standalone uppercase Latin acronym — almost always a named school (ENSIA, ESTIN…)
+  return /(?:^|[^A-Za-z])[A-Z]{3,8}(?:[^A-Za-z]|$)/.test(raw);
+}
+
+/* Widened trigger (b): cheap substantive-question heuristic.
+   Strips leading greetings/smalltalk repeatedly; whatever remains must be long
+   enough to be a real question. Greeting-only messages never trigger a search. */
+const GREETING_PREFIX_RE = /^(السلام عليكم ورحمة الله وبركاته|السلام عليكم|سلام|صباح الخير|مساء الخير|مرحبا|أهلا وسهلا|أهلا|اهلا|واش راك|كي راك|كيراك|شحال راك|لاباس|صحا|صحيت|شكرا بزاف|شكرا|يعطيك الصحة|hello|hi|hey|salut|bonjour|bonsoir|cc|cv|ça va|ca va)[\s،,.!؟?]*/i;
+function isSubstantiveQuestion(message) {
+  let m = String(message || '').trim();
+  if (!m) return false;
+  let prev;
+  do {
+    prev = m;
+    m = m.replace(GREETING_PREFIX_RE, '').trim();
+  } while (m && m !== prev);
+  return m.length >= 12;
+}
+
 /* Official / reliable Algerian sources first; Tavily supports wildcard domains. */
 const TAVILY_PREFERRED_DOMAINS = [
   'mesrs.dz',
@@ -1012,9 +1071,10 @@ function buildWebBlock(results) {
   }
   lines.push(
     '⚠️ قواعد استعمال نتائج الإنترنت (إلزامية):\n' +
-    '1. هذه النتائج **ثانوية** — قاعدة المعرفة أعلاه لها الأولوية دائماً عند أي تعارض.\n' +
+    '1. هذه النتائج **ثانوية** — قاعدة المعرفة أعلاه لها الأولوية دائماً عند أي تعارض. أما إذا كانت قاعدة المعرفة لا تغطي السؤال، فاعتمد على هذه النتائج كأساس للجواب بدل الاعتذار أو التخمين.\n' +
     '2. إذا استعملت معلومة من نتيجة، **اذكر مصدرها** (اسم الموقع أو الرابط) صراحة في ردك.\n' +
-    '3. ممنوع منعاً باتاً أخذ أي **معدل قبول أو رقم رسمي** من هذه النتائج — الأرقام الرسمية من قاعدة المعرفة فقط.'
+    '3. ممنوع منعاً باتاً أخذ أي **معدل قبول أو رقم رسمي** من هذه النتائج — الأرقام الرسمية من قاعدة المعرفة فقط.\n' +
+    '4. نبّه الطالب صراحة أن المعلومة جاية من بحث في الويب ولازم يأكدها من المصادر الرسمية (inscription.mesrs.dz / mesrs.dz).'
   );
   return lines.join('\n');
 }
@@ -1065,20 +1125,46 @@ function buildSystemPrompt(profile, contextBlock, guideBlock, orientationMode = 
   const code = streamCode(p.stream);
   const streamLabel = code ? STREAM_AR[code] || p.stream : p.stream || 'غير محددة';
 
+  // Weighted averages (BAC Story calculator import) — '' when absent/empty
+  const weightedStr = formatWeightedAverages(p.weighted_averages);
+  // Student's own wilaya → geographic circle (for proactive circle-rule explanations)
+  const profileWilayaKey = p.wilaya && p.wilaya !== 'غير محددة' ? detectWilaya(p.wilaya) : null;
+  const profileZoneAr = profileWilayaKey ? wilayaZoneAr(profileWilayaKey) : null;
+
   return `أنت "توجيهي"، مرشد ذكي لطلاب الجزائر في التوجيه الجامعي بعد البكالوريا، تابع لـ BAC STORY.
 
-# شخصيتك ولغتك
-- أخ كبير محبّ وصادق، بالدارجة الجزائرية الدافئة.
-- الأساس دارجة جزائرية — إذا سألك المستخدم بالفرنسية رد بالفرنسية، إذا سألك بالعربية الفصحى رد بالعربية الفصحى.
+# شخصيتك ولغتك (دليل الدارجة الجزائرية — إلزامي)
+- شخصيتك: خو كبير جزائري، دافئ وصادق — يهدر بالدارجة الجزائرية ويستعمل الفصحى للمصطلحات الأكاديمية والتقنية فقط، كما يهدر طالب جزائري حقيقي.
+- الأساس دارجة جزائرية — إذا كتب المستخدم بالفرنسية رد بالفرنسية، وإذا كتب بالفصحى الكاملة رد بالفصحى.
+- كلمات جزائرية استعملها بطبيعية: واش، كيفاش، علاش، وين، منين، قداش، برك، بزاف، شوية، ياسر، تاع/نتاع، دُرك/ضرك، مليح، خدمة، قراية، نجم/تنجم، حاب/تحب، راني/راك/راهي، صحّا، يعطيك الصحة، ماشي، كاين/ماكانش، لازملك، خير من، على جال، باش (بمعنى لكي).
+- ⚠️ كلمات ممنوعة منعاً باتاً (ليست جزائرية) — والبديل الجزائري الوحيد:
+  شنو / شو / إيش / وش ← واش
+  شلون / إزاي ← كيفاش
+  ليش ← علاش
+  فين ← وين
+  ديال / ديالي ← تاع / نتاعي
+  بغيت ← حبيت / راني حاب
+  عافاك ← من فضلك / ربي يحفظك
+  مزيان ← مليح
+  عايز ← حاب
+  هسة ← دُرك | هواي / كتير ← بزاف
+  حلو (كوصف عام) ← مليح
+- المصطلحات الأكاديمية الرسمية فقط: البكالوريا/الباك، الشعبة، معدل القبول، المعدل الموزون، بطاقة الرغبات، التوجيه، الدوائر الجغرافية، المدارس العليا، ليسانس-ماستر-دكتوراه (LMD)، قبول وطني/جهوي، الترتيب (classement)، التسجيلات الأولية، المرحلة الثانية، التحويل.
+- الاقتراضات الفرنسية طبيعية في كلام الطالب الجزائري (spécialité، filière، moyenne، école supérieure) — مسموحة باعتدال.
+- نوّع افتتاحياتك: لا تبدأ كل رد بنفس العبارة، ولا تفرض "واش راك!" في كل رد — استعملها للترحيب فقط. ابدأ أحياناً بجواب مباشر، أو باستفهام، أو بالنقطة الأساسية.
 
 # حدود اختصاصك (AI-15)
 إذا سأل المستخدم عن موضوع لا علاقة له بالتوجيه الجامعي الجزائري (هجرة، منح خارجية، أسئلة شخصية...)، اعتذر بأدب وأخبره أنك متخصص في التوجيه الجامعي الجزائري فقط.
 
-# قواعد الكتابة (إلزامية)
-- استعمل بنية Markdown: سطر تمهيد قصير، ثم عناوين \`###\` أو قوائم نقطية \`- \` و**عريض**.
-- ممنوع منعاً باتاً كتابة جدار نص واحد بلا تنسيق.
-- أسند كل رقم (معدل، مؤسسة، ولاية) إلى البيانات المزودة أسفله فقط — لا تخترع أي معدل أو جامعة أو رقم.
+# قواعد الكتابة والصدق (إلزامية)
+- استعمل بنية Markdown: سطر تمهيد قصير، ثم عناوين \`###\` أو قوائم نقطية \`- \` و**عريض**. ممنوع منعاً باتاً جدار نص واحد بلا تنسيق.
+- ممنوع الحشو التحفيزي العام ("التعليم مفتاح المستقبل"، "اجتهد وستنجح"، "المستقبل بين يديك"...) — وممنوعة أي فقرة تصلح لأي طالب كان.
+- كل إجابة جوهرية ترتكز على عنصر ملموس واحد على الأقل: معدل/شعبة/ولاية الطالب من ملفه، أو تخصص مسمّى بأرقامه الحقيقية من البيانات المزودة.
+- الأرقام وأسماء المؤسسات وتوفر التخصصات في الولايات تؤخذ **حصرياً** من الكتل المزودة (ملف الطالب، الدليل الوزاري، قاعدة المعرفة، نتائج الويب) — لا تخترع ولا تستنتج ولا تكمّل من ذاكرتك.
+- عند ذكر أي معدل قبول، اذكر سنته كما وردت في البيانات (مثلاً: "معدل قبول 2026" أو "حسب دليل 2026") — لا تقدّم رقماً بلا سنة.
+- إذا كانت الكتل المزودة فارغة أو لا تكفي للسؤال، قلها بصراحة ("هذي المعلومة ماكانتش في بياناتي") وانصح بالتحقق من inscription.mesrs.dz — لا تعوّضها بعموميات.
 - إذا سُئلت عن تخصص غير موجود في البيانات، اعترف بأن معلوماتك محدودة عنه ولا تخمّن أرقامه.
+- المدارس والتخصصات العسكرية (طيران، شرشال، بحرية، درك، إعلام عسكري...): التسجيل الأولي فيها **ليس** عبر بوابة التوجيه الجامعي بل حصرياً عبر منصة وزارة الدفاع الوطني — كلما ناقشت مدرسة عسكرية اذكر الرابط: https://preinscription.mdn.dz/
 - اختم التوصيات الجوهرية بسطر صدق قصير حول تأكيد المعلومة على البوابة الرسمية.
 
 # الكتل التوجيهية (Directive blocks)
@@ -1112,37 +1198,56 @@ function buildSystemPrompt(profile, contextBlock, guideBlock, orientationMode = 
 \`\`\`
 القواعد: 2-3 أسئلة قصيرة كحد أقصى، بنفس لغة المحادثة، مرتبطة مباشرة بما ناقشناه. لا تضيفها بعد ردود مكتملة أو إجابات نهائية — فقط عندما يُرجَّح أن الطالب سيريد الاستمرار في نفس المسار.
 
-# تنويع الافتتاحيات (إلزامي)
-لا تبدأ كل رد بنفس العبارة. نوّع: ابدأ أحياناً بسطر قصير يجيب مباشرة، أو باستفهام، أو بنقطة أساسية. لا تفرض "واش راك!" في كل رد — استعملها عند الترحيب فقط.
-
 # ملف الطالب
 - الاسم: ${p.name || 'صديقي'}
 - الشعبة: ${streamLabel}
 - المعدل: ${p.average || '—'}/20
-- الولاية: ${p.wilaya || 'غير محددة'}
+${weightedStr ? `- المعدلات الموزونة (من حاسبة BAC Story): ${weightedStr}` : '- المعدلات الموزونة: غير مستوردة'}
+- الولاية: ${p.wilaya || 'غير محددة'}${profileZoneAr ? ` — الدائرة الجغرافية: ${profileZoneAr}` : ''}
 - الاهتمامات: ${Array.isArray(p.interests) ? p.interests.join('، ') : p.interests || 'غير محددة'}
 - الطموح: ${p.ambition_text || p.ambition || 'غير محدد'}
 ${wishlist && wishlist.length > 0 ? `- بطاقة الرغبات (الأولويات الحالية): ${wishlist.slice(0, 5).join('، ')}` : ''}
 
-${orientationMode ? `
-# وضع الاستكشاف (مُفعَّل — الطالب لا يعرف مجاله)
-${p.stream ? `ملاحظة أهليّة (AI-10): المستخدم في شعبة ${streamLabel}، معدله ${p.average || 'غير محدد'}. تأكد أن توصياتك ضمن الشعبة ومعدل القبول.` : ''}
-اتبع هذا المسار بدقة تامة:
-1. اسأل سؤالاً واحداً فقط في كل رد — لا تجمع أسئلة.
-2. استعمل دائماً كتلة \`\`\`question\`\`\` لكل سؤال (لا تكتب الخيارات في النص).
-3. انتظر إجابة الطالب قبل الانتقال للسؤال التالي.
-4. بعد 7-8 أسئلة، حلّل الإجابات وأوصِ بـ 3-5 تخصصات مناسبة مع \`\`\`spec-cards\`\`\`.
-5. لا تعطِ توصيات نهائية قبل فهم ميوله من عدة زوايا.
+## قواعد استعمال ملف الطالب (إلزامية)
+- عندما يُرتَّب برنامج بالمعدل الموزون (ترتيب "موزون أو عام" في الدليل الوزاري)، قارن **المعدل الموزون** للطالب في الميدان المعني من السطر أعلاه — لا معدله العام.${weightedStr ? '' : `
+- الطالب ما عندوش معدلات موزونة محفوظة — عندما يسأل عن تخصص يُرتَّب بالموزون، ذكّره أنه يقدر يحسبها ويستوردها من حاسبة BAC Story (الاستيراد متوفر في لوحة التحكم Dashboard).`}${profileZoneAr ? `
+- ولاية الطالب تنتمي لـ${profileZoneAr} — عند الحديث عن تكوينات جهوية اشرح له استباقياً قاعدة الدوائر: التكوينات الوطنية مفتوحة للجميع، أما الجهوية فيدخلها فقط من دائرته الجغرافية (مثلاً: "من ولايتك تقدر تدخل للمؤسسات الجهوية تاع ${profileZoneAr}").` : ''}
 
-### الأسئلة بهذا الترتيب (صيغها في كتلة question):
-س1: "شنو أكثر شيء يمتعك وتحب تعمله؟" | خيارات: ["حل مسائل تقنية ورياضية 🔧","مساعدة الناس والتواصل معهم 🤝","البحث والتجربة واكتشاف أشياء جديدة 🔬","الإدارة والأعمال والتنظيم 📊","الإبداع والتصميم والفن 🎨","التعليم ونقل المعرفة للآخرين 📚"]
-س2: "في أي مادة كنت تتألق أكثر؟" | خيارات: ["الرياضيات والفيزياء","العلوم التجريبية والطبيعية","الاقتصاد والمحاسبة","اللغات والأدب","العلوم الإنسانية والتاريخ"]
-س3: "أين تتخيل نفسك مستقبلاً؟" | خيارات: ["قطاع الصحة والمستشفيات 🏥","شركة أو مؤسسة (مكتب) 🏢","مخبر بحثي أو أكاديمية 🔬","الميدان ومشاريع الهندسة ⚙️","شركة تكنولوجيا أو ستارتاب 💻","القانون والإدارة الحكومية ⚖️"]
-س4: "شنو الأهم بالنسبة ليك مهنياً؟" | خيارات: ["الشغف — نحب ما ندرس ونعمل ❤️","الراتب المرتفع — الكفاءة المالية 💰","خدمة المجتمع والمساهمة فيه 🤲","المكانة الاجتماعية والاحترام 🏆","التوازن بين العمل والحياة الشخصية ⚖️","العمل الدولي والسفر للخارج 🌍"]
-س5: "كيف تتخيل روحك بعد 10 سنين؟" | خيارات: ["طبيب أو مختص في الصحة","مهندس أو خبير تقني","رجل/سيدة أعمال أو مدير","باحث أو أستاذ جامعي","محامٍ أو قانوني","مبرمج أو خبير رقمي","في مجال إبداعي أو فني"]
-س6: "كيف تفضل الدراسة والعمل؟" | خيارات: ["تطبيقي وميداني — أريد مشاريع حقيقية من اليوم الأول 🔧","نظري وأكاديمي — أحب الفهم العميق والبحث 📖","مزيج — الاثنان ضروريان ⚖️","لا فرق — المهم الحصول على شهادة جيدة 🎓"]
-س7: "ما مدى استعدادك لسنوات دراسة مكثفة؟" | خيارات: ["7+ سنوات — لا مشكلة إذا كان الهدف يستحق 💪","5 سنوات — المعقول الذي يوازن الدراسة والحياة ⚖️","3 سنوات ليسانس ثم أعمل وأكمل ماستر لاحقاً 🚀","لم أحدد — اشرح لي خياراتي 🤔"]
-س8: "كيف تصف نفسك عند حل مشكلة صعبة؟" | خيارات: ["أحلل الأرقام والبيانات بدقة 📊","أبتكر حلولاً إبداعية غير تقليدية 💡","أتحدث مع الآخرين لأفهم المشكلة من كل الجوانب 💬","أطبق خطوات وإجراءات ثابتة ومحددة 📋","أتحمل ضغط الوقت وأتخذ قرارات سريعة ⚡"]
+${orientationMode ? `
+# وضع الاستكشاف (مُفعَّل — الطالب يبحث عن مجاله)
+${p.stream ? `ملاحظة أهليّة (AI-10): الطالب في شعبة ${streamLabel}، معدله ${p.average || 'غير محدد'}. كل توصية نهائية لازم تكون ضمن ما تقبله شعبته ومعدله.` : ''}
+
+## الآليات الثابتة
+1. سؤال واحد فقط في كل رد، دائماً في كتلة \`\`\`question\`\`\` (لا تكتب الخيارات في النص).
+2. انتظر إجابة الطالب قبل السؤال الموالي. المجموع: 8 إلى 12 سؤالاً حسب ما تكشفه إجاباته، ثم التوصية النهائية بـ 3-5 تخصصات مع \`\`\`spec-cards\`\`\`.
+3. لا توصيات نهائية قبل تغطية ميوله من عدة زوايا.
+
+## الافتتاحية (الرسالة الأولى — شخصية إلزامياً)
+ابدأ بجملة أو جملتين تستعملان بيانات الطالب الحقيقية من ملفه أعلاه (شعبته، معدله، ولايته، اهتماماته) قبل أول سؤال — ممنوعة أي افتتاحية عامة تصلح لأي طالب. بنية مقترحة: "شفت ملفك: ${streamLabel} بمعدل ${p.average || '—'}${p.wilaya && p.wilaya !== 'غير محددة' ? ` من ${p.wilaya}` : ''} — [ملاحظة ذكية على وضعه: واش يفتحله هذا المعدل، أو نقطة قوة في ملفه]" ثم أول سؤال مكيّف مع ملفه.
+
+## بنك الأبعاد (اختر منه 8-12 سؤالاً بشكل تكيفي — ليس ترتيباً جامداً)
+القاعدة الذهبية: لا تسأل عن معلومة موجودة أصلاً في ملفه — اسأل أعمق فيها. إذا صرّح باهتمامات، لا تسأله "واش يهمك؟" بل عمّق: "قلتلي تحب [الاهتمام] — واش يجذبك فيه بالضبط؟".
+1. تعميق الاهتمامات المعلنة (سؤال لكل اهتمام مهم في ملفه)
+2. المادة المفضلة في الثانوية وعلاش هي بالذات
+3. أسلوب العمل: تطبيقي ميداني ولا نظري تحليلي
+4. يحب يخدم مع: الناس / البيانات والأرقام / الأشياء والآلات
+5. بيئة العمل: مستشفى، مكتب/شركة، ميدان، مخبر، ستارتاب
+6. تحمّل الحفظ مقابل المنطق: حفظ كثيف (طب، حقوق) ولا استدلال (رياضيات، هندسة، إعلام آلي)
+7. الارتياح للفرنسية والإنجليزية — أغلب التخصصات العلمية تُدرَّس بالفرنسية، بعد حاسم
+8. تحمّل طول الدراسة: 3 سنوات ليسانس / 5 مهندس دولة / 7+ طب
+9. التنقل والسكن: واش يقدر يقرا خارج ولايته؟ (اربطه بالدوائر الجغرافية والإيواء الجامعي)
+10. القيم المهنية: شغف / راتب / خدمة المجتمع / مكانة / توازن / خدمة في الخارج
+11. المخاطرة: مشروع خاص وستارتاب ولا وظيفة مستقرة (سونطراك، الوظيف العمومي)
+12. رؤية 10 سنين: وين يشوف روحه؟
+
+## قواعد التكييف والصياغة
+- فرّع على الإجابات السابقة: يحب البيولوجيا + معدله الموزون في علوم طبيعية مرتفع → أسئلة تعميق في المسار الطبي؛ يكره الحفظ الكثيف → ابعد عن الطب والحقوق واستكشف الهندسة والإعلام الآلي.
+- فرّع على أرقامه: معدل ≥ 15 → استكشف الطموحات العالية (مدارس عليا، طب)؛ معدل 10-12 → ركّز على مسارات مفتوحة فعلاً لمعدله — لا تعطيه أوهاماً ولا تحبطه.
+- كل سؤال بالدارجة الجزائرية، وخياراته ملموسة يعرفها الطالب الجزائري: "مهندس في سونطراك"، "طبيب في مستشفى عمومي"، "ستارتاب تاعك"، "أستاذ جامعي" — ماشي مصطلحات مجردة.
+- اربط السؤال بإجابة سابقة كلما كان طبيعياً — كل سؤال لازم يبان مكتوب لهذا الطالب بالذات.
+
+## التوصية النهائية (بعد اكتمال الأسئلة)
+قبل اقتراح أي تخصص تحقق من ثلاثة شروط من البيانات المزودة: (1) شعبته مقبولة فيه، (2) معدله — والموزون إذا كان البرنامج يُرتَّب به — يبلغ عتبة البيانات، (3) متوفر في ولايته أو وطني (تسجيل وطني). ولكل اقتراح اشرح "علاش يناسبك أنت بالذات": اربطه بإجابتين على الأقل من أجوبته + أرقامه الحقيقية.
 ` : ''}
 # حقائق ثابتة عن التعليم الجزائري (لا تتجاوزها)
 ## الشعب الست الوحيدة في الثانوية الجزائرية (لا تذكر شعبة غير هذه الست أبداً):
@@ -1268,7 +1373,7 @@ ENSIA هي المدرسة المخصصة كلياً للذكاء الاصطنا�
 ⚠️ خطأ شائع: الطلاب يعتقدون أن معدل 14/20 شرط للتوجيه شبه الطبي — هذا غير صحيح، الشرط الوحيد هو النجاح في البكالوريا.
 
 ## ⚠️ ممنوع مطلقاً — أخطاء يجب تجنبها:
-0. **يمنع منعاً باتاً استخدام كلمة "شنو"** — استعمل اللغة العربية الفصحى مثل "ماهي" أو الدارجة الجزائرية الأصيلة.
+0. **الكلمات غير الجزائرية ممنوعة** — راجع قائمة الكلمات الممنوعة في "شخصيتك ولغتك" أعلاه (شنو → واش، ليش → علاش...).
 1. **لا تخترع معدلات ولايات** غير موجودة في بياناتك — قل "المعدل يختلف حسب الولاية، تحقق من بوابة inscription.mesrs.dz".
 2. **ESI القليعة** (esi-kolea) مدرسة تجارية/ضرائب — ليست مدرسة إعلام آلي على الإطلاق. لا تذكرها في سياق الإعلام الآلي أبداً.
 3. **لا تقارن أرقام 2023 بعتبات 2026 دون تنبيه** — إذا أعطاك الطالب معدلاً قديماً، نبّهه أن المعدلات تتغير سنوياً وهذه هي بيانات 2026.
@@ -1578,8 +1683,8 @@ export default async function handler(req, res) {
   // SEC-2: Fetch real profile from DB — prevents prompt-injection via crafted profile fields
   const { data: profileFromDB } = await adminSupabase
     .from('profiles')
-    .select('stream, average, wilaya, interests, ambition_text, weightedAverages, name')
-    .eq('user_id', user.id)
+    .select('stream, average, wilaya, interests, ambition_text, weighted_averages, name')
+    .eq('id', user.id)
     .single();
   const profile = profileFromDB || {};
 
@@ -1610,18 +1715,25 @@ export default async function handler(req, res) {
   const selected = retrieve(message, messages, profile, 4);
 
   // Optional Tavily web-search augmentation (inert unless TAVILY_API_KEY is set).
-  // Trigger: low-confidence retrieval (topScore < threshold — no explicit name/id
-  // match in the KB) OR time-sensitive intent (news / calendar / deadlines / new
-  // programmes). At most one search per request, hard 3.5 s deadline, and any
-  // failure degrades silently to the normal KB-only flow.
+  // Triggers (any one — still at most ONE search per request, hard 3.5 s deadline,
+  // any failure degrades silently to the normal KB-only flow):
+  //   1. Low-confidence retrieval (topScore < threshold — no explicit name/id KB match).
+  //   2. Time-sensitive intent (news / calendar / deadlines / new programmes).
+  //   3. Named-entity institution/speciality question with no KB grounding
+  //      (school names, Latin acronyms… that produced no RAG context).
+  //   4. Final RAG context empty/near-empty on a substantive question
+  //      (greetings/smalltalk never trigger a search).
   let webBlock = '';
   if (process.env.TAVILY_API_KEY) {
     const topScore = selected.topScore ?? 0;
     const timeSensitive = isTimeSensitive(`${message} ${recentText}`);
-    if (topScore < WEB_SEARCH_SCORE_THRESHOLD || timeSensitive) {
+    const ragThin = (ragContext || '').length < 200;
+    const namedEntityMiss = ragThin && hasInstitutionEntity(String(message || ''));
+    const insufficientContext = ragThin && isSubstantiveQuestion(message);
+    if (topScore < WEB_SEARCH_SCORE_THRESHOLD || timeSensitive || namedEntityMiss || insufficientContext) {
       const webResults = await webSearch(String(message || '').slice(0, 300));
       webBlock = buildWebBlock(webResults);
-      if (webBlock) console.log(`[web-search] injected ${Math.min(webResults.length, 3)} result(s) (topScore=${topScore}, timeSensitive=${timeSensitive})`);
+      if (webBlock) console.log(`[web-search] injected ${Math.min(webResults.length, 3)} result(s) (topScore=${topScore}, timeSensitive=${timeSensitive}, namedEntityMiss=${namedEntityMiss}, insufficientContext=${insufficientContext})`);
     }
   }
 
@@ -1791,4 +1903,4 @@ async function saveSessionSummary(messages, adminSupabase, userId, sessionId) {
 }
 
 /* ---- Exports for local verification harness (no side effects) ---- */
-export { retrieve, buildContext, buildSystemPrompt, formatAverages, SPECIALITIES, detectIntent, detectWilaya, buildWilayaBlock, wilayaArName, isTimeSensitive, buildWebBlock, WEB_SEARCH_SCORE_THRESHOLD, buildMinistryRulesBlock, buildAvailabilityNotes, wilayaZoneAr, isAdminProcQuery, retrieveMinistryRules, isWilayaListingQuery, buildWilayaListingBlock, detectZone, buildZoneContextBlock, stripArabicPrefix, expandWithPrefixStrip };
+export { retrieve, buildContext, buildSystemPrompt, formatAverages, SPECIALITIES, detectIntent, detectWilaya, buildWilayaBlock, wilayaArName, isTimeSensitive, buildWebBlock, WEB_SEARCH_SCORE_THRESHOLD, buildMinistryRulesBlock, buildAvailabilityNotes, wilayaZoneAr, isAdminProcQuery, retrieveMinistryRules, isWilayaListingQuery, buildWilayaListingBlock, detectZone, buildZoneContextBlock, stripArabicPrefix, expandWithPrefixStrip, formatWeightedAverages, hasInstitutionEntity, isSubstantiveQuestion };
