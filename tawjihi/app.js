@@ -967,8 +967,8 @@
     }
   }, { passive: true });
   
-  const scrollDown = () => {
-    if (!userScrolledUp) scroll.scrollTo({ top: scroll.scrollHeight, behavior: 'smooth' });
+  const scrollDown = (instant = false) => {
+    if (!userScrolledUp) scroll.scrollTo({ top: scroll.scrollHeight, behavior: instant ? 'auto' : 'smooth' });
   };
 
   if (scrollToBottomBtn) {
@@ -1181,14 +1181,25 @@
     let firstToken = true;
 
     let renderScheduled = false;
+    let lastRenderTime = 0;
     const updateLive = () => {
         if (renderScheduled) return;
+        const now = performance.now();
+        if (now - lastRenderTime < 50) {
+            renderScheduled = true;
+            setTimeout(() => {
+                renderScheduled = false;
+                updateLive();
+            }, 50 - (now - lastRenderTime));
+            return;
+        }
         renderScheduled = true;
         requestAnimationFrame(() => {
             textEl.innerHTML = liveRender(fullText);
             const cursor = document.createElement('span');
             cursor.className = 'stream-cursor';
             (textEl.lastElementChild || textEl).appendChild(cursor);
+            lastRenderTime = performance.now();
             renderScheduled = false;
         });
     };
@@ -1334,7 +1345,7 @@
       if (!response.ok) throw new Error('API error ' + response.status);
 
       await streamFromSSE(textEl, response,
-        () => scrollDown(),
+        () => scrollDown(true),
         (fullText) => {
           conversationMessages.push({ role: 'assistant', content: fullText });
           if (conversationMessages.length > 20) conversationMessages.splice(0, 2);
