@@ -1,4 +1,15 @@
 {
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/robots.txt",
+      "destination": "/Bac Story website-last version/robots.txt"
+    },
+    {
+      "source": "/sitemap.xml",
+      "destination": "/Bac Story website-last version/sitemap.xml"
+    }
+  ],
   "redirects": [
     {
       "source": "/",
