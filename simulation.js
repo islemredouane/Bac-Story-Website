@@ -457,7 +457,7 @@ const simApp = {
 
         // Navbar "محاكاة البكالوريا" link resets to home when already on this page
         document.addEventListener('click', (e) => {
-            const link = e.target.closest('a[href="/simulation.html"]');
+            const link = e.target.closest('a[href="/simulation"]');
             if (link) { e.preventDefault(); this.showStep('sim-home'); }
         });
 

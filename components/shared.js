@@ -76,7 +76,7 @@ function injectGlobalCTA() {
 <section class="global-cta" id="global-cta">
     <!-- CTA Cards (side-by-side on desktop, rotating on mobile) -->
     <div class="gcta-cards" id="gcta-cards">
-        <a href="/tools.html#calculator" class="gcta-card gcta-card--calc">
+        <a href="/tools#calculator" class="gcta-card gcta-card--calc">
             <div class="gcta-icon-circle"><i class="fas fa-calculator"></i></div>
             <div class="gcta-text">
                 <strong>حاسبة المعدل</strong>
@@ -84,7 +84,7 @@ function injectGlobalCTA() {
             </div>
             <div class="gcta-btn">احسب الآن <i class="fas fa-arrow-left"></i></div>
         </a>
-        <a href="/tools.html#weighted-calc" class="gcta-card gcta-card--weighted">
+        <a href="/tools#weighted-calc" class="gcta-card gcta-card--weighted">
             <div class="gcta-icon-circle"><i class="fas fa-balance-scale"></i></div>
             <div class="gcta-text">
                 <strong>المعدل الموزون</strong>
@@ -100,7 +100,7 @@ function injectGlobalCTA() {
             </div>
             <div class="gcta-btn">اكتشف الجامعة <i class="fas fa-arrow-left"></i></div>
         </a>
-        <a href="/tools.html" class="gcta-card gcta-card--timer">
+        <a href="/tools" class="gcta-card gcta-card--timer">
             <div class="gcta-icon-circle"><i class="fas fa-hourglass-half"></i></div>
             <div class="gcta-text">
                 <strong>قداه بقى؟ </strong>
@@ -108,7 +108,7 @@ function injectGlobalCTA() {
             </div>
             <div class="gcta-btn">تفقد العد التنازلي <i class="fas fa-arrow-left"></i></div>
         </a>
-        <a href="/bac-2026.html" class="gcta-card gcta-card--correct">
+        <a href="/bac-2026" class="gcta-card gcta-card--correct">
             <div class="gcta-icon-circle"><i class="fas fa-check-double"></i></div>
             <div class="gcta-text">
                 <strong>تصحيحات بكالوريا 2026</strong>
