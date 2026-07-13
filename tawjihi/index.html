@@ -435,22 +435,34 @@
           </ul>
         </div>
         <div class="lv2-protocol-visual">
-          <div class="mock-ui mock-onboarding">
-            <div class="mock-onb-header">
-              <div class="mock-onb-kicker"></div>
-              <div class="mock-onb-title"></div>
-            </div>
-            <div class="mock-onb-range-container">
-              <div class="mock-onb-range-val">14.50 <small>/ 20</small></div>
-              <div class="mock-onb-range-track">
-                <div class="mock-onb-range-fill" style="width: 55%"></div>
-                <div class="mock-onb-range-thumb" style="left: 55%"></div>
+          <div class="mock-onboarding-container" style="width: 85%; display: flex; flex-direction: column; gap: var(--sp-4);">
+            <!-- Mock Step 1: Onboarding Choice Cards -->
+            <div class="ob-choices ob-grid-3" style="pointer-events: none; width: 100%;">
+              <div class="ob-choice is-selected" style="min-height: 80px; padding: var(--sp-3); font-size: 0.72rem; gap: var(--sp-2);">
+                <i class="fas fa-flask" style="font-size: 1.2rem;"></i>
+                <span>علوم تجريبية</span>
+              </div>
+              <div class="ob-choice" style="min-height: 80px; padding: var(--sp-3); font-size: 0.72rem; gap: var(--sp-2); opacity: 0.5;">
+                <i class="fas fa-square-root-variable" style="font-size: 1.2rem;"></i>
+                <span>رياضيات</span>
+              </div>
+              <div class="ob-choice" style="min-height: 80px; padding: var(--sp-3); font-size: 0.72rem; gap: var(--sp-2); opacity: 0.5;">
+                <i class="fas fa-gears" style="font-size: 1.2rem;"></i>
+                <span>تقني رياضي</span>
               </div>
             </div>
-            <div class="mock-onb-chips">
-              <div class="mock-chip mock-chip-active">علوم تجريبية</div>
-              <div class="mock-chip">رياضيات</div>
-              <div class="mock-chip">تقني رياضي</div>
+            <!-- Mock Step 1: Onboarding Slider -->
+            <div class="ob-range-card" style="pointer-events: none; width: 100%; padding: var(--sp-4) var(--sp-4) var(--sp-3);">
+              <div class="ob-range-value" style="font-size: var(--fs-xl); margin-bottom: var(--sp-3);">
+                <span>15.75</span><small>/ 20</small>
+              </div>
+              <div class="ob-range-track-mock" style="height: 6px; background: rgba(255,255,255,.12); border-radius: var(--r-pill); position: relative; width: 100%;">
+                <div class="ob-range-fill-mock" style="position: absolute; right: 0; top: 0; height: 100%; border-radius: var(--r-pill); background: var(--primary); width: 65%;"></div>
+                <div class="ob-range-thumb-mock" style="position: absolute; top: 50%; right: 65%; width: 14px; height: 14px; border-radius: 50%; background: var(--primary); border: 2px solid #fff; transform: translate(50%, -50%); box-shadow: 0 0 10px rgba(91,134,232,0.5);"></div>
+              </div>
+              <div class="ob-range-scale" style="display: flex; justify-content: space-between; margin-top: var(--sp-2); font-size: 0.65rem; color: rgba(255,255,255,0.4); direction: ltr;">
+                <span>08</span><span>14</span><span>20</span>
+              </div>
             </div>
           </div>
         </div>
@@ -469,32 +481,35 @@
           </ul>
         </div>
         <div class="lv2-protocol-visual">
-          <div class="mock-ui mock-catalog">
-            <div class="mock-cat-search"></div>
-            <div class="mock-cat-card">
-              <div class="mock-cat-card-header">
-                <div class="mock-cat-icon"><i class="fas fa-stethoscope"></i></div>
-                <div class="mock-cat-text">
-                  <div class="mock-cat-title">دكتور في الطب</div>
-                  <div class="mock-cat-sub">جامعة الجزائر 1</div>
+          <div class="mock-catalog-container" style="width: 85%; display: flex; flex-direction: column; gap: var(--sp-3); pointer-events: none;">
+            <!-- Mock Specialty Card 1 -->
+            <div class="spec-card" data-cat="medical" style="width: 100%;">
+              <div class="spec-card-body" style="padding: var(--sp-3) var(--sp-4);">
+                <div class="spec-card-top">
+                  <div class="spec-card-name" style="font-size: 0.82rem;">دكتور في الطب – Doctor of Medicine</div>
+                  <div class="spec-card-meta" style="margin-top: var(--sp-2); gap: 0.2rem;">
+                    <span class="spec-meta-avg" style="font-size: 0.68rem; padding: 0.2rem 0.5rem;"><i class="fas fa-percent"></i> معدل القبول ~ 16.30</span>
+                    <span class="spec-meta-loc" style="font-size: 0.68rem;"><i class="fas fa-location-dot"></i> جامعة الجزائر 1</span>
+                  </div>
+                  <div class="spec-elig-meta" style="margin-top: var(--sp-2); display: flex; gap: 0.4rem;">
+                    <span class="acc-pill" data-status="safe" style="padding: 0.15rem 0.5rem; font-size: 0.62rem;"><i class="fas fa-circle-check"></i> في المتناول</span>
+                  </div>
                 </div>
-              </div>
-              <div class="mock-cat-progress-wrap">
-                <div class="mock-cat-prob">احتمال القبول: <span>مرتفع</span></div>
-                <div class="mock-cat-progress"><div class="mock-cat-fill" style="width: 88%"></div></div>
               </div>
             </div>
-            <div class="mock-cat-card mock-cat-mid">
-              <div class="mock-cat-card-header">
-                <div class="mock-cat-icon" style="color:var(--warn)"><i class="fas fa-laptop-code"></i></div>
-                <div class="mock-cat-text">
-                  <div class="mock-cat-title">إعلام آلي</div>
-                  <div class="mock-cat-sub">المدرسة العليا للإعلام الآلي</div>
+            <!-- Mock Specialty Card 2 -->
+            <div class="spec-card" data-cat="engineering" style="width: 100%;">
+              <div class="spec-card-body" style="padding: var(--sp-3) var(--sp-4);">
+                <div class="spec-card-top">
+                  <div class="spec-card-name" style="font-size: 0.82rem;">إعلام آلي – Computer Science</div>
+                  <div class="spec-card-meta" style="margin-top: var(--sp-2); gap: 0.2rem;">
+                    <span class="spec-meta-avg" style="font-size: 0.68rem; padding: 0.2rem 0.5rem;"><i class="fas fa-percent"></i> معدل القبول ~ 15.50</span>
+                    <span class="spec-meta-loc" style="font-size: 0.68rem;"><i class="fas fa-location-dot"></i> المدرسة العليا للإعلام الآلي (ESI)</span>
+                  </div>
+                  <div class="spec-elig-meta" style="margin-top: var(--sp-2); display: flex; gap: 0.4rem;">
+                    <span class="acc-pill" data-status="likely" style="padding: 0.15rem 0.5rem; font-size: 0.62rem;"><i class="fas fa-scale-balanced"></i> على الحدّ</span>
+                  </div>
                 </div>
-              </div>
-              <div class="mock-cat-progress-wrap">
-                <div class="mock-cat-prob">احتمال القبول: <span style="color:var(--warn)">متوسط</span></div>
-                <div class="mock-cat-progress"><div class="mock-cat-fill" style="width: 55%; background:var(--warn)"></div></div>
               </div>
             </div>
           </div>
@@ -514,35 +529,25 @@
           </ul>
         </div>
         <div class="lv2-protocol-visual">
-          <div class="mock-ui mock-wishlist">
-            <div class="mock-wl-header"><i class="fas fa-list-ol"></i> رغباتك المرتّبة</div>
-            <div class="mock-wl-list">
-              <div class="mock-wl-item">
-                <div class="mock-wl-num">1</div>
-                <div class="mock-wl-content">
-                  <div class="mock-wl-title">دكتور في الطب</div>
-                  <div class="mock-wl-sub">جامعة الجزائر 1</div>
-                </div>
-                <div class="mock-wl-drag"><i class="fas fa-grip-vertical"></i></div>
+          <div class="mock-wishlist-container" style="width: 85%; display: flex; flex-direction: column; gap: var(--sp-3); pointer-events: none;">
+            <!-- Wish Item 1 -->
+            <div class="wish-item">
+              <div class="wish-rank">1</div>
+              <div class="wish-info">
+                <div class="wish-name" style="font-size: 0.8rem;">دكتور في الطب</div>
+                <div class="wish-meta" style="font-size: 0.65rem;">جامعة الجزائر 1</div>
               </div>
-              <div class="mock-wl-item">
-                <div class="mock-wl-num">2</div>
-                <div class="mock-wl-content">
-                  <div class="mock-wl-title">صيدلة</div>
-                  <div class="mock-wl-sub">جامعة الجزائر 1</div>
-                </div>
-                <div class="mock-wl-drag"><i class="fas fa-grip-vertical"></i></div>
-              </div>
-              <div class="mock-wl-item">
-                <div class="mock-wl-num">3</div>
-                <div class="mock-wl-content">
-                  <div class="mock-wl-title">جراحة الأسنان</div>
-                  <div class="mock-wl-sub">جامعة الجزائر 1</div>
-                </div>
-                <div class="mock-wl-drag"><i class="fas fa-grip-vertical"></i></div>
-              </div>
+              <span class="wish-badge safe" style="font-size: 0.62rem; padding: 2px 8px;">في المتناول</span>
             </div>
-            <div class="mock-wl-btn"><i class="fas fa-download"></i> تصدير البطاقة</div>
+            <!-- Wish Item 2 -->
+            <div class="wish-item">
+              <div class="wish-rank">2</div>
+              <div class="wish-info">
+                <div class="wish-name" style="font-size: 0.8rem;">إعلام آلي</div>
+                <div class="wish-meta" style="font-size: 0.65rem;">المدرسة العليا للإعلام الآلي (ESI)</div>
+              </div>
+              <span class="wish-badge likely" style="font-size: 0.62rem; padding: 2px 8px;">على الحدّ</span>
+            </div>
           </div>
         </div>
       </div>
