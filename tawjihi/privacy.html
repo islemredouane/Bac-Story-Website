@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <script>!function(){var p=location.pathname.split('/').pop();if(['login.html','onboarding.html','index.html',''].indexOf(p)<0){if(!localStorage.getItem('tw-auth'))return void location.replace('login.html'+location.search);if(!localStorage.getItem('tw-profile'))return void location.replace('onboarding.html'+location.search)}}()</script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>توجيهي · سياسة الخصوصية</title>
-    <meta name="description" content="سياسة خصوصية توجيهي من BAC STORY.">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@700;800;900&family=Pattaya&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="styles/tokens.css">
-    <link rel="stylesheet" href="styles/motion.css">
-    <link rel="stylesheet" href="styles/app.css">
-    <link rel="stylesheet" href="styles/specialities.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>توجيهي · سياسة الخصوصية</title>
+  <meta name="description" content="سياسة خصوصية توجيهي من BAC STORY.">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="images/favicon-32.png" type="image/png" sizes="32x32">
+  <meta property="og:title" content="توجيهي — مرشدك للجامعة في الجزائر">
+  <meta property="og:description" content="منصة ذكاء اصطناعي للتوجيه الجامعي — اكتشف تخصصك، ابنِ بطاقة الرغبات، واسأل المرشد.">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Cormorant+Garamond:ital,wght@1,400;1,500&family=Tajawal:wght@400;500;700&family=Cairo:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles/landing-v2.css">
     <link rel="stylesheet" href="styles/legal.css">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-    <script src="supabase.js"></script>
+
+  <script>
+    // Apply saved theme before paint to avoid flash
+    (function () {
+      var t = localStorage.getItem('tawjihi-theme') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
 
     <!-- PWA & Meta Tags -->
     <link rel="manifest" href="manifest.json">
@@ -36,47 +43,70 @@
     </script>
     <meta name="view-transition" content="same-origin">
 </head>
-<body>
-<div class="app" id="app">
-    <!-- ===================== SIDEBAR ===================== -->
-    <aside class="sidebar" id="sidebar">
-        <div class="sidebar-head">
-            <button class="sidebar-toggle" id="sidebarToggle" aria-label="طي القائمة"><i class="fas fa-bars"></i></button>
-            <span class="sidebar-logo">توجيهي</span>
-        </div>
-        <nav class="nav-group">
-            <a class="nav-item" href="app.html"><i class="fas fa-comments"></i><span>المرشد الذكي</span></a>
-            <a class="nav-item" href="specialities.html"><i class="fas fa-compass"></i><span>دليل التخصصات</span></a>
-            <a class="nav-item" href="simulator.html"><i class="fas fa-list-check"></i><span>محاكي بطاقة الرغبات</span></a>
-            <a class="nav-item" href="dashboard.html"><i class="fas fa-gauge-high"></i><span>لوحتي</span></a>
-            <a class="nav-item" href="referral.html"><i class="fas fa-gift"></i><span>الإحالة والمكافآت</span></a>
-        </nav>
-        <div class="sidebar-foot">
-            <a class="nav-item" href="#" onclick="document.getElementById('themeBtn')?.click();return false;"><i class="fas fa-circle-half-stroke" id="themeIconSide"></i><span>الوضع الليلي</span></a>
-            <a class="nav-item" href="dashboard.html"><i class="fas fa-user-circle"></i><span>حسابي</span></a>
-            <a class="nav-item" href="#" id="logoutBtn" onclick="if(window.twSignOut){window.twSignOut()}else{localStorage.clear();location.href='login.html'};return false;">
-              <i class="fas fa-right-from-bracket"></i><span>تسجيل الخروج</span>
-            </a>
-        </div>
-    </aside>
-    <div class="sidebar-scrim" id="scrim"></div>
+<body class="lp-body" style="padding-top: 100px; background: var(--background);">
+<!-- ═══════════════════════════════════════════════════════════
+     1 · NAVBAR
+═══════════════════════════════════════════════════════════ -->
+<header class="lv2-nav" id="lv2Nav">
+  <div class="lv2-nav-pill" id="lv2NavPill">
 
-    <!-- ===================== MAIN ===================== -->
-    <main class="main">
-        <header class="topbar">
-            <div style="display:flex;align-items:center;gap:.5rem">
-                <button class="icon-btn mobile-only" id="drawerBtn" aria-label="القائمة"><i class="fas fa-bars"></i></button>
-                <span class="topbar-title">سياسة الخصوصية</span>
-            </div>
-            <div class="topbar-actions">
-                <button class="icon-btn" id="themeBtn" aria-label="تبديل الوضع"><i class="fas fa-moon"></i></button>
-            </div>
-        </header>
+    <a href="index.html" class="lv2-logo lift-on-hover" aria-label="توجيهي — الصفحة الرئيسية">
+      <svg class="lv2-logo-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <circle cx="16" cy="16" r="13" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="16" cy="16" r="2.5" fill="currentColor"/>
+        <line x1="16" y1="3" x2="16" y2="9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="16" y1="23" x2="16" y2="29" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="3" y1="16" x2="9" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="23" y1="16" x2="29" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <line id="lv2LogoNeedle" x1="16" y1="16" x2="16" y2="7" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span>توجيهي</span>
+    </a>
 
-        <div class="page-scroll">
-            <div class="page-inner" style="max-width:1100px;padding:0">
+    <nav class="lv2-nav-links" aria-label="التنقل الرئيسي">
+      <a href="#features" class="lv2-nav-link lift-on-hover">المميزات</a>
+      <a href="#protocol" class="lv2-nav-link lift-on-hover">كيفاش يخدم؟</a>
+      <a href="#services" class="lv2-nav-link lift-on-hover">المجالات</a>
+      <a href="#faq" class="lv2-nav-link lift-on-hover">أسئلة</a>
+    </nav>
 
-                <!-- Page hero -->
+    <div class="lv2-nav-actions">
+      <button class="lv2-theme-btn magnetic-btn" id="themeBtn" aria-label="تبديل الوضع الليلي">
+        <svg class="icon-sun" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <circle cx="10" cy="10" r="4"/><line x1="10" y1="1" x2="10" y2="3"/><line x1="10" y1="17" x2="10" y2="19"/>
+          <line x1="1" y1="10" x2="3" y2="10"/><line x1="17" y1="10" x2="19" y2="10"/>
+          <line x1="3.5" y1="3.5" x2="5" y2="5"/><line x1="15" y1="15" x2="16.5" y2="16.5"/>
+          <line x1="16.5" y1="3.5" x2="15" y2="5"/><line x1="5" y1="15" x2="3.5" y2="16.5"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+        </svg>
+      </button>
+      <a href="login.html" class="lv2-nav-login lift-on-hover">دخول</a>
+      <a href="app.html" class="btn-primary magnetic-btn">ابدأ مجاناً ←</a>
+      <button class="lv2-burger" id="lv2Burger" aria-label="القائمة" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<!-- Mobile full-screen menu -->
+<div class="lv2-mobile-menu" id="lv2MobileMenu" aria-hidden="true">
+  <a href="#features"  class="lv2-mobile-link">المميزات</a>
+  <a href="#protocol"  class="lv2-mobile-link">كيفاش يخدم؟</a>
+  <a href="#services"  class="lv2-mobile-link">المجالات</a>
+  <a href="#faq"       class="lv2-mobile-link">أسئلة</a>
+  <div style="height:1rem"></div>
+  <a href="login.html" class="lv2-mobile-link" style="font-size:1.1rem;color:rgba(255,255,255,.5)">دخول</a>
+  <a href="app.html"   class="btn-accent magnetic-btn" style="margin-block-start:1rem">ابدأ مجاناً ←</a>
+</div>
+
+
+
+<div class="lv2-container" style="max-width: 900px; margin: 4rem auto; position: relative; z-index: 10;">
+  <!-- Page hero -->
                 <div class="legal-hero" style="margin:var(--sp-6) var(--sp-6) 0">
                     <a class="legal-hero-back" href="javascript:history.back()"><i class="fas fa-arrow-right"></i> رجوع</a>
                     <div class="legal-hero-inner">
@@ -182,23 +212,82 @@
                             </div>
                         </section>
 
-                        <!-- Footer -->
-                        <div class="legal-footer">
-                            <div class="legal-footer-brand">
-                                <div>
-                                    <div class="legal-footer-logo">توجيهي</div>
-                                    <div class="legal-footer-tagline">by BAC STORY · مرشدك الذكي لـ BAC الجزائر</div>
-                                </div>
-                            </div>
-                            <a href="dashboard.html" class="legal-footer-link"><i class="fas fa-house"></i> العودة للرئيسية</a>
-                        </div>
-
-                    </div><!-- /legal-content-area -->
-                </div><!-- /legal-main -->
-            </div>
-        </div>
-    </main>
+                        
 </div>
-<script src="shell.js"></script>
+<!-- ═══════════════════════════════════════════════════════════
+     9 · FOOTER
+═══════════════════════════════════════════════════════════ -->
+<footer class="lv2-footer" id="footer">
+  <div class="lv2-container">
+
+    <div class="lv2-footer-tagline-wrap">
+      <p class="lv2-footer-tagline">
+        مسارك الجامعي يبدأ<br>بقرار مبني على بيانات.
+        <span class="lv2-footer-tagline-serif">— وتوجيهي هنا لذلك.</span>
+      </p>
+    </div>
+
+    <div class="lv2-footer-grid">
+      <div class="lv2-footer-brand">
+        <a href="index.html" class="lv2-logo">
+          <span class="lv2-logo-mark" aria-hidden="true">ت</span>
+          <span>توجيهي</span>
+        </a>
+        <p class="lv2-footer-brand-desc">مرشدك الذكي لاختيار التخصص الجامعي في الجزائر — بيانات رسمية، ذكاء اصطناعي، مجاناً.</p>
+        
+        <div class="lv2-footer-socials">
+          <a href="https://www.facebook.com/share/1EMz54rJGz/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook">
+            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+          </a>
+          <a href="https://www.instagram.com/bacstory.platform?igsh=OWF2OTN6bHVqdnl5&utm_source=qr" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+            <i class="fab fa-instagram" aria-hidden="true"></i>
+          </a>
+          <a href="https://www.tiktok.com/@bacstory.platform?_r=1" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="TikTok">
+            <i class="fab fa-tiktok" aria-hidden="true"></i>
+          </a>
+          <a href="https://t.me/islembacdz" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Telegram">
+            <i class="fab fa-telegram-plane" aria-hidden="true"></i>
+          </a>
+        </div>
+        
+        <div class="lv2-footer-status">
+          <span class="lv2-footer-status-dot"></span>
+          <span>النظام يعمل</span>
+        </div>
+      </div>
+
+      <div class="lv2-footer-col">
+        <strong class="lv2-footer-col-title">المنصة</strong>
+        <a href="app.html" class="lift-on-hover">المرشد الذكي</a>
+        <a href="specialities.html" class="lift-on-hover">دليل التخصصات</a>
+        <a href="simulator.html" class="lift-on-hover">محاكي الرغبات</a>
+        <a href="dashboard.html" class="lift-on-hover">حسابي</a>
+      </div>
+
+      <div class="lv2-footer-col">
+        <strong class="lv2-footer-col-title">اكتشف</strong>
+        <a href="specialities.html?cat=medicine" class="lift-on-hover">الطب والصحة</a>
+        <a href="specialities.html?cat=engineering" class="lift-on-hover">الهندسة والتقني</a>
+        <a href="specialities.html?cat=cs" class="lift-on-hover">المدارس الكبرى</a>
+        <a href="specialities.html?cat=economics" class="lift-on-hover">الاقتصاد والتسيير</a>
+      </div>
+
+      <div class="lv2-footer-col">
+        <strong class="lv2-footer-col-title">قانوني</strong>
+        <a href="privacy.html" class="lift-on-hover">سياسة الخصوصية</a>
+        <a href="terms.html" class="lift-on-hover">شروط الاستخدام</a>
+      </div>
+    </div>
+
+    <div class="lv2-footer-bottom">
+      <span>© 2026 توجيهي · BAC Story · جميع الحقوق محفوظة</span>
+      <span>صُنع في الجزائر 🇩🇿</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+<script src="landing-v2.js" defer></script>
 </body>
 </html>

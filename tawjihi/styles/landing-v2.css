@@ -1414,6 +1414,26 @@ img { display: block; max-width: 100%; }
   margin-block-end: 1.25rem;
 }
 
+.lv2-footer-socials {
+  display: flex; align-items: center; gap: .75rem;
+  margin-block-end: 1.5rem;
+}
+
+.lv2-footer-socials .social-link {
+  width: 34px; height: 34px; border-radius: .5rem;
+  display: grid; place-items: center;
+  background: rgba(255,255,255,.05);
+  color: rgba(255,255,255,.5);
+  font-size: 1.1rem;
+  transition: background .2s, color .2s, transform .2s;
+}
+
+.lv2-footer-socials .social-link:hover {
+  background: rgba(255,255,255,.1);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
 .lv2-footer-status {
   display: flex; align-items: center; gap: .5rem;
   font-family: var(--font-mono);
