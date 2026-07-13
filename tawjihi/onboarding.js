@@ -427,6 +427,8 @@
 
   /* ──────────────────────────────────────────────────────────
      REFERRAL CODE CARD — summary step
+     Fixes: normalizeCode edge cases, toast on apply, status
+     visibility in collapsed state, input auto-format robustness
      ────────────────────────────────────────────────────────── */
   (function initRefCard() {
     const card      = document.getElementById('obRefCard');
@@ -438,14 +440,48 @@
 
     if (!card) return;
 
-    /* -- helpers -- */
-    function normalizeCode(raw) {
-      let v = raw.trim().toUpperCase().replace(/\s+/g, '');
-      if (v && !v.startsWith('TW-')) v = 'TW-' + v;
-      return v;
+    /* ---- Toast ---- */
+    function showToast(msg, type) {
+      // Remove any existing toast first
+      const old = document.querySelector('.ob-toast');
+      if (old) old.remove();
+
+      const t = document.createElement('div');
+      t.className = 'ob-toast ob-toast-' + (type || 'success');
+      t.textContent = msg;
+      document.body.appendChild(t);
+      // Trigger animation on next frame
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => t.classList.add('is-visible'));
+      });
+      setTimeout(() => {
+        t.classList.remove('is-visible');
+        setTimeout(() => t.remove(), 400);
+      }, 3200);
     }
 
-    function setApplied(code) {
+    /* ---- Normalize code: strips whitespace, uppercases, ensures TW- prefix ---- */
+    function normalizeCode(raw) {
+      // Remove everything except alphanumeric and dashes
+      let v = raw.trim().toUpperCase().replace(/[^A-Z0-9\-]/g, '');
+      // Strip any existing TW- or TW prefix to avoid double-prefixing
+      v = v.replace(/^TW-?/, '');
+      // Always prepend TW- if there's something left
+      return v.length > 0 ? 'TW-' + v : '';
+    }
+
+    /* ---- Status helpers ---- */
+    function showStatus(msg, type) {
+      status.textContent = msg;
+      status.className = 'ob-ref-status is-shown ' + (type === 'ok' ? 'is-ok' : 'is-err');
+    }
+    function hideStatus() {
+      status.className = 'ob-ref-status';
+      status.textContent = '';
+    }
+
+    /* ---- Mark card as applied (collapse + green state) ---- */
+    function setApplied(code, silent) {
       card.classList.add('is-applied');
       card.classList.remove('is-open');
       toggle.setAttribute('aria-expanded', 'false');
@@ -453,60 +489,58 @@
       input.value = code;
       applyBtn.classList.add('is-done');
       applyBtn.innerHTML = '<i class="fas fa-check"></i> تم';
-      showStatus('✓ كود صاحبك تم تطبيقه — كلاكما تكسبوا 30 رسالة! 🎉', 'ok');
+      // Inline status in body (visible if body was open)
+      showStatus('✓ تم تطبيق الكود', 'ok');
+      // Toast notification — skip on silent pre-fill (URL/session restore)
+      if (!silent) {
+        showToast('🎉 تم! كلاكما تكسبوا 30 رسالة مجانية', 'success');
+      }
     }
 
-    function showStatus(msg, type) {
-      status.textContent = msg;
-      status.className = 'ob-ref-status is-shown ' + (type === 'ok' ? 'is-ok' : 'is-err');
-    }
-
-    function hideStatus() {
-      status.className = 'ob-ref-status';
-      status.textContent = '';
-    }
-
-    /* -- check if a code was already set via URL ?ref= or prior apply -- */
+    /* ---- Pre-fill if code already set (via ?ref= URL or prior session) ---- */
     const pending = sessionStorage.getItem('tw-pending-ref');
     if (pending) {
-      input.value = pending;
-      setApplied(pending);
+      setApplied(pending, true /* silent */);
     }
 
-    /* -- toggle open/close -- */
+    /* ---- Toggle open/close ---- */
     toggle.addEventListener('click', function () {
-      if (card.classList.contains('is-applied')) return; // don't re-open after applied
+      if (card.classList.contains('is-applied')) return; // locked after applied
       const isOpen = card.classList.toggle('is-open');
       toggle.setAttribute('aria-expanded', String(isOpen));
       body.setAttribute('aria-hidden', String(!isOpen));
-      if (isOpen) setTimeout(() => input.focus(), 50);
+      if (isOpen) setTimeout(() => input.focus(), 60);
     });
 
-    /* -- auto-format input: uppercase, strip spaces, clamp to TW-XXXXX -- */
+    /* ---- Auto-format input: strip non-alphanum, uppercase, insert TW- prefix ---- */
     input.addEventListener('input', function () {
       hideStatus();
       applyBtn.classList.remove('is-done');
       applyBtn.innerHTML = '<i class="fas fa-check"></i> تطبيق';
-      let raw = input.value.replace(/[^a-zA-Z0-9\-]/g, '').toUpperCase();
-      // Auto-prefix TW- if user starts typing letters without it
-      if (raw.length >= 2 && !raw.startsWith('TW')) raw = 'TW-' + raw.replace(/^TW-?/, '');
-      input.value = raw.slice(0, 8); // TW-XXXXX = 8 chars max
+
+      // Strip everything except alpha/digits, uppercase
+      let raw = input.value.replace(/[^a-zA-Z0-9]/g, '').toUpperCase();
+      // Remove any TW prefix so we control it
+      raw = raw.replace(/^TW/g, '');
+      // Rebuild: TW- + up to 5 alphanum chars
+      const suffix = raw.slice(0, 5);
+      input.value = suffix.length > 0 ? 'TW-' + suffix : '';
     });
 
-    /* -- apply button -- */
+    /* ---- Apply button ---- */
     applyBtn.addEventListener('click', function () {
       const code = normalizeCode(input.value);
       const valid = /^TW-[A-Z0-9]{5}$/.test(code);
       if (!valid) {
-        showStatus('الكود غير صحيح — مثال: TW-ABC12', 'err');
+        showStatus('الكود غير صحيح — الصيغة الصحيحة: TW-ABC12', 'err');
         input.focus();
         return;
       }
       sessionStorage.setItem('tw-pending-ref', code);
-      setApplied(code);
+      setApplied(code, false /* show toast */);
     });
 
-    /* -- also allow pressing Enter in the input -- */
+    /* ---- Enter key submits ---- */
     input.addEventListener('keydown', function (e) {
       if (e.key === 'Enter') { e.preventDefault(); applyBtn.click(); }
     });
