@@ -4,6 +4,10 @@
    Depends on tokens.css. Gemini-style collapsible sidebar.
    ============================================================ */
 
+/* Hide scrollbars globally for a seamless app-like experience */
+* { scrollbar-width: none; }
+*::-webkit-scrollbar { display: none; }
+
 .app {
     display: grid;
     grid-template-columns: var(--sidebar-w) 1fr;
