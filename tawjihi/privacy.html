@@ -1,30 +1,24 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl" data-theme="light">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>توجيهي · سياسة الخصوصية</title>
-  <meta name="description" content="سياسة خصوصية توجيهي من BAC STORY.">
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-  <link rel="icon" href="images/favicon-32.png" type="image/png" sizes="32x32">
-  <meta property="og:title" content="توجيهي — مرشدك للجامعة في الجزائر">
-  <meta property="og:description" content="منصة ذكاء اصطناعي للتوجيه الجامعي — اكتشف تخصصك، ابنِ بطاقة الرغبات، واسأل المرشد.">
-  <meta property="og:type" content="website">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Cormorant+Garamond:ital,wght@1,400;1,500&family=Tajawal:wght@400;500;700&family=Cairo:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="styles/landing-v2.css">
+    <meta charset="UTF-8">
+    <script>!function(){var p=location.pathname.split('/').pop();if(['login.html','onboarding.html','index.html',''].indexOf(p)<0){if(!localStorage.getItem('tw-auth'))return void location.replace('login.html'+location.search);if(!localStorage.getItem('tw-profile'))return void location.replace('onboarding.html'+location.search)}}()</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>توجيهي · سياسة الخصوصية</title>
+    <meta name="description" content="سياسة خصوصية توجيهي من BAC STORY.">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@700;800;900&family=Pattaya&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles/tokens.css">
+    <link rel="stylesheet" href="styles/motion.css">
+    <link rel="stylesheet" href="styles/app.css">
+    <link rel="stylesheet" href="styles/specialities.css">
     <link rel="stylesheet" href="styles/legal.css">
-
-  <script>
-    // Apply saved theme before paint to avoid flash
-    (function () {
-      var t = localStorage.getItem('tawjihi-theme') || 'light';
-      document.documentElement.setAttribute('data-theme', t);
-    })();
-  </script>
+    <link rel="stylesheet" href="styles/landing-v2.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+    <script src="supabase.js"></script>
 
     <!-- PWA & Meta Tags -->
     <link rel="manifest" href="manifest.json">
@@ -43,70 +37,20 @@
     </script>
     <meta name="view-transition" content="same-origin">
 </head>
-<body class="lp-body" style="padding-top: 100px; background: var(--background);">
-<!-- ═══════════════════════════════════════════════════════════
-     1 · NAVBAR
-═══════════════════════════════════════════════════════════ -->
-<header class="lv2-nav" id="lv2Nav">
-  <div class="lv2-nav-pill" id="lv2NavPill">
+<body>
+    <!-- Simple Navbar -->
+    <header style="background: var(--deep); padding: 1rem; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: center;">
+        <div style="width: 100%; max-width: 1100px; display: flex; justify-content: space-between; align-items: center; padding: 0 1.5rem;">
+            <a href="index.html" style="color: white; text-decoration: none; font-family: var(--font-display); font-weight: 800; font-size: 1.25rem; display: flex; align-items: center; gap: 0.5rem;">
+                <span style="background: var(--accent); color: white; width: 28px; height: 28px; display: grid; place-items: center; border-radius: 50%; font-size: 0.9rem;">ت</span>
+                توجيهي
+            </a>
+            <a href="index.html" style="color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.95rem; transition: color 0.2s;">العودة للرئيسية</a>
+        </div>
+    </header>
 
-    <a href="index.html" class="lv2-logo lift-on-hover" aria-label="توجيهي — الصفحة الرئيسية">
-      <svg class="lv2-logo-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-        <circle cx="16" cy="16" r="13" stroke="currentColor" stroke-width="1.5"/>
-        <circle cx="16" cy="16" r="2.5" fill="currentColor"/>
-        <line x1="16" y1="3" x2="16" y2="9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        <line x1="16" y1="23" x2="16" y2="29" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        <line x1="3" y1="16" x2="9" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        <line x1="23" y1="16" x2="29" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        <line id="lv2LogoNeedle" x1="16" y1="16" x2="16" y2="7" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
-      </svg>
-      <span>توجيهي</span>
-    </a>
-
-    <nav class="lv2-nav-links" aria-label="التنقل الرئيسي">
-      <a href="#features" class="lv2-nav-link lift-on-hover">المميزات</a>
-      <a href="#protocol" class="lv2-nav-link lift-on-hover">كيفاش يخدم؟</a>
-      <a href="#services" class="lv2-nav-link lift-on-hover">المجالات</a>
-      <a href="#faq" class="lv2-nav-link lift-on-hover">أسئلة</a>
-    </nav>
-
-    <div class="lv2-nav-actions">
-      <button class="lv2-theme-btn magnetic-btn" id="themeBtn" aria-label="تبديل الوضع الليلي">
-        <svg class="icon-sun" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
-          <circle cx="10" cy="10" r="4"/><line x1="10" y1="1" x2="10" y2="3"/><line x1="10" y1="17" x2="10" y2="19"/>
-          <line x1="1" y1="10" x2="3" y2="10"/><line x1="17" y1="10" x2="19" y2="10"/>
-          <line x1="3.5" y1="3.5" x2="5" y2="5"/><line x1="15" y1="15" x2="16.5" y2="16.5"/>
-          <line x1="16.5" y1="3.5" x2="15" y2="5"/><line x1="5" y1="15" x2="3.5" y2="16.5"/>
-        </svg>
-        <svg class="icon-moon" viewBox="0 0 20 20" fill="currentColor">
-          <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
-        </svg>
-      </button>
-      <a href="login.html" class="lv2-nav-login lift-on-hover">دخول</a>
-      <a href="app.html" class="btn-primary magnetic-btn">ابدأ مجاناً ←</a>
-      <button class="lv2-burger" id="lv2Burger" aria-label="القائمة" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-
-  </div>
-</header>
-
-<!-- Mobile full-screen menu -->
-<div class="lv2-mobile-menu" id="lv2MobileMenu" aria-hidden="true">
-  <a href="#features"  class="lv2-mobile-link">المميزات</a>
-  <a href="#protocol"  class="lv2-mobile-link">كيفاش يخدم؟</a>
-  <a href="#services"  class="lv2-mobile-link">المجالات</a>
-  <a href="#faq"       class="lv2-mobile-link">أسئلة</a>
-  <div style="height:1rem"></div>
-  <a href="login.html" class="lv2-mobile-link" style="font-size:1.1rem;color:rgba(255,255,255,.5)">دخول</a>
-  <a href="app.html"   class="btn-accent magnetic-btn" style="margin-block-start:1rem">ابدأ مجاناً ←</a>
-</div>
-
-
-
-<div class="lv2-container" style="max-width: 900px; margin: 4rem auto; position: relative; z-index: 10;">
-  <!-- Page hero -->
+    <div style="max-width: 1100px; margin: 0 auto; padding: 0;">
+        <!-- Page hero -->
                 <div class="legal-hero" style="margin:var(--sp-6) var(--sp-6) 0">
                     <a class="legal-hero-back" href="javascript:history.back()"><i class="fas fa-arrow-right"></i> رجوع</a>
                     <div class="legal-hero-inner">
@@ -118,6 +62,7 @@
                 </div>
 
                 <!-- Main layout: TOC + content -->
+        <!-- Main layout: TOC + content -->
                 <div class="legal-main">
 
                     <!-- Sticky TOC (desktop) -->
@@ -212,12 +157,22 @@
                             </div>
                         </section>
 
-                        
-</div>
-<!-- ═══════════════════════════════════════════════════════════
-     9 · FOOTER
-═══════════════════════════════════════════════════════════ -->
-<footer class="lv2-footer" id="footer">
+                        <!-- Footer -->
+                        <div class="legal-footer">
+                            <div class="legal-footer-brand">
+                                <div>
+                                    <div class="legal-footer-logo">توجيهي</div>
+                                    <div class="legal-footer-tagline">by BAC STORY · مرشدك الذكي لـ BAC الجزائر</div>
+                                </div>
+                            </div>
+                            <a href="dashboard.html" class="legal-footer-link"><i class="fas fa-house"></i> العودة للرئيسية</a>
+                        </div>
+
+                    </div><!-- /legal-content-area -->
+                </div><!-- /legal-main -->
+    </div>
+
+    <footer class="lv2-footer" id="footer">
   <div class="lv2-container">
 
     <div class="lv2-footer-tagline-wrap">
@@ -285,9 +240,5 @@
     </div>
   </div>
 </footer>
-
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
-<script src="landing-v2.js" defer></script>
 </body>
 </html>
