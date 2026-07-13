@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="styles/auth.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
     <script src="supabase.js"></script>
+    <meta name="view-transition" content="same-origin">
 </head>
 <body class="auth-body">
     <!-- noise texture overlay -->
@@ -109,14 +110,14 @@
         if (!t) {
             t = document.createElement('div');
             t.id = '_twToast';
-            t.className = 'auth-toast';
+            t.className = 'sim-toast';
             document.body.appendChild(t);
         }
         t.textContent = msg;
         t.classList.toggle('is-error', !color || color === '#ef4444');
-        t.classList.add('is-visible');
+        t.classList.add('show');
         clearTimeout(t._hide);
-        t._hide = setTimeout(() => { t.classList.remove('is-visible'); }, 3500);
+        t._hide = setTimeout(() => { t.classList.remove('show'); }, 3500);
     }
 
     let _handling = false;

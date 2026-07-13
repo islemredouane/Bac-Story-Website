@@ -1,3 +1,4 @@
+@import url('skeleton.css');
 /* ============================================================
    TAWJIHI — App Shell + Gemini-style Chat
    Depends on tokens.css. Gemini-style collapsible sidebar.
@@ -6,7 +7,7 @@
 .app {
     display: grid;
     grid-template-columns: var(--sidebar-w) 1fr;
-    min-height: 100dvh;
+    height: 100%; min-height: -webkit-fill-available;
     position: relative;
     transition: grid-template-columns var(--t-mid) var(--ease);
 }
@@ -150,7 +151,7 @@
 .app.sidebar-collapsed .nav-item { justify-content: center; gap: 0; }
 
 /* ---------------- MAIN ---------------- */
-.main { display: flex; flex-direction: column; min-width: 0; height: 100dvh; position: relative; z-index: 1; }
+.main { display: flex; flex-direction: column; min-width: 0; height: 100%; min-height: -webkit-fill-available; position: relative; z-index: 1; }
 
 .topbar {
     height: var(--topbar-h); display: flex; align-items: center;
@@ -1044,7 +1045,7 @@
 }
 .suggest-card::after {
     content: '';
-    position: absolute; bottom: -40px; right: -40px;
+    position: absolute; bottom: -40px; inset-inline-end: -40px;
     width: 140px; height: 140px; border-radius: 50%;
     filter: blur(50px); z-index: 0; opacity: 0.08;
     background: var(--card-theme, var(--primary));
@@ -1765,3 +1766,4 @@
 /* ── Logout button — red tint ──────────────────────────────── */
 #logoutBtn { color: #e03535; }
 #logoutBtn:hover { background: rgba(224, 53, 53, .08); color: #c72020; }
+\n/* ---- Global Toast (UI-11) ---- */\n.sim-toast {\n    position: fixed;\n    bottom: calc(14px + 64px + var(--sp-4) + env(safe-area-inset-bottom, 0px));\n    left: 50%; transform: translateX(-50%) translateY(20px);\n    background: var(--text); color: var(--bg);\n    padding: var(--sp-3) var(--sp-5); border-radius: var(--r-pill);\n    font-size: var(--fs-sm); font-weight: 700;\n    box-shadow: var(--shadow-lg);\n    z-index: var(--z-toast, 500);\n    opacity: 0; transition: opacity .25s var(--ease), transform .25s var(--ease);\n    white-space: normal; text-align: center; max-width: 90vw; pointer-events: none;\n}\n.sim-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }\n.sim-toast.is-error { background: #ef4444; color: #fff; }\n

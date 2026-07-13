@@ -524,7 +524,7 @@
     .ob-grid-2 { grid-template-columns: 1fr; }
 }
 @media (max-width: 420px) {
-    .ob-btn { padding: var(--sp-3) var(--sp-4); font-size: var(--fs-sm); }
+    .ob-btn { padding: var(--sp-3) var(--sp-4); font-size: var(--fs-sm); min-height: 44px; }
     .ob-step-count { font-size: var(--fs-xs); padding: var(--sp-1) var(--sp-2); }
     .ob-grid-3 { grid-template-columns: 1fr; }
 }

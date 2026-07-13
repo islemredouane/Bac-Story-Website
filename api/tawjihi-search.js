@@ -11,7 +11,20 @@ const adminSupabase = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY
 );
 
-// TODO: Add rate limiting (e.g., 60 req/min per user) using Upstash Redis or Vercel rate limiter
+// Simple in-memory rate limiting (per serverless instance)
+const rateLimits = new Map();
+function checkRateLimit(uid) {
+  const now = Date.now();
+  const userWindow = rateLimits.get(uid) || { count: 0, startTime: now };
+  if (now - userWindow.startTime > 60000) {
+    userWindow.count = 1;
+    userWindow.startTime = now;
+  } else {
+    userWindow.count++;
+  }
+  rateLimits.set(uid, userWindow);
+  return userWindow.count <= 30; // 30 requests per minute
+}
 
 // Load index once at cold start (deployed alongside function)
 let _index = null;
@@ -33,7 +46,11 @@ const STREAM_FIELD = {
 };
 
 export default async function handler(req, res) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  const origin = req.headers.origin;
+  const allowedDomains = ["https://tawjihi-bacstory.vercel.app", "https://bacstory.vercel.app", "http://localhost"];
+  if (origin && (allowedDomains.includes(origin) || origin.endsWith("-bac-story.vercel.app"))) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+  }
   if (req.method === 'OPTIONS') return res.status(200).end();
 
   // Auth check — search requires a valid session

@@ -19,6 +19,23 @@
     <link rel="stylesheet" href="styles/skeleton.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
     <script src="supabase.js"></script>
+
+    <!-- PWA & Meta Tags -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="assets/favicon.ico" sizes="any">
+    <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <meta property="og:title" content="Tawjihi - توجيهي">
+    <meta property="og:description" content="The ultimate Algerian baccalaureate orientation guide and simulator.">
+    <meta property="og:image" content="assets/icon-512x512.png">
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('sw.js').catch(console.error);
+        });
+      }
+    </script>
+    <meta name="view-transition" content="same-origin">
 </head>
 <body>
 <div class="app" id="app">
@@ -79,7 +96,7 @@
                                 <i class="fas fa-calculator"></i> احسب معدلك وقم بالمزامنة
                             </a>
                             <!-- Hidden fallback for manual paste or URL auto-import -->
-                            <input type="text" id="dashImportCode" hidden>
+                            <input dir="ltr" type="text" id="dashImportCode" hidden>
                         </div>
                         
                         <!-- Filled State: Grid -->
@@ -91,7 +108,7 @@
                             <div class="dash-academic-grid" id="dashAcademicGrid"></div>
                         </div>
 
-                        <p class="dash-import-msg" id="dashImportMsg" role="status"></p>
+                        
                     </section>
 
                     <!-- Unified wishlist card (replaces Saved + Eligibility + Fiche) -->
@@ -540,7 +557,9 @@ function renderNudges(profile, wishIds) {
         if (res.payload.generalAverage !== undefined) parts.push('المعدل العام');
         const wCount = Object.keys(res.payload.weightedAverages || {}).length;
         if (wCount) parts.push(wCount + ' معدلات موزونة');
-        showImportMsg('تم الاستيراد بنجاح ✓ (' + (parts.join(' و ') || 'المعطيات') + ').', 'ok');
+        let msg = 'تم الاستيراد بنجاح ✓ (' + (parts.join(' و ') || 'المعطيات') + ').';
+        if (res.warnings && res.warnings.length) msg += ' ' + res.warnings[0];
+        showImportMsg(msg, 'ok');
     }
 
     if (importBtn) {

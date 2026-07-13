@@ -19,7 +19,7 @@
 
   // --- eligibility map keyed by catalog id ---
   var TW_ELIG = {
-  "esi": {
+  "esi-alger": {
     "linkedProgramCodes": [
       "C00CAN01"
     ],
@@ -82,7 +82,7 @@
     "_note": "linked via explicit grande-ecole code_fil; thresholds from grande-ecole code_fil records",
     "_method": "explicit_codefil"
   },
-  "med": {
+  "med-national": {
     "linkedProgramCodes": [
       "PD0LAN01",
       "PI0LAN01"
@@ -102,7 +102,7 @@
     "_note": "linked via admissions catalog_averages filiere_key=MEDECINE; national thresholds from admissions.nationale; allowedStreams fallback to card.streamCodes (no program link)",
     "_method": "nationale"
   },
-  "pharm": {
+  "pharm-national": {
     "linkedProgramCodes": [
       "P05LAN01",
       "P06LAN01",
@@ -123,7 +123,7 @@
     "_note": "linked via admissions catalog_averages filiere_key=PHARMACIE; national thresholds from admissions.nationale",
     "_method": "nationale"
   },
-  "dent": {
+  "dent-national": {
     "linkedProgramCodes": [],
     "allowedStreams": [
       "math",
@@ -140,7 +140,7 @@
     "_note": "linked via admissions catalog_averages filiere_key=MEDECINE DENTAIRE; national thresholds from admissions.nationale; allowedStreams fallback to card.streamCodes (no program link)",
     "_method": "nationale"
   },
-  "archi": {
+  "archi-epau": {
     "linkedProgramCodes": [
       "N00CAN01",
       "N02FPN06",
@@ -165,7 +165,7 @@
     "_note": "linked via admissions catalog_averages filiere_key=ARCHITECTURE",
     "_method": "catalog_averages"
   },
-  "info": {
+  "info-usthb": {
     "linkedProgramCodes": [
       "C00CAN01",
       "C00CAN02",
@@ -408,7 +408,7 @@
     "_note": "linked via admissions by_filiere filiere_key=SCIENCES ECONOMIQUES; thresholds from grande-ecole code_fil records",
     "_method": "extra_filiere_key"
   },
-  "eco": {
+  "eco-uabm": {
     "linkedProgramCodes": [
       "CF0LAN01",
       "CF0LAN03",
@@ -546,7 +546,7 @@
     "_note": "linked via admissions catalog_averages filiere_key=SCIENCES ECONOMIQUES",
     "_method": "catalog_averages"
   },
-  "bio": {
+  "bio-ubma": {
     "linkedProgramCodes": [
       "D00LAL01",
       "D00LAL02",
@@ -566,7 +566,7 @@
     "_note": "linked via admissions catalog_averages filiere_key=SCIENCES DE LA NATURE ET DE LA VIE",
     "_method": "catalog_averages"
   },
-  "math": {
+  "math-uca1": {
     "linkedProgramCodes": [
       "C00CAN05",
       "C02FPN01",
@@ -676,7 +676,7 @@
     "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
     "_method": "card_derived"
   },
-  "genie-civil": {
+  "genie-civil-usthb": {
     "linkedProgramCodes": [
       "A05IAN01",
       "A05IAN02",
@@ -759,7 +759,7 @@
     "_note": "linked via admissions catalog_averages filiere_key=GENIE CIVIL",
     "_method": "catalog_averages"
   },
-  "genie-elec": {
+  "genie-elec-usthb": {
     "linkedProgramCodes": [
       "A09IAN01",
       "A09IAN04",
@@ -844,7 +844,7 @@
     "_note": "linked via admissions catalog_averages filiere_key=ELECTROTECHNIQUE; linked via admissions by_filiere filiere_key=ELECTROTECHNIQUE",
     "_method": "catalog_averages"
   },
-  "droit": {
+  "droit-ua2": {
     "linkedProgramCodes": [
       "G02FCL01",
       "G02FCL02",
@@ -939,7 +939,7 @@
     "_note": "linked via admissions catalog_averages filiere_key=DROIT",
     "_method": "catalog_averages"
   },
-  "langues": {
+  "langues-ua2": {
     "linkedProgramCodes": [
       "H01LAL01",
       "H01LAL02",
@@ -1025,7 +1025,7 @@
     "_note": "linked via admissions catalog_averages filiere_key=LANGUE FRANCAISE",
     "_method": "catalog_averages"
   },
-  "psych": {
+  "psych-ua2": {
     "linkedProgramCodes": [],
     "allowedStreams": [
       "gestion",
@@ -1046,7 +1046,7 @@
     "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
     "_method": "card_derived"
   },
-  "genie-meca": {
+  "genie-meca-usthb": {
     "linkedProgramCodes": [
       "A19FPN02",
       "A19FPN03",
@@ -1217,7 +1217,7 @@
     "_note": "linked via explicit grande-ecole code_fil; thresholds from grande-ecole code_fil records",
     "_method": "explicit_codefil"
   },
-  "polytech": {
+  "polytech-usto": {
     "linkedProgramCodes": [
       "A00CAN07",
       "A00CAN08"
@@ -1418,7 +1418,7 @@
     "_note": "sciexp corrected from KB admissions 2025 (was wrongly linked via SCIENCES AGRONOMIQUES); math threshold unavailable",
     "_method": "kb_corrected"
   },
-  "st": {
+  "st-usthb": {
     "linkedProgramCodes": [
       "A00LAL01",
       "A00LAL02",
@@ -1548,7 +1548,7 @@
     "_note": "linked via admissions by_filiere filiere_key=OPTIQUE ET MECANIQUE DE PRECISION; thresholds from grande-ecole code_fil records",
     "_method": "extra_filiere_key"
   },
-  "gp": {
+  "gp-usthb": {
     "linkedProgramCodes": [
       "A08FPN01",
       "A08IAN01",
@@ -1632,7 +1632,7 @@
     "_note": "linked via admissions catalog_averages filiere_key=GENIE DES PROCEDES",
     "_method": "catalog_averages"
   },
-  "gi": {
+  "gi-usthb": {
     "linkedProgramCodes": [
       "A18LAN01"
     ],
@@ -1689,7 +1689,7 @@
     "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
     "_method": "card_derived"
   },
-  "gmec": {
+  "gmec-usthb": {
     "linkedProgramCodes": [
       "A10LAN01"
     ],
@@ -1729,7 +1729,7 @@
     "_note": "streams+threshold corrected to card (threshold=card.minAvg; GENIE MARITIME proxy bar replaced by card's marine-eng minAvg); previous registry-inherited values were unreliable",
     "_method": "card_derived_correction"
   },
-  "vet": {
+  "vet-ubt": {
     "linkedProgramCodes": [
       "P04VAL01",
       "P04VAN01",
@@ -1827,7 +1827,7 @@
     "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
     "_method": "card_derived"
   },
-  "med-bio": {
+  "med-bio-ua1": {
     "linkedProgramCodes": [],
     "allowedStreams": [
       "math",
@@ -2533,7 +2533,7 @@
     "_note": "linked via explicit grande-ecole code_fil; thresholds from grande-ecole code_fil records",
     "_method": "explicit_codefil"
   },
-  "sm": {
+  "sm-usthb": {
     "linkedProgramCodes": [
       "B00LAL01",
       "B00LAL02",
@@ -2611,7 +2611,7 @@
     "_note": "linked via admissions catalog_averages filiere_key=SCIENCES DE LA MATIERE; linked via admissions by_filiere filiere_key=PHYSIQUE",
     "_method": "catalog_averages"
   },
-  "ens": {
+  "ens-bouzareah": {
     "linkedProgramCodes": [],
     "allowedStreams": [
       "langues",
@@ -2632,7 +2632,7 @@
     "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
     "_method": "card_derived"
   },
-  "sciences-po": {
+  "sciences-po-ua3": {
     "linkedProgramCodes": [
       "G01LAL01",
       "G01LAL02",
@@ -2720,7 +2720,7 @@
     "_note": "linked via admissions catalog_averages filiere_key=SCIENCES POLITIQUES",
     "_method": "catalog_averages"
   },
-  "traduction": {
+  "traduction-ua2": {
     "linkedProgramCodes": [
       "H03IAL01",
       "H03IAL02",
@@ -2790,7 +2790,7 @@
     "_note": "linked via admissions catalog_averages filiere_key=TRADUCTION",
     "_method": "catalog_averages"
   },
-  "commu": {
+  "commu-ua3": {
     "linkedProgramCodes": [],
     "allowedStreams": [
       "gestion",
@@ -2809,7 +2809,7 @@
     "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
     "_method": "card_derived"
   },
-  "charia": {
+  "charia-ua1": {
     "linkedProgramCodes": [
       "I02PSL01",
       "I20LAL01",
@@ -2887,7 +2887,7 @@
     "_note": "linked via admissions catalog_averages filiere_key=SCIENCES ISLAMIQUES",
     "_method": "catalog_averages"
   },
-  "sciences-hum": {
+  "sciences-hum-ua2": {
     "linkedProgramCodes": [
       "CI1LPN01",
       "CI1LPN02",
@@ -3023,7 +3023,7 @@
     "_note": "streams from curated catalog.js card; no admission data (future/pilot track) - thresholds intentionally empty",
     "_method": "card_derived"
   },
-  "quantum": {
+  "quantum-nhsm": {
     "linkedProgramCodes": [],
     "allowedStreams": [
       "math",
@@ -3288,7 +3288,7 @@
     "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
     "_method": "card_derived"
   },
-  "med-eco": {
+  "med-eco-ufas": {
     "linkedProgramCodes": [],
     "allowedStreams": [
       "math",
@@ -3363,9 +3363,52 @@
     "sourceConfidence": "card-derived",
     "_note": "thresholds/streams derived from curated catalog.js card (threshold=card.minAvg); no official registry row",
     "_method": "card_derived"
+  }  ,
+  "arabic-lit": {
+    "linkedProgramCodes": [],
+    "allowedStreams": ["lettres","langues","arts","sciexp","math","techmath","gestion"],
+    "scope": "regional",
+    "circleWilayaNums": [],
+    "rankingBasis": "general",
+    "thresholdsByStream": {},
+    "sourceConfidence": "high",
+    "_note": "Added via NEW-4",
+    "_method": "manual"
+  },
+  "earth-sci": {
+    "linkedProgramCodes": [],
+    "allowedStreams": ["sciexp","math","techmath"],
+    "scope": "regional",
+    "circleWilayaNums": [],
+    "rankingBasis": "general",
+    "thresholdsByStream": {},
+    "sourceConfidence": "high",
+    "_note": "Added via NEW-4",
+    "_method": "manual"
+  },
+  "geography": {
+    "linkedProgramCodes": [],
+    "allowedStreams": ["lettres","langues","arts","sciexp","math","techmath","gestion"],
+    "scope": "regional",
+    "circleWilayaNums": [],
+    "rankingBasis": "general",
+    "thresholdsByStream": {},
+    "sourceConfidence": "high",
+    "_note": "Added via NEW-4",
+    "_method": "manual"
+  },
+  "staps": {
+    "linkedProgramCodes": [],
+    "allowedStreams": ["lettres","langues","arts","sciexp","math","techmath","gestion"],
+    "scope": "national",
+    "circleWilayaNums": [],
+    "rankingBasis": "general",
+    "thresholdsByStream": {},
+    "sourceConfidence": "high",
+    "_note": "Added via NEW-4",
+    "_method": "manual"
   }
 };
-
   // --- clean 58-wilaya master list (from geographic-circles.json) ---
   var TW_WILAYAS = [
   {

@@ -74,9 +74,9 @@ export default async function handler(req, res) {
         });
       }
 
-      // Validate each ID is a safe string matching known ID pattern
-      const VALID_ID_PATTERN = /^[a-z0-9-]{1,30}$/;
-      if (!specIds.every(id => typeof id === 'string' && VALID_ID_PATTERN.test(id))) {
+      // Validate each ID against the global admissions index (SEC-7)
+      const validIds = getValidIds();
+      if (!specIds.every(id => typeof id === 'string' && validIds.has(id))) {
         return res.status(400).json({ error: 'معرفات التخصصات غير صالحة' });
       }
 

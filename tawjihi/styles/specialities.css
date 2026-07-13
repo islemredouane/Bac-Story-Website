@@ -791,7 +791,7 @@
 }
 .side-cta::after {
     content: ''; position: absolute;
-    top: -40px; right: -40px;
+    top: -40px; inset-inline-end: -40px;
     width: 160px; height: 160px; border-radius: 50%;
     background: radial-gradient(circle, rgba(44, 92, 197, 0.1), transparent 65%);
     pointer-events: none;
@@ -897,7 +897,7 @@
 }
 .detail-section::before {
     content: '';
-    position: absolute; top: -40px; left: -40px;
+    position: absolute; top: -40px; inset-inline-start: -40px;
     width: 160px; height: 160px; border-radius: 50%;
     filter: blur(50px); z-index: 0; opacity: 0.08;
     background: var(--cat, var(--primary));
@@ -905,7 +905,7 @@
 }
 .detail-section::after {
     content: '';
-    position: absolute; bottom: -40px; right: -40px;
+    position: absolute; bottom: -40px; inset-inline-end: -40px;
     width: 160px; height: 160px; border-radius: 50%;
     filter: blur(50px); z-index: 0; opacity: 0.06;
     background: var(--primary);
@@ -925,7 +925,7 @@
 }
 .fact-card::before {
     content: '';
-    position: absolute; top: -40px; left: -40px;
+    position: absolute; top: -40px; inset-inline-start: -40px;
     width: 160px; height: 160px; border-radius: 50%;
     filter: blur(50px); z-index: 0; opacity: 0.08;
     background: var(--cat, var(--primary));
@@ -933,7 +933,7 @@
 }
 .fact-card::after {
     content: '';
-    position: absolute; bottom: -40px; right: -40px;
+    position: absolute; bottom: -40px; inset-inline-end: -40px;
     width: 160px; height: 160px; border-radius: 50%;
     filter: blur(50px); z-index: 0; opacity: 0.06;
     background: var(--primary);

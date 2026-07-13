@@ -281,7 +281,7 @@
 }
 .sim-analysis::after {
     content: ''; position: absolute;
-    bottom: -40px; left: -40px;
+    bottom: -40px; inset-inline-start: -40px;
     width: 200px; height: 200px; border-radius: 50%;
     background: radial-gradient(circle, rgba(44, 92, 197, 0.18), transparent 65%);
     pointer-events: none;
@@ -409,9 +409,9 @@
 @media (max-width: 980px) {
     .sim-layout { grid-template-columns: 1fr; }
     .sim-side { position: static; }
-    /* Swap order on mobile: wishlist at the top, catalog/actions at the bottom */
-    .sim-side { order: 2; }
-    .sim-col:not(.sim-side) { order: 1; }
+    /* Swap order on mobile: catalog/actions at the top, wishlist at the bottom */
+    .sim-side { order: 1; }
+    .sim-col:not(.sim-side) { order: 2; }
     /* Restore scrollability on mobile to keep page layout clean and compact */
     .catalog {
         max-height: 320px;
@@ -485,7 +485,7 @@
         flex-direction: column;
         gap: 2px;
     }
-    .wish-ctrl { width: 40px; height: 40px; }
+    .wish-ctrl { width: 44px; height: 44px; }
     .wish-ctrl.del { order: 3; }
 }
 
@@ -529,20 +529,7 @@
     vertical-align: middle;
 }
 
-/* ---- toast notification ---- */
-.sim-toast {
-    position: fixed;
-    bottom: calc(14px + 64px + var(--sp-4) + env(safe-area-inset-bottom, 0px));
-    left: 50%; transform: translateX(-50%) translateY(20px);
-    background: var(--text); color: var(--bg);
-    padding: var(--sp-3) var(--sp-5); border-radius: var(--r-pill);
-    font-size: var(--fs-sm); font-weight: 700;
-    box-shadow: var(--shadow-lg);
-    z-index: 500;
-    opacity: 0; transition: opacity .25s var(--ease), transform .25s var(--ease);
-    white-space: nowrap; pointer-events: none;
-}
-.sim-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
 
 /* ---- staggered card entrance ---- */
 .sim-col > .sim-card:nth-child(1) { animation-delay: 0ms; }
@@ -613,7 +600,7 @@
 }
 .sim-card::after {
     content: '';
-    position: absolute; bottom: -40px; right: -40px;
+    position: absolute; bottom: -40px; inset-inline-end: -40px;
     width: 150px; height: 150px; border-radius: 50%;
     filter: blur(50px); z-index: 0; opacity: 0.08;
     background: var(--card-theme, var(--primary));
