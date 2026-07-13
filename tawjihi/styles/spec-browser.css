@@ -130,7 +130,7 @@
 /* ---- Search — top, prominent ---- */
 .spec-search-wrap { position: relative; width: 100%; }
 .spec-search-wrap i {
-    position: absolute; inset-inline-end: 1rem; top: 50%; transform: translateY(-50%);
+    position: absolute; inset-inline-end: 0.8rem; top: 50%; transform: translateY(-50%);
     color: var(--text-faint); font-size: 0.95rem; pointer-events: none;
 }
 .spec-search-input {
@@ -161,7 +161,8 @@
     display: flex; flex-wrap: wrap; gap: 0.35rem;
 }
 .filter-chip {
-    display: inline-flex; align-items: center;
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 44px;
     padding: 0.38rem 1rem;
     border-radius: var(--r-pill); border: none;
     color: #fff; font-size: 0.8rem; font-weight: 700;
@@ -384,7 +385,7 @@
 }
 .spec-detail-btn i { font-size: 0.75rem; transition: transform 0.28s cubic-bezier(0.25, 0.8, 0.25, 1); }
 .spec-card:hover .spec-detail-btn { transform: scale(1.03); border-color: var(--card-theme, #2c5cc5); box-shadow: 0 4px 12px color-mix(in srgb, var(--card-theme, #2c5cc5) 20%, transparent); }
-.spec-card:hover .spec-detail-btn i { transform: translateX(4px); }
+.spec-card:hover .spec-detail-btn i { transform: translateX(-4px); }
 
 /* ---- empty state + honesty note ---- */
 .no-results { grid-column: 1 / -1; text-align: center; color: var(--text-faint); padding: var(--sp-8) var(--sp-4); }

@@ -14,7 +14,7 @@
   const PUBLIC_PAGES = ['login.html', 'onboarding.html', 'index.html', ''];
   if (PUBLIC_PAGES.includes(p)) return;
 
-  const twAuth = localStorage.getItem('tw-auth');
+  const twAuth = false; // SEC-8: Local auth is insecure, force Supabase check
 
   // Hide content until auth is confirmed — prevents flash of protected content
   document.body.classList.add('auth-checking');
@@ -24,16 +24,16 @@
     if (typeof tw_supabase !== 'undefined') {
       const { data: { session } } = await tw_supabase.auth.getSession();
       if (session) {
-        localStorage.setItem('tw-auth', JSON.stringify({ provider: 'google', uid: session.user.id }));
+        // SEC-8: tw-auth removed
         document.body.classList.remove('auth-checking');
         if (!localStorage.getItem('tw-profile')) { location.replace('onboarding.html' + location.search); return; }
       } else {
-        localStorage.removeItem('tw-auth');
+        // removed tw-auth
         localStorage.removeItem('tw-profile');
         location.replace('login.html' + location.search); return;
       }
     } else {
-      localStorage.removeItem('tw-auth');
+      // removed tw-auth
       localStorage.removeItem('tw-profile');
       location.replace('login.html' + location.search); return;
     }
@@ -45,7 +45,7 @@
         document.body.classList.remove('auth-checking');
       } else {
         // Session expired — clear local state and redirect
-        localStorage.removeItem('tw-auth');
+        // removed tw-auth
         localStorage.removeItem('tw-profile');
         location.replace('login.html' + location.search); return;
       }

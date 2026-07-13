@@ -1,168 +1,42 @@
-/* ============================================================
-   TAWJIHI — Skeleton shimmer loading screens (MOT-13)
-   Import after tokens.css. Provides .sk-* utility classes
-   for dashboard spec-card rows and chat history loading.
-   ============================================================ */
-
-/* ---- Base shimmer keyframe ---- */
-@keyframes sk-shimmer {
-    0%   { background-position: -600px 0; }
-    100% { background-position: 600px 0; }
+/* ── MOT-13: Skeleton Shimmer Loaders ── */
+.skeleton {
+    background: linear-gradient(90deg, var(--surface) 25%, var(--border) 50%, var(--surface) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: var(--radius-sm);
+    opacity: 0.7;
 }
 
-/* ---- Shimmer mixin (applied via class) ---- */
-.sk-shimmer {
-    background: linear-gradient(
-        90deg,
-        var(--surface-2) 25%,
-        color-mix(in srgb, var(--border) 60%, var(--surface)) 50%,
-        var(--surface-2) 75%
-    );
-    background-size: 600px 100%;
-    animation: sk-shimmer 1.4s ease-in-out infinite;
-    border-radius: var(--r-sm);
+@keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
 }
 
-/* ---- Generic skeleton block ---- */
-.sk-block {
-    display: block;
-    background: var(--surface-2);
-    border-radius: var(--r-sm);
-}
-.sk-block.sk-shimmer { /* already handled above */ }
-
-/* ---- Skeleton card (mirrors spec-card shape) ---- */
-.sk-card {
-    background: var(--surface);
-    border: 1.5px solid var(--border);
-    border-radius: 18px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-}
-
-.sk-card-img {
-    width: 100%;
-    height: 150px;
-    background: var(--surface-2);
-}
-.sk-card-img.sk-shimmer {
-    border-radius: 0;
-}
-
-.sk-card-body {
-    padding: 1.1rem 1.3rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.7rem;
-}
-
-.sk-line {
+.skeleton-text {
     height: 14px;
-    border-radius: var(--r-pill);
-}
-.sk-line-sm  { height: 11px; }
-.sk-line-lg  { height: 18px; }
-.sk-line-xl  { height: 24px; }
-
-.sk-line-w-full  { width: 100%; }
-.sk-line-w-80    { width: 80%; }
-.sk-line-w-60    { width: 60%; }
-.sk-line-w-40    { width: 40%; }
-.sk-line-w-120px { width: 120px; }
-
-/* ---- Skeleton spec-card row (dashboard / chat) ---- */
-.sk-spec-row {
-    display: flex;
-    gap: 0.7em;
-    overflow: hidden;
-    padding-bottom: 4px;
+    margin-bottom: 8px;
+    width: 100%;
 }
 
-.sk-spec-card {
-    flex-shrink: 0;
-    min-width: 160px;
-    max-width: 190px;
-    background: var(--surface);
-    border: 2px solid var(--border);
-    border-radius: 14px;
-    padding: 0.85em 1em;
-    display: flex;
-    flex-direction: column;
-    gap: 0.4em;
+.skeleton-text.short { width: 50%; }
+.skeleton-text.long { width: 80%; }
+
+.skeleton-card {
+    height: 120px;
+    width: 100%;
+    border-radius: var(--radius-md);
 }
 
-/* ---- Skeleton chat history item ---- */
-.sk-hist-item {
-    display: flex;
-    align-items: center;
-    gap: var(--sp-3);
-    padding: var(--sp-3) var(--sp-4);
-    border-radius: var(--r-md);
-}
-
-.sk-avatar {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    flex-shrink: 0;
-}
-
-.sk-hist-text {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: var(--sp-2);
-}
-
-/* ---- Skeleton dashboard stat card ---- */
-.sk-stat-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--r-md);
-    padding: var(--sp-4) var(--sp-5);
-    display: flex;
-    flex-direction: column;
-    gap: var(--sp-3);
-}
-
-.sk-stat-icon {
+.skeleton-avatar {
     width: 40px;
     height: 40px;
-    border-radius: var(--r-sm);
+    border-radius: 50%;
 }
 
-/* ---- Skeleton dashboard grid ---- */
-.sk-grid-4 {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--sp-4);
-}
-
-@media (max-width: 1024px) {
-    .sk-grid-4 { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 600px) {
-    .sk-grid-4 { grid-template-columns: 1fr; }
-    .sk-spec-card { min-width: 140px; }
-}
-
-/* ---- Reduced motion ---- */
-@media (prefers-reduced-motion: reduce) {
-    .sk-shimmer {
-        animation: none;
-        background: var(--surface-2);
-    }
-}
-
-/* ---- Dark mode adjustments ---- */
-[data-theme="dark"] .sk-shimmer {
-    background: linear-gradient(
-        90deg,
-        var(--surface-2) 25%,
-        color-mix(in srgb, var(--border) 80%, var(--surface)) 50%,
-        var(--surface-2) 75%
-    );
-    background-size: 600px 100%;
-    animation: sk-shimmer 1.4s ease-in-out infinite;
+/* AI Chat Loader */
+.msg.ai.skeleton-msg .msg-avatar { background: transparent; }
+.msg.ai.skeleton-msg .msg-body {
+    background: transparent !important;
+    border: none !important;
+    padding: 0;
 }

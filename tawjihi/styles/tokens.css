@@ -149,17 +149,16 @@ img { max-width: 100%; display: block; }
 
 /* ---- Global focus-visible accessibility (UI-7) ---- */
 :focus-visible {
-    outline: none;
-    box-shadow: var(--focus-ring);
-    border-radius: var(--r-sm, 6px);
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
 }
 
 button:focus-visible,
 a:focus-visible,
 [tabindex]:focus-visible,
 select:focus-visible {
-    outline: none;
-    box-shadow: var(--focus-ring);
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
 }
 
 input:focus-visible,

@@ -1,0 +1,1611 @@
+[
+  {
+    "catalogId": "esi-esi",
+    "parentId": "esi",
+    "uniAbbr": "ESI",
+    "matchCount": 1,
+    "minimaRows": [
+      {
+        "code": "C00CAN01",
+        "name_fr": "FB INF ECOLE NATIONALE SUPERIEURE EN INFORMATIQUE ALGER",
+        "institution_fr": "ECOLE NATIONALE SUPERIEURE EN INFORMATIQUE ALGER",
+        "min1": 18.19,
+        "min2": 18.55,
+        "min3": 18.93,
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "catalogId": "esi-ensia",
+    "parentId": "esi",
+    "uniAbbr": "ENSIA",
+    "matchCount": 1,
+    "minimaRows": [
+      {
+        "code": "C00CAN04",
+        "name_fr": "FB INF ECOLE NATIONALE SUPERIEURE EN INTELLIGENCE ARTIFICIELLE ALGER",
+        "institution_fr": "ECOLE NATIONALE SUPERIEURE EN INTELLIGENCE ARTIFICIELLE",
+        "min1": 18.59,
+        "min2": 18.95,
+        "min3": 19.37,
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "catalogId": "esi-esi-sba",
+    "parentId": "esi",
+    "uniAbbr": "ESI-SBA",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "esi-estin",
+    "parentId": "esi",
+    "uniAbbr": "ESTIN",
+    "matchCount": 1,
+    "minimaRows": [
+      {
+        "code": "C00CAN03",
+        "name_fr": "FB INF ECOLE SUPERIEURE EN SCIENCES ET TECHNOLOGIES DE L INFORMATIQUE ET DU NUMERIQUE BEJAIA",
+        "institution_fr": "E.S EN SCIENCES ET TECHNOLOGIES DE L INFORMATIQUE ET DU NUMERIQUE BEJAIA",
+        "min1": 17.45,
+        "min2": 17.79,
+        "min3": 18.15,
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "catalogId": "esi-usthb",
+    "parentId": "esi",
+    "uniAbbr": "USTHB",
+    "matchCount": 17,
+    "minimaRows": [
+      {
+        "code": "A00LAL03",
+        "name_fr": "SCIENCES ET TECHNOLOGIES",
+        "institution_fr": "USTHB",
+        "min1": 12.66,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      },
+      {
+        "code": "A00TCL02",
+        "name_fr": "SCIENCES ET TECHNOLOGIES",
+        "institution_fr": "USTHB",
+        "min1": 13.87,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      },
+      {
+        "code": "A05TCL01",
+        "name_fr": "GENIE CIVIL",
+        "institution_fr": "USTHB",
+        "min1": 12.78,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "catalogId": "ensia",
+    "parentId": null,
+    "uniAbbr": "ENSIA",
+    "matchCount": 1,
+    "minimaRows": [
+      {
+        "code": "C00CAN04",
+        "name_fr": "FB INF ECOLE NATIONALE SUPERIEURE EN INTELLIGENCE ARTIFICIELLE ALGER",
+        "institution_fr": "ECOLE NATIONALE SUPERIEURE EN INTELLIGENCE ARTIFICIELLE",
+        "min1": 18.59,
+        "min2": 18.95,
+        "min3": 19.37,
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "catalogId": "estin",
+    "parentId": null,
+    "uniAbbr": "ESTIN",
+    "matchCount": 1,
+    "minimaRows": [
+      {
+        "code": "C00CAN03",
+        "name_fr": "FB INF ECOLE SUPERIEURE EN SCIENCES ET TECHNOLOGIES DE L INFORMATIQUE ET DU NUMERIQUE BEJAIA",
+        "institution_fr": "E.S EN SCIENCES ET TECHNOLOGIES DE L INFORMATIQUE ET DU NUMERIQUE BEJAIA",
+        "min1": 17.45,
+        "min2": 17.79,
+        "min3": 18.15,
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "catalogId": "med-",
+    "parentId": "med",
+    "uniAbbr": "وطني",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "med-ua1",
+    "parentId": "med",
+    "uniAbbr": "UA1",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "med-uca3",
+    "parentId": "med",
+    "uniAbbr": "UCA3",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "med-uo1",
+    "parentId": "med",
+    "uniAbbr": "UO1",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "med-ufas1",
+    "parentId": "med",
+    "uniAbbr": "UFAS1",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "pharm-",
+    "parentId": "pharm",
+    "uniAbbr": "وطني",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "pharm-ua1",
+    "parentId": "pharm",
+    "uniAbbr": "UA1",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "pharm-uca3",
+    "parentId": "pharm",
+    "uniAbbr": "UCA3",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "pharm-uo1",
+    "parentId": "pharm",
+    "uniAbbr": "UO1",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "dent-",
+    "parentId": "dent",
+    "uniAbbr": "وطني",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "dent-ua1",
+    "parentId": "dent",
+    "uniAbbr": "UA1",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "dent-uca3",
+    "parentId": "dent",
+    "uniAbbr": "UCA3",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "dent-uo1",
+    "parentId": "dent",
+    "uniAbbr": "UO1",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "archi-epau",
+    "parentId": "archi",
+    "uniAbbr": "EPAU",
+    "matchCount": 1,
+    "minimaRows": [
+      {
+        "code": "N00CAN01",
+        "name_fr": "FB SP ECOLE POLYTECHNIQUE D ARCHITECTURE ET D URBANISME ALGER",
+        "institution_fr": "ECOLE POLYTECHNIQUE D ARCHITECTURE ET D URBANISME ALGER",
+        "min1": 16.54,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "catalogId": "archi-usto",
+    "parentId": "archi",
+    "uniAbbr": "USTO",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "info-usthb",
+    "parentId": "info",
+    "uniAbbr": "USTHB",
+    "matchCount": 17,
+    "minimaRows": [
+      {
+        "code": "A00LAL03",
+        "name_fr": "SCIENCES ET TECHNOLOGIES",
+        "institution_fr": "USTHB",
+        "min1": 12.66,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      },
+      {
+        "code": "A00TCL02",
+        "name_fr": "SCIENCES ET TECHNOLOGIES",
+        "institution_fr": "USTHB",
+        "min1": 13.87,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      },
+      {
+        "code": "A05TCL01",
+        "name_fr": "GENIE CIVIL",
+        "institution_fr": "USTHB",
+        "min1": 12.78,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "catalogId": "info-uca2",
+    "parentId": "info",
+    "uniAbbr": "UCA2",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "info-uo1",
+    "parentId": "info",
+    "uniAbbr": "UO1",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "esc",
+    "parentId": null,
+    "uniAbbr": "ESC",
+    "matchCount": 1,
+    "minimaRows": [
+      {
+        "code": "F00CAN05",
+        "name_fr": "FB SECSG ECOLE SUPERIEURE DE COMMERCE KOLEA",
+        "institution_fr": "ECOLE SUPERIEURE DE COMMERCE KOLEA",
+        "min1": 16.02,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "catalogId": "eco-uabm",
+    "parentId": "eco",
+    "uniAbbr": "UABM",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "eco-uca2",
+    "parentId": "eco",
+    "uniAbbr": "UCA2",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "bio-ubma",
+    "parentId": "bio",
+    "uniAbbr": "UBMA",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "bio-uca1",
+    "parentId": "bio",
+    "uniAbbr": "UCA1",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "math-uca1",
+    "parentId": "math",
+    "uniAbbr": "UCA1",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "math-ua3",
+    "parentId": "math",
+    "uniAbbr": "UA3",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "education",
+    "parentId": null,
+    "uniAbbr": "UA2",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "genie-civil-usthb",
+    "parentId": "genie-civil",
+    "uniAbbr": "USTHB",
+    "matchCount": 17,
+    "minimaRows": [
+      {
+        "code": "A00LAL03",
+        "name_fr": "SCIENCES ET TECHNOLOGIES",
+        "institution_fr": "USTHB",
+        "min1": 12.66,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      },
+      {
+        "code": "A00TCL02",
+        "name_fr": "SCIENCES ET TECHNOLOGIES",
+        "institution_fr": "USTHB",
+        "min1": 13.87,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      },
+      {
+        "code": "A05TCL01",
+        "name_fr": "GENIE CIVIL",
+        "institution_fr": "USTHB",
+        "min1": 12.78,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "catalogId": "genie-civil-uca2",
+    "parentId": "genie-civil",
+    "uniAbbr": "UCA2",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "genie-civil-uo1",
+    "parentId": "genie-civil",
+    "uniAbbr": "UO1",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "genie-elec-usthb",
+    "parentId": "genie-elec",
+    "uniAbbr": "USTHB",
+    "matchCount": 17,
+    "minimaRows": [
+      {
+        "code": "A00LAL03",
+        "name_fr": "SCIENCES ET TECHNOLOGIES",
+        "institution_fr": "USTHB",
+        "min1": 12.66,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      },
+      {
+        "code": "A00TCL02",
+        "name_fr": "SCIENCES ET TECHNOLOGIES",
+        "institution_fr": "USTHB",
+        "min1": 13.87,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      },
+      {
+        "code": "A05TCL01",
+        "name_fr": "GENIE CIVIL",
+        "institution_fr": "USTHB",
+        "min1": 12.78,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "catalogId": "genie-elec-uo1",
+    "parentId": "genie-elec",
+    "uniAbbr": "UO1",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "genie-elec-uca1",
+    "parentId": "genie-elec",
+    "uniAbbr": "UCA1",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "droit-ua2",
+    "parentId": "droit",
+    "uniAbbr": "UA2",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "droit-uca2",
+    "parentId": "droit",
+    "uniAbbr": "UCA2",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "droit-uo1",
+    "parentId": "droit",
+    "uniAbbr": "UO1",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "langues-ua2",
+    "parentId": "langues",
+    "uniAbbr": "UA2",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "langues-uca3",
+    "parentId": "langues",
+    "uniAbbr": "UCA3",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "psych-ua2",
+    "parentId": "psych",
+    "uniAbbr": "UA2",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "psych-uca3",
+    "parentId": "psych",
+    "uniAbbr": "UCA3",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "psych-uo2",
+    "parentId": "psych",
+    "uniAbbr": "UO2",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "genie-meca-usthb",
+    "parentId": "genie-meca",
+    "uniAbbr": "USTHB",
+    "matchCount": 17,
+    "minimaRows": [
+      {
+        "code": "A00LAL03",
+        "name_fr": "SCIENCES ET TECHNOLOGIES",
+        "institution_fr": "USTHB",
+        "min1": 12.66,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      },
+      {
+        "code": "A00TCL02",
+        "name_fr": "SCIENCES ET TECHNOLOGIES",
+        "institution_fr": "USTHB",
+        "min1": 13.87,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      },
+      {
+        "code": "A05TCL01",
+        "name_fr": "GENIE CIVIL",
+        "institution_fr": "USTHB",
+        "min1": 12.78,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "catalogId": "genie-meca-usto",
+    "parentId": "genie-meca",
+    "uniAbbr": "USTO",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "genie-meca-uca1",
+    "parentId": "genie-meca",
+    "uniAbbr": "UCA1",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "esi-sba",
+    "parentId": null,
+    "uniAbbr": "ESI-SBA",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "enscs",
+    "parentId": null,
+    "uniAbbr": "ENSCS",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "ensttic",
+    "parentId": null,
+    "uniAbbr": "ENSTTIC",
+    "matchCount": 1,
+    "minimaRows": [
+      {
+        "code": "A00TUT01",
+        "name_fr": "TECHNOLOGIES DE L INFORMATION DE LA COMMUNICATION ET DE LA NUMERISATION",
+        "institution_fr": "ECOLE NATIONALE SUPERIEURE DES TECHNOLOGIES DE L INFORMATION ET DE LA COMMUNICATION ET LA POSTE",
+        "min1": 17.17,
+        "min2": 18.41,
+        "min3": null,
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "catalogId": "nhsm",
+    "parentId": null,
+    "uniAbbr": "NHSM",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "polytech-usto",
+    "parentId": "polytech",
+    "uniAbbr": "USTO",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "polytech-uca1",
+    "parentId": "polytech",
+    "uniAbbr": "UCA1",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "enstp",
+    "parentId": null,
+    "uniAbbr": "ENSTP",
+    "matchCount": 1,
+    "minimaRows": [
+      {
+        "code": "A00CAN06",
+        "name_fr": "FB ST ECOLE NATIONALE SUPERIEURE DES TRAVAUX PUBLICS ALGER",
+        "institution_fr": "ECOLE NATIONALE SUPERIEURE DES TRAVAUX PUBLICS ALGER",
+        "min1": 16.12,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "catalogId": "ensh",
+    "parentId": null,
+    "uniAbbr": "ENSH",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "igee",
+    "parentId": null,
+    "uniAbbr": "IGEE",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "essa",
+    "parentId": null,
+    "uniAbbr": "ESSA",
+    "matchCount": 97,
+    "minimaRows": [
+      {
+        "code": "A00LAL01",
+        "name_fr": "SCIENCES ET TECHNOLOGIES",
+        "institution_fr": "UNIV. TEBESSA",
+        "min1": null,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      },
+      {
+        "code": "A00TCL01",
+        "name_fr": "SCIENCES ET TECHNOLOGIES",
+        "institution_fr": "UNIV. TEBESSA",
+        "min1": null,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      },
+      {
+        "code": "A01LAN01",
+        "name_fr": "GENIE MINIER",
+        "institution_fr": "UNIV. TEBESSA",
+        "min1": null,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "catalogId": "enssn",
+    "parentId": null,
+    "uniAbbr": "ENSSN",
+    "matchCount": 1,
+    "minimaRows": [
+      {
+        "code": "A00CAN14",
+        "name_fr": "FB ST ECOLE NATIONALE SUPERIEURE DES NANOSCIENCES ET NANOTECHENOLOGIES ALGER",
+        "institution_fr": "ECOLE NATIONALE SUPERIEURE DES NANOSCIENCES ET NANOTECHENOLOGIES",
+        "min1": 17.96,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "catalogId": "ensas",
+    "parentId": null,
+    "uniAbbr": "ENSAS",
+    "matchCount": 1,
+    "minimaRows": [
+      {
+        "code": "A00CAN13",
+        "name_fr": "FB ST ECOLE NATIONALE SUPERIEURE DES SYSTEMES AUTONOMES ALGER",
+        "institution_fr": "ECOLE NATIONALE SUPERIEURE DES SYSTEMES AUTONOMES",
+        "min1": 18.21,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "catalogId": "st-usthb",
+    "parentId": "st",
+    "uniAbbr": "USTHB",
+    "matchCount": 17,
+    "minimaRows": [
+      {
+        "code": "A00LAL03",
+        "name_fr": "SCIENCES ET TECHNOLOGIES",
+        "institution_fr": "USTHB",
+        "min1": 12.66,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      },
+      {
+        "code": "A00TCL02",
+        "name_fr": "SCIENCES ET TECHNOLOGIES",
+        "institution_fr": "USTHB",
+        "min1": 13.87,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      },
+      {
+        "code": "A05TCL01",
+        "name_fr": "GENIE CIVIL",
+        "institution_fr": "USTHB",
+        "min1": 12.78,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "catalogId": "st-uca1",
+    "parentId": "st",
+    "uniAbbr": "UCA1",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "hydrocarbures",
+    "parentId": null,
+    "uniAbbr": "UMBB",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "optique",
+    "parentId": null,
+    "uniAbbr": "UFAS",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "gp-usthb",
+    "parentId": "gp",
+    "uniAbbr": "USTHB",
+    "matchCount": 17,
+    "minimaRows": [
+      {
+        "code": "A00LAL03",
+        "name_fr": "SCIENCES ET TECHNOLOGIES",
+        "institution_fr": "USTHB",
+        "min1": 12.66,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      },
+      {
+        "code": "A00TCL02",
+        "name_fr": "SCIENCES ET TECHNOLOGIES",
+        "institution_fr": "USTHB",
+        "min1": 13.87,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      },
+      {
+        "code": "A05TCL01",
+        "name_fr": "GENIE CIVIL",
+        "institution_fr": "USTHB",
+        "min1": 12.78,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "catalogId": "gp-usto",
+    "parentId": "gp",
+    "uniAbbr": "USTO",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "gi-usthb",
+    "parentId": "gi",
+    "uniAbbr": "USTHB",
+    "matchCount": 17,
+    "minimaRows": [
+      {
+        "code": "A00LAL03",
+        "name_fr": "SCIENCES ET TECHNOLOGIES",
+        "institution_fr": "USTHB",
+        "min1": 12.66,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      },
+      {
+        "code": "A00TCL02",
+        "name_fr": "SCIENCES ET TECHNOLOGIES",
+        "institution_fr": "USTHB",
+        "min1": 13.87,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      },
+      {
+        "code": "A05TCL01",
+        "name_fr": "GENIE CIVIL",
+        "institution_fr": "USTHB",
+        "min1": 12.78,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "catalogId": "gi-uca1",
+    "parentId": "gi",
+    "uniAbbr": "UCA1",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "gt",
+    "parentId": null,
+    "uniAbbr": "USTHB",
+    "matchCount": 17,
+    "minimaRows": [
+      {
+        "code": "A00LAL03",
+        "name_fr": "SCIENCES ET TECHNOLOGIES",
+        "institution_fr": "USTHB",
+        "min1": 12.66,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      },
+      {
+        "code": "A00TCL02",
+        "name_fr": "SCIENCES ET TECHNOLOGIES",
+        "institution_fr": "USTHB",
+        "min1": 13.87,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      },
+      {
+        "code": "A05TCL01",
+        "name_fr": "GENIE CIVIL",
+        "institution_fr": "USTHB",
+        "min1": 12.78,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "catalogId": "gm",
+    "parentId": null,
+    "uniAbbr": "USTHB",
+    "matchCount": 17,
+    "minimaRows": [
+      {
+        "code": "A00LAL03",
+        "name_fr": "SCIENCES ET TECHNOLOGIES",
+        "institution_fr": "USTHB",
+        "min1": 12.66,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      },
+      {
+        "code": "A00TCL02",
+        "name_fr": "SCIENCES ET TECHNOLOGIES",
+        "institution_fr": "USTHB",
+        "min1": 13.87,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      },
+      {
+        "code": "A05TCL01",
+        "name_fr": "GENIE CIVIL",
+        "institution_fr": "USTHB",
+        "min1": 12.78,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "catalogId": "gmec-usthb",
+    "parentId": "gmec",
+    "uniAbbr": "USTHB",
+    "matchCount": 17,
+    "minimaRows": [
+      {
+        "code": "A00LAL03",
+        "name_fr": "SCIENCES ET TECHNOLOGIES",
+        "institution_fr": "USTHB",
+        "min1": 12.66,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      },
+      {
+        "code": "A00TCL02",
+        "name_fr": "SCIENCES ET TECHNOLOGIES",
+        "institution_fr": "USTHB",
+        "min1": 13.87,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      },
+      {
+        "code": "A05TCL01",
+        "name_fr": "GENIE CIVIL",
+        "institution_fr": "USTHB",
+        "min1": 12.78,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "catalogId": "gmec-usto",
+    "parentId": "gmec",
+    "uniAbbr": "USTO",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "marine-eng",
+    "parentId": null,
+    "uniAbbr": "USTO",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "vet-ubt",
+    "parentId": "vet",
+    "uniAbbr": "UBT",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "vet-ua1",
+    "parentId": "vet",
+    "uniAbbr": "UA1",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "pharm-ind",
+    "parentId": null,
+    "uniAbbr": "Univ",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "med-bio-ua1",
+    "parentId": "med-bio",
+    "uniAbbr": "UA1",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "med-bio-uca3",
+    "parentId": "med-bio",
+    "uniAbbr": "UCA3",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "med-info",
+    "parentId": null,
+    "uniAbbr": "Univ",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "ensb",
+    "parentId": null,
+    "uniAbbr": "ENSB",
+    "matchCount": 1,
+    "minimaRows": [
+      {
+        "code": "D00CAN10",
+        "name_fr": "FB SP ECOLE NATIONALE SUPERIEURE DE BIOTECHNOLOGIE DE CONSTANTINE",
+        "institution_fr": "ECOLE NATIONALE SUPERIEURE DE BIOTECHNOLOGIE DE CONSTANTINE",
+        "min1": 15.67,
+        "min2": 16.55,
+        "min3": null,
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "catalogId": "enssmal",
+    "parentId": null,
+    "uniAbbr": "ENSSMAL",
+    "matchCount": 1,
+    "minimaRows": [
+      {
+        "code": "D00CAN11",
+        "name_fr": "FB SP ECOLE NATIONALE SUPERIEURE DES SCIENCES DE LA MER ET DE L AMENAGEMENT DU LITTORAL D ALGER",
+        "institution_fr": "ECOLE NATIONALE SUP. DES SCI. DE LA MER ET DE L AMENAGEMENT DU LITTORAL ALGER",
+        "min1": 14.45,
+        "min2": 15.17,
+        "min3": null,
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "catalogId": "kine",
+    "parentId": null,
+    "uniAbbr": "IFCS",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "labo",
+    "parentId": null,
+    "uniAbbr": "IFCS",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "radio",
+    "parentId": null,
+    "uniAbbr": "IFCS",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "sage-femme",
+    "parentId": null,
+    "uniAbbr": "IFCS",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "paramedical",
+    "parentId": null,
+    "uniAbbr": "IFCS",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "ehec",
+    "parentId": null,
+    "uniAbbr": "EHEC",
+    "matchCount": 1,
+    "minimaRows": [
+      {
+        "code": "F00CAN06",
+        "name_fr": "FB SECSG ECOLE DES HAUTES ETUDES COMMERCIALES KOLEA",
+        "institution_fr": "ECOLE DES HAUTES ETUDES COMMERCIALES KOLEA",
+        "min1": 15.78,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "catalogId": "enssea",
+    "parentId": null,
+    "uniAbbr": "ENSSEA",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "esb",
+    "parentId": null,
+    "uniAbbr": "ESB",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "esm",
+    "parentId": null,
+    "uniAbbr": "ESM",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "ensa-agro",
+    "parentId": null,
+    "uniAbbr": "ENSA",
+    "matchCount": 1,
+    "minimaRows": [
+      {
+        "code": "D00CAN07",
+        "name_fr": "FB SNV ECOLE NATIONALE SUPERIEURE AGRONOMIQUE ALGER",
+        "institution_fr": "ECOLE NATIONALE SUPERIEURE AGRONOMIQUE ALGER",
+        "min1": 14.91,
+        "min2": 15.68,
+        "min3": null,
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "catalogId": "sm-usthb",
+    "parentId": "sm",
+    "uniAbbr": "USTHB",
+    "matchCount": 17,
+    "minimaRows": [
+      {
+        "code": "A00LAL03",
+        "name_fr": "SCIENCES ET TECHNOLOGIES",
+        "institution_fr": "USTHB",
+        "min1": 12.66,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      },
+      {
+        "code": "A00TCL02",
+        "name_fr": "SCIENCES ET TECHNOLOGIES",
+        "institution_fr": "USTHB",
+        "min1": 13.87,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      },
+      {
+        "code": "A05TCL01",
+        "name_fr": "GENIE CIVIL",
+        "institution_fr": "USTHB",
+        "min1": 12.78,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "catalogId": "sm-uca1",
+    "parentId": "sm",
+    "uniAbbr": "UCA1",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "ens-ens-bz",
+    "parentId": "ens",
+    "uniAbbr": "ENS-BZ",
+    "matchCount": 391,
+    "minimaRows": [
+      {
+        "code": "H01PPL01",
+        "name_fr": "FRANCAIS (P.E.P) -- pour bacheliers BLIDA",
+        "institution_fr": "UNIVERSITE DE BLIDA 2 (ECOLE NORMALE SUPERIEURE DE BOUZAREAH)",
+        "min1": 13.02,
+        "min2": 13.29,
+        "min3": null,
+        "confidence": "high"
+      },
+      {
+        "code": "H01PSL01",
+        "name_fr": "LANGUE FRANCAISE (P.E.S) -- pour bacheliers BLIDA",
+        "institution_fr": "UNIVERSITE DE BLIDA 2 (ECOLE NORMALE SUPERIEURE DE BOUZAREAH)",
+        "min1": null,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      },
+      {
+        "code": "H06PSL01",
+        "name_fr": "LANGUE ANGLAISE (P.E.S) -- pour bacheliers BLIDA",
+        "institution_fr": "UNIVERSITE DE BLIDA 2 (ECOLE NORMALE SUPERIEURE DE BOUZAREAH)",
+        "min1": 15.27,
+        "min2": 16.05,
+        "min3": null,
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "catalogId": "ens-ens-cst",
+    "parentId": "ens",
+    "uniAbbr": "ENS-CST",
+    "matchCount": 259,
+    "minimaRows": [
+      {
+        "code": "B00PML01",
+        "name_fr": "SCIENCES PHYSIQUE ET TECHNOLOGIE (P.E.M) -- pour bacheliers TEBESSA",
+        "institution_fr": "ANNEXE TEBESSA (ECOLE NORMALE SUPERIEURE DE CONSTANTINE)",
+        "min1": 14.55,
+        "min2": 15.27,
+        "min3": null,
+        "confidence": "high"
+      },
+      {
+        "code": "B00PML01",
+        "name_fr": "SCIENCES PHYSIQUE ET TECHNOLOGIE (P.E.M) -- pour bacheliers GUELMA",
+        "institution_fr": "ANNEXE TEBESSA (ECOLE NORMALE SUPERIEURE DE CONSTANTINE)",
+        "min1": 14.83,
+        "min2": 15.47,
+        "min3": null,
+        "confidence": "high"
+      },
+      {
+        "code": "C02PML01",
+        "name_fr": "MATHEMATIQUES (P.E.M) -- pour bacheliers TEBESSA",
+        "institution_fr": "ANNEXE TEBESSA (ECOLE NORMALE SUPERIEURE DE CONSTANTINE)",
+        "min1": 14.32,
+        "min2": 15.09,
+        "min3": null,
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "catalogId": "ens-ens-or",
+    "parentId": "ens",
+    "uniAbbr": "ENS-OR",
+    "matchCount": 226,
+    "minimaRows": [
+      {
+        "code": "B00PML01",
+        "name_fr": "SCIENCES PHYSIQUE ET TECHNOLOGIE (P.E.M) -- pour bacheliers TLEMCEN",
+        "institution_fr": "ANNEXE TLEMCEN (ECOLE NORMALE SUPERIEURE D ORAN)",
+        "min1": 14.91,
+        "min2": 15.55,
+        "min3": null,
+        "confidence": "high"
+      },
+      {
+        "code": "B00PML01",
+        "name_fr": "SCIENCES PHYSIQUE ET TECHNOLOGIE (P.E.M) -- pour bacheliers NAAMA",
+        "institution_fr": "ANNEXE TLEMCEN (ECOLE NORMALE SUPERIEURE D ORAN)",
+        "min1": null,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      },
+      {
+        "code": "B00PSL01",
+        "name_fr": "SCIENCES PHYSIQUES (P.E.S.) -- pour bacheliers TLEMCEN",
+        "institution_fr": "ANNEXE TLEMCEN (ECOLE NORMALE SUPERIEURE D ORAN)",
+        "min1": 15.59,
+        "min2": 16.41,
+        "min3": null,
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "catalogId": "sciences-po-ua3",
+    "parentId": "sciences-po",
+    "uniAbbr": "UA3",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "sciences-po-uca2",
+    "parentId": "sciences-po",
+    "uniAbbr": "UCA2",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "traduction-ua2",
+    "parentId": "traduction",
+    "uniAbbr": "UA2",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "traduction-uca3",
+    "parentId": "traduction",
+    "uniAbbr": "UCA3",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "commu-ua3",
+    "parentId": "commu",
+    "uniAbbr": "UA3",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "commu-uabm",
+    "parentId": "commu",
+    "uniAbbr": "UABM",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "charia-ua1",
+    "parentId": "charia",
+    "uniAbbr": "UA1",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "charia-uca1",
+    "parentId": "charia",
+    "uniAbbr": "UCA1",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "sciences-hum-ua2",
+    "parentId": "sciences-hum",
+    "uniAbbr": "UA2",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "sciences-hum-uo2",
+    "parentId": "sciences-hum",
+    "uniAbbr": "UO2",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "med-ai",
+    "parentId": null,
+    "uniAbbr": "Pilot",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "it-int",
+    "parentId": null,
+    "uniAbbr": "Partnership",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "space-tech",
+    "parentId": null,
+    "uniAbbr": "ASAL",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "quantum-nhsm",
+    "parentId": "quantum",
+    "uniAbbr": "NHSM",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "quantum-usthb",
+    "parentId": "quantum",
+    "uniAbbr": "USTHB",
+    "matchCount": 17,
+    "minimaRows": [
+      {
+        "code": "A00LAL03",
+        "name_fr": "SCIENCES ET TECHNOLOGIES",
+        "institution_fr": "USTHB",
+        "min1": 12.66,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      },
+      {
+        "code": "A00TCL02",
+        "name_fr": "SCIENCES ET TECHNOLOGIES",
+        "institution_fr": "USTHB",
+        "min1": 13.87,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      },
+      {
+        "code": "A05TCL01",
+        "name_fr": "GENIE CIVIL",
+        "institution_fr": "USTHB",
+        "min1": 12.78,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "catalogId": "digital-agro",
+    "parentId": null,
+    "uniAbbr": "ENSA",
+    "matchCount": 1,
+    "minimaRows": [
+      {
+        "code": "D00CAN07",
+        "name_fr": "FB SNV ECOLE NATIONALE SUPERIEURE AGRONOMIQUE ALGER",
+        "institution_fr": "ECOLE NATIONALE SUPERIEURE AGRONOMIQUE ALGER",
+        "min1": 14.91,
+        "min2": 15.68,
+        "min3": null,
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "catalogId": "ensta",
+    "parentId": null,
+    "uniAbbr": "ENSTA",
+    "matchCount": 2,
+    "minimaRows": [
+      {
+        "code": "A00CAN15",
+        "name_fr": "FB ST ECOLE NATIONALE SUPERIEURE DES TECHNOLOGIES AVANCEES ALGER",
+        "institution_fr": "ECOLE NATIONALE SUPERIEURE DES TECHNOLOGIES AVANCEES ALGER",
+        "min1": 17.15,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      },
+      {
+        "code": "C00CAN06",
+        "name_fr": "FB INF ECOLE NATIONALE SUPERIEURE DES TECHNOLOGIES AVANCEES ALGER",
+        "institution_fr": "ECOLE NATIONALE SUPERIEURE DES TECHNOLOGIES AVANCEES ALGER",
+        "min1": 17.39,
+        "min2": 17.75,
+        "min3": 18.1,
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "catalogId": "ensee",
+    "parentId": null,
+    "uniAbbr": "ENSEE",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "hnsre",
+    "parentId": null,
+    "uniAbbr": "HNSRE",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "aeronautique",
+    "parentId": null,
+    "uniAbbr": "UB1",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "esgen",
+    "parentId": null,
+    "uniAbbr": "ESGEN",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "essg",
+    "parentId": null,
+    "uniAbbr": "ESSG",
+    "matchCount": 1,
+    "minimaRows": [
+      {
+        "code": "F00CAN01",
+        "name_fr": "FB SECSG ECOLE SUPERIEURE DES SCIENCES DE GESTION DE ANNABA",
+        "institution_fr": "ECOLE SUPERIEURE DES SCIENCES DE GESTION DE ANNABA",
+        "min1": 14.71,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "catalogId": "escf",
+    "parentId": null,
+    "uniAbbr": "ESCF",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "ese",
+    "parentId": null,
+    "uniAbbr": "ESE",
+    "matchCount": 1,
+    "minimaRows": [
+      {
+        "code": "F00CAN04",
+        "name_fr": "FB SECSG ECOLE SUPERIEURE DE D ECONOMIE D ORAN",
+        "institution_fr": "ECOLE SUPERIEURE D ECONOMIE D ORAN",
+        "min1": 14.63,
+        "min2": null,
+        "min3": null,
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "catalogId": "essaia",
+    "parentId": null,
+    "uniAbbr": "ESSAIA",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "essb",
+    "parentId": null,
+    "uniAbbr": "ESSB",
+    "matchCount": 1,
+    "minimaRows": [
+      {
+        "code": "D00CAN08",
+        "name_fr": "FB SNV ECOLE SUPERIEURE DES SCIENCES BIOLOGIQUES D ORAN",
+        "institution_fr": "ECOLE SUPERIEURE DES SCIENCES BIOLOGIQUES D ORAN",
+        "min1": 15.05,
+        "min2": 15.88,
+        "min3": null,
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "catalogId": "isp",
+    "parentId": null,
+    "uniAbbr": "IFCS",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "dental-prosthetist",
+    "parentId": null,
+    "uniAbbr": "IFCS",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "psychomotricien",
+    "parentId": null,
+    "uniAbbr": "IFCS",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "med-eco-ufas",
+    "parentId": "med-eco",
+    "uniAbbr": "UFAS",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "med-eco-uqk",
+    "parentId": "med-eco",
+    "uniAbbr": "UQK",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "med-psy",
+    "parentId": null,
+    "uniAbbr": "UABB",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "tech-media",
+    "parentId": null,
+    "uniAbbr": "UA3",
+    "matchCount": 0,
+    "minimaRows": []
+  },
+  {
+    "catalogId": "math-eco",
+    "parentId": null,
+    "uniAbbr": "UA1",
+    "matchCount": 0,
+    "minimaRows": []
+  }
+]

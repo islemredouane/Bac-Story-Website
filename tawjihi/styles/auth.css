@@ -284,27 +284,7 @@
 .auth-guest:hover { background: rgba(255,255,255,.06); color: #a8c4ff; }
 .auth-guest i { color: #7aa0f0; }
 
-/* ---- Toast ---- */
-.auth-toast {
-    position: fixed;
-    bottom: calc(var(--sp-6) + env(safe-area-inset-bottom, 0px));
-    left: 50%;
-    transform: translateX(-50%) translateY(80px);
-    background: var(--brand-blue);
-    color: #fff;
-    padding: 10px 22px;
-    border-radius: var(--r-pill);
-    font-family: var(--font-ui);
-    font-weight: 800;
-    font-size: var(--fs-sm);
-    box-shadow: 0 6px 24px rgba(0,0,0,.4);
-    transition: transform var(--t-mid) var(--ease-out);
-    z-index: var(--z-toast, 9999);
-    white-space: nowrap;
-    pointer-events: none;
-}
-.auth-toast.is-visible { transform: translateX(-50%) translateY(0); }
-.auth-toast.is-error { background: #ef4444; }
+
 
 /* ---- Responsive ---- */
 @media (max-width: 480px) {

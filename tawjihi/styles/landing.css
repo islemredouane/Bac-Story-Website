@@ -473,8 +473,8 @@
     background: var(--grad-accent);
     box-shadow: 0 8px 22px color-mix(in srgb, var(--brand-orange) 35%, transparent);
 }
-.step-card h3 { font-size: var(--fs-lg); }
-.step-card p { color: var(--text-muted); font-size: var(--fs-sm); margin-top: var(--sp-2); }
+.step-card h3 { font-size: var(--fs-lg); line-height: 1.3; }
+.step-card p { color: var(--text-muted); font-size: var(--fs-sm); line-height: 1.6; margin-top: var(--sp-2); }
 
 /* ── SCROLL STACK — step cards pile up on top of each other as you scroll.
    Each card is sticky with a slightly lower top, so the cards behind peek
@@ -558,8 +558,8 @@
     border: 1px solid color-mix(in srgb, var(--accent) 28%, transparent);
     padding: 2px 10px; border-radius: var(--r-pill); margin-bottom: var(--sp-2);
 }
-.feat-card h3 { font-size: var(--fs-lg); }
-.feat-card p { color: var(--text-muted); font-size: var(--fs-sm); margin-top: var(--sp-2); }
+.feat-card h3 { font-size: var(--fs-lg); line-height: 1.3; }
+.feat-card p { color: var(--text-muted); font-size: var(--fs-sm); line-height: 1.6; margin-top: var(--sp-2); }
 .feat-list { list-style: none; margin-top: var(--sp-3); display: flex; flex-direction: column; gap: var(--sp-2); }
 .feat-list li { font-size: var(--fs-sm); color: var(--text-muted); display: flex; align-items: center; gap: var(--sp-2); }
 .feat-list i { color: var(--cat-science); font-size: .8rem; }
@@ -592,12 +592,15 @@
     box-shadow: 0 4px 14px color-mix(in srgb, var(--cat, var(--primary)) 14%, transparent);
     white-space: nowrap;
     transition: box-shadow var(--t-fast), border-color var(--t-fast);
+    -webkit-tap-highlight-color: transparent;
 }
 .cat-badge i { color: var(--cat, var(--primary)); }
 .cat-badge:hover {
     border-color: color-mix(in srgb, var(--cat, var(--primary)) 50%, transparent);
     box-shadow: 0 8px 22px color-mix(in srgb, var(--cat, var(--primary)) 26%, transparent);
 }
+
+section[id] { scroll-margin-top: 80px; }
 
 /* ============================================================
    SOCIAL PROOF + FAQ

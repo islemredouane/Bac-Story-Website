@@ -32,31 +32,31 @@
 
 | ID | Task | File | Status |
 |----|------|------|--------|
-| SEC-1 | Wildcard CORS `Access-Control-Allow-Origin: *` on all API routes in vercel.json and all handlers | vercel.json + all api/*.js | [ ] |
-| SEC-2 | Client `profile` body injected into system prompt without server validation → prompt injection attack vector | api/tawjihi-chat.js | [ ] |
-| SEC-3 | Referral race condition: concurrent redemptions both read refs_count=5, both write 6 (lost update) | api/tawjihi-referral.js | [ ] |
-| SEC-4 | No per-user referral redemption limit — unlimited credit farming possible | api/tawjihi-referral.js | [ ] |
-| SEC-5 | Credit decremented BEFORE Groq API call → permanently lost on every Groq failure with no rollback | api/tawjihi-chat.js | [ ] |
+| SEC-1 | Wildcard CORS `Access-Control-Allow-Origin: *` on all API routes in vercel.json and all handlers | vercel.json + all api/*.js | [x] |
+| SEC-2 | Client `profile` body injected into system prompt without server validation → prompt injection attack vector | api/tawjihi-chat.js | [x] |
+| SEC-3 | Referral race condition: concurrent redemptions both read refs_count=5, both write 6 (lost update) | api/tawjihi-referral.js | [x] |
+| SEC-4 | No per-user referral redemption limit — unlimited credit farming possible | api/tawjihi-referral.js | [x] |
+| SEC-5 | Credit decremented BEFORE Groq API call → permanently lost on every Groq failure with no rollback | api/tawjihi-chat.js | [x] |
 
 ### iOS / MOBILE CRITICAL
 
 | ID | Task | File | Status |
 |----|------|------|--------|
-| IOS-1 | `main { height: 100vh }` → iOS keyboard viewport doesn't shrink, composer slides under keyboard | styles/app.css | [ ] |
-| IOS-2 | `composer-wrap` missing `env(safe-area-inset-bottom)` → send button hidden behind iPhone home indicator | styles/app.css | [ ] |
-| IOS-3 | `sim-toast { bottom: var(--sp-6) }` blocked by bottom nav pill (78px) → toast never visible on mobile | styles/simulator.css | [ ] |
-| IOS-4 | Dashboard import `<textarea>` inherits `direction: rtl` → base64 code paste renders corrupted (should be `dir="ltr"`) | dashboard.html | [ ] |
+| IOS-1 | `main { height: 100vh }` → iOS keyboard viewport doesn't shrink, composer slides under keyboard | styles/app.css | [x] |
+| IOS-2 | `composer-wrap` missing `env(safe-area-inset-bottom)` → send button hidden behind iPhone home indicator | styles/app.css | [x] |
+| IOS-3 | `sim-toast { bottom: var(--sp-6) }` blocked by bottom nav pill (78px) → toast never visible on mobile | styles/simulator.css | [x] |
+| IOS-4 | Dashboard import `<textarea>` inherits `direction: rtl` → base64 code paste renders corrupted (should be `dir="ltr"`) | dashboard.html | [x] |
 
 ### UI CRITICAL
 
 | ID | Task | File | Status |
 |----|------|------|--------|
-| UI-1 | Progress ring always shows 80% — JS sets innerHTML but never calls `style.setProperty('--ring-pct', pct+'%')` | dashboard.html | [ ] |
-| UI-2 | `#3b82f6` hardcoded non-token color in specialities.css (lines 657, 685, 713) — no dark mode, not in tokens | styles/specialities.css | [ ] |
-| UI-3 | `--text-faint: #98a2b3` on `--bg: #f6f8fc` = 2.7:1 contrast ratio — WCAG AA fail for all meta/legal/hint text | styles/tokens.css | [ ] |
-| UI-4 | Landing footer links "دليل التخصصات" and "محاكي" both point to `app.html` instead of `specialities.html` and `simulator.html` | index.html | [ ] |
-| UI-5 | Pattaya font has NO Arabic glyphs → "توجيهي" logo and countdown render in system fallback font | styles/tokens.css + all HTML | [ ] |
-| UI-6 | History panel `right: 0; transform: translateX(100%)` slides from wrong edge in RTL context | styles/app.css | [ ] |
+| UI-1 | Progress ring always shows 80% — JS sets innerHTML but never calls `style.setProperty('--ring-pct', pct+'%')` | dashboard.html | [x] |
+| UI-2 | `#3b82f6` hardcoded non-token color in specialities.css (lines 657, 685, 713) — no dark mode, not in tokens | styles/specialities.css | [x] |
+| UI-3 | `--text-faint: #98a2b3` on `--bg: #f6f8fc` = 2.7:1 contrast ratio — WCAG AA fail for all meta/legal/hint text | styles/tokens.css | [x] |
+| UI-4 | Landing footer links "دليل التخصصات" and "محاكي" both point to `app.html` instead of `specialities.html` and `simulator.html` | index.html | [x] |
+| UI-5 | Pattaya font has NO Arabic glyphs → "توجيهي" logo and countdown render in system fallback font | styles/tokens.css + all HTML | [x] |
+| UI-6 | History panel `right: 0; transform: translateX(100%)` slides from wrong edge in RTL context | styles/app.css | [x] |
 
 ---
 
@@ -91,11 +91,11 @@
 
 | ID | Task | File | Status |
 |----|------|------|--------|
-| SEC-6 | `tawjihi-search.js` has no authentication and no rate limiting — entire admissions index exposed | api/tawjihi-search.js | [ ] |
-| SEC-7 | `tawjihi-wishlist.js` specIds elements not validated against catalog allowlist | api/tawjihi-wishlist.js | [ ] |
-| SEC-8 | `tw-auth` localStorage entry is unsigned, permanent, never expires — wrong auth truth (should use Supabase session only) | shell.js | [ ] |
-| SEC-9 | Supabase message inserts queued after `res.end()` → killed by Vercel runtime before write completes | api/tawjihi-chat.js | [ ] |
-| SEC-10 | Per-request credits table upsert on every chat message hot path — move new-user seed to sign-in event | api/tawjihi-chat.js | [ ] |
+| SEC-6 | `tawjihi-search.js` has no authentication and no rate limiting — entire admissions index exposed | api/tawjihi-search.js | [x] |
+| SEC-7 | `tawjihi-wishlist.js` specIds elements not validated against catalog allowlist | api/tawjihi-wishlist.js | [x] |
+| SEC-8 | `tw-auth` localStorage entry is unsigned, permanent, never expires — wrong auth truth (should use Supabase session only) | shell.js | [x] |
+| SEC-9 | Supabase message inserts queued after `res.end()` → killed by Vercel runtime before write completes | api/tawjihi-chat.js | [x] |
+| SEC-10 | Per-request credits table upsert on every chat message hot path — move new-user seed to sign-in event | api/tawjihi-chat.js | [x] |
 
 ### UI / UX
 
@@ -182,10 +182,10 @@
 
 | ID | Task | File | Status |
 |----|------|------|--------|
-| RTL-1 | `.spec-detail-btn i { transform: translateX(-4px) }` wrong direction on hover in RTL (should be `+4px`) | styles/spec-browser.css | [ ] |
-| RTL-2 | `.dash-fiche li:hover { transform: translateX(-3px/-4px) }` wrong direction in RTL (should be `+3px`) | styles/dashboard.css + styles/dashboard-fx.css | [ ] |
-| RTL-3 | `dash-card::after { right: -40px }` uses physical property — decorative glow on wrong corner in RTL | styles/dashboard.css | [ ] |
-| RTL-4 | `.spec-search-wrap i { right: 0.8rem }` uses physical property — should be `inset-inline-end` | styles/spec-browser.css | [ ] |
+| RTL-1 | `.spec-detail-btn i { transform: translateX(-4px) }` wrong direction on hover in RTL (should be `+4px`) | styles/spec-browser.css | [x] |
+| RTL-2 | `.dash-fiche li:hover { transform: translateX(-3px/-4px) }` wrong direction in RTL (should be `+3px`) | styles/dashboard.css + styles/dashboard-fx.css | [x] |
+| RTL-3 | `dash-card::after { right: -40px }` uses physical property — decorative glow on wrong corner in RTL | styles/dashboard.css | [x] |
+| RTL-4 | `.spec-search-wrap i { right: 0.8rem }` uses physical property — should be `inset-inline-end` | styles/spec-browser.css | [x] |
 
 ### RESPONSIVE
 

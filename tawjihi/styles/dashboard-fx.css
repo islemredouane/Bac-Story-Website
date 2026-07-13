@@ -193,7 +193,7 @@
                 border-color var(--t-fast) var(--ease);
 }
 .dash-fiche li:not(.dash-fiche-more):hover {
-    transform: translateX(-4px);
+    transform: translateX(4px);
     border-color: color-mix(in srgb, var(--primary) 32%, var(--border));
 }
 .dash-fiche-grip {

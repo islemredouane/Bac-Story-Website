@@ -1112,7 +1112,7 @@
     bar.querySelector('[title="نسخ"]').addEventListener('click', e => {
       const btn = e.currentTarget;
       navigator.clipboard?.writeText(btn.closest('.msg-body').querySelector('.msg-text').innerText);
-      btn.innerHTML = '<i class="fas fa-check"></i>';
+      btn.innerHTML = '<i class="fas fa-check check-pop"></i>';
       setTimeout(() => { btn.innerHTML = '<i class="fas fa-copy"></i>'; }, 1800);
     });
 
@@ -1134,6 +1134,9 @@
     bar.querySelectorAll('[title="مفيد"],[title="غير مفيد"]').forEach(b =>
       b.addEventListener('click', async () => {
         b.classList.toggle('liked');
+        b.classList.remove('pulse-scale');
+        void b.offsetWidth;
+        b.classList.add('pulse-scale');
         const isLiked = b.classList.contains('liked');
         try {
           const profile = getProfile();
