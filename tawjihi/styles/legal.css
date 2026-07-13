@@ -107,7 +107,7 @@
     width: 220px;
     flex-shrink: 0;
     position: sticky;
-    top: calc(var(--topbar-h) + var(--sp-4));
+    top: 120px;
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--r-lg);
