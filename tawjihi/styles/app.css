@@ -1601,6 +1601,7 @@
     color: var(--primary) !important;
 }
 [data-theme="dark"] .sidebar-logo-brand { color: #fff !important; }
+[data-theme="dark"] .sidebar-logo-svg { color: #fff !important; }
 
 /* ── Active nav item — premium left-border accent ─────────── */
 .nav-item.active {
