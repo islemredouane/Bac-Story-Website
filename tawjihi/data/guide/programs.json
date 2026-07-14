@@ -2,7 +2,7 @@
  "programs": [
   {
    "code": "A00CAN02",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "ت.ق. ع. ت.- المدرسة العليا للعلوم التطبيقية - تلمسان",
    "institutions_ar": [],
    "scope": "national",
@@ -30,7 +30,7 @@
   },
   {
    "code": "A00CAN03",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "ت.ق. ع. ت.- المدرسة العليا في الهندسة الكهربائية والطاقوية-وهران",
    "institutions_ar": [],
    "scope": "national",
@@ -58,7 +58,7 @@
   },
   {
    "code": "A00CAN04",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "ت.ق. ع. ت.- المدرسة الوطنية المتعددة التقنيات - الجزائر",
    "institutions_ar": [],
    "scope": "national",
@@ -86,7 +86,7 @@
   },
   {
    "code": "A00CAN05",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "ت.ق. ع. ت.- المدرسة الوطنية العليا للري- البليدة",
    "institutions_ar": [],
    "scope": "national",
@@ -114,7 +114,7 @@
   },
   {
    "code": "A00CAN06",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "ت.ق. ع. ت.- المدرسة الوطنية العليا لألشغال العمومية- الجزائر",
    "institutions_ar": [],
    "scope": "national",
@@ -142,7 +142,7 @@
   },
   {
    "code": "A00CAN07",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "ت.ق. ع. ت.- المدرسة الوطنية العليا المتعددة التقنيات- قسنطينة",
    "institutions_ar": [],
    "scope": "national",
@@ -170,7 +170,7 @@
   },
   {
    "code": "A00CAN08",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "ت.ق. ع. ت.- المدرسة الوطنية المتعددة التقنيات - وهران",
    "institutions_ar": [],
    "scope": "national",
@@ -198,7 +198,7 @@
   },
   {
    "code": "A00CAN12",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "المستدامة بباتنة ت.ق. ع. ت.- المدرسة الوطنية العليا للطاقات المتجددة والبيئة والتنمية",
    "institutions_ar": [],
    "scope": "national",
@@ -226,7 +226,7 @@
   },
   {
    "code": "A00CAN13",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "المستقلة - الجزائر* ت.ق. ع. ت.- المدرسة الوطنية العليا لألنظمة",
    "institutions_ar": [],
    "scope": "national",
@@ -254,7 +254,7 @@
   },
   {
    "code": "A00CAN14",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "والنانو تكنولوجيا - الجزائر* ت.ق. ع. ت.- المدرسة الوطنية العليا لعلوم النانو",
    "institutions_ar": [],
    "scope": "national",
@@ -282,7 +282,7 @@
   },
   {
    "code": "A00CAN15",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "ت.ق. ع. ت.- المدرسة الوطنية العليا للتكنولوجيا المتقدمة -الجزائر",
    "institutions_ar": [],
    "scope": "national",
@@ -310,7 +310,7 @@
   },
   {
    "code": "A00CAN16",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "ت.ق. ع. ت.- المدرسة الوطنية العليا للتكنولوجيا والهندسة -عنابة",
    "institutions_ar": [],
    "scope": "national",
@@ -592,7 +592,7 @@
   },
   {
    "code": "A00TCL01",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "علوم وتكنولوجيا",
    "institutions_ar": [
     "جامعة قسنطينة1",
@@ -651,7 +651,7 @@
   },
   {
    "code": "A00TCL02",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "علوم وتكنولوجيا",
    "institutions_ar": [
     "جامعة بجاية",
@@ -706,7 +706,7 @@
   },
   {
    "code": "A00TCL03",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "علوم وتكنولوجيا",
    "institutions_ar": [
     "جامعة العلوم والتكنولوجيا وهران",
@@ -760,7 +760,7 @@
   },
   {
    "code": "A00TCN01",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "",
    "institutions_ar": [],
    "scope": "national",
@@ -769,13 +769,13 @@
    "rankingBasis": null,
    "minThreshold": null,
    "conditions_ar": "",
-   "_note": "streams_unresolved: code not seen in tables; scope_from_code_suffix",
+   "_note": "index-only — no detail row in circulaire",
    "_confidence": "medium",
    "_page": 24
   },
   {
    "code": "A01LAN01",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "هندسة منجم ية",
    "institutions_ar": [
     "جامعة تبسة"
@@ -805,7 +805,7 @@
   },
   {
    "code": "A01LAN02",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "هندسة منجم ية",
    "institutions_ar": [
     "جامعة عنابة"
@@ -865,7 +865,7 @@
   },
   {
    "code": "A02IAN01",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "آلية",
    "institutions_ar": [
     "جامعة بومرداس"
@@ -895,7 +895,7 @@
   },
   {
    "code": "A02LAN01",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "ألية",
    "institutions_ar": [
     "جامعة العلوم والتكنولوجيا وهران"
@@ -925,7 +925,7 @@
   },
   {
    "code": "A02TPN01",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "",
    "institutions_ar": [],
    "scope": "national",
@@ -953,7 +953,7 @@
   },
   {
    "code": "A03FPN02",
-   "field_ar": "ميدان التكوين",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "محروقات",
    "institutions_ar": [
     "جامعة ورقلة"
@@ -979,11 +979,12 @@
    "conditions_ar": "يتم الترتيب على أساس المعدل الموزون المحسوب أو ال معدل العام المحصل عليه في امتحان البكالوريا اللذان ينبغي أن يساويان أو يفوقان 20 / 13.00",
    "_note": "no_explicit_priority+carried_cell",
    "_confidence": "high",
-   "_page": 23
+   "_page": 23,
+   "_field_note": "field derived from code-letter majority (header leak in source)"
   },
   {
    "code": "A03FPN03",
-   "field_ar": "ميدان التكوين",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "ميكانيك الورشات البترولية",
    "institutions_ar": [
     "جامعة ورقلة"
@@ -1009,11 +1010,12 @@
    "conditions_ar": "يتم الترتيب على أساس المعدل الموزون المحسوب أو ال معدل العام المحصل عليه في امتحان البكالوريا اللذان ينبغي أن يساويان أو يفوقان 20 / 13.00",
    "_note": "no_explicit_priority+carried_cell",
    "_confidence": "high",
-   "_page": 23
+   "_page": 23,
+   "_field_note": "field derived from code-letter majority (header leak in source)"
   },
   {
    "code": "A03LAN01",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "محروقات",
    "institutions_ar": [
     "جامعة بومرداس"
@@ -1043,7 +1045,7 @@
   },
   {
    "code": "A03LAN02",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "محروقات",
    "institutions_ar": [
     "جامعة ورقلة"
@@ -1073,7 +1075,7 @@
   },
   {
    "code": "A04LAL01",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "تعدين",
    "institutions_ar": [
     "جامعة عنابة"
@@ -1134,7 +1136,7 @@
   },
   {
    "code": "A04LAL02",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "تعدين",
    "institutions_ar": [
     "جامعة العلوم والتكنولوجيا وهران"
@@ -1193,7 +1195,7 @@
   },
   {
    "code": "A05IAN01",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "هندسة مدنية",
    "institutions_ar": [
     "جامعة ا لأ غواط"
@@ -1223,7 +1225,7 @@
   },
   {
    "code": "A05IAN02",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "طرق وشبكات مختلفة",
    "institutions_ar": [
     "جامعة ا لأ غواط"
@@ -1253,22 +1255,38 @@
   },
   {
    "code": "A05PSL01",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "أستاذ التعليم الثانوي في الهندسة المدنية",
-   "institutions_ar": [],
+   "institutions_ar": [
+    "المدرسة العليا لأساتذة التعليم التقني بسكيكدة",
+    "ملحقة معسكر (المدرسة العليا للأستاذة بسعيدة)"
+   ],
    "scope": "regional",
    "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
+   "allowedStreams": [
+    {
+     "stream": "techmath",
+     "priority": 1
+    },
+    {
+     "stream": "math",
+     "priority": 2
+    },
+    {
+     "stream": "sciexp",
+     "priority": 2
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": 12.0,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا؛ الأولوية 1 (تقني رياضي تخصص هندسة مدنية): المعدل ≥ 12.00/20؛ الأولوية 2 (تقني رياضي التخصصات الأخرى، رياضيات، علوم تجريبية): المعدل ≥ 13.00/20",
+   "_note": "ENS annexe 09 — تسجيل محلي حسب ولاية شهادة البكالوريا؛ ملاحق وأقسام بجامعات تستقبل حسب الولاية (انظر الملحق 09)؛ العتبة حسب الأولوية: 12.00 للأولوية 1 و13.00 للأولوية 2",
+   "_confidence": "high",
+   "_page": 167
   },
   {
    "code": "A05TCL01",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "هندسة مدنية",
    "institutions_ar": [
     "المركز الجامعي البيض",
@@ -1387,7 +1405,7 @@
   },
   {
    "code": "A05TCL02",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "هندسة مدنية",
    "institutions_ar": [
     "جامعة تلمسان",
@@ -1413,7 +1431,7 @@
   },
   {
    "code": "A05TCL09",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "هندسة مدنية",
    "institutions_ar": [
     "جامعة البلي دة0"
@@ -1438,7 +1456,7 @@
   },
   {
    "code": "A05TCN00",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "",
    "institutions_ar": [],
    "scope": "national",
@@ -1447,13 +1465,13 @@
    "rankingBasis": null,
    "minThreshold": null,
    "conditions_ar": "",
-   "_note": "streams_unresolved: code not seen in tables; scope_from_code_suffix",
+   "_note": "index-only — no detail row in circulaire",
    "_confidence": "medium",
    "_page": 24
   },
   {
    "code": "A05TPN02",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "",
    "institutions_ar": [],
    "scope": "national",
@@ -1481,7 +1499,7 @@
   },
   {
    "code": "A06IAN01",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "طيران",
    "institutions_ar": [
     "جامعة العلوم والتكنولوجيا وهران"
@@ -1511,7 +1529,7 @@
   },
   {
    "code": "A06LAN01",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "طيران",
    "institutions_ar": [
     "جامعة البليدة1"
@@ -1541,7 +1559,7 @@
   },
   {
    "code": "A07IAN01",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "الكتروميكانيك",
    "institutions_ar": [
     "جامعة وهران2"
@@ -1571,7 +1589,7 @@
   },
   {
    "code": "A07IAN02",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "إلكت رو ميكانيك",
    "institutions_ar": [
     "جامعة بومرداس"
@@ -1601,7 +1619,7 @@
   },
   {
    "code": "A07LAN01",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "إلكت روميكانيك",
    "institutions_ar": [
     "جامعة برج بوعريريج"
@@ -1692,7 +1710,7 @@
   },
   {
    "code": "A08IAN01",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "هندسة الطرائق",
    "institutions_ar": [
     "جامعة الم دية"
@@ -1722,7 +1740,7 @@
   },
   {
    "code": "A08IAN02",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "هندسة الطرائق",
    "institutions_ar": [
     "جامعة سطيف1"
@@ -1752,37 +1770,68 @@
   },
   {
    "code": "A08PAN01",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "",
-   "institutions_ar": [],
+   "institutions_ar": [
+    "المدرسة العليا لأساتذة الصم البكم"
+   ],
    "scope": "national",
    "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
+   "allowedStreams": [
+    {
+     "stream": "techmath",
+     "priority": 1
+    },
+    {
+     "stream": "math",
+     "priority": 2
+    },
+    {
+     "stream": "sciexp",
+     "priority": 2
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": 12.0,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا؛ الأولوية 1 (تقني رياضي تخصص هندسة الطرائق): المعدل ≥ 12.00/20؛ الأولوية 2 (تقني رياضي التخصصات الأخرى، رياضيات، علوم تجريبية): المعدل ≥ 13.00/20",
+   "_note": "ENS annexe 09 — المدرسة العليا لأساتذة الصم البكم؛ تسجيل وطني؛ العتبة حسب الأولوية: 12.00 للأولوية 1 و13.00 للأولوية 2",
+   "_confidence": "high",
+   "_page": 168
   },
   {
    "code": "A08PSL01",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "أستاذ التعليم الثانوي في هندسة الطرائق",
-   "institutions_ar": [],
+   "institutions_ar": [
+    "المدرسة العليا لأساتذة التعليم التقني بسكيكدة",
+    "ملحقة معسكر (المدرسة العليا للأستاذة بسعيدة)"
+   ],
    "scope": "regional",
    "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
+   "allowedStreams": [
+    {
+     "stream": "techmath",
+     "priority": 1
+    },
+    {
+     "stream": "math",
+     "priority": 2
+    },
+    {
+     "stream": "sciexp",
+     "priority": 2
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": 12.0,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا؛ الأولوية 1 (تقني رياضي تخصص هندسة الطرائق): المعدل ≥ 12.00/20؛ الأولوية 2 (تقني رياضي التخصصات الأخرى، رياضيات، علوم تجريبية): المعدل ≥ 13.00/20",
+   "_note": "ENS annexe 09 — تسجيل محلي حسب ولاية شهادة البكالوريا؛ ملاحق وأقسام بجامعات تستقبل حسب الولاية (انظر الملحق 09)؛ العتبة حسب الأولوية: 12.00 للأولوية 1 و13.00 للأولوية 2",
+   "_confidence": "high",
+   "_page": 167
   },
   {
    "code": "A08TCL01",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "- - - هندسة الطرائق",
    "institutions_ar": [
     "جامعة يلة م",
@@ -1884,7 +1933,7 @@
   },
   {
    "code": "A08TCL02",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "- - - هندسة الطرائق",
    "institutions_ar": [
     "جامعة العلوم والتكنولوجيا وهران",
@@ -1917,7 +1966,7 @@
   },
   {
    "code": "A08TCL09",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "- - - هندسة الطرائق",
    "institutions_ar": [
     "جامعة البليدة1"
@@ -1972,7 +2021,7 @@
   },
   {
    "code": "A09FPN01",
-   "field_ar": "ميدان التكوين",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "ط طاقات متجددة",
    "institutions_ar": [
     "جامعة ال مسيلة"
@@ -1998,11 +2047,12 @@
    "conditions_ar": "يتم الترتيب على أساس المعدل الموزون المحسوب أو المعدل العام المحصل عليه في امتحان البكالوريا اللذان ينبغي أن يساويان أو يفوقان 20/10.00",
    "_note": "no_explicit_priority+carried_cell",
    "_confidence": "high",
-   "_page": 23
+   "_page": 23,
+   "_field_note": "field derived from code-letter majority (header leak in source)"
   },
   {
    "code": "A09FPN02",
-   "field_ar": "ميدان التكوين",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "طاقات متجددة تطبيقية",
    "institutions_ar": [
     "جامعة ورقلة"
@@ -2028,11 +2078,12 @@
    "conditions_ar": "يتم الترتيب على أساس المعدل الموزون المحسوب أو المعدل العام المحصل عليه في امتحان البكالوريا اللذان ينبغي أن يساويان أو يفوقان 20/10.00",
    "_note": "no_explicit_priority+carried_cell",
    "_confidence": "high",
-   "_page": 23
+   "_page": 23,
+   "_field_note": "field derived from code-letter majority (header leak in source)"
   },
   {
    "code": "A09FPN03",
-   "field_ar": "ميدان التكوين",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "ط طاقات متجددة",
    "institutions_ar": [
     "جامعة غرداية"
@@ -2058,11 +2109,12 @@
    "conditions_ar": "يتم الترتيب على أساس المعدل الموزون المحسوب أو المعدل العام المحصل عليه في امتحان البكالوريا اللذان ينبغي أن يساويان أو يفوقان 20/10.00",
    "_note": "no_explicit_priority+carried_cell",
    "_confidence": "high",
-   "_page": 23
+   "_page": 23,
+   "_field_note": "field derived from code-letter majority (header leak in source)"
   },
   {
    "code": "A09IAN01",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "إلكت روتقني ا",
    "institutions_ar": [
     "جامعة العلوم والتكنولوجيا وهران"
@@ -2092,7 +2144,7 @@
   },
   {
    "code": "A09IAN02",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "طاقات متج ددة",
    "institutions_ar": [
     "جامعة البليدة1"
@@ -2122,7 +2174,7 @@
   },
   {
    "code": "A09IAN03",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "تحويل كهروضوئي",
    "institutions_ar": [
     "جامعة البليدة1"
@@ -2152,7 +2204,7 @@
   },
   {
    "code": "A09IAN04",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "إلكت روتقني",
    "institutions_ar": [
     "جامعة ا لأ غواط"
@@ -2182,7 +2234,7 @@
   },
   {
    "code": "A10LAN01",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "هندسة بحرية",
    "institutions_ar": [
     "جامعة العلوم والتكنولوجيا وهران"
@@ -2212,7 +2264,7 @@
   },
   {
    "code": "A11FPL01",
-   "field_ar": "ميدان التكوين",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "بصريات وميكانيك الدقة",
    "institutions_ar": [
     "جامعة سطيف1"
@@ -2265,11 +2317,12 @@
    "conditions_ar": "يتم الترتيب على أساس المعدل الموزون المحسوب أو المعدل العام المحصل عليه في امتحا ن البكالوريا اللذان ينبغي أن يساويان أو يفوقان00.44 / 24",
    "_note": "no_explicit_priority+carried_cell",
    "_confidence": "high",
-   "_page": 23
+   "_page": 23,
+   "_field_note": "field derived from code-letter majority (header leak in source)"
   },
   {
    "code": "A11FPL03",
-   "field_ar": "ميدان التكوين",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "بصريات وميكانيك الدقة",
    "institutions_ar": [
     "جامعة العلوم والتكنولوجيا هواري بومدين"
@@ -2328,11 +2381,12 @@
    "conditions_ar": "يتم الترتيب على أساس المعدل الموزون المحسوب أو المعدل العام المحصل عليه في امتحا ن البكالوريا اللذان ينبغي أن يساويان أو يفوقان00.44 / 24",
    "_note": "no_explicit_priority+carried_cell",
    "_confidence": "high",
-   "_page": 23
+   "_page": 23,
+   "_field_note": "field derived from code-letter majority (header leak in source)"
   },
   {
    "code": "A11FPN02",
-   "field_ar": "ميدان التكوين",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "علم القياس ورقابة صناعية",
    "institutions_ar": [
     "جامعة سطيف1"
@@ -2358,11 +2412,12 @@
    "conditions_ar": "يتم الترتيب على أساس المعدل الموزون المحسوب أو المعدل العام المحصل عليه في امتحا ن البكالوريا اللذان ينبغي أن يساويان أو يفوقان00.44 / 24",
    "_note": "no_explicit_priority+carried_cell",
    "_confidence": "high",
-   "_page": 23
+   "_page": 23,
+   "_field_note": "field derived from code-letter majority (header leak in source)"
   },
   {
    "code": "A11IAN03",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "بصريات وميكانيك الدقة",
    "institutions_ar": [
     "جامعة سطيف1"
@@ -2392,7 +2447,7 @@
   },
   {
    "code": "A11LAN01",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "بصريات وميكانيك الدقة",
    "institutions_ar": [
     "جامعة سطيف1"
@@ -2422,7 +2477,7 @@
   },
   {
    "code": "A11TPN01",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "",
    "institutions_ar": [],
    "scope": "national",
@@ -2450,7 +2505,7 @@
   },
   {
    "code": "A11TPN02",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "",
    "institutions_ar": [],
    "scope": "national",
@@ -2478,7 +2533,7 @@
   },
   {
    "code": "A11TPN03",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "",
    "institutions_ar": [],
    "scope": "national",
@@ -2506,7 +2561,7 @@
   },
   {
    "code": "A11TPN04",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "",
    "institutions_ar": [],
    "scope": "national",
@@ -2534,7 +2589,7 @@
   },
   {
    "code": "A12FPN01",
-   "field_ar": "ميدان التكوين",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "ري",
    "institutions_ar": [
     "جامعة قالمة"
@@ -2560,11 +2615,12 @@
    "conditions_ar": "يتم الترتيب على أساس المعدل الموزون المحسوب أو المعدل العام المحصل عليه في امتحان البكالوريا اللذان ين بغي أن يساويان أو يفوقان20 / 11.00",
    "_note": "no_explicit_priority+carried_cell",
    "_confidence": "high",
-   "_page": 23
+   "_page": 23,
+   "_field_note": "field derived from code-letter majority (header leak in source)"
   },
   {
    "code": "A12LAL01",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "ري",
    "institutions_ar": [
     "جامعة بجاية"
@@ -2613,7 +2669,7 @@
   },
   {
    "code": "A12LAL02",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "ري",
    "institutions_ar": [
     "جامعة بسكرة"
@@ -2665,7 +2721,7 @@
   },
   {
    "code": "A12LAL03",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "ري",
    "institutions_ar": [
     "العلوم جامعة والتكنولوجيا وهران"
@@ -2745,7 +2801,7 @@
   },
   {
    "code": "A13IAN01",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "صناعات بتروكيمياوية",
    "institutions_ar": [
     "جامعة سكيكدة"
@@ -2775,7 +2831,7 @@
   },
   {
    "code": "A13LAN01",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "صناع ات بتروكيميائية",
    "institutions_ar": [
     "جامعة سكيكدة"
@@ -2835,7 +2891,7 @@
   },
   {
    "code": "A14FPN02",
-   "field_ar": "ميدان التكوين",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "هندسة النقل",
    "institutions_ar": [
     "جامعة قسنطينة1"
@@ -2861,11 +2917,12 @@
    "conditions_ar": "يتم الترتيب على أساس المعدل الموزون المحس وب أو المعدل العام المحصل عليه في امتحان البكالوريا اللذان ينبغي يفوقان أو يساويان أن 20/11.00",
    "_note": "no_explicit_priority+carried_cell",
    "_confidence": "high",
-   "_page": 22
+   "_page": 22,
+   "_field_note": "field derived from code-letter majority (header leak in source)"
   },
   {
    "code": "A14LAN01",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "هندسة النقل",
    "institutions_ar": [
     "جامعة قسنطينة1"
@@ -2895,7 +2952,7 @@
   },
   {
    "code": "A15IAN01",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "أشغال عمومية",
    "institutions_ar": [
     "جامعة ا لأ غواط"
@@ -2955,7 +3012,7 @@
   },
   {
    "code": "A16FPN02",
-   "field_ar": "ميدان التكوين",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "إلكت روتقني",
    "institutions_ar": [
     "جامعة قالمة"
@@ -2981,11 +3038,12 @@
    "conditions_ar": "يتم الترتيب على أساس المعدل الموزون المحسوب أو المعدل العام المحصل عليه في امتحان البكالوريا اللذان ينبغي أن يساويان أو يفوقان 20/10.00",
    "_note": "no_explicit_priority+carried_cell",
    "_confidence": "high",
-   "_page": 22
+   "_page": 22,
+   "_field_note": "field derived from code-letter majority (header leak in source)"
   },
   {
    "code": "A16IAN01",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "إلكتروتقني",
    "institutions_ar": [
     "جامعة سيدي بلعباس"
@@ -3015,7 +3073,7 @@
   },
   {
    "code": "A16LAN01",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "إلكت روتقني",
    "institutions_ar": [
     "جامعة بسكرة"
@@ -3045,37 +3103,68 @@
   },
   {
    "code": "A16PAN01",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "",
-   "institutions_ar": [],
+   "institutions_ar": [
+    "المدرسة العليا لأساتذة الصم البكم"
+   ],
    "scope": "national",
    "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
+   "allowedStreams": [
+    {
+     "stream": "techmath",
+     "priority": 1
+    },
+    {
+     "stream": "math",
+     "priority": 2
+    },
+    {
+     "stream": "sciexp",
+     "priority": 2
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": 12.0,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا؛ الأولوية 1 (تقني رياضي تخصص هندسة كهربائية): المعدل ≥ 12.00/20؛ الأولوية 2 (تقني رياضي التخصصات الأخرى، رياضيات، علوم تجريبية): المعدل ≥ 13.00/20",
+   "_note": "ENS annexe 09 — المدرسة العليا لأساتذة الصم البكم؛ تسجيل وطني؛ العتبة حسب الأولوية: 12.00 للأولوية 1 و13.00 للأولوية 2",
+   "_confidence": "high",
+   "_page": 168
   },
   {
    "code": "A16PSL01",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "أستاذ التعليم الثانوي في الهندسة الكهربائية",
-   "institutions_ar": [],
+   "institutions_ar": [
+    "المدرسة العليا لأساتذة التعليم التقني بسكيكدة",
+    "ملحقة معسكر (المدرسة العليا للأستاذة بسعيدة)"
+   ],
    "scope": "regional",
    "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
+   "allowedStreams": [
+    {
+     "stream": "techmath",
+     "priority": 1
+    },
+    {
+     "stream": "math",
+     "priority": 2
+    },
+    {
+     "stream": "sciexp",
+     "priority": 2
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": 12.0,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا؛ الأولوية 1 (تقني رياضي تخصص هندسة كهربائية): المعدل ≥ 12.00/20؛ الأولوية 2 (تقني رياضي التخصصات الأخرى، رياضيات، علوم تجريبية): المعدل ≥ 13.00/20",
+   "_note": "ENS annexe 09 — تسجيل محلي حسب ولاية شهادة البكالوريا؛ ملاحق وأقسام بجامعات تستقبل حسب الولاية (انظر الملحق 09)؛ العتبة حسب الأولوية: 12.00 للأولوية 1 و13.00 للأولوية 2",
+   "_confidence": "high",
+   "_page": 167
   },
   {
    "code": "A16TCL00",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "إلكتر وتقني*",
    "institutions_ar": [
     "جامعة العلوم والتكنولوجيا هواري بومدين"
@@ -3099,7 +3188,7 @@
   },
   {
    "code": "A16TCL01",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "إلكتر وتقني*",
    "institutions_ar": [
     "المركز الجامعي البيض",
@@ -3215,7 +3304,7 @@
   },
   {
    "code": "A16TCL09",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "إلكتر وتقني*",
    "institutions_ar": [
     "جامعة البليدة1"
@@ -3241,7 +3330,7 @@
   },
   {
    "code": "A17IAN01",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "إلكترونيك",
    "institutions_ar": [
     "برج جامعة بوعريريج"
@@ -3271,7 +3360,7 @@
   },
   {
    "code": "A17IAN02",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "إلكترونية أنظمة وذكاء مستقلة إصطناعي",
    "institutions_ar": [
     "جامعة سيدي بلعباس"
@@ -3301,7 +3390,7 @@
   },
   {
    "code": "A17LAN01",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "إلكترونيك ) تعليم باللغة الإ نجليزية(",
    "institutions_ar": [
     "جامعة بوم رداس"
@@ -3331,7 +3420,7 @@
   },
   {
    "code": "A17TCN01",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "تصميم الرقائق الإلكترونية",
    "institutions_ar": [
     "ت- جامعة سعيدة"
@@ -3361,7 +3450,7 @@
   },
   {
    "code": "A18IAN01",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "هندسة صناعية",
    "institutions_ar": [
     "جامعة وهران2"
@@ -3391,7 +3480,7 @@
   },
   {
    "code": "A18LAN01",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "هندسة صناعية",
    "institutions_ar": [
     "جامعة تلمسان"
@@ -3421,7 +3510,7 @@
   },
   {
    "code": "A18TPN03",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "",
    "institutions_ar": [],
    "scope": "national",
@@ -3449,7 +3538,7 @@
   },
   {
    "code": "A18TPN04",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "",
    "institutions_ar": [],
    "scope": "national",
@@ -3507,7 +3596,7 @@
   },
   {
    "code": "A19FPN02",
-   "field_ar": "ميدان التكوين",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "هندسة ميكانيكية",
    "institutions_ar": [
     "جامعة تلمسان"
@@ -3533,11 +3622,12 @@
    "conditions_ar": "يتم الترتيب على أساس المعدل الموزون المحسوب أو المعدل العام المحصل عليه في امتحان البكالوريا اللذان ينبغي أن يساويان أو يفوقان 20/10.00",
    "_note": "no_explicit_priority+carried_cell",
    "_confidence": "high",
-   "_page": 22
+   "_page": 22,
+   "_field_note": "field derived from code-letter majority (header leak in source)"
   },
   {
    "code": "A19FPN03",
-   "field_ar": "ميدان التكوين",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "صناعة ميكانيكية للبناء والصيانة",
    "institutions_ar": [
     "جامعة قالمة"
@@ -3563,11 +3653,12 @@
    "conditions_ar": "يتم الترتيب على أساس المعدل الموزون المحسوب أو المعدل العام المحصل عليه في امتحان البكالوريا اللذان ينبغي أن يساويان أو يفوقان 20/10.00",
    "_note": "no_explicit_priority+carried_cell",
    "_confidence": "high",
-   "_page": 23
+   "_page": 23,
+   "_field_note": "field derived from code-letter majority (header leak in source)"
   },
   {
    "code": "A19LAN01",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "هندسة ميكانيكية",
    "institutions_ar": [
     "جامعة بومرداس"
@@ -3597,7 +3688,7 @@
   },
   {
    "code": "A19LAN02",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "تكنولوجيا السيارات",
    "institutions_ar": [
     "جامعة باتنة0"
@@ -3627,22 +3718,38 @@
   },
   {
    "code": "A19PSL01",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "أستاذ التعليم الثانوي في الهندسة الميكانيكية",
-   "institutions_ar": [],
+   "institutions_ar": [
+    "المدرسة العليا لأساتذة التعليم التقني بسكيكدة",
+    "ملحقة معسكر (المدرسة العليا للأستاذة بسعيدة)"
+   ],
    "scope": "regional",
    "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
+   "allowedStreams": [
+    {
+     "stream": "techmath",
+     "priority": 1
+    },
+    {
+     "stream": "math",
+     "priority": 2
+    },
+    {
+     "stream": "sciexp",
+     "priority": 2
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": 12.0,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا؛ الأولوية 1 (تقني رياضي تخصص هندسة ميكانيكية): المعدل ≥ 12.00/20؛ الأولوية 2 (تقني رياضي التخصصات الأخرى، رياضيات، علوم تجريبية): المعدل ≥ 13.00/20",
+   "_note": "ENS annexe 09 — تسجيل محلي حسب ولاية شهادة البكالوريا؛ ملاحق وأقسام بجامعات تستقبل حسب الولاية (انظر الملحق 09)؛ العتبة حسب الأولوية: 12.00 للأولوية 1 و13.00 للأولوية 2",
+   "_confidence": "high",
+   "_page": 167
   },
   {
    "code": "A19TCL00",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "هندسة ميكانيكية",
    "institutions_ar": [
     "جامعة العلوم والتكنولوجيا هواري بومدين"
@@ -3666,7 +3773,7 @@
   },
   {
    "code": "A19TCL01",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "هندسة ميكانيكية",
    "institutions_ar": [
     "جامعة ميلة",
@@ -3782,7 +3889,7 @@
   },
   {
    "code": "A19TCL09",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "هندسة ميكانيكية",
    "institutions_ar": [
     "جامعة البليدة0"
@@ -3870,7 +3977,7 @@
   },
   {
    "code": "A20IAN01",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "اتصا لا ت سلكية والسلكية",
    "institutions_ar": [
     "جامعة قالمة"
@@ -3900,7 +4007,7 @@
   },
   {
    "code": "A20TCN01",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "هندسة المناجم ومعالجة المعادن",
    "institutions_ar": [
     "ت- جامعة بجاية"
@@ -3930,7 +4037,7 @@
   },
   {
    "code": "A20TPN01",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "",
    "institutions_ar": [],
    "scope": "national",
@@ -3958,7 +4065,7 @@
   },
   {
    "code": "A21FPN01",
-   "field_ar": "ميدان التكوين",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "نظافة وأمن صناعي",
    "institutions_ar": [
     "جامعة باتنة2"
@@ -3984,11 +4091,12 @@
    "conditions_ar": "يتم الترتيب على أساس المعدل الموزون المحسوب أو المعدل العام المحصل عليه في امتحان البكالوريا اللذان ين بغي أن يساويان أو يفوقان20 / 11.00",
    "_note": "no_explicit_priority+carried_cell",
    "_confidence": "high",
-   "_page": 23
+   "_page": 23,
+   "_field_note": "field derived from code-letter majority (header leak in source)"
   },
   {
    "code": "A21IAN01",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "نظافة و من أ صناعي",
    "institutions_ar": [
     "جامعة وهران2"
@@ -4018,7 +4126,7 @@
   },
   {
    "code": "A21LAN01",
-   "field_ar": "وتكنولوجيا علوم",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "نظافة وأمن صناعي",
    "institutions_ar": [
     "جامعة باتنة2"
@@ -4138,7 +4246,7 @@
   },
   {
    "code": "A22FPN02",
-   "field_ar": "ميدان التكوين",
+   "field_ar": "علوم وتكنولوجيا",
    "branch_ar": "هندسة بيوطبية",
    "institutions_ar": [
     "جامعة جيجل"
@@ -4164,7 +4272,8 @@
    "conditions_ar": "يتم الترتيب على أساس المعدل الموزون المحسوب أو المعدل العام المحصل عليه في امتحان البكالوريا اللذان ين بغي أن يساويان أو يفوقان20 / 11.00",
    "_note": "no_explicit_priority+carried_cell",
    "_confidence": "high",
-   "_page": 23
+   "_page": 23,
+   "_field_note": "field derived from code-letter majority (header leak in source)"
   },
   {
    "code": "B00IAN01",
@@ -4177,7 +4286,7 @@
    "rankingBasis": null,
    "minThreshold": null,
    "conditions_ar": "",
-   "_note": "streams_unresolved: code not seen in tables; scope_from_code_suffix",
+   "_note": "index-only — no detail row in circulaire",
    "_confidence": "medium",
    "_page": 44
   },
@@ -4380,50 +4489,109 @@
    "code": "B00PAN01",
    "field_ar": "علوم المادة",
    "branch_ar": "",
-   "institutions_ar": [],
+   "institutions_ar": [
+    "المدرسة العليا لأساتذة الصم البكم"
+   ],
    "scope": "national",
    "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
+   "allowedStreams": [
+    {
+     "stream": "math",
+     "priority": 1
+    },
+    {
+     "stream": "techmath",
+     "priority": 1
+    },
+    {
+     "stream": "sciexp",
+     "priority": 2
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": 13.0,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا الذي يجب أن يساوي أو يفوق 13.00/20",
+   "_note": "ENS annexe 09 — المدرسة العليا لأساتذة الصم البكم؛ تسجيل وطني",
+   "_confidence": "high",
+   "_page": 168
   },
   {
    "code": "B00PML01",
    "field_ar": "علوم المادة",
    "branch_ar": "",
    "institutions_ar": [
-    "المدرسة العليا لألستاذة سعيدة المدرسة العليا لألساتذة بوهران المدرسة العليا لألساتذة ببوسعادة المدرسة العليا لألساتذة ببشار المدرسة العليا لألساتذة بسطيف المدرسة العليا لألساتذة بورقلة المدرسة العليا لألساتذة بقسنطينة المدرسة العليا ألساتذة التعليم التقني بسكيكدة المدرسة العليا لألساتذة باألغواط المدرسة العليا لألساتذة بالقبة"
+    "المدرسة العليا للأساتذة بالقبة",
+    "المدرسة العليا للأساتذة بالأغواط",
+    "المدرسة العليا لأساتذة التعليم التقني بسكيكدة",
+    "المدرسة العليا للأساتذة بقسنطينة",
+    "المدرسة العليا للأساتذة بورقلة",
+    "المدرسة العليا للأساتذة بسطيف",
+    "المدرسة العليا للأساتذة ببشار",
+    "المدرسة العليا للأساتذة ببوسعادة",
+    "المدرسة العليا للأساتذة بوهران",
+    "المدرسة العليا للأستاذة بسعيدة"
    ],
    "scope": "regional",
    "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
+   "allowedStreams": [
+    {
+     "stream": "math",
+     "priority": 1
+    },
+    {
+     "stream": "techmath",
+     "priority": 1
+    },
+    {
+     "stream": "sciexp",
+     "priority": 2
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": 12.0,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا الذي يجب أن يساوي أو يفوق 12.00/20",
+   "_note": "ENS annexe 09 — تسجيل محلي حسب ولاية شهادة البكالوريا؛ ملاحق وأقسام بجامعات تستقبل حسب الولاية (انظر الملحق 09)",
+   "_confidence": "high",
+   "_page": 161
   },
   {
    "code": "B00PSL01",
    "field_ar": "علوم المادة",
    "branch_ar": "",
    "institutions_ar": [
-    "المدرسة العليا لألستاذة سعيدة المدرسة العليا لألساتذة بمستغانم المدرسة العليا لألساتذة ببوسعادة المدرسة العليا لألساتذة ببشار المدرسة العليا لألساتذة بسطيف المدرسة العليا لألساتذة بورقلة المدرسة العليا لألساتذة بقسنطينة المدرسة العليا ألساتذة التعليم التقني بسكيكدة المدرسة العليا لألساتذة باألغواط المدرسة العليا لألساتذة بالقبة"
+    "المدرسة العليا للأساتذة بالقبة",
+    "المدرسة العليا للأساتذة بالأغواط",
+    "المدرسة العليا لأساتذة التعليم التقني بسكيكدة",
+    "المدرسة العليا للأساتذة بقسنطينة",
+    "المدرسة العليا للأساتذة بورقلة",
+    "المدرسة العليا للأساتذة بسطيف",
+    "المدرسة العليا للأساتذة ببشار",
+    "المدرسة العليا للأساتذة ببوسعادة",
+    "المدرسة العليا للأساتذة بمستغانم",
+    "المدرسة العليا للأستاذة بسعيدة"
    ],
    "scope": "regional",
    "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
+   "allowedStreams": [
+    {
+     "stream": "math",
+     "priority": 1
+    },
+    {
+     "stream": "techmath",
+     "priority": 1
+    },
+    {
+     "stream": "sciexp",
+     "priority": 2
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": 13.0,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا الذي يجب أن يساوي أو يفوق 13.00/20",
+   "_note": "ENS annexe 09 — تسجيل محلي حسب ولاية شهادة البكالوريا؛ ملاحق وأقسام بجامعات تستقبل حسب الولاية (انظر الملحق 09)",
+   "_confidence": "high",
+   "_page": 165
   },
   {
    "code": "B01IAN01",
@@ -4667,7 +4835,7 @@
   },
   {
    "code": "C00CAN01",
-   "field_ar": "وإعالم آلي رياضيات",
+   "field_ar": "رياضيات وإعلام آلي",
    "branch_ar": "بالجزائر ت.ق. إ. آ-. المدرسة الوطنية العليا لإلعالم األلي",
    "institutions_ar": [],
    "scope": "national",
@@ -4695,7 +4863,7 @@
   },
   {
    "code": "C00CAN02",
-   "field_ar": "وإعالم آلي رياضيات",
+   "field_ar": "رياضيات وإعلام آلي",
    "branch_ar": "بلعباس ت.ق. إ. آ-. المدرسة العليا لإلعالم األلي بسيدي",
    "institutions_ar": [],
    "scope": "national",
@@ -4723,7 +4891,7 @@
   },
   {
    "code": "C00CAN03",
-   "field_ar": "وإعالم آلي رياضيات",
+   "field_ar": "رياضيات وإعلام آلي",
    "branch_ar": "اإلعالم األلي والرقمنة ببجاية ت.ق. إ. آ-. المدرسة العليا في علوم وتكنولوجيات",
    "institutions_ar": [],
    "scope": "national",
@@ -4751,7 +4919,7 @@
   },
   {
    "code": "C00CAN04",
-   "field_ar": "وإعالم آلي رياضيات",
+   "field_ar": "رياضيات وإعلام آلي",
    "branch_ar": "الجزائر* ت.ق.إ أ.- المدرسة الوطنية العليا للذكاء اإلصطناعي-",
    "institutions_ar": [],
    "scope": "national",
@@ -4779,7 +4947,7 @@
   },
   {
    "code": "C00CAN05",
-   "field_ar": "وإعالم آلي رياضيات",
+   "field_ar": "رياضيات وإعلام آلي",
    "branch_ar": "ت.ق.ر-.المدرسة الوطنية العليا للرياضيات -الجزائر*",
    "institutions_ar": [],
    "scope": "national",
@@ -4807,7 +4975,7 @@
   },
   {
    "code": "C00CAN06",
-   "field_ar": "وإعالم آلي رياضيات",
+   "field_ar": "رياضيات وإعلام آلي",
    "branch_ar": "المتقدمة - الجزائر ت.ق. إ. آ-. المدرسة الوطنية العليا للتكنولوجيا",
    "institutions_ar": [],
    "scope": "national",
@@ -4835,7 +5003,7 @@
   },
   {
    "code": "C00CAN07",
-   "field_ar": "وإعالم آلي رياضيات",
+   "field_ar": "رياضيات وإعلام آلي",
    "branch_ar": "الجزائر* ت.ق. .إ أ.- المدرسة الوطنية العليا لألمن السيبراني-",
    "institutions_ar": [],
    "scope": "national",
@@ -4863,7 +5031,7 @@
   },
   {
    "code": "C00CAN08",
-   "field_ar": "وإعالم آلي رياضيات",
+   "field_ar": "رياضيات وإعلام آلي",
    "branch_ar": "",
    "institutions_ar": [],
    "scope": "national",
@@ -4891,7 +5059,7 @@
   },
   {
    "code": "C01EPN01",
-   "field_ar": "رياضيات و إعالم آلي",
+   "field_ar": "رياضيات وإعلام آلي",
    "branch_ar": "إعالم آلي",
    "institutions_ar": [
     "جامعة العلوم والتكنولوجيا هواري بومدين"
@@ -4921,7 +5089,7 @@
   },
   {
    "code": "C01FPN02",
-   "field_ar": "وإعالم آلي رياضيات",
+   "field_ar": "رياضيات وإعلام آلي",
    "branch_ar": "إعالم آلي",
    "institutions_ar": [
     "جامعة الجلفة"
@@ -4951,7 +5119,7 @@
   },
   {
    "code": "C01FPN03",
-   "field_ar": "وإعالم آلي رياضيات",
+   "field_ar": "رياضيات وإعلام آلي",
    "branch_ar": "شبكات و تكنولوجيات الواب",
    "institutions_ar": [
     "جامعة قالمة"
@@ -4981,7 +5149,7 @@
   },
   {
    "code": "C01LAL01",
-   "field_ar": "وإعالم آلي رياضيات",
+   "field_ar": "رياضيات وإعلام آلي",
    "branch_ar": "",
    "institutions_ar": [
     "جامعة بجاية",
@@ -5078,7 +5246,7 @@
   },
   {
    "code": "C01LAL02",
-   "field_ar": "وإعالم آلي رياضيات",
+   "field_ar": "رياضيات وإعلام آلي",
    "branch_ar": "",
    "institutions_ar": [
     "جامعة قالمة",
@@ -5137,7 +5305,7 @@
   },
   {
    "code": "C01LAL03",
-   "field_ar": "وإعالم آلي رياضيات",
+   "field_ar": "رياضيات وإعلام آلي",
    "branch_ar": "",
    "institutions_ar": [
     "جامعة بومرداس",
@@ -5186,7 +5354,7 @@
   },
   {
    "code": "C01LAL04",
-   "field_ar": "وإعالم آلي رياضيات",
+   "field_ar": "رياضيات وإعلام آلي",
    "branch_ar": "",
    "institutions_ar": [],
    "scope": "regional",
@@ -5214,54 +5382,103 @@
   },
   {
    "code": "C01PAN01",
-   "field_ar": "وإعالم آلي رياضيات",
+   "field_ar": "رياضيات وإعلام آلي",
    "branch_ar": "",
-   "institutions_ar": [],
+   "institutions_ar": [
+    "المدرسة العليا لأساتذة الصم البكم"
+   ],
    "scope": "national",
    "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
+   "allowedStreams": [
+    {
+     "stream": "math",
+     "priority": 1
+    },
+    {
+     "stream": "techmath",
+     "priority": 1
+    },
+    {
+     "stream": "sciexp",
+     "priority": 2
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": 13.0,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا الذي يجب أن يساوي أو يفوق 13.00/20",
+   "_note": "ENS annexe 09 — المدرسة العليا لأساتذة الصم البكم؛ تسجيل وطني",
+   "_confidence": "high",
+   "_page": 168
   },
   {
    "code": "C01PML01",
-   "field_ar": "وإعالم آلي رياضيات",
+   "field_ar": "رياضيات وإعلام آلي",
    "branch_ar": "أستاذ التعليم المتوسط في اإلعالم اآللي",
-   "institutions_ar": [],
-   "scope": "regional",
-   "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
-  },
-  {
-   "code": "C01PSL01",
-   "field_ar": "وإعالم آلي رياضيات",
-   "branch_ar": "",
    "institutions_ar": [
-    "المدرسة العليا لألساتذة بقسنطينة المدرسة العليا لألساتذة ببشار المدرسة العليا لألساتذة باألغواط المدرسة العليا لألساتذة بالقبة"
+    "المدرسة العليا للأساتذة بالقبة",
+    "المدرسة العليا للأساتذة بقسنطينة",
+    "المدرسة العليا لأساتذة التعليم التقني بسكيكدة",
+    "المدرسة العليا للأساتذة ببشار"
    ],
    "scope": "regional",
    "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
+   "allowedStreams": [
+    {
+     "stream": "math",
+     "priority": 1
+    },
+    {
+     "stream": "techmath",
+     "priority": 1
+    },
+    {
+     "stream": "sciexp",
+     "priority": 2
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": 12.0,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا الذي يجب أن يساوي أو يفوق 12.00/20",
+   "_note": "ENS annexe 09 — تسجيل محلي حسب ولاية شهادة البكالوريا؛ ملاحق وأقسام بجامعات تستقبل حسب الولاية (انظر الملحق 09)",
+   "_confidence": "high",
+   "_page": 160
+  },
+  {
+   "code": "C01PSL01",
+   "field_ar": "رياضيات وإعلام آلي",
+   "branch_ar": "",
+   "institutions_ar": [
+    "المدرسة العليا للأساتذة بالقبة",
+    "المدرسة العليا للأساتذة بالأغواط",
+    "المدرسة العليا للأساتذة ببشار",
+    "المدرسة العليا للأساتذة بقسنطينة"
+   ],
+   "scope": "regional",
+   "circleWilayaNums": [],
+   "allowedStreams": [
+    {
+     "stream": "math",
+     "priority": 1
+    },
+    {
+     "stream": "techmath",
+     "priority": 1
+    },
+    {
+     "stream": "sciexp",
+     "priority": 2
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": 13.0,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا الذي يجب أن يساوي أو يفوق 13.00/20",
+   "_note": "ENS annexe 09 — تسجيل محلي حسب ولاية شهادة البكالوريا؛ ملاحق وأقسام بجامعات تستقبل حسب الولاية (انظر الملحق 09)",
+   "_confidence": "high",
+   "_page": 165
   },
   {
    "code": "C01TCL00",
-   "field_ar": "وإعالم آلي رياضيات",
+   "field_ar": "رياضيات وإعلام آلي",
    "branch_ar": "",
    "institutions_ar": [],
    "scope": "regional",
@@ -5289,7 +5506,7 @@
   },
   {
    "code": "C01TCL01",
-   "field_ar": "وإعالم آلي رياضيات",
+   "field_ar": "رياضيات وإعلام آلي",
    "branch_ar": "ال إع م آلي",
    "institutions_ar": [
     "جامعة قسنطينة0",
@@ -5347,7 +5564,7 @@
   },
   {
    "code": "C01TCL02",
-   "field_ar": "وإعالم آلي رياضيات",
+   "field_ar": "رياضيات وإعلام آلي",
    "branch_ar": "ال إع م آلي",
    "institutions_ar": [
     "جامعة بجاية",
@@ -5407,7 +5624,7 @@
   },
   {
    "code": "C01TCL03",
-   "field_ar": "وإعالم آلي رياضيات",
+   "field_ar": "رياضيات وإعلام آلي",
    "branch_ar": "ال إع م آلي",
    "institutions_ar": [
     "جامعة العلوم والتكنولوجيا وهران",
@@ -5458,7 +5675,7 @@
   },
   {
    "code": "C02FPN01",
-   "field_ar": "وإعالم آلي رياضيات",
+   "field_ar": "رياضيات وإعلام آلي",
    "branch_ar": "ر ياضيات",
    "institutions_ar": [
     "جامعة بسكرة"
@@ -5488,7 +5705,7 @@
   },
   {
    "code": "C02LAL01",
-   "field_ar": "وإعالم آلي رياضيات",
+   "field_ar": "رياضيات وإعلام آلي",
    "branch_ar": "",
    "institutions_ar": [
     "جامعة بجاية",
@@ -5580,7 +5797,7 @@
   },
   {
    "code": "C02LAL02",
-   "field_ar": "وإعالم آلي رياضيات",
+   "field_ar": "رياضيات وإعلام آلي",
    "branch_ar": "",
    "institutions_ar": [
     "جامعة قالمة",
@@ -5637,7 +5854,7 @@
   },
   {
    "code": "C02LAL03",
-   "field_ar": "وإعالم آلي رياضيات",
+   "field_ar": "رياضيات وإعلام آلي",
    "branch_ar": "",
    "institutions_ar": [
     "جامعة بومرداس",
@@ -5688,7 +5905,7 @@
   },
   {
    "code": "C02LAL04",
-   "field_ar": "وإعالم آلي رياضيات",
+   "field_ar": "رياضيات وإعلام آلي",
    "branch_ar": "",
    "institutions_ar": [],
    "scope": "regional",
@@ -5716,54 +5933,115 @@
   },
   {
    "code": "C02PAN01",
-   "field_ar": "وإعالم آلي رياضيات",
+   "field_ar": "رياضيات وإعلام آلي",
    "branch_ar": "",
-   "institutions_ar": [],
+   "institutions_ar": [
+    "المدرسة العليا لأساتذة الصم البكم"
+   ],
    "scope": "national",
    "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
+   "allowedStreams": [
+    {
+     "stream": "math",
+     "priority": 1
+    },
+    {
+     "stream": "techmath",
+     "priority": 1
+    },
+    {
+     "stream": "sciexp",
+     "priority": 2
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": 13.0,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا الذي يجب أن يساوي أو يفوق 13.00/20",
+   "_note": "ENS annexe 09 — المدرسة العليا لأساتذة الصم البكم؛ تسجيل وطني",
+   "_confidence": "high",
+   "_page": 168
   },
   {
    "code": "C02PML01",
-   "field_ar": "وإعالم آلي رياضيات",
+   "field_ar": "رياضيات وإعلام آلي",
    "branch_ar": "أستاذ التعليم المتوسط في الرياضيات",
-   "institutions_ar": [],
-   "scope": "regional",
-   "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
-  },
-  {
-   "code": "C02PSL01",
-   "field_ar": "وإعالم آلي رياضيات",
-   "branch_ar": "",
    "institutions_ar": [
-    "المدرسة العليا لألستاذة سعيدة المدرسة العليا لألساتذة بمستغانم المدرسة العليا لألساتذة ببوسعادة المدرسة العليا لألساتذة ببشار المدرسة العليا لألساتذة بسطيف المدرسة العليا لألساتذة بورقلة المدرسة العليا لألساتذة بقسنطينة المدرسة العليا ألساتذة التعليم التقني بسكيكدة المدرسة العليا لألساتذة باألغواط المدرسة العليا لألساتذة بالقبة"
+    "المدرسة العليا للأساتذة بالقبة",
+    "المدرسة العليا للأساتذة بالأغواط",
+    "المدرسة العليا لأساتذة التعليم التقني بسكيكدة",
+    "المدرسة العليا للأساتذة بقسنطينة",
+    "المدرسة العليا للأساتذة بورقلة",
+    "المدرسة العليا للأساتذة بسطيف",
+    "المدرسة العليا للأساتذة ببشار",
+    "المدرسة العليا للأساتذة ببوسعادة",
+    "المدرسة العليا للأساتذة بوهران",
+    "المدرسة العليا للأستاذة بسعيدة"
    ],
    "scope": "regional",
    "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
+   "allowedStreams": [
+    {
+     "stream": "math",
+     "priority": 1
+    },
+    {
+     "stream": "techmath",
+     "priority": 1
+    },
+    {
+     "stream": "sciexp",
+     "priority": 2
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": 12.0,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا الذي يجب أن يساوي أو يفوق 12.00/20",
+   "_note": "ENS annexe 09 — تسجيل محلي حسب ولاية شهادة البكالوريا؛ ملاحق وأقسام بجامعات تستقبل حسب الولاية (انظر الملحق 09)",
+   "_confidence": "high",
+   "_page": 160
+  },
+  {
+   "code": "C02PSL01",
+   "field_ar": "رياضيات وإعلام آلي",
+   "branch_ar": "",
+   "institutions_ar": [
+    "المدرسة العليا للأساتذة بالقبة",
+    "المدرسة العليا للأساتذة بالأغواط",
+    "المدرسة العليا لأساتذة التعليم التقني بسكيكدة",
+    "المدرسة العليا للأساتذة بقسنطينة",
+    "المدرسة العليا للأساتذة بورقلة",
+    "المدرسة العليا للأساتذة بسطيف",
+    "المدرسة العليا للأساتذة ببشار",
+    "المدرسة العليا للأساتذة ببوسعادة",
+    "المدرسة العليا للأساتذة بمستغانم",
+    "المدرسة العليا للأستاذة بسعيدة"
+   ],
+   "scope": "regional",
+   "circleWilayaNums": [],
+   "allowedStreams": [
+    {
+     "stream": "math",
+     "priority": 1
+    },
+    {
+     "stream": "techmath",
+     "priority": 1
+    },
+    {
+     "stream": "sciexp",
+     "priority": 2
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": 13.0,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا الذي يجب أن يساوي أو يفوق 13.00/20",
+   "_note": "ENS annexe 09 — تسجيل محلي حسب ولاية شهادة البكالوريا؛ ملاحق وأقسام بجامعات تستقبل حسب الولاية (انظر الملحق 09)",
+   "_confidence": "high",
+   "_page": 164
   },
   {
    "code": "C02TCN01",
-   "field_ar": "وإعالم آلي رياضيات",
+   "field_ar": "رياضيات وإعلام آلي",
    "branch_ar": "رياضيات",
    "institutions_ar": [
     "جامعة سعيدة"
@@ -5793,7 +6071,7 @@
   },
   {
    "code": "C03FPN01",
-   "field_ar": "وإعالم آلي رياضيات",
+   "field_ar": "رياضيات وإعلام آلي",
    "branch_ar": "رياضيات تطبيقية",
    "institutions_ar": [
     "جامعة بومرداس"
@@ -5823,7 +6101,7 @@
   },
   {
    "code": "C03IAN01",
-   "field_ar": "وإعالم آلي رياضيات",
+   "field_ar": "رياضيات وإعلام آلي",
    "branch_ar": "رياضيات تطبيقية",
    "institutions_ar": [
     "جامعة العلوم والتكنولوجيا هواري بومدين"
@@ -5853,7 +6131,7 @@
   },
   {
    "code": "CA0LAN01",
-   "field_ar": "رياضيات ال وإع م آلي + علوم وتكنولوجيا",
+   "field_ar": "رياضيات وإعلام آلي + علوم وتكنولوجيا",
    "branch_ar": "ال إع م آلي+ ألية",
    "institutions_ar": [
     "جامعة عنابة"
@@ -5883,7 +6161,7 @@
   },
   {
    "code": "CC1LPN01",
-   "field_ar": "رياضيات واعالم ألي",
+   "field_ar": "رياضيات وإعلام آلي",
    "branch_ar": "رياضيات",
    "institutions_ar": [
     "جامعة ورقلة"
@@ -5913,7 +6191,7 @@
   },
   {
    "code": "CF0LAN00",
-   "field_ar": "وإعالم آلي رياضيات",
+   "field_ar": "رياضيات وإعلام آلي",
    "branch_ar": "",
    "institutions_ar": [],
    "scope": "national",
@@ -5941,7 +6219,7 @@
   },
   {
    "code": "CF0LAN01",
-   "field_ar": "رياضيات ال وإع م آلي + ،علوم اقتصادية التسيير وعلوم تجارية",
+   "field_ar": "رياضيات وإعلام آلي + علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "رياضيات تطبيقية + عل وم اقتصادية",
    "institutions_ar": [
     "جامعة ا لأ غواط"
@@ -5971,7 +6249,7 @@
   },
   {
    "code": "CF0LAN03",
-   "field_ar": "رياضيات واعالم ألي + ،علوم اقتصادية التسيير وعلوم تجارية",
+   "field_ar": "رياضيات وإعلام آلي + علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "رياضيات تطبيقية + علوم اقتصادية",
    "institutions_ar": [
     "جامعة المسيلة"
@@ -6001,7 +6279,7 @@
   },
   {
    "code": "CF0LAN04",
-   "field_ar": "رياضيات وإعالم آلي + ،علوم اقتصادية التسيير وعلوم تجارية",
+   "field_ar": "رياضيات وإعلام آلي + علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "رياضيات تطبيقية + علوم اقتصادية",
    "institutions_ar": [
     "جامعة المدية"
@@ -6031,7 +6309,7 @@
   },
   {
    "code": "CF0LAN05",
-   "field_ar": "رياضيات وإعالم آلي + ،علوم اقتصادية التسيير وعلوم تجارية",
+   "field_ar": "رياضيات وإعلام آلي + علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "إعالم آلي + علوم اقتصادية",
    "institutions_ar": [
     "جامعة بجاية"
@@ -6061,7 +6339,7 @@
   },
   {
    "code": "CF0LAN06",
-   "field_ar": "رياضيات واعالم ألي + ،علوم اقتصادية التسيير وعلوم تجارية",
+   "field_ar": "رياضيات وإعلام آلي + علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "رياضيات تطبيقية + علوم اقتصادية",
    "institutions_ar": [
     "جامعة الجزائر0 + جامعة الجزائر9"
@@ -6091,7 +6369,7 @@
   },
   {
    "code": "CF0LAN07",
-   "field_ar": "رياضيات واعالم ألي + ،علوم اقتصادية التسيير وعلوم تجارية",
+   "field_ar": "رياضيات وإعلام آلي + علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "اعالم ألي + علوم التسيير",
    "institutions_ar": [
     "جامعة غرداية"
@@ -6121,7 +6399,7 @@
   },
   {
    "code": "CF0LAN08",
-   "field_ar": "رياضيات واعالم ألي + ،علوم اقتصادية التسيير وعلوم تجارية",
+   "field_ar": "رياضيات وإعلام آلي + علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "اعالم ألي + علوم تجارية",
    "institutions_ar": [
     "جامعة غرداية"
@@ -6151,7 +6429,7 @@
   },
   {
    "code": "CF0LPN02",
-   "field_ar": "رياضيات ال وإع م آلي + ،علوم اقتصادية التسيير وعلوم تجارية",
+   "field_ar": "رياضيات وإعلام آلي + علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "ال إع م آلي+علوم التسيير",
    "institutions_ar": [
     "جامعة وهران1",
@@ -6182,7 +6460,7 @@
   },
   {
    "code": "CF1LPN01",
-   "field_ar": "رياضيات واعالم ألي",
+   "field_ar": "رياضيات وإعلام آلي",
    "branch_ar": "رياضيات واعالم ألي مطبقة في العلوم الإقتصادية والتسسير",
    "institutions_ar": [
     "جامعة سطيف0"
@@ -6212,7 +6490,7 @@
   },
   {
    "code": "CF1LPN02",
-   "field_ar": "رياضيات واعالم ألي",
+   "field_ar": "رياضيات وإعلام آلي",
    "branch_ar": "رياضيات واعالم ألي مطبقة في العلوم الإقتصادية والتسسير",
    "institutions_ar": [
     "جامعة عنابة"
@@ -6242,7 +6520,7 @@
   },
   {
    "code": "CF1LPN03",
-   "field_ar": "رياضيات واعالم ألي",
+   "field_ar": "رياضيات وإعلام آلي",
    "branch_ar": "رياضيات واعالم ألي مطبقة في العلوم الإقتصادية والتسسير",
    "institutions_ar": [
     "جامعة المسيلة"
@@ -6272,7 +6550,7 @@
   },
   {
    "code": "CI1LPN01",
-   "field_ar": "رياضيات واعالم ألي",
+   "field_ar": "رياضيات وإعلام آلي",
    "branch_ar": "اعالم ألي",
    "institutions_ar": [
     "جامعة خنشلة"
@@ -6302,7 +6580,7 @@
   },
   {
    "code": "CI1LPN02",
-   "field_ar": "رياضيات واعالم ألي",
+   "field_ar": "رياضيات وإعلام آلي",
    "branch_ar": "اعالم ألي",
    "institutions_ar": [
     "جامعة ورقلة"
@@ -6332,7 +6610,7 @@
   },
   {
    "code": "CI1LPN03",
-   "field_ar": "رياضيات واعالم ألي",
+   "field_ar": "رياضيات وإعلام آلي",
    "branch_ar": "اعالم ألي",
    "institutions_ar": [
     "جامعة قسنطينة0"
@@ -6362,7 +6640,7 @@
   },
   {
    "code": "D00CAN05",
-   "field_ar": "والحياة علوم الطبيعة",
+   "field_ar": "علوم الطبيعة والحياة",
    "branch_ar": "والصناعات الزراعية الغذائية بالجزائر ت.ق.ع.ط.ح-. المدرسة العليا لعلوم الغذاء",
    "institutions_ar": [],
    "scope": "national",
@@ -6390,7 +6668,7 @@
   },
   {
    "code": "D00CAN06",
-   "field_ar": "والحياة علوم الطبيعة",
+   "field_ar": "علوم الطبيعة والحياة",
    "branch_ar": "ت.ق.ع.ط.ح-. المدرسة العليا للفالحة بمستغانم",
    "institutions_ar": [],
    "scope": "national",
@@ -6418,7 +6696,7 @@
   },
   {
    "code": "D00CAN07",
-   "field_ar": "والحياة علوم الطبيعة",
+   "field_ar": "علوم الطبيعة والحياة",
    "branch_ar": "بالجزائر ت.ق. ع.ط.ح-. المدرسة الوطنية العليا للفالحة",
    "institutions_ar": [],
    "scope": "national",
@@ -6446,7 +6724,7 @@
   },
   {
    "code": "D00CAN08",
-   "field_ar": "والحياة علوم الطبيعة",
+   "field_ar": "علوم الطبيعة والحياة",
    "branch_ar": "بوهران ت.ق. ع.ط.ح–.المدرسة العليا للعلوم البيولوجية",
    "institutions_ar": [],
    "scope": "national",
@@ -6474,7 +6752,7 @@
   },
   {
    "code": "D00CAN09",
-   "field_ar": "والحياة علوم الطبيعة",
+   "field_ar": "علوم الطبيعة والحياة",
    "branch_ar": "بخنشلة ت.ق. ع.ط.ح–.المدرسة الوطنية العليا للغابات",
    "institutions_ar": [],
    "scope": "national",
@@ -6502,7 +6780,7 @@
   },
   {
    "code": "D00CAN10",
-   "field_ar": "والحياة علوم الطبيعة",
+   "field_ar": "علوم الطبيعة والحياة",
    "branch_ar": "بقسنطينة ت.ق.خ–.المدرسة الوطنية العليا للبيوتكنولوجيا",
    "institutions_ar": [],
    "scope": "national",
@@ -6530,7 +6808,7 @@
   },
   {
    "code": "D00CAN11",
-   "field_ar": "والحياة علوم الطبيعة",
+   "field_ar": "علوم الطبيعة والحياة",
    "branch_ar": "وتهيئة الساحل بالجزائر ت.ق.خ.–المدرسة الوطنية العليا لعلوم البحر",
    "institutions_ar": [],
    "scope": "national",
@@ -6558,7 +6836,7 @@
   },
   {
    "code": "D00CAN12",
-   "field_ar": "والحياة علوم الطبيعة",
+   "field_ar": "علوم الطبيعة والحياة",
    "branch_ar": "الصحراوية بأدرار ت.ق.خ–.المدرسة الوطنية العليا للفالحة",
    "institutions_ar": [],
    "scope": "national",
@@ -6586,7 +6864,7 @@
   },
   {
    "code": "D00CAN13",
-   "field_ar": "والحياة علوم الطبيعة",
+   "field_ar": "علوم الطبيعة والحياة",
    "branch_ar": "الصحراوية بالوادي ت.ق.خ–.المدرسة الوطنية العليا للفالحة",
    "institutions_ar": [],
    "scope": "national",
@@ -6854,54 +7132,99 @@
   },
   {
    "code": "D00PAN01",
-   "field_ar": "والحياة علوم الطبيعة",
+   "field_ar": "علوم الطبيعة والحياة",
    "branch_ar": "",
-   "institutions_ar": [],
+   "institutions_ar": [
+    "المدرسة العليا لأساتذة الصم البكم"
+   ],
    "scope": "national",
    "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
+   "allowedStreams": [
+    {
+     "stream": "sciexp",
+     "priority": null
+    },
+    {
+     "stream": "math",
+     "priority": null
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": 13.0,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا الذي يجب أن يساوي أو يفوق 13.00/20",
+   "_note": "ENS annexe 09 — المدرسة العليا لأساتذة الصم البكم؛ تسجيل وطني؛ الشعبتان في مجموعة واحدة دون ترتيب أولوية",
+   "_confidence": "high",
+   "_page": 168
   },
   {
    "code": "D00PML01",
-   "field_ar": "والحياة علوم الطبيعة",
+   "field_ar": "علوم الطبيعة والحياة",
    "branch_ar": "أستاذ التعليم المتوسط في العلوم الطبيعية",
-   "institutions_ar": [],
-   "scope": "regional",
-   "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
-  },
-  {
-   "code": "D00PSL01",
-   "field_ar": "والحياة علوم الطبيعة",
-   "branch_ar": "",
    "institutions_ar": [
-    "المدرسة العليا لألساتذة بوهران المدرسة العليا لألساتذة بقسنطينة المدرسة العليا ألساتذة التعليم التقني بسكيكدة المدرسة العليا لألساتذة بورقلة المدرسة العليا لألساتذة بسطيف المدرسة العليا لألساتذة باألغواط المدرسة العليا لألساتذة بالقبة"
+    "المدرسة العليا للأساتذة بالقبة",
+    "المدرسة العليا للأساتذة بالأغواط",
+    "المدرسة العليا لأساتذة التعليم التقني بسكيكدة",
+    "المدرسة العليا للأساتذة بقسنطينة",
+    "المدرسة العليا للأساتذة بورقلة",
+    "المدرسة العليا للأساتذة بسطيف",
+    "المدرسة العليا للأساتذة بوهران",
+    "المدرسة العليا للأستاذة بسعيدة"
    ],
    "scope": "regional",
    "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
+   "allowedStreams": [
+    {
+     "stream": "sciexp",
+     "priority": null
+    },
+    {
+     "stream": "math",
+     "priority": null
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": 12.0,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا الذي يجب أن يساوي أو يفوق 12.00/20",
+   "_note": "ENS annexe 09 — تسجيل محلي حسب ولاية شهادة البكالوريا؛ ملاحق وأقسام بجامعات تستقبل حسب الولاية (انظر الملحق 09)؛ الشعبتان في مجموعة واحدة دون ترتيب أولوية",
+   "_confidence": "high",
+   "_page": 160
+  },
+  {
+   "code": "D00PSL01",
+   "field_ar": "علوم الطبيعة والحياة",
+   "branch_ar": "",
+   "institutions_ar": [
+    "المدرسة العليا للأساتذة بالقبة",
+    "المدرسة العليا للأساتذة بالأغواط",
+    "المدرسة العليا للأساتذة بسطيف",
+    "المدرسة العليا للأساتذة بورقلة",
+    "المدرسة العليا لأساتذة التعليم التقني بسكيكدة",
+    "المدرسة العليا للأساتذة بقسنطينة",
+    "المدرسة العليا للأساتذة بوهران",
+    "المدرسة العليا للأستاذة بسعيدة"
+   ],
+   "scope": "regional",
+   "circleWilayaNums": [],
+   "allowedStreams": [
+    {
+     "stream": "sciexp",
+     "priority": null
+    },
+    {
+     "stream": "math",
+     "priority": null
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": 13.0,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا الذي يجب أن يساوي أو يفوق 13.00/20",
+   "_note": "ENS annexe 09 — تسجيل محلي حسب ولاية شهادة البكالوريا؛ ملاحق وأقسام بجامعات تستقبل حسب الولاية (انظر الملحق 09)؛ الشعبتان في مجموعة واحدة دون ترتيب أولوية",
+   "_confidence": "high",
+   "_page": 164
   },
   {
    "code": "D02IAN00",
-   "field_ar": "والحياة علوم الطبيعة",
+   "field_ar": "علوم الطبيعة والحياة",
    "branch_ar": "بيولوجيا وصحة",
    "institutions_ar": [
     "جامعة العلوم والتكنولوجيا هواري بومدين"
@@ -6953,7 +7276,7 @@
   },
   {
    "code": "D03LAN01",
-   "field_ar": "والحياة علوم الطبيعة",
+   "field_ar": "علوم الطبيعة والحياة",
    "branch_ar": "علوم فالحية",
    "institutions_ar": [
     "جامعة تلمسان"
@@ -6979,7 +7302,7 @@
   },
   {
    "code": "D03LAN02",
-   "field_ar": "والحياة علوم الطبيعة",
+   "field_ar": "علوم الطبيعة والحياة",
    "branch_ar": "علوم فالحية",
    "institutions_ar": [
     "جامعة سطيف1"
@@ -7005,7 +7328,7 @@
   },
   {
    "code": "D03LAN03",
-   "field_ar": "والحياة علوم الطبيعة",
+   "field_ar": "علوم الطبيعة والحياة",
    "branch_ar": "علوم فالحية",
    "institutions_ar": [
     "جامعة تيارت"
@@ -7031,7 +7354,7 @@
   },
   {
    "code": "D03TCL01",
-   "field_ar": "والحياة علوم الطبيعة",
+   "field_ar": "علوم الطبيعة والحياة",
    "branch_ar": "",
    "institutions_ar": [
     "جامعة أدرار",
@@ -7267,7 +7590,7 @@
   },
   {
    "code": "D07IAN01",
-   "field_ar": "والحياة علوم الطبيعة",
+   "field_ar": "علوم الطبيعة والحياة",
    "branch_ar": "مراقبة ال جودة وتحليل الأغذية",
    "institutions_ar": [
     "جامعة بجاية"
@@ -7293,7 +7616,7 @@
   },
   {
    "code": "D07LAN01",
-   "field_ar": "والحياة علوم الطبيعة",
+   "field_ar": "علوم الطبيعة والحياة",
    "branch_ar": "علوم الغذاء",
    "institutions_ar": [
     "جامعة قسنطينة1"
@@ -8037,7 +8360,7 @@
   },
   {
    "code": "F00CAN01",
-   "field_ar": "تجارية علوم اقتصادية والتسيير وعلوم",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "التسيير بعنابة ت.ق.ع.ا.ت.ع.ت–المدرسة العليا لعلوم",
    "institutions_ar": [],
    "scope": "national",
@@ -8069,7 +8392,7 @@
   },
   {
    "code": "F00CAN02",
-   "field_ar": "تجارية علوم اقتصادية والتسيير وعلوم",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "والمالية بقسنطينة ت.ق.ع.ا.ت.ع.ت–المدرسة العليا للمحاسبة",
    "institutions_ar": [],
    "scope": "national",
@@ -8101,7 +8424,7 @@
   },
   {
    "code": "F00CAN03",
-   "field_ar": "تجارية علوم اقتصادية والتسيير وعلوم",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "األعمال بتلمسان ت.ق.ع.ا.ت.ع.ت–المدرسة العليا إلدارة",
    "institutions_ar": [],
    "scope": "national",
@@ -8133,7 +8456,7 @@
   },
   {
    "code": "F00CAN04",
-   "field_ar": "تجارية علوم اقتصادية والتسيير وعلوم",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "بوهران ت.ق.ع.ا.ت.ع.ت–المدرسة العليا لإلقتصاد",
    "institutions_ar": [],
    "scope": "national",
@@ -8165,7 +8488,7 @@
   },
   {
    "code": "F00CAN05",
-   "field_ar": "تجارية علوم اقتصادية والتسيير وعلوم",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "بالقليعة ت.ق.ع.ا.ت.ع.ت - المدرسة العليا للتجارة-",
    "institutions_ar": [],
    "scope": "national",
@@ -8197,7 +8520,7 @@
   },
   {
    "code": "F00CAN06",
-   "field_ar": "تجارية علوم اقتصادية والتسيير وعلوم",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "التجارية - بالقليعة ت.ق.ع.ا.ت.ع.ت - مدرسة الدراسات العليا",
    "institutions_ar": [],
    "scope": "national",
@@ -8229,7 +8552,7 @@
   },
   {
    "code": "F00CAN07",
-   "field_ar": "تجارية علوم اقتصادية والتسيير وعلوم",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "",
    "institutions_ar": [],
    "scope": "national",
@@ -8261,7 +8584,7 @@
   },
   {
    "code": "F00CAN08",
-   "field_ar": "تجارية علوم اقتصادية والتسيير وعلوم",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "اإلقتصاد الرقمي– بالقليعة ت.ق.ع.ا.ت.ع.ت- المدرسة العليا للتسيير و",
    "institutions_ar": [],
    "scope": "national",
@@ -8293,7 +8616,7 @@
   },
   {
    "code": "F00FCL01",
-   "field_ar": "تجارية علوم اقتصادية والتسيير وعلوم",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "",
    "institutions_ar": [],
    "scope": "regional",
@@ -8333,7 +8656,7 @@
   },
   {
    "code": "F00FCL02",
-   "field_ar": "علوم ،اقتصادية التسيير وعلوم تجارية",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "",
    "institutions_ar": [],
    "scope": "regional",
@@ -8375,7 +8698,7 @@
   },
   {
    "code": "F00FCL03",
-   "field_ar": "علوم ،اقتصادية التسيير وعلوم تجارية",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "",
    "institutions_ar": [],
    "scope": "regional",
@@ -8417,7 +8740,7 @@
   },
   {
    "code": "F00FCL04",
-   "field_ar": "علوم ،اقتصادية التسيير وعلوم تجارية",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "",
    "institutions_ar": [],
    "scope": "regional",
@@ -8459,7 +8782,7 @@
   },
   {
    "code": "F00FCL05",
-   "field_ar": "علوم ،اقتصادية التسيير وعلوم تجارية",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "",
    "institutions_ar": [],
    "scope": "regional",
@@ -8501,7 +8824,7 @@
   },
   {
    "code": "F00FCL06",
-   "field_ar": "علوم ،اقتصادية التسيير وعلوم تجارية",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "",
    "institutions_ar": [],
    "scope": "regional",
@@ -8543,7 +8866,7 @@
   },
   {
    "code": "F00FCL07",
-   "field_ar": "علوم ،اقتصادية التسيير وعلوم تجارية",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "",
    "institutions_ar": [],
    "scope": "regional",
@@ -8585,7 +8908,7 @@
   },
   {
    "code": "F00LAL00",
-   "field_ar": "تجارية علوم اقتصادية والتسيير وعلوم",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "",
    "institutions_ar": [],
    "scope": "regional",
@@ -8625,7 +8948,7 @@
   },
   {
    "code": "F00LAL01",
-   "field_ar": "ق علوم اقتصادية والتسيير وعلوم تجارية",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "",
    "institutions_ar": [
     "جامعة تيزي وزو*",
@@ -8725,7 +9048,7 @@
   },
   {
    "code": "F00LAL02",
-   "field_ar": "ق علوم اقتصادية والتسيير وعلوم تجارية",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "",
    "institutions_ar": [
     "جامعة غرداية",
@@ -8807,7 +9130,7 @@
   },
   {
    "code": "F00LAL03",
-   "field_ar": "ق علوم اقتصادية والتسيير وعلوم تجارية",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "",
    "institutions_ar": [
     "جامعة البليدة2",
@@ -8868,7 +9191,7 @@
   },
   {
    "code": "F00LAL04",
-   "field_ar": "ق علوم اقتصادية والتسيير وعلوم تجارية",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "",
    "institutions_ar": [
     "جامعة بومرداس",
@@ -8917,7 +9240,7 @@
   },
   {
    "code": "F00LAL07",
-   "field_ar": "ق علوم اقتصادية والتسيير وعلوم تجارية",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "",
    "institutions_ar": [
     "جامعة الجزائر9"
@@ -8961,39 +9284,93 @@
   },
   {
    "code": "F00PAN01",
-   "field_ar": "تجارية علوم اقتصادية والتسيير وعلوم",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "",
-   "institutions_ar": [],
+   "institutions_ar": [
+    "المدرسة العليا لأساتذة الصم البكم"
+   ],
    "scope": "national",
    "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
+   "allowedStreams": [
+    {
+     "stream": "gestion",
+     "priority": 1
+    },
+    {
+     "stream": "math",
+     "priority": 2
+    },
+    {
+     "stream": "sciexp",
+     "priority": 2
+    },
+    {
+     "stream": "techmath",
+     "priority": 2
+    },
+    {
+     "stream": "lettres",
+     "priority": 3
+    },
+    {
+     "stream": "langues",
+     "priority": 3
+    }
+   ],
+   "rankingBasis": "general",
    "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا",
+   "_note": "ENS annexe 09 — المدرسة العليا لأساتذة الصم البكم؛ تسجيل وطني",
+   "_confidence": "high",
+   "_page": 168
   },
   {
    "code": "F00PSL01",
-   "field_ar": "تجارية علوم اقتصادية والتسيير وعلوم",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "",
    "institutions_ar": [
-    "ملحقة تلمسان (المدرسة العليا لألساتذة بوهران) ملحقة المدية ( المدرسة العليا لألساتذة بالقبة)"
+    "ملحقة المدية (المدرسة العليا للأساتذة بالقبة)",
+    "ملحقة تلمسان (المدرسة العليا للأساتذة بوهران)",
+    "جامعة قسنطينة 2 (المدرسة العليا للأساتذة بقسنطينة)"
    ],
    "scope": "regional",
    "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
+   "allowedStreams": [
+    {
+     "stream": "gestion",
+     "priority": 1
+    },
+    {
+     "stream": "math",
+     "priority": 2
+    },
+    {
+     "stream": "sciexp",
+     "priority": 2
+    },
+    {
+     "stream": "techmath",
+     "priority": 2
+    },
+    {
+     "stream": "lettres",
+     "priority": 3
+    },
+    {
+     "stream": "langues",
+     "priority": 3
+    }
+   ],
+   "rankingBasis": "general",
    "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا",
+   "_note": "ENS annexe 09 — تسجيل محلي حسب ولاية شهادة البكالوريا؛ ملاحق وأقسام بجامعات تستقبل حسب الولاية (انظر الملحق 09)",
+   "_confidence": "high",
+   "_page": 165
   },
   {
    "code": "F00TPN02",
-   "field_ar": "علوم اقتصادية والتسيير وعلوم تجارية ع",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "علوم التسيير",
    "institutions_ar": [
     "جامعة أم البواقي- معهد العلوم والتقنيات التطبيقية"
@@ -9035,7 +9412,7 @@
   },
   {
    "code": "F00TPN03",
-   "field_ar": "تجارية علوم اقتصادية والتسيير وعلوم",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "",
    "institutions_ar": [],
    "scope": "national",
@@ -9075,7 +9452,7 @@
   },
   {
    "code": "F01FPN01",
-   "field_ar": "علوم اقتصادية والتسيير وعلوم تجارية",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "علوم التسيير",
    "institutions_ar": [
     "جامعة عنابة"
@@ -9109,7 +9486,7 @@
   },
   {
    "code": "F01FPN02",
-   "field_ar": "علوم اقتصادية والتسيير وعلوم تجارية",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "علوم التسيير",
    "institutions_ar": [
     "جامعة ورقلة"
@@ -9151,7 +9528,7 @@
   },
   {
    "code": "F01LAN01",
-   "field_ar": "علوم اقتصادية والتسيير وعلوم تجارية",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "علوم التسيير",
    "institutions_ar": [
     "جامعة تيسمسيلت"
@@ -9193,7 +9570,7 @@
   },
   {
    "code": "F01LPL01",
-   "field_ar": "تجارية تسيير وعلوم علوم اقتصادية،",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "الصحية المعلومات إدارة نظم",
    "institutions_ar": [],
    "scope": "regional",
@@ -9213,7 +9590,7 @@
   },
   {
    "code": "F01LPN01",
-   "field_ar": "تجارية تسيير وعلوم علوم اقتصادية،",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "والعبور المطارات إدارة",
    "institutions_ar": [],
    "scope": "national",
@@ -9233,7 +9610,7 @@
   },
   {
    "code": "F01TPN01",
-   "field_ar": "تجارية علوم اقتصادية والتسيير وعلوم",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "",
    "institutions_ar": [],
    "scope": "national",
@@ -9242,13 +9619,13 @@
    "rankingBasis": null,
    "minThreshold": null,
    "conditions_ar": "",
-   "_note": "streams_unresolved: code not seen in tables; scope_from_code_suffix",
+   "_note": "index-only — no detail row in circulaire",
    "_confidence": "medium",
    "_page": 71
   },
   {
    "code": "F02FPN01",
-   "field_ar": "علوم اقتصادية والتسيير وعلوم تجارية",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "علوم ما لية ومحاسبة",
    "institutions_ar": [
     "جامعة ورقلة"
@@ -9290,7 +9667,7 @@
   },
   {
    "code": "F02LAL01",
-   "field_ar": "تجارية وعلوم تسيير اقتصادية، علوم",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "وتكنولوجيا مالية تفاوض",
    "institutions_ar": [],
    "scope": "regional",
@@ -9310,7 +9687,7 @@
   },
   {
    "code": "F02LAN01",
-   "field_ar": "علوم اقتصادية والتسيير وعلوم تجارية",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "علوم مالية ومحاسبة",
    "institutions_ar": [
     "جامعة المدية"
@@ -9352,7 +9729,7 @@
   },
   {
    "code": "F02TPN09",
-   "field_ar": "علوم اقتصادية والتسيير وعلوم تجارية ع",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "علوم التسيير",
    "institutions_ar": [
     "جامعة وهران-1 معهد العلوم والتقنيات التطبيقية"
@@ -9394,7 +9771,7 @@
   },
   {
    "code": "F03FPN01",
-   "field_ar": "تجارية علوم اقتصادية والتسيير وعلوم",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "",
    "institutions_ar": [],
    "scope": "national",
@@ -9426,7 +9803,7 @@
   },
   {
    "code": "F03FPN02",
-   "field_ar": "علوم اقتصادية والتسيير وعلوم تجارية",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "علوم تجارية",
    "institutions_ar": [
     "جامعة مستغا نم"
@@ -9460,7 +9837,7 @@
   },
   {
    "code": "F03LPL01",
-   "field_ar": "تجارية تسيير وعلوم علوم اقتصادية،",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "مع الزبائن وإدارة العالقة التسويقي االتصال",
    "institutions_ar": [],
    "scope": "regional",
@@ -9480,7 +9857,7 @@
   },
   {
    "code": "F03LPL02",
-   "field_ar": "تجارية تسيير وعلوم علوم اقتصادية،",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "لألعمال االلكترونية اإلدارة",
    "institutions_ar": [],
    "scope": "regional",
@@ -9500,7 +9877,7 @@
   },
   {
    "code": "F04EAN00",
-   "field_ar": "تجارية علوم اقتصادية والتسيير وعلوم",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "",
    "institutions_ar": [],
    "scope": "national",
@@ -9540,7 +9917,7 @@
   },
   {
    "code": "F04EAN01",
-   "field_ar": "علوم ،اقتصادية التسيير وعلومتجارية",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "علوم اقتصادية",
    "institutions_ar": [
     "جامعة الأغواط"
@@ -9582,7 +9959,7 @@
   },
   {
    "code": "F04EAN03",
-   "field_ar": "،علوم قتصادية التسيير وعلوم تجارية",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "علوم اقتصادية",
    "institutions_ar": [
     "جامعة تبسة"
@@ -9624,7 +10001,7 @@
   },
   {
    "code": "F04LAL01",
-   "field_ar": "تجارية وعلوم تسيير اقتصادية، علوم",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "مالية تداول وأسواق",
    "institutions_ar": [],
    "scope": "regional",
@@ -9644,7 +10021,7 @@
   },
   {
    "code": "FC1LAN03",
-   "field_ar": "علوم إقتصادية والتسيير وعلوم تجارية",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "علوم اقتصادية",
    "institutions_ar": [
     "جامعة تيبازة"
@@ -9678,7 +10055,7 @@
   },
   {
    "code": "FC1LPN01",
-   "field_ar": "،علوم إقتصادية التسسير وعلوم تجارية",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "علوم إقتصادية",
    "institutions_ar": [
     "جامعة الجزائر9"
@@ -9712,7 +10089,7 @@
   },
   {
    "code": "FC1LPN02",
-   "field_ar": "،علوم إقتصادية التسسير وعلوم تجارية",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "اقتصاد وعالقات دولية",
    "institutions_ar": [
     "جامعة الجزائر9"
@@ -9754,7 +10131,7 @@
   },
   {
    "code": "FC1LPN03",
-   "field_ar": "علوم إقتصادية والتسيير وعلوم تجارية",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "علوم تجارية",
    "institutions_ar": [
     "جامعة الجزائر9"
@@ -9788,7 +10165,7 @@
   },
   {
    "code": "FC1LPN04",
-   "field_ar": "علوم إقتصادية والتسيير وعلوم تجارية",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "علوم ا لتسيير",
    "institutions_ar": [
     "جامعة الجزائر9"
@@ -9822,7 +10199,7 @@
   },
   {
    "code": "FF1LPN01",
-   "field_ar": "علوم إقتصادية والتسيير وعلوم تجارية",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "علوم تجارية",
    "institutions_ar": [
     "جامعة تيبازة"
@@ -9856,7 +10233,7 @@
   },
   {
    "code": "FF1LPN02",
-   "field_ar": "علوم إقتصادية والتسيير وعلوم تجارية",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "علوم مالية ومحاسبة",
    "institutions_ar": [
     "جامعة الجزائر9"
@@ -9890,7 +10267,7 @@
   },
   {
    "code": "FH0LAN01",
-   "field_ar": "،علوم اقتصادية التسيير وعلوم تجارية + أداب ولغات أجنبية",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية + آداب ولغات أجنبية",
    "branch_ar": "علوم التسيير+ لغة إنجليزية",
    "institutions_ar": [
     "جامعة المسيلة"
@@ -9924,7 +10301,7 @@
   },
   {
    "code": "FI1LPN01",
-   "field_ar": "علوم إقتصادية والتسيير وعلوم تجارية",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "علوم التسيير",
    "institutions_ar": [
     "جامعة قسنطينة0"
@@ -10859,7 +11236,7 @@
   },
   {
    "code": "GC0LAN01",
-   "field_ar": "حقوق وعلوم سياسية + رياضيات وإع لام آلي",
+   "field_ar": "حقوق وعلوم سياسية + رياضيات وإعلام آلي",
    "branch_ar": "حقوق+ ال إع م آلي",
    "institutions_ar": [
     "جامعة المسيلة"
@@ -10973,7 +11350,7 @@
   },
   {
    "code": "GF0LAN01",
-   "field_ar": "حقوق وعلوم سياسية + ،علوم اقتصادية التسيير وعلوم تجارية",
+   "field_ar": "حقوق وعلوم سياسية + علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "حقوق + علوم مالية ومحاسبة",
    "institutions_ar": [
     "جامعة المدية"
@@ -11191,7 +11568,7 @@
   },
   {
    "code": "GH0LAN01",
-   "field_ar": "حقوق وعلوم سي اسية + آداب ولغات أجنبية",
+   "field_ar": "حقوق وعلوم سياسية + آداب ولغات أجنبية",
    "branch_ar": "علوم سياسية + لغة انجليزية",
    "institutions_ar": [
     "المركز الجامعي البيض"
@@ -11271,7 +11648,7 @@
   },
   {
    "code": "H01EAN01",
-   "field_ar": "أداب ولغات أجنبية",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "لغة فرنسية",
    "institutions_ar": [
     "جامعة وهران0"
@@ -11309,7 +11686,7 @@
   },
   {
    "code": "H01LAL01",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "لغة فرنسية",
    "institutions_ar": [
     "جامعة ا لأ غواط",
@@ -11409,7 +11786,7 @@
   },
   {
    "code": "H01LAL02",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "لغة فرنسية",
    "institutions_ar": [
     "جامعة المدية",
@@ -11470,7 +11847,7 @@
   },
   {
    "code": "H01LAL03",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "لغة فرنسية",
    "institutions_ar": [
     "جامعة تيزي وزو",
@@ -11533,69 +11910,180 @@
   },
   {
    "code": "H01PAN01",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "",
-   "institutions_ar": [],
+   "institutions_ar": [
+    "المدرسة العليا لأساتذة الصم البكم"
+   ],
    "scope": "national",
    "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
+   "allowedStreams": [
+    {
+     "stream": "lettres",
+     "priority": 1
+    },
+    {
+     "stream": "langues",
+     "priority": 1
+    },
+    {
+     "stream": "sciexp",
+     "priority": 2
+    },
+    {
+     "stream": "math",
+     "priority": 2
+    },
+    {
+     "stream": "techmath",
+     "priority": 2
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": 13.0,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا الذي يجب أن يساوي أو يفوق 13.00/20",
+   "_note": "ENS annexe 09 — المدرسة العليا لأساتذة الصم البكم؛ تسجيل وطني",
+   "_confidence": "high",
+   "_page": 168
   },
   {
    "code": "H01PML01",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "أستاذ التعليم المتوسط في اللغة الفرنسية",
-   "institutions_ar": [],
-   "scope": "regional",
-   "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
-  },
-  {
-   "code": "H01PPL01",
-   "field_ar": "أجنبية أداب ولغات",
-   "branch_ar": "أستاذ التعليم االبتدائي في اللغة الفرنسية",
-   "institutions_ar": [],
-   "scope": "regional",
-   "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
-  },
-  {
-   "code": "H01PSL01",
-   "field_ar": "أجنبية أداب ولغات",
-   "branch_ar": "",
    "institutions_ar": [
-    "المدرسة العليا لألساتذة بوهران المدرسة العليا لألساتذة بمستغانم المدرسة العليا لألساتذة بوسعادة المدرسة العليا لألساتذة بقسنطينة المدرسة العليا لألساتذة ببشار المدرسة العليا لألساتذة بورقلة المدرسة العليا لألساتذة بسطيف المدرسة العليا لألساتذة باألغواط المدرسة العليا لألساتذة ببوزريعة"
+    "المدرسة العليا للأساتذة بالأغواط",
+    "المدرسة العليا للأساتذة ببوزريعة",
+    "المدرسة العليا للأساتذة بقسنطينة",
+    "المدرسة العليا للأساتذة بورقلة",
+    "المدرسة العليا للأساتذة بمستغانم",
+    "المدرسة العليا للأساتذة بسطيف",
+    "المدرسة العليا للأساتذة ببشار",
+    "المدرسة العليا للأستاذة بسعيدة"
    ],
    "scope": "regional",
    "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
+   "allowedStreams": [
+    {
+     "stream": "lettres",
+     "priority": 1
+    },
+    {
+     "stream": "langues",
+     "priority": 1
+    },
+    {
+     "stream": "sciexp",
+     "priority": 2
+    },
+    {
+     "stream": "math",
+     "priority": 2
+    },
+    {
+     "stream": "techmath",
+     "priority": 2
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": 12.0,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا الذي يجب أن يساوي أو يفوق 12.00/20",
+   "_note": "ENS annexe 09 — تسجيل محلي حسب ولاية شهادة البكالوريا؛ ملاحق وأقسام بجامعات تستقبل حسب الولاية (انظر الملحق 09)",
+   "_confidence": "high",
+   "_page": 158
+  },
+  {
+   "code": "H01PPL01",
+   "field_ar": "آداب ولغات أجنبية",
+   "branch_ar": "أستاذ التعليم االبتدائي في اللغة الفرنسية",
+   "institutions_ar": [
+    "المدرسة العليا للأساتذة بالأغواط",
+    "المدرسة العليا للأساتذة ببوزريعة",
+    "المدرسة العليا للأساتذة بقسنطينة",
+    "المدرسة العليا للأساتذة بورقلة",
+    "المدرسة العليا للأساتذة ببشار",
+    "المدرسة العليا للأستاذة بسعيدة"
+   ],
+   "scope": "regional",
+   "circleWilayaNums": [],
+   "allowedStreams": [
+    {
+     "stream": "lettres",
+     "priority": 1
+    },
+    {
+     "stream": "langues",
+     "priority": 1
+    },
+    {
+     "stream": "sciexp",
+     "priority": 2
+    },
+    {
+     "stream": "math",
+     "priority": 2
+    },
+    {
+     "stream": "techmath",
+     "priority": 2
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": 11.0,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا الذي يجب أن يساوي أو يفوق 11.00/20",
+   "_note": "ENS annexe 09 — تسجيل محلي حسب ولاية شهادة البكالوريا؛ ملاحق وأقسام بجامعات تستقبل حسب الولاية (انظر الملحق 09)",
+   "_confidence": "high",
+   "_page": 156
+  },
+  {
+   "code": "H01PSL01",
+   "field_ar": "آداب ولغات أجنبية",
+   "branch_ar": "",
+   "institutions_ar": [
+    "المدرسة العليا للأساتذة ببوزريعة",
+    "المدرسة العليا للأساتذة بالأغواط",
+    "المدرسة العليا للأساتذة بسطيف",
+    "المدرسة العليا للأساتذة بورقلة",
+    "المدرسة العليا للأساتذة ببشار",
+    "المدرسة العليا للأساتذة بقسنطينة",
+    "المدرسة العليا للأساتذة ببوسعادة",
+    "المدرسة العليا للأساتذة بمستغانم",
+    "المدرسة العليا للأساتذة بوهران",
+    "المدرسة العليا للأستاذة بسعيدة"
+   ],
+   "scope": "regional",
+   "circleWilayaNums": [],
+   "allowedStreams": [
+    {
+     "stream": "lettres",
+     "priority": 1
+    },
+    {
+     "stream": "langues",
+     "priority": 1
+    },
+    {
+     "stream": "sciexp",
+     "priority": 2
+    },
+    {
+     "stream": "math",
+     "priority": 2
+    },
+    {
+     "stream": "techmath",
+     "priority": 2
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": 13.0,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا الذي يجب أن يساوي أو يفوق 13.00/20",
+   "_note": "ENS annexe 09 — تسجيل محلي حسب ولاية شهادة البكالوريا؛ ملاحق وأقسام بجامعات تستقبل حسب الولاية (انظر الملحق 09)",
+   "_confidence": "high",
+   "_page": 163
   },
   {
    "code": "H02LAL01",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "لغة إسبانية",
    "institutions_ar": [
     "جامعة الجزائر2",
@@ -11671,24 +12159,45 @@
   },
   {
    "code": "H02PSN01",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "",
    "institutions_ar": [
-    "جامعة وهران 2 (المدرسة العليا لألساتذة بوهران)"
+    "جامعة وهران 2 (المدرسة العليا للأساتذة بوهران)"
    ],
    "scope": "national",
    "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
+   "allowedStreams": [
+    {
+     "stream": "lettres",
+     "priority": 1
+    },
+    {
+     "stream": "langues",
+     "priority": 1
+    },
+    {
+     "stream": "sciexp",
+     "priority": 2
+    },
+    {
+     "stream": "math",
+     "priority": 2
+    },
+    {
+     "stream": "techmath",
+     "priority": 2
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": 13.0,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا الذي يجب أن يساوي أو يفوق 13.00/20",
+   "_note": "ENS annexe 09 — تسجيل وطني",
+   "_confidence": "high",
+   "_page": 166
   },
   {
    "code": "H03IAL01",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "ترجمة",
    "institutions_ar": [
     "جامعة الجزائر2",
@@ -11767,7 +12276,7 @@
   },
   {
    "code": "H03IAL02",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "ترجمة",
    "institutions_ar": [
     "جامعة الجزائر2",
@@ -11846,7 +12355,7 @@
   },
   {
    "code": "H03IAL03",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "ترجمة",
    "institutions_ar": [
     "جامعة الجزائر2",
@@ -11925,7 +12434,7 @@
   },
   {
    "code": "H03IAL04",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "ترجمة",
    "institutions_ar": [
     "جامعة الجزائر2",
@@ -12004,7 +12513,7 @@
   },
   {
    "code": "H03IAL05",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "ترجمة",
    "institutions_ar": [
     "جامعة الجزائر2",
@@ -12083,7 +12592,7 @@
   },
   {
    "code": "H03IAL09",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "ترجمة",
    "institutions_ar": [
     "جامعة الجزائر2",
@@ -12162,7 +12671,7 @@
   },
   {
    "code": "H03IAL10",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "ترجمة",
    "institutions_ar": [
     "جامعة الجزائر2",
@@ -12241,7 +12750,7 @@
   },
   {
    "code": "H03IAL13",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "ترجمة",
    "institutions_ar": [
     "جامعة الجزائر2",
@@ -12320,7 +12829,7 @@
   },
   {
    "code": "H03IAL14",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "ترجمة",
    "institutions_ar": [
     "جامعة الجزائر2",
@@ -12399,7 +12908,7 @@
   },
   {
    "code": "H03IAL15",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "ترجمة",
    "institutions_ar": [
     "جامعة الجزائر2",
@@ -12478,7 +12987,7 @@
   },
   {
    "code": "H03IAL16",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "ترجمة",
    "institutions_ar": [
     "جامعة الجزائر2",
@@ -12557,7 +13066,7 @@
   },
   {
    "code": "H03IAL17",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "ترجمة",
    "institutions_ar": [
     "جامعة الجزائر2",
@@ -12636,7 +13145,7 @@
   },
   {
    "code": "H03IAL18",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "ترجمة",
    "institutions_ar": [
     "جامعة الجزائر2",
@@ -12715,7 +13224,7 @@
   },
   {
    "code": "H03IAL19",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "ترجمة",
    "institutions_ar": [
     "جامعة الجزائر2",
@@ -12794,7 +13303,7 @@
   },
   {
    "code": "H03IAL20",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "ترجمة",
    "institutions_ar": [
     "جامعة الجزائر2",
@@ -12873,7 +13382,7 @@
   },
   {
    "code": "H03IAL21",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "ترجمة",
    "institutions_ar": [
     "جامعة الجزائر2",
@@ -12952,7 +13461,7 @@
   },
   {
    "code": "H03IAL22",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "ترجمة",
    "institutions_ar": [
     "جامعة الجزائر2",
@@ -13031,7 +13540,7 @@
   },
   {
    "code": "H03IAL23",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "ترجمة",
    "institutions_ar": [
     "جامعة الجزائر2",
@@ -13110,7 +13619,7 @@
   },
   {
    "code": "H03IAL24",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "ترجمة",
    "institutions_ar": [
     "جامعة الجزائر2",
@@ -13189,7 +13698,7 @@
   },
   {
    "code": "H03IAL25",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "ترجمة",
    "institutions_ar": [
     "جامعة الجزائر2",
@@ -13268,7 +13777,7 @@
   },
   {
    "code": "H03IAL26",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "ترجمة",
    "institutions_ar": [
     "جامعة الجزائر2",
@@ -13347,7 +13856,7 @@
   },
   {
    "code": "H03IAN07",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "ترجمة كتابية/ ترجمة شفوية عربي/ فرنسي/ إسباني",
    "institutions_ar": [
     "جامعة الجزائر2"
@@ -13373,7 +13882,7 @@
   },
   {
    "code": "H03IAN08",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "ترجمة كتابية/ ترجمة شفوية عربي/ فرنسي/ إسباني",
    "institutions_ar": [
     "جامعة وهران1"
@@ -13399,7 +13908,7 @@
   },
   {
    "code": "H03IAN11",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "ترجمة كتابية/ ترجمة شفوية عربي/ فرنسي/ أمازيغي",
    "institutions_ar": [
     "جامعة بجاية",
@@ -13426,7 +13935,7 @@
   },
   {
    "code": "H03IAN12",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "ترجمة كتابية/ ترجمة شفوية عربي/ فرنسي/ أمازيغي",
    "institutions_ar": [
     "جامعة بجاية",
@@ -13453,7 +13962,7 @@
   },
   {
    "code": "H03IAN20",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "",
    "institutions_ar": [],
    "scope": "national",
@@ -13477,7 +13986,7 @@
   },
   {
    "code": "H03IAN25",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "ترجمة كتابية/ ترجمة شفوية إيطالي / انجليزي/عربي",
    "institutions_ar": [
     "جامعة البيليدة0"
@@ -13503,7 +14012,7 @@
   },
   {
    "code": "H03IAN27",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "",
    "institutions_ar": [],
    "scope": "national",
@@ -13527,7 +14036,7 @@
   },
   {
    "code": "H04LAL01",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "لغة ألمانية",
    "institutions_ar": [
     "جامعة الجزائر0",
@@ -13592,24 +14101,45 @@
   },
   {
    "code": "H04PSN01",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "",
    "institutions_ar": [
-    "جامعة وهران 2 (المدرسة العليا لألساتذة بوهران)"
+    "جامعة وهران 2 (المدرسة العليا للأساتذة بوهران)"
    ],
    "scope": "national",
    "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
+   "allowedStreams": [
+    {
+     "stream": "lettres",
+     "priority": 1
+    },
+    {
+     "stream": "langues",
+     "priority": 1
+    },
+    {
+     "stream": "sciexp",
+     "priority": 2
+    },
+    {
+     "stream": "math",
+     "priority": 2
+    },
+    {
+     "stream": "techmath",
+     "priority": 2
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": 13.0,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا الذي يجب أن يساوي أو يفوق 13.00/20",
+   "_note": "ENS annexe 09 — تسجيل وطني",
+   "_confidence": "high",
+   "_page": 166
   },
   {
    "code": "H05LAL01",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "لغة روسية",
    "institutions_ar": [
     "جامعة الجزائر2",
@@ -13694,7 +14224,7 @@
   },
   {
    "code": "H06EAN01",
-   "field_ar": "أداب ولغات أجنبية",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "لغة إنجليزية",
    "institutions_ar": [
     "جامعة تلمسان"
@@ -13732,7 +14262,7 @@
   },
   {
    "code": "H06FCL00",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "",
    "institutions_ar": [],
    "scope": "regional",
@@ -13799,7 +14329,7 @@
   },
   {
    "code": "H06FCL01",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "",
    "institutions_ar": [],
    "scope": "regional",
@@ -13849,7 +14379,7 @@
   },
   {
    "code": "H06FCL02",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "",
    "institutions_ar": [],
    "scope": "regional",
@@ -13897,7 +14427,7 @@
   },
   {
    "code": "H06FCL03",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "",
    "institutions_ar": [],
    "scope": "regional",
@@ -13941,7 +14471,7 @@
   },
   {
    "code": "H06FCL04",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "",
    "institutions_ar": [],
    "scope": "regional",
@@ -13985,7 +14515,7 @@
   },
   {
    "code": "H06FCL05",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "",
    "institutions_ar": [],
    "scope": "regional",
@@ -14029,7 +14559,7 @@
   },
   {
    "code": "H06FCL06",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "",
    "institutions_ar": [],
    "scope": "regional",
@@ -14079,7 +14609,7 @@
   },
   {
    "code": "H06LAL01",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "لغة إنجليزية",
    "institutions_ar": [
     "جامعة الأغواط",
@@ -14192,7 +14722,7 @@
   },
   {
    "code": "H06LAL02",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "لغة إنجليزية",
    "institutions_ar": [
     "جامعة تيزي وزو",
@@ -14254,7 +14784,7 @@
   },
   {
    "code": "H06LAL03",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "لغة إنجليزية",
    "institutions_ar": [
     "جامعة سطيف2",
@@ -14309,69 +14839,179 @@
   },
   {
    "code": "H06PAN01",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "",
-   "institutions_ar": [],
+   "institutions_ar": [
+    "المدرسة العليا لأساتذة الصم البكم"
+   ],
    "scope": "national",
    "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
+   "allowedStreams": [
+    {
+     "stream": "lettres",
+     "priority": 1
+    },
+    {
+     "stream": "langues",
+     "priority": 1
+    },
+    {
+     "stream": "sciexp",
+     "priority": 2
+    },
+    {
+     "stream": "math",
+     "priority": 2
+    },
+    {
+     "stream": "techmath",
+     "priority": 2
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": 13.0,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا الذي يجب أن يساوي أو يفوق 13.00/20",
+   "_note": "ENS annexe 09 — المدرسة العليا لأساتذة الصم البكم؛ تسجيل وطني",
+   "_confidence": "high",
+   "_page": 168
   },
   {
    "code": "H06PML01",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "أستاذ التعليم المتوسط في اللغة اإلنجليزية",
-   "institutions_ar": [],
-   "scope": "regional",
-   "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
-  },
-  {
-   "code": "H06PPL01",
-   "field_ar": "أجنبية أداب ولغات",
-   "branch_ar": "أستاذ التعليم االبتدائي في اللغة اإلنجليزية",
-   "institutions_ar": [],
-   "scope": "regional",
-   "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
-  },
-  {
-   "code": "H06PSL01",
-   "field_ar": "أجنبية أداب ولغات",
-   "branch_ar": "",
    "institutions_ar": [
-    "المدرسة العليا لألساتذة بوهران المدرسة العليا لألساتذة بقسنطينة المدرسة العليا لألساتذة ببشار المدرسة العليا لألساتذة بورقلة المدرسة العليا لألساتذة بسطيف المدرسة العليا لألساتذة باألغواط المدرسة العليا لألساتذة ببوزريعة"
+    "المدرسة العليا للأساتذة ببوزريعة",
+    "المدرسة العليا للأساتذة بالأغواط",
+    "المدرسة العليا للأساتذة بقسنطينة",
+    "المدرسة العليا للأساتذة بورقلة",
+    "المدرسة العليا للأساتذة بسطيف",
+    "المدرسة العليا للأساتذة ببشار",
+    "المدرسة العليا للأستاذة بسعيدة"
    ],
    "scope": "regional",
    "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
+   "allowedStreams": [
+    {
+     "stream": "lettres",
+     "priority": 1
+    },
+    {
+     "stream": "langues",
+     "priority": 1
+    },
+    {
+     "stream": "sciexp",
+     "priority": 2
+    },
+    {
+     "stream": "math",
+     "priority": 2
+    },
+    {
+     "stream": "techmath",
+     "priority": 2
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": 12.0,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا الذي يجب أن يساوي أو يفوق 12.00/20",
+   "_note": "ENS annexe 09 — تسجيل محلي حسب ولاية شهادة البكالوريا؛ ملاحق وأقسام بجامعات تستقبل حسب الولاية (انظر الملحق 09)",
+   "_confidence": "high",
+   "_page": 159
+  },
+  {
+   "code": "H06PPL01",
+   "field_ar": "آداب ولغات أجنبية",
+   "branch_ar": "أستاذ التعليم االبتدائي في اللغة اإلنجليزية",
+   "institutions_ar": [
+    "المدرسة العليا للأساتذة بالأغواط",
+    "المدرسة العليا للأساتذة ببوزريعة",
+    "المدرسة العليا للأساتذة بقسنطينة",
+    "المدرسة العليا للأساتذة بورقلة",
+    "المدرسة العليا للأستاذة بسعيدة",
+    "المدرسة العليا للأساتذة ببشار",
+    "المدرسة العليا للأساتذة ببوسعادة",
+    "المدرسة العليا للأساتذة بوهران"
+   ],
+   "scope": "regional",
+   "circleWilayaNums": [],
+   "allowedStreams": [
+    {
+     "stream": "lettres",
+     "priority": 1
+    },
+    {
+     "stream": "langues",
+     "priority": 1
+    },
+    {
+     "stream": "sciexp",
+     "priority": 2
+    },
+    {
+     "stream": "math",
+     "priority": 2
+    },
+    {
+     "stream": "techmath",
+     "priority": 2
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": 11.0,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا الذي يجب أن يساوي أو يفوق 11.00/20",
+   "_note": "ENS annexe 09 — تسجيل محلي حسب ولاية شهادة البكالوريا؛ ملاحق وأقسام بجامعات تستقبل حسب الولاية (انظر الملحق 09)",
+   "_confidence": "high",
+   "_page": 157
+  },
+  {
+   "code": "H06PSL01",
+   "field_ar": "آداب ولغات أجنبية",
+   "branch_ar": "",
+   "institutions_ar": [
+    "المدرسة العليا للأساتذة ببوزريعة",
+    "المدرسة العليا للأساتذة بالأغواط",
+    "المدرسة العليا للأساتذة بسطيف",
+    "المدرسة العليا للأساتذة بورقلة",
+    "المدرسة العليا للأساتذة ببشار",
+    "المدرسة العليا للأساتذة بقسنطينة",
+    "المدرسة العليا للأساتذة بوهران",
+    "المدرسة العليا للأستاذة بسعيدة"
+   ],
+   "scope": "regional",
+   "circleWilayaNums": [],
+   "allowedStreams": [
+    {
+     "stream": "lettres",
+     "priority": 1
+    },
+    {
+     "stream": "langues",
+     "priority": 1
+    },
+    {
+     "stream": "sciexp",
+     "priority": 2
+    },
+    {
+     "stream": "math",
+     "priority": 2
+    },
+    {
+     "stream": "techmath",
+     "priority": 2
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": 13.0,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا الذي يجب أن يساوي أو يفوق 13.00/20",
+   "_note": "ENS annexe 09 — تسجيل محلي حسب ولاية شهادة البكالوريا؛ ملاحق وأقسام بجامعات تستقبل حسب الولاية (انظر الملحق 09)",
+   "_confidence": "high",
+   "_page": 163
   },
   {
    "code": "H07LAL01",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "لغة إيطالية",
    "institutions_ar": [
     "جامعة البليدة 2",
@@ -14476,24 +15116,45 @@
   },
   {
    "code": "H07PSN01",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "",
    "institutions_ar": [
-    "جامعة البليدة 2 ( المدرسة العليا لألساتذة بالقبة)"
+    "جامعة البليدة 2 (المدرسة العليا للأساتذة ببوزريعة)"
    ],
    "scope": "national",
    "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
+   "allowedStreams": [
+    {
+     "stream": "lettres",
+     "priority": 1
+    },
+    {
+     "stream": "langues",
+     "priority": 1
+    },
+    {
+     "stream": "sciexp",
+     "priority": 2
+    },
+    {
+     "stream": "math",
+     "priority": 2
+    },
+    {
+     "stream": "techmath",
+     "priority": 2
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": 13.0,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا الذي يجب أن يساوي أو يفوق 13.00/20",
+   "_note": "ENS annexe 09 — تسجيل وطني",
+   "_confidence": "high",
+   "_page": 166
   },
   {
    "code": "H08LAL01",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "لغة تركية",
    "institutions_ar": [
     "جامعة الأمير عبد القادر للعلوم الإسالمية",
@@ -14592,7 +15253,7 @@
   },
   {
    "code": "H09LAL01",
-   "field_ar": "أجنبية أداب ولغات",
+   "field_ar": "آداب ولغات أجنبية",
    "branch_ar": "لغة صينية",
    "institutions_ar": [
     "جامعة ق سنطينة0"
@@ -14657,7 +15318,7 @@
   },
   {
    "code": "HF0LAN01",
-   "field_ar": "أداب ولغات أجنبية + علوم اقتصادية،التسيير وعلوم ت جارية",
+   "field_ar": "آداب ولغات أجنبية + علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "+ لغة انجليزية علوم مالية ومحاسبة",
    "institutions_ar": [
     "جامعة تلمسان"
@@ -14691,7 +15352,7 @@
   },
   {
    "code": "HG0LAN01",
-   "field_ar": "اداب ولغات أجنبية + حقوق وعلوم سياسية",
+   "field_ar": "آداب ولغات أجنبية + حقوق وعلوم سياسية",
    "branch_ar": "لغة انجليزية + علوم سياسية",
    "institutions_ar": [
     "جامعة وهران0"
@@ -14725,7 +15386,7 @@
   },
   {
    "code": "HG0LAN02",
-   "field_ar": "أداب ولغات أجنبية + حقوق وعلوم سياسية",
+   "field_ar": "آداب ولغات أجنبية + حقوق وعلوم سياسية",
    "branch_ar": "لغة أنجليزية + حقوق",
    "institutions_ar": [
     "جامعة الشلف"
@@ -14759,101 +15420,271 @@
   },
   {
    "code": "I00PAN01",
-   "field_ar": "واجتماعية علوم إنسانية",
+   "field_ar": "علوم إنسانية واجتماعية",
    "branch_ar": "",
-   "institutions_ar": [],
+   "institutions_ar": [
+    "المدرسة العليا لأساتذة الصم البكم"
+   ],
    "scope": "national",
    "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
+   "allowedStreams": [
+    {
+     "stream": "lettres",
+     "priority": 1
+    },
+    {
+     "stream": "langues",
+     "priority": 1
+    },
+    {
+     "stream": "sciexp",
+     "priority": 2
+    },
+    {
+     "stream": "math",
+     "priority": 2
+    },
+    {
+     "stream": "techmath",
+     "priority": 2
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": 13.0,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا الذي يجب أن يساوي أو يفوق 13.00/20",
+   "_note": "ENS annexe 09 — المدرسة العليا لأساتذة الصم البكم؛ تسجيل وطني",
+   "_confidence": "high",
+   "_page": 168
   },
   {
    "code": "I00PML01",
-   "field_ar": "واجتماعية علوم إنسانية",
+   "field_ar": "علوم إنسانية واجتماعية",
    "branch_ar": "أستاذ التعليم المتوسط في التاريخ والجغرافيا",
-   "institutions_ar": [],
+   "institutions_ar": [
+    "المدرسة العليا للأساتذة ببوزريعة",
+    "المدرسة العليا للأساتذة بسطيف",
+    "المدرسة العليا للأساتذة بقسنطينة",
+    "المدرسة العليا للأساتذة بالأغواط",
+    "المدرسة العليا للأساتذة بورقلة"
+   ],
    "scope": "regional",
    "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
+   "allowedStreams": [
+    {
+     "stream": "lettres",
+     "priority": 1
+    },
+    {
+     "stream": "langues",
+     "priority": 1
+    },
+    {
+     "stream": "sciexp",
+     "priority": 2
+    },
+    {
+     "stream": "math",
+     "priority": 2
+    },
+    {
+     "stream": "techmath",
+     "priority": 2
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": 12.0,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا الذي يجب أن يساوي أو يفوق 12.00/20",
+   "_note": "ENS annexe 09 — تسجيل محلي حسب ولاية شهادة البكالوريا؛ ملاحق وأقسام بجامعات تستقبل حسب الولاية (انظر الملحق 09)",
+   "_confidence": "high",
+   "_page": 159
   },
   {
    "code": "I00PSL01",
-   "field_ar": "واجتماعية علوم إنسانية",
+   "field_ar": "علوم إنسانية واجتماعية",
    "branch_ar": "",
    "institutions_ar": [
-    "ملحقة تلمسان (المدرسة العليا لألساتذة بوهران) ملحقة سوق أهراس (المدرسة العليا لألساتذة بسطيف) ملحقة الوادي (المدرسة العليا لألساتذة بورقلة) ملحقة خميس مليانة ( المدرسة العليا لألساتذة ببوزريعة) ملحقة غرداية (المدرسة العليا لألساتذة باألغواط) ملحقة الشلف (المدرسة العليا لألساتذة مستغانم) ملحقة برج بوعريريج ((المدرسة العليا لألساتذة بوسعادة) ملحقة عنابة (المدرسة العليا لألساتذة بقسنطينة) المدرسة العليا لألساتذة بورقلة المدرسة العليا لألساتذة باألغواط المدرسة العليا لألساتذة بقسنطينة المدرسة العليا لألساتذة بسطيف المدرسة العليا لألساتذة ببوزريعة"
+    "المدرسة العليا للأساتذة ببوزريعة",
+    "المدرسة العليا للأساتذة بسطيف",
+    "المدرسة العليا للأساتذة بقسنطينة",
+    "المدرسة العليا للأساتذة بالأغواط",
+    "المدرسة العليا للأساتذة بورقلة"
    ],
    "scope": "regional",
    "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
+   "allowedStreams": [
+    {
+     "stream": "lettres",
+     "priority": 1
+    },
+    {
+     "stream": "langues",
+     "priority": 1
+    },
+    {
+     "stream": "sciexp",
+     "priority": 2
+    },
+    {
+     "stream": "math",
+     "priority": 2
+    },
+    {
+     "stream": "techmath",
+     "priority": 2
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": 13.0,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا الذي يجب أن يساوي أو يفوق 13.00/20",
+   "_note": "ENS annexe 09 — تسجيل محلي حسب ولاية شهادة البكالوريا؛ ملاحق وأقسام بجامعات تستقبل حسب الولاية (انظر الملحق 09)",
+   "_confidence": "high",
+   "_page": 163
   },
   {
    "code": "I02PAN01",
-   "field_ar": "واجتماعية علوم إنسانية",
+   "field_ar": "علوم إنسانية واجتماعية",
    "branch_ar": "",
-   "institutions_ar": [],
+   "institutions_ar": [
+    "المدرسة العليا لأساتذة الصم البكم"
+   ],
    "scope": "national",
    "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
+   "allowedStreams": [
+    {
+     "stream": "sciexp",
+     "priority": 1
+    },
+    {
+     "stream": "math",
+     "priority": 1
+    },
+    {
+     "stream": "techmath",
+     "priority": 1
+    },
+    {
+     "stream": "gestion",
+     "priority": 1
+    },
+    {
+     "stream": "lettres",
+     "priority": 1
+    },
+    {
+     "stream": "langues",
+     "priority": 1
+    },
+    {
+     "stream": "arts",
+     "priority": 1
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": 13.0,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا الذي يجب أن يساوي أو يفوق 13.00/20",
+   "_note": "ENS annexe 09 — المدرسة العليا لأساتذة الصم البكم؛ تسجيل وطني",
+   "_confidence": "high",
+   "_page": 168
   },
   {
    "code": "I02PML01",
-   "field_ar": "واجتماعية علوم إنسانية",
-   "branch_ar": "",
-   "institutions_ar": [],
-   "scope": "regional",
-   "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
-  },
-  {
-   "code": "I02PSL01",
-   "field_ar": "واجتماعية علوم إنسانية",
+   "field_ar": "علوم إنسانية واجتماعية",
    "branch_ar": "",
    "institutions_ar": [
-    "جامعة الجزائر1 ( المدرسة العليا لألساتذة ببوزريعة )"
+    "جامعة الجزائر 1 (المدرسة العليا للأساتذة ببوزريعة)",
+    "جامعة قسنطينة للعلوم الإسلامية الأمير عبد القادر (المدرسة العليا للأساتذة بقسنطينة)",
+    "جامعة وهران 1 (المدرسة العليا للأساتذة بوهران)"
    ],
    "scope": "regional",
    "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
+   "allowedStreams": [
+    {
+     "stream": "sciexp",
+     "priority": 1
+    },
+    {
+     "stream": "math",
+     "priority": 1
+    },
+    {
+     "stream": "techmath",
+     "priority": 1
+    },
+    {
+     "stream": "gestion",
+     "priority": 1
+    },
+    {
+     "stream": "lettres",
+     "priority": 1
+    },
+    {
+     "stream": "langues",
+     "priority": 1
+    },
+    {
+     "stream": "arts",
+     "priority": 1
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": 12.0,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا الذي يجب أن يساوي أو يفوق 12.00/20",
+   "_note": "ENS annexe 09 — تسجيل محلي حسب ولاية شهادة البكالوريا؛ ملاحق وأقسام بجامعات تستقبل حسب الولاية (انظر الملحق 09)",
+   "_confidence": "high",
+   "_page": 161
+  },
+  {
+   "code": "I02PSL01",
+   "field_ar": "علوم إنسانية واجتماعية",
+   "branch_ar": "",
+   "institutions_ar": [
+    "جامعة الجزائر 1 (المدرسة العليا للأساتذة ببوزريعة)",
+    "جامعة قسنطينة للعلوم الإسلامية الأمير عبد القادر (المدرسة العليا للأساتذة بقسنطينة)",
+    "جامعة وهران 1 (المدرسة العليا للأساتذة بوهران)"
+   ],
+   "scope": "regional",
+   "circleWilayaNums": [],
+   "allowedStreams": [
+    {
+     "stream": "sciexp",
+     "priority": 1
+    },
+    {
+     "stream": "math",
+     "priority": 1
+    },
+    {
+     "stream": "techmath",
+     "priority": 1
+    },
+    {
+     "stream": "gestion",
+     "priority": 1
+    },
+    {
+     "stream": "lettres",
+     "priority": 1
+    },
+    {
+     "stream": "langues",
+     "priority": 1
+    },
+    {
+     "stream": "arts",
+     "priority": 1
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": 13.0,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا الذي يجب أن يساوي أو يفوق 13.00/20",
+   "_note": "ENS annexe 09 — تسجيل محلي حسب ولاية شهادة البكالوريا؛ ملاحق وأقسام بجامعات تستقبل حسب الولاية (انظر الملحق 09)",
+   "_confidence": "high",
+   "_page": 166
   },
   {
    "code": "I03FCL01",
-   "field_ar": "واجتماعية علوم إنسانية",
+   "field_ar": "علوم إنسانية واجتماعية",
    "branch_ar": "",
    "institutions_ar": [],
    "scope": "regional",
@@ -14907,7 +15738,7 @@
   },
   {
    "code": "I03FCL02",
-   "field_ar": "واجتماعية علوم إنسانية",
+   "field_ar": "علوم إنسانية واجتماعية",
    "branch_ar": "",
    "institutions_ar": [],
    "scope": "regional",
@@ -14941,7 +15772,7 @@
   },
   {
    "code": "I03FCL03",
-   "field_ar": "واجتماعية علوم إنسانية",
+   "field_ar": "علوم إنسانية واجتماعية",
    "branch_ar": "",
    "institutions_ar": [],
    "scope": "regional",
@@ -15043,7 +15874,7 @@
   },
   {
    "code": "I03LAL01",
-   "field_ar": "واجتماعية إنسانية علوم",
+   "field_ar": "علوم إنسانية واجتماعية",
    "branch_ar": "صحي اعالم واتصال",
    "institutions_ar": [],
    "scope": "regional",
@@ -15062,23 +15893,8 @@
    "_page": 143
   },
   {
-   "code": "I03LAN00",
-   "field_ar": "واجتماعية علوم إنسانية",
-   "branch_ar": "",
-   "institutions_ar": [],
-   "scope": "national",
-   "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: visual check PDF p88: code not present; likely text-layer garbled duplicate of I03LAN01/I03LAN02; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 88
-  },
-  {
    "code": "I03LAN01",
-   "field_ar": "واجتماعية علوم إنسانية",
+   "field_ar": "علوم إنسانية واجتماعية",
    "branch_ar": "واإلتصال( )علوم اإلعالم علوم إنسانية",
    "institutions_ar": [
     "جامعة الجزائر 3"
@@ -15112,7 +15928,7 @@
   },
   {
    "code": "I03LAN02",
-   "field_ar": "واجتماعية علوم إنسانية",
+   "field_ar": "علوم إنسانية واجتماعية",
    "branch_ar": "",
    "institutions_ar": [
     "جامعة قسنطينة 3"
@@ -15146,7 +15962,7 @@
   },
   {
    "code": "I04LAL01",
-   "field_ar": "واجتماعية إنسانية علوم",
+   "field_ar": "علوم إنسانية واجتماعية",
    "branch_ar": "ضخمة تاريخ وبيانات",
    "institutions_ar": [],
    "scope": "regional",
@@ -15166,7 +15982,7 @@
   },
   {
    "code": "I10LAL01",
-   "field_ar": "واجتماعية علوم إنسانية",
+   "field_ar": "علوم إنسانية واجتماعية",
    "branch_ar": "واألسفار الترفيه علم اإلجتماع",
    "institutions_ar": [],
    "scope": "regional",
@@ -15186,7 +16002,7 @@
   },
   {
    "code": "I12LAN01",
-   "field_ar": "واجتماعية علوم إنسانية",
+   "field_ar": "علوم إنسانية واجتماعية",
    "branch_ar": "علوم إنسانية– علم الأثار*",
    "institutions_ar": [
     "جامعة الجزائر2"
@@ -15220,24 +16036,30 @@
   },
   {
    "code": "I13PSL01",
-   "field_ar": "واجتماعية علوم إنسانية",
+   "field_ar": "علوم إنسانية واجتماعية",
    "branch_ar": "",
    "institutions_ar": [
-    "المدرسة العليا لألساتذة بقسنطينة المدرسة العليا لألساتذة ببوزريعة"
+    "المدرسة العليا للأساتذة ببوزريعة",
+    "المدرسة العليا للأساتذة بقسنطينة"
    ],
    "scope": "regional",
    "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
+   "allowedStreams": [
+    {
+     "stream": "lettres",
+     "priority": null
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": 13.0,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا الذي يجب أن يساوي أو يفوق 13.00/20",
+   "_note": "ENS annexe 09 — تسجيل محلي حسب ولاية شهادة البكالوريا؛ ملاحق وأقسام بجامعات تستقبل حسب الولاية (انظر الملحق 09)؛ شعبة آداب وفلسفة فقط",
+   "_confidence": "high",
+   "_page": 164
   },
   {
    "code": "I14LAN01",
-   "field_ar": "واجتماعية علوم إنسانية",
+   "field_ar": "علوم إنسانية واجتماعية",
    "branch_ar": "- تقنيات الأرشفة - مكتبات ومراكز التوثيق",
    "institutions_ar": [
     "جامعة قسنطينة 2"
@@ -15271,7 +16093,7 @@
   },
   {
    "code": "I14LAN02",
-   "field_ar": "واجتماعية علوم إنسانية",
+   "field_ar": "علوم إنسانية واجتماعية",
    "branch_ar": "علوم إنسانية–علم المكتبات** I",
    "institutions_ar": [
     "جامعة الجزائر2"
@@ -15305,7 +16127,7 @@
   },
   {
    "code": "I17LAL01",
-   "field_ar": "واجتماعية علوم إنسانية",
+   "field_ar": "علوم إنسانية واجتماعية",
    "branch_ar": "علوم إنسانية*",
    "institutions_ar": [
     "جامعة تسمسيلت",
@@ -15360,7 +16182,7 @@
   },
   {
    "code": "I17LAL02",
-   "field_ar": "واجتماعية علوم إنسانية",
+   "field_ar": "علوم إنسانية واجتماعية",
    "branch_ar": "علوم إنسانية*",
    "institutions_ar": [
     "جامعة عين تيموشنت",
@@ -15412,7 +16234,7 @@
   },
   {
    "code": "I17LAL03",
-   "field_ar": "واجتماعية علوم إنسانية",
+   "field_ar": "علوم إنسانية واجتماعية",
    "branch_ar": "علوم إنسانية *",
    "institutions_ar": [
     "جامعة سطيف 2",
@@ -15450,7 +16272,7 @@
   },
   {
    "code": "I19LAL01",
-   "field_ar": "واجتماعية علوم إنسانية",
+   "field_ar": "علوم إنسانية واجتماعية",
    "branch_ar": "علوم اجتماعية**",
    "institutions_ar": [
     "جامعة ا اط غو أل",
@@ -15544,7 +16366,7 @@
   },
   {
    "code": "I19LAL02",
-   "field_ar": "واجتماعية علوم إنسانية",
+   "field_ar": "علوم إنسانية واجتماعية",
    "branch_ar": "علوم اجتماعية**",
    "institutions_ar": [
     "جا معة الجزائر2",
@@ -15607,7 +16429,7 @@
   },
   {
    "code": "I19LAL03",
-   "field_ar": "واجتماعية علوم إنسانية",
+   "field_ar": "علوم إنسانية واجتماعية",
    "branch_ar": "علوم اجتماعية**",
    "institutions_ar": [
     "جامعة تيزي وزو",
@@ -15669,7 +16491,7 @@
   },
   {
    "code": "I20LAL01",
-   "field_ar": "واجتماعية علوم إنسانية",
+   "field_ar": "علوم إنسانية واجتماعية",
    "branch_ar": "علوم إسالمية***",
    "institutions_ar": [
     "جامعة الجزائر1",
@@ -15756,7 +16578,7 @@
   },
   {
    "code": "I20LAL02",
-   "field_ar": "واجتماعية علوم إنسانية",
+   "field_ar": "علوم إنسانية واجتماعية",
    "branch_ar": "علوم إسالمية***",
    "institutions_ar": [
     "جامعة الأغواط",
@@ -15828,7 +16650,7 @@
   },
   {
    "code": "I20LAN01",
-   "field_ar": "واجتماعية علوم إنسانية",
+   "field_ar": "علوم إنسانية واجتماعية",
    "branch_ar": "علوم إسالمية***",
    "institutions_ar": [
     "جامعة الأمير عبد القادرللعلوم الإسالمية"
@@ -15874,7 +16696,7 @@
   },
   {
    "code": "IC0LAN01",
-   "field_ar": "رياضيات واعالم ألي + علوم انسانية واجتماعية",
+   "field_ar": "رياضيات وإعلام آلي + علوم إنسانية واجتماعية",
    "branch_ar": "اعالم ألي + علوم الإعالم والإتصال",
    "institutions_ar": [
     "جامعة الأغواط"
@@ -15900,7 +16722,7 @@
   },
   {
    "code": "IF0LAN01",
-   "field_ar": "،علوم اقتصادية الت سيير وعلوم تجارية + علوم انسانية واجتماعية",
+   "field_ar": "علوم اقتصادية، التسيير وعلوم تجارية + علوم إنسانية واجتماعية",
    "branch_ar": "علوم اقتصادية + علوم الإعالم والإتصال",
    "institutions_ar": [
     "جامعة الجزائر9"
@@ -15972,7 +16794,7 @@
   },
   {
    "code": "IG0LAN01",
-   "field_ar": "علوم انسانية واجتماعية + حقوق وعلوم سياسية",
+   "field_ar": "علوم إنسانية واجتماعية + حقوق وعلوم سياسية",
    "branch_ar": "علوم الإعالم والإتصال + علوم سياسية",
    "institutions_ar": [
     "جامعة الجزائر9"
@@ -16014,7 +16836,7 @@
   },
   {
    "code": "IH0LAN01",
-   "field_ar": "علوم انسانية واجتماعية + أداب ولغات أجنبية",
+   "field_ar": "علوم إنسانية واجتماعية + آداب ولغات أجنبية",
    "branch_ar": "علوم الإعالم والإتصال + لغة ايطالية",
    "institutions_ar": [
     "جلمعة البيلدة0"
@@ -16098,7 +16920,7 @@
   },
   {
    "code": "IJ0LAN01",
-   "field_ar": "علوم انسانية واجتماعية + علوم وتقنيات النشاطات البدنية والرياضية",
+   "field_ar": "علوم إنسانية واجتماعية + علوم وتقنيات النشاطات البدنية والرياضية",
    "branch_ar": "علوم الإعالم والإتصال + تدريب رياضي",
    "institutions_ar": [
     "جامعة الجزائر9"
@@ -16162,7 +16984,7 @@
   },
   {
    "code": "J00LAL01",
-   "field_ar": "علوم وتقنيات النشاطات البدنية والرياضية*",
+   "field_ar": "علوم وتقنيات النشاطات البدنية والرياضية",
    "branch_ar": "",
    "institutions_ar": [
     "جامعةا لأ غواط",
@@ -16257,7 +17079,7 @@
   },
   {
    "code": "J00LAL02",
-   "field_ar": "علوم وتقنيات النشاطات البدنية والرياضية*",
+   "field_ar": "علوم وتقنيات النشاطات البدنية والرياضية",
    "branch_ar": "",
    "institutions_ar": [
     "جامعة خميس مليانة",
@@ -16329,7 +17151,7 @@
   },
   {
    "code": "J00LAN01",
-   "field_ar": "علوم وتقنيات النشاطات البدنية والرياضية*",
+   "field_ar": "علوم وتقنيات النشاطات البدنية والرياضية",
    "branch_ar": "",
    "institutions_ar": [
     "جامعة الجزائر3"
@@ -16375,82 +17197,251 @@
   },
   {
    "code": "J00PAN01",
-   "field_ar": "والرياضية * النشاطات البدنية علوم وتقنيات",
+   "field_ar": "علوم وتقنيات النشاطات البدنية والرياضية",
    "branch_ar": "",
-   "institutions_ar": [],
+   "institutions_ar": [
+    "المدرسة العليا لأساتذة الصم البكم"
+   ],
    "scope": "national",
    "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
+   "allowedStreams": [
+    {
+     "stream": "sciexp",
+     "priority": 1
+    },
+    {
+     "stream": "math",
+     "priority": 1
+    },
+    {
+     "stream": "techmath",
+     "priority": 1
+    },
+    {
+     "stream": "gestion",
+     "priority": 1
+    },
+    {
+     "stream": "lettres",
+     "priority": 1
+    },
+    {
+     "stream": "langues",
+     "priority": 1
+    },
+    {
+     "stream": "arts",
+     "priority": 1
+    }
+   ],
+   "rankingBasis": "general",
    "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا",
+   "_note": "ENS annexe 09 — المدرسة العليا لأساتذة الصم البكم؛ تسجيل وطني",
+   "_confidence": "high",
+   "_page": 168
   },
   {
    "code": "J00PML01",
-   "field_ar": "والرياضية * النشاطات البدنية علوم وتقنيات",
+   "field_ar": "علوم وتقنيات النشاطات البدنية والرياضية",
    "branch_ar": "",
    "institutions_ar": [
-    "ملحقة الجلفة ( المدرسة العليا لألساتذة بالقبة ) ملحقة الشلف (المدرسة العليا لألساتذة مستغانم)"
+    "ملحقة الشلف (المدرسة العليا للأساتذة بمستغانم)",
+    "ملحقة الجلفة (المدرسة العليا للأساتذة بالقبة)",
+    "جامعة المسيلة (المدرسة العليا للأساتذة ببوسعادة)",
+    "جامعة سطيف 2 (المدرسة العليا للأساتذة بسطيف)",
+    "جامعة قسنطينة 2 (المدرسة العليا للأساتذة بقسنطينة)",
+    "جامعة الجزائر 3 (المدرسة العليا للأساتذة ببوزريعة)"
    ],
    "scope": "regional",
    "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
+   "allowedStreams": [
+    {
+     "stream": "sciexp",
+     "priority": 1
+    },
+    {
+     "stream": "math",
+     "priority": 1
+    },
+    {
+     "stream": "techmath",
+     "priority": 1
+    },
+    {
+     "stream": "gestion",
+     "priority": 1
+    },
+    {
+     "stream": "lettres",
+     "priority": 1
+    },
+    {
+     "stream": "langues",
+     "priority": 1
+    },
+    {
+     "stream": "arts",
+     "priority": 1
+    }
+   ],
+   "rankingBasis": "general",
    "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا",
+   "_note": "ENS annexe 09 — تسجيل محلي حسب ولاية شهادة البكالوريا؛ ملاحق وأقسام بجامعات تستقبل حسب الولاية (انظر الملحق 09)",
+   "_confidence": "high",
+   "_page": 161
   },
   {
    "code": "J00PPL01",
-   "field_ar": "والرياضية * النشاطات البدنية علوم وتقنيات",
-   "branch_ar": "",
-   "institutions_ar": [],
-   "scope": "regional",
-   "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 158
-  },
-  {
-   "code": "J00PPN01",
-   "field_ar": "والرياضية * النشاطات البدنية علوم وتقنيات",
-   "branch_ar": "أستاذ التعليم االبتدائي في التربية البدنية والرياضية",
-   "institutions_ar": [],
-   "scope": "national",
-   "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
-  },
-  {
-   "code": "J00PSL01",
-   "field_ar": "والرياضية * النشاطات البدنية علوم وتقنيات",
+   "field_ar": "علوم وتقنيات النشاطات البدنية والرياضية",
    "branch_ar": "",
    "institutions_ar": [
-    "ملحقة الجلفة ( المدرسة العليا لألساتذة بالقبة) ملحقة الشلف (المدرسة العليا لألساتذة مستغانم)"
+    "المدرسة العليا للأساتذة بالأغواط",
+    "المدرسة العليا للأساتذة بورقلة",
+    "المدرسة العليا للأساتذة ببوسعادة",
+    "ملحقة الشلف (المدرسة العليا للأساتذة بمستغانم)",
+    "ملحقة تيسمسيلت (المدرسة العليا للأساتذة بمستغانم)"
    ],
    "scope": "regional",
    "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
+   "allowedStreams": [
+    {
+     "stream": "sciexp",
+     "priority": 1
+    },
+    {
+     "stream": "math",
+     "priority": 1
+    },
+    {
+     "stream": "techmath",
+     "priority": 1
+    },
+    {
+     "stream": "gestion",
+     "priority": 1
+    },
+    {
+     "stream": "lettres",
+     "priority": 1
+    },
+    {
+     "stream": "langues",
+     "priority": 1
+    },
+    {
+     "stream": "arts",
+     "priority": 1
+    }
+   ],
+   "rankingBasis": "general",
    "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا",
+   "_note": "ENS annexe 09 — تسجيل محلي حسب ولاية شهادة البكالوريا؛ ملاحق وأقسام بجامعات تستقبل حسب الولاية (انظر الملحق 09)؛ الفهرس يذكر J00PPN01 وجدول التفصيل J00PPL01 لنفس التخصص (ازدواج رمز في المصدر)",
+   "_confidence": "high",
+   "_page": 157
+  },
+  {
+   "code": "J00PPN01",
+   "field_ar": "علوم وتقنيات النشاطات البدنية والرياضية",
+   "branch_ar": "أستاذ التعليم االبتدائي في التربية البدنية والرياضية",
+   "institutions_ar": [
+    "المدرسة العليا للأساتذة بالأغواط",
+    "المدرسة العليا للأساتذة بورقلة",
+    "المدرسة العليا للأساتذة ببوسعادة",
+    "ملحقة الشلف (المدرسة العليا للأساتذة بمستغانم)",
+    "ملحقة تيسمسيلت (المدرسة العليا للأساتذة بمستغانم)"
+   ],
+   "scope": "regional",
+   "circleWilayaNums": [],
+   "allowedStreams": [
+    {
+     "stream": "sciexp",
+     "priority": 1
+    },
+    {
+     "stream": "math",
+     "priority": 1
+    },
+    {
+     "stream": "techmath",
+     "priority": 1
+    },
+    {
+     "stream": "gestion",
+     "priority": 1
+    },
+    {
+     "stream": "lettres",
+     "priority": 1
+    },
+    {
+     "stream": "langues",
+     "priority": 1
+    },
+    {
+     "stream": "arts",
+     "priority": 1
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": null,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا",
+   "_note": "ENS annexe 09 — تسجيل محلي حسب ولاية شهادة البكالوريا؛ ملاحق وأقسام بجامعات تستقبل حسب الولاية (انظر الملحق 09)؛ الفهرس يذكر J00PPN01 وجدول التفصيل J00PPL01 لنفس التخصص (ازدواج رمز في المصدر)",
+   "_confidence": "high",
+   "_page": 157
+  },
+  {
+   "code": "J00PSL01",
+   "field_ar": "علوم وتقنيات النشاطات البدنية والرياضية",
+   "branch_ar": "",
+   "institutions_ar": [
+    "ملحقة الشلف (المدرسة العليا للأساتذة بمستغانم)",
+    "ملحقة الجلفة (المدرسة العليا للأساتذة بالقبة)",
+    "جامعة الجزائر 3 (المدرسة العليا للأساتذة ببوزريعة)",
+    "جامعة المسيلة (المدرسة العليا للأساتذة ببوسعادة)",
+    "جامعة قسنطينة 2 (المدرسة العليا للأساتذة بقسنطينة)",
+    "جامعة سطيف 2 (المدرسة العليا للأساتذة بسطيف)"
+   ],
+   "scope": "regional",
+   "circleWilayaNums": [],
+   "allowedStreams": [
+    {
+     "stream": "sciexp",
+     "priority": 1
+    },
+    {
+     "stream": "math",
+     "priority": 1
+    },
+    {
+     "stream": "techmath",
+     "priority": 1
+    },
+    {
+     "stream": "gestion",
+     "priority": 1
+    },
+    {
+     "stream": "lettres",
+     "priority": 1
+    },
+    {
+     "stream": "langues",
+     "priority": 1
+    },
+    {
+     "stream": "arts",
+     "priority": 1
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": null,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا",
+   "_note": "ENS annexe 09 — تسجيل محلي حسب ولاية شهادة البكالوريا؛ ملاحق وأقسام بجامعات تستقبل حسب الولاية (انظر الملحق 09)",
+   "_confidence": "high",
+   "_page": 165
   },
   {
    "code": "JI1LPN01",
@@ -16693,60 +17684,186 @@
    "code": "K00PAN01",
    "field_ar": "فنون",
    "branch_ar": "",
-   "institutions_ar": [],
+   "institutions_ar": [
+    "المدرسة العليا لأساتذة الصم البكم"
+   ],
    "scope": "national",
    "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
+   "allowedStreams": [
+    {
+     "stream": "arts",
+     "priority": 1
+    },
+    {
+     "stream": "sciexp",
+     "priority": 2
+    },
+    {
+     "stream": "math",
+     "priority": 2
+    },
+    {
+     "stream": "techmath",
+     "priority": 2
+    },
+    {
+     "stream": "gestion",
+     "priority": 2
+    },
+    {
+     "stream": "lettres",
+     "priority": 2
+    },
+    {
+     "stream": "langues",
+     "priority": 2
+    }
+   ],
+   "rankingBasis": "general",
    "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا",
+   "_note": "ENS annexe 09 — المدرسة العليا لأساتذة الصم البكم؛ تسجيل وطني",
+   "_confidence": "high",
+   "_page": 168
   },
   {
    "code": "K00PML01",
    "field_ar": "فنون",
    "branch_ar": "",
-   "institutions_ar": [],
+   "institutions_ar": [
+    "جامعة قسنطينة 3 (المدرسة العليا للأساتذة بقسنطينة)",
+    "جامعة تيارت (المدرسة العليا للأساتذة بوهران)"
+   ],
    "scope": "regional",
    "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
+   "allowedStreams": [
+    {
+     "stream": "sciexp",
+     "priority": 1
+    },
+    {
+     "stream": "math",
+     "priority": 1
+    },
+    {
+     "stream": "techmath",
+     "priority": 1
+    },
+    {
+     "stream": "gestion",
+     "priority": 1
+    },
+    {
+     "stream": "lettres",
+     "priority": 1
+    },
+    {
+     "stream": "langues",
+     "priority": 1
+    },
+    {
+     "stream": "arts",
+     "priority": 1
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": 12.0,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا الذي يجب أن يساوي أو يفوق 12.00/20",
+   "_note": "ENS annexe 09 — تسجيل محلي حسب ولاية شهادة البكالوريا؛ ملاحق وأقسام بجامعات تستقبل حسب الولاية (انظر الملحق 09)",
+   "_confidence": "high",
+   "_page": 161
   },
   {
    "code": "K00PMN01",
    "field_ar": "فنون",
    "branch_ar": "أستاذ التعليم المتوسط في الموسيقى",
-   "institutions_ar": [],
+   "institutions_ar": [
+    "المدرسة العليا للأساتذة بالقبة"
+   ],
    "scope": "national",
    "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
+   "allowedStreams": [
+    {
+     "stream": "arts",
+     "priority": 1
+    },
+    {
+     "stream": "sciexp",
+     "priority": 2
+    },
+    {
+     "stream": "math",
+     "priority": 2
+    },
+    {
+     "stream": "techmath",
+     "priority": 2
+    },
+    {
+     "stream": "gestion",
+     "priority": 2
+    },
+    {
+     "stream": "lettres",
+     "priority": 2
+    },
+    {
+     "stream": "langues",
+     "priority": 2
+    }
+   ],
+   "rankingBasis": "general",
    "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا",
+   "_note": "ENS annexe 09 — تسجيل وطني",
+   "_confidence": "high",
+   "_page": 159
   },
   {
    "code": "K00PSL01",
    "field_ar": "فنون",
    "branch_ar": "",
-   "institutions_ar": [],
+   "institutions_ar": [
+    "جامعة قسنطينة 3 (المدرسة العليا للأساتذة بقسنطينة)",
+    "جامعة تيارت (المدرسة العليا للأساتذة بوهران)"
+   ],
    "scope": "regional",
    "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
+   "allowedStreams": [
+    {
+     "stream": "arts",
+     "priority": 1
+    },
+    {
+     "stream": "sciexp",
+     "priority": 2
+    },
+    {
+     "stream": "math",
+     "priority": 2
+    },
+    {
+     "stream": "techmath",
+     "priority": 2
+    },
+    {
+     "stream": "gestion",
+     "priority": 2
+    },
+    {
+     "stream": "lettres",
+     "priority": 2
+    },
+    {
+     "stream": "langues",
+     "priority": 2
+    }
+   ],
+   "rankingBasis": "general",
    "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا",
+   "_note": "ENS annexe 09 — رمز الفهرس لأستاذ التعليم الثانوي في الرسم؛ جدول التفصيل يستعمل الرمزين K00PSN02/K00PSN03 (ازدواج رموز في المصدر)",
+   "_confidence": "high",
    "_page": 155
   },
   {
@@ -16754,47 +17871,198 @@
    "field_ar": "فنون",
    "branch_ar": "",
    "institutions_ar": [
-    "المدرسة العليا لألساتذة بالقبة"
+    "المدرسة العليا للأساتذة بالقبة"
    ],
    "scope": "national",
    "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
+   "allowedStreams": [
+    {
+     "stream": "arts",
+     "priority": 1
+    },
+    {
+     "stream": "sciexp",
+     "priority": 2
+    },
+    {
+     "stream": "math",
+     "priority": 2
+    },
+    {
+     "stream": "techmath",
+     "priority": 2
+    },
+    {
+     "stream": "gestion",
+     "priority": 2
+    },
+    {
+     "stream": "lettres",
+     "priority": 2
+    },
+    {
+     "stream": "langues",
+     "priority": 2
+    }
+   ],
+   "rankingBasis": "general",
    "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا",
+   "_note": "ENS annexe 09 — تسجيل وطني",
+   "_confidence": "high",
+   "_page": 166
   },
   {
    "code": "K00PSN02",
    "field_ar": "فنون",
    "branch_ar": "",
-   "institutions_ar": [],
-   "scope": "national",
-   "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
+   "institutions_ar": [
+    "جامعة قسنطينة 3 (المدرسة العليا للأساتذة بقسنطينة)"
+   ],
+   "scope": "regional",
+   "circleWilayaNums": [
+    4,
+    5,
+    6,
+    7,
+    10,
+    11,
+    12,
+    15,
+    18,
+    19,
+    21,
+    23,
+    24,
+    25,
+    28,
+    30,
+    33,
+    34,
+    35,
+    36,
+    39,
+    40,
+    41,
+    43,
+    44,
+    51,
+    56,
+    57,
+    58
+   ],
+   "allowedStreams": [
+    {
+     "stream": "arts",
+     "priority": 1
+    },
+    {
+     "stream": "sciexp",
+     "priority": 2
+    },
+    {
+     "stream": "math",
+     "priority": 2
+    },
+    {
+     "stream": "techmath",
+     "priority": 2
+    },
+    {
+     "stream": "gestion",
+     "priority": 2
+    },
+    {
+     "stream": "lettres",
+     "priority": 2
+    },
+    {
+     "stream": "langues",
+     "priority": 2
+    }
+   ],
+   "rankingBasis": "general",
    "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 167
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا",
+   "_note": "ENS annexe 09 — تسجيل حسب الولاية (الدوائر المذكورة)",
+   "_confidence": "high",
+   "_page": 166
   },
   {
    "code": "K00PSN03",
    "field_ar": "فنون",
    "branch_ar": "",
-   "institutions_ar": [],
-   "scope": "national",
-   "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
+   "institutions_ar": [
+    "جامعة تيارت (المدرسة العليا للأساتذة بوهران)"
+   ],
+   "scope": "regional",
+   "circleWilayaNums": [
+    1,
+    2,
+    3,
+    8,
+    9,
+    13,
+    14,
+    16,
+    17,
+    20,
+    22,
+    26,
+    27,
+    29,
+    31,
+    32,
+    37,
+    38,
+    42,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    52,
+    53,
+    54,
+    55
+   ],
+   "allowedStreams": [
+    {
+     "stream": "arts",
+     "priority": 1
+    },
+    {
+     "stream": "sciexp",
+     "priority": 2
+    },
+    {
+     "stream": "math",
+     "priority": 2
+    },
+    {
+     "stream": "techmath",
+     "priority": 2
+    },
+    {
+     "stream": "gestion",
+     "priority": 2
+    },
+    {
+     "stream": "lettres",
+     "priority": 2
+    },
+    {
+     "stream": "langues",
+     "priority": 2
+    }
+   ],
+   "rankingBasis": "general",
    "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 167
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا",
+   "_note": "ENS annexe 09 — تسجيل حسب الولاية (الدوائر المذكورة)",
+   "_confidence": "high",
+   "_page": 166
   },
   {
    "code": "K01LAL01",
@@ -17162,63 +18430,178 @@
    "code": "L00PAN01",
    "field_ar": "لغة وأدب عربي",
    "branch_ar": "",
-   "institutions_ar": [],
+   "institutions_ar": [
+    "المدرسة العليا لأساتذة الصم البكم"
+   ],
    "scope": "national",
    "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
+   "allowedStreams": [
+    {
+     "stream": "lettres",
+     "priority": 1
+    },
+    {
+     "stream": "langues",
+     "priority": 1
+    },
+    {
+     "stream": "sciexp",
+     "priority": 2
+    },
+    {
+     "stream": "math",
+     "priority": 2
+    },
+    {
+     "stream": "techmath",
+     "priority": 2
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": 13.0,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا الذي يجب أن يساوي أو يفوق 13.00/20",
+   "_note": "ENS annexe 09 — المدرسة العليا لأساتذة الصم البكم؛ تسجيل وطني",
+   "_confidence": "high",
+   "_page": 168
   },
   {
    "code": "L00PML01",
    "field_ar": "لغة وأدب عربي",
    "branch_ar": "طبيعة التعليم: حضوري. التسجيل: التسجيل في الشعبة. البكالوريا. طبيعة التسجيل: تسجيل محلي حسب والية شهادة الشهادة: أستاذ التعليم المتوسط. / أستاذ التعليم المتوسط في اللغة واآلدب العربي",
-   "institutions_ar": [],
+   "institutions_ar": [
+    "المدرسة العليا للأساتذة ببوزريعة",
+    "المدرسة العليا للأساتذة بالأغواط",
+    "المدرسة العليا للأساتذة بسطيف",
+    "المدرسة العليا للأساتذة بورقلة",
+    "المدرسة العليا للأساتذة ببشار",
+    "المدرسة العليا للأساتذة بقسنطينة",
+    "المدرسة العليا للأساتذة بمستغانم",
+    "المدرسة العليا للأساتذة بوهران",
+    "المدرسة العليا للأستاذة بسعيدة"
+   ],
    "scope": "regional",
    "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 20
+   "allowedStreams": [
+    {
+     "stream": "lettres",
+     "priority": 1
+    },
+    {
+     "stream": "langues",
+     "priority": 1
+    },
+    {
+     "stream": "sciexp",
+     "priority": 2
+    },
+    {
+     "stream": "math",
+     "priority": 2
+    },
+    {
+     "stream": "techmath",
+     "priority": 2
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": 12.0,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا الذي يجب أن يساوي أو يفوق 12.00/20",
+   "_note": "ENS annexe 09 — تسجيل محلي حسب ولاية شهادة البكالوريا؛ ملاحق وأقسام بجامعات تستقبل حسب الولاية (انظر الملحق 09)",
+   "_confidence": "high",
+   "_page": 158
   },
   {
    "code": "L00PPL01",
    "field_ar": "لغة وأدب عربي",
    "branch_ar": "طبيعة التعليم: حضوري. التسجيل: التسجيل في الشعبة. البكالوريا. طبيعة التسجيل: تسجيل محلي حسب والية شهادة الشهادة: أستاذ التعليم االبتدائي. / أستاذ التعليم االبتدائي في اللغة العربية",
-   "institutions_ar": [],
+   "institutions_ar": [
+    "المدرسة العليا للأساتذة بالأغواط",
+    "المدرسة العليا للأساتذة ببوزريعة",
+    "المدرسة العليا للأساتذة بقسنطينة",
+    "المدرسة العليا للأستاذة بسعيدة",
+    "المدرسة العليا للأساتذة ببشار"
+   ],
    "scope": "regional",
    "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 20
+   "allowedStreams": [
+    {
+     "stream": "sciexp",
+     "priority": 1
+    },
+    {
+     "stream": "math",
+     "priority": 1
+    },
+    {
+     "stream": "lettres",
+     "priority": 2
+    },
+    {
+     "stream": "langues",
+     "priority": 2
+    },
+    {
+     "stream": "techmath",
+     "priority": 2
+    },
+    {
+     "stream": "gestion",
+     "priority": 2
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": 11.0,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا الذي يجب أن يساوي أو يفوق 11.00/20",
+   "_note": "ENS annexe 09 — تسجيل محلي حسب ولاية شهادة البكالوريا؛ ملاحق وأقسام بجامعات تستقبل حسب الولاية (انظر الملحق 09)",
+   "_confidence": "high",
+   "_page": 155
   },
   {
    "code": "L00PSL01",
    "field_ar": "لغة وأدب عربي",
    "branch_ar": "",
    "institutions_ar": [
-    "المدرسة العليا لألساتذة بوهران المدرسة العليا لألساتذة بمستغانم المدرسة العليا لألساتذة بوسعادة المدرسة العليا لألساتذة بقسنطينة المدرسة العليا لألساتذة ببشار المدرسة العليا لألساتذة بورقلة المدرسة العليا لألساتذة بسطيف المدرسة العليا لألساتذة باألغواط المدرسة العليا لألساتذة ببوزريعة"
+    "المدرسة العليا للأساتذة ببوزريعة",
+    "المدرسة العليا للأساتذة بالأغواط",
+    "المدرسة العليا للأساتذة بسطيف",
+    "المدرسة العليا للأساتذة بورقلة",
+    "المدرسة العليا للأساتذة ببشار",
+    "المدرسة العليا للأساتذة بقسنطينة",
+    "المدرسة العليا للأساتذة ببوسعادة",
+    "المدرسة العليا للأساتذة بمستغانم",
+    "المدرسة العليا للأساتذة بوهران",
+    "المدرسة العليا للأستاذة بسعيدة"
    ],
    "scope": "regional",
    "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 20
+   "allowedStreams": [
+    {
+     "stream": "lettres",
+     "priority": 1
+    },
+    {
+     "stream": "langues",
+     "priority": 1
+    },
+    {
+     "stream": "sciexp",
+     "priority": 2
+    },
+    {
+     "stream": "math",
+     "priority": 2
+    },
+    {
+     "stream": "techmath",
+     "priority": 2
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": 13.0,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا الذي يجب أن يساوي أو يفوق 13.00/20",
+   "_note": "ENS annexe 09 — تسجيل محلي حسب ولاية شهادة البكالوريا؛ ملاحق وأقسام بجامعات تستقبل حسب الولاية (انظر الملحق 09)",
+   "_confidence": "high",
+   "_page": 162
   },
   {
    "code": "M00LAL01",
@@ -17323,84 +18706,239 @@
   },
   {
    "code": "M00PAN01",
-   "field_ar": "أمازيغية لغة وثقافة",
-   "branch_ar": "",
-   "institutions_ar": [],
-   "scope": "national",
-   "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
-  },
-  {
-   "code": "M00PMN01",
-   "field_ar": "أمازيغية لغة وثقافة",
-   "branch_ar": "أستاذ التعليم المتوسط في اللغة األمازيغية",
-   "institutions_ar": [],
-   "scope": "national",
-   "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
-  },
-  {
-   "code": "M00PPL01",
-   "field_ar": "أمازيغية لغة وثقافة",
-   "branch_ar": "",
-   "institutions_ar": [],
-   "scope": "regional",
-   "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 157
-  },
-  {
-   "code": "M00PPN01",
-   "field_ar": "أمازيغية لغة وثقافة",
-   "branch_ar": "أستاذ التعليم االبتدائي في اللغة األمازيغية",
-   "institutions_ar": [],
-   "scope": "national",
-   "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
-   "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
-  },
-  {
-   "code": "M00PSN01",
-   "field_ar": "أمازيغية لغة وثقافة",
+   "field_ar": "لغة وثقافة أمازيغية",
    "branch_ar": "",
    "institutions_ar": [
-    "ملحقة تيزي وزو ( المدرسة العليا لألساتذة ببوزريعة)"
+    "المدرسة العليا لأساتذة الصم البكم"
    ],
    "scope": "national",
    "circleWilayaNums": [],
-   "allowedStreams": [],
-   "rankingBasis": null,
+   "allowedStreams": [
+    {
+     "stream": "sciexp",
+     "priority": 1
+    },
+    {
+     "stream": "math",
+     "priority": 1
+    },
+    {
+     "stream": "techmath",
+     "priority": 1
+    },
+    {
+     "stream": "gestion",
+     "priority": 1
+    },
+    {
+     "stream": "lettres",
+     "priority": 1
+    },
+    {
+     "stream": "langues",
+     "priority": 1
+    },
+    {
+     "stream": "arts",
+     "priority": 1
+    }
+   ],
+   "rankingBasis": "general",
    "minThreshold": null,
-   "conditions_ar": "",
-   "_note": "streams_unresolved: ENS annex (annexe 09) — excluded from this pass by owner; scope_from_code_suffix",
-   "_confidence": "medium",
-   "_page": 155
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا",
+   "_note": "ENS annexe 09 — المدرسة العليا لأساتذة الصم البكم؛ تسجيل وطني",
+   "_confidence": "high",
+   "_page": 168
+  },
+  {
+   "code": "M00PMN01",
+   "field_ar": "لغة وثقافة أمازيغية",
+   "branch_ar": "أستاذ التعليم المتوسط في اللغة األمازيغية",
+   "institutions_ar": [
+    "ملحقة تيزي وزو (المدرسة العليا للأساتذة ببوزريعة)"
+   ],
+   "scope": "national",
+   "circleWilayaNums": [],
+   "allowedStreams": [
+    {
+     "stream": "sciexp",
+     "priority": 1
+    },
+    {
+     "stream": "math",
+     "priority": 1
+    },
+    {
+     "stream": "techmath",
+     "priority": 1
+    },
+    {
+     "stream": "gestion",
+     "priority": 1
+    },
+    {
+     "stream": "lettres",
+     "priority": 1
+    },
+    {
+     "stream": "langues",
+     "priority": 1
+    },
+    {
+     "stream": "arts",
+     "priority": 1
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": null,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا",
+   "_note": "ENS annexe 09 — تسجيل وطني",
+   "_confidence": "high",
+   "_page": 158
+  },
+  {
+   "code": "M00PPL01",
+   "field_ar": "لغة وثقافة أمازيغية",
+   "branch_ar": "",
+   "institutions_ar": [
+    "المدرسة العليا للأساتذة ببوزريعة",
+    "ملحقة تيزي وزو (المدرسة العليا للأساتذة ببوزريعة)"
+   ],
+   "scope": "regional",
+   "circleWilayaNums": [],
+   "allowedStreams": [
+    {
+     "stream": "sciexp",
+     "priority": 1
+    },
+    {
+     "stream": "math",
+     "priority": 1
+    },
+    {
+     "stream": "techmath",
+     "priority": 1
+    },
+    {
+     "stream": "gestion",
+     "priority": 1
+    },
+    {
+     "stream": "lettres",
+     "priority": 1
+    },
+    {
+     "stream": "langues",
+     "priority": 1
+    },
+    {
+     "stream": "arts",
+     "priority": 1
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": null,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا",
+   "_note": "ENS annexe 09 — تسجيل محلي حسب ولاية شهادة البكالوريا؛ ملاحق وأقسام بجامعات تستقبل حسب الولاية (انظر الملحق 09)؛ الفهرس يذكر M00PPN01 وجدول التفصيل M00PPL01 لنفس التخصص (ازدواج رمز في المصدر)",
+   "_confidence": "high",
+   "_page": 156
+  },
+  {
+   "code": "M00PPN01",
+   "field_ar": "لغة وثقافة أمازيغية",
+   "branch_ar": "أستاذ التعليم االبتدائي في اللغة األمازيغية",
+   "institutions_ar": [
+    "المدرسة العليا للأساتذة ببوزريعة",
+    "ملحقة تيزي وزو (المدرسة العليا للأساتذة ببوزريعة)"
+   ],
+   "scope": "regional",
+   "circleWilayaNums": [],
+   "allowedStreams": [
+    {
+     "stream": "sciexp",
+     "priority": 1
+    },
+    {
+     "stream": "math",
+     "priority": 1
+    },
+    {
+     "stream": "techmath",
+     "priority": 1
+    },
+    {
+     "stream": "gestion",
+     "priority": 1
+    },
+    {
+     "stream": "lettres",
+     "priority": 1
+    },
+    {
+     "stream": "langues",
+     "priority": 1
+    },
+    {
+     "stream": "arts",
+     "priority": 1
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": null,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا",
+   "_note": "ENS annexe 09 — تسجيل محلي حسب ولاية شهادة البكالوريا؛ ملاحق وأقسام بجامعات تستقبل حسب الولاية (انظر الملحق 09)؛ الفهرس يذكر M00PPN01 وجدول التفصيل M00PPL01 لنفس التخصص (ازدواج رمز في المصدر)",
+   "_confidence": "high",
+   "_page": 156
+  },
+  {
+   "code": "M00PSN01",
+   "field_ar": "لغة وثقافة أمازيغية",
+   "branch_ar": "",
+   "institutions_ar": [
+    "ملحقة تيزي وزو (المدرسة العليا للأساتذة ببوزريعة)"
+   ],
+   "scope": "national",
+   "circleWilayaNums": [],
+   "allowedStreams": [
+    {
+     "stream": "sciexp",
+     "priority": 1
+    },
+    {
+     "stream": "math",
+     "priority": 1
+    },
+    {
+     "stream": "techmath",
+     "priority": 1
+    },
+    {
+     "stream": "gestion",
+     "priority": 1
+    },
+    {
+     "stream": "lettres",
+     "priority": 1
+    },
+    {
+     "stream": "langues",
+     "priority": 1
+    },
+    {
+     "stream": "arts",
+     "priority": 1
+    }
+   ],
+   "rankingBasis": "general",
+   "minThreshold": null,
+   "conditions_ar": "يتم الترتيب على أساس المعدل العام المحصل عليه في امتحان البكالوريا",
+   "_note": "ENS annexe 09 — تسجيل وطني",
+   "_confidence": "high",
+   "_page": 162
   },
   {
    "code": "N00CAN01",
-   "field_ar": "المدينة ومهن عمران معمارية، هندسة",
+   "field_ar": "هندسة معمارية، عمران ومهن المدينة",
    "branch_ar": "بالجزائر للهندسة المعمارية والعمران ت.ق.- المدرسة المتعددة التقنيات",
    "institutions_ar": [],
    "scope": "national",
@@ -17428,7 +18966,7 @@
   },
   {
    "code": "N01FPN02",
-   "field_ar": "هندسة ،معمارية عمران ومهن المدينة",
+   "field_ar": "هندسة معمارية، عمران ومهن المدينة",
    "branch_ar": "تسيير التقنيات الحضرية",
    "institutions_ar": [
     "جامعة جيجل"
@@ -17458,7 +18996,7 @@
   },
   {
    "code": "N01FPN03",
-   "field_ar": "هندسة ،معمارية عمران ومهن المدينة",
+   "field_ar": "هندسة معمارية، عمران ومهن المدينة",
    "branch_ar": "- تسيير المدن",
    "institutions_ar": [
     "جامعة جيجل"
@@ -17488,7 +19026,7 @@
   },
   {
    "code": "N01FPN04",
-   "field_ar": "هندسة ،معمارية عمران ومهن المدينة",
+   "field_ar": "هندسة معمارية، عمران ومهن المدينة",
    "branch_ar": "تسيير التقنيات الحضرية",
    "institutions_ar": [
     "جامعة أم البواقي"
@@ -17518,7 +19056,7 @@
   },
   {
    "code": "N01IAN01",
-   "field_ar": "المدينة ومهن عمران معمارية، هندسة",
+   "field_ar": "هندسة معمارية، عمران ومهن المدينة",
    "branch_ar": "تسيير التقنيات الحضرية",
    "institutions_ar": [
     "جامعة الأغواط"
@@ -17548,7 +19086,7 @@
   },
   {
    "code": "N01LAL01",
-   "field_ar": "المدينة ومهن عمران معمارية، هندسة",
+   "field_ar": "هندسة معمارية، عمران ومهن المدينة",
    "branch_ar": "تسيير التقنيات الحضرية",
    "institutions_ar": [
     "جامعة أم البواقي",
@@ -17585,7 +19123,7 @@
   },
   {
    "code": "N02FPN01",
-   "field_ar": "هندسة ،معمارية عمران ومهن المدينة",
+   "field_ar": "هندسة معمارية، عمران ومهن المدينة",
    "branch_ar": "ادارة مشاريع البناء",
    "institutions_ar": [
     "جامعة باتنة1"
@@ -17615,7 +19153,7 @@
   },
   {
    "code": "N02FPN02",
-   "field_ar": "هندسة ،معمارية عمران ومهن المدينة",
+   "field_ar": "هندسة معمارية، عمران ومهن المدينة",
    "branch_ar": "ادارة مشاريع البناء",
    "institutions_ar": [
     "جامعة قالمة"
@@ -17645,7 +19183,7 @@
   },
   {
    "code": "N02FPN03",
-   "field_ar": "هندسة ،معمارية عمران ومهن المدينة",
+   "field_ar": "هندسة معمارية، عمران ومهن المدينة",
    "branch_ar": "ادارة مشاريع البناء",
    "institutions_ar": [
     "جامعة بسكرة"
@@ -17675,7 +19213,7 @@
   },
   {
    "code": "N02FPN04",
-   "field_ar": "هندسة ،معمارية عمران ومهن المدينة",
+   "field_ar": "هندسة معمارية، عمران ومهن المدينة",
    "branch_ar": "ادارة مشاريع البناء",
    "institutions_ar": [
     "جامعة ال مسيلة"
@@ -17705,7 +19243,7 @@
   },
   {
    "code": "N02FPN05",
-   "field_ar": "هندسة ،معمارية عمران ومهن المدينة",
+   "field_ar": "هندسة معمارية، عمران ومهن المدينة",
    "branch_ar": "ادارة مشاريع البناء",
    "institutions_ar": [
     "جامعة تبسة"
@@ -17735,7 +19273,7 @@
   },
   {
    "code": "N02FPN06",
-   "field_ar": "هندسة ،معمارية عمران ومهن المدينة",
+   "field_ar": "هندسة معمارية، عمران ومهن المدينة",
    "branch_ar": "مهن المدينة",
    "institutions_ar": [
     "جامعة أم البواقي"
@@ -17765,7 +19303,7 @@
   },
   {
    "code": "N02FPN07",
-   "field_ar": "هندسة ،معمارية عمران ومهن المدينة",
+   "field_ar": "هندسة معمارية، عمران ومهن المدينة",
    "branch_ar": "الأنفوغرافيا في الهندسة المعمارية",
    "institutions_ar": [
     "جامعة أم البواقي"
@@ -17795,7 +19333,7 @@
   },
   {
    "code": "N02FPN08",
-   "field_ar": "هندسة ،معمارية عمران ومهن المدينة",
+   "field_ar": "هندسة معمارية، عمران ومهن المدينة",
    "branch_ar": "ادارة مشاريع البناء",
    "institutions_ar": [
     "جامعة بشار"
@@ -17825,7 +19363,7 @@
   },
   {
    "code": "N02FPN09",
-   "field_ar": "هندسة ،معمارية عمران ومهن المدينة",
+   "field_ar": "هندسة معمارية، عمران ومهن المدينة",
    "branch_ar": "ادارة مشاريع البناء",
    "institutions_ar": [
     "جامعة أم البواقي"
@@ -17855,7 +19393,7 @@
   },
   {
    "code": "N02IAN01",
-   "field_ar": "المدينة ومهن عمران معمارية، هندسة",
+   "field_ar": "هندسة معمارية، عمران ومهن المدينة",
    "branch_ar": "مهن المدينة",
    "institutions_ar": [
     "جامعة الأغواط"
@@ -17885,7 +19423,7 @@
   },
   {
    "code": "N02LAN01",
-   "field_ar": "المدينة ومهن عمران معمارية، هندسة",
+   "field_ar": "هندسة معمارية، عمران ومهن المدينة",
    "branch_ar": "إ دارة مشاريع البناء",
    "institutions_ar": [
     "جامعة قسنطينة3"
@@ -17915,7 +19453,7 @@
   },
   {
    "code": "N02TPN01",
-   "field_ar": "هندسة معمارية،عمران ومهن المدينة",
+   "field_ar": "هندسة معمارية، عمران ومهن المدينة",
    "branch_ar": "مهن المدينة",
    "institutions_ar": [
     "جامعة تلمسان– معهد العلوم والتقنيات التطبيقية"
@@ -17945,7 +19483,7 @@
   },
   {
    "code": "N04LAL01",
-   "field_ar": "المدينة ومهن عمران معمارية، هندسة",
+   "field_ar": "هندسة معمارية، عمران ومهن المدينة",
    "branch_ar": "عمران",
    "institutions_ar": [
     "جامعة المسيلة",
@@ -17983,7 +19521,7 @@
   },
   {
    "code": "N05IAL01",
-   "field_ar": "المدينة ومهن عمران معمارية، هندسة",
+   "field_ar": "هندسة معمارية، عمران ومهن المدينة",
    "branch_ar": "هندسة معمارية",
    "institutions_ar": [
     "جامعةا لأ غواط",
@@ -18028,7 +19566,7 @@
   },
   {
    "code": "N05IAL02",
-   "field_ar": "المدينة ومهن عمران معمارية، هندسة",
+   "field_ar": "هندسة معمارية، عمران ومهن المدينة",
    "branch_ar": "هندسة معمارية",
    "institutions_ar": [
     "جامعة تيزي وزو",
@@ -18065,7 +19603,7 @@
   },
   {
    "code": "NA0LPN01",
-   "field_ar": "،هندسة معمارية عمران ومهن المدينة + علو م وتكنولوجيا",
+   "field_ar": "هندسة معمارية، عمران ومهن المدينة + علوم وتكنولوجيا",
    "branch_ar": "هندسة معمارية + هندسة مدنية",
    "institutions_ar": [
     "جامعة الأغواط"
@@ -18095,7 +19633,7 @@
   },
   {
    "code": "NI0LAN01",
-   "field_ar": "هندس ة معماري ة،عمران ومهن المدينة + علوم انسانية واجتماعية",
+   "field_ar": "هندسة معمارية، عمران ومهن المدينة + علوم إنسانية واجتماعية",
    "branch_ar": "هندس ة معماري ة + علوم اجتماعية- علم الإجتماع",
    "institutions_ar": [
     "جامعة بجاية"
@@ -18770,7 +20308,7 @@
   },
   {
    "code": "PC0LAN01",
-   "field_ar": "علوم طبية + رياضيات واعالم ألي",
+   "field_ar": "علوم طبية + رياضيات وإعلام آلي",
    "branch_ar": "طب + اعالم ألي",
    "institutions_ar": [
     "جامعة عنابة"
@@ -18800,7 +20338,7 @@
   },
   {
    "code": "PC0LAN02",
-   "field_ar": "علوم طبية + رياضيات واعالم ألي",
+   "field_ar": "علوم طبية + رياضيات وإعلام آلي",
    "branch_ar": "طب + اعالم ألي",
    "institutions_ar": [
     "جامعة باتن ة0"
@@ -18830,7 +20368,7 @@
   },
   {
    "code": "PC0LAN03",
-   "field_ar": "علوم طبية + رياضيات واعالم ألي",
+   "field_ar": "علوم طبية + رياضيات وإعلام آلي",
    "branch_ar": "طب + اعالم ألي",
    "institutions_ar": [
     "جامعة ورقلة"
@@ -18860,7 +20398,7 @@
   },
   {
    "code": "PC0LAN04",
-   "field_ar": "علوم طبية + رياضيات واعالم ألي",
+   "field_ar": "علوم طبية + رياضيات وإعلام آلي",
    "branch_ar": "طب + اعالم ألي",
    "institutions_ar": [
     "جامعة سطيف0"
@@ -18890,7 +20428,7 @@
   },
   {
    "code": "PF0LAN01",
-   "field_ar": "علوم طبية + ،علوم اقتصادية التسيير وعلوم تجارية",
+   "field_ar": "علوم طبية + علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "طب + علوم اقتصادية",
    "institutions_ar": [
     "جامعة قسنطينة9 + جامعة قسنطينة0"
@@ -18920,7 +20458,7 @@
   },
   {
    "code": "PF0LAN02",
-   "field_ar": "علوم طبية + ،علوم اقتصادية التسيير وعلوم تجارية",
+   "field_ar": "علوم طبية + علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "طب + علوم اقتصادية",
    "institutions_ar": [
     "جامعة ورقلة"
@@ -18950,7 +20488,7 @@
   },
   {
    "code": "PF0LAN03",
-   "field_ar": "علوم طبية + ،علوم اقتصادية التسيير وعلوم تجارية",
+   "field_ar": "علوم طبية + علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "طب + علوم اقتصادية",
    "institutions_ar": [
     "جامعة سطيف0"
@@ -18980,7 +20518,7 @@
   },
   {
    "code": "PF0LAN04",
-   "field_ar": "علوم طبية + ،علوم اقتصادية التسيير وعلوم تجارية",
+   "field_ar": "علوم طبية + علوم اقتصادية، التسيير وعلوم تجارية",
    "branch_ar": "صيدلة + علوم تجارية",
    "institutions_ar": [
     "جامعة الإغواط"
@@ -19010,7 +20548,7 @@
   },
   {
    "code": "PI0LAN01",
-   "field_ar": "علوم طبية + علوم انسانية واجتماعية",
+   "field_ar": "علوم طبية + علوم إنسانية واجتماعية",
    "branch_ar": "طب + علم النفس",
    "institutions_ar": [
     "جامعة تلمسان"
@@ -19039,6 +20577,6 @@
    "_page": 131
   }
  ],
- "_source": "Circulaire MESRS 2026-07-07 (annexes 01-08; annexe 09 ENS pending)",
- "_extracted": "2026-07-11"
+ "_source": "Circulaire MESRS 2026-07-07 (annexes 01-09 incl. ENS)",
+ "_extracted": "2026-07-14"
 }
