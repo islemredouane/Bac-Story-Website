@@ -35,7 +35,7 @@
   /* null avg = concours-based admission → treat as ambitious/unknown (never "safe") */
   const riskOf  = (specAvg) => specAvg == null ? 'risk' : (myAvg >= specAvg + 1 ? 'safe' : (myAvg >= specAvg - 1 ? 'likely' : 'risk'));
   const LABEL   = { safe: 'مضمون', likely: 'على الحدّ', risk: 'طموح / خطر' };
-  const byId    = (id) => TW_CATALOG.find(c => c.id === id);
+  const byId    = (id) => (typeof twById === 'function' ? twById(id) : TW_CATALOG.find(c => c.id === id));
   const lmdCount = () => wish.filter(id => (byId(id) || {}).lmd).length;
 
   /* ---- persist wishlist ---- */
@@ -318,7 +318,7 @@
   document.getElementById('askAiBtn')?.addEventListener('click', e => {
     e.preventDefault();
     const names = wish.map(id => {
-      const s = TW_CATALOG.find(c => c.id === id);
+      const s = byId(id);
       return s ? s.name : id;
     }).join('، ');
     const q = `ساعدني في تحليل وتحسين بطاقة رغباتي. رغباتي الحالية هي: ${names}`;
@@ -329,7 +329,7 @@
   /* ---- Export wishlist as plain-text file ---- */
   document.getElementById('exportBtn')?.addEventListener('click', () => {
     const lines = wish.map((id, i) => {
-      const s = TW_CATALOG.find(c => c.id === id);
+      const s = byId(id);
       return s ? `${i+1}. ${s.name} — ${s.avg != null ? `معدل القبول ~ ${s.avg}` : 'قبول بمسابقة خاصة'}` : `${i+1}. ${id}`;
     });
     const text = `بطاقة رغباتي (توجيهي)\n\n${lines.join('\n')}\n\nتم التصدير من تطبيق توجيهي`;

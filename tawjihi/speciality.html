@@ -544,8 +544,16 @@
       'مستوى الدكاترة':'fa-user-graduate','معلومات المدرسة':'fa-circle-info',
       'التكوين والمناهج':'fa-list-check','مميزات المدرسة':'fa-thumbs-up',
     };
-    fetch('content/' + id + '.json')
-      .then(r => r.ok ? r.json() : null)
+    /* Split-safe content lookup: split cards (med-ua1…) share the base card's
+       content file via spec.baseId; also try the resolved spec's own id when
+       the URL id was a legacy alias. */
+    const contentIds = [...new Set([id, spec && spec.id, spec && spec.baseId].filter(Boolean))];
+    const fetchContent = (i) => i >= contentIds.length
+      ? Promise.resolve(null)
+      : fetch('content/' + contentIds[i] + '.json')
+          .then(r => r.ok ? r.json() : fetchContent(i + 1))
+          .catch(() => fetchContent(i + 1));
+    fetchContent(0)
       .then(data => {
         if (!data || !Array.isArray(data.sections) || !data.sections.length) return;
         const sections = data.sections.filter(s => !shouldSkip(s.h));

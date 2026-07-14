@@ -5,6 +5,36 @@
 unmatched → flag in the report. Windows environment. All Arabic UI text in
 Algerian darja style consistent with the app.
 
+## ⚠️ ATTEMPT #1 REVIEW — read before starting (2026-07-14)
+A first attempt produced `tawjihi/data/_staging/catalog-reconciled.js` — **do not
+reuse it**. Its failures, which THIS run must avoid:
+1. It ran against a stale 84-entry catalog. The live `tawjihi/catalog.js` has
+   **206 entries** — reconcile THAT file.
+2. It used only `min1` and "minimum across matching rows" — ignoring the
+   priority-group join below (the owner's core rule).
+3. 95/132 entries were left "no official match" — matching must be far better
+   (use etb_code + French names + KB name_fr + abbreviations).
+4. It split ESI into ENSIA/ESTIN etc. — those national schools ALREADY have
+   their own standalone catalog entries; never create a split that duplicates
+   an existing entry.
+
+## OWNER DESIGN DECISION — SPLIT ENTRIES (confirmed, required)
+Where one speciality is taught at multiple institutions with different official
+minima, split it into **one card per institution** (e.g. `med` → `med-ua1`,
+`med-uo1`, …). Grouping via `unis[]` is NOT wanted. Split rules:
+- Split id = `<baseId>-<etb suffix>`; every split card MUST carry
+  `baseId: '<original id>'` (the app relies on it — see below) and its own
+  `unis: [{ …that single institution… }]`.
+- The app is already **split-safe**: `twById()` in catalog.js resolves legacy
+  ids saved in wishlists/links (exact → baseId → base-prefix), and
+  speciality.html falls back to `content/<baseId>.json` for split cards. So no
+  wishlist migration and no content duplication — just set `baseId` correctly
+  on every split card.
+- Keep KB entries keyed by the base id (the AI KB stays per-speciality); do not
+  rename KB ids.
+- Entries taught at ONE institution keep their id unchanged (no gratuitous splits).
+- Military/concours cards (`avg: null`) are never split and keep `regLink`.
+
 ## Goal
 Every acceptance average and every school/specialty name shown to students —
 in `tawjihi/catalog.js` (206 entries), `tawjihi/data/kb/specialities-kb.json`

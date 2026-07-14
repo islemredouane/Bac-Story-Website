@@ -381,7 +381,7 @@ function renderNudges(profile, wishIds) {
     });
 
     /* ---- Wishlist data ---- */
-    const wishSpecs = wishIds.map(id => TW_CATALOG.find(s => s.id === id)).filter(Boolean);
+    const wishSpecs = wishIds.map(id => (typeof twById === 'function' ? twById(id) : TW_CATALOG.find(s => s.id === id))).filter(Boolean);
 
     const riskLevel = avg => myAvg >= avg + 1 ? 'ok' : (myAvg >= avg - 1 ? 'warn' : 'no');
     const BADGE = {

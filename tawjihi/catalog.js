@@ -4177,5 +4177,18 @@ const TW_CATALOG = [
 ];
 
 /* helpers */
-const twById    = id  => TW_CATALOG.find(s => s.id === id);
+/* twById is split-safe: reconciliation splits one speciality into
+   per-institution cards (e.g. med → med-ua1, med-uo1) carrying a `baseId`.
+   Old ids saved in wishlists (Supabase) or shared links must keep resolving:
+   1. exact id  2. legacy base id → its first split card  3. orphan split id
+   whose suffix card was removed → its base card. */
+const twById    = id => {
+  if (!id) return undefined;
+  let s = TW_CATALOG.find(c => c.id === id);
+  if (s) return s;
+  s = TW_CATALOG.find(c => c.baseId === id);
+  if (s) return s;
+  const base = String(id).replace(/-[^-]+$/, '');
+  return base !== id ? TW_CATALOG.find(c => c.id === base) : undefined;
+};
 const twByCat   = cat => TW_CATALOG.filter(s => cat === 'all' || s.cat === cat);
