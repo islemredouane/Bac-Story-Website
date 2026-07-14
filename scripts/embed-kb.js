@@ -10,13 +10,13 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { createClient } from '@supabase/supabase-js';
-// Jina AI embeddings â€” free tier 1M tokens/month, 768-dim, multilingual Arabic support
+// Jina AI embeddings — free tier 1M tokens/month, 768-dim, multilingual Arabic support
 
-// â”€â”€ Resolve project root â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Resolve project root ────────────────────────────────────────────────────
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 
-// â”€â”€ Parse .env.local manually (dotenv may not be installed) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Parse .env.local manually (dotenv may not be installed) ─────────────────
 function loadEnv(filePath) {
   if (!fs.existsSync(filePath)) {
     throw new Error(`.env.local not found at ${filePath}`);
@@ -50,12 +50,12 @@ if (!SUPABASE_URL || !SUPABASE_SERVICE_ROLE_KEY) {
   throw new Error('Missing required env vars: SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY');
 }
 
-// â”€â”€ Clients â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Clients ──────────────────────────────────────────────────────────────────
 const JINA_API_KEY = env.JINA_API_KEY;
-if (!JINA_API_KEY) throw new Error('Missing JINA_API_KEY in .env.local â€” get one free at jina.ai');
+if (!JINA_API_KEY) throw new Error('Missing JINA_API_KEY in .env.local — get one free at jina.ai');
 const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY);
 
-// â”€â”€ Helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Helpers ──────────────────────────────────────────────────────────────────
 
 /** Strip UTF-8 BOM if present. */
 function stripBOM(str) {
@@ -83,7 +83,7 @@ async function embedText(text) {
   return json.data[0].embedding; // float32[], dim=768
 }
 
-/** 700ms delay â€” Jina free tier: 100 req/min = 1 per 600ms, 700ms gives headroom. */
+/** 700ms delay — Jina free tier: 100 req/min = 1 per 600ms, 700ms gives headroom. */
 function delay(ms = 700) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -100,7 +100,7 @@ async function upsertRows(rows) {
       .from('kb_embeddings')
       .upsert(batch, { onConflict: 'source,source_id,chunk_index', ignoreDuplicates: false });
     if (error) {
-      console.error(`  [upsert error] batch ${i}â€“${i + batch.length - 1}:`, error.message);
+      console.error(`  [upsert error] batch ${i}–${i + batch.length - 1}:`, error.message);
     }
   }
 }
@@ -140,9 +140,9 @@ async function embedChunks(chunks, label) {
   return rows;
 }
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-//  1. CONTENT FILES  (tawjihi/content/*.json â€” 83 files)
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ═══════════════════════════════════════════════════════════════════════════
+//  1. CONTENT FILES  (tawjihi/content/*.json — 83 files)
+// ═══════════════════════════════════════════════════════════════════════════
 function buildContentChunks() {
   const contentDir = path.join(ROOT, 'tawjihi', 'content');
   const files = fs.readdirSync(contentDir).filter(f => f.endsWith('.json'));
@@ -183,9 +183,9 @@ function buildContentChunks() {
   return chunks;
 }
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-//  2. SPECIALITIES KB  (tawjihi/data/kb/specialities-kb.json â€” 220 entries)
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ═══════════════════════════════════════════════════════════════════════════
+//  2. SPECIALITIES KB  (tawjihi/data/kb/specialities-kb.json — 220 entries)
+// ═══════════════════════════════════════════════════════════════════════════
 function buildSpecialityChunks() {
   const filePath = path.join(ROOT, 'tawjihi', 'data', 'kb', 'specialities-kb.json');
   const parsed = readJSON(filePath);
@@ -195,7 +195,7 @@ function buildSpecialityChunks() {
   entries.forEach((e, i) => {
     const text = [
       `${e.name_ar ?? ''} (${e.name_fr ?? ''})`,
-      `Ø§Ù„ØªØ®ØµØµ: ${e.category ?? ''}`,
+      `التخصص: ${e.category ?? ''}`,
       e.averages_text ?? '',
       `الأقسام: ${(Array.isArray(e.sections) ? e.sections : Object.values(e.sections || {})).join('، ')}`,
     ].join('\n').trim();
@@ -218,9 +218,9 @@ function buildSpecialityChunks() {
   return chunks;
 }
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-//  3. PROGRAMS  (tawjihi/data/guide/programs.json â€” 341 entries)
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ═══════════════════════════════════════════════════════════════════════════
+//  3. PROGRAMS  (tawjihi/data/guide/programs.json — 341 entries)
+// ═══════════════════════════════════════════════════════════════════════════
 function buildProgramChunks() {
   const filePath = path.join(ROOT, 'tawjihi', 'data', 'guide', 'programs.json');
   const parsed = readJSON(filePath);
@@ -230,23 +230,23 @@ function buildProgramChunks() {
 
   entries.forEach((p, i) => {
     const parts = [];
-    if (p.code)          parts.push(`ÙƒÙˆØ¯: ${p.code}`);
-    if (p.field_ar)      parts.push(`Ø§Ù„Ù…ÙŠØ¯Ø§Ù†: ${p.field_ar}`);
-    if (p.branch_ar)     parts.push(`Ø§Ù„Ø´Ø¹Ø¨Ø©: ${p.branch_ar}`);
-    if (p.name)          parts.push(`Ø§Ù„Ø§Ø³Ù…: ${p.name}`);
+    if (p.code)          parts.push(`كود: ${p.code}`);
+    if (p.field_ar)      parts.push(`الميدان: ${p.field_ar}`);
+    if (p.branch_ar)     parts.push(`الشعبة: ${p.branch_ar}`);
+    if (p.name)          parts.push(`الاسم: ${p.name}`);
     if (p.name_ar)       parts.push(p.name_ar);
-    if (p.scope)         parts.push(`Ø§Ù„Ù†Ø·Ø§Ù‚: ${p.scope}`);
-    if (p.eligibility)   parts.push(`Ø§Ù„Ø£Ù‡Ù„ÙŠØ©: ${p.eligibility}`);
-    if (p.average)       parts.push(`Ø§Ù„Ù…Ø¹Ø¯Ù„ Ø§Ù„Ø£Ø¯Ù†Ù‰: ${p.average}`);
-    if (p.conditions)    parts.push(`Ø§Ù„Ø´Ø±ÙˆØ·: ${p.conditions}`);
+    if (p.scope)         parts.push(`النطاق: ${p.scope}`);
+    if (p.eligibility)   parts.push(`الأهلية: ${p.eligibility}`);
+    if (p.average)       parts.push(`المعدل الأدنى: ${p.average}`);
+    if (p.conditions)    parts.push(`الشروط: ${p.conditions}`);
     if (Array.isArray(p.institutions_ar) && p.institutions_ar.length) {
-      parts.push(`Ø§Ù„Ù…Ø¤Ø³Ø³Ø§Øª: ${p.institutions_ar.join('ØŒ ')}`);
+      parts.push(`المؤسسات: ${p.institutions_ar.join('، ')}`);
     }
     if (p.wilayaAverages && typeof p.wilayaAverages === 'object') {
       const waLines = Object.entries(p.wilayaAverages)
         .map(([w, v]) => `${w}: ${v}`)
-        .join('ØŒ ');
-      parts.push(`Ù…Ø¹Ø¯Ù„Ø§Øª Ø§Ù„ÙˆÙ„Ø§ÙŠØ§Øª: ${waLines}`);
+        .join('، ');
+      parts.push(`معدلات الولايات: ${waLines}`);
     }
 
     const text = parts.join('\n').trim();
@@ -268,9 +268,9 @@ function buildProgramChunks() {
   return chunks;
 }
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-//  4. MINISTRY RULES  (tawjihi/data/kb/ministry-rules.json â€” 27 rules)
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ═══════════════════════════════════════════════════════════════════════════
+//  4. MINISTRY RULES  (tawjihi/data/kb/ministry-rules.json — 27 rules)
+// ═══════════════════════════════════════════════════════════════════════════
 function buildRuleChunks() {
   const filePath = path.join(ROOT, 'tawjihi', 'data', 'kb', 'ministry-rules.json');
   const parsed = readJSON(filePath);
@@ -282,7 +282,7 @@ function buildRuleChunks() {
     const body = r.rule_ar ?? r.body ?? r.description ?? r.text ?? '';
     const title = r.topic_ar ?? r.title ?? '';
     const text = [
-      `Ù‚Ø§Ø¹Ø¯Ø© ${r.id ?? i + 1}: ${title}`,
+      `قاعدة ${r.id ?? i + 1}: ${title}`,
       body,
     ].join('\n').trim();
 
@@ -302,10 +302,10 @@ function buildRuleChunks() {
   return chunks;
 }
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ═══════════════════════════════════════════════════════════════════════════
 //  5. GEO CIRCLES  (tawjihi/data/kb/geo-circles.json)
 //     Structure: { circles: [{id, name_ar, name, wilayas, wilayaCodes}], wilayaToCircle: {...} }
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ═══════════════════════════════════════════════════════════════════════════
 function buildGeoChunks() {
   const filePath = path.join(ROOT, 'tawjihi', 'data', 'kb', 'geo-circles.json');
   const parsed = readJSON(filePath);
@@ -314,9 +314,9 @@ function buildGeoChunks() {
 
   circles.forEach((circle, i) => {
     const text = [
-      `Ø§Ù„Ø¯Ø§Ø¦Ø±Ø© Ø§Ù„Ø¬ØºØ±Ø§ÙÙŠØ© ${circle.id}: ${circle.name_ar} (${circle.name})`,
-      `Ø§Ù„ÙˆÙ„Ø§ÙŠØ§Øª: ${(circle.wilayas ?? []).join('ØŒ ')}`,
-      `Ø£Ø±Ù‚Ø§Ù… Ø§Ù„ÙˆÙ„Ø§ÙŠØ§Øª: ${(circle.wilayaCodes ?? []).join(', ')}`,
+      `الدائرة الجغرافية ${circle.id}: ${circle.name_ar} (${circle.name})`,
+      `الولايات: ${(circle.wilayas ?? []).join('، ')}`,
+      `أرقام الولايات: ${(circle.wilayaCodes ?? []).join(', ')}`,
     ].join('\n').trim();
 
     if (text.length < 20) return;
@@ -338,13 +338,13 @@ function buildGeoChunks() {
   // Also emit one summary chunk listing the full wilayaToCircle mapping
   if (parsed.wilayaToCircle && Object.keys(parsed.wilayaToCircle).length) {
     const lines = Object.entries(parsed.wilayaToCircle)
-      .map(([w, c]) => `${w} â†’ Ù…Ù†Ø·Ù‚Ø© ${c}`)
+      .map(([w, c]) => `${w} → منطقة ${c}`)
       .join('\n');
     chunks.push({
       source: 'geo',
       source_id: 'wilaya-to-circle-map',
       chunk_index: 0,
-      content: `Ø®Ø±ÙŠØ·Ø© Ø§Ù„ÙˆÙ„Ø§ÙŠØ§Øª Ø¥Ù„Ù‰ Ø§Ù„Ø¯ÙˆØ§Ø¦Ø± Ø§Ù„Ø¬ØºØ±Ø§ÙÙŠØ©:\n${lines}`,
+      content: `خريطة الولايات إلى الدوائر الجغرافية:\n${lines}`,
       metadata: { type: 'wilaya_index' },
     });
   }
@@ -352,10 +352,10 @@ function buildGeoChunks() {
   return chunks;
 }
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ═══════════════════════════════════════════════════════════════════════════
 //  6. FILIERE INDEX  (tawjihi/data/kb/filiere-index.json)
 //     Structure: { filieres: { KEY: { label, rowIndices, best: {min1,min2,min3} } } }
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ═══════════════════════════════════════════════════════════════════════════
 function buildFiliereChunks() {
   const filePath = path.join(ROOT, 'tawjihi', 'data', 'kb', 'filiere-index.json');
   const parsed = readJSON(filePath);
@@ -372,8 +372,8 @@ function buildFiliereChunks() {
       .join('\n');
 
     const text = [
-      `ÙÙŠÙ„ÙŠØ§Ø±: ${v.label ?? key}`,
-      bestLines ? `Ø£ÙØ¶Ù„ Ù…Ø¹Ø¯Ù„Ø§Øª Ø§Ù„Ù‚Ø¨ÙˆÙ„:\n${bestLines}` : '',
+      `فيليار: ${v.label ?? key}`,
+      bestLines ? `أفضل معدلات القبول:\n${bestLines}` : '',
     ].filter(Boolean).join('\n').trim();
 
     if (text.length < 20) return;
@@ -395,10 +395,10 @@ function buildFiliereChunks() {
   return chunks;
 }
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ═══════════════════════════════════════════════════════════════════════════
 //  7. AVAILABILITY MAP  (tawjihi/data/kb/availability-map.json)
 //     Structure: { specialities: { KEY: { offeredIn, establishments, scope, ... } } }
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ═══════════════════════════════════════════════════════════════════════════
 function buildAvailabilityChunks() {
   const filePath = path.join(ROOT, 'tawjihi', 'data', 'kb', 'availability-map.json');
   const parsed = readJSON(filePath);
@@ -416,12 +416,12 @@ function buildAvailabilityChunks() {
       .join('\n');
 
     const text = [
-      `ØªØ®ØµØµ: ${key}`,
-      `Ø§Ù„Ù†Ø·Ø§Ù‚: ${scope}`,
+      `تخصص: ${key}`,
+      `النطاق: ${scope}`,
       offeredIn.length
-        ? `Ù…ØªØ§Ø­ ÙÙŠ: ${offeredIn.join('ØŒ ')}`
-        : (note || 'ØºÙŠØ± Ù…ØªØ§Ø­ ÙÙŠ ÙˆÙ„Ø§ÙŠØ© Ù…Ø­Ø¯Ø¯Ø© (ÙˆØ·Ù†ÙŠ)'),
-      etabLines ? `Ø§Ù„Ù…Ø¤Ø³Ø³Ø§Øª:\n${etabLines}` : '',
+        ? `متاح في: ${offeredIn.join('، ')}`
+        : (note || 'غير متاح في ولاية محددة (وطني)'),
+      etabLines ? `المؤسسات:\n${etabLines}` : '',
     ].filter(Boolean).join('\n').trim();
 
     if (text.length < 20) return;
@@ -442,16 +442,16 @@ function buildAvailabilityChunks() {
   return chunks;
 }
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ═══════════════════════════════════════════════════════════════════════════
 //  MAIN
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ═══════════════════════════════════════════════════════════════════════════
 async function main() {
   const startTime = Date.now();
   let totalEmbedded = 0;
 
-  console.log('=== embed-kb.js â€” Knowledge Base Embedding Pipeline ===\n');
+  console.log('=== embed-kb.js — Knowledge Base Embedding Pipeline ===\n');
 
-  // â”€â”€ Build all chunk lists (synchronous) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ── Build all chunk lists (synchronous) ──────────────────────────────────
   console.log('Building chunks from source files...');
 
   const sources = [
@@ -460,12 +460,12 @@ async function main() {
     { label: 'programs', build: buildProgramChunks },
     { label: 'ministry rules', build: buildRuleChunks },
     { label: 'geo circles', build: buildGeoChunks },
-    // filiere-index (3137 raw average entries) and availability-map skipped â€”
+    // filiere-index (3137 raw average entries) and availability-map skipped —
     // overlaps with programs.json already embedded; not conversational content
   ];
 
   for (const { label, build } of sources) {
-    console.log(`\nâ”€â”€ ${label.toUpperCase()} â”€â”€`);
+    console.log(`\n── ${label.toUpperCase()} ──`);
     let chunks;
     try {
       chunks = build();

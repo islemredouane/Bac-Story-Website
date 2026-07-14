@@ -1,0 +1,69 @@
+{
+  "generated": "2026-07-14T13:42:05.488Z",
+  "passN": 9,
+  "total": 10,
+  "rows": [
+    {
+      "q": "الإعلام العسكري",
+      "id": "military-media",
+      "verdict": "PASS",
+      "got": "content:military-media, content:military-media, content:military-media, speciality:military-media, content:military-media"
+    },
+    {
+      "q": "المدرسة العليا للطيران",
+      "id": "esa",
+      "verdict": "PASS",
+      "got": "content:esa, content:aeronautique, speciality:esa, content:esa, content:esa"
+    },
+    {
+      "q": "معدل الطب",
+      "id": "medcine",
+      "verdict": "PASS",
+      "got": "content:med, content:med, speciality:medcine, speciality:med-bio, content:med"
+    },
+    {
+      "q": "التسجيل في المدارس العسكرية",
+      "content": "preinscription.mdn.dz",
+      "verdict": "PASS",
+      "got": "content:commissariat-corps, content:gendarmerie, content:esdat, content:republican-guard, content:military-health"
+    },
+    {
+      "q": "الدائرة الجغرافية لولاية سطيف",
+      "id": "geographic-circles",
+      "altSource": "geo",
+      "verdict": "PASS",
+      "got": "program:E02LAL01, speciality:med-eco-ufas, program:D03LAN02, program:PF0LAN03, rule:geographic-circles-wilaya"
+    },
+    {
+      "q": "معدل قبول الصيدلة",
+      "id": "pharmacie",
+      "count": 8,
+      "verdict": "FAIL",
+      "got": "content:pharm-ind, content:math, content:sm, content:st, content:bio, content:info, content:med-bio, content:labo"
+    },
+    {
+      "q": "المدرسة الوطنية العليا للإعلام الآلي سيدي بلعباس",
+      "id": "esi",
+      "verdict": "PASS",
+      "got": "speciality:esi-sba-ecole, program:A17IAN02, speciality:esi-sba, program:A16IAN01, program:C00CAN02"
+    },
+    {
+      "q": "الفرق بين نظام LMD ومهندس دولة",
+      "id": "system-lmd-vs-ingenieur",
+      "verdict": "PASS",
+      "got": "speciality:system-lmd-vs-ingenieur, content:info, content:archi, content:genie-civil, content:ensttic"
+    },
+    {
+      "q": "الدرك الوطني كيفاش الدخول",
+      "id": "gendarmerie",
+      "verdict": "PASS",
+      "got": "content:gendarmerie, content:gendarmerie, content:gendarmerie, content:gendarmerie, content:gendarmerie"
+    },
+    {
+      "q": "المعدل الموزون كيفاش يتحسب",
+      "source": "rule",
+      "verdict": "PASS",
+      "got": "rule:weighted-average, content:inataa, program:B02TPN02, content:info, content:cherchall"
+    }
+  ]
+}

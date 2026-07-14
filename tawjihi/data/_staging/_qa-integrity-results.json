@@ -1,0 +1,82 @@
+{
+  "generated": "2026-07-14T09:07:42.699Z",
+  "passN": 3,
+  "warnN": 3,
+  "failN": 2,
+  "checks": [
+    {
+      "name": "A1 catalog: ids/cat/streams/avg/img/regLink",
+      "status": "FAIL",
+      "failures": [
+        "dieteticien: img not found: images/university.png",
+        "public-health-hygiene: img not found: images/paramed.png",
+        "adjoint-medical: img not found: images/paramed.png",
+        "assistant-social: img not found: images/paramed.png",
+        "law-fin: img not found: images/university.png"
+      ],
+      "warnings": [],
+      "info": "638 runtime cards (expected 638)"
+    },
+    {
+      "name": "A1c split cards + twById legacy resolution",
+      "status": "PASS",
+      "failures": [],
+      "warnings": [],
+      "info": "480 split cards (expected 480), 158 literal"
+    },
+    {
+      "name": "A2 catalog → KB coverage (alias-aware)",
+      "status": "WARN",
+      "failures": [],
+      "warnings": [
+        "esc: only partial KB coverage via \"commerce\" — consider a dedicated KB entry",
+        "education: only partial KB coverage via \"childhood\" — consider a dedicated KB entry",
+        "psych: only partial KB coverage via \"sociales\" — consider a dedicated KB entry"
+      ],
+      "info": "206 base specialities vs 244 KB entries"
+    },
+    {
+      "name": "A2b content/*.json parse + section types",
+      "status": "WARN",
+      "failures": [],
+      "warnings": [
+        "30/107 content files carry a UTF-8 BOM — harmless for browser fetch()/embed-kb (both strip it), but breaks naive JSON.parse consumers"
+      ],
+      "info": "107 files"
+    },
+    {
+      "name": "A3 programs.json required fields / wilayas / streams",
+      "status": "WARN",
+      "failures": [],
+      "warnings": [
+        "62 index-derived programs have rankingBasis=null (guide index page states no ranking basis; _note=no_explicit_priority). Suggested fix: backfill \"weighted_or_general\" (the MESRS default) or resolve from the detailed guide pages."
+      ],
+      "info": "495 programs"
+    },
+    {
+      "name": "A4 averages traceability (20 sampled specialities)",
+      "status": "PASS",
+      "failures": [],
+      "warnings": [],
+      "info": "20 sampled of 134 mapped-with-codes"
+    },
+    {
+      "name": "A5 KB: count / legacy_unverified / military preinscription sections",
+      "status": "PASS",
+      "failures": [],
+      "warnings": [],
+      "info": "244 entries, 11 military, 66 legacy_unverified"
+    },
+    {
+      "name": "A6 encoding audit (double-encoded Arabic)",
+      "status": "FAIL",
+      "failures": [
+        "api\\tawjihi-chat.js: Arabic is fully double-encoded (mojibake 6620, real Arabic 0) — recoverable via cp1252 reverse-map"
+      ],
+      "warnings": [
+        "scripts\\embed-kb.js: mixed encoding — 86 mojibake sequences alongside 8 real Arabic chars"
+      ],
+      "info": ""
+    }
+  ]
+}
