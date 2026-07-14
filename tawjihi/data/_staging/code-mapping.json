@@ -1,1611 +1,3680 @@
-[
-  {
-    "catalogId": "esi-esi",
-    "parentId": "esi",
-    "uniAbbr": "ESI",
-    "matchCount": 1,
-    "minimaRows": [
-      {
-        "code": "C00CAN01",
-        "name_fr": "FB INF ECOLE NATIONALE SUPERIEURE EN INFORMATIQUE ALGER",
-        "institution_fr": "ECOLE NATIONALE SUPERIEURE EN INFORMATIQUE ALGER",
-        "min1": 18.19,
-        "min2": 18.55,
-        "min3": 18.93,
-        "confidence": "high"
-      }
-    ]
-  },
-  {
-    "catalogId": "esi-ensia",
-    "parentId": "esi",
-    "uniAbbr": "ENSIA",
-    "matchCount": 1,
-    "minimaRows": [
-      {
-        "code": "C00CAN04",
-        "name_fr": "FB INF ECOLE NATIONALE SUPERIEURE EN INTELLIGENCE ARTIFICIELLE ALGER",
-        "institution_fr": "ECOLE NATIONALE SUPERIEURE EN INTELLIGENCE ARTIFICIELLE",
-        "min1": 18.59,
-        "min2": 18.95,
-        "min3": 19.37,
-        "confidence": "high"
-      }
-    ]
-  },
-  {
-    "catalogId": "esi-esi-sba",
-    "parentId": "esi",
-    "uniAbbr": "ESI-SBA",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "esi-estin",
-    "parentId": "esi",
-    "uniAbbr": "ESTIN",
-    "matchCount": 1,
-    "minimaRows": [
-      {
-        "code": "C00CAN03",
-        "name_fr": "FB INF ECOLE SUPERIEURE EN SCIENCES ET TECHNOLOGIES DE L INFORMATIQUE ET DU NUMERIQUE BEJAIA",
-        "institution_fr": "E.S EN SCIENCES ET TECHNOLOGIES DE L INFORMATIQUE ET DU NUMERIQUE BEJAIA",
-        "min1": 17.45,
-        "min2": 17.79,
-        "min3": 18.15,
-        "confidence": "high"
-      }
-    ]
-  },
-  {
-    "catalogId": "esi-usthb",
-    "parentId": "esi",
-    "uniAbbr": "USTHB",
-    "matchCount": 17,
-    "minimaRows": [
-      {
-        "code": "A00LAL03",
-        "name_fr": "SCIENCES ET TECHNOLOGIES",
-        "institution_fr": "USTHB",
-        "min1": 12.66,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      },
-      {
-        "code": "A00TCL02",
-        "name_fr": "SCIENCES ET TECHNOLOGIES",
-        "institution_fr": "USTHB",
-        "min1": 13.87,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      },
-      {
-        "code": "A05TCL01",
-        "name_fr": "GENIE CIVIL",
-        "institution_fr": "USTHB",
-        "min1": 12.78,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      }
-    ]
-  },
-  {
-    "catalogId": "ensia",
-    "parentId": null,
-    "uniAbbr": "ENSIA",
-    "matchCount": 1,
-    "minimaRows": [
-      {
-        "code": "C00CAN04",
-        "name_fr": "FB INF ECOLE NATIONALE SUPERIEURE EN INTELLIGENCE ARTIFICIELLE ALGER",
-        "institution_fr": "ECOLE NATIONALE SUPERIEURE EN INTELLIGENCE ARTIFICIELLE",
-        "min1": 18.59,
-        "min2": 18.95,
-        "min3": 19.37,
-        "confidence": "high"
-      }
-    ]
-  },
-  {
-    "catalogId": "estin",
-    "parentId": null,
-    "uniAbbr": "ESTIN",
-    "matchCount": 1,
-    "minimaRows": [
-      {
-        "code": "C00CAN03",
-        "name_fr": "FB INF ECOLE SUPERIEURE EN SCIENCES ET TECHNOLOGIES DE L INFORMATIQUE ET DU NUMERIQUE BEJAIA",
-        "institution_fr": "E.S EN SCIENCES ET TECHNOLOGIES DE L INFORMATIQUE ET DU NUMERIQUE BEJAIA",
-        "min1": 17.45,
-        "min2": 17.79,
-        "min3": 18.15,
-        "confidence": "high"
-      }
-    ]
-  },
-  {
-    "catalogId": "med-",
-    "parentId": "med",
-    "uniAbbr": "وطني",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "med-ua1",
-    "parentId": "med",
-    "uniAbbr": "UA1",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "med-uca3",
-    "parentId": "med",
-    "uniAbbr": "UCA3",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "med-uo1",
-    "parentId": "med",
-    "uniAbbr": "UO1",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "med-ufas1",
-    "parentId": "med",
-    "uniAbbr": "UFAS1",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "pharm-",
-    "parentId": "pharm",
-    "uniAbbr": "وطني",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "pharm-ua1",
-    "parentId": "pharm",
-    "uniAbbr": "UA1",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "pharm-uca3",
-    "parentId": "pharm",
-    "uniAbbr": "UCA3",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "pharm-uo1",
-    "parentId": "pharm",
-    "uniAbbr": "UO1",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "dent-",
-    "parentId": "dent",
-    "uniAbbr": "وطني",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "dent-ua1",
-    "parentId": "dent",
-    "uniAbbr": "UA1",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "dent-uca3",
-    "parentId": "dent",
-    "uniAbbr": "UCA3",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "dent-uo1",
-    "parentId": "dent",
-    "uniAbbr": "UO1",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "archi-epau",
-    "parentId": "archi",
-    "uniAbbr": "EPAU",
-    "matchCount": 1,
-    "minimaRows": [
-      {
-        "code": "N00CAN01",
-        "name_fr": "FB SP ECOLE POLYTECHNIQUE D ARCHITECTURE ET D URBANISME ALGER",
-        "institution_fr": "ECOLE POLYTECHNIQUE D ARCHITECTURE ET D URBANISME ALGER",
-        "min1": 16.54,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      }
-    ]
-  },
-  {
-    "catalogId": "archi-usto",
-    "parentId": "archi",
-    "uniAbbr": "USTO",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "info-usthb",
-    "parentId": "info",
-    "uniAbbr": "USTHB",
-    "matchCount": 17,
-    "minimaRows": [
-      {
-        "code": "A00LAL03",
-        "name_fr": "SCIENCES ET TECHNOLOGIES",
-        "institution_fr": "USTHB",
-        "min1": 12.66,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      },
-      {
-        "code": "A00TCL02",
-        "name_fr": "SCIENCES ET TECHNOLOGIES",
-        "institution_fr": "USTHB",
-        "min1": 13.87,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      },
-      {
-        "code": "A05TCL01",
-        "name_fr": "GENIE CIVIL",
-        "institution_fr": "USTHB",
-        "min1": 12.78,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      }
-    ]
-  },
-  {
-    "catalogId": "info-uca2",
-    "parentId": "info",
-    "uniAbbr": "UCA2",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "info-uo1",
-    "parentId": "info",
-    "uniAbbr": "UO1",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "esc",
-    "parentId": null,
-    "uniAbbr": "ESC",
-    "matchCount": 1,
-    "minimaRows": [
-      {
-        "code": "F00CAN05",
-        "name_fr": "FB SECSG ECOLE SUPERIEURE DE COMMERCE KOLEA",
-        "institution_fr": "ECOLE SUPERIEURE DE COMMERCE KOLEA",
-        "min1": 16.02,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      }
-    ]
-  },
-  {
-    "catalogId": "eco-uabm",
-    "parentId": "eco",
-    "uniAbbr": "UABM",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "eco-uca2",
-    "parentId": "eco",
-    "uniAbbr": "UCA2",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "bio-ubma",
-    "parentId": "bio",
-    "uniAbbr": "UBMA",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "bio-uca1",
-    "parentId": "bio",
-    "uniAbbr": "UCA1",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "math-uca1",
-    "parentId": "math",
-    "uniAbbr": "UCA1",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "math-ua3",
-    "parentId": "math",
-    "uniAbbr": "UA3",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "education",
-    "parentId": null,
-    "uniAbbr": "UA2",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "genie-civil-usthb",
-    "parentId": "genie-civil",
-    "uniAbbr": "USTHB",
-    "matchCount": 17,
-    "minimaRows": [
-      {
-        "code": "A00LAL03",
-        "name_fr": "SCIENCES ET TECHNOLOGIES",
-        "institution_fr": "USTHB",
-        "min1": 12.66,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      },
-      {
-        "code": "A00TCL02",
-        "name_fr": "SCIENCES ET TECHNOLOGIES",
-        "institution_fr": "USTHB",
-        "min1": 13.87,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      },
-      {
-        "code": "A05TCL01",
-        "name_fr": "GENIE CIVIL",
-        "institution_fr": "USTHB",
-        "min1": 12.78,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      }
-    ]
-  },
-  {
-    "catalogId": "genie-civil-uca2",
-    "parentId": "genie-civil",
-    "uniAbbr": "UCA2",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "genie-civil-uo1",
-    "parentId": "genie-civil",
-    "uniAbbr": "UO1",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "genie-elec-usthb",
-    "parentId": "genie-elec",
-    "uniAbbr": "USTHB",
-    "matchCount": 17,
-    "minimaRows": [
-      {
-        "code": "A00LAL03",
-        "name_fr": "SCIENCES ET TECHNOLOGIES",
-        "institution_fr": "USTHB",
-        "min1": 12.66,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      },
-      {
-        "code": "A00TCL02",
-        "name_fr": "SCIENCES ET TECHNOLOGIES",
-        "institution_fr": "USTHB",
-        "min1": 13.87,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      },
-      {
-        "code": "A05TCL01",
-        "name_fr": "GENIE CIVIL",
-        "institution_fr": "USTHB",
-        "min1": 12.78,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      }
-    ]
-  },
-  {
-    "catalogId": "genie-elec-uo1",
-    "parentId": "genie-elec",
-    "uniAbbr": "UO1",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "genie-elec-uca1",
-    "parentId": "genie-elec",
-    "uniAbbr": "UCA1",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "droit-ua2",
-    "parentId": "droit",
-    "uniAbbr": "UA2",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "droit-uca2",
-    "parentId": "droit",
-    "uniAbbr": "UCA2",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "droit-uo1",
-    "parentId": "droit",
-    "uniAbbr": "UO1",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "langues-ua2",
-    "parentId": "langues",
-    "uniAbbr": "UA2",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "langues-uca3",
-    "parentId": "langues",
-    "uniAbbr": "UCA3",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "psych-ua2",
-    "parentId": "psych",
-    "uniAbbr": "UA2",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "psych-uca3",
-    "parentId": "psych",
-    "uniAbbr": "UCA3",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "psych-uo2",
-    "parentId": "psych",
-    "uniAbbr": "UO2",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "genie-meca-usthb",
-    "parentId": "genie-meca",
-    "uniAbbr": "USTHB",
-    "matchCount": 17,
-    "minimaRows": [
-      {
-        "code": "A00LAL03",
-        "name_fr": "SCIENCES ET TECHNOLOGIES",
-        "institution_fr": "USTHB",
-        "min1": 12.66,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      },
-      {
-        "code": "A00TCL02",
-        "name_fr": "SCIENCES ET TECHNOLOGIES",
-        "institution_fr": "USTHB",
-        "min1": 13.87,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      },
-      {
-        "code": "A05TCL01",
-        "name_fr": "GENIE CIVIL",
-        "institution_fr": "USTHB",
-        "min1": 12.78,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      }
-    ]
-  },
-  {
-    "catalogId": "genie-meca-usto",
-    "parentId": "genie-meca",
-    "uniAbbr": "USTO",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "genie-meca-uca1",
-    "parentId": "genie-meca",
-    "uniAbbr": "UCA1",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "esi-sba",
-    "parentId": null,
-    "uniAbbr": "ESI-SBA",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "enscs",
-    "parentId": null,
-    "uniAbbr": "ENSCS",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "ensttic",
-    "parentId": null,
-    "uniAbbr": "ENSTTIC",
-    "matchCount": 1,
-    "minimaRows": [
-      {
-        "code": "A00TUT01",
-        "name_fr": "TECHNOLOGIES DE L INFORMATION DE LA COMMUNICATION ET DE LA NUMERISATION",
-        "institution_fr": "ECOLE NATIONALE SUPERIEURE DES TECHNOLOGIES DE L INFORMATION ET DE LA COMMUNICATION ET LA POSTE",
-        "min1": 17.17,
-        "min2": 18.41,
-        "min3": null,
-        "confidence": "high"
-      }
-    ]
-  },
-  {
-    "catalogId": "nhsm",
-    "parentId": null,
-    "uniAbbr": "NHSM",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "polytech-usto",
-    "parentId": "polytech",
-    "uniAbbr": "USTO",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "polytech-uca1",
-    "parentId": "polytech",
-    "uniAbbr": "UCA1",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "enstp",
-    "parentId": null,
-    "uniAbbr": "ENSTP",
-    "matchCount": 1,
-    "minimaRows": [
-      {
-        "code": "A00CAN06",
-        "name_fr": "FB ST ECOLE NATIONALE SUPERIEURE DES TRAVAUX PUBLICS ALGER",
-        "institution_fr": "ECOLE NATIONALE SUPERIEURE DES TRAVAUX PUBLICS ALGER",
-        "min1": 16.12,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      }
-    ]
-  },
-  {
-    "catalogId": "ensh",
-    "parentId": null,
-    "uniAbbr": "ENSH",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "igee",
-    "parentId": null,
-    "uniAbbr": "IGEE",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "essa",
-    "parentId": null,
-    "uniAbbr": "ESSA",
-    "matchCount": 97,
-    "minimaRows": [
-      {
-        "code": "A00LAL01",
-        "name_fr": "SCIENCES ET TECHNOLOGIES",
-        "institution_fr": "UNIV. TEBESSA",
-        "min1": null,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      },
-      {
-        "code": "A00TCL01",
-        "name_fr": "SCIENCES ET TECHNOLOGIES",
-        "institution_fr": "UNIV. TEBESSA",
-        "min1": null,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      },
-      {
-        "code": "A01LAN01",
-        "name_fr": "GENIE MINIER",
-        "institution_fr": "UNIV. TEBESSA",
-        "min1": null,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      }
-    ]
-  },
-  {
-    "catalogId": "enssn",
-    "parentId": null,
-    "uniAbbr": "ENSSN",
-    "matchCount": 1,
-    "minimaRows": [
-      {
-        "code": "A00CAN14",
-        "name_fr": "FB ST ECOLE NATIONALE SUPERIEURE DES NANOSCIENCES ET NANOTECHENOLOGIES ALGER",
-        "institution_fr": "ECOLE NATIONALE SUPERIEURE DES NANOSCIENCES ET NANOTECHENOLOGIES",
-        "min1": 17.96,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      }
-    ]
-  },
-  {
-    "catalogId": "ensas",
-    "parentId": null,
-    "uniAbbr": "ENSAS",
-    "matchCount": 1,
-    "minimaRows": [
-      {
-        "code": "A00CAN13",
-        "name_fr": "FB ST ECOLE NATIONALE SUPERIEURE DES SYSTEMES AUTONOMES ALGER",
-        "institution_fr": "ECOLE NATIONALE SUPERIEURE DES SYSTEMES AUTONOMES",
-        "min1": 18.21,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      }
-    ]
-  },
-  {
-    "catalogId": "st-usthb",
-    "parentId": "st",
-    "uniAbbr": "USTHB",
-    "matchCount": 17,
-    "minimaRows": [
-      {
-        "code": "A00LAL03",
-        "name_fr": "SCIENCES ET TECHNOLOGIES",
-        "institution_fr": "USTHB",
-        "min1": 12.66,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      },
-      {
-        "code": "A00TCL02",
-        "name_fr": "SCIENCES ET TECHNOLOGIES",
-        "institution_fr": "USTHB",
-        "min1": 13.87,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      },
-      {
-        "code": "A05TCL01",
-        "name_fr": "GENIE CIVIL",
-        "institution_fr": "USTHB",
-        "min1": 12.78,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      }
-    ]
-  },
-  {
-    "catalogId": "st-uca1",
-    "parentId": "st",
-    "uniAbbr": "UCA1",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "hydrocarbures",
-    "parentId": null,
-    "uniAbbr": "UMBB",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "optique",
-    "parentId": null,
-    "uniAbbr": "UFAS",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "gp-usthb",
-    "parentId": "gp",
-    "uniAbbr": "USTHB",
-    "matchCount": 17,
-    "minimaRows": [
-      {
-        "code": "A00LAL03",
-        "name_fr": "SCIENCES ET TECHNOLOGIES",
-        "institution_fr": "USTHB",
-        "min1": 12.66,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      },
-      {
-        "code": "A00TCL02",
-        "name_fr": "SCIENCES ET TECHNOLOGIES",
-        "institution_fr": "USTHB",
-        "min1": 13.87,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      },
-      {
-        "code": "A05TCL01",
-        "name_fr": "GENIE CIVIL",
-        "institution_fr": "USTHB",
-        "min1": 12.78,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      }
-    ]
-  },
-  {
-    "catalogId": "gp-usto",
-    "parentId": "gp",
-    "uniAbbr": "USTO",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "gi-usthb",
-    "parentId": "gi",
-    "uniAbbr": "USTHB",
-    "matchCount": 17,
-    "minimaRows": [
-      {
-        "code": "A00LAL03",
-        "name_fr": "SCIENCES ET TECHNOLOGIES",
-        "institution_fr": "USTHB",
-        "min1": 12.66,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      },
-      {
-        "code": "A00TCL02",
-        "name_fr": "SCIENCES ET TECHNOLOGIES",
-        "institution_fr": "USTHB",
-        "min1": 13.87,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      },
-      {
-        "code": "A05TCL01",
-        "name_fr": "GENIE CIVIL",
-        "institution_fr": "USTHB",
-        "min1": 12.78,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      }
-    ]
-  },
-  {
-    "catalogId": "gi-uca1",
-    "parentId": "gi",
-    "uniAbbr": "UCA1",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "gt",
-    "parentId": null,
-    "uniAbbr": "USTHB",
-    "matchCount": 17,
-    "minimaRows": [
-      {
-        "code": "A00LAL03",
-        "name_fr": "SCIENCES ET TECHNOLOGIES",
-        "institution_fr": "USTHB",
-        "min1": 12.66,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      },
-      {
-        "code": "A00TCL02",
-        "name_fr": "SCIENCES ET TECHNOLOGIES",
-        "institution_fr": "USTHB",
-        "min1": 13.87,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      },
-      {
-        "code": "A05TCL01",
-        "name_fr": "GENIE CIVIL",
-        "institution_fr": "USTHB",
-        "min1": 12.78,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      }
-    ]
-  },
-  {
-    "catalogId": "gm",
-    "parentId": null,
-    "uniAbbr": "USTHB",
-    "matchCount": 17,
-    "minimaRows": [
-      {
-        "code": "A00LAL03",
-        "name_fr": "SCIENCES ET TECHNOLOGIES",
-        "institution_fr": "USTHB",
-        "min1": 12.66,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      },
-      {
-        "code": "A00TCL02",
-        "name_fr": "SCIENCES ET TECHNOLOGIES",
-        "institution_fr": "USTHB",
-        "min1": 13.87,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      },
-      {
-        "code": "A05TCL01",
-        "name_fr": "GENIE CIVIL",
-        "institution_fr": "USTHB",
-        "min1": 12.78,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      }
-    ]
-  },
-  {
-    "catalogId": "gmec-usthb",
-    "parentId": "gmec",
-    "uniAbbr": "USTHB",
-    "matchCount": 17,
-    "minimaRows": [
-      {
-        "code": "A00LAL03",
-        "name_fr": "SCIENCES ET TECHNOLOGIES",
-        "institution_fr": "USTHB",
-        "min1": 12.66,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      },
-      {
-        "code": "A00TCL02",
-        "name_fr": "SCIENCES ET TECHNOLOGIES",
-        "institution_fr": "USTHB",
-        "min1": 13.87,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      },
-      {
-        "code": "A05TCL01",
-        "name_fr": "GENIE CIVIL",
-        "institution_fr": "USTHB",
-        "min1": 12.78,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      }
-    ]
-  },
-  {
-    "catalogId": "gmec-usto",
-    "parentId": "gmec",
-    "uniAbbr": "USTO",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "marine-eng",
-    "parentId": null,
-    "uniAbbr": "USTO",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "vet-ubt",
-    "parentId": "vet",
-    "uniAbbr": "UBT",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "vet-ua1",
-    "parentId": "vet",
-    "uniAbbr": "UA1",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "pharm-ind",
-    "parentId": null,
-    "uniAbbr": "Univ",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "med-bio-ua1",
-    "parentId": "med-bio",
-    "uniAbbr": "UA1",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "med-bio-uca3",
-    "parentId": "med-bio",
-    "uniAbbr": "UCA3",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "med-info",
-    "parentId": null,
-    "uniAbbr": "Univ",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "ensb",
-    "parentId": null,
-    "uniAbbr": "ENSB",
-    "matchCount": 1,
-    "minimaRows": [
-      {
-        "code": "D00CAN10",
-        "name_fr": "FB SP ECOLE NATIONALE SUPERIEURE DE BIOTECHNOLOGIE DE CONSTANTINE",
-        "institution_fr": "ECOLE NATIONALE SUPERIEURE DE BIOTECHNOLOGIE DE CONSTANTINE",
-        "min1": 15.67,
-        "min2": 16.55,
-        "min3": null,
-        "confidence": "high"
-      }
-    ]
-  },
-  {
-    "catalogId": "enssmal",
-    "parentId": null,
-    "uniAbbr": "ENSSMAL",
-    "matchCount": 1,
-    "minimaRows": [
-      {
-        "code": "D00CAN11",
-        "name_fr": "FB SP ECOLE NATIONALE SUPERIEURE DES SCIENCES DE LA MER ET DE L AMENAGEMENT DU LITTORAL D ALGER",
-        "institution_fr": "ECOLE NATIONALE SUP. DES SCI. DE LA MER ET DE L AMENAGEMENT DU LITTORAL ALGER",
-        "min1": 14.45,
-        "min2": 15.17,
-        "min3": null,
-        "confidence": "high"
-      }
-    ]
-  },
-  {
-    "catalogId": "kine",
-    "parentId": null,
-    "uniAbbr": "IFCS",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "labo",
-    "parentId": null,
-    "uniAbbr": "IFCS",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "radio",
-    "parentId": null,
-    "uniAbbr": "IFCS",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "sage-femme",
-    "parentId": null,
-    "uniAbbr": "IFCS",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "paramedical",
-    "parentId": null,
-    "uniAbbr": "IFCS",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "ehec",
-    "parentId": null,
-    "uniAbbr": "EHEC",
-    "matchCount": 1,
-    "minimaRows": [
-      {
-        "code": "F00CAN06",
-        "name_fr": "FB SECSG ECOLE DES HAUTES ETUDES COMMERCIALES KOLEA",
-        "institution_fr": "ECOLE DES HAUTES ETUDES COMMERCIALES KOLEA",
-        "min1": 15.78,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      }
-    ]
-  },
-  {
-    "catalogId": "enssea",
-    "parentId": null,
-    "uniAbbr": "ENSSEA",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "esb",
-    "parentId": null,
-    "uniAbbr": "ESB",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "esm",
-    "parentId": null,
-    "uniAbbr": "ESM",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "ensa-agro",
-    "parentId": null,
-    "uniAbbr": "ENSA",
-    "matchCount": 1,
-    "minimaRows": [
-      {
-        "code": "D00CAN07",
-        "name_fr": "FB SNV ECOLE NATIONALE SUPERIEURE AGRONOMIQUE ALGER",
-        "institution_fr": "ECOLE NATIONALE SUPERIEURE AGRONOMIQUE ALGER",
-        "min1": 14.91,
-        "min2": 15.68,
-        "min3": null,
-        "confidence": "high"
-      }
-    ]
-  },
-  {
-    "catalogId": "sm-usthb",
-    "parentId": "sm",
-    "uniAbbr": "USTHB",
-    "matchCount": 17,
-    "minimaRows": [
-      {
-        "code": "A00LAL03",
-        "name_fr": "SCIENCES ET TECHNOLOGIES",
-        "institution_fr": "USTHB",
-        "min1": 12.66,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      },
-      {
-        "code": "A00TCL02",
-        "name_fr": "SCIENCES ET TECHNOLOGIES",
-        "institution_fr": "USTHB",
-        "min1": 13.87,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      },
-      {
-        "code": "A05TCL01",
-        "name_fr": "GENIE CIVIL",
-        "institution_fr": "USTHB",
-        "min1": 12.78,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      }
-    ]
-  },
-  {
-    "catalogId": "sm-uca1",
-    "parentId": "sm",
-    "uniAbbr": "UCA1",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "ens-ens-bz",
-    "parentId": "ens",
-    "uniAbbr": "ENS-BZ",
-    "matchCount": 391,
-    "minimaRows": [
-      {
-        "code": "H01PPL01",
-        "name_fr": "FRANCAIS (P.E.P) -- pour bacheliers BLIDA",
-        "institution_fr": "UNIVERSITE DE BLIDA 2 (ECOLE NORMALE SUPERIEURE DE BOUZAREAH)",
-        "min1": 13.02,
-        "min2": 13.29,
-        "min3": null,
-        "confidence": "high"
-      },
-      {
-        "code": "H01PSL01",
-        "name_fr": "LANGUE FRANCAISE (P.E.S) -- pour bacheliers BLIDA",
-        "institution_fr": "UNIVERSITE DE BLIDA 2 (ECOLE NORMALE SUPERIEURE DE BOUZAREAH)",
-        "min1": null,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      },
-      {
-        "code": "H06PSL01",
-        "name_fr": "LANGUE ANGLAISE (P.E.S) -- pour bacheliers BLIDA",
-        "institution_fr": "UNIVERSITE DE BLIDA 2 (ECOLE NORMALE SUPERIEURE DE BOUZAREAH)",
-        "min1": 15.27,
-        "min2": 16.05,
-        "min3": null,
-        "confidence": "high"
-      }
-    ]
-  },
-  {
-    "catalogId": "ens-ens-cst",
-    "parentId": "ens",
-    "uniAbbr": "ENS-CST",
-    "matchCount": 259,
-    "minimaRows": [
-      {
-        "code": "B00PML01",
-        "name_fr": "SCIENCES PHYSIQUE ET TECHNOLOGIE (P.E.M) -- pour bacheliers TEBESSA",
-        "institution_fr": "ANNEXE TEBESSA (ECOLE NORMALE SUPERIEURE DE CONSTANTINE)",
-        "min1": 14.55,
-        "min2": 15.27,
-        "min3": null,
-        "confidence": "high"
-      },
-      {
-        "code": "B00PML01",
-        "name_fr": "SCIENCES PHYSIQUE ET TECHNOLOGIE (P.E.M) -- pour bacheliers GUELMA",
-        "institution_fr": "ANNEXE TEBESSA (ECOLE NORMALE SUPERIEURE DE CONSTANTINE)",
-        "min1": 14.83,
-        "min2": 15.47,
-        "min3": null,
-        "confidence": "high"
-      },
-      {
-        "code": "C02PML01",
-        "name_fr": "MATHEMATIQUES (P.E.M) -- pour bacheliers TEBESSA",
-        "institution_fr": "ANNEXE TEBESSA (ECOLE NORMALE SUPERIEURE DE CONSTANTINE)",
-        "min1": 14.32,
-        "min2": 15.09,
-        "min3": null,
-        "confidence": "high"
-      }
-    ]
-  },
-  {
-    "catalogId": "ens-ens-or",
-    "parentId": "ens",
-    "uniAbbr": "ENS-OR",
-    "matchCount": 226,
-    "minimaRows": [
-      {
-        "code": "B00PML01",
-        "name_fr": "SCIENCES PHYSIQUE ET TECHNOLOGIE (P.E.M) -- pour bacheliers TLEMCEN",
-        "institution_fr": "ANNEXE TLEMCEN (ECOLE NORMALE SUPERIEURE D ORAN)",
-        "min1": 14.91,
-        "min2": 15.55,
-        "min3": null,
-        "confidence": "high"
-      },
-      {
-        "code": "B00PML01",
-        "name_fr": "SCIENCES PHYSIQUE ET TECHNOLOGIE (P.E.M) -- pour bacheliers NAAMA",
-        "institution_fr": "ANNEXE TLEMCEN (ECOLE NORMALE SUPERIEURE D ORAN)",
-        "min1": null,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      },
-      {
-        "code": "B00PSL01",
-        "name_fr": "SCIENCES PHYSIQUES (P.E.S.) -- pour bacheliers TLEMCEN",
-        "institution_fr": "ANNEXE TLEMCEN (ECOLE NORMALE SUPERIEURE D ORAN)",
-        "min1": 15.59,
-        "min2": 16.41,
-        "min3": null,
-        "confidence": "high"
-      }
-    ]
-  },
-  {
-    "catalogId": "sciences-po-ua3",
-    "parentId": "sciences-po",
-    "uniAbbr": "UA3",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "sciences-po-uca2",
-    "parentId": "sciences-po",
-    "uniAbbr": "UCA2",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "traduction-ua2",
-    "parentId": "traduction",
-    "uniAbbr": "UA2",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "traduction-uca3",
-    "parentId": "traduction",
-    "uniAbbr": "UCA3",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "commu-ua3",
-    "parentId": "commu",
-    "uniAbbr": "UA3",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "commu-uabm",
-    "parentId": "commu",
-    "uniAbbr": "UABM",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "charia-ua1",
-    "parentId": "charia",
-    "uniAbbr": "UA1",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "charia-uca1",
-    "parentId": "charia",
-    "uniAbbr": "UCA1",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "sciences-hum-ua2",
-    "parentId": "sciences-hum",
-    "uniAbbr": "UA2",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "sciences-hum-uo2",
-    "parentId": "sciences-hum",
-    "uniAbbr": "UO2",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "med-ai",
-    "parentId": null,
-    "uniAbbr": "Pilot",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "it-int",
-    "parentId": null,
-    "uniAbbr": "Partnership",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "space-tech",
-    "parentId": null,
-    "uniAbbr": "ASAL",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "quantum-nhsm",
-    "parentId": "quantum",
-    "uniAbbr": "NHSM",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "quantum-usthb",
-    "parentId": "quantum",
-    "uniAbbr": "USTHB",
-    "matchCount": 17,
-    "minimaRows": [
-      {
-        "code": "A00LAL03",
-        "name_fr": "SCIENCES ET TECHNOLOGIES",
-        "institution_fr": "USTHB",
-        "min1": 12.66,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      },
-      {
-        "code": "A00TCL02",
-        "name_fr": "SCIENCES ET TECHNOLOGIES",
-        "institution_fr": "USTHB",
-        "min1": 13.87,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      },
-      {
-        "code": "A05TCL01",
-        "name_fr": "GENIE CIVIL",
-        "institution_fr": "USTHB",
-        "min1": 12.78,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      }
-    ]
-  },
-  {
-    "catalogId": "digital-agro",
-    "parentId": null,
-    "uniAbbr": "ENSA",
-    "matchCount": 1,
-    "minimaRows": [
-      {
-        "code": "D00CAN07",
-        "name_fr": "FB SNV ECOLE NATIONALE SUPERIEURE AGRONOMIQUE ALGER",
-        "institution_fr": "ECOLE NATIONALE SUPERIEURE AGRONOMIQUE ALGER",
-        "min1": 14.91,
-        "min2": 15.68,
-        "min3": null,
-        "confidence": "high"
-      }
-    ]
-  },
-  {
-    "catalogId": "ensta",
-    "parentId": null,
-    "uniAbbr": "ENSTA",
-    "matchCount": 2,
-    "minimaRows": [
-      {
-        "code": "A00CAN15",
-        "name_fr": "FB ST ECOLE NATIONALE SUPERIEURE DES TECHNOLOGIES AVANCEES ALGER",
-        "institution_fr": "ECOLE NATIONALE SUPERIEURE DES TECHNOLOGIES AVANCEES ALGER",
-        "min1": 17.15,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      },
-      {
-        "code": "C00CAN06",
-        "name_fr": "FB INF ECOLE NATIONALE SUPERIEURE DES TECHNOLOGIES AVANCEES ALGER",
-        "institution_fr": "ECOLE NATIONALE SUPERIEURE DES TECHNOLOGIES AVANCEES ALGER",
-        "min1": 17.39,
-        "min2": 17.75,
-        "min3": 18.1,
-        "confidence": "high"
-      }
-    ]
-  },
-  {
-    "catalogId": "ensee",
-    "parentId": null,
-    "uniAbbr": "ENSEE",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "hnsre",
-    "parentId": null,
-    "uniAbbr": "HNSRE",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "aeronautique",
-    "parentId": null,
-    "uniAbbr": "UB1",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "esgen",
-    "parentId": null,
-    "uniAbbr": "ESGEN",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "essg",
-    "parentId": null,
-    "uniAbbr": "ESSG",
-    "matchCount": 1,
-    "minimaRows": [
-      {
-        "code": "F00CAN01",
-        "name_fr": "FB SECSG ECOLE SUPERIEURE DES SCIENCES DE GESTION DE ANNABA",
-        "institution_fr": "ECOLE SUPERIEURE DES SCIENCES DE GESTION DE ANNABA",
-        "min1": 14.71,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      }
-    ]
-  },
-  {
-    "catalogId": "escf",
-    "parentId": null,
-    "uniAbbr": "ESCF",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "ese",
-    "parentId": null,
-    "uniAbbr": "ESE",
-    "matchCount": 1,
-    "minimaRows": [
-      {
-        "code": "F00CAN04",
-        "name_fr": "FB SECSG ECOLE SUPERIEURE DE D ECONOMIE D ORAN",
-        "institution_fr": "ECOLE SUPERIEURE D ECONOMIE D ORAN",
-        "min1": 14.63,
-        "min2": null,
-        "min3": null,
-        "confidence": "high"
-      }
-    ]
-  },
-  {
-    "catalogId": "essaia",
-    "parentId": null,
-    "uniAbbr": "ESSAIA",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "essb",
-    "parentId": null,
-    "uniAbbr": "ESSB",
-    "matchCount": 1,
-    "minimaRows": [
-      {
-        "code": "D00CAN08",
-        "name_fr": "FB SNV ECOLE SUPERIEURE DES SCIENCES BIOLOGIQUES D ORAN",
-        "institution_fr": "ECOLE SUPERIEURE DES SCIENCES BIOLOGIQUES D ORAN",
-        "min1": 15.05,
-        "min2": 15.88,
-        "min3": null,
-        "confidence": "high"
-      }
-    ]
-  },
-  {
-    "catalogId": "isp",
-    "parentId": null,
-    "uniAbbr": "IFCS",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "dental-prosthetist",
-    "parentId": null,
-    "uniAbbr": "IFCS",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "psychomotricien",
-    "parentId": null,
-    "uniAbbr": "IFCS",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "med-eco-ufas",
-    "parentId": "med-eco",
-    "uniAbbr": "UFAS",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "med-eco-uqk",
-    "parentId": "med-eco",
-    "uniAbbr": "UQK",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "med-psy",
-    "parentId": null,
-    "uniAbbr": "UABB",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "tech-media",
-    "parentId": null,
-    "uniAbbr": "UA3",
-    "matchCount": 0,
-    "minimaRows": []
-  },
-  {
-    "catalogId": "math-eco",
-    "parentId": null,
-    "uniAbbr": "UA1",
-    "matchCount": 0,
-    "minimaRows": []
+{
+ "_meta": {
+  "generated": "2026-07-14",
+  "source_minima": "tawjihi/data/averages-2025/minima-phase1-2025.json",
+  "source_rules": "tawjihi/data/guide/programs.json",
+  "attempt": 2
+ },
+ "mapping": {
+  "esi": {
+   "mode": "school",
+   "codes": [
+    "C00CAN01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "P04"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "ensia": {
+   "mode": "school",
+   "codes": [
+    "C00CAN04"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "P07"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "estin": {
+   "mode": "school",
+   "codes": [
+    "C00CAN03"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "W93"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "med": {
+   "mode": "national",
+   "codes": [
+    "P01MAL01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C99"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "pharm": {
+   "mode": "national",
+   "codes": [
+    "P02MAL01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C99"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "dent": {
+   "mode": "national",
+   "codes": [
+    "P03MAL01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C99"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "archi": {
+   "mode": "school",
+   "codes": [
+    "N00CAN01"
+   ],
+   "confidence": "high",
+   "note": "EPAU only; university architecture lives in architecture-uni",
+   "etbs_with_values": [
+    "P03"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "info": {
+   "mode": "family",
+   "codes": [
+    "C01LAL01",
+    "C01LAL02",
+    "C01LAL03",
+    "C01TCL01",
+    "C01TCL02",
+    "C01TCL03"
+   ],
+   "confidence": "high",
+   "note": "LAL + TCL variants merged per institution",
+   "etbs_with_values": [
+    "C01",
+    "C14",
+    "C16",
+    "C17",
+    "C18",
+    "C19",
+    "C21",
+    "C27",
+    "C30",
+    "C31",
+    "C35",
+    "C39",
+    "E02",
+    "E04",
+    "E07",
+    "E09",
+    "E11",
+    "E12",
+    "E13",
+    "E14",
+    "E15",
+    "E16",
+    "E17",
+    "E23",
+    "E24",
+    "E25",
+    "E26",
+    "E27",
+    "E28",
+    "E33",
+    "E44",
+    "E45",
+    "U02",
+    "U06",
+    "U07",
+    "U08",
+    "U09",
+    "U10",
+    "U11",
+    "U12",
+    "U13",
+    "U21",
+    "U22",
+    "U23",
+    "U25",
+    "U26",
+    "U30"
+   ],
+   "etbs_nc_skipped": [
+    "C32",
+    "C41",
+    "C43",
+    "U27"
+   ],
+   "split_cards": 47
+  },
+  "esc": {
+   "mode": "school",
+   "codes": [
+    "F00CAN05"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C03"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "eco": {
+   "mode": "family",
+   "codes": [
+    "F00LAL01",
+    "F00LAL02",
+    "F00LAL03",
+    "F00LAL04"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C14",
+    "C16",
+    "C17",
+    "C19",
+    "C21",
+    "C27",
+    "C30",
+    "C37",
+    "C38",
+    "E02",
+    "E04",
+    "E07",
+    "E08",
+    "E09",
+    "E13",
+    "E16",
+    "E17",
+    "E18",
+    "E23",
+    "E25",
+    "E27",
+    "E28",
+    "E33",
+    "U06",
+    "U07",
+    "U08",
+    "U09",
+    "U11",
+    "U12",
+    "U13",
+    "U14",
+    "U22",
+    "U23",
+    "U31"
+   ],
+   "etbs_nc_skipped": [
+    "C18",
+    "C31",
+    "C32",
+    "C40",
+    "C41",
+    "C43",
+    "E11",
+    "E12",
+    "E14",
+    "E15",
+    "E24",
+    "E26",
+    "E44",
+    "U21",
+    "U25",
+    "U26",
+    "U27",
+    "U47"
+   ],
+   "split_cards": 34
+  },
+  "bio": {
+   "mode": "family",
+   "codes": [
+    "D00LAL01",
+    "D00LAL02",
+    "D00LAL03",
+    "D00LAL04",
+    "D02IAN01"
+   ],
+   "confidence": "high",
+   "note": "D02IAN01 = sciences biologiques USTHB included",
+   "etbs_with_values": [
+    "C01",
+    "C16",
+    "C17",
+    "C21",
+    "C27",
+    "C30",
+    "C35",
+    "C38",
+    "C39",
+    "E01",
+    "E02",
+    "E04",
+    "E07",
+    "E08",
+    "E09",
+    "E16",
+    "E17",
+    "E23",
+    "E25",
+    "E27",
+    "E28",
+    "E52",
+    "U02",
+    "U06",
+    "U07",
+    "U08",
+    "U12",
+    "U13",
+    "U23"
+   ],
+   "etbs_nc_skipped": [
+    "C14",
+    "C18",
+    "C19",
+    "C31",
+    "C32",
+    "C43",
+    "E11",
+    "E12",
+    "E13",
+    "E14",
+    "E15",
+    "E24",
+    "E26",
+    "U09",
+    "U11",
+    "U14",
+    "U21",
+    "U22",
+    "U25",
+    "U26",
+    "U30"
+   ],
+   "split_cards": 29
+  },
+  "math": {
+   "mode": "family",
+   "codes": [
+    "C02LAL01",
+    "C02LAL02",
+    "C02LAL03"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C01",
+    "C14",
+    "C16",
+    "C21",
+    "C30",
+    "C35",
+    "C38",
+    "C39",
+    "E01",
+    "E04",
+    "E45",
+    "U13",
+    "U23"
+   ],
+   "etbs_nc_skipped": [
+    "C17",
+    "C18",
+    "C19",
+    "C27",
+    "C31",
+    "C32",
+    "E02",
+    "E07",
+    "E09",
+    "E11",
+    "E12",
+    "E13",
+    "E14",
+    "E15",
+    "E16",
+    "E17",
+    "E23",
+    "E24",
+    "E25",
+    "E26",
+    "E27",
+    "E28",
+    "E44",
+    "U02",
+    "U06",
+    "U07",
+    "U08",
+    "U09",
+    "U10",
+    "U11",
+    "U12",
+    "U21",
+    "U22",
+    "U25",
+    "U26",
+    "U30"
+   ],
+   "split_cards": 13
+  },
+  "education": {
+   "mode": "dup",
+   "codes": [
+    "I19LAL01",
+    "I19LAL02",
+    "I19LAL03"
+   ],
+   "confidence": "medium",
+   "note": "sciences de l education enters via sciences sociales tronc commun",
+   "duplicateOf": "ss",
+   "etbs_with_values": [
+    "C17",
+    "C19",
+    "C30",
+    "C38",
+    "E02",
+    "E16",
+    "E17",
+    "E33",
+    "U06",
+    "U08",
+    "U12",
+    "U13",
+    "U25",
+    "U47"
+   ],
+   "etbs_nc_skipped": [
+    "C14",
+    "C16",
+    "C18",
+    "C21",
+    "C31",
+    "C32",
+    "C36",
+    "C40",
+    "C41",
+    "C43",
+    "E04",
+    "E08",
+    "E09",
+    "E11",
+    "E12",
+    "E13",
+    "E14",
+    "E15",
+    "E23",
+    "E24",
+    "E25",
+    "E26",
+    "E27",
+    "E35",
+    "E44",
+    "U07",
+    "U09",
+    "U11",
+    "U14",
+    "U21",
+    "U22",
+    "U23",
+    "U26",
+    "U31"
+   ]
+  },
+  "genie-civil": {
+   "mode": "family",
+   "codes": [
+    "A05TCL01",
+    "A05TCL02",
+    "A05IAN01",
+    "A05IAN02"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C01",
+    "C14",
+    "C16",
+    "C19",
+    "C27",
+    "C30",
+    "C38",
+    "C39",
+    "E01",
+    "E04",
+    "E07",
+    "E23",
+    "E27",
+    "E45",
+    "U02",
+    "U06",
+    "U07",
+    "U08",
+    "U13",
+    "U21",
+    "U23"
+   ],
+   "etbs_nc_skipped": [
+    "C17",
+    "C18",
+    "C21",
+    "C31",
+    "C32",
+    "E09",
+    "E11",
+    "E12",
+    "E13",
+    "E14",
+    "E15",
+    "E16",
+    "E17",
+    "E24",
+    "E25",
+    "E26",
+    "E28",
+    "U09",
+    "U10",
+    "U12",
+    "U22",
+    "U25",
+    "U26",
+    "U47"
+   ],
+   "split_cards": 21
+  },
+  "genie-elec": {
+   "mode": "dup",
+   "codes": [
+    "A16TCL01",
+    "A16IAN01",
+    "A16LAN01",
+    "A09IAN01",
+    "A09IAN04"
+   ],
+   "confidence": "medium",
+   "note": "",
+   "duplicateOf": "electro",
+   "etbs_with_values": [
+    "C01",
+    "C16",
+    "C19",
+    "C27",
+    "C39",
+    "E01",
+    "E04",
+    "E07",
+    "E13",
+    "E25",
+    "E27",
+    "E45",
+    "U02",
+    "U06",
+    "U07",
+    "U08"
+   ],
+   "etbs_nc_skipped": [
+    "C14",
+    "C17",
+    "C18",
+    "C21",
+    "C30",
+    "C31",
+    "C32",
+    "E09",
+    "E11",
+    "E12",
+    "E14",
+    "E15",
+    "E16",
+    "E17",
+    "E23",
+    "E24",
+    "E26",
+    "U09",
+    "U10",
+    "U12",
+    "U13",
+    "U22",
+    "U23",
+    "U25",
+    "U26"
+   ]
+  },
+  "droit": {
+   "mode": "family",
+   "codes": [
+    "G02LAL01",
+    "G02LAL02",
+    "G02LAL03",
+    "G02LAN01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C17",
+    "C30",
+    "C35",
+    "C38",
+    "E01",
+    "E02",
+    "E04",
+    "E08",
+    "E09",
+    "E12",
+    "E17",
+    "U06",
+    "U09",
+    "U13",
+    "U23",
+    "U31"
+   ],
+   "etbs_nc_skipped": [
+    "C14",
+    "C16",
+    "C18",
+    "C19",
+    "C21",
+    "C27",
+    "C31",
+    "C32",
+    "C40",
+    "C41",
+    "C43",
+    "E11",
+    "E13",
+    "E14",
+    "E15",
+    "E16",
+    "E23",
+    "E24",
+    "E25",
+    "E26",
+    "E27",
+    "E28",
+    "E35",
+    "E44",
+    "U07",
+    "U08",
+    "U11",
+    "U12",
+    "U21",
+    "U22",
+    "U25",
+    "U26",
+    "U27",
+    "U30",
+    "U46",
+    "U47"
+   ],
+   "split_cards": 16
+  },
+  "langues": {
+   "mode": "family",
+   "codes": [
+    "H01LAL01",
+    "H01LAL02",
+    "H01LAL03"
+   ],
+   "confidence": "high",
+   "note": "canonical french-language entry; \"francais\" kept as duplicate single card",
+   "etbs_with_values": [
+    "C14",
+    "C16",
+    "C17",
+    "C19",
+    "C21",
+    "C27",
+    "C30",
+    "C36",
+    "C40",
+    "E01",
+    "E04",
+    "E11",
+    "E14",
+    "E16",
+    "E17",
+    "E35",
+    "U06",
+    "U08",
+    "U11",
+    "U12",
+    "U26",
+    "U31"
+   ],
+   "etbs_nc_skipped": [
+    "C18",
+    "C31",
+    "C32",
+    "C43",
+    "E02",
+    "E09",
+    "E12",
+    "E13",
+    "E15",
+    "E23",
+    "E24",
+    "E26",
+    "E28",
+    "E44",
+    "E45",
+    "U07",
+    "U09",
+    "U10",
+    "U13",
+    "U21",
+    "U22",
+    "U23",
+    "U25"
+   ],
+   "split_cards": 22
+  },
+  "psych": {
+   "mode": "dup",
+   "codes": [
+    "I19LAL01",
+    "I19LAL02",
+    "I19LAL03"
+   ],
+   "confidence": "medium",
+   "note": "psychology enters via sciences sociales tronc commun",
+   "duplicateOf": "ss",
+   "etbs_with_values": [
+    "C17",
+    "C19",
+    "C30",
+    "C38",
+    "E02",
+    "E16",
+    "E17",
+    "E33",
+    "U06",
+    "U08",
+    "U12",
+    "U13",
+    "U25",
+    "U47"
+   ],
+   "etbs_nc_skipped": [
+    "C14",
+    "C16",
+    "C18",
+    "C21",
+    "C31",
+    "C32",
+    "C36",
+    "C40",
+    "C41",
+    "C43",
+    "E04",
+    "E08",
+    "E09",
+    "E11",
+    "E12",
+    "E13",
+    "E14",
+    "E15",
+    "E23",
+    "E24",
+    "E25",
+    "E26",
+    "E27",
+    "E35",
+    "E44",
+    "U07",
+    "U09",
+    "U11",
+    "U14",
+    "U21",
+    "U22",
+    "U23",
+    "U26",
+    "U31"
+   ]
+  },
+  "genie-meca": {
+   "mode": "family",
+   "codes": [
+    "A19TCL01",
+    "A19LAN01",
+    "A19LAN02"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C01",
+    "C14",
+    "C19",
+    "C27",
+    "C39",
+    "E01",
+    "E04",
+    "E16",
+    "E27",
+    "E45",
+    "U02",
+    "U06",
+    "U08",
+    "U13",
+    "U23"
+   ],
+   "etbs_nc_skipped": [
+    "C16",
+    "C17",
+    "C18",
+    "C21",
+    "C30",
+    "C31",
+    "C32",
+    "E07",
+    "E09",
+    "E11",
+    "E12",
+    "E13",
+    "E14",
+    "E15",
+    "E17",
+    "E23",
+    "E24",
+    "E25",
+    "E26",
+    "E28",
+    "U07",
+    "U10",
+    "U12",
+    "U21",
+    "U22",
+    "U25"
+   ],
+   "split_cards": 15
+  },
+  "esi-sba": {
+   "mode": "school",
+   "codes": [
+    "C00CAN02"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "P42"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "enscs": {
+   "mode": "school",
+   "codes": [
+    "C00CAN07"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "P11"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "ensttic": {
+   "mode": "school",
+   "codes": [
+    "A00TUT01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "D02"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "nhsm": {
+   "mode": "school",
+   "codes": [
+    "C00CAN05"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "P08"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "polytech": {
+   "mode": "family",
+   "codes": [
+    "A00CAN04",
+    "A00CAN07",
+    "A00CAN08"
+   ],
+   "confidence": "high",
+   "note": "ENP Alger + ENSP Constantine + ENP Oran; none has a standalone card",
+   "etbs_with_values": [
+    "C05",
+    "E37",
+    "P27"
+   ],
+   "etbs_nc_skipped": [],
+   "split_cards": 3
+  },
+  "enstp": {
+   "mode": "school",
+   "codes": [
+    "A00CAN06"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "D01"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "ensh": {
+   "mode": "school",
+   "codes": [
+    "A00CAN05"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "H15"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "igee": {
+   "mode": "school",
+   "codes": [
+    "A17LAN01"
+   ],
+   "confidence": "high",
+   "note": "IGEE Boumerdes = electronics taught in English at Univ Boumerdes",
+   "etbs_with_values": [
+    "C27"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "essa": {
+   "mode": "none",
+   "codes": [],
+   "confidence": "high",
+   "note": "no MESRS aeronautics school in 2025 minima; university aeronautics = \"aeronautique\" entry"
+  },
+  "enssn": {
+   "mode": "school",
+   "codes": [
+    "A00CAN14"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "P10"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "ensas": {
+   "mode": "school",
+   "codes": [
+    "A00CAN13"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "P09"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "st": {
+   "mode": "family",
+   "codes": [
+    "A00LAL01",
+    "A00LAL02",
+    "A00LAL03",
+    "A00LAL04",
+    "A00LAL05",
+    "A00TCL01",
+    "A00TCL02",
+    "A00TCL03"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C01",
+    "C14",
+    "C16",
+    "C19",
+    "C27",
+    "C30",
+    "C38",
+    "C39",
+    "E01",
+    "E02",
+    "E04",
+    "E07",
+    "E16",
+    "E17",
+    "E25",
+    "E27",
+    "E45",
+    "E53",
+    "U02",
+    "U06",
+    "U08",
+    "U13",
+    "U23",
+    "U30"
+   ],
+   "etbs_nc_skipped": [
+    "C17",
+    "C18",
+    "C21",
+    "C31",
+    "C32",
+    "E09",
+    "E11",
+    "E12",
+    "E13",
+    "E14",
+    "E15",
+    "E23",
+    "E24",
+    "E26",
+    "E28",
+    "E44",
+    "U07",
+    "U09",
+    "U10",
+    "U11",
+    "U12",
+    "U21",
+    "U22",
+    "U25",
+    "U26",
+    "U27",
+    "U47"
+   ],
+   "split_cards": 24
+  },
+  "hydrocarbures": {
+   "mode": "family",
+   "codes": [
+    "A03LAN01",
+    "A03LAN02"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C27",
+    "E17"
+   ],
+   "etbs_nc_skipped": [],
+   "split_cards": 2
+  },
+  "optique": {
+   "mode": "school",
+   "codes": [
+    "A11IAN03",
+    "A11LAN01"
+   ],
+   "confidence": "high",
+   "note": "both variants at Univ Setif 1; merged one card",
+   "etbs_with_values": [
+    "E07"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "gp": {
+   "mode": "family",
+   "codes": [
+    "A08TCL01",
+    "A08TCL02",
+    "A08IAN01",
+    "A08IAN02"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C16",
+    "C17",
+    "C19",
+    "C27",
+    "E04",
+    "E17",
+    "E25",
+    "E27",
+    "U08",
+    "U13",
+    "U23"
+   ],
+   "etbs_nc_skipped": [
+    "C01",
+    "C18",
+    "C21",
+    "C30",
+    "C32",
+    "C38",
+    "C39",
+    "E07",
+    "E09",
+    "E11",
+    "E13",
+    "E15",
+    "E16",
+    "E23",
+    "E24",
+    "E26",
+    "E28",
+    "E34",
+    "E45",
+    "U02",
+    "U07",
+    "U09",
+    "U12",
+    "U22",
+    "U30"
+   ],
+   "split_cards": 11
+  },
+  "gi": {
+   "mode": "family",
+   "codes": [
+    "A18IAN01",
+    "A18LAN01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "U06",
+    "U31"
+   ],
+   "etbs_nc_skipped": [],
+   "split_cards": 2
+  },
+  "gt": {
+   "mode": "single",
+   "codes": [
+    "A14LAN01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "E01"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "gm": {
+   "mode": "family",
+   "codes": [
+    "A01LAN01",
+    "A01LAN02"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "E04"
+   ],
+   "etbs_nc_skipped": [
+    "E12"
+   ]
+  },
+  "gmec": {
+   "mode": "none",
+   "codes": [],
+   "confidence": "high",
+   "note": "materials/mechatronics umbrella; closest official (metallurgie A04) judged too different to apply"
+  },
+  "marine-eng": {
+   "mode": "single",
+   "codes": [
+    "A10LAN01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "U02"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "vet": {
+   "mode": "family",
+   "codes": [
+    "P04VAL01",
+    "P04VAN01",
+    "P04VAN02",
+    "P04VAN03",
+    "P04VAN04"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C10",
+    "C17",
+    "C21",
+    "C39",
+    "E02",
+    "E14",
+    "E39",
+    "E47",
+    "U13"
+   ],
+   "etbs_nc_skipped": [
+    "C18",
+    "C31",
+    "E13",
+    "E15",
+    "E25",
+    "E26",
+    "U41"
+   ],
+   "split_cards": 9
+  },
+  "pharm-ind": {
+   "mode": "single",
+   "codes": [
+    "P05LAN01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C02"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "med-bio": {
+   "mode": "single",
+   "codes": [
+    "PD0LAN01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "F22"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "med-info": {
+   "mode": "none",
+   "codes": [],
+   "confidence": "high",
+   "note": "informatique medicale as own LMD degree not in 2025 minima; closest is med-ai (medecine+informatique)"
+  },
+  "ensb": {
+   "mode": "school",
+   "codes": [
+    "D00CAN10"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "P06"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "enssmal": {
+   "mode": "school",
+   "codes": [
+    "D00CAN11"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C11"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "kine": {
+   "mode": "wilaya",
+   "codes": [
+    "X04SANTE"
+   ],
+   "confidence": "high",
+   "note": "",
+   "rows_used": 56
+  },
+  "labo": {
+   "mode": "wilaya",
+   "codes": [
+    "X10SANTE"
+   ],
+   "confidence": "high",
+   "note": "",
+   "rows_used": 55
+  },
+  "radio": {
+   "mode": "wilaya",
+   "codes": [
+    "X09SANTE"
+   ],
+   "confidence": "high",
+   "note": "",
+   "rows_used": 55
+  },
+  "sage-femme": {
+   "mode": "wilaya",
+   "codes": [
+    "W01SANTE"
+   ],
+   "confidence": "high",
+   "note": "",
+   "rows_used": 55
+  },
+  "paramedical": {
+   "mode": "agg",
+   "codes": [
+    "X01SANTE",
+    "X02SANTE",
+    "X03SANTE",
+    "X04SANTE",
+    "X05SANTE",
+    "X06SANTE",
+    "X07SANTE",
+    "X08SANTE",
+    "X09SANTE",
+    "X10SANTE",
+    "X11SANTE",
+    "X12SANTE",
+    "X13SANTE",
+    "X14SANTE",
+    "W01SANTE"
+   ],
+   "confidence": "high",
+   "note": "umbrella paramedical entry: representative median across all public-health corps",
+   "rows_used": 729
+  },
+  "ehec": {
+   "mode": "school",
+   "codes": [
+    "F00CAN06"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C04"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "enssea": {
+   "mode": "school",
+   "codes": [
+    "F00CAN07"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C45"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "esb": {
+   "mode": "concours",
+   "codes": [],
+   "confidence": "high",
+   "note": "Ecole Superieure de Banque recruits post-bac by its own selection; catalog avg had no official source -> nulled"
+  },
+  "esm": {
+   "mode": "school",
+   "codes": [
+    "F00CAN03"
+   ],
+   "confidence": "medium",
+   "note": "Ecole Superieure de Management is in Tlemcen (catalog said Alger); location fixed",
+   "etbs_with_values": [
+    "P24"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "ensa-agro": {
+   "mode": "school",
+   "codes": [
+    "D00CAN07"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C06"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "sm": {
+   "mode": "family",
+   "codes": [
+    "B00LAL01",
+    "B00LAL02",
+    "B00LAL03"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C01",
+    "C14",
+    "C16",
+    "C35",
+    "C39",
+    "E01",
+    "E02",
+    "E04",
+    "E07",
+    "E08",
+    "E17",
+    "E25",
+    "U13",
+    "U23"
+   ],
+   "etbs_nc_skipped": [
+    "C17",
+    "C18",
+    "C19",
+    "C21",
+    "C27",
+    "C30",
+    "C31",
+    "C32",
+    "E09",
+    "E11",
+    "E12",
+    "E13",
+    "E14",
+    "E15",
+    "E16",
+    "E23",
+    "E24",
+    "E26",
+    "E27",
+    "U02",
+    "U06",
+    "U07",
+    "U08",
+    "U09",
+    "U11",
+    "U12",
+    "U21",
+    "U22",
+    "U25",
+    "U26",
+    "U30",
+    "U32"
+   ],
+   "split_cards": 14
+  },
+  "ens": {
+   "mode": "ens",
+   "codes": [],
+   "confidence": "high",
+   "note": "umbrella ENS entry: median across all teacher-track (P.E.P/P.E.M/P.E.S) rows",
+   "rows_used": 1430
+  },
+  "sciences-po": {
+   "mode": "family",
+   "codes": [
+    "G01LAL01",
+    "G01LAL02",
+    "G01LAL03",
+    "G01LAN01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C14",
+    "E04",
+    "E34",
+    "U06",
+    "U31"
+   ],
+   "etbs_nc_skipped": [
+    "C16",
+    "C18",
+    "C21",
+    "C27",
+    "C31",
+    "C37",
+    "C40",
+    "E08",
+    "E09",
+    "E11",
+    "E12",
+    "E13",
+    "E14",
+    "E15",
+    "E16",
+    "E17",
+    "E24",
+    "E25",
+    "E35",
+    "U07",
+    "U08",
+    "U09",
+    "U10",
+    "U11",
+    "U12",
+    "U13",
+    "U23"
+   ],
+   "split_cards": 5
+  },
+  "traduction": {
+   "mode": "family",
+   "codes": [
+    "H03IAL01",
+    "H03IAL02",
+    "H03IAL03",
+    "H03IAL04",
+    "H03IAL05",
+    "H03IAL09",
+    "H03IAL10",
+    "H03IAL13",
+    "H03IAL14",
+    "H03IAL15",
+    "H03IAL16",
+    "H03IAL17",
+    "H03IAL18",
+    "H03IAL19",
+    "H03IAL20",
+    "H03IAL21",
+    "H03IAL22",
+    "H03IAL23",
+    "H03IAL24",
+    "H03IAL25",
+    "H03IAL26",
+    "H03IAN07",
+    "H03IAN08",
+    "H03IAN11",
+    "H03IAN12"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C14",
+    "C36",
+    "E01",
+    "E35",
+    "E45"
+   ],
+   "etbs_nc_skipped": [
+    "C16",
+    "C17",
+    "C18",
+    "C19",
+    "C30",
+    "C40",
+    "E04",
+    "E14",
+    "E15",
+    "E17",
+    "E25",
+    "U06",
+    "U08",
+    "U09",
+    "U13",
+    "U25",
+    "U30"
+   ],
+   "split_cards": 5
+  },
+  "commu": {
+   "mode": "single",
+   "codes": [
+    "I03LAN01",
+    "I03LAN02"
+   ],
+   "confidence": "high",
+   "note": "LMD info-comm entry via I17 tronc commun in practice; direct codes were NC in phase 1",
+   "etbs_with_values": [],
+   "etbs_nc_skipped": [
+    "C37",
+    "E34"
+   ]
+  },
+  "charia": {
+   "mode": "family",
+   "codes": [
+    "I20LAL01",
+    "I20LAL02",
+    "I20LAN01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C21",
+    "C35",
+    "E08",
+    "E12",
+    "E14",
+    "E17",
+    "E18",
+    "E23",
+    "E27",
+    "U06",
+    "U08",
+    "U12",
+    "U25",
+    "U30"
+   ],
+   "etbs_nc_skipped": [
+    "C18",
+    "C32",
+    "E25",
+    "U23"
+   ],
+   "split_cards": 14
+  },
+  "sciences-hum": {
+   "mode": "family",
+   "codes": [
+    "I17LAL01",
+    "I17LAL02",
+    "I17LAL03"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C19",
+    "U06",
+    "U12"
+   ],
+   "etbs_nc_skipped": [
+    "C14",
+    "C16",
+    "C17",
+    "C18",
+    "C21",
+    "C30",
+    "C31",
+    "C32",
+    "C36",
+    "C38",
+    "C40",
+    "C43",
+    "E02",
+    "E04",
+    "E08",
+    "E09",
+    "E11",
+    "E12",
+    "E13",
+    "E14",
+    "E15",
+    "E16",
+    "E17",
+    "E18",
+    "E23",
+    "E24",
+    "E25",
+    "E26",
+    "E27",
+    "E33",
+    "E35",
+    "E44",
+    "U07",
+    "U08",
+    "U09",
+    "U11",
+    "U13",
+    "U14",
+    "U21",
+    "U22",
+    "U23",
+    "U25",
+    "U26",
+    "U30"
+   ],
+   "split_cards": 3
+  },
+  "med-ai": {
+   "mode": "family",
+   "codes": [
+    "PC0LAN01",
+    "PC0LAN02",
+    "PC0LAN03",
+    "PC0LAN04",
+    "PC0LAN05"
+   ],
+   "confidence": "medium",
+   "note": "closest official filiere: medecine + informatique double degree",
+   "etbs_with_values": [
+    "C19",
+    "E04",
+    "E07",
+    "E17",
+    "E45"
+   ],
+   "etbs_nc_skipped": [],
+   "split_cards": 5
+  },
+  "it-int": {
+   "mode": "single",
+   "codes": [
+    "FF1LAN01"
+   ],
+   "confidence": "medium",
+   "note": "closest official filiere: business computing (informatique des affaires) Tipaza",
+   "etbs_with_values": [
+    "C38"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "space-tech": {
+   "mode": "none",
+   "codes": [],
+   "confidence": "high",
+   "note": "no matching filiere in the 2025 minima document"
+  },
+  "quantum": {
+   "mode": "none",
+   "codes": [],
+   "confidence": "high",
+   "note": "no matching filiere in the 2025 minima document"
+  },
+  "digital-agro": {
+   "mode": "none",
+   "codes": [],
+   "confidence": "high",
+   "note": "no matching filiere in the 2025 minima document"
+  },
+  "ensta": {
+   "mode": "school",
+   "codes": [
+    "C00CAN06",
+    "A00CAN15"
+   ],
+   "confidence": "high",
+   "note": "two bachelor tracks (INF+ST) at same school; lowest published minimum used as minAvg",
+   "etbs_with_values": [
+    "P05"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "ensee": {
+   "mode": "school",
+   "codes": [
+    "A00CAN03"
+   ],
+   "confidence": "high",
+   "note": "catalog card mixed up ESGEE Oran with ENSERDD Batna; renamed to the Oran school the code matches",
+   "etbs_with_values": [
+    "P14"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "hnsre": {
+   "mode": "school",
+   "codes": [
+    "A00CAN12"
+   ],
+   "confidence": "high",
+   "note": "school is in Batna (W92), name said Hassi Messaoud",
+   "etbs_with_values": [
+    "W92"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "aeronautique": {
+   "mode": "family",
+   "codes": [
+    "A06LAN01",
+    "A06IAN01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C39",
+    "U02"
+   ],
+   "etbs_nc_skipped": [],
+   "split_cards": 2
+  },
+  "esgen": {
+   "mode": "school",
+   "codes": [
+    "F00CAN08"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "W83"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "essg": {
+   "mode": "school",
+   "codes": [
+    "F00CAN01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "P23"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "escf": {
+   "mode": "school",
+   "codes": [
+    "F00CAN02"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "P22"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "ese": {
+   "mode": "school",
+   "codes": [
+    "F00CAN04"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "P25"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "essaia": {
+   "mode": "school",
+   "codes": [
+    "D00CAN05"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "P71"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "essb": {
+   "mode": "school",
+   "codes": [
+    "D00CAN08"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "P81"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "isp": {
+   "mode": "wilaya",
+   "codes": [
+    "X01SANTE"
+   ],
+   "confidence": "high",
+   "note": "",
+   "rows_used": 55
+  },
+  "dental-prosthetist": {
+   "mode": "wilaya",
+   "codes": [
+    "X03SANTE"
+   ],
+   "confidence": "high",
+   "note": "",
+   "rows_used": 56
+  },
+  "psychomotricien": {
+   "mode": "wilaya",
+   "codes": [
+    "X08SANTE"
+   ],
+   "confidence": "high",
+   "note": "",
+   "rows_used": 41
+  },
+  "med-eco": {
+   "mode": "family",
+   "codes": [
+    "PF0LAN01",
+    "PF0LAN02",
+    "PF0LAN03"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "E07",
+    "E17",
+    "F21"
+   ],
+   "etbs_nc_skipped": [],
+   "split_cards": 3
+  },
+  "med-psy": {
+   "mode": "single",
+   "codes": [
+    "PI0LAN01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "U06"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "tech-media": {
+   "mode": "single",
+   "codes": [
+    "IC0LAN01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [],
+   "etbs_nc_skipped": [
+    "C18"
+   ]
+  },
+  "math-eco": {
+   "mode": "family",
+   "codes": [
+    "CF0LAN01",
+    "CF0LAN03",
+    "CF0LAN04",
+    "CF0LAN06"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C17",
+    "F20"
+   ],
+   "etbs_nc_skipped": [
+    "C18",
+    "E14"
+   ],
+   "split_cards": 2
+  },
+  "enpei": {
+   "mode": "military-untouched",
+   "codes": [],
+   "confidence": "n/a",
+   "note": "military card: untouched per brief"
+  },
+  "cherchall": {
+   "mode": "military-untouched",
+   "codes": [],
+   "confidence": "n/a",
+   "note": "military card: untouched per brief"
+  },
+  "esa": {
+   "mode": "military-untouched",
+   "codes": [],
+   "confidence": "n/a",
+   "note": "military card: untouched per brief"
+  },
+  "military-media": {
+   "mode": "military-untouched",
+   "codes": [],
+   "confidence": "n/a",
+   "note": "military card: untouched per brief"
+  },
+  "ensmar": {
+   "mode": "military-untouched",
+   "codes": [],
+   "confidence": "n/a",
+   "note": "military card: untouched per brief"
+  },
+  "esdat": {
+   "mode": "military-untouched",
+   "codes": [],
+   "confidence": "n/a",
+   "note": "military card: untouched per brief"
+  },
+  "gendarmerie": {
+   "mode": "military-untouched",
+   "codes": [],
+   "confidence": "n/a",
+   "note": "military card: untouched per brief"
+  },
+  "republican-guard": {
+   "mode": "military-untouched",
+   "codes": [],
+   "confidence": "n/a",
+   "note": "military card: untouched per brief"
+  },
+  "signal-corps": {
+   "mode": "military-untouched",
+   "codes": [],
+   "confidence": "n/a",
+   "note": "military card: untouched per brief"
+  },
+  "ordnance-corps": {
+   "mode": "military-untouched",
+   "codes": [],
+   "confidence": "n/a",
+   "note": "military card: untouched per brief"
+  },
+  "commissariat-corps": {
+   "mode": "military-untouched",
+   "codes": [],
+   "confidence": "n/a",
+   "note": "military card: untouched per brief"
+  },
+  "military-health": {
+   "mode": "military-untouched",
+   "codes": [],
+   "confidence": "n/a",
+   "note": "military card: untouched per brief"
+  },
+  "esaa": {
+   "mode": "concours",
+   "codes": [],
+   "confidence": "high",
+   "note": "recruits outside the MESRS bac-wishes circulaire (own concours/selection)"
+  },
+  "esi-kolea": {
+   "mode": "concours",
+   "codes": [],
+   "confidence": "high",
+   "note": "recruits outside the MESRS bac-wishes circulaire (own concours/selection)"
+  },
+  "enst": {
+   "mode": "concours",
+   "codes": [],
+   "confidence": "high",
+   "note": "recruits outside the MESRS bac-wishes circulaire (own concours/selection)"
+  },
+  "inataa": {
+   "mode": "school",
+   "codes": [
+    "D07LAN01"
+   ],
+   "confidence": "medium",
+   "note": "INATAA = sciences alimentaires at Univ Constantine 1",
+   "etbs_with_values": [
+    "E01"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "architecture-uni": {
+   "mode": "family",
+   "codes": [
+    "N05IAL01",
+    "N05IAL02"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C14",
+    "C16",
+    "C19",
+    "C35",
+    "C39",
+    "E04",
+    "E07",
+    "E08",
+    "E14",
+    "E34",
+    "U02",
+    "U06",
+    "U07",
+    "U08",
+    "U13"
+   ],
+   "etbs_nc_skipped": [
+    "C18",
+    "E09",
+    "E11",
+    "E12",
+    "E13",
+    "E15",
+    "U11",
+    "U12"
+   ],
+   "split_cards": 15
+  },
+  "ss": {
+   "mode": "family",
+   "codes": [
+    "I19LAL01",
+    "I19LAL02",
+    "I19LAL03"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C17",
+    "C19",
+    "C30",
+    "C38",
+    "E02",
+    "E16",
+    "E17",
+    "E33",
+    "U06",
+    "U08",
+    "U12",
+    "U13",
+    "U25",
+    "U47"
+   ],
+   "etbs_nc_skipped": [
+    "C14",
+    "C16",
+    "C18",
+    "C21",
+    "C31",
+    "C32",
+    "C36",
+    "C40",
+    "C41",
+    "C43",
+    "E04",
+    "E08",
+    "E09",
+    "E11",
+    "E12",
+    "E13",
+    "E14",
+    "E15",
+    "E23",
+    "E24",
+    "E25",
+    "E26",
+    "E27",
+    "E35",
+    "E44",
+    "U07",
+    "U09",
+    "U11",
+    "U14",
+    "U21",
+    "U22",
+    "U23",
+    "U26",
+    "U31"
+   ],
+   "split_cards": 14
+  },
+  "philo": {
+   "mode": "none",
+   "codes": [],
+   "confidence": "high",
+   "note": "no matching filiere in the 2025 minima document"
+  },
+  "anglais": {
+   "mode": "family",
+   "codes": [
+    "H06LAL01",
+    "H06LAL02",
+    "H06LAL03"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C14",
+    "C16",
+    "C17",
+    "C18",
+    "C19",
+    "C21",
+    "C27",
+    "C30",
+    "C36",
+    "C40",
+    "E01",
+    "E02",
+    "E04",
+    "E09",
+    "E11",
+    "E12",
+    "E13",
+    "E14",
+    "E15",
+    "E16",
+    "E17",
+    "E23",
+    "E24",
+    "E25",
+    "E26",
+    "E27",
+    "E28",
+    "E35",
+    "E45",
+    "U06",
+    "U07",
+    "U08",
+    "U10",
+    "U11",
+    "U13",
+    "U21",
+    "U22",
+    "U23",
+    "U26",
+    "U31",
+    "U47"
+   ],
+   "etbs_nc_skipped": [
+    "C31",
+    "C32",
+    "C41",
+    "C43",
+    "E44",
+    "U09",
+    "U12",
+    "U25"
+   ],
+   "split_cards": 41
+  },
+  "francais": {
+   "mode": "dup",
+   "codes": [
+    "H01LAL01",
+    "H01LAL02",
+    "H01LAL03"
+   ],
+   "confidence": "high",
+   "note": "",
+   "duplicateOf": "langues",
+   "etbs_with_values": [
+    "C14",
+    "C16",
+    "C17",
+    "C19",
+    "C21",
+    "C27",
+    "C30",
+    "C36",
+    "C40",
+    "E01",
+    "E04",
+    "E11",
+    "E14",
+    "E16",
+    "E17",
+    "E35",
+    "U06",
+    "U08",
+    "U11",
+    "U12",
+    "U26",
+    "U31"
+   ],
+   "etbs_nc_skipped": [
+    "C18",
+    "C31",
+    "C32",
+    "C43",
+    "E02",
+    "E09",
+    "E12",
+    "E13",
+    "E15",
+    "E23",
+    "E24",
+    "E26",
+    "E28",
+    "E44",
+    "E45",
+    "U07",
+    "U09",
+    "U10",
+    "U13",
+    "U21",
+    "U22",
+    "U23",
+    "U25"
+   ]
+  },
+  "espagnol": {
+   "mode": "family",
+   "codes": [
+    "H02LAL01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C18",
+    "C36",
+    "E01",
+    "U06",
+    "U08",
+    "U10",
+    "U22"
+   ],
+   "etbs_nc_skipped": [],
+   "split_cards": 7
+  },
+  "allemand": {
+   "mode": "family",
+   "codes": [
+    "H04LAL01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C36",
+    "E16",
+    "U07",
+    "U10"
+   ],
+   "etbs_nc_skipped": [],
+   "split_cards": 4
+  },
+  "italien": {
+   "mode": "family",
+   "codes": [
+    "H07LAL01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C36",
+    "C40",
+    "E04",
+    "U31"
+   ],
+   "etbs_nc_skipped": [],
+   "split_cards": 4
+  },
+  "russe": {
+   "mode": "family",
+   "codes": [
+    "H05LAL01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C36",
+    "U31"
+   ],
+   "etbs_nc_skipped": [],
+   "split_cards": 2
+  },
+  "turc": {
+   "mode": "family",
+   "codes": [
+    "H08LAL01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C36",
+    "E18",
+    "U30"
+   ],
+   "etbs_nc_skipped": [],
+   "split_cards": 3
+  },
+  "chinois": {
+   "mode": "family",
+   "codes": [
+    "H09LAL01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C36",
+    "E01"
+   ],
+   "etbs_nc_skipped": [],
+   "split_cards": 2
+  },
+  "geologie": {
+   "mode": "family",
+   "codes": [
+    "E03LAL01",
+    "E03LAL02",
+    "E03LAL03"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C01"
+   ],
+   "etbs_nc_skipped": [
+    "C14",
+    "C16",
+    "C21",
+    "C30",
+    "C31",
+    "E01",
+    "E04",
+    "E07",
+    "E09",
+    "E11",
+    "E12",
+    "E13",
+    "E15",
+    "E17",
+    "E28",
+    "E45",
+    "U06",
+    "U13",
+    "U14",
+    "U27",
+    "U31"
+   ]
+  },
+  "geographie": {
+   "mode": "family",
+   "codes": [
+    "E01LAL01",
+    "E01LAL02"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [],
+   "etbs_nc_skipped": [
+    "C01",
+    "C16",
+    "C21",
+    "E01",
+    "E04",
+    "E07",
+    "E09",
+    "E12",
+    "E13",
+    "E45",
+    "U10",
+    "U31"
+   ]
+  },
+  "agroalimentaire": {
+   "mode": "single",
+   "codes": [
+    "D07IAN01"
+   ],
+   "confidence": "high",
+   "note": "sciences alimentaires Univ Bejaia (Constantine 1 row belongs to inataa)",
+   "etbs_with_values": [
+    "C19"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "archeologie": {
+   "mode": "single",
+   "codes": [
+    "I12LAN01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [],
+   "etbs_nc_skipped": [
+    "C36"
+   ]
+  },
+  "loisir": {
+   "mode": "single",
+   "codes": [
+    "I10LAL01"
+   ],
+   "confidence": "high",
+   "note": "canonical sociologie du loisir entry",
+   "etbs_with_values": [],
+   "etbs_nc_skipped": [
+    "C18",
+    "C36",
+    "C40",
+    "E08",
+    "E11",
+    "E12",
+    "E13",
+    "E17",
+    "E26",
+    "U23",
+    "U26"
+   ]
+  },
+  "staps": {
+   "mode": "family",
+   "codes": [
+    "J00LAL01",
+    "J00LAL02",
+    "J00LAN01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C16",
+    "C19",
+    "C30",
+    "C37",
+    "E11",
+    "E17",
+    "E26",
+    "E27",
+    "E33",
+    "E35",
+    "E45",
+    "U02",
+    "U08",
+    "U21",
+    "U26"
+   ],
+   "etbs_nc_skipped": [
+    "C18",
+    "C21",
+    "C31",
+    "E09",
+    "E12",
+    "E13",
+    "E14"
+   ],
+   "split_cards": 15
+  },
+  "arts": {
+   "mode": "family",
+   "codes": [
+    "K00LAL01",
+    "K00LAN01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C36",
+    "U08"
+   ],
+   "etbs_nc_skipped": [
+    "C21",
+    "E09",
+    "E17",
+    "E34",
+    "U06",
+    "U07",
+    "U09",
+    "U10",
+    "U13",
+    "U30"
+   ],
+   "split_cards": 2
+  },
+  "cinema": {
+   "mode": "none",
+   "codes": [],
+   "confidence": "high",
+   "note": "cinema & arts du spectacle not in 2025 minima; current numbers appear copied from digital-prod - flagged"
+  },
+  "arabe": {
+   "mode": "family",
+   "codes": [
+    "L00LAL01",
+    "L00LAL02",
+    "L00LAL03"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C27",
+    "C30",
+    "C38",
+    "C40",
+    "E01",
+    "E25",
+    "E28",
+    "E35",
+    "U06",
+    "U08",
+    "U09",
+    "U11",
+    "U13",
+    "U22",
+    "U23"
+   ],
+   "etbs_nc_skipped": [
+    "C14",
+    "C16",
+    "C17",
+    "C18",
+    "C19",
+    "C21",
+    "C31",
+    "C32",
+    "C36",
+    "C43",
+    "E02",
+    "E04",
+    "E08",
+    "E09",
+    "E11",
+    "E12",
+    "E13",
+    "E14",
+    "E15",
+    "E16",
+    "E18",
+    "E23",
+    "E24",
+    "E26",
+    "E27",
+    "E44",
+    "U07",
+    "U12",
+    "U14",
+    "U21",
+    "U25",
+    "U26",
+    "U27",
+    "U30",
+    "U47"
+   ],
+   "split_cards": 15
+  },
+  "tamazight": {
+   "mode": "family",
+   "codes": [
+    "M00LAL01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C19"
+   ],
+   "etbs_nc_skipped": [
+    "C14",
+    "C31",
+    "E08",
+    "E27"
+   ]
+  },
+  "med-gen": {
+   "mode": "none",
+   "codes": [],
+   "confidence": "high",
+   "note": "no matching filiere in the 2025 minima document"
+  },
+  "addict": {
+   "mode": "none",
+   "codes": [],
+   "confidence": "high",
+   "note": "no matching filiere in the 2025 minima document"
+  },
+  "prec-med": {
+   "mode": "none",
+   "codes": [],
+   "confidence": "high",
+   "note": "no matching filiere in the 2025 minima document"
+  },
+  "dent-hyg": {
+   "mode": "none",
+   "codes": [],
+   "confidence": "high",
+   "note": "no matching filiere in the 2025 minima document"
+  },
+  "gen-couns": {
+   "mode": "none",
+   "codes": [],
+   "confidence": "high",
+   "note": "no matching filiere in the 2025 minima document"
+  },
+  "ind-entr": {
+   "mode": "none",
+   "codes": [],
+   "confidence": "high",
+   "note": "no matching filiere in the 2025 minima document"
+  },
+  "smart-cities": {
+   "mode": "none",
+   "codes": [],
+   "confidence": "high",
+   "note": "no matching filiere in the 2025 minima document"
+  },
+  "med-informatics": {
+   "mode": "none",
+   "codes": [],
+   "confidence": "high",
+   "note": "duplicate concept of med-info; not in 2025 minima"
+  },
+  "droit-info": {
+   "mode": "single",
+   "codes": [
+    "GC0LAN01",
+    "GC0LAN02"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C19"
+   ],
+   "etbs_nc_skipped": [
+    "E14"
+   ]
+  },
+  "mgmt-eng": {
+   "mode": "single",
+   "codes": [
+    "FH0LAN01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [],
+   "etbs_nc_skipped": [
+    "E14"
+   ]
+  },
+  "info-gest": {
+   "mode": "single",
+   "codes": [
+    "CF0LAN02"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "U49"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "lang-fin": {
+   "mode": "single",
+   "codes": [
+    "HF0LAN01"
+   ],
+   "confidence": "high",
+   "note": "langue anglaise + sciences financieres, Univ Tlemcen",
+   "etbs_with_values": [
+    "U06"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "info-auto": {
+   "mode": "single",
+   "codes": [
+    "CA0LAN01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "E04"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "law-pol": {
+   "mode": "single",
+   "codes": [
+    "GG0LAN01",
+    "GG0LAN02"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [],
+   "etbs_nc_skipped": [
+    "C18",
+    "E14"
+   ]
+  },
+  "cs-eco": {
+   "mode": "single",
+   "codes": [
+    "CF0LAN05"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C19"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "arch-soc": {
+   "mode": "single",
+   "codes": [
+    "NI0LAN01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C19"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "eng-pol": {
+   "mode": "single",
+   "codes": [
+    "GH0LAN01",
+    "HG0LAN01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "U31"
+   ],
+   "etbs_nc_skipped": [
+    "U26"
+   ]
+  },
+  "eco-media": {
+   "mode": "single",
+   "codes": [
+    "IF0LAN01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C37"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "media-pol": {
+   "mode": "single",
+   "codes": [
+    "IG0LAN01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C37"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "sports-media": {
+   "mode": "single",
+   "codes": [
+    "IJ0LAN01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C37"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "digital-eng": {
+   "mode": "none",
+   "codes": [],
+   "confidence": "high",
+   "note": "no matching filiere in the 2025 minima document"
+  },
+  "dip-law": {
+   "mode": "none",
+   "codes": [],
+   "confidence": "high",
+   "note": "no matching filiere in the 2025 minima document"
+  },
+  "sports-psych": {
+   "mode": "single",
+   "codes": [
+    "IJ0LAN02"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [],
+   "etbs_nc_skipped": [
+    "C18"
+   ]
+  },
+  "eco-ir": {
+   "mode": "single",
+   "codes": [
+    "FC1LPN02"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C37"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "comm-ir": {
+   "mode": "none",
+   "codes": [],
+   "confidence": "high",
+   "note": "no matching filiere in the 2025 minima document"
+  },
+  "law-ir": {
+   "mode": "none",
+   "codes": [],
+   "confidence": "high",
+   "note": "no matching filiere in the 2025 minima document"
+  },
+  "archi-civil": {
+   "mode": "single",
+   "codes": [
+    "NA0LAN01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C18"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "ena": {
+   "mode": "concours",
+   "codes": [],
+   "confidence": "high",
+   "note": "recruits outside the MESRS bac-wishes circulaire (own concours/selection)"
+  },
+  "esm-justice": {
+   "mode": "concours",
+   "codes": [],
+   "confidence": "high",
+   "note": "recruits outside the MESRS bac-wishes circulaire (own concours/selection)"
+  },
+  "esss": {
+   "mode": "concours",
+   "codes": [],
+   "confidence": "high",
+   "note": "recruits outside the MESRS bac-wishes circulaire (own concours/selection)"
+  },
+  "enmas": {
+   "mode": "concours",
+   "codes": [],
+   "confidence": "high",
+   "note": "recruits outside the MESRS bac-wishes circulaire (own concours/selection)"
+  },
+  "iedf": {
+   "mode": "concours",
+   "codes": [],
+   "confidence": "high",
+   "note": "recruits outside the MESRS bac-wishes circulaire (own concours/selection)"
+  },
+  "idri": {
+   "mode": "concours",
+   "codes": [],
+   "confidence": "high",
+   "note": "recruits outside the MESRS bac-wishes circulaire (own concours/selection)"
+  },
+  "essp": {
+   "mode": "concours",
+   "codes": [],
+   "confidence": "high",
+   "note": "recruits outside the MESRS bac-wishes circulaire (own concours/selection)"
+  },
+  "ensjsi": {
+   "mode": "concours",
+   "codes": [],
+   "confidence": "high",
+   "note": "recruits outside the MESRS bac-wishes circulaire (own concours/selection)"
+  },
+  "enscrbc": {
+   "mode": "school",
+   "codes": [
+    "N00TUT01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "D04"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "gestion": {
+   "mode": "dup",
+   "codes": [
+    "F00LAL01",
+    "F00LAL02",
+    "F00LAL03",
+    "F00LAL04"
+   ],
+   "confidence": "high",
+   "note": "SEGC tronc commun = same official filiere as eco",
+   "duplicateOf": "eco",
+   "etbs_with_values": [
+    "C14",
+    "C16",
+    "C17",
+    "C19",
+    "C21",
+    "C27",
+    "C30",
+    "C37",
+    "C38",
+    "E02",
+    "E04",
+    "E07",
+    "E08",
+    "E09",
+    "E13",
+    "E16",
+    "E17",
+    "E18",
+    "E23",
+    "E25",
+    "E27",
+    "E28",
+    "E33",
+    "U06",
+    "U07",
+    "U08",
+    "U09",
+    "U11",
+    "U12",
+    "U13",
+    "U14",
+    "U22",
+    "U23",
+    "U31"
+   ],
+   "etbs_nc_skipped": [
+    "C18",
+    "C31",
+    "C32",
+    "C40",
+    "C41",
+    "C43",
+    "E11",
+    "E12",
+    "E14",
+    "E15",
+    "E24",
+    "E26",
+    "E44",
+    "U21",
+    "U25",
+    "U26",
+    "U27",
+    "U47"
+   ]
+  },
+  "health-soc": {
+   "mode": "single",
+   "codes": [
+    "FI1LAN01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "E33"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "digital-biz": {
+   "mode": "single",
+   "codes": [
+    "IF1LAN01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C37"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "comm-tourism": {
+   "mode": "single",
+   "codes": [
+    "II1LAN01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [],
+   "etbs_nc_skipped": [
+    "C37"
+   ]
+  },
+  "cinema-media": {
+   "mode": "single",
+   "codes": [
+    "KK1LAN01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [],
+   "etbs_nc_skipped": [
+    "C37"
+   ]
+  },
+  "public-innov": {
+   "mode": "single",
+   "codes": [
+    "GG1LAN01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [],
+   "etbs_nc_skipped": [
+    "C37"
+   ]
+  },
+  "childhood": {
+   "mode": "single",
+   "codes": [
+    "JI1LAN01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C37"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "health-info": {
+   "mode": "family",
+   "codes": [
+    "F01LPL01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C18",
+    "E07",
+    "U23",
+    "U26"
+   ],
+   "etbs_nc_skipped": [],
+   "split_cards": 4
+  },
+  "marketing-comm": {
+   "mode": "family",
+   "codes": [
+    "F03LPL01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C18",
+    "E07",
+    "E09"
+   ],
+   "etbs_nc_skipped": [
+    "U23",
+    "U26"
+   ],
+   "split_cards": 3
+  },
+  "e-biz": {
+   "mode": "family",
+   "codes": [
+    "F03LPL02"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C43",
+    "E07"
+   ],
+   "etbs_nc_skipped": [
+    "U26"
+   ],
+   "split_cards": 2
+  },
+  "trading": {
+   "mode": "family",
+   "codes": [
+    "F04LAL01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "E07",
+    "E27"
+   ],
+   "etbs_nc_skipped": [
+    "C18",
+    "U13",
+    "U23",
+    "U26"
+   ],
+   "split_cards": 2
+  },
+  "fintech": {
+   "mode": "family",
+   "codes": [
+    "F02LAL01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "E07",
+    "E27"
+   ],
+   "etbs_nc_skipped": [
+    "U08",
+    "U23"
+   ],
+   "split_cards": 2
+  },
+  "agro": {
+   "mode": "family",
+   "codes": [
+    "D03TCL01",
+    "D03LAN01",
+    "D03LAN02",
+    "D00CAN06"
+   ],
+   "confidence": "high",
+   "note": "universities + ESA Mostaganem (no standalone card exists for it)",
+   "etbs_with_values": [
+    "C16",
+    "C17",
+    "C21",
+    "C39",
+    "E01",
+    "E02",
+    "E07",
+    "P72",
+    "U06",
+    "U08",
+    "U23"
+   ],
+   "etbs_nc_skipped": [
+    "C14",
+    "C18",
+    "C27",
+    "C30",
+    "C32",
+    "C38",
+    "E08",
+    "E09",
+    "E11",
+    "E12",
+    "E13",
+    "E14",
+    "E15",
+    "E16",
+    "E17",
+    "E23",
+    "E24",
+    "E25",
+    "E26",
+    "E27",
+    "U07",
+    "U09",
+    "U10",
+    "U11",
+    "U12",
+    "U13",
+    "U21",
+    "U22",
+    "U25",
+    "U26",
+    "U30"
+   ],
+   "split_cards": 11
+  },
+  "hse": {
+   "mode": "family",
+   "codes": [
+    "A21IAN01",
+    "A21LAN01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "E45",
+    "U31"
+   ],
+   "etbs_nc_skipped": [],
+   "split_cards": 2
+  },
+  "hydro": {
+   "mode": "family",
+   "codes": [
+    "A12LAL01",
+    "A12LAL02",
+    "A12LAL03"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C19",
+    "U02"
+   ],
+   "etbs_nc_skipped": [
+    "E13"
+   ],
+   "split_cards": 2
+  },
+  "petrochimie": {
+   "mode": "school",
+   "codes": [
+    "A13IAN01",
+    "A13LAN01"
+   ],
+   "confidence": "high",
+   "note": "both tracks at Univ Skikda; merged one card",
+   "etbs_with_values": [
+    "E16"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "auto": {
+   "mode": "family",
+   "codes": [
+    "A02IAN01",
+    "A02LAN01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C27",
+    "U02"
+   ],
+   "etbs_nc_skipped": [],
+   "split_cards": 2
+  },
+  "electro": {
+   "mode": "family",
+   "codes": [
+    "A16TCL01",
+    "A16IAN01",
+    "A16LAN01",
+    "A09IAN01",
+    "A09IAN04"
+   ],
+   "confidence": "high",
+   "note": "canonical electrotechnique entry; genie-elec kept as duplicate",
+   "etbs_with_values": [
+    "C01",
+    "C16",
+    "C19",
+    "C27",
+    "C39",
+    "E01",
+    "E04",
+    "E07",
+    "E13",
+    "E25",
+    "E27",
+    "E45",
+    "U02",
+    "U06",
+    "U07",
+    "U08"
+   ],
+   "etbs_nc_skipped": [
+    "C14",
+    "C17",
+    "C18",
+    "C21",
+    "C30",
+    "C31",
+    "C32",
+    "E09",
+    "E11",
+    "E12",
+    "E14",
+    "E15",
+    "E16",
+    "E17",
+    "E23",
+    "E24",
+    "E26",
+    "U09",
+    "U10",
+    "U12",
+    "U13",
+    "U22",
+    "U23",
+    "U25",
+    "U26"
+   ],
+   "split_cards": 16
+  },
+  "telecom": {
+   "mode": "family",
+   "codes": [
+    "A20IAN01",
+    "A00TUT02"
+   ],
+   "confidence": "high",
+   "note": "Univ Guelma + ENST-TIC Oran school (no standalone card)",
+   "etbs_with_values": [
+    "D03",
+    "E15"
+   ],
+   "etbs_nc_skipped": [],
+   "split_cards": 2
+  },
+  "env-sci": {
+   "mode": "single",
+   "codes": [
+    "D06FPN01"
+   ],
+   "confidence": "medium",
+   "note": "licence pro ecologie et environnement Constantine 1",
+   "etbs_with_values": [
+    "E01"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "city-jobs": {
+   "mode": "single",
+   "codes": [
+    "N02IAN01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [],
+   "etbs_nc_skipped": [
+    "C18"
+   ]
+  },
+  "digital-prod": {
+   "mode": "family",
+   "codes": [
+    "K01LPL01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C36",
+    "E34"
+   ],
+   "etbs_nc_skipped": [],
+   "split_cards": 2
+  },
+  "theater": {
+   "mode": "single",
+   "codes": [
+    "K02LAN02"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [],
+   "etbs_nc_skipped": [
+    "C21"
+   ]
+  },
+  "music-perf": {
+   "mode": "single",
+   "codes": [
+    "K02LAN01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [],
+   "etbs_nc_skipped": [
+    "E34"
+   ]
+  },
+  "scenario": {
+   "mode": "single",
+   "codes": [
+    "K01LAL01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [],
+   "etbs_nc_skipped": [
+    "C36",
+    "U07"
+   ]
+  },
+  "3d-design": {
+   "mode": "single",
+   "codes": [
+    "K01LPN01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [],
+   "etbs_nc_skipped": [
+    "U08"
+   ]
+  },
+  "soc-leisure": {
+   "mode": "single",
+   "codes": [
+    "I10LAL01"
+   ],
+   "confidence": "high",
+   "note": "same official filiere as loisir",
+   "duplicateOf": "loisir",
+   "etbs_with_values": [],
+   "etbs_nc_skipped": [
+    "C18",
+    "C36",
+    "C40",
+    "E08",
+    "E11",
+    "E12",
+    "E13",
+    "E17",
+    "E26",
+    "U23",
+    "U26"
+   ]
+  },
+  "history-data": {
+   "mode": "single",
+   "codes": [
+    "I04LAL01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [],
+   "etbs_nc_skipped": [
+    "C36",
+    "C43",
+    "E08",
+    "E12",
+    "E17",
+    "E24",
+    "E26"
+   ]
+  },
+  "health-comm": {
+   "mode": "family",
+   "codes": [
+    "I03LAL01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C18",
+    "C36",
+    "E04",
+    "E13",
+    "U08"
+   ],
+   "etbs_nc_skipped": [
+    "E12",
+    "E26",
+    "U26"
+   ],
+   "split_cards": 5
+  },
+  "commerce": {
+   "mode": "dup",
+   "codes": [
+    "F00LAL01",
+    "F00LAL02",
+    "F00LAL03",
+    "F00LAL04"
+   ],
+   "confidence": "high",
+   "note": "SEGC tronc commun = same official filiere as eco",
+   "duplicateOf": "eco",
+   "etbs_with_values": [
+    "C14",
+    "C16",
+    "C17",
+    "C19",
+    "C21",
+    "C27",
+    "C30",
+    "C37",
+    "C38",
+    "E02",
+    "E04",
+    "E07",
+    "E08",
+    "E09",
+    "E13",
+    "E16",
+    "E17",
+    "E18",
+    "E23",
+    "E25",
+    "E27",
+    "E28",
+    "E33",
+    "U06",
+    "U07",
+    "U08",
+    "U09",
+    "U11",
+    "U12",
+    "U13",
+    "U14",
+    "U22",
+    "U23",
+    "U31"
+   ],
+   "etbs_nc_skipped": [
+    "C18",
+    "C31",
+    "C32",
+    "C40",
+    "C41",
+    "C43",
+    "E11",
+    "E12",
+    "E14",
+    "E15",
+    "E24",
+    "E26",
+    "E44",
+    "U21",
+    "U25",
+    "U26",
+    "U27",
+    "U47"
+   ]
+  },
+  "aeroport": {
+   "mode": "single",
+   "codes": [
+    "F01LPN01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "E07"
+   ],
+   "etbs_nc_skipped": []
+  },
+  "penal": {
+   "mode": "none",
+   "codes": [],
+   "confidence": "high",
+   "note": "no matching filiere in the 2025 minima document"
+  },
+  "criminologie": {
+   "mode": "none",
+   "codes": [],
+   "confidence": "high",
+   "note": "no matching filiere in the 2025 minima document"
+  },
+  "forensique": {
+   "mode": "none",
+   "codes": [],
+   "confidence": "high",
+   "note": "no matching filiere in the 2025 minima document"
+  },
+  "circular-economy": {
+   "mode": "none",
+   "codes": [],
+   "confidence": "high",
+   "note": "no matching filiere in the 2025 minima document"
+  },
+  "molecular-engineering": {
+   "mode": "none",
+   "codes": [],
+   "confidence": "high",
+   "note": "no matching filiere in the 2025 minima document"
+  },
+  "genomic-data": {
+   "mode": "none",
+   "codes": [],
+   "confidence": "high",
+   "note": "no matching filiere in the 2025 minima document"
+  },
+  "csr": {
+   "mode": "none",
+   "codes": [],
+   "confidence": "high",
+   "note": "no matching filiere in the 2025 minima document"
+  },
+  "proteins-seeds": {
+   "mode": "none",
+   "codes": [],
+   "confidence": "high",
+   "note": "no matching filiere in the 2025 minima document"
+  },
+  "appareilleur-orthopediste": {
+   "mode": "wilaya",
+   "codes": [
+    "X07SANTE"
+   ],
+   "confidence": "high",
+   "note": "",
+   "rows_used": 27
+  },
+  "anesthesie-reanimation": {
+   "mode": "none",
+   "codes": [],
+   "confidence": "high",
+   "note": "no matching filiere in the 2025 minima document"
+  },
+  "esp": {
+   "mode": "wilaya",
+   "codes": [
+    "X06SANTE"
+   ],
+   "confidence": "high",
+   "note": "",
+   "rows_used": 44
+  },
+  "pedicure-podologue": {
+   "mode": "wilaya",
+   "codes": [
+    "X05SANTE"
+   ],
+   "confidence": "high",
+   "note": "",
+   "rows_used": 10
+  },
+  "pharma-prep": {
+   "mode": "wilaya",
+   "codes": [
+    "X11SANTE"
+   ],
+   "confidence": "high",
+   "note": "",
+   "rows_used": 55
+  },
+  "dieteticien": {
+   "mode": "wilaya",
+   "codes": [
+    "X02SANTE"
+   ],
+   "confidence": "high",
+   "note": "",
+   "rows_used": 54
+  },
+  "public-health-hygiene": {
+   "mode": "wilaya",
+   "codes": [
+    "X12SANTE"
+   ],
+   "confidence": "high",
+   "note": "",
+   "rows_used": 55
+  },
+  "adjoint-medical": {
+   "mode": "wilaya",
+   "codes": [
+    "X13SANTE"
+   ],
+   "confidence": "high",
+   "note": "",
+   "rows_used": 56
+  },
+  "assistant-social": {
+   "mode": "wilaya",
+   "codes": [
+    "X14SANTE"
+   ],
+   "confidence": "high",
+   "note": "",
+   "rows_used": 55
+  },
+  "law-fin": {
+   "mode": "single",
+   "codes": [
+    "GF0LAN01"
+   ],
+   "confidence": "high",
+   "note": "",
+   "etbs_with_values": [
+    "C17"
+   ],
+   "etbs_nc_skipped": []
   }
-]
+ }
+}
