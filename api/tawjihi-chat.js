@@ -1624,6 +1624,7 @@ export default async function handler(req, res) {
   //      (school names, Latin acronyms… that produced no RAG context).
   //   4. Final RAG context empty/near-empty on a substantive question
   //      (greetings/smalltalk never trigger a search).
+  let webBlock = '';
   if (process.env.TAVILY_API_KEY) {
     const timeSensitive = isTimeSensitive(`${message} ${recentText}`);
     const ragThin = (ragContext || '').length < 200;
