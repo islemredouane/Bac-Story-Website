@@ -55,8 +55,10 @@ const ESI_AVG = twById('esi')?.minAvg;
 // ── banned dialect words (non-Algerian) ──────────────────────────────────────
 const BANNED = ['شنو', 'شو ', 'إيش', ' وش ', 'شلون', 'ليش', 'فين ', 'ديال', 'بغيت', 'عافاك', 'مزيان', 'إزاي', 'عايز', 'هسة', 'كتير'];
 
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
 // ── SSE client ───────────────────────────────────────────────────────────────
-async function ask(message, { history = [], orientationMode = false } = {}) {
+async function askOnce(message, { history = [], orientationMode = false } = {}) {
   const res = await fetch(ENDPOINT, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${TOKEN}` },
@@ -76,6 +78,24 @@ async function ask(message, { history = [], orientationMode = false } = {}) {
     } catch (e) { if (String(e.message).startsWith('stream error')) throw e; }
   }
   return out;
+}
+
+async function ask(message, opts = {}) {
+  const maxRetries = 3;
+  for (let attempt = 0; attempt <= maxRetries; attempt++) {
+    try {
+      return await askOnce(message, opts);
+    } catch (e) {
+      const isRateLimit = /all_providers_exhausted|rate.?limit|429|quota/i.test(e.message);
+      if (isRateLimit && attempt < maxRetries) {
+        const wait = 20000 * (attempt + 1); // 20s, 40s, 60s
+        console.log(`\n  [rate-limit] retrying in ${wait / 1000}s (attempt ${attempt + 1}/${maxRetries})…`);
+        await sleep(wait);
+        continue;
+      }
+      throw e;
+    }
+  }
 }
 
 // ── assertion helpers ────────────────────────────────────────────────────────
@@ -215,7 +235,7 @@ async function main() {
     }
     console.log(failure ? `FAIL — ${failure}` : 'PASS');
     results.push({ ...t, response: txt, failure });
-    await new Promise((r) => setTimeout(r, 1500)); // be gentle on provider quotas
+    await sleep(8000); // 8s between questions to stay under Groq free-tier TPM
   }
 
   const passed = results.filter((r) => !r.failure).length;
