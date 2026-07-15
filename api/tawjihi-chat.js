@@ -1203,7 +1203,8 @@ function buildSystemPrompt(profile, contextBlock, guideBlock, orientationMode = 
 [{"id":"<id>","name":"<الاسم>","meta":"<التصنيف> · <الشعبة>","avg":"<المعدل>","color":"var(--cat-medical)"}]
 \`\`\`
 
-2) عند مقارنة تخصصين أو أكثر:
+2) عند مقارنة تخصصين أو أكثر — يُطلق بكلمات مثل "قارن"، "مقارنة"، "الفرق بين"، "comparer"، "compare":
+⚠️ **إلزامي**: أي رد على طلب مقارنة يجب أن يحتوي على كتلة \`\`\`compare وإلا يُعتبر ناقصاً.
 \`\`\`compare
 {"title":"مقارنة بين ...","fields":[{"key":"avg","label":"معدل القبول"},{"key":"streams","label":"الشعب المقبولة"},{"key":"duration","label":"مدة الدراسة"},{"key":"careers","label":"أبرز فرص العمل"}],"items":[{"id":"<id>","name":"<الاسم>","avg":"<المعدل>","streams":"...","duration":"...","careers":"..."}]}
 \`\`\`
@@ -1213,6 +1214,7 @@ function buildSystemPrompt(profile, contextBlock, guideBlock, orientationMode = 
 {"id":"<id>"}
 \`\`\`
 في كتلة verdict اكتب **فقط** \`{"id":"..."}\` — الواجهة الأمامية تحسب القرار النهائي بنفسها، لا تكتب أنت الحالة أو العتبة.
+⚠️ قاعدة المعرّفات في verdict: إذا قال المستخدم "ESI" بدون تحديد → استعمل \`"esi-alger"\`. إذا قال "ESI SBA" → \`"esi-sba"\`. لا تكتب \`{"id":"ESI"}\` أبداً — "ESI" وحدها غير موجودة في الكتالوج.
 
 4) عندما تسأل الطالب سؤالاً هيكلياً (في وضع الاستكشاف أو أي سؤال متعدد الخيارات):
 \`\`\`question
@@ -1578,9 +1580,9 @@ export default async function handler(req, res) {
   if (token === 'TEST_QA') {
     user = { id: '8f320a94-35c2-4466-a3d6-a0f9ded576c3' };
   } else {
-    const res = await adminSupabase.auth.getUser(token);
-    user = res.data?.user;
-    if (res.error || !user) {
+    const authResult = await adminSupabase.auth.getUser(token);
+    user = authResult.data?.user;
+    if (authResult.error || !user) {
       return res.status(401).json({ error: 'Unauthorized' });
     }
   }
@@ -1590,12 +1592,17 @@ export default async function handler(req, res) {
   const { message, messages = [], sessionId, orientationMode = false, wishlist = [], isLastMessage = false } = req.body;
 
   // SEC-2: Fetch real profile from DB — prevents prompt-injection via crafted profile fields
-  const { data: profileFromDB } = await adminSupabase
-    .from('profiles')
-    .select('stream, average, wilaya, interests, ambition_text, weighted_averages, name')
-    .eq('id', user.id)
-    .single();
-  const profile = profileFromDB || {};
+  let profile = {};
+  if (token === 'TEST_QA') {
+    profile = { name: 'أمين', stream: 'علوم تجريبية', average: 15.5, wilaya: 'سطيف', interests: ['الطب والصحة'] };
+  } else {
+    const { data: profileFromDB } = await adminSupabase
+      .from('profiles')
+      .select('stream, average, wilaya, interests, ambition_text, weighted_averages, name')
+      .eq('id', user.id)
+      .single();
+    profile = profileFromDB || {};
+  }
 
   // SEC-5: Check (and auto-refill if 24 h elapsed) credit balance BEFORE Groq call.
   // ensure_daily_credits() atomically resets balance to 30 when due, then returns it.
