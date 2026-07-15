@@ -541,6 +541,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Rich keyword aliases keyed by section ID — searched in addition to data-name
 var SPEC_KEYWORDS = {
+      'ENSTE': 'تكنولوجيا هندسة مناجم معادن صناعية عنابة enste',
+      'ESGEE': 'هندسة كهربائية طاقوية وهران طاقات متجددة esgee',
+      'ENSF': 'غابات طبيعة خنشلة aménagement forestier ensf',
+      'biomedical': 'هندسة بيوطبية طب تكنولوجيا santé génie biomédical',
+
     'ESTIN': 'ذكاء اصطناعي أمن سيبراني انترنت الأشياء intelligence artificielle cybersécurité iot internet des objets génie informatique logiciel réseaux machine learning deep learning numérique digital بجاية مدرسة عليا رقمنة',
     'ESI-ALGER': 'مدرسة عليا إعلام آلي isi siw irs hcd génie logiciel systèmes informatiques réseaux cybersécurité grande école informatique الجزائر العاصمة بن عكنون',
     'ESI-SBA': 'isi siw iasd cys génie informatique intelligence artificielle sciences des données data science سيدي بلعباس وهران ingénierie systèmes information computer architecture data structures algorithms linux assembly language digital electronics linear algebra information systems digital economy ai literacy quantum computing حوسبة كمومية AI and Quantum Community Alphabet Ingeniums أمن سيبراني',
