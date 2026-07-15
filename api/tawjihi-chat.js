@@ -1422,6 +1422,7 @@ function buildProviders() {
     if (k) orKeys.push(k);
   }
   const OR_MODELS = [
+    'google/gemini-2.0-flash-exp:free',
     'meta-llama/llama-3.3-70b-instruct:free',
     'meta-llama/llama-3.1-8b-instruct:free',
     'qwen/qwen-2.5-72b-instruct:free',
@@ -1497,7 +1498,7 @@ async function* streamFromProvider(provider, systemPrompt, messages, message, us
   /* ---- OpenRouter (OpenAI-compatible REST, streamed via fetch) ---- */
   if (provider.type === 'openrouter') {
     const orAbort = new AbortController();
-    const orTimer = setTimeout(() => orAbort.abort(), 8000);
+    const orTimer = setTimeout(() => orAbort.abort(), 55000);
     let resp;
     try {
       resp = await fetch('https://openrouter.ai/api/v1/chat/completions', {
