@@ -1414,7 +1414,16 @@ function buildProviders() {
   }
   groqKeys.forEach((key, i) => list.push({ type: 'groq', key, label: `groq-${i + 1}` }));
 
-  // OpenRouter — each key unlocks 3 free model slots (Gemini → Llama → Mistral)
+  // Cerebras — free tier, 30 RPM, no daily cap. CEREBRAS_API_KEY_1 … _5
+  const cerebrasKeys = [];
+  if (process.env.CEREBRAS_API_KEY) cerebrasKeys.push(process.env.CEREBRAS_API_KEY);
+  for (let i = 1; i <= 5; i++) {
+    const k = process.env[`CEREBRAS_API_KEY_${i}`];
+    if (k) cerebrasKeys.push(k);
+  }
+  cerebrasKeys.forEach((key, i) => list.push({ type: 'cerebras', key, label: `cerebras-${i + 1}` }));
+
+  // OpenRouter — each key unlocks 4 free model slots
   const orKeys = [];
   if (process.env.OPENROUTER_API_KEY) orKeys.push(process.env.OPENROUTER_API_KEY);
   for (let i = 2; i <= 5; i++) {
@@ -1491,6 +1500,56 @@ async function* streamFromProvider(provider, systemPrompt, messages, message, us
     for await (const chunk of stream) {
       const text = chunk.choices[0]?.delta?.content || '';
       if (text) yield text;
+    }
+    return;
+  }
+
+  /* ---- Cerebras (OpenAI-compatible, free 30 RPM, no daily cap) ---- */
+  if (provider.type === 'cerebras') {
+    const cbAbort = new AbortController();
+    const cbTimer = setTimeout(() => cbAbort.abort(), 55000);
+    let resp;
+    try {
+      resp = await fetch('https://api.cerebras.ai/v1/chat/completions', {
+        method: 'POST',
+        signal: cbAbort.signal,
+        headers: { 'Authorization': `Bearer ${provider.key}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: 'llama-3.3-70b',
+          messages: [{ role: 'system', content: systemPrompt }, ...messages.slice(-12)],
+          stream: true,
+          max_tokens: 2048,
+          temperature: 0.4,
+        }),
+      });
+    } finally {
+      clearTimeout(cbTimer);
+    }
+    if (!resp.ok) {
+      const errBody = await resp.text().catch(() => '');
+      const err = new Error(`Cerebras HTTP ${resp.status}: ${errBody.slice(0, 200)}`);
+      err.status = resp.status;
+      throw err;
+    }
+    const cbReader = resp.body.getReader();
+    const cbDecoder = new TextDecoder();
+    let cbBuf = '';
+    while (true) {
+      const { done, value } = await cbReader.read();
+      if (done) break;
+      cbBuf += cbDecoder.decode(value, { stream: true });
+      const cbLines = cbBuf.split('\n');
+      cbBuf = cbLines.pop() ?? '';
+      for (const line of cbLines) {
+        if (!line.startsWith('data: ')) continue;
+        const raw = line.slice(6).trim();
+        if (raw === '[DONE]') return;
+        try {
+          const parsed = JSON.parse(raw);
+          const text = parsed.choices?.[0]?.delta?.content || '';
+          if (text) yield text;
+        } catch { /* ignore malformed SSE */ }
+      }
     }
     return;
   }
