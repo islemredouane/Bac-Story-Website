@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <script>!function(){var p=location.pathname.split('/').pop();if(['login.html','onboarding.html','index.html',''].indexOf(p)<0){if(!localStorage.getItem('tw-auth'))return void location.replace('login.html'+location.search);if(!localStorage.getItem('tw-profile'))return void location.replace('onboarding.html'+location.search)}}()</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>توجيهي · الباقات</title>
+    <meta name="description" content="أكمل توجيهك مع باقات توجيهي — دفعة واحدة، بدون اشتراك.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Tajawal:wght@400;500;700;800&family=Cairo:wght@400;600;700;800&family=Pattaya&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles/tokens.css?v=17839665">
+    <link rel="stylesheet" href="styles/app.css?v=17839665">
+    <link rel="stylesheet" href="styles/dashboard.css?v=17839665">
+    <link rel="stylesheet" href="styles/pricing.css?v=17839665">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+    <script src="supabase.js?v=17839665"></script>
+
+    <!-- PWA & Meta Tags -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="assets/favicon.ico" sizes="any">
+    <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <meta property="og:title" content="Tawjihi - توجيهي">
+    <meta property="og:description" content="The ultimate Algerian baccalaureate orientation guide and simulator.">
+    <meta property="og:image" content="assets/icon-512x512.png">
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('sw.js?v=2').catch(console.error);
+        });
+      }
+    </script>
+    <meta name="view-transition" content="same-origin">
+</head>
+<body>
+<div class="app" id="app">
+    <!-- sidebar injected by shell.js -->
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="sidebar-scrim" id="scrim"></div>
+
+    <!-- ===================== MAIN ===================== -->
+    <main class="main">
+        <header class="topbar">
+            <div style="display:flex;align-items:center;gap:.5rem">
+                <button class="icon-btn mobile-only" id="drawerBtn" aria-label="القائمة"><i class="fas fa-bars"></i></button>
+                <span class="topbar-title">الباقات</span>
+            </div>
+            <div class="topbar-actions">
+                <button class="icon-btn" id="themeBtn" aria-label="تبديل الوضع"><i class="fas fa-moon"></i></button>
+            </div>
+        </header>
+
+        <div class="dash-scroll">
+            <div class="dash-inner pr-inner">
+
+                <!-- ── Hero ── -->
+                <div class="pr-hero">
+                    <h1 class="pr-hero-title">أكمل توجيهك قبل فوات الأوان</h1>
+                    <p class="pr-hero-sub">حصلت على إجابات حقيقية في رسائلك المجانية — الآن أكمل المقارنة والتخطيط واتخذ قرارك بثقة.</p>
+                    <div class="pr-urgency">
+                        <i class="fas fa-hourglass-half"></i>
+                        التوجيه يُغلق يوم 22 جويلية — كل يوم مهم
+                    </div>
+                </div>
+
+                <!-- ── Packs ── -->
+                <div class="pr-packs">
+                    <div class="pr-pack" id="packBasic">
+                        <div class="pr-pack-name">الباقة الأساسية</div>
+                        <div class="pr-pack-price">200 <small>دج</small></div>
+                        <div class="pr-pack-msgs"><i class="fas fa-comment-dots"></i> 50 رسالة</div>
+                        <p class="pr-pack-desc">تكفي لفهم خياراتك الأساسية والإجابة على أسئلتك المهمة.</p>
+                        <button class="pr-pack-cta" data-pack="الباقة الأساسية — 200 دج">اختر هذه الباقة</button>
+                    </div>
+
+                    <div class="pr-pack pr-pack--featured" id="packFull">
+                        <div class="pr-pack-badge">⭐ الأكثر اختياراً — وفّر 35%</div>
+                        <div class="pr-pack-name">الباقة الكاملة</div>
+                        <div class="pr-pack-price">400 <small>دج</small></div>
+                        <div class="pr-pack-msgs"><i class="fas fa-comment-dots"></i> 150 رسالة</div>
+                        <p class="pr-pack-desc">قارن بين التخصصات، احسب معدلاتك، وخطط بطاقة رغباتك كاملة دون القلق من عدد الرسائل.</p>
+                        <button class="pr-pack-cta" data-pack="الباقة الكاملة — 400 دج">اختر هذه الباقة</button>
+                    </div>
+                </div>
+
+                <!-- ── How to pay ── -->
+                <div class="pr-pay" id="howToPay">
+                    <h2 class="pr-pay-title"><i class="fas fa-wallet"></i> كيف تدفع؟</h2>
+                    <p class="pr-pay-selected" id="selectedPack">اختر باقة من الأعلى، ثم اتبع الخطوات الثلاث.</p>
+
+                    <div class="pr-step">
+                        <div class="pr-step-num">1</div>
+                        <div class="pr-step-body">
+                            <div class="pr-step-text">حوّل المبلغ عبر تطبيق BaridiMob إلى هذا الحساب:</div>
+                            <div class="pr-rip">
+                                <span class="pr-rip-num" id="ripNum">00799999004255904209</span>
+                                <button class="pr-copy-btn" id="copyRipBtn"><i class="fas fa-copy"></i> نسخ</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pr-step">
+                        <div class="pr-step-num">2</div>
+                        <div class="pr-step-body">
+                            <div class="pr-step-text">أرسل لنا وصل التحويل مع البريد الإلكتروني لحسابك عبر تيليغرام:</div>
+                            <a class="pr-tg-btn" href="https://t.me/islemcs" target="_blank" rel="noopener">
+                                <i class="fab fa-telegram-plane"></i> تواصل معنا على تيليغرام
+                            </a>
+                            <div class="pr-msg-copy">
+                                <span id="tgMessage">السلام عليكم، قمت بدفع الباقة — البريد الإلكتروني لحسابي: ___ — وصل التحويل مرفق.</span>
+                                <br>
+                                <button class="pr-copy-btn" id="copyMsgBtn"><i class="fas fa-copy"></i> نسخ الرسالة الجاهزة</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pr-step">
+                        <div class="pr-step-num">3</div>
+                        <div class="pr-step-body">
+                            <div class="pr-step-text">سيتم تفعيل رسائلك خلال دقائق ⚡</div>
+                            <div class="pr-step-hint">تُضاف الرسائل مباشرة إلى حسابك وتكمل محادثتك من حيث توقفت.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── Trust strip ── -->
+                <div class="pr-trust">
+                    <span><i class="fas fa-check-circle"></i> دفعة واحدة</span>
+                    <span><i class="fas fa-ban"></i> بدون اشتراك</span>
+                    <span><i class="fas fa-bolt"></i> تفعيل سريع من فريق BAC Story</span>
+                </div>
+
+                <!-- Toast -->
+                <div class="pr-toast" id="prToast">تم النسخ!</div>
+
+            </div><!-- /dash-inner -->
+        </div><!-- /dash-scroll -->
+    </main>
+</div>
+
+<script src="shell.js?v=17839665"></script>
+<script>
+(function () {
+  var selectedPack = null;
+  var selectedEl = document.getElementById('selectedPack');
+  var tgMsgEl = document.getElementById('tgMessage');
+  var toast = document.getElementById('prToast');
+  var toastTimer = null;
+
+  function showToast(msg) {
+    toast.textContent = msg || 'تم النسخ!';
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 1800);
+  }
+
+  function copyText(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(text).then(function () { showToast(); });
+    }
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); showToast(); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  function buildTgMessage() {
+    var packPart = selectedPack ? selectedPack : 'الباقة';
+    return 'السلام عليكم، قمت بدفع ' + packPart + ' — البريد الإلكتروني لحسابي: ___ — وصل التحويل مرفق.';
+  }
+
+  document.querySelectorAll('.pr-pack-cta').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      selectedPack = btn.dataset.pack;
+      selectedEl.innerHTML = 'اخترت: <strong>' + selectedPack + '</strong> — اتبع الخطوات الثلاث.';
+      tgMsgEl.textContent = buildTgMessage();
+      document.getElementById('howToPay').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  document.getElementById('copyRipBtn').addEventListener('click', function () {
+    copyText(document.getElementById('ripNum').textContent.trim());
+  });
+
+  document.getElementById('copyMsgBtn').addEventListener('click', function () {
+    copyText(buildTgMessage());
+  });
+})();
+</script>
+</body>
+</html>

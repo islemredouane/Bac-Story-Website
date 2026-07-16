@@ -120,6 +120,7 @@
         { id: 'simulator',    href: 'simulator.html',    icon: 'fa-list-check', label: 'محاكي بطاقة الرغبات' },
         { id: 'dashboard',    href: 'dashboard.html',    icon: 'fa-gauge-high', label: 'لوحتي' },
         { id: 'referral',     href: 'referral.html',     icon: 'fa-gift',       label: 'الإحالة والمكافآت' },
+        { id: 'pricing',      href: 'pricing.html',      icon: 'fa-bolt',       label: 'الباقات' },
     ];
 
     sidebar.innerHTML =

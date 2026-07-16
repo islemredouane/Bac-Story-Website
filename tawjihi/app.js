@@ -37,6 +37,8 @@
   /* ---- Composer: autosize + enable/disable + Enter to send ---- */
   const input = $('#input'), sendBtn = $('#sendBtn'), form = $('#composer');
   let isSending = false;
+  /* Silent anti-spam cooldown: send stays blocked 5s after each answer */
+  let cooldownUntil = 0;
   const autosize = () => { input.style.height = 'auto'; input.style.height = Math.min(input.scrollHeight, 160) + 'px'; };
   input.addEventListener('input', () => { autosize(); sendBtn.disabled = !input.value.trim(); });
   input.addEventListener('keydown', e => {
@@ -1285,12 +1287,12 @@
     banner.innerHTML = `
       <div class="credit-banner-icon"><i class="fas fa-bolt"></i></div>
       <div class="credit-banner-body">
-        <p class="credit-banner-title">نفدت رسائلك المجانية</p>
-        <p class="credit-banner-desc">شارك توجيهي مع صديق واكسب +30 رسالة لكلاكما — الإحالة مجانية تماماً.</p>
+        <p class="credit-banner-title">وصلت إلى الحد المجاني — وأنت في أهم مرحلة 🔥</p>
+        <p class="credit-banner-desc">التوجيه يُغلق يوم 22 جويلية. أكمل توجيهك ابتداءً من 200 دج، أو <a href="referral" style="color:inherit;text-decoration:underline;font-weight:700">اكسب رسائل مجانية عبر الإحالة</a>.</p>
       </div>
       <div class="credit-banner-actions">
-        <a href="referral" class="credit-banner-cta primary">
-          <i class="fas fa-gift"></i> اكسب رسائل
+        <a href="pricing" class="credit-banner-cta primary">
+          <i class="fas fa-bolt"></i> أكمل توجيهك
         </a>
         <button class="credit-banner-dismiss" id="creditDismiss" aria-label="إغلاق">
           <i class="fas fa-xmark"></i>
@@ -1384,6 +1386,9 @@
           }
           scrollDown();
           isSending = false;
+          cooldownUntil = Date.now() + 5000;
+          sendBtn.disabled = true;
+          setTimeout(() => { if (!isSending) sendBtn.disabled = !input.value.trim(); }, 5000);
         }
       );
     } catch (err) {
@@ -1406,7 +1411,7 @@
   /* ---- Form submit ---- */
   form.addEventListener('submit', e => {
     e.preventDefault();
-    if (isSending) return;
+    if (isSending || Date.now() < cooldownUntil) return;
     const q = input.value.trim(); if (!q) return;
     if (hero && mainEl && !mainEl.classList.contains('chat-started')) {
       mainEl.classList.add('chat-started');
