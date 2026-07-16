@@ -575,7 +575,7 @@ var SPEC_KEYWORDS = {
     'ESSAIA': 'agroalimentaire nutrition qualité alimentaire sécurité alimentaire food science industrie alimentaire المدرسة العليا للعلوم الزراعية والصناعات الغذائية',
     'INATAA': 'nutrition alimentation industries agroalimentaires constantine sécurité alimentaire تغذية معهد التغذية والتغذي والصناعات الفلاحية الغذائية قسنطينة صناعات فلاحية غذاء',
     'ENSA': 'agronomie agriculture agronome INA zootechnie horticulture علوم زراعية فلاحة الجزائر',
-    'ENS': 'enseignement professeur pédagogie éducation formation des enseignants école normale supérieure مدرسة عليا أساتذة أستاذ ens',
+    'ENS': 'enseignement professeur pédagogie éducation formation des enseignants école normale supérieure مدرسة عليا أساتذة أستاذ ens prof enseignante lycée CEM primaire mathématiques physique langues sciences education تعليم تربية ابتدائي متوسط ثانوي أستاذة أدب رياضيات فيزياء انجليزية فرنسية',
     'military-health': 'صحة عسكرية طب عسكري عين النعجة عسكرية قضي بكير ضابط طبيب صيدلة أسنان شبه طبي عسكري military health medicine',
     'military-media': 'المدرسة العليا العسكرية للإعلام والاتصال سيدي فرج عسكري صحافة إعلام تلفزيون مجلة ضابط صحفي جيش وطني شعبي آداب لغات اقتصاد communication media officer',
     'MEDCINE': 'médecine générale CHU résidanat médecin docteur généraliste spécialiste طبيب دكتور كلية الطب حكيم',
