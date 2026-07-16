@@ -1,0 +1,254 @@
+import os
+
+template = '''<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){{w[l]=w[l]||[];w[l].push({{'gtm.start':
+    new Date().getTime(),event:'gtm.js'}});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    }})(window,document,'script','dataLayer','GTM-T5H3TNJ4');</script>
+    <!-- End Google Tag Manager -->
+    <meta name="description" content="تخصص رياضيات وإعلام آلي مطبقة في العلوم الاقتصادية والتسيير (MI-SEG) في الجزائر. تعرف على معدلات القبول، المناهج، وآفاق العمل كمحلل كمي ومالي تكنولوجي.">
+    
+    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#1a3a8f">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="BAC STORY">    <title>الرياضيات والإعلام الآلي في الاقتصاد (MI-SEG) | BAC STORY</title>
+    <link rel="canonical" href="https://www.bac-story.com/university/speciality/mi-seg">
+    <meta name="author" content="redouane mohamed islem">
+    <link rel="stylesheet" href="/style.css?v=9.7">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/solid.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/brands.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/solid.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/brands.min.css">
+    </noscript>
+    <link rel="preload"
+        href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Pattaya&display=swap"
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Pattaya&display=swap">
+    </noscript>
+
+    <!-- Open Graph / Facebook / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="الرياضيات والإعلام الآلي في الاقتصاد (MI-SEG) | BAC STORY">
+    <meta property="og:description" content="تخصص رياضيات وإعلام آلي مطبقة في العلوم الاقتصادية والتسيير في الجزائر. تعرف على معدلات القبول والمناهج.">
+    <meta property="og:image" content="https://pub-889477d66bc54c9582bba9a492cf605f.r2.dev/images/og-banner.png">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="الرياضيات والإعلام الآلي في الاقتصاد (MI-SEG) | BAC STORY">
+    <meta name="twitter:description" content="تخصص رياضيات وإعلام آلي مطبقة في العلوم الاقتصادية والتسيير في الجزائر. تعرف على معدلات القبول والمناهج.">
+    <meta property="og:image" content="https://pub-889477d66bc54c9582bba9a492cf605f.r2.dev/images/og-banner.png">
+</head>
+
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5H3TNJ4" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+
+    <div id="navbar-placeholder"></div>
+<div class="resource-content active" id="mi-seg">
+<div class="container">
+<div class="modern-section-header">
+<h2>رياضيات وإعلام آلي مطبقة في العلوم الاقتصادية والتسيير (MI-SEG)</h2>
+</div>
+<div style="margin: 24px auto 0; text-align: center;">
+<a class="search-telegram-btn floating" href="https://t.me/islembacdz" rel="noopener" target="_blank">
+<i class="fab fa-telegram-plane"></i>
+<span>انضم إلينا على التلغرام</span>
+</a>
+</div>
+<div class="school-details" style="margin-top: 70px">
+<div class="details">
+
+<div class="detail-card large-card">
+    <h3><i class="fas fa-network-wired"></i> عقل الهندسة المالية ومحرك القرارات الاستراتيجية</h3>
+    <p>
+        <b>💡 الهدرة تاع الصح:</b> عندما يقرأ الطلاب "رياضيات وإعلام آلي (MI)" في دليل التوجيه، يعتقدون أنها نظريات جافة وبرمجة معزولة عن الواقع. لكن الحقيقة هنا تمثل قفزة نوعية في تخصصات الجيل الجديد! هذا التخصص يمنحك كفاءة مزدوجة (Compétences Doubles) بنظام ليسانس أكاديمي. الفكرة منه قوية جداً: البنوك، البورصات، وكبرى الشركات لا تحتاج اليوم لمسير يعتمد على الحفظ، بل تبحث عن كفاءة نادرة تملك سلاح "الإعلام الآلي والرياضيات العالية" (مثل خوارزميات التنبؤ وبحوث العمليات) لتطبيقها مباشرة في حل الأزمات المالية، إدارة المخاطر، وتوقع حركات الأسواق. إذا كنت تطمح لتكون "محللاً كمياً ومالياً تكنولوجياً" مطلوباً بقوة، فهذا الدليل الشامل لك!
+    </p>
+</div>
+
+<div class="detail-card">
+    <h3><i class="fas fa-clipboard-check"></i> شروط التسجيل والالتحاق</h3>
+    <ul>
+        <li><strong>نظام الدراسة:</strong> يُدرس بنظام LMD الجامعي (3 سنوات ليسانس أكاديمي + سنتان ماستر تخصصي).</li>
+        <li><strong>معيار الفرز:</strong> يتم الترتيب وطنياً وتنازلياً بناءً على المعدل الموزون المحسوب أو المعدل العام في البكالوريا (السيستم يختار الأفضل لك)، مع اشتراط معدل عام لا يقل عن 10.00/20.</li>
+        <li><strong>نظام الأولويات (للشعب العلمية والتقنية):</strong>
+            <ul>
+                <li>الأولوية 1: شعبة رياضيات + شعبة تقني رياضي.</li>
+                <li>الأولوية 2: شعبة علوم تجريبية.</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<div class="detail-card large-card">
+    <h3><i class="fas fa-chart-line"></i> معدلات القبول الرسمية لعام 2025</h3>
+    <p>
+        هذا التخصص موطن في أقطاب جامعية نخبوية كبرى. إليك معدلات القبول النهائية في المنصة بعد المرحلة الأولى لعام 2025:
+    </p>
+    <div class="table-container">
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>الجامعة المستضيفة</th>
+                    <th>معدل الأولوية 1 (رياضيات/تقني)</th>
+                    <th>معدل الأولوية 2 (علوم تجريبية)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>جامعة سطيف 1 (UNIV. SETIF 1)</td>
+                    <td>14.05</td>
+                    <td>14.77</td>
+                </tr>
+                <tr>
+                    <td>جامعة عنابة (UNIV. ANNABA)</td>
+                    <td>12.72</td>
+                    <td>13.35</td>
+                </tr>
+                <tr>
+                    <td>جامعة المسيلة (UNIV. MSILA)</td>
+                    <td>11.64</td>
+                    <td>11.96</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="detail-card large-card">
+    <h3><i class="fas fa-laptop-code"></i> البرنامج الدراسي: ماذا ستدرس؟</h3>
+    <p>البرنامج الدراسي متوازن وقوي جداً، حيث ينقسم لثلاثة خطوط متوازية ومتكاملة:</p>
+    <ul>
+        <li><strong>شق الرياضيات والتنظير (Math track):</strong> الإحصاء الرياضي المعمق، الاحتمالات، بحوث العمليات والتحسين (Optimisation)، والرياضيات المالية (حساب الفوائد، الأسهم، وإدارة المحافظ).</li>
+        <li><strong>شق الإعلام الآلي (IT track):</strong> الخوارزميات وهيكلة المعطيات، البرمجة بلغات مثل Python و R، تصميم وتسيير قواعد البيانات الضخمة (SQL)، ونظم معلومات المؤسسات.</li>
+        <li><strong>شق العلوم الاقتصادية والتسيير (Business track):</strong> مدخل للاقتصاد الكلي والجزئي، التسيير المالي والمحاسبي للشركات، والمناجمنت الإستراتيجي.</li>
+    </ul>
+</div>
+
+<div class="detail-card">
+    <h3><i class="fas fa-briefcase"></i> مجالات العمل بعد التخرج</h3>
+    <p>خريج هذا التخصص يُعتبر "عملة نادرة" وعقلاً إستراتيجياً تبحث عنه كبرى المؤسسات:</p>
+    <ul>
+        <li><strong>محلل كمي (Quantitative Analyst / Quant):</strong> العمل في البنوك لتصميم نماذج رياضية تدير حركات الاستثمار وتقيم الأسواق المالية.</li>
+        <li><strong>محلل بيانات مالي واقتصادي (Financial Data Analyst):</strong> رقمنة وتحليل تدفقات الأموال والمبيعات في الشركات الكبرى (مثل الاتصالات والمصانع).</li>
+        <li><strong>مستشار إدارة المخاطر (Risk Manager):</strong> في شركات التأمين ومؤسسات القروض لحساب التوقعات الإحصائية ونسب المخاطرة للأصول.</li>
+        <li><strong>مسير أنظمة معلومات اقتصادية (IT Business Consultant):</strong> تطوير الأنظمة التي تسير فواتير وميزانيات الشركات.</li>
+    </ul>
+</div>
+
+<div class="detail-card">
+    <h3><i class="fas fa-balance-scale"></i> المميزات والعيوب</h3>
+    <div class="pros-cons">
+        <div class="pros">
+            <h5>المميزات:</h5>
+            <ul>
+                <li>كفاءة مزدوجة خارقة: تجمع بين قوة التكنولوجيا وعمق الاقتصاد، مما يجعلك دوماً مطلوباً في سوق العمل.</li>
+                <li>معدلات قبول مريحة: فرصة ذهبية لدخول عالم الإعلام الآلي والإحصاء بعيداً عن ضغط الشعب الساخنة.</li>
+                <li>العمل الحر (Freelancing): آفاق ممتازة للعمل مع شركات عالمية وتحليل البيانات من المنزل.</li>
+            </ul>
+        </div>
+        <div class="cons">
+            <h5>العيوب:</h5>
+            <ul>
+                <li>جهد مضاعف وسهر: يتطلب تركيزاً في خطين متوازيين، ضبط البرمجة (Coding) وفهم آليات المالية والمحاسبة في آن واحد.</li>
+                <li>غياب الحفظ: التخصص يعتمد على الذكاء والتحليل المنطقي كلياً، ولا مجال فيه للحفظ النظري.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+<div id="global-cta-placeholder"></div>
+
+    <div id="footer-placeholder"></div>
+    <script src="/ads-config.js?v=1.9"></script>
+    <script src="/components/shared.js?v=8.8"></script>
+    <script src="/script.js?v=7.8"></script>
+    <script>
+    (function () {{
+        const NON_SHARE = new Set(['averages-of-acceptance', 'ministry-guide']);
+        function buildShareBtn() {{
+            if (document.getElementById('uniShareBtn')) return;
+            const btn = document.createElement('button');
+            btn.id = 'uniShareBtn';
+            btn.className = 'uni-share-btn';
+            btn.setAttribute('data-tooltip', 'مشاركة الصفحة');
+            btn.innerHTML = '<i class="fas fa-share"></i>';
+            btn.addEventListener('click', handleShare);
+            document.body.appendChild(btn);
+        }}
+        function handleShare() {{
+            const url = location.href;
+            const title = document.title;
+            if (navigator.share) {{
+                navigator.share({{ title, url }}).catch(() => {{}});
+            }} else {{
+                navigator.clipboard.writeText(url).then(() => showToast('تم نسخ الرابط ✓')).catch(() => {{}});
+            }}
+        }}
+        function showToast(msg) {{
+            let t = document.getElementById('uniShareToast');
+            if (!t) {{
+                t = document.createElement('div');
+                t.id = 'uniShareToast';
+                t.className = 'uni-share-toast';
+                document.body.appendChild(t);
+            }}
+            t.textContent = msg;
+            t.classList.add('visible');
+            clearTimeout(t._timer);
+            t._timer = setTimeout(() => t.classList.remove('visible'), 2200);
+        }}
+        function updateShareBtn(sectionId) {{
+            const btn = document.getElementById('uniShareBtn');
+            if (!btn) return;
+            const shareable = sectionId && !NON_SHARE.has(sectionId);
+            btn.classList.toggle('visible', shareable);
+        }}
+        window.addEventListener('load', function () {{
+            buildShareBtn();
+            const orig = window.showSection;
+            window.showSection = function (id, push) {{
+                const result = orig ? orig(id, push) : undefined;
+                updateShareBtn(id);
+                return result;
+            }};
+            const initial = location.hash.slice(1) || 'university-system';
+            updateShareBtn(initial);
+        }});
+    }})();
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+    <script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+
+</html>'''
+
+import os
+path = os.path.join('university', 'speciality', 'mi-seg.html')
+with open(path, 'w', encoding='utf-8') as f:
+    f.write(template)
+print(f'Created {path}')

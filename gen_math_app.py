@@ -1,0 +1,292 @@
+import os
+
+template = '''<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){{w[l]=w[l]||[];w[l].push({{'gtm.start':
+    new Date().getTime(),event:'gtm.js'}});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    }})(window,document,'script','dataLayer','GTM-T5H3TNJ4');</script>
+    <!-- End Google Tag Manager -->
+    <meta name="description" content="دليل تخصص الرياضيات التطبيقية (Mathématiques Appliquées) في الجامعات الجزائرية. تعرف على معدلات القبول، شروط التسجيل، المناهج، وفرص العمل في البيانات والذكاء الاصطناعي.">
+    
+    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#1a3a8f">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="BAC STORY">    <title>تخصص الرياضيات التطبيقية | BAC STORY</title>
+    <link rel="canonical" href="https://www.bac-story.com/university/speciality/math-app">
+    <meta name="author" content="redouane mohamed islem">
+    <link rel="stylesheet" href="/style.css?v=9.7">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/solid.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/brands.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/solid.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/brands.min.css">
+    </noscript>
+    <link rel="preload"
+        href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Pattaya&display=swap"
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Pattaya&display=swap">
+    </noscript>
+
+    <!-- Open Graph / Facebook / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="تخصص الرياضيات التطبيقية | BAC STORY">
+    <meta property="og:description" content="دليل تخصص الرياضيات التطبيقية (Mathématiques Appliquées) في الجامعات الجزائرية. تعرف على معدلات القبول، شروط التسجيل، المناهج، وفرص العمل في البيانات والذكاء الاصطناعي.">
+    <meta property="og:image" content="https://pub-889477d66bc54c9582bba9a492cf605f.r2.dev/images/og-banner.png">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="تخصص الرياضيات التطبيقية | BAC STORY">
+    <meta name="twitter:description" content="دليل تخصص الرياضيات التطبيقية (Mathématiques Appliquées) في الجامعات الجزائرية. تعرف على معدلات القبول، شروط التسجيل، المناهج، وفرص العمل في البيانات والذكاء الاصطناعي.">
+    <meta property="og:image" content="https://pub-889477d66bc54c9582bba9a492cf605f.r2.dev/images/og-banner.png">
+</head>
+
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5H3TNJ4" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+
+    <div id="navbar-placeholder"></div>
+<div class="resource-content active" id="math-app">
+<div class="container">
+<div class="modern-section-header">
+<h2>تخصص الرياضيات التطبيقية (Mathématiques Appliquées)</h2>
+</div>
+<div style="margin: 24px auto 0; text-align: center;">
+<a class="search-telegram-btn floating" href="https://t.me/islembacdz" rel="noopener" target="_blank">
+<i class="fab fa-telegram-plane"></i>
+<span>انضم إلينا على التلغرام</span>
+</a>
+</div>
+<div class="school-details">
+<div class="details">
+
+<div class="detail-card large-card">
+    <h3><i class="fas fa-calculator"></i> لغة العصر وعقل الأنظمة الذكية</h3>
+    <p>
+        <b>💡 الهدرة تاع الصح:</b> بزاف طلاب نهار يشوفوا كلمة "رياضيات" في دليل التوجيه يهربوا ديريكت ويحسبوا بلي راح يقراو غير نظريات جافة وبرهان مبرهنات كلاسيكية. الـ Real Talk هنا هارب بزاف ومختلف كليّاً! الرياضيات التطبيقية هي الجسر الحقيقي الرابط بين العبقرية الحسابية وأحدث تكنولوجيات العالم. التخصص هذا ما جاش باه تحفظ؛ جابوه باه تستعمل الماط في حل مشاكل سوق الشغل الحقيقية. هنا راح تتحول من طالب رياضيات عادي إلى مطور خوارزميات، محلل بيانات ضخمة، خبير في الذكاء الاصطناعي (AI)، ومخطط مالي للبنوك والبورصات. إذا كنت تحب المنطق والحساب والـ Coding وحاب تدي دبلوم مطلوب بالاسم عالمياً وفي كبرى الشركات.. هادا هو التخصص المناسب ليك!
+    </p>
+</div>
+
+<div class="detail-card">
+    <h3><i class="fas fa-clipboard-list"></i> شروط التسجيل والالتحاق</h3>
+    <ul>
+        <li><b>⏳ نظام ونمط الدراسة:</b> يدرس بنظام الـ LMD الجامعي (3 سنوات ليسانس أكاديمي + سنتين ماستر تخصصي).</li>
+        <li><b>🎯 نظام الأولويات:</b> التنافس مفتوح حصرياً للشعب العلمية والتقنية:
+            <ul>
+                <li>🥇 <b>الأولوية 01:</b> شعبة رياضيات + شعبة تقني رياضي.</li>
+                <li>🥈 <b>الأولوية 02:</b> شعبة علوم تجريبية.</li>
+            </ul>
+        </li>
+        <li><b>📊 معيار الفرز والترتيب:</b> يتم الترتيب وطنياً وتنازلياً بناءً على المعدل الموزون المحسوب (يركز على الرياضيات والفيزياء) أو المعدل العام.</li>
+        <li><b>⚠️ معدل الترشح الأدنى:</b> يشترط السيستم معدلاً عاماً لا يقل عن 10.00/20 لدخول الفرز.</li>
+    </ul>
+</div>
+
+<div class="detail-card">
+    <h3><i class="fas fa-book-open"></i> واش تقرى داخل الجامعة في هاد التخصص؟</h3>
+    <p>البرنامج الدراسي مشوق جداً وعلمي تكنولوجي بامتياز، وينقسم لخطين متوازيين:</p>
+    <ul>
+        <li><b>📐 الجانب الرياضي التطبيقي (Modeling & Analytics):</b>
+            <ul>
+                <li>التحليل العددي (Analyse Numérique): تحويل المعادلات المعقدة لبرامج حاسوبية تحل المشاكل التقنية.</li>
+                <li>الاحتمالات والإحصاء المتقدم: الأساس المتين لعلم البيانات والذكاء الاصطناعي والتنبؤ.</li>
+                <li>بحوث العمليات والتحسين (Optimisation): خوارزميات اتخاذ القرار واختيار الحل الأمثل والأقل تكلفة للشركات.</li>
+            </ul>
+        </li>
+        <li><b>💻 الجانب البرمجي والتكنولوجي (Coding & Data):</b>
+            <ul>
+                <li>البرمجة وهيكلة المعطيات: تعلم لغات العصر مثل Python و R و MATLAB.</li>
+                <li>تعلم الآلة (Machine Learning): برمجة الخوارزميات الذكية التي تحلل البيانات وتتنبأ بالنتائج.</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<div class="detail-card large-card">
+    <h3><i class="fas fa-chart-bar"></i> معدلات القبول الرسمية لعام 2025 (المرحلة الأولى)</h3>
+    <p>
+        الرياضيات التطبيقية في الجزائر تدرس في أقطاب جامعية كبرى، وتأتي أحياناً مستقلة أو مدمجة مع فروع ذكية مثل علوم البيانات أو الاقتصاد.<br>
+        <b>📌 تذكير:</b> Min1 (الأولوية 1)، Min2 (الأولوية 2)، NC (غير مشبع).
+    </p>
+    <div class="table-container">
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>الجامعة والتخصص / المسار</th>
+                    <th>معدل الأولوية 1 (Min1)</th>
+                    <th>معدل الأولوية 2 (Min2)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="3" style="text-align: center; background-color: #f1f5f9; font-weight: bold;">1️⃣ مسار الرياضيات التطبيقية المستقلة (Standalone)</td>
+                </tr>
+                <tr>
+                    <td>🏫 جامعة باب الزوار بالعاصمة (USTHB) - C03IAN01</td>
+                    <td>14.14</td>
+                    <td>14.86</td>
+                </tr>
+                <tr>
+                    <td>🏫 جامعة ورقلة (ذكاء اصطناعي وعلوم البيانات) - CCILAN01</td>
+                    <td>14.16</td>
+                    <td>14.74</td>
+                </tr>
+                <tr>
+                    <td>🏫 جامعة بومرداس (مسار مهني تخصصي) - C03FPN01</td>
+                    <td>11.64</td>
+                    <td>12.12</td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="text-align: center; background-color: #f1f5f9; font-weight: bold;">2️⃣ مسار مدمج: رياضيات وإعلام آلي تطبيقي في العلوم الاقتصادية والتسيير</td>
+                </tr>
+                <tr>
+                    <td>🏫 جامعة سطيف 1 - CFILPN01</td>
+                    <td>14.05</td>
+                    <td>14.77</td>
+                </tr>
+                <tr>
+                    <td>🏫 جامعة عنابة - CFILPN02</td>
+                    <td>12.72</td>
+                    <td>13.35</td>
+                </tr>
+                <tr>
+                    <td>🏫 جامعة المسيلة - CFILPN03</td>
+                    <td>11.96</td>
+                    <td>11.64</td>
+                </tr>
+                <tr>
+                    <td>🏫 جامعة الأغواط (مزدوج: رياضيات تطبيقية + علوم اقتصادية) - CFOLAN01</td>
+                    <td colspan="2" style="text-align: center;">NC (غير مشبع)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="detail-card">
+    <h3><i class="fas fa-briefcase"></i> فرص ومجالات العمل بعد التخرج</h3>
+    <p>خريج الرياضيات التطبيقية يعتبر "الجوكر" العملي وعملة نادرة تبحث عنها كبرى الشركات متعددة الجنسيات:</p>
+    <ul>
+        <li><b>🧠 عالم بيانات ومحلل إحصائي (Data Scientist):</b> في شركات الاتصالات (أوريدو، جيزي، موبيليس) وسوناطراك لتحليل البيانات الضخمة.</li>
+        <li><b>🦾 مهندس ذكاء اصطناعي (Machine Learning Engineer):</b> بناء وتطوير خوارزميات التنبؤ ومعالجة اللغات في الشركات التكنولوجية.</li>
+        <li><b>📈 خبير اكتواري ورياضيات مالية (Actuary):</b> في البنوك الكبرى وشركات التأمين لإدارة المخاطر والتنبؤ المالي.</li>
+        <li><b>🔐 خبير تشفير وأمن معلومات:</b> العمل في القطاعات الأمنية لحماية وتشفير البيانات.</li>
+        <li><b>🌐 مراكز البحث والتطوير (R&D):</b> في معاهد التكنولوجيا ومخابر المحاكاة الصناعية.</li>
+    </ul>
+</div>
+
+<div class="detail-card">
+    <h3><i class="fas fa-thumbs-up"></i> المميزات والعيوب</h3>
+    <div class="pros-cons">
+        <div class="pros">
+            <h5>المميزات:</h5>
+            <ul>
+                <li>✅ تخصص المستقبل وفي قلب المجالات الأكثر نمواً وطلباً عالمياً (الذكاء الاصطناعي).</li>
+                <li>✅ فرص عالمية هائلة، المنح الدولية، والعمل الحر (Freelancing) مع شركات أجنبية.</li>
+                <li>✅ الابتعاد عن الجفاف النظري: ما تدرسه سيتم برمجته وتحويله لتطبيقات عملية.</li>
+            </ul>
+        </div>
+        <div class="cons">
+            <h5>العيوب:</h5>
+            <ul>
+                <li>❌ قراية "تحرق الراس": تدمج بين تعقيد الرياضيات العالية وقوة المنطق البرمجي (Coding).</li>
+                <li>❌ لا يصلح للحفظ: يطلب عقلاً مرناً يعشق التفكير وحل الألغاز المنطقية.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+<div id="global-cta-placeholder"></div>
+
+    <div id="footer-placeholder"></div>
+    <script src="/ads-config.js?v=1.9"></script>
+    <script src="/components/shared.js?v=8.8"></script>
+    <script src="/script.js?v=7.8"></script>
+    <script>
+    (function () {{
+        const NON_SHARE = new Set(['averages-of-acceptance', 'ministry-guide']);
+        function buildShareBtn() {{
+            if (document.getElementById('uniShareBtn')) return;
+            const btn = document.createElement('button');
+            btn.id = 'uniShareBtn';
+            btn.className = 'uni-share-btn';
+            btn.setAttribute('data-tooltip', 'مشاركة الصفحة');
+            btn.innerHTML = '<i class="fas fa-share"></i>';
+            btn.addEventListener('click', handleShare);
+            document.body.appendChild(btn);
+        }}
+        function handleShare() {{
+            const url = location.href;
+            const title = document.title;
+            if (navigator.share) {{
+                navigator.share({{ title, url }}).catch(() => {{}});
+            }} else {{
+                navigator.clipboard.writeText(url).then(() => showToast('تم نسخ الرابط ✓')).catch(() => {{}});
+            }}
+        }}
+        function showToast(msg) {{
+            let t = document.getElementById('uniShareToast');
+            if (!t) {{
+                t = document.createElement('div');
+                t.id = 'uniShareToast';
+                t.className = 'uni-share-toast';
+                document.body.appendChild(t);
+            }}
+            t.textContent = msg;
+            t.classList.add('visible');
+            clearTimeout(t._timer);
+            t._timer = setTimeout(() => t.classList.remove('visible'), 2200);
+        }}
+        function updateShareBtn(sectionId) {{
+            const btn = document.getElementById('uniShareBtn');
+            if (!btn) return;
+            const shareable = sectionId && !NON_SHARE.has(sectionId);
+            btn.classList.toggle('visible', shareable);
+        }}
+        window.addEventListener('load', function () {{
+            buildShareBtn();
+            const orig = window.showSection;
+            window.showSection = function (id, push) {{
+                const result = orig ? orig(id, push) : undefined;
+                updateShareBtn(id);
+                return result;
+            }};
+            const initial = location.hash.slice(1) || 'university-system';
+            updateShareBtn(initial);
+        }});
+    }})();
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+    <script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+
+</html>'''
+
+import os
+path = os.path.join('university', 'speciality', 'math-app.html')
+with open(path, 'w', encoding='utf-8') as f:
+    f.write(template)
+print(f'Created {path}')

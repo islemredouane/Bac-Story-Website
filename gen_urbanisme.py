@@ -1,0 +1,278 @@
+import os
+
+template = '''<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){{w[l]=w[l]||[];w[l].push({{'gtm.start':
+    new Date().getTime(),event:'gtm.js'}});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    }})(window,document,'script','dataLayer','GTM-T5H3TNJ4');</script>
+    <!-- End Google Tag Manager -->
+    <meta name="description" content="دليل تخصص العمران (Urbanisme) في الجامعات الجزائرية. تعرف على معدلات القبول، شروط التسجيل، المناهج، وفرص العمل في تخطيط المدن.">
+    
+    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#1a3a8f">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="BAC STORY">    <title>تخصص العمران (Urbanisme) | BAC STORY</title>
+    <link rel="canonical" href="https://www.bac-story.com/university/speciality/urbanisme">
+    <meta name="author" content="redouane mohamed islem">
+    <link rel="stylesheet" href="/style.css?v=9.7">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/solid.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/brands.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/solid.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/brands.min.css">
+    </noscript>
+    <link rel="preload"
+        href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Pattaya&display=swap"
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Pattaya&display=swap">
+    </noscript>
+
+    <!-- Open Graph / Facebook / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="تخصص العمران (Urbanisme) | BAC STORY">
+    <meta property="og:description" content="دليل تخصص العمران (Urbanisme) في الجامعات الجزائرية. تعرف على معدلات القبول، شروط التسجيل، المناهج، وفرص العمل في تخطيط المدن.">
+    <meta property="og:image" content="https://pub-889477d66bc54c9582bba9a492cf605f.r2.dev/images/og-banner.png">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="تخصص العمران (Urbanisme) | BAC STORY">
+    <meta name="twitter:description" content="دليل تخصص العمران (Urbanisme) في الجامعات الجزائرية. تعرف على معدلات القبول، شروط التسجيل، المناهج، وفرص العمل في تخطيط المدن.">
+    <meta property="og:image" content="https://pub-889477d66bc54c9582bba9a492cf605f.r2.dev/images/og-banner.png">
+</head>
+
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5H3TNJ4" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+
+    <div id="navbar-placeholder"></div>
+<div class="resource-content active" id="urbanisme">
+<div class="container">
+<div class="modern-section-header">
+<h2>تخصص العمران (Urbanisme) - N04LAL01</h2>
+</div>
+<div style="margin: 24px auto 0; text-align: center;">
+<a class="search-telegram-btn floating" href="https://t.me/islembacdz" rel="noopener" target="_blank">
+<i class="fab fa-telegram-plane"></i>
+<span>انضم إلينا على التلغرام</span>
+</a>
+</div>
+<div class="school-details">
+<div class="details">
+
+<div class="detail-card large-card">
+    <h3><i class="fas fa-city"></i> مهندسو مدن المستقبل وعقول التخطيط الحديث</h3>
+    <p>
+        <b>💡 الهدرة تاع الصح:</b> بزاف طلاب يحسبوا بلي تخصص "عمران" هو نفسه الهندسة المعمارية (Architecture) أو مجرد رسم خرائط كلاسيكية. الـ Real Talk هنا هارب بزاف! تخصص العمران هو تخصص إستراتيجي ينتمي لعائلة ميدان هندسة معمارية، عمران ومهن المدينة (AUM). العمراني (Urbaniste) هو العقل المفكر والمهندس المسير لي يصمم أحياء ومدن بأكملها؛ هو لي يخطط وين يجوز الترامواي، كيفاش تتقسم المساحات الخضراء، وين تتبنى الأبراج السكنية، وكيفاش نواجهوا مشاكل الاكتظاظ المروري والفيضانات والتغير المناخي. إذا كنت تحب الجغرافيا والتكنولوجيا وتصميم الفضاءات ومخك حار في التخطيط.. هادا هو التخصص المناسب ليك!
+    </p>
+</div>
+
+<div class="detail-card">
+    <h3><i class="fas fa-clipboard-list"></i> شروط التسجيل والالتحاق</h3>
+    <ul>
+        <li><b>⏳ نظام ونمط الدراسة:</b> يدرس بنظام الـ LMD الجامعي (3 سنوات ليسانس أكاديمي + سنتين ماستر).</li>
+        <li><b>🎯 الشعب المقبولة ونظام الأولويات:</b> التخصص علمي وتقني دقيق وموجه لحاملي البكالوريا في الشعب التالية: شعبة رياضيات، شعبة تقني رياضي، شعبة علوم تجريبية.</li>
+        <li><b>📊 معيار الفرز والترتيب:</b> النظام يرتب الطلاب تنازلياً وطنيّاً بناءً على المعدل الموزون المحسوب أو المعدل العام للبكالوريا (يختار لك الأفضل تلقائياً).</li>
+        <li><b>⚠️ معدل الترشح الأدنى:</b> يشترط معدلاً عاماً لا يقل عن 10.00/20 لدخول الترتيب.</li>
+    </ul>
+</div>
+
+<div class="detail-card">
+    <h3><i class="fas fa-book-open"></i> واش تقرى داخل الجامعة في هاد التخصص؟</h3>
+    <p>البرنامج الدراسي مشوق جداً ومتنوع، يجمع بين الميدان التقني والعلوم الاجتماعية:</p>
+    <ul>
+        <li><b>🛰️ نظم المعلومات الجغرافية والرقمية (SIG & Télédétection):</b> استخدام صور الأقمار الصناعية والبرمجيات المتطورة لرسم الخرائط وتحليل الأراضي.</li>
+        <li><b>📐 الهندسة الحضرية والتصميم:</b> مبادئ الرسم المعماري وتصميم الشوارع والمباني العمومية والشبكات (مياه، غاز، كهرباء، قنوات صرف).</li>
+        <li><b>👥 علم الاجتماع الحضري (Sociologie Urbaine):</b> فهم كيف يعيش الناس في المدن واحتياجات السكان للرفاهية والأمن.</li>
+        <li><b>⚖️ التشريع العمراني والقانون:</b> دراسة القوانين لي تسير رخص البناء، أدوات التهيئة والتعمير (PDAU / POS) وعقود العقارات.</li>
+        <li><b>🌱 البيئة والمحيط:</b> تسيير النفايات الحضرية، حماية النظم البيئية للمدن، والتنمية المستدامة.</li>
+    </ul>
+</div>
+
+<div class="detail-card large-card">
+    <h3><i class="fas fa-chart-bar"></i> معدلات القبول الرسمية لعام 2025 (المرحلة الأولى)</h3>
+    <p>
+        هذا الفرز الدقيق للحد الأدنى من المعدلات التي توقفت عندها التصفية للرمز (N04LAL01).<br>
+        <b>📌 تذكير بالرمز NC (Non Saturée):</b> تعني أن المقاعد المخصصة في تلك الجامعة لم تمتلئ بالكامل في المرحلة الأولى، وبالتالي تم قبول جميع الطلاب الذين اختاروها بمعدل فوق 10/20.
+    </p>
+    <div class="table-container">
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>الجامعة المستضيفة للتخصص</th>
+                    <th>كود التخصص في الموقع</th>
+                    <th>معدل القبول الأدنى لعام 2025</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>🍇 جامعة البليدة 1 (UNIV. BLIDA 1)</td>
+                    <td>N04LAL01</td>
+                    <td>13.59</td>
+                </tr>
+                <tr>
+                    <td>💎 جامعة قسنطينة 3 (UNIV. CONSTANTINE 3)</td>
+                    <td>N04LAL01</td>
+                    <td>12.52</td>
+                </tr>
+                <tr>
+                    <td>🌊 جامعة مستغانم (UNIV. MOSTAGANEM)</td>
+                    <td>N04LAL01</td>
+                    <td>11.06</td>
+                </tr>
+                <tr>
+                    <td>🏭 جامعة المسيلة (UNIV. MSILA)</td>
+                    <td>N04LAL01</td>
+                    <td>10.30</td>
+                </tr>
+                <tr>
+                    <td>🏭 جامعة أم البواقي (UNIV. OUM EL BOUAGHI)</td>
+                    <td>N04LAL01</td>
+                    <td>NC (غير مشبع)</td>
+                </tr>
+                <tr>
+                    <td>🌴 جامعة بسكرة (UNIV. BISKRA)</td>
+                    <td>N04LAL01</td>
+                    <td>NC (غير مشبع)</td>
+                </tr>
+                <tr>
+                    <td>⛰️ جامعة بشار (UNIV. BECHAR)</td>
+                    <td>N04LAL01</td>
+                    <td>NC (غير مشبع)</td>
+                </tr>
+                <tr>
+                    <td>⛏️ جامعة تبسة (UNIV. TEBESSA)</td>
+                    <td>N04LAL01</td>
+                    <td>NC (غير مشبع)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="detail-card">
+    <h3><i class="fas fa-briefcase"></i> فرص ومجالات العمل بعد التخرج</h3>
+    <p>خريج تخصص العمران يملك مرونة ممتازة في التوظيف بالقطاعين الحكومي والخاص:</p>
+    <ul>
+        <li><b>🏢 مديريات التعمير والهندسة المعمارية والبناء (DUC):</b> كإطار تقني أو مهندس تسيير في الولايات لتخطيط المشاريع التنموية.</li>
+        <li><b>🏛️ البلديات والدوائر (APC / Daira):</b> العمل في المصلحة التقنية وتسيير العمران والمخططات التوجيهية للتهيئة والتعمير.</li>
+        <li><b>📐 مكاتب الدراسات الخاصة (Bureaux d'études):</b> تصميم مخططات التعمير لشركات العقار والمقاولات الكبرى وإعداد دراسات الأثر البيئي.</li>
+        <li><b>🏗️ الوكالة الوطنية لمسح الأراضي والوكالات العقارية (ANAT / Duc):</b> الإشراف على مسح الأراضي وتسيير العقار وتخطيط المدن الجديدة.</li>
+    </ul>
+</div>
+
+<div class="detail-card">
+    <h3><i class="fas fa-thumbs-up"></i> المميزات والعيوب</h3>
+    <div class="pros-cons">
+        <div class="pros">
+            <h5>المميزات:</h5>
+            <ul>
+                <li>✅ تخصص يجمع بين التكنولوجيا الحديثة (الدرونز والخرائط الرقمية SIG) والعمل الإداري والهندسي.</li>
+                <li>✅ معدلات القبول فيه مرنة جداً مقارنة بالهندسة المعمارية (Architecture) بالرغم من تقارب مجالات العمل.</li>
+                <li>✅ فرص وظيفية قارة ومطلوبة دايمن في دوائر تسيير الدولة والبلديات.</li>
+            </ul>
+        </div>
+        <div class="cons">
+            <h5>العيوب:</h5>
+            <ul>
+                <li>❌ يتطلب إتقاناً كبيراً للبرمجيات الحاسوبية المعقدة (مثل AutoCAD و ArcGIS).</li>
+                <li>❌ يعتمد بقوة على الوظائف الحكومية والصفقات العمومية؛ ما يتطلب إثبات الكفاءة في مكاتب الدراسات الخاصة.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+<div id="global-cta-placeholder"></div>
+
+    <div id="footer-placeholder"></div>
+    <script src="/ads-config.js?v=1.9"></script>
+    <script src="/components/shared.js?v=8.8"></script>
+    <script src="/script.js?v=7.8"></script>
+    <script>
+    (function () {{
+        const NON_SHARE = new Set(['averages-of-acceptance', 'ministry-guide']);
+        function buildShareBtn() {{
+            if (document.getElementById('uniShareBtn')) return;
+            const btn = document.createElement('button');
+            btn.id = 'uniShareBtn';
+            btn.className = 'uni-share-btn';
+            btn.setAttribute('data-tooltip', 'مشاركة الصفحة');
+            btn.innerHTML = '<i class="fas fa-share"></i>';
+            btn.addEventListener('click', handleShare);
+            document.body.appendChild(btn);
+        }}
+        function handleShare() {{
+            const url = location.href;
+            const title = document.title;
+            if (navigator.share) {{
+                navigator.share({{ title, url }}).catch(() => {{}});
+            }} else {{
+                navigator.clipboard.writeText(url).then(() => showToast('تم نسخ الرابط ✓')).catch(() => {{}});
+            }}
+        }}
+        function showToast(msg) {{
+            let t = document.getElementById('uniShareToast');
+            if (!t) {{
+                t = document.createElement('div');
+                t.id = 'uniShareToast';
+                t.className = 'uni-share-toast';
+                document.body.appendChild(t);
+            }}
+            t.textContent = msg;
+            t.classList.add('visible');
+            clearTimeout(t._timer);
+            t._timer = setTimeout(() => t.classList.remove('visible'), 2200);
+        }}
+        function updateShareBtn(sectionId) {{
+            const btn = document.getElementById('uniShareBtn');
+            if (!btn) return;
+            const shareable = sectionId && !NON_SHARE.has(sectionId);
+            btn.classList.toggle('visible', shareable);
+        }}
+        window.addEventListener('load', function () {{
+            buildShareBtn();
+            const orig = window.showSection;
+            window.showSection = function (id, push) {{
+                const result = orig ? orig(id, push) : undefined;
+                updateShareBtn(id);
+                return result;
+            }};
+            const initial = location.hash.slice(1) || 'university-system';
+            updateShareBtn(initial);
+        }});
+    }})();
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+    <script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+
+</html>'''
+
+import os
+path = os.path.join('university', 'speciality', 'urbanisme.html')
+with open(path, 'w', encoding='utf-8') as f:
+    f.write(template)
+print(f'Created {path}')

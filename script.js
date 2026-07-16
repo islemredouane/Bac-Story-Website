@@ -920,8 +920,27 @@ var SPEC_KEYWORDS = {
         var emptyState = document.getElementById('spec-empty-state');
 
         var activeCategory = 'all';
+        var activeStream = 'all';
         var activeNew = false;
         var searchText = '';
+
+        // Default accepted streams per category (used when card has no data-stream)
+        var DEFAULT_STREAMS = {
+            engineering: ['math','tech'],
+            medical:     ['math','sciences'],
+            science:     ['math','sciences'],
+            business:    ['gestion','math'],
+            law:         ['adab','gestion','langues','math','sciences'],
+            humanities:  ['adab','langues','sciences'],
+            arts:        ['adab','langues'],
+            education:   ['adab','langues','math','sciences','tech','gestion'],
+            military:    ['math','tech','sciences']
+        };
+
+        function getCardStreams(card) {
+            if (card.dataset.stream) return card.dataset.stream.split(',');
+            return DEFAULT_STREAMS[card.dataset.category || ''] || ['math','sciences','tech','adab','langues','gestion'];
+        }
 
         function applyFilters() {
             var normQ = normalize(searchText);
@@ -932,6 +951,7 @@ var SPEC_KEYWORDS = {
                 var isNew = card.dataset.new === 'true';
                 var matchCat = activeCategory === 'all' || cat === activeCategory;
                 var matchNew = !activeNew || isNew;
+                var matchStream = activeStream === 'all' || getCardStreams(card).indexOf(activeStream) !== -1;
                 var matchSearch = true;
                 if (rawWords.length) {
                     var onclick = card.getAttribute('onclick') || '';
@@ -949,13 +969,38 @@ var SPEC_KEYWORDS = {
                         });
                     });
                 }
-                card.style.display = (matchCat && matchNew && matchSearch) ? '' : 'none';
-                if (matchCat && matchNew && matchSearch) visible++;
+                var show = matchCat && matchNew && matchStream && matchSearch;
+                card.style.display = show ? '' : 'none';
+                if (show) visible += parseInt(card.dataset.count || '1', 10);
             });
             if (emptyState) {
-                emptyState.style.display = visible === 0 ? 'block' : 'none';
+                emptyState.style.display = visible === 0 ? 'flex' : 'none';
+            }
+            if (container) {
+                container.style.marginBottom = visible === 0 ? '0' : '';
+            }
+            var countEl = document.getElementById('spec-visible-count');
+            if (countEl) countEl.textContent = visible;
+            var clearBtn = document.getElementById('spec-clear-btn');
+            if (clearBtn) {
+                var isFiltered = activeCategory !== 'all' || activeStream !== 'all' || activeNew || searchText;
+                clearBtn.style.display = isFiltered ? 'inline-flex' : 'none';
             }
         }
+
+        window.clearSpecFilters = function () {
+            activeCategory = 'all';
+            activeStream = 'all';
+            activeNew = false;
+            searchText = '';
+            if (searchInput) searchInput.value = '';
+            chips.forEach(function (c) {
+                var isAll = c.dataset.filterVal === 'all';
+                var isNew = c.dataset.filterType === 'new';
+                c.classList.toggle('active', isAll && !isNew);
+            });
+            applyFilters();
+        };
 
         chips.forEach(function (chip) {
             chip.addEventListener('click', function () {
@@ -970,6 +1015,7 @@ var SPEC_KEYWORDS = {
                         .forEach(function (c) { c.classList.remove('active'); });
                     chip.classList.add('active');
                     if (type === 'category') activeCategory = val;
+                    if (type === 'stream') activeStream = val;
                 }
                 applyFilters();
             });
@@ -993,6 +1039,9 @@ var SPEC_KEYWORDS = {
                 applyFilters();
             });
         }
+
+        // initialise counter on load
+        applyFilters();
     }
 
     // Run on page load and also when university-section becomes active
