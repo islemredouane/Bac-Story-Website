@@ -355,7 +355,7 @@ function _buildGazetteContent() {
                         <textPath href="#bsTopArc" startOffset="50%" dy="14">BAC STORY - منصة التميز في البكالوريا</textPath>
                     </text>
                     <text font-family="'Cairo',sans-serif" font-size="7" fill="#1a3a8f" text-anchor="middle">
-                        <textPath href="#bsBotArc" startOffset="50%" dy="-5">bacstory.vercel.app</textPath>
+                        <textPath href="#bsBotArc" startOffset="50%" dy="-5">bac-story.com</textPath>
                     </text>
                     <circle cx="32" cy="60" r="2" fill="#1a3a8f" opacity="0.4"/>
                     <circle cx="88" cy="60" r="2" fill="#1a3a8f" opacity="0.4"/>
