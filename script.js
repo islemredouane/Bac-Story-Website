@@ -541,6 +541,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Rich keyword aliases keyed by section ID — searched in addition to data-name
 var SPEC_KEYWORDS = {
+      'esesm': 'صم بكم أساتذة تعليم بني مسوس esesm sourds muets enseignement',
       'ENSTE': 'تكنولوجيا هندسة مناجم معادن صناعية عنابة enste',
       'ESGEE': 'هندسة كهربائية طاقوية وهران طاقات متجددة esgee',
       'ENSF': 'غابات طبيعة خنشلة aménagement forestier ensf',

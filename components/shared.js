@@ -1045,7 +1045,8 @@ function injectAdStrip() {
 function injectAdCards() {
     if (typeof window.BAC_ADS === 'undefined') return;
 
-    const cards = BAC_ADS.getActiveRotatingCards ? BAC_ADS.getActiveRotatingCards() : [];
+    const cards = BAC_ADS.getActiveRotatingCards ? BAC_ADS.getActiveRotatingCards() : [          { title: 'ESESM - الصم والبكم', desc: 'المدرسة العليا لأساتذة الصم والبكم', url: '/university/speciality/esesm', icon: 'fas fa-hands-helping', specialty: 'المدارس العليا للأساتذة', keywords: ['ESESM', 'esesm', 'صم', 'بكم', 'أساتذة', 'تربية'] },
+];
     if (!cards.length) return;
 
     const placeholders = document.querySelectorAll('.ad-card-inject');
