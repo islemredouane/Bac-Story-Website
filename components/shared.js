@@ -76,7 +76,7 @@ function injectGlobalCTA() {
 <section class="global-cta" id="global-cta">
     <!-- CTA Cards (side-by-side on desktop, rotating on mobile) -->
     <div class="gcta-cards" id="gcta-cards">
-        <a href="/tools#calculator" class="gcta-card gcta-card--calc">
+        <a href="/tools/calculator" class="gcta-card gcta-card--calc">
             <div class="gcta-icon-circle"><i class="fas fa-calculator"></i></div>
             <div class="gcta-text">
                 <strong>حاسبة المعدل</strong>
@@ -84,7 +84,7 @@ function injectGlobalCTA() {
             </div>
             <div class="gcta-btn">احسب الآن <i class="fas fa-arrow-left"></i></div>
         </a>
-        <a href="/tools#weighted-calc" class="gcta-card gcta-card--weighted">
+        <a href="/tools/weighted-calc" class="gcta-card gcta-card--weighted">
             <div class="gcta-icon-circle"><i class="fas fa-balance-scale"></i></div>
             <div class="gcta-text">
                 <strong>المعدل الموزون</strong>
@@ -511,10 +511,10 @@ function setupSearch() {
         { title: 'الخطط الشهرية', desc: 'خطط دراسية شهرية شاملة لجميع المواد', url: '/plans#monthly-plans', icon: 'fas fa-calendar-alt', specialty: null, keywords: ['الخطط الشهرية', 'خطط شهرية', 'خطة شهرية', 'مراجعة شهرية', 'جدول مراجعة', 'خطة دراسية'] },
         { title: 'خطط التميز للمواد', desc: 'خطط متخصصة لكل مادة للوصول للمعدل الأمثل', url: '/plans#subject-plans', icon: 'fas fa-book-open', specialty: null, keywords: ['خطط المواد', 'خطة مادة', 'خطط التميز', 'تميز مادة', 'خطة الرياضيات', 'خطة الفيزياء', 'خطة دراسية'] },
         { title: 'تحديات التميز', desc: 'تحديات يومية وأسبوعية لتطوير مستواك', url: '/plans#challenges', icon: 'fas fa-trophy', specialty: null, keywords: ['تحديات', 'تحدي', 'تميز', 'تحدي يومي', 'تحدي أسبوعي', 'رفع مستوى', 'challenges'] },
-        { title: 'العد التنازلي للنتائج', desc: 'كم تبقى على نتائج البكالوريا؟', url: '/tools#timer', icon: 'fas fa-hourglass-half', specialty: null, keywords: ['العد التنازلي', 'الوقت المتبقي', 'نتائج', 'وقت', 'مؤقت', 'timer', 'قداه بقى', 'متبقي'] },
-        { title: 'حاسبة معدل البكالوريا', desc: 'احسب معدلك التقديري بدقة قبل النتائج', url: '/tools#calculator', icon: 'fas fa-calculator', specialty: null, keywords: ['حاسبة', 'معدل', 'احسب معدلي', 'حساب المعدل', 'calculator', 'معدلي', 'احتساب'] },
-        { title: 'المعدل الموزون', desc: 'احسب معدلك الموزون للقبول في الجامعات', url: '/tools#weighted-calc', icon: 'fas fa-balance-scale', specialty: null, keywords: ['المعدل الموزون', 'معدل الباك', 'قبول جامعي', 'احتساب المعدل', 'التوجيه', 'موزون'] },
-        { title: 'ورقة الإجابة', desc: 'نسخة رقمية من ورقة إجابة البكالوريا الرسمية', url: '/tools#exam-sheet', icon: 'fas fa-file-alt', specialty: null, keywords: ['ورقة الإجابة', 'ورقة امتحان', 'ورقة رسمية', 'exam sheet', 'نموذج', 'استمارة', 'ورقة اجابة'] },
+        { title: 'العد التنازلي للنتائج', desc: 'كم تبقى على نتائج البكالوريا؟', url: '/tools/countdown', icon: 'fas fa-hourglass-half', specialty: null, keywords: ['العد التنازلي', 'الوقت المتبقي', 'نتائج', 'وقت', 'مؤقت', 'timer', 'قداه بقى', 'متبقي'] },
+        { title: 'حاسبة معدل البكالوريا', desc: 'احسب معدلك التقديري بدقة قبل النتائج', url: '/tools/calculator', icon: 'fas fa-calculator', specialty: null, keywords: ['حاسبة', 'معدل', 'احسب معدلي', 'حساب المعدل', 'calculator', 'معدلي', 'احتساب'] },
+        { title: 'المعدل الموزون', desc: 'احسب معدلك الموزون للقبول في الجامعات', url: '/tools/weighted-calc', icon: 'fas fa-balance-scale', specialty: null, keywords: ['المعدل الموزون', 'معدل الباك', 'قبول جامعي', 'احتساب المعدل', 'التوجيه', 'موزون'] },
+        { title: 'ورقة الإجابة', desc: 'نسخة رقمية من ورقة إجابة البكالوريا الرسمية', url: '/tools/exam-sheet', icon: 'fas fa-file-alt', specialty: null, keywords: ['ورقة الإجابة', 'ورقة امتحان', 'ورقة رسمية', 'exam sheet', 'نموذج', 'استمارة', 'ورقة اجابة'] },
         { title: 'النظام الجامعي الجزائري', desc: 'كل ما تحتاج معرفته عن نظام LMD والجامعة', url: '/university', icon: 'fas fa-university', specialty: null, keywords: ['النظام الجامعي', 'LMD', 'nظام lmd', 'ليسانس ماستر دكتوراه', 'الجامعة الجزائرية', 'نظام الجامعة'] },
         { title: 'الدليل الوزاري للتخصصات', desc: 'الدليل الرسمي لوزارة التعليم العالي', url: '/university/ministry-guide', icon: 'fas fa-scroll', specialty: null, keywords: ['الدليل الوزاري', 'وزاري', 'وزارة', 'الدليل الرسمي', 'دليل التخصصات', 'ministry'] },
         { title: 'تخصصات الجامعة والمدارس', desc: 'تعريف كامل بجميع التخصصات الجامعية', url: '/university/specialities', icon: 'fas fa-graduation-cap', specialty: null, keywords: ['تخصصات', 'تخصص جامعي', 'مدارس عليا', 'اختيار تخصص', 'توجيه جامعي', 'جامعة', 'LMD', 'ESTIN', 'ESI', 'ENSIA'] },
@@ -1114,6 +1114,18 @@ function injectAdCards() {
     }
 }
 
+// ── School Detail Tabs bootstrap for standalone speciality pages ─────────
+// script.js already defines TAB_KEYWORDS / TAB_LABELS / initSchoolTabs(sectionId),
+// but it's only ever invoked from the single-page university.html showSection hook.
+// Standalone /university/speciality/*.html pages render their section as already
+// "active" and never call showSection, so the tab bar never got built there.
+// This just calls the existing global initSchoolTabs() with that section's id.
+function setupSpecFilterTabs() {
+    if (typeof window.initSchoolTabs !== 'function') return;
+    var sectionEl = document.querySelector('.resource-content.active');
+    if (sectionEl && sectionEl.id) window.initSchoolTabs(sectionEl.id);
+}
+
 // ─── PAGE BOOT ───────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', async () => {
     // Inject components concurrently using absolute paths
@@ -1137,6 +1149,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     injectAdStrip();
     injectAdCards();
     setupScrollToTop();
+    setupSpecFilterTabs();
 
     // Add share button to all bac-2026 pages
     if (window.location.pathname.includes('bac-2026')) {

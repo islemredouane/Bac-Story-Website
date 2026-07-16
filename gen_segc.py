@@ -1,0 +1,338 @@
+import os
+
+template = '''<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){{w[l]=w[l]||[];w[l].push({{'gtm.start':
+    new Date().getTime(),event:'gtm.js'}});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    }})(window,document,'script','dataLayer','GTM-T5H3TNJ4');</script>
+    <!-- End Google Tag Manager -->
+    <meta name="description" content="دليل تخصص العلوم الاقتصادية والتسيير والعلوم التجارية (SEGC) في الجزائر. تعرف على معدلات القبول، المدارس العليا، الجامعات، المناهج، وفرص العمل في القطاع المالي.">
+    
+    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#1a3a8f">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="BAC STORY">    <title>تخصص العلوم الاقتصادية والتسيير (SEGC) | BAC STORY</title>
+    <link rel="canonical" href="https://www.bac-story.com/university/speciality/segc">
+    <meta name="author" content="redouane mohamed islem">
+    <link rel="stylesheet" href="/style.css?v=9.7">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/solid.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/brands.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/solid.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/brands.min.css">
+    </noscript>
+    <link rel="preload"
+        href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Pattaya&display=swap"
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Pattaya&display=swap">
+    </noscript>
+
+    <!-- Open Graph / Facebook / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="تخصص العلوم الاقتصادية والتسيير (SEGC) | BAC STORY">
+    <meta property="og:description" content="دليل تخصص العلوم الاقتصادية والتسيير والعلوم التجارية (SEGC) في الجزائر. تعرف على معدلات القبول، المدارس العليا، الجامعات، وفرص العمل في القطاع المالي والإداري.">
+    <meta property="og:image" content="https://pub-889477d66bc54c9582bba9a492cf605f.r2.dev/images/og-banner.png">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="تخصص العلوم الاقتصادية والتسيير (SEGC) | BAC STORY">
+    <meta name="twitter:description" content="دليل تخصص العلوم الاقتصادية والتسيير والعلوم التجارية (SEGC) في الجزائر. تعرف على معدلات القبول، المدارس العليا، الجامعات، وفرص العمل في القطاع المالي والإداري.">
+    <meta property="og:image" content="https://pub-889477d66bc54c9582bba9a492cf605f.r2.dev/images/og-banner.png">
+</head>
+
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5H3TNJ4" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+
+    <div id="navbar-placeholder"></div>
+<div class="resource-content active" id="segc">
+<div class="container">
+<div class="modern-section-header">
+<h2>العلوم الاقتصادية والتسيير والعلوم التجارية (SEGC)</h2>
+</div>
+<div style="margin: 24px auto 0; text-align: center;">
+<a class="search-telegram-btn floating" href="https://t.me/islembacdz" rel="noopener" target="_blank">
+<i class="fab fa-telegram-plane"></i>
+<span>انضم إلينا على التلغرام</span>
+</a>
+</div>
+<div class="school-details">
+<div class="details">
+
+<div class="detail-card large-card">
+    <h3><i class="fas fa-chart-line"></i> عقل الشركات، المحرك المالي للأسواق، ودينامو الاقتصاد</h3>
+    <p>
+        <b>💡 الهدرة تاع الصح:</b> بزاف طلاب مورا الباك تجيهم نظرة سطحية على هاد التخصص ويحسبوا بلي القراية فيه هي مجرد "حسابات كلاسيكية ومحاسبة جافة". الـ Real Talk بعيد بزاف وهارب على هاد التفكير السطحي! تخصص الـ SEGC هو التخصص الإستراتيجي لي يسير كاع المنشآت الحيوية في البلاد؛ من البنوك والبورصات، لشركات التصدير والاستيراد، وصولاً لتسيير الموارد البشرية، التسويق الإلكتروني، وإدارة الأزمات المالية للشركات الكبرى. إذا كنت تعشق عالم المال، البيزنس، والمقاولاتية، وحاب تدي دبلوم يخلي عندك "مخ تجاري واستثماري".. هادا هو التخصص المناسب ليك!
+    </p>
+</div>
+
+<div class="detail-card">
+    <h3><i class="fas fa-clipboard-list"></i> شروط التسجيل والالتحاق</h3>
+    <ul>
+        <li><b>⏳ أنماط الدراسة المتوفرة:</b> يدرس بنظام الـ LMD الجامعي (3 سنوات ليسانس + سنتين ماستر)، أو كتكوين قاعدي في المدارس الوطنية العليا (سنتين تحضيريتين + 3 سنوات تخصص معمق).</li>
+        <li><b>🎯 نظام الأولويات:</b>
+            <ul>
+                <li>🥇 <b>الأولوية 01:</b> تسيير واقتصاد + آداب وفلسفة.</li>
+                <li>🥈 <b>الأولوية 02:</b> رياضيات + علوم تجريبية + تقني رياضي.</li>
+                <li>🥉 <b>الأولوية 03:</b> لغات أجنبية.</li>
+            </ul>
+        </li>
+        <li><b>⚠️ شروط المدارس العليا للنخبة:</b> للمشاركة في فرز المدارس الوطنية العليا، يشترط السيستم معدلاً عاماً لا يقل عن 13.00 أو 14.50 (حسب المدرسة)، مع شرط إضافي صارم: علامة الرياضيات في الباك تساوي أو تفوق 12.50/20.</li>
+    </ul>
+</div>
+
+<div class="detail-card">
+    <h3><i class="fas fa-book-open"></i> مسار التكوين والتخصصات المتاحة</h3>
+    <p>في الطور الجامعي الكلاسيكي، يدرس الطالب في السنة الأولى جذع مشترك يجمع كل الأساسيات. وابتداءً من السنوات الموالية، يتفرع التخصص إلى أربعة ميادين فرعية كبرى:</p>
+    <ul>
+        <li><b>📉 علوم اقتصادية:</b> التركيز على الاقتصاد الكلي والجزئي، التخطيط الإستراتيجي للدول، والسياسات النقدية.</li>
+        <li><b>🏢 علوم التسيير:</b> إدارة الموارد البشرية (HR)، تسيير المؤسسات، والمناجمنت الذكي.</li>
+        <li><b>🛒 علوم تجارية:</b> التسويق (Marketing)، التجارة الدولية، اللوجيستيك، وسلاسل الإمداد.</li>
+        <li><b>💰 علوم مالية ومحاسبة:</b> الجباية، تدقيق الحسابات (Auditing)، تسيير البنوك، والأسواق المالية والبورصات.</li>
+    </ul>
+</div>
+
+<div class="detail-card large-card">
+    <h3><i class="fas fa-chart-bar"></i> معدلات القبول الرسمية لعام 2025 (المرحلة الأولى)</h3>
+    <p>
+        إليك التصفية والفرز الكامل للمعدلات (المدارس العليا وكليات الجامعات الوطنية):<br>
+        <b>📌 تذكير بالرموز:</b> Min1 (الأولوية 1)، Min2 (الأولوية 2)، Min3 (الأولوية 3)، NC (غير مشبع).
+    </p>
+    <div class="table-container">
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>المدرسة / الجامعة المستضيفة للتكوين</th>
+                    <th>كود التخصص</th>
+                    <th>معدلات القبول (Min1 / Min2 / Min3)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="3" style="text-align: center; background-color: #f1f5f9; font-weight: bold;">🏛️ المدارس الوطنية العليا للنخبة (كود التكوين القاعدي CAN)</td>
+                </tr>
+                <tr>
+                    <td>🏫 المدرسة العليا للتجارة بالقليعة (ESC)</td>
+                    <td>F00CAN05</td>
+                    <td>16.02</td>
+                </tr>
+                <tr>
+                    <td>🏫 المدرسة الوطنية العليا للإحصاء والاقتصاد التطبيقي بالقليعة</td>
+                    <td>F00CAN07</td>
+                    <td>15.41</td>
+                </tr>
+                <tr>
+                    <td>🏫 مدرسة الدراسات العليا التجارية بالقليعة (EHEC)</td>
+                    <td>F00CAN06</td>
+                    <td>15.78</td>
+                </tr>
+                <tr>
+                    <td>🏫 المدرسة العليا للتسيير والاقتصاد الرقمي بالقليعة</td>
+                    <td>F00CAN08</td>
+                    <td>15.51</td>
+                </tr>
+                <tr>
+                    <td>🏫 المدرسة العليا لإدارة الأعمال بتلمسان</td>
+                    <td>F00CAN03</td>
+                    <td>15.18</td>
+                </tr>
+                <tr>
+                    <td>🏫 المدرسة العليا للمحاسبة والمالية بقسنطينة</td>
+                    <td>F00CAN02</td>
+                    <td>14.83</td>
+                </tr>
+                <tr>
+                    <td>🏫 المدرسة العليا لعلوم التسيير بعنابة</td>
+                    <td>F00CAN01</td>
+                    <td>14.71</td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="text-align: center; background-color: #f1f5f9; font-weight: bold;">🏫 كبريات كليات الجامعات الوطنية (كود الليسانس LAL)</td>
+                </tr>
+                <tr>
+                    <td>🏢 جامعة الجزائر 3 (القطب التاريخي للتخصص)</td>
+                    <td>F00LAL01</td>
+                    <td>10.00 / 11.09 / 12.20</td>
+                </tr>
+                <tr>
+                    <td>🏢 جامعة وهران 2</td>
+                    <td>F00LAL01</td>
+                    <td>10.40 / 11.54 / 12.73</td>
+                </tr>
+                <tr>
+                    <td>🏢 جامعة قسنطينة 2</td>
+                    <td>F00LAL01</td>
+                    <td>10.88 / 12.06 / 13.43</td>
+                </tr>
+                <tr>
+                    <td>🏢 جامعة سطيف 1</td>
+                    <td>F00LAL02</td>
+                    <td>10.00 / 11.04 / 12.17</td>
+                </tr>
+                <tr>
+                    <td>🏢 جامعة تلمسان</td>
+                    <td>F00LAL02</td>
+                    <td>10.32 / 11.45 / 12.59</td>
+                </tr>
+                <tr>
+                    <td>🏢 جامعة بومرداس</td>
+                    <td>F00LAL04</td>
+                    <td>10.31 / 11.45 / 12.60</td>
+                </tr>
+                <tr>
+                    <td>🏢 جامعة باتنة 1</td>
+                    <td>F00LAL01</td>
+                    <td>10.26 / 11.39 / 12.70</td>
+                </tr>
+                <tr>
+                    <td>🏢 جامعة الشلف</td>
+                    <td>F00LAL03</td>
+                    <td>10.37 / 11.52 / 13.11</td>
+                </tr>
+                <tr>
+                    <td>🏢 جامعة بجاية</td>
+                    <td>F00LAL02</td>
+                    <td>10.19 / 11.30 / 12.47</td>
+                </tr>
+                <tr>
+                    <td>🏢 جامعة بسكرة</td>
+                    <td>F00LAL02</td>
+                    <td>10.00 / 10.00 / 10.08</td>
+                </tr>
+                <tr>
+                    <td>🏢 جامعات تملك مقاعد شاغرة (NC)</td>
+                    <td colspan="2" style="text-align: center;">الأغواط، بليدة 2، تبسة، ميلة، خنشلة، المسيلة...</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="detail-card">
+    <h3><i class="fas fa-briefcase"></i> فرص ومجالات العمل بعد التخرج</h3>
+    <p>حامل شهادة الـ SEGC يملك أكبر مرونة في سوق الشغل بالقطاعين العام والخاص:</p>
+    <ul>
+        <li><b>🏦 المنشآت المالية والمصرفية:</b> في كافة البنوك الوطنية والعالمية الناشطة في الجزائر، البورصات كمحلل مالي أو مسير حسابات.</li>
+        <li><b>📊 إدارة الشركات والمحاسبة:</b> محاسب رئيسي للشركات (Comptable)، تدقيق ومراقبة الحسابات (Auditor)، أو خبير جباية وضرائب.</li>
+        <li><b>🚀 التسويق والتجارة الإلكترونية:</b> متخصص تسويق (Marketing Specialist)، مسير سلاسل الإمداد والتصدير والاستيراد.</li>
+        <li><b>👥 الموارد البشرية والمناجمنت:</b> مدير أو مسير إدارة الموارد البشرية (HR) لتخطيط وتوظيف الكفاءات.</li>
+        <li><b>🦾 ريادة الأعمال:</b> يمنحك التخصص القاعدة العلمية الصلبة لفتح شركتك الناشئة (Startup) الخاصة وإدارتها بذكاء.</li>
+    </ul>
+</div>
+
+<div class="detail-card">
+    <h3><i class="fas fa-thumbs-up"></i> المميزات والعيوب</h3>
+    <div class="pros-cons">
+        <div class="pros">
+            <h5>المميزات:</h5>
+            <ul>
+                <li>✅ مرونة التوظيف: لا توجد شركة أو مصنع يستغني عن محاسب أو مسير؛ المجال مطلوب في كل القطاعات.</li>
+                <li>✅ معدلات قبول جامعية مريحة جداً تتيح لك التفوق حتى بمعدل باكالوريا متوسط.</li>
+                <li>✅ يفتح لك أبواب التخصصات الحديثة مثل الذكاء الاصطناعي في الاقتصاد أو الاقتصاد الرقمي.</li>
+            </ul>
+        </div>
+        <div class="cons">
+            <h5>العيوب:</h5>
+            <ul>
+                <li>❌ المنافسة الشرسة: الأعداد الكبيرة للطلاب تتطلب التميز (Major de promo) أو دعم شهادتك باللغات والبرمجة (Excel، Python).</li>
+                <li>❌ يتطلب في السنوات الأولى حفظ كمية معتبرة من القوانين والمصطلحات الإدارية بجانب الفهم الحسابي.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+<div id="global-cta-placeholder"></div>
+
+    <div id="footer-placeholder"></div>
+    <script src="/ads-config.js?v=1.9"></script>
+    <script src="/components/shared.js?v=8.8"></script>
+    <script src="/script.js?v=7.8"></script>
+    <script>
+    (function () {{
+        const NON_SHARE = new Set(['averages-of-acceptance', 'ministry-guide']);
+        function buildShareBtn() {{
+            if (document.getElementById('uniShareBtn')) return;
+            const btn = document.createElement('button');
+            btn.id = 'uniShareBtn';
+            btn.className = 'uni-share-btn';
+            btn.setAttribute('data-tooltip', 'مشاركة الصفحة');
+            btn.innerHTML = '<i class="fas fa-share"></i>';
+            btn.addEventListener('click', handleShare);
+            document.body.appendChild(btn);
+        }}
+        function handleShare() {{
+            const url = location.href;
+            const title = document.title;
+            if (navigator.share) {{
+                navigator.share({{ title, url }}).catch(() => {{}});
+            }} else {{
+                navigator.clipboard.writeText(url).then(() => showToast('تم نسخ الرابط ✓')).catch(() => {{}});
+            }}
+        }}
+        function showToast(msg) {{
+            let t = document.getElementById('uniShareToast');
+            if (!t) {{
+                t = document.createElement('div');
+                t.id = 'uniShareToast';
+                t.className = 'uni-share-toast';
+                document.body.appendChild(t);
+            }}
+            t.textContent = msg;
+            t.classList.add('visible');
+            clearTimeout(t._timer);
+            t._timer = setTimeout(() => t.classList.remove('visible'), 2200);
+        }}
+        function updateShareBtn(sectionId) {{
+            const btn = document.getElementById('uniShareBtn');
+            if (!btn) return;
+            const shareable = sectionId && !NON_SHARE.has(sectionId);
+            btn.classList.toggle('visible', shareable);
+        }}
+        window.addEventListener('load', function () {{
+            buildShareBtn();
+            const orig = window.showSection;
+            window.showSection = function (id, push) {{
+                const result = orig ? orig(id, push) : undefined;
+                updateShareBtn(id);
+                return result;
+            }};
+            const initial = location.hash.slice(1) || 'university-system';
+            updateShareBtn(initial);
+        }});
+    }})();
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+    <script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+
+</html>'''
+
+import os
+path = os.path.join('university', 'speciality', 'segc.html')
+with open(path, 'w', encoding='utf-8') as f:
+    f.write(template)
+print(f'Created {path}')
