@@ -1,5 +1,13 @@
 {
   "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "bacstory.vercel.app" }],
+      "destination": "https://www.bac-story.com/$1",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*).(jpg|jpeg|png|gif|webp|svg)",
