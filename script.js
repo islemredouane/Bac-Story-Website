@@ -541,7 +541,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Rich keyword aliases keyed by section ID — searched in addition to data-name
 var SPEC_KEYWORDS = {
-      'esesm': 'صم بكم أساتذة تعليم بني مسوس esesm sourds muets enseignement',
+      'esesm': 'المدرسة العليا لأساتذة الصم والبكم صم بكم أستاذ تعليم بني مسوس لغة الإشارة الإشارية أرطوفونيا عيوب النطق تربية خاصة إعاقة سمعية ضعاف السمع مترجم لغة الإشارة بيداغوجيا esesm sourds muets malentendants enseignement langue des signes orthophonie éducation spécialisée handicap auditif interprète LSF',
       'ENSTE': 'تكنولوجيا هندسة مناجم معادن صناعية عنابة enste',
       'ESGEE': 'هندسة كهربائية طاقوية وهران طاقات متجددة esgee',
       'ENSF': 'غابات طبيعة خنشلة aménagement forestier ensf',
@@ -752,6 +752,14 @@ var SPEC_KEYWORDS = {
     'TRADING': 'تجارة خارجية تجارة دولية commerce international trading import export',
     'TURC': 'لغة تركية أدب تركي langue turque littérature',
     'dieteticien': 'دياتيتيسيان حمية تغذية علاجية diététicien nutritionniste régime alimentation thérapeutique',
+    'renouvelables': 'طاقات متجددة طاقة شمسية رياح هيدروجين أخضر انتقال طاقوي عصرنة énergies renouvelables énergie solaire éolien hydrogène vert transition énergétique photovoltaïque',
+    'segc': 'اقتصاد تسيير تجارة محاسبة مالية بنوك تسويق sciences économiques gestion commerciales économie comptabilité banque marketing finance',
+    'ensta-st': 'علوم تطبيقية هندسة تكنولوجيا متقدمة إلكترونيك آلية أنظمة مدمجة essa تلمسان درقانة sciences appliquées technologies avancées électronique automatique systèmes embarqués',
+    'ufc': 'جامعة التكوين المتواصل تعليم عن بعد مختلط حضوري تكوين مستمر université formation continue enseignement à distance blended learning',
+    'business-computing': 'حوسبة الأعمال بيزنس معلوماتية تجارة رقمية تسيير رقمي تيبازة business computing informatique des affaires digital business ERP',
+    'e-commerce': 'تجارة إلكترونية تسيير عمليات تجارية لوجيستيك رقمي دفع إلكتروني e-commerce e-logistics commerce électronique paiement électronique',
+    'mi-social': 'رياضيات إعلام آلي علوم إنسانية اجتماعية إحصاء تحليل بيانات mathématiques informatique sciences sociales statistique data analytics',
+    'mi-seg': 'رياضيات إعلام آلي اقتصاد تسيير هندسة مالية تحليل كمي mathématiques informatique économie gestion ingénierie financière quant',
 };
 
 (function initSpecFilter() {
@@ -955,9 +963,12 @@ var SPEC_KEYWORDS = {
                 var matchSearch = true;
                 if (rawWords.length) {
                     var onclick = card.getAttribute('onclick') || '';
-                    var m = onclick.match(/showSection\(['"]([^'"]+)['"]\)/);
+                    // Cards navigate via window.location.href='/university/speciality/<slug>'
+                    // (older showSection('ID') pattern kept as a fallback for safety).
+                    var m = onclick.match(/speciality\/([a-zA-Z0-9_-]+)/) || onclick.match(/showSection\(['"]([^'"]+)['"]\)/);
                     var sid = m ? m[1] : '';
-                    var haystack = normalize((card.dataset.name || '') + ' ' + (SPEC_KEYWORDS[sid] || ''));
+                    var kw = SPEC_KEYWORDS[sid] || SPEC_KEYWORDS[sid.toLowerCase()] || SPEC_KEYWORDS[sid.toUpperCase()] || '';
+                    var haystack = normalize((card.dataset.name || '') + ' ' + kw);
                     // For each query word, check if the haystack contains the word itself
                     // OR any of its synonyms (partial prefix match ≥ 3 chars)
                     matchSearch = rawWords.every(function (w) {
