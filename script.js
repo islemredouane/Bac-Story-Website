@@ -541,7 +541,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Rich keyword aliases keyed by section ID — searched in addition to data-name
 var SPEC_KEYWORDS = {
-      'esesm': 'المدرسة العليا لأساتذة الصم والبكم صم بكم أستاذ تعليم ثانوي بني مسوس أقسام مدمجة دمج إعاقة سمعية خفيفة متوسطة وزارة التربية لغة الإشارة أرطوفونيا عيوب النطق تربية خاصة ضعاف السمع بيداغوجيا esesm sourds muets malentendants enseignement classe inclusive intégration langue des signes orthophonie éducation spécialisée handicap auditif',
+      'esesm': 'المدرسة العليا لأساتذة الصم والبكم صم بكم صم وبكم أصم أبكم معاق سمعيا معاقين سمعيا إعاقة سمعية خفيفة متوسطة ضعاف السمع ضعف السمع أستاذ أساتذة تعليم ثانوي بني مسوس أقسام مدمجة قسم مدمج دمج إدماج تربية خاصة ذوي الاحتياجات الخاصة ذوي الهمم وزارة التربية الوطنية لغة الإشارة الإشارية أرطوفونيا عيوب النطق تقويم النطق بيداغوجيا esesm sourds muets malentendant malentendants sourd-muet handicap auditif déficience auditive classe inclusive intégration scolaire langue des signes LSF orthophonie éducation spécialisée besoins spécifiques',
       'ENSTE': 'تكنولوجيا هندسة مناجم معادن صناعية عنابة enste',
       'ESGEE': 'هندسة كهربائية طاقوية وهران طاقات متجددة esgee',
       'ENSF': 'غابات طبيعة خنشلة aménagement forestier ensf',
@@ -772,6 +772,10 @@ var SPEC_KEYWORDS = {
     var SEARCH_SYNONYMS = {
         // Arabic common synonyms & dialect words
         'طب': 'طبيب دكتور medicine medecin sante',
+        'اصم': 'صم بكم اعاقة سمعية esesm sourd',
+        'ابكم': 'بكم صم اعاقة سمعية esesm muet',
+        'صم': 'بكم اصم ابكم اعاقة سمعية esesm sourd muet',
+        'بكم': 'صم اصم ابكم اعاقة سمعية esesm sourd muet',
         'دكتور': 'طبيب طب medecin doctor docteur',
         'طبيب': 'دكتور طب medecin',
         'مهندس': 'هندسه engineering ingenieur genie',
