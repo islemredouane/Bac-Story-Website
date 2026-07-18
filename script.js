@@ -541,7 +541,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Rich keyword aliases keyed by section ID — searched in addition to data-name
 var SPEC_KEYWORDS = {
-      'esesm': 'المدرسة العليا لأساتذة الصم والبكم صم بكم أستاذ تعليم بني مسوس لغة الإشارة الإشارية أرطوفونيا عيوب النطق تربية خاصة إعاقة سمعية ضعاف السمع مترجم لغة الإشارة بيداغوجيا esesm sourds muets malentendants enseignement langue des signes orthophonie éducation spécialisée handicap auditif interprète LSF',
+      'esesm': 'المدرسة العليا لأساتذة الصم والبكم صم بكم أستاذ تعليم ثانوي بني مسوس أقسام مدمجة دمج إعاقة سمعية خفيفة متوسطة وزارة التربية لغة الإشارة أرطوفونيا عيوب النطق تربية خاصة ضعاف السمع بيداغوجيا esesm sourds muets malentendants enseignement classe inclusive intégration langue des signes orthophonie éducation spécialisée handicap auditif',
       'ENSTE': 'تكنولوجيا هندسة مناجم معادن صناعية عنابة enste',
       'ESGEE': 'هندسة كهربائية طاقوية وهران طاقات متجددة esgee',
       'ENSF': 'غابات طبيعة خنشلة aménagement forestier ensf',
@@ -760,6 +760,7 @@ var SPEC_KEYWORDS = {
     'e-commerce': 'تجارة إلكترونية تسيير عمليات تجارية لوجيستيك رقمي دفع إلكتروني e-commerce e-logistics commerce électronique paiement électronique',
     'mi-social': 'رياضيات إعلام آلي علوم إنسانية اجتماعية إحصاء تحليل بيانات mathématiques informatique sciences sociales statistique data analytics',
     'mi-seg': 'رياضيات إعلام آلي اقتصاد تسيير هندسة مالية تحليل كمي mathématiques informatique économie gestion ingénierie financière quant',
+    'gtu': 'تسيير التقنيات الحضرية هندسة حضرية تسيير المدن شبكات طرقات مياه تطهير إنارة عمومية نفايات مساحات خضراء VRD SIG عمران بلديات gestion des techniques urbaines génie urbain gestion des villes urbanisme réseaux voirie assainissement',
 };
 
 (function initSpecFilter() {
