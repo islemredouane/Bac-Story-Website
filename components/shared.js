@@ -341,12 +341,10 @@ if (typeof window.showSection === 'undefined') {
 }
 
 // ─── BAC 2026 ANNOUNCEMENT MODAL ──────────────────────────────────────────────────
-const BAC2026_ANNOUNCE_KEY = 'bs_seen_feedback_invite_v1';
+const BAC2026_ANNOUNCE_KEY = 'bs_seen_competition_announce_v2';
 
 function showBac2026AnnouncementModal() {
     if (localStorage.getItem(BAC2026_ANNOUNCE_KEY)) return;
-    // Don't invite people already on the feedback page
-    if (location.pathname.replace(/\/$/, '').endsWith('/feedback')) return;
 
     // Create the overlay container
     const overlay = document.createElement('div');
@@ -356,13 +354,13 @@ function showBac2026AnnouncementModal() {
         <div class="welcome-announcement-card modal-version">
             <button class="announcement-modal-close" aria-label="إغلاق">&times;</button>
             <div class="welcome-badge-pill" style="background: rgba(255, 193, 7, 0.15); color: #ff9800;">
-                <i class="fas fa-star"></i> دفعة 2026 تحكم!
+                <i class="fas fa-award"></i> تكريم للمتفوقين!
             </div>
-            <h3>رأيك يهمنا 🤍</h3>
-            <p style="margin-bottom: 1rem;">رافقناكم طول مشوار باك 2026، وذرك جاء دوركم: قيّمو تجربتكم مع المنصة بنجمة لـ 5 نجوم ⭐️، واكتبو نصيحتكم لطلاب باك 2027 — كلمتكم هي لي توجّههم العام الجاي.<br><br>دقيقة وحدة برك، وكلمتك تفرق! ✍️</p>
+            <h3>إحصاء أعلى المعدلات 🎓✨</h3>
+            <p style="margin-bottom: 1rem;">ندعو جميع المتفوقين للمشاركة في إستبيان خاص بقناتنا لإحصاء أصحاب أعلى المعدلات، حيث خصصنا جوائز قيمة للمتميزين 🎁⭐️.<br><br>رابط الإستبيان متوفر حصرياً عبر قناتنا الرسمية على التلغرام، نتشرف بانضمامكم!</p>
             <div class="card-cta-group">
-                <a href="/feedback" class="card-cta-btn card-cta-telegram" style="width: 100%; justify-content: center; font-size: 1.1rem; padding: 12px;">
-                    <i class="fas fa-star"></i> قيّم تجربتك ذرك
+                <a href="https://t.me/islembacdz" target="_blank" class="card-cta-btn card-cta-telegram" style="width: 100%; justify-content: center; font-size: 1.1rem; padding: 12px;">
+                    <i class="fab fa-telegram-plane"></i> الانتقال إلى التلغرام
                 </a>
             </div>
         </div>
