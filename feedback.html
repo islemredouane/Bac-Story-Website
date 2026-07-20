@@ -126,6 +126,20 @@
         .fb-avg-stars i.pop { transform: scale(1); opacity: 1; }
         .fb-avg-count { font-size: 0.95rem; opacity: 0.9; font-weight: 500; min-height: 1.4em; position: relative; z-index: 1; }
 
+        /* ── Star block (standalone, outside the form) ── */
+        .fb-star-block {
+            background:
+                radial-gradient(circle at 10% 15%, rgba(44,92,195,0.05) 0%, transparent 55%),
+                rgba(255,255,255,0.92);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-radius: 22px;
+            box-shadow: 0 6px 28px rgba(44,92,195,0.07), 0 2px 6px rgba(0,0,0,0.03);
+            padding: 1.8rem 1.5rem 1.3rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
         /* ── Star input (form) ── */
         .fb-star-input {
             display: flex;
@@ -157,7 +171,6 @@
             font-size: 0.92rem;
             color: #64748b;
             min-height: 1.4em;
-            margin-bottom: 18px;
             font-weight: 700;
         }
         .fb-star-hint.flash { color: #1a3a8f; }
@@ -298,6 +311,17 @@
             <!-- ── Form ── -->
             <div class="modern-section-header fbr"><h2>قيّم تجربتك ⭐</h2></div>
 
+            <div class="fb-star-block fbr">
+                <div class="fb-star-input" id="fbStars">
+                    <button type="button" data-v="5" aria-label="5 نجوم"><i class="fas fa-star"></i></button>
+                    <button type="button" data-v="4" aria-label="4 نجوم"><i class="fas fa-star"></i></button>
+                    <button type="button" data-v="3" aria-label="3 نجوم"><i class="fas fa-star"></i></button>
+                    <button type="button" data-v="2" aria-label="نجمتين"><i class="fas fa-star"></i></button>
+                    <button type="button" data-v="1" aria-label="نجمة واحدة"><i class="fas fa-star"></i></button>
+                </div>
+                <div class="fb-star-hint" id="fbStarHint">قداه تعطينا من 5؟ ⭐</div>
+            </div>
+
             <div class="fbr">
                 <!-- ── Thank-you state ── -->
                 <div class="welcome-announcement-card fb-thanks" id="fbThanks" style="background: linear-gradient(135deg, #0f3d24 0%, #14532d 50%, #16a34a 100%);">
@@ -314,15 +338,6 @@
                 <!-- ── Form ── -->
                 <div class="contact-form-modern" id="fbFormCard">
                     <form id="fbForm" autocomplete="off">
-                        <div class="fb-star-input" id="fbStars">
-                            <button type="button" data-v="5" aria-label="5 نجوم"><i class="fas fa-star"></i></button>
-                            <button type="button" data-v="4" aria-label="4 نجوم"><i class="fas fa-star"></i></button>
-                            <button type="button" data-v="3" aria-label="3 نجوم"><i class="fas fa-star"></i></button>
-                            <button type="button" data-v="2" aria-label="نجمتين"><i class="fas fa-star"></i></button>
-                            <button type="button" data-v="1" aria-label="نجمة واحدة"><i class="fas fa-star"></i></button>
-                        </div>
-                        <div class="fb-star-hint" id="fbStarHint">قداه تعطينا من 5؟ ⭐</div>
-
                         <div class="cfm-row">
                             <div class="cfm-group">
                                 <label class="cfm-label" for="fbName">اسمك أو اسم مستعار (اختياري)</label>
