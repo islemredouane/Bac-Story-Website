@@ -1361,17 +1361,14 @@
                         t.classList.add('show');
                         t.scrollIntoView({ behavior: 'smooth', block: 'center' });
                         confetti();
-                    } else {
-                        // DEBUG: show actual Apps Script error to diagnose the issue
-                        throw new Error(res && res.error ? res.error : JSON.stringify(res));
-                    }
+                    } else { throw new Error('bad response'); }
                 })
-                .catch(function (err) {
+                .catch(function () {
                     btn.disabled = false;
                     btn.innerHTML = '<i class="fas fa-paper-plane"></i> أرسل تقييمك';
-                    // DEBUG line — will be removed once issue is identified
-                    alert('خطأ في الإرسال:\n' + (err && err.message ? err.message : 'network error'));
+                    alert('صرات مشكلة في الإرسال، عاود جرب');
                 });
+
 
         });
 
