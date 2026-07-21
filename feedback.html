@@ -893,9 +893,9 @@
                             </div>
                             <div class="fb-input-glow">
                                 <div class="cfm-input-wrap fb-textarea-wrap">
-                                    <textarea class="cfm-input cfm-textarea" id="fbOpinion" maxlength="600"
+                                    <textarea class="cfm-input cfm-textarea" id="fbOpinion" maxlength="300"
                                         placeholder="اكتب رأيك بصراحة: واش استفدت، وواش تتمنى نزيدو ولا نصلحو..."></textarea>
-                                    <span class="fb-char-counter" id="fbOpinionCounter">0/600</span>
+                                    <span class="fb-char-counter" id="fbOpinionCounter">0/300</span>
                                 </div>
                             </div>
                         </div>
@@ -907,9 +907,9 @@
                             </div>
                             <div class="fb-input-glow">
                                 <div class="cfm-input-wrap fb-textarea-wrap">
-                                    <textarea class="cfm-input cfm-textarea" id="fbAdvice" maxlength="600"
+                                    <textarea class="cfm-input cfm-textarea" id="fbAdvice" maxlength="300"
                                         placeholder=" كيفاه يستغلو الموقع..."></textarea>
-                                    <span class="fb-char-counter" id="fbAdviceCounter">0/600</span>
+                                    <span class="fb-char-counter" id="fbAdviceCounter">0/300</span>
                                 </div>
                             </div>
                         </div>
@@ -1362,8 +1362,8 @@
                 stars: stars,
                 name: document.getElementById('fbName').value.trim().slice(0, 40),
                 track: selectedTrack,
-                opinion: opinion.slice(0, 600),
-                advice: advice.slice(0, 600)
+                opinion: opinion.slice(0, 300),
+                advice: advice.slice(0, 300)
             };
 
             // Plain body (no JSON header) avoids a CORS preflight that Apps Script can't answer
