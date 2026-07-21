@@ -76,6 +76,14 @@ function injectGlobalCTA() {
 <section class="global-cta" id="global-cta">
     <!-- CTA Cards (side-by-side on desktop, rotating on mobile) -->
     <div class="gcta-cards" id="gcta-cards">
+        <a href="/feedback" class="gcta-card gcta-card--feedback">
+            <div class="gcta-icon-circle"><i class="fas fa-star"></i></div>
+            <div class="gcta-text">
+                <strong>قيّم تجربتك مع BAC STORY</strong>
+                <span>رافقناك طول العام — الآن جاء دورك. اترك رأيك ونصيحتك لدفعة 2027</span>
+            </div>
+            <div class="gcta-btn">اكتب رأيك <i class="fas fa-arrow-left"></i></div>
+        </a>
         <a href="/tools/calculator" class="gcta-card gcta-card--calc">
             <div class="gcta-icon-circle"><i class="fas fa-calculator"></i></div>
             <div class="gcta-text">
@@ -120,6 +128,7 @@ function injectGlobalCTA() {
     <!-- Mobile-only rotation dots -->
     <div class="gcta-dots" id="gcta-dots">
         <span class="gcta-dot gcta-dot--active"></span>
+        <span class="gcta-dot"></span>
         <span class="gcta-dot"></span>
         <span class="gcta-dot"></span>
         <span class="gcta-dot"></span>
@@ -341,10 +350,12 @@ if (typeof window.showSection === 'undefined') {
 }
 
 // ─── BAC 2026 ANNOUNCEMENT MODAL ──────────────────────────────────────────────────
-const BAC2026_ANNOUNCE_KEY = 'bs_seen_competition_announce_v2';
+const BAC2026_ANNOUNCE_KEY = 'bs_seen_feedback_invite_v1';
 
 function showBac2026AnnouncementModal() {
     if (localStorage.getItem(BAC2026_ANNOUNCE_KEY)) return;
+    // Don't invite people already on the feedback page
+    if (location.pathname.replace(/\/$/, '').endsWith('/feedback')) return;
 
     // Create the overlay container
     const overlay = document.createElement('div');
@@ -353,14 +364,14 @@ function showBac2026AnnouncementModal() {
     overlay.innerHTML = `
         <div class="welcome-announcement-card modal-version">
             <button class="announcement-modal-close" aria-label="إغلاق">&times;</button>
-            <div class="welcome-badge-pill" style="background: rgba(255, 193, 7, 0.15); color: #ff9800;">
-                <i class="fas fa-award"></i> تكريم للمتفوقين!
+            <div class="welcome-badge-pill" style="background: linear-gradient(135deg, #ff6b1a, #e8420e); color: #fff; box-shadow: 0 4px 14px rgba(232,66,14,0.35); border: none;">
+                <i class="fas fa-chart-bar"></i> دفعة 2026
             </div>
-            <h3>إحصاء أعلى المعدلات 🎓✨</h3>
-            <p style="margin-bottom: 1rem;">ندعو جميع المتفوقين للمشاركة في إستبيان خاص بقناتنا لإحصاء أصحاب أعلى المعدلات، حيث خصصنا جوائز قيمة للمتميزين 🎁⭐️.<br><br>رابط الإستبيان متوفر حصرياً عبر قناتنا الرسمية على التلغرام، نتشرف بانضمامكم!</p>
+            <h3>رأيك يهمنا</h3>
+            <p style="margin-bottom: 1rem;">رافقناك في مشوار بكالوريا 2026 — والآن جاء دورك: قيّم تجربتك مع BAC STORY من نجمة إلى 5 نجوم واترك نصيحتك لدفعة 2027 حول كيفية استخدام الموقع.<br><br>كلمتك تفيد موقعنا و تعطينا دفعة تحفيزية — لا تبخل علينا و على الدفعة القادمة برأيك فيه.</p>
             <div class="card-cta-group">
-                <a href="https://t.me/islembacdz" target="_blank" class="card-cta-btn card-cta-telegram" style="width: 100%; justify-content: center; font-size: 1.1rem; padding: 12px;">
-                    <i class="fab fa-telegram-plane"></i> الانتقال إلى التلغرام
+                <a href="/feedback" class="card-cta-btn card-cta-telegram" style="width: 100%; justify-content: center; font-size: 1.1rem; padding: 12px 40px; background: #fff; color: #2c5cc5;">
+                    قيم موقعنا الآن
                 </a>
             </div>
         </div>

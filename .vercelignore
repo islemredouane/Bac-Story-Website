@@ -1,0 +1,12 @@
+# Backend scripts — not for public web deployment
+*.gs
+
+# Claude Code worktrees & session data
+.claude/
+
+# Git
+.git/
+
+# Secrets
+.env
+.env.*

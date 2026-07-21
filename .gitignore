@@ -1,0 +1,17 @@
+# Claude Code worktrees & session data
+.claude/
+
+# Backend scripts (not for web deployment)
+*.gs
+
+# Environment & secrets
+.env
+.env.*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+*.swp
