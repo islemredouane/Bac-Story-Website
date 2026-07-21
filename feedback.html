@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
 <head>
@@ -1339,9 +1339,11 @@
             btn.disabled = true;
             btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...';
 
-            // stars: 0 if already quick-rated (avoid double-counting in average)
+            // Always send the actual star value — Apps Script rejects stars:0
+            // (the doGet() aggregation already skips rows where stars < 1, so
+            //  any slight double-count is far better than losing the submission)
             var payload = {
-                stars: localStorage.getItem(STAR_KEY) ? 0 : stars,
+                stars: stars,
                 name: document.getElementById('fbName').value.trim().slice(0, 40),
                 track: selectedTrack,
                 opinion: opinion.slice(0, 600),
