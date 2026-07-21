@@ -837,10 +837,13 @@
                     <div class="fb-thanks-icon"><i class="fas fa-circle-check"></i></div>
                     <h3>وصلنا تقييمك، بارك الله فيك</h3>
                     <p>تعليقك راح يظهر في الصفحة بعد المراجعة. نتمنى لك مشوار جامعي موفق، ونستناوك في مغامرات جديدة!</p>
-                    <div class="card-cta-group">
+                    <div class="card-cta-group" style="flex-wrap: wrap; gap: 10px;">
                         <a href="https://t.me/islembacdz" target="_blank" rel="noopener" class="card-cta-btn card-cta-telegram">
                             <i class="fab fa-telegram-plane"></i> تابع مشوارك الجامعي معنا
                         </a>
+                        <button type="button" id="btnReFeedback" class="card-cta-btn" style="background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.3); font-family: 'Tajawal', sans-serif;">
+                            <i class="fas fa-rotate-right"></i> إعادة التقييم
+                        </button>
                     </div>
                 </div>
 
@@ -1384,6 +1387,28 @@
 
 
         });
+
+        /* ── Re-evaluate ── */
+        var btnRe = document.getElementById('btnReFeedback');
+        if (btnRe) {
+            btnRe.addEventListener('click', function() {
+                try { localStorage.removeItem(SUBMIT_KEY); } catch (e) {}
+                document.getElementById('fbThanks').classList.remove('show');
+                document.getElementById('fbFormCard').style.display = 'block';
+                document.getElementById('fbForm').reset();
+                var btn = document.getElementById('fbSubmit');
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fas fa-paper-plane"></i> أرسل تقييمك';
+                
+                // Clear custom selects
+                selectedTrack = '';
+                document.getElementById('fbTrackTrigger').innerHTML = 'اختر شعبتك <i class="fas fa-chevron-down fb-select-arrow"></i>';
+                document.getElementById('fbTrackTrigger').classList.remove('has-value');
+                document.querySelectorAll('#fbTrackList .fb-select-option').forEach(function(el) { el.classList.remove('selected'); });
+                
+                document.getElementById('fbStars').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
+        }
 
         // Trigger the initial data fetch!
         loadData();

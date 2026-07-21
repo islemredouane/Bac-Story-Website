@@ -350,7 +350,7 @@ if (typeof window.showSection === 'undefined') {
 }
 
 // ─── BAC 2026 ANNOUNCEMENT MODAL ──────────────────────────────────────────────────
-const BAC2026_ANNOUNCE_KEY = 'bs_seen_feedback_invite_v2';
+const BAC2026_ANNOUNCE_KEY = 'bs_seen_feedback_invite_v3';
 
 function showBac2026AnnouncementModal() {
     if (localStorage.getItem(BAC2026_ANNOUNCE_KEY)) return;
