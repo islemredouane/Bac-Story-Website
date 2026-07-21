@@ -612,7 +612,11 @@
 
         /* ── Hero (landing-page treatment) ── */
         /* Push margin to zero so #feedback-page's background covers the full top area */
-        #feedback-page { margin-top: 0 !important; }
+        #feedback-page { 
+            margin-top: 0 !important; 
+            overflow-x: hidden;
+            width: 100%;
+        }
         #feedback-page .modern-hero { margin-top: 0; }
         .feedback-hero {
             position: relative;
@@ -624,10 +628,9 @@
         .fb-hero-bg {
             position: absolute;
             top: 0;
-            left: 50%;
-            width: 100vw;
+            left: 0;
+            width: 100%;
             height: 100%;
-            transform: translateX(-50%);
             overflow: hidden;
             pointer-events: none;
             z-index: 0;
