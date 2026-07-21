@@ -1310,6 +1310,36 @@ html {
     box-shadow: 0 8px 28px rgba(79, 70, 229, 0.15);
 }
 
+.gcta-card--feedback {
+    background:
+        linear-gradient(120deg, #7a4f00 0%, #b8860b 30%, #d4a017 55%, #c8920e 75%, #8b6200 100%);
+    box-shadow:
+        0 2px 0 rgba(255,255,255,0.12) inset,
+        0 -1px 0 rgba(0,0,0,0.25) inset,
+        0 10px 36px rgba(180, 130, 0, 0.4),
+        0 2px 8px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 220, 80, 0.35);
+}
+.gcta-card--feedback::before {
+    background:
+        radial-gradient(ellipse at 70% 0%, rgba(255, 240, 140, 0.28) 0%, transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,0.08) 0%, transparent 50%);
+}
+.gcta-card--feedback:hover {
+    box-shadow:
+        0 2px 0 rgba(255,255,255,0.14) inset,
+        0 -1px 0 rgba(0,0,0,0.25) inset,
+        0 18px 48px rgba(180, 130, 0, 0.5),
+        0 4px 12px rgba(0, 0, 0, 0.28) !important;
+    transform: translateY(-3px) !important;
+}
+.gcta-card--feedback .gcta-icon-circle {
+    background: rgba(0, 0, 0, 0.18);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255,220,80,0.3);
+    color: #fff3b0;
+}
+.gcta-card--feedback .gcta-icon-circle i { color: #fff3b0; }
+
 .gcta-icon-circle {
     width: 52px;
     height: 52px;
