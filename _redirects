@@ -1,0 +1,2 @@
+# Cloudflare Pages handles clean URLs automatically (no .html needed)
+# No redirects required — domain redirects handled at Cloudflare DNS level
