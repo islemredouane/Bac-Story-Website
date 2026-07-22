@@ -80,16 +80,6 @@
                 </div>
                 <div class="timer-done" id="timer-done-3" style="display:none;">🎓 موعد بكالوريا 2027</div>
             </div>
-            <div class="compact-timer compact-timer--uni">
-                <p class="compact-timer__label">الوقت المتبقي <span style="color:#2ecc71;font-weight:900;">لنهاية التسجيلات الجامعية الأولية</span></p>
-                <div class="timer-numbers">
-                    <div class="time-block"><div class="timer-number" id="t-days-uni">--</div><div class="timer-label">يوم</div></div>
-                    <div class="time-block"><div class="timer-number" id="t-hours-uni">--</div><div class="timer-label">ساعات</div></div>
-                    <div class="time-block"><div class="timer-number" id="t-min-uni">--</div><div class="timer-label">دقيقة</div></div>
-                    <div class="time-block"><div class="timer-number" id="t-sec-uni">--</div><div class="timer-label">ثانية</div></div>
-                </div>
-                <div class="timer-done" id="timer-done-uni" style="display:none;">✅ انتهت مدة التسجيلات الجامعية الأولية</div>
-            </div>
         </div>
         <div style="text-align:center; margin-top: 2.5rem;">
             <a href="/tools" class="modern-cta-btn" style="display:inline-flex;">
@@ -104,38 +94,5 @@
 <script src="/ads-config.js?v=1.9"></script>
 <script src="/components/shared.js?v=9.1"></script>
 <script src="/script.js?v=8.0"></script>
-<script>
-(function() {
-    var target = new Date(2026, 6, 20, 0, 0, 0); // July 20, 2026 00:00:00
-    function tick() {
-        var now = new Date();
-        var diff = target - now;
-        var doneEl = document.getElementById('timer-done-uni');
-        if (diff <= 0) {
-            ['t-days-uni','t-hours-uni','t-min-uni','t-sec-uni'].forEach(function(id) {
-                var el = document.getElementById(id);
-                if (el) el.textContent = '00';
-            });
-            if (doneEl) doneEl.style.display = 'block';
-            return;
-        }
-        var days  = Math.floor(diff / 86400000);
-        var hours = Math.floor((diff % 86400000) / 3600000);
-        var mins  = Math.floor((diff % 3600000) / 60000);
-        var secs  = Math.floor((diff % 60000) / 1000);
-        var d = document.getElementById('t-days-uni');
-        var h = document.getElementById('t-hours-uni');
-        var m = document.getElementById('t-min-uni');
-        var s = document.getElementById('t-sec-uni');
-        if (d) d.textContent = String(days).padStart(2,'0');
-        if (h) h.textContent = String(hours).padStart(2,'0');
-        if (m) m.textContent = String(mins).padStart(2,'0');
-        if (s) s.textContent = String(secs).padStart(2,'0');
-        if (doneEl) doneEl.style.display = 'none';
-    }
-    tick();
-    setInterval(tick, 1000);
-})();
-</script>
 </body>
 </html>
