@@ -593,6 +593,18 @@
             direction: rtl;
             flex: 0 0 340px;
             width: 340px;
+            height: 386px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .fb-wall-card p {
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 10;
+            line-clamp: 10;
+            margin: 0;
         }
         /* Rows are overflow:hidden for the marquee mask — a translateY lift on hover
            would get clipped by the row edge, so keep hover feedback flat. */
@@ -1164,8 +1176,8 @@
                 '<div><div class="fb-card-name">' + esc(name) + '</div>' +
                 (c.t ? '<div class="fb-card-meta">' + esc(c.t) + '</div>' : '') + '</div>' +
                 '<div class="fb-card-stars">' + starRow(c.s || 0) + '</div></div>';
-            if (c.o) html += '<p>' + esc(c.o) + '</p>';
-            if (c.a) html += '<p>' + esc(c.a) + '</p>';
+            var parts = [c.o, c.a].filter(Boolean).map(esc);
+            if (parts.length) html += '<p>' + parts.join('<br>') + '</p>';
             card.innerHTML = html;
             return card;
         }
