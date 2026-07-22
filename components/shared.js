@@ -1190,23 +1190,29 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Register Service Worker for PWA / Shortcut functionality
     if ('serviceWorker' in navigator) {
+        // Captured before registration resolves, so a brand-new visitor (no
+        // prior controller) never gets force-reloaded on first install —
+        // only real updates for returning visitors trigger a refresh.
+        var hadController = !!navigator.serviceWorker.controller;
+
         window.addEventListener('load', () => {
             navigator.serviceWorker.register('/sw.js')
                 .then(reg => {
-                    console.log('Service Worker registered');
-                    // Check for updates periodically
                     reg.update();
                 })
                 .catch(err => console.warn('SW failed', err));
         });
 
-        // Detect when a new service worker takes over and reload automatically
-        let refreshing = false;
+        // Reload once when a new service worker takes control. The guard is
+        // stored in sessionStorage (not a local variable) so it survives the
+        // reload itself — a local var resets to false on every page load,
+        // which let a single controllerchange event trigger an infinite
+        // reload loop during CDN cache propagation.
         navigator.serviceWorker.addEventListener('controllerchange', () => {
-            if (!refreshing) {
-                refreshing = true;
-                window.location.reload();
-            }
+            if (!hadController) return;
+            if (sessionStorage.getItem('bsSwReloaded')) return;
+            try { sessionStorage.setItem('bsSwReloaded', '1'); } catch (e) {}
+            window.location.reload();
         });
     }
 });

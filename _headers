@@ -12,6 +12,9 @@
 /*.js
   Cache-Control: public, max-age=86400, stale-while-revalidate=604800
 
+/sw.js
+  Cache-Control: no-cache, no-store, must-revalidate
+
 /*.jpg
   Cache-Control: public, max-age=31536000, immutable
 
