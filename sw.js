@@ -1,4 +1,4 @@
-const CACHE_NAME = 'bac-story-v4';
+const CACHE_NAME = 'bac-story-v5';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
@@ -32,19 +32,32 @@ self.addEventListener('activate', (event) => {
 
 // Fetch Event - Network First Strategy
 self.addEventListener('fetch', (event) => {
+  const req = event.request;
+
+  // Only handle same-origin GET requests — never intercept POSTs (feedback
+  // submissions) or cross-origin calls (API, ads, analytics, fonts). This
+  // also stops dynamic API responses from being cached and served stale.
+  let sameOrigin = false;
+  try { sameOrigin = new URL(req.url).origin === self.location.origin; } catch (e) {}
+  if (req.method !== 'GET' || !sameOrigin) {
+    return;
+  }
+
   event.respondWith(
-    fetch(event.request)
+    fetch(req)
       .then((response) => {
-        // If successful, clone the response and store in cache
-        const resClone = response.clone();
-        caches.open(CACHE_NAME).then((cache) => {
-          cache.put(event.request, resClone);
-        });
+        // Only cache successful responses — never cache errors/redirects
+        if (response && response.ok) {
+          const resClone = response.clone();
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(req, resClone);
+          });
+        }
         return response;
       })
       .catch(() => {
         // If network fails, try to serve from cache
-        return caches.match(event.request);
+        return caches.match(req);
       })
   );
 });
