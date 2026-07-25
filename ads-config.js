@@ -63,7 +63,7 @@ window.BAC_ADS = {
       pitch:        'تخفيض حصري 3000 دج بكود BACSTORY على أجهزة الكمبيوتر واللابتوب — توصيل لجميع الولايات.',
       ctaText:      'فعّل الخصم الآن',
       ctaIcon:      'fab fa-whatsapp',
-      ctaHref:      'https://wa.me/213662945049?text=' + encodeURIComponent('مرحباً 👋، شفت إعلان BAC STORY وحاب نستافد من كود الخصم BACSTORY'),
+      ctaHref:      'https://wa.me/213662945059?text=' + encodeURIComponent('مرحباً 👋، شفت إعلان BAC STORY وحاب نستافد من كود الخصم BACSTORY'),
       ctaTarget:    '_blank',
       secondaryIcon: 'fab fa-instagram',
       secondaryHref: 'https://www.instagram.com/tech_focus31/',
