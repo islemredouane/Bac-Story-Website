@@ -8545,6 +8545,12 @@ body.pdf-body-lock {
     flex-shrink: 0;
 }
 
+@keyframes adxCtaPing {
+    0%   { transform: scale(1);   opacity: .55; }
+    70%  { transform: scale(1.55); opacity: 0;  }
+    100% { transform: scale(1.55); opacity: 0;  }
+}
+
 .adx-cta {
     display: inline-flex;
     align-items: center;
@@ -8561,6 +8567,18 @@ body.pdf-body-lock {
     white-space: nowrap;
     box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
     transition: var(--transition);
+    position: relative;
+}
+
+/* ping ring */
+.adx-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 999px;
+    border: 2.5px solid rgba(37, 211, 102, 0.75);
+    animation: adxCtaPing 1.6s cubic-bezier(0, 0, 0.2, 1) infinite;
+    pointer-events: none;
 }
 
 .adx-cta i {
