@@ -8545,10 +8545,16 @@ body.pdf-body-lock {
     flex-shrink: 0;
 }
 
-@keyframes adxCtaPing {
-    0%   { transform: scale(1);   opacity: .55; }
-    70%  { transform: scale(1.55); opacity: 0;  }
-    100% { transform: scale(1.55); opacity: 0;  }
+@keyframes adxCtaPulse {
+    0%   { box-shadow: 0 6px 18px rgba(37,211,102,.35), 0 0 0 0   rgba(37,211,102,.55); }
+    60%  { box-shadow: 0 6px 18px rgba(37,211,102,.35), 0 0 0 10px rgba(37,211,102,0);  }
+    100% { box-shadow: 0 6px 18px rgba(37,211,102,.35), 0 0 0 0   rgba(37,211,102,0);  }
+}
+
+@keyframes adxCtaShine {
+    0%   { transform: translateX(160%) skewX(-18deg); opacity: 0;   }
+    10%  { opacity: 1; }
+    100% { transform: translateX(-160%) skewX(-18deg); opacity: 0;  }
 }
 
 .adx-cta {
@@ -8565,29 +8571,32 @@ body.pdf-body-lock {
     font-weight: 900;
     text-decoration: none;
     white-space: nowrap;
-    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
-    transition: var(--transition);
     position: relative;
+    overflow: hidden;
+    animation: adxCtaPulse 2s ease-out infinite;
+    transition: transform .3s ease, box-shadow .3s ease;
 }
 
-/* ping ring */
+/* shine sweep — fully contained, no overflow */
 .adx-cta::before {
     content: '';
     position: absolute;
-    inset: 0;
-    border-radius: 999px;
-    border: 2.5px solid rgba(37, 211, 102, 0.75);
-    animation: adxCtaPing 1.6s cubic-bezier(0, 0, 0.2, 1) infinite;
+    top: 0; bottom: 0;
+    width: 45%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.32), transparent);
+    animation: adxCtaShine 3s ease-in-out infinite;
     pointer-events: none;
 }
 
 .adx-cta i {
     font-size: 1.1rem;
+    position: relative;
 }
 
 .adx-cta:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 26px rgba(37, 211, 102, 0.45);
+    box-shadow: 0 10px 26px rgba(37,211,102,.5), 0 0 0 0 rgba(37,211,102,0);
+    animation-play-state: paused;
     color: #fff;
 }
 
