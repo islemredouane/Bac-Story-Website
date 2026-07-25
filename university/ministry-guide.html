@@ -87,8 +87,8 @@
   <div class="urc-left">
     <div class="urc-icon-wrap"><i class="fas fa-university"></i></div>
     <div>
-      <div class="urc-label" id="urc-label">نهاية مرحلة تأكيد الرغبات</div>
-      <div class="urc-sublabel" id="urc-sublabel"><i class="fas fa-clock"></i><span id="urc-sublabel-text">الوقت المتبقي لتأكيد رغباتك</span></div>
+      <div class="urc-label" id="urc-label">نتائج التوجيه الجامعي</div>
+      <div class="urc-sublabel" id="urc-sublabel"><i class="fas fa-clock"></i><span id="urc-sublabel-text">الوقت المتبقي لنتائج التوجيه</span></div>
     </div>
   </div>
   <div id="urc-nums">
@@ -100,9 +100,9 @@
     <div class="urc-colon">:</div>
     <div class="urc-block"><div class="urc-num" id="urc-sec">--</div><div class="urc-unit">ثانية</div></div>
   </div>
-  <div id="urc-done-msg"><i class="fas fa-circle-check"></i><span>انتهت مدة تأكيد الرغبات</span></div>
+  <div id="urc-done-msg"><i class="fas fa-circle-check"></i><span>صدرت نتائج التوجيه الجامعي</span></div>
 </div>
-<script>(function(){var START=new Date(2026,6,20,0,0,0);var END=new Date(2026,6,23,0,0,0);function pad(n){return String(n).padStart(2,'0')}function tick(){var now=new Date();var target,label,sub;if(now<START){target=START;label='بداية مرحلة تأكيد الرغبات';sub='الوقت المتبقي على بداية التأكيد';}else if(now<END){target=END;label='نهاية مرحلة تأكيد الرغبات';sub='الوقت المتبقي لتأكيد رغباتك';}else{document.getElementById('urc-nums').style.display='none';document.getElementById('urc-sublabel').style.display='none';document.getElementById('urc-done-msg').style.display='flex';return}document.getElementById('urc-label').textContent=label;document.getElementById('urc-sublabel-text').textContent=sub;var diff=target-now;document.getElementById('urc-days').textContent=pad(Math.floor(diff/86400000));document.getElementById('urc-hours').textContent=pad(Math.floor((diff%86400000)/3600000));document.getElementById('urc-min').textContent=pad(Math.floor((diff%3600000)/60000));document.getElementById('urc-sec').textContent=pad(Math.floor((diff%60000)/1000))}tick();setInterval(tick,1000)})();</script>
+<script>(function(){var TARGET=new Date(2026,6,30,14,0,0);function pad(n){return String(n).padStart(2,'0')}function tick(){var now=new Date();if(now>=TARGET){document.getElementById('urc-nums').style.display='none';document.getElementById('urc-sublabel').style.display='none';document.getElementById('urc-done-msg').style.display='flex';return}var diff=TARGET-now;document.getElementById('urc-days').textContent=pad(Math.floor(diff/86400000));document.getElementById('urc-hours').textContent=pad(Math.floor((diff%86400000)/3600000));document.getElementById('urc-min').textContent=pad(Math.floor((diff%3600000)/60000));document.getElementById('urc-sec').textContent=pad(Math.floor((diff%60000)/1000))}tick();setInterval(tick,1000)})();</script>
 <section class="pdf-viewer" style="text-align: center; padding-bottom: 40px;">
 <div class="pdf-wrapper">
 <a class="search-telegram-btn" href="https://t.me/islembacdz" rel="noopener" style="margin-bottom: 40px;" target="_blank">

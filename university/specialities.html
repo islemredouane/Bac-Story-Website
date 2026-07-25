@@ -222,10 +222,10 @@
             <i class="fas fa-university"></i>
         </div>
         <div>
-            <div class="urc-label" id="urc-label">نهاية مرحلة تأكيد الرغبات</div>
+            <div class="urc-label" id="urc-label">نتائج التوجيه الجامعي</div>
             <div class="urc-sublabel" id="urc-sublabel">
                 <i class="fas fa-clock"></i>
-                <span id="urc-sublabel-text">الوقت المتبقي لتأكيد رغباتك</span>
+                <span id="urc-sublabel-text">الوقت المتبقي لنتائج التوجيه</span>
             </div>
         </div>
     </div>
@@ -252,34 +252,22 @@
     </div>
     <div id="urc-done-msg">
         <i class="fas fa-circle-check"></i>
-        <span>انتهت مدة تأكيد الرغبات</span>
+        <span>صدرت نتائج التوجيه الجامعي</span>
     </div>
 </div>
 <script>
 (function(){
-    var START=new Date(2026,6,20,0,0,0);
-    var END=new Date(2026,6,23,0,0,0);
+    var TARGET=new Date(2026,6,30,14,0,0);
     function pad(n){return String(n).padStart(2,'0');}
     function tick(){
         var now=new Date();
-        var target,label,sub;
-        if(now<START){
-            target=START;
-            label='بداية مرحلة تأكيد الرغبات';
-            sub='الوقت المتبقي على بداية التأكيد';
-        }else if(now<END){
-            target=END;
-            label='نهاية مرحلة تأكيد الرغبات';
-            sub='الوقت المتبقي لتأكيد رغباتك';
-        }else{
+        if(now>=TARGET){
             document.getElementById('urc-nums').style.display='none';
             document.getElementById('urc-sublabel').style.display='none';
             document.getElementById('urc-done-msg').style.display='flex';
             return;
         }
-        document.getElementById('urc-label').textContent=label;
-        document.getElementById('urc-sublabel-text').textContent=sub;
-        var diff=target-now;
+        var diff=TARGET-now;
         document.getElementById('urc-days').textContent=pad(Math.floor(diff/86400000));
         document.getElementById('urc-hours').textContent=pad(Math.floor((diff%86400000)/3600000));
         document.getElementById('urc-min').textContent=pad(Math.floor((diff%3600000)/60000));
