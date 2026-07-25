@@ -8222,7 +8222,14 @@ body.pdf-body-lock {
     flex-shrink: 0;
     font-size: 1.5rem;
     color: white;
+    overflow: hidden;
     /* shadow injected inline via JS to match avatarColor */
+}
+
+.ad-card-logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .ad-card-body {
@@ -8297,6 +8304,43 @@ body.pdf-body-lock {
     text-decoration: none;
 }
 
+.ad-card-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+.ad-card-cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: white;
+    border: 1.5px solid rgba(193, 53, 132, 0.25);
+    color: transparent;
+    background-clip: padding-box;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.ad-card-cta-secondary i {
+    font-size: 1.05rem;
+    background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.ad-card-cta-secondary:hover {
+    transform: translateY(-2px);
+    border-color: rgba(193, 53, 132, 0.5);
+    box-shadow: 0 6px 16px rgba(193, 53, 132, 0.18);
+}
+
 @media (max-width: 540px) {
     .ad-card {
         flex-direction: column;
@@ -8305,8 +8349,13 @@ body.pdf-body-lock {
         padding: 1.1rem 1rem;
     }
 
-    .ad-card-cta {
+    .ad-card-actions {
         width: 100%;
+    }
+
+    .ad-card-cta {
+        flex: 1;
+        min-width: 0;
         justify-content: center;
     }
 
@@ -8314,6 +8363,323 @@ body.pdf-body-lock {
         width: 48px;
         height: 48px;
         font-size: 1.2rem;
+    }
+}
+
+/* ================================================================
+   RICH AD CARD (layout: 'rich-bg') — background photo + HTML overlay
+   ================================================================ */
+
+.adx-hybrid {
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px;
+    background: #0f2557;
+    box-shadow: 0 10px 34px rgba(15, 37, 87, 0.22);
+    isolation: isolate;
+    direction: rtl;
+}
+
+/* advertiser-supplied photo */
+.adx-hybrid-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image: var(--bg);
+    background-size: cover;
+    background-position: center;
+    transform: scale(1.02);
+}
+
+/* scrim — keeps white text readable over any photo */
+.adx-hybrid-scrim {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+        linear-gradient(270deg, rgba(10, 26, 64, 0.97) 0%, rgba(10, 26, 64, 0.88) 42%, rgba(10, 26, 64, 0.45) 72%, rgba(10, 26, 64, 0.25) 100%),
+        linear-gradient(180deg, rgba(10, 26, 64, 0.35) 0%, transparent 40%, rgba(10, 26, 64, 0.5) 100%);
+}
+
+.adx-hybrid-inner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 1.15rem;
+    padding: 1.35rem 1.5rem;
+    min-height: 172px;
+}
+
+.adx-hybrid-body {
+    flex: 1;
+    min-width: 0;
+}
+
+.adx-sponsor {
+    position: absolute;
+    top: 0.6rem;
+    left: 0.85rem;
+    z-index: 4;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    padding: 2px 9px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.16);
+    color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.adx-logo {
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #fff;
+    padding: 5px;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28);
+}
+
+.adx-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.adx-name {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: #fff;
+    margin: 0;
+    line-height: 1.3;
+}
+
+.adx-sub {
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.82);
+    margin: 0.2rem 0 0;
+    line-height: 1.5;
+}
+
+.adx-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 0.55rem 0 0;
+}
+
+.adx-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.32rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #fff;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.13);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.adx-chip i {
+    font-size: 0.72rem;
+    opacity: 0.85;
+}
+
+.adx-deal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.7rem 1.15rem;
+    border-radius: 14px;
+    flex-shrink: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1.5px dashed rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(4px);
+}
+
+.adx-deal-top {
+    font-size: 0.62rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.75);
+    letter-spacing: 0.3px;
+}
+
+.adx-deal-num {
+    font-size: 1.85rem;
+    font-weight: 900;
+    line-height: 1.05;
+    color: #fff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+.adx-deal-num small {
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-right: 2px;
+}
+
+.adx-code {
+    margin-top: 0.3rem;
+    font-size: 0.66rem;
+    font-weight: 900;
+    letter-spacing: 0.6px;
+    padding: 2px 10px;
+    border-radius: 999px;
+    background: var(--secondary-color);
+    color: #fff;
+    white-space: nowrap;
+}
+
+.adx-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    flex-shrink: 0;
+}
+
+.adx-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.72rem 1.4rem;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: #fff;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 900;
+    text-decoration: none;
+    white-space: nowrap;
+    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
+    transition: var(--transition);
+}
+
+.adx-cta i {
+    font-size: 1.1rem;
+}
+
+.adx-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 26px rgba(37, 211, 102, 0.45);
+    color: #fff;
+}
+
+.adx-ig {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #fff;
+    border: 1.5px solid rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    transition: var(--transition);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+}
+
+.adx-ig i {
+    font-size: 1.15rem;
+    background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.adx-ig:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+@media (min-width: 701px) {
+    .adx-head-row {
+        display: contents;
+    }
+
+    .adx-deal-inline {
+        display: contents;
+    }
+}
+
+@media (max-width: 700px) {
+    .adx-hybrid-inner {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.9rem;
+        padding: 2.35rem 1.1rem 1.15rem;
+        min-height: 0;
+    }
+
+    .adx-hybrid-scrim {
+        background:
+            linear-gradient(180deg, rgba(10, 26, 64, 0.72) 0%, rgba(10, 26, 64, 0.93) 55%, rgba(10, 26, 64, 0.97) 100%);
+    }
+
+    .adx-head-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.85rem;
+    }
+
+    .adx-logo {
+        width: 54px;
+        height: 54px;
+        border-radius: 14px;
+    }
+
+    .adx-name {
+        font-size: 1.02rem;
+        margin-top: -2px;
+    }
+
+    .adx-deal {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+        padding: 0.75rem 1.1rem;
+        width: 100%;
+    }
+
+    .adx-deal-inline {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        line-height: 1.15;
+    }
+
+    .adx-deal-top {
+        font-size: 0.66rem;
+    }
+
+    .adx-deal-num {
+        font-size: 1.6rem;
+    }
+
+    .adx-code {
+        margin-top: 0;
+        flex-shrink: 0;
+        font-size: 0.7rem;
+        padding: 4px 12px;
+    }
+
+    .adx-actions {
+        width: 100%;
+    }
+
+    .adx-cta {
+        flex: 1;
+        min-width: 0;
     }
 }
 

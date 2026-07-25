@@ -38,8 +38,40 @@ window.BAC_ADS = {
 
   rotatingCards: [
     {
-      id:           'card-orientation',
+      id:           'card-techfocus-oran',
       active:       true,
+      priority:     1,
+      type:         'tech-shop',
+      layout:       'rich-bg',       // rich card: background image + HTML overlay
+      bgImage:      'https://pub-889477d66bc54c9582bba9a492cf605f.r2.dev/images/pub.png',
+      subline:      'جودة عالية · ضمان رسمي · أسعار منافسة',
+      chips: [
+        { icon: 'fas fa-shield-halved', text: 'منتجات أصلية' },
+        { icon: 'fas fa-truck-fast',    text: 'توصيل 58 ولاية' }
+      ],
+      dealLabel:    'تخفيض حصري',
+      dealAmount:   '3000',
+      dealUnit:     'دج',
+      dealCode:     'كود: BACSTORY',
+      sponsorLabel: 'إعلان مموّل',
+      avatarIcon:   'fas fa-laptop',
+      avatarColor:  '#2c5cc5',
+      logoUrl:      'https://pub-889477d66bc54c9582bba9a492cf605f.r2.dev/images/focustech%20logo.jpg',
+      name:         'Tech Focus - أجهزة كمبيوتر ولابتوب',
+      subject:      'PC & Laptop',
+      specialty:    'توصيل لـ 58 ولاية',
+      pitch:        'تخفيض حصري 3000 دج بكود BACSTORY على أجهزة الكمبيوتر واللابتوب — توصيل لجميع الولايات.',
+      ctaText:      'فعّل الخصم الآن',
+      ctaIcon:      'fab fa-whatsapp',
+      ctaHref:      'https://wa.me/213662945049?text=' + encodeURIComponent('مرحباً 👋، شفت إعلان BAC STORY وحاب نستافد من كود الخصم BACSTORY'),
+      ctaTarget:    '_blank',
+      secondaryIcon: 'fab fa-instagram',
+      secondaryHref: 'https://www.instagram.com/tech_focus31/',
+      secondaryLabel: 'تابعنا على انستغرام'
+    },
+    {
+      id:           'card-orientation',
+      active:       false,
       priority:     2,
       type:         'orientation',
       sponsorLabel: 'محتوى مدعوم',
@@ -55,7 +87,7 @@ window.BAC_ADS = {
     },
     {
       id:           'card-bac2027',
-      active:       true,
+      active:       false,
       priority:     2,
       type:         'courses',
       sponsorLabel: 'محتوى مدعوم',
@@ -71,7 +103,7 @@ window.BAC_ADS = {
     },
     {
       id:           'card-languages',
-      active:       true,
+      active:       false,
       priority:     2,
       type:         'training',
       sponsorLabel: 'محتوى مدعوم',
@@ -87,7 +119,7 @@ window.BAC_ADS = {
     },
     {
       id:           'card-platform',
-      active:       true,
+      active:       false,
       priority:     2,
       type:         'platform',
       sponsorLabel: 'محتوى مدعوم',
