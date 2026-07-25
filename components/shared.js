@@ -1071,15 +1071,66 @@ function injectAdCards() {
 
     let currentIdx = 0;
 
+    // Rich layout: advertiser background photo + HTML text overlay (layout: 'rich-bg')
+    function buildRichCardHTML(card) {
+        const chipsHTML = (card.chips || []).map(function (c) {
+            return `<span class="adx-chip"><i class="${c.icon || 'fas fa-check'}"></i> ${c.text}</span>`;
+        }).join('');
+        const dealHTML = card.dealAmount ? `
+                <div class="adx-deal">
+                    <div class="adx-deal-inline">
+                        <span class="adx-deal-top">${card.dealLabel || ''}</span>
+                        <span class="adx-deal-num">${card.dealAmount}<small>${card.dealUnit || ''}</small></span>
+                    </div>
+                    ${card.dealCode ? `<span class="adx-code">${card.dealCode}</span>` : ''}
+                </div>` : '';
+        return `
+            <div class="ad-card-wrap">
+                <div class="adx-hybrid">
+                    <div class="adx-hybrid-bg" style="--bg:url('${card.bgImage}')"></div>
+                    <div class="adx-hybrid-scrim"></div>
+                    <span class="adx-sponsor">${card.sponsorLabel || 'إعلان مموّل'}</span>
+                    <div class="adx-hybrid-inner">
+                        <div class="adx-head-row">
+                            ${card.logoUrl ? `
+                            <div class="adx-logo">
+                                <img src="${card.logoUrl}" alt="${card.name}">
+                            </div>` : ''}
+                            <div class="adx-hybrid-body">
+                                <p class="adx-name">${card.name}</p>
+                                ${card.subline ? `<p class="adx-sub">${card.subline}</p>` : ''}
+                                ${chipsHTML ? `<div class="adx-chips">${chipsHTML}</div>` : ''}
+                            </div>
+                        </div>
+                        ${dealHTML}
+                        <div class="adx-actions">
+                            <a class="adx-cta" href="${card.ctaHref}" target="${card.ctaTarget || '_self'}" rel="noopener">
+                                <i class="${card.ctaIcon || 'fas fa-arrow-left'}"></i> ${card.ctaText}
+                            </a>
+                            ${card.secondaryHref ? `
+                            <a class="adx-ig" href="${card.secondaryHref}" target="_blank" rel="noopener" aria-label="${card.secondaryLabel || ''}">
+                                <i class="${card.secondaryIcon || 'fas fa-link'}"></i>
+                            </a>` : ''}
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+    }
+
     function buildCardHTML(card) {
+        if (card.layout === 'rich-bg' && card.bgImage) return buildRichCardHTML(card);
         const specialtyHTML = card.specialty
             ? `<span class="ad-card-specialty">${card.specialty}</span>` : '';
+        const iconFallback = (card.avatarIcon || 'fas fa-star').replace(/'/g, "\\'");
+        const avatarInner = card.logoUrl
+            ? `<img src="${card.logoUrl}" alt="${card.name}" class="ad-card-logo-img" onerror="this.outerHTML='<i class=\'${iconFallback}\'></i>'">`
+            : `<i class="${card.avatarIcon || 'fas fa-star'}"></i>`;
         return `
             <div class="ad-card-wrap">
                 <div class="ad-card">
                     <span class="ad-card-sponsor">${card.sponsorLabel || 'محتوى مدعوم'}</span>
                     <div class="ad-card-avatar" style="background:${card.avatarColor || '#2c5cc5'};box-shadow:0 8px 24px ${card.avatarColor || '#2c5cc5'}99, 0 2px 8px ${card.avatarColor || '#2c5cc5'}55;">
-                        <i class="${card.avatarIcon || 'fas fa-star'}"></i>
+                        ${avatarInner}
                     </div>
                     <div class="ad-card-body">
                         <p class="ad-card-name">${card.name}</p>
@@ -1089,9 +1140,15 @@ function injectAdCards() {
                         </div>
                         <p class="ad-card-pitch">${card.pitch}</p>
                     </div>
-                    <a href="${card.ctaHref}" target="${card.ctaTarget || '_self'}" class="ad-card-cta">
-                        ${card.ctaText} <i class="fas fa-arrow-left"></i>
-                    </a>
+                    <div class="ad-card-actions">
+                        <a href="${card.ctaHref}" target="${card.ctaTarget || '_self'}" class="ad-card-cta">
+                            ${card.ctaText} <i class="${card.ctaIcon || 'fas fa-arrow-left'}"></i>
+                        </a>
+                        ${card.secondaryHref ? `
+                        <a href="${card.secondaryHref}" target="_blank" rel="noopener" class="ad-card-cta-secondary" aria-label="${card.secondaryLabel || ''}" data-tooltip="${card.secondaryLabel || ''}">
+                            <i class="${card.secondaryIcon || 'fas fa-link'}"></i>
+                        </a>` : ''}
+                    </div>
                 </div>
             </div>`;
     }
