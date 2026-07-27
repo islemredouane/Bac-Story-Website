@@ -2205,20 +2205,22 @@ body.search-active .mobile-bottom-bar,
     }
 
     .nav-links>a {
+        width: 100%;
         padding: 0.85rem 1rem;
         display: flex;
         align-items: center;
-        justify-content: center;
-        font-size: 1.05rem;
+        justify-content: flex-start;
+        font-size: 1.1rem;
         font-weight: 600;
         color: white !important;
         background: transparent;
         border: none;
         border-radius: 12px;
         transition: background-color 0.2s ease, color 0.2s ease;
-        text-align: center;
+        text-align: right;
         min-height: 48px;
         cursor: pointer;
+        gap: 0.5rem;
     }
 
     .dropdown-btn {
@@ -7861,7 +7863,12 @@ body.pdf-body-lock {
 .mobile-menu-footer .search-telegram-btn {
     margin: 0 auto;
     width: 100%;
+    max-width: 320px;
     justify-content: center;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 50px;
+    box-shadow: 0 4px 20px rgba(36, 161, 222, 0.3);
 }
 
 .search-telegram-btn:hover {
