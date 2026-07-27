@@ -2245,10 +2245,12 @@ body.search-active .mobile-bottom-bar,
     .nav-links>a:active,
     .dropdown-btn:hover,
     .dropdown-btn:active {
-        background-color: rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.12);
         color: white !important;
         box-shadow: none;
         transform: none;
+        border-right: 3px solid rgba(255, 255, 255, 0.5);
+        padding-right: calc(1rem - 3px);
     }
 
     .dropdown-btn::after {
@@ -2284,7 +2286,7 @@ body.search-active .mobile-bottom-bar,
         margin: 0;
         padding: 0 0.5rem;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, padding 0.3s ease;
+        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, padding 0.3s ease, overflow 0s 0.4s;
     }
 
     .dropdown.active .dropdown-content {
@@ -2303,11 +2305,10 @@ body.search-active .mobile-bottom-bar,
         font-size: 1rem;
         font-weight: 500;
         border-radius: 8px;
-        transition: all 0.3s var(--transition);
+        transition: background 0.22s ease, color 0.18s ease, transform 0.22s ease, box-shadow 0.22s ease;
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        /* RTL links alignment */
         border-bottom: none;
         margin-bottom: 4px;
         text-align: right;
@@ -2315,9 +2316,11 @@ body.search-active .mobile-bottom-bar,
 
     .dropdown-content a:hover,
     .dropdown-content a:active {
+        background: linear-gradient(135deg, #1a3a8f, #2c5cc5);
         color: white !important;
         border-radius: 8px;
-        transform: translateX(-4px);
+        transform: translateX(-3px);
+        filter: drop-shadow(0 3px 8px rgba(26, 58, 143, 0.3));
     }
 
     .telegram-btn {
@@ -7625,7 +7628,6 @@ body.pdf-body-lock {
     transition: var(--transition);
     padding: 2rem 1.5rem;
     border-radius: 20px;
-    inset: 8px;
     overflow: hidden;
 }
 
@@ -7706,13 +7708,27 @@ body.pdf-body-lock {
 }
 
 .close-search-btn {
-    background: transparent;
+    background: rgba(255, 255, 255, 0.1);
     border: none;
     color: white;
-    font-family: 'Tajawal', sans-serif;
-    font-size: 1rem;
+    font-size: 2.2rem;
     cursor: pointer;
-    white-space: nowrap;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    line-height: 45px;
+    text-align: center;
+    padding: 0;
+    flex-shrink: 0;
+    transition: var(--transition);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.close-search-btn:hover,
+.close-search-btn:focus {
+    background: rgba(255, 255, 255, 0.2);
+    outline: none;
+    transform: rotate(90deg);
 }
 
 .search-results-area {
