@@ -14135,6 +14135,32 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
 .results-alert.info  .results-alert-body p { color: #2d4a8a; }
 .results-alert.danger .results-alert-body p { color: #7b241c; }
 
+/* Centre buttons inside detail-cards regardless of wrapper text-align or inline style */
+.detail-card .acceptance-calc-btn {
+    display: flex !important;
+    margin: 0 auto;
+    width: fit-content;
+    justify-content: center;
+}
+
+/* Vertical centred layout inside narrow cards */
+.detail-card .results-alert {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 18px 14px;
+}
+
+/* Also vertical on small screens regardless of card context */
+@media (max-width: 480px) {
+    .results-alert {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 18px 14px;
+    }
+}
+
 @media (max-width: 520px) {
     .results-alert {
         flex-direction: column;
