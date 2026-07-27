@@ -7624,6 +7624,9 @@ body.pdf-body-lock {
     opacity: 0;
     transition: var(--transition);
     padding: 2rem 1.5rem;
+    border-radius: 20px;
+    inset: 8px;
+    overflow: hidden;
 }
 
 .search-overlay.active {
@@ -7910,6 +7913,11 @@ body.pdf-body-lock {
         gap: 1rem;
         text-align: center;
         padding-top: 1rem;
+        align-items: center;
+    }
+
+    .search-footer .search-telegram-btn {
+        margin: 0 auto;
     }
 
     .search-placeholder {
