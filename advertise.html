@@ -44,7 +44,204 @@
         <link rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Pattaya&display=swap">
     </noscript>
-    <style>.footer-arabic { margin-top: 0 !important; }</style>
+    <style>
+        .footer-arabic { margin-top: 0 !important; }
+
+        /* ── Hero: white + orbs (feedback-hero style) ── */
+        .adp-hero {
+            background: var(--bg-primary, #ffffff);
+            padding: 5rem 1.5rem 4rem;
+        }
+        .adp-hero::before, .adp-hero::after { display: none; }
+
+        .adp-hero-orb {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            filter: blur(2px);
+            animation: adpOrbFloat 10s ease-in-out infinite;
+        }
+        .adp-hero-orb.o1 {
+            width: 380px; height: 380px;
+            top: -100px; right: 2%;
+            background: radial-gradient(circle, rgba(44, 92, 197, 0.1) 0%, rgba(44, 92, 197, 0) 70%);
+        }
+        .adp-hero-orb.o2 {
+            width: 300px; height: 300px;
+            bottom: -80px; left: 4%;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.08) 0%, rgba(255, 107, 53, 0) 70%);
+            animation-delay: -4s;
+        }
+        .adp-hero-orb.o3 {
+            width: 180px; height: 180px;
+            top: 40%; left: 20%;
+            background: radial-gradient(circle, rgba(44, 92, 197, 0.07) 0%, rgba(44, 92, 197, 0) 70%);
+            animation-delay: -7s;
+        }
+        @keyframes adpOrbFloat {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            50% { transform: translateY(-16px) translateX(10px); }
+        }
+
+        /* Text colors on white */
+        .adp-hero-eyebrow { color: #64748b; }
+        .adp-hero-title { color: #2c5cc5; }
+        .adp-hero-sub { color: #475569; }
+
+        /* آلاف blue highlight */
+        .adp-hero-blue-hl {
+            color: #2c5cc5;
+            font-weight: 900;
+        }
+
+        /* Wavy underline on أمام آلاف */
+        .adp-hero-wave {
+            position: relative;
+            display: inline;
+        }
+        .adp-hero-wave::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='8' viewBox='0 0 20 8'%3E%3Cpath d='M0 4 C5 0 5 0 10 4 C15 8 15 8 20 4' stroke='%232c5cc5' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+            background-repeat: repeat-x;
+            background-size: 20px 8px;
+        }
+        @media (max-width: 768px) {
+            .adp-hero-title { line-height: 1.6; }
+        }
+
+        /* Stat cards on white */
+        .adp-stat-card {
+            background: rgba(26, 58, 143, 0.05);
+            border-color: rgba(26, 58, 143, 0.12);
+        }
+        .adp-stat-card:hover {
+            background: rgba(26, 58, 143, 0.09);
+            border-color: rgba(26, 58, 143, 0.2);
+        }
+        .adp-stat-val { color: #2c5cc5; }
+        .adp-stat-lbl { color: #64748b; }
+        .adp-audience-num { font-family: 'Tajawal', sans-serif; font-weight: 900; }
+        .adp-step-circle { font-family: 'Tajawal', sans-serif; font-weight: 900; }
+        .adp-audience-text h2,
+        .adp-why-header h2 { color: #0f172a; }
+        .adp-audience-text h2 span,
+        .adp-why-header h2 span,
+        .adp-steps-header h2 span { color: #2c5cc5; }
+
+        /* ── Why stack cards ── */
+        .adp-why-stack { max-width: 720px; margin: 3rem auto 0; }
+        .adp-scard {
+            position: sticky;
+            top: 110px;
+            background: #fff;
+            border: 1.5px solid rgba(44,92,197,.1);
+            border-radius: 22px;
+            padding: 1.5rem 1.8rem;
+            margin-bottom: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 1.3rem;
+            transform-origin: top center;
+            will-change: transform, filter;
+            box-shadow: 0 4px 24px rgba(44,92,197,.08);
+            overflow: hidden;
+            transition: border-color .2s ease, box-shadow .2s ease;
+        }
+        .adp-scard:hover { border-color: rgba(44,92,197,.25); box-shadow: 0 12px 40px rgba(44,92,197,.14); }
+        .adp-scard::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3.5px;
+            background: linear-gradient(90deg, transparent, var(--sc-color, #2c5cc5));
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform .3s ease;
+            z-index: 2;
+        }
+        .adp-scard:hover::before { transform: scaleX(1); }
+        .adp-scard::after {
+            content: attr(data-num);
+            position: absolute;
+            bottom: .9rem; left: 1.3rem;
+            font-size: .7rem; font-weight: 900;
+            color: rgba(44,92,197,.15);
+        }
+        .adp-scard-icon {
+            width: 54px; height: 54px;
+            border-radius: 16px;
+            flex-shrink: 0;
+            background: var(--sc-color, #2c5cc5);
+            color: #fff;
+            font-size: 1.35rem;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 10px 26px var(--sc-shadow, rgba(44,92,197,.35)), 0 2px 6px var(--sc-shadow, rgba(44,92,197,.2));
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+        .adp-scard:hover .adp-scard-icon {
+            transform: scale(1.1) rotate(-5deg);
+            box-shadow: 0 14px 32px var(--sc-shadow, rgba(44,92,197,.45)), 0 4px 10px var(--sc-shadow, rgba(44,92,197,.25));
+        }
+        .adp-scard-body { flex: 1; min-width: 0; }
+        .adp-scard-title { font-size: 1.05rem; font-weight: 800; color: #0f172a; margin-bottom: .28rem; font-family: 'Tajawal', sans-serif; }
+        .adp-scard-desc { font-size: .86rem; color: #64748b; line-height: 1.6; font-family: 'Tajawal', sans-serif; }
+        @media (max-width: 600px) {
+            .adp-scard { flex-direction: column; align-items: flex-start; gap: .9rem; padding: 1.2rem 1.1rem 1.5rem; top: 90px; }
+            .adp-scard::before { top: 0; right: 0; left: 0; bottom: auto; width: auto; height: 3px; }
+            .adp-scard-icon { width: 46px; height: 46px; font-size: 1.1rem; }
+        }
+
+        /* ── Audience section overrides ── */
+        .adp-audience-split { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+        .adp-cities-list { display: flex; flex-direction: column; gap: 0.55rem; margin-top: 1.2rem; }
+        .adp-city-row { display: flex; align-items: center; gap: 0.75rem; direction: rtl; }
+        .adp-city-name {
+            font-family: 'Tajawal', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #334155;
+            min-width: 70px;
+            text-align: right;
+        }
+        .adp-city-track {
+            flex: 1;
+            height: 6px;
+            background: rgba(44, 92, 197, 0.1);
+            border-radius: 99px;
+            overflow: hidden;
+        }
+        .adp-city-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #1a3a8f, #3d6ee0);
+            border-radius: 99px;
+        }
+        .adp-cities-more {
+            font-family: 'Tajawal', sans-serif;
+            font-size: 0.78rem;
+            color: #94a3b8;
+            margin-top: 0.3rem;
+            text-align: right;
+        }
+        @media (max-width: 768px) {
+            .adp-audience-split { grid-template-columns: 1fr; }
+        }
+
+        /* ── Urgency CTA ── */
+        .adp-packages { border-radius: 28px; margin: 0 1rem; }
+        .adp-urgency {
+            background: linear-gradient(135deg, #1a3a8f 0%, #2c5cc5 55%, #3d6ee0 100%);
+            border-radius: 40px 40px 0 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        }
+        .adp-urgency::before,
+        .adp-urgency::after { display: none; }
+        .adp-urgency-btn--tg { transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease, color 0.35s ease; }
+    </style>
 
     <!-- Open Graph / Facebook / Social Media -->
     <meta property="og:type" content="website">
@@ -69,32 +266,33 @@
          1. HERO
     ══════════════════════════════════════════════ -->
     <section class="adp-hero">
+        <div class="adp-hero-orb o1"></div>
+        <div class="adp-hero-orb o2"></div>
+        <div class="adp-hero-orb o3"></div>
         <div class="adp-hero-content">
-            <p class="adp-hero-eyebrow">منصة BAC STORY — بكالوريا 2027</p>
+            <div class="social-proof-badge">
+                <i class="fas fa-bullhorn"></i> منصة BAC STORY — بكالوريا 2027
+            </div>
             <h1 class="adp-hero-title">
-                أعلن أمام <span class="adp-hero-hl">آلاف الطلاب</span><br>
+                أعلن <span class="adp-hero-wave">أمام <span class="adp-hero-blue-hl">آلاف</span></span> <span class="adp-hero-hl">تلاميذ بكالوريا 2027</span>
             </h1>
             <p class="adp-hero-sub">
-                المنصة الأولى للبكالوريا الجزائرية — جمهور متحفز يبحث عن دروس وأساتذة الآن
+                المنصة الأولى لطلاب البكالوريا الجزائرية تتيح لك الوصول لآلاف التلاميذ مع إنطلاق التحضير للبكالوريا
             </p>
             <a href="https://t.me/islembacdz" target="_blank" rel="noopener"
-               class="adp-hero-btn">
-                <i class="fas fa-envelope"></i>
+               class="adp-hero-btn floating">
+                <i class="fab fa-telegram-plane"></i>
                 أعلن معنا اليوم
             </a>
             <!-- Stats row — update each week from GA -->
             <div class="adp-stats-row">
                 <div class="adp-stat-card">
-                    <span class="adp-stat-val">+2 مليون</span>
-                    <span class="adp-stat-lbl">مشاهدة أسبوعية</span>
-                </div>
-                <div class="adp-stat-card">
-                    <span class="adp-stat-val"> +60 ألف</span>
-                    <span class="adp-stat-lbl">مستخدم نشط أسبوعي</span>
-                </div>
-                <div class="adp-stat-card">
-                    <span class="adp-stat-val">40+ ألف</span>
+                    <span class="adp-stat-val">+15 ألف</span>
                     <span class="adp-stat-lbl">زائر يومي</span>
+                </div>
+                <div class="adp-stat-card">
+                    <span class="adp-stat-val">69 ولاية</span>
+                    <span class="adp-stat-lbl">تغطية وطنية كاملة</span>
                 </div>
             </div>
         </div>
@@ -108,8 +306,8 @@
             <div class="adp-audience-split">
                 <div class="adp-audience-text">
                     <span class="adp-tag">من هو جمهورك؟</span>
-                    <h2>تلاميذ البكالوريا<br>من جميع ولايات الجزائر</h2>
-                    <p>كل زائر يبحث عن دروس أو ملخصات أو مواضيع — نية الشراء في أعلى مستوياتها خلال هذا الموسم.</p>
+                    <h2><span>تلاميذ البكالوريا</span><br>من جميع ولايات الجزائر</h2>
+                    <p>تلاميذ انتهوا من البكالوريا 2026 ويبحثون عن تكوينات ومهارات — وطلاب بكالوريا 2027 بدأوا تحضيرهم. الموسمان معًا على منصتنا الآن.</p>
                     <div class="adp-cities-list">
                         <div class="adp-city-row">
                             <span class="adp-city-name">الجزائر</span>
@@ -117,24 +315,29 @@
                         </div>
                         <div class="adp-city-row">
                             <span class="adp-city-name">سطيف</span>
-                            <div class="adp-city-track"><div class="adp-city-fill" style="width:80%"></div></div>
+                            <div class="adp-city-track"><div class="adp-city-fill" style="width:76%"></div></div>
+                        </div>
+                        <div class="adp-city-row">
+                            <span class="adp-city-name">وهران</span>
+                            <div class="adp-city-track"><div class="adp-city-fill" style="width:63%"></div></div>
                         </div>
                         <div class="adp-city-row">
                             <span class="adp-city-name">البليدة</span>
-                            <div class="adp-city-track"><div class="adp-city-fill" style="width:60%"></div></div>
+                            <div class="adp-city-track"><div class="adp-city-fill" style="width:54%"></div></div>
                         </div>
                         <div class="adp-city-row">
                             <span class="adp-city-name">تيزي وزو</span>
-                            <div class="adp-city-track"><div class="adp-city-fill" style="width:60%"></div></div>
+                            <div class="adp-city-track"><div class="adp-city-fill" style="width:47%"></div></div>
                         </div>
-                        <p class="adp-cities-more">+ مئات الولايات والمدن الجزائرية الأخرى</p>
+                        <p class="adp-cities-more">+ من 69 ولاية عبر الجزائر</p>
                     </div>
                 </div>
+
                 <div class="adp-audience-card">
                     <div class="adp-tg-icon">
                         <i class="fab fa-telegram-plane"></i>
                     </div>
-                    <div class="adp-audience-num">15+ ألف</div>
+                    <div class="adp-audience-num">16+ ألف</div>
                     <div class="adp-audience-num-lbl">متابع على قناة التلغرام</div>
                     <div class="adp-audience-divider"></div>
                     <p class="adp-tg-desc">قناة <strong>BAC STORY WITH ISLEM</strong> — منصة التواصل المباشرة مع طلاب الباك. الظهور الكامل يتضمن ذكرًا على القناة.</p>
@@ -153,37 +356,46 @@
         <div class="adp-section-wrap">
             <div class="adp-why-header">
                 <span class="adp-tag">لماذا BAC STORY؟</span>
-                <h2>4 أسباب تجعل إعلانك هنا يستحق</h2>
+                <h2>4 أسباب تجعل <span>إعلانك هنا</span> يستحق</h2>
             </div>
-            <div class="adp-why-grid">
-                <div class="adp-why-card">
-                    <div class="adp-why-icon"><i class="fas fa-crosshairs"></i></div>
-                    <div>
-                        <h3>جمهور مستهدف 100%</h3>
-                        <p>كل زائر طالب باك أو وليّ أمر يبحث عن دعم. صفر هدر في ميزانية إعلانك.</p>
+            <div class="adp-why-stack">
+
+                <div class="adp-scard" data-num="01"
+                    style="--sc-color:#2c5cc5;--sc-bg:rgba(44,92,197,.08);--sc-shadow:rgba(44,92,197,.35)">
+                    <div class="adp-scard-icon"><i class="fas fa-crosshairs"></i></div>
+                    <div class="adp-scard-body">
+                        <div class="adp-scard-title">جمهور مستهدف 100%</div>
+                        <div class="adp-scard-desc">كل زائر طالب باك أو وليّ أمر يبحث عن دعم. صفر هدر في ميزانية إعلانك.</div>
                     </div>
                 </div>
-                <div class="adp-why-card adp-why-card--orange">
-                    <div class="adp-why-icon adp-why-icon--orange"><i class="fas fa-fire-alt"></i></div>
-                    <div>
-                        <h3>ذروة الطلب — الآن فقط</h3>
-                        <p>أسابيع ما قبل الباك = أعلى رغبة شراء في السنة. بعد الامتحان ينتهي الموسم نهائيًا.</p>
+
+                <div class="adp-scard" data-num="02"
+                    style="--sc-color:#ff6b35;--sc-bg:rgba(255,107,53,.08);--sc-shadow:rgba(255,107,53,.38)">
+                    <div class="adp-scard-icon"><i class="fas fa-fire-alt"></i></div>
+                    <div class="adp-scard-body">
+                        <div class="adp-scard-title">ذروة الطلب — الآن فقط</div>
+                        <div class="adp-scard-desc">أسابيع ما قبل الباك = أعلى رغبة شراء في السنة. بعد الامتحان ينتهي الموسم نهائيًا.</div>
                     </div>
                 </div>
-                <div class="adp-why-card">
-                    <div class="adp-why-icon"><i class="fas fa-puzzle-piece"></i></div>
-                    <div>
-                        <h3>محتوى مدمج لا مزعج</h3>
-                        <p>إعلاناتنا تبدو كمحتوى حقيقي — يثق فيها الطلاب ويتفاعلون معها بكثير أكثر من الإعلانات العادية.</p>
+
+                <div class="adp-scard" data-num="03"
+                    style="--sc-color:#8b5cf6;--sc-bg:rgba(139,92,246,.08);--sc-shadow:rgba(139,92,246,.38)">
+                    <div class="adp-scard-icon"><i class="fas fa-puzzle-piece"></i></div>
+                    <div class="adp-scard-body">
+                        <div class="adp-scard-title">محتوى مدمج لا مزعج</div>
+                        <div class="adp-scard-desc">إعلاناتنا تبدو كمحتوى حقيقي — يثق فيها الطلاب ويتفاعلون معها أكثر بكثير من الإعلانات العادية.</div>
                     </div>
                 </div>
-                <div class="adp-why-card adp-why-card--orange">
-                    <div class="adp-why-icon adp-why-icon--orange"><i class="fas fa-map-marked-alt"></i></div>
-                    <div>
-                        <h3>جميع الشعب والولايات</h3>
-                        <p>من رياضيات إلى آداب، من الجزائر إلى سطيف — جمهورك الكامل في مكان واحد.</p>
+
+                <div class="adp-scard" data-num="04"
+                    style="--sc-color:#10b981;--sc-bg:rgba(16,185,129,.08);--sc-shadow:rgba(16,185,129,.38)">
+                    <div class="adp-scard-icon"><i class="fas fa-map-marked-alt"></i></div>
+                    <div class="adp-scard-body">
+                        <div class="adp-scard-title">جميع الشعب والولايات</div>
+                        <div class="adp-scard-desc">من رياضيات إلى آداب، من الجزائر إلى سطيف — جمهورك الكامل في مكان واحد.</div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -203,14 +415,14 @@
                 <!-- Package 1 -->
                 <div class="adp-pkg">
                     <div class="adp-pkg-top">
-                        <div class="adp-pkg-icon"><i class="fas fa-stream"></i></div>
-                        <h3>شريط الإعلان</h3>
-                        <p class="adp-pkg-sub">أعلى كل صفحة في الموقع</p>
+                        <div class="adp-pkg-icon"><i class="fas fa-layer-group"></i></div>
+                        <h3>بطاقة الإعلان</h3>
+                        <p class="adp-pkg-sub">تظهر لكل مستخدم مرة واحدة في اليوم</p>
                     </div>
                     <ul class="adp-pkg-list">
-                        <li><i class="fas fa-check"></i> ظهور في جميع صفحات الموقع</li>
-                        <li><i class="fas fa-check"></i> عداد تنازلي للبكالوريا</li>
-                        <li><i class="fas fa-check"></i> رابط مباشر للتواصل</li>
+                        <li><i class="fas fa-check"></i> تُعرض تلقائيًا عند دخول المستخدم للموقع</li>
+                        <li><i class="fas fa-check"></i> ظهور مضمون لكل زائر يوميًا</li>
+                        <li><i class="fas fa-check"></i> لا يمكن تجاهلها — مشاهدة كاملة</li>
                         <li><i class="fas fa-check"></i> مدة: أسبوع كامل</li>
                     </ul>
                     <div class="adp-pkg-ctas">
@@ -251,7 +463,7 @@
                     <ul class="adp-pkg-list">
                         <li><i class="fas fa-check"></i> جميع مزايا الباقتين</li>
                         <li><i class="fas fa-check"></i> أولوية الظهور والترتيب</li>
-                        <li><i class="fas fa-check"></i> ذكر على قناة التلغرام (10K+ متابع)</li>
+                        <li><i class="fas fa-check"></i> ذكر على قناة التلغرام (+16K متابع)</li>
                         <li><i class="fas fa-check"></i> مدة: أسبوعان كاملان</li>
                     </ul>
                     <div class="adp-pkg-ctas">
@@ -272,7 +484,7 @@
         <div class="adp-section-wrap">
             <div class="adp-steps-header">
                 <span class="adp-tag">كيف تبدأ؟</span>
-                <h2>3 خطوات فقط</h2>
+                <h2><span>3 خطوات</span> فقط</h2>
             </div>
             <div class="adp-steps-track">
                 <div class="adp-step">
@@ -301,7 +513,7 @@
     ══════════════════════════════════════════════ -->
     <section class="adp-urgency">
         <div class="adp-urgency-inner">
-            <h2>احجز مكانك لموسم 2027 — الآن</h2>
+            <h2>احجز مكانك <span style="color:#ff6b35;">لموسم 2027</span> — الآن</h2>
             <p>انتهى الموسم وبدأ التخطيط للعام القادم — احجز مبكرًا وكن أول من يصل لطلاب الباك 2027.</p>
             <div class="adp-contact-btns">
                 <a href="https://t.me/islemcs" target="_blank" rel="noopener"
@@ -319,12 +531,34 @@
         </div>
     </section>
 
-    <div id="global-cta-placeholder"></div>
     <div id="footer-placeholder"></div>
 
     <script src="/ads-config.js?v=1.11"></script>
     <script src="/components/shared.js?v=9.3"></script>
     <script>
+    (function () {
+        const cards = [...document.querySelectorAll('.adp-scard')];
+        if (!cards.length) return;
+        const STICKY_TOP = window.innerWidth <= 600 ? 90 : 110;
+        function update() {
+            cards.forEach(function (card, i) {
+                var above = 0;
+                for (var j = i + 1; j < cards.length; j++) {
+                    if (cards[j].getBoundingClientRect().top <= STICKY_TOP + 4) above++;
+                }
+                if (above === 0) {
+                    card.style.transform = '';
+                    card.style.filter = '';
+                } else {
+                    var n = Math.min(above, 5);
+                    card.style.transform = 'scale(' + (1 - n * 0.04).toFixed(4) + ') translateY(' + -(n * 10) + 'px)';
+                    card.style.filter = 'brightness(' + Math.max(1 - n * 0.05, 0.7).toFixed(4) + ')';
+                }
+            });
+        }
+        window.addEventListener('scroll', update, { passive: true });
+        update();
+    })();
     </script>
 </body>
 
