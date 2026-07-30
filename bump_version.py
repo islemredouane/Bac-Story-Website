@@ -6,7 +6,7 @@ for p in html_files:
     try:
         with open(p, 'r', encoding='utf-8') as f:
             c = f.read()
-        nc = re.sub(r'shared\.js\?v=9\.3', 'shared.js?v=9.4', c)
+        nc = re.sub(r'shared\.js\?v=9\.4', 'shared.js?v=9.5', c)
         nc = re.sub(r'script\.js\?v=8\.0', 'script.js?v=8.1', nc)
         if c != nc:
             with open(p, 'w', encoding='utf-8', newline='') as f:
