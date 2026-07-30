@@ -5,8 +5,8 @@ for p in html_files:
     try:
         with open(p, 'r', encoding='utf-8') as f:
             c = f.read()
-        nc = re.sub(r'shared\.js\?v=9\.10', 'shared.js?v=9.11', c)
-        nc = re.sub(r'style\.css\?v=9\.23', 'style.css?v=9.24', nc)
+        nc = re.sub(r'shared\.js\?v=9\.11', 'shared.js?v=9.12', c)
+        nc = re.sub(r'style\.css\?v=9\.24', 'style.css?v=9.25', nc)
         if c != nc:
             with open(p, 'w', encoding='utf-8', newline='') as f:
                 f.write(nc)
