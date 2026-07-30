@@ -76,6 +76,14 @@ function injectGlobalCTA() {
 <section class="global-cta" id="global-cta">
     <!-- CTA Cards (side-by-side on desktop, rotating on mobile) -->
     <div class="gcta-cards" id="gcta-cards">
+        <a href="/university/averages-of-acceptance" class="gcta-card gcta-card--timer">
+            <div class="gcta-icon-circle"><i class="fas fa-chart-line"></i></div>
+            <div class="gcta-text">
+                <strong>معدلات القبول 2026</strong>
+                <span>اطلع على معدلات القبول الرسمية لجميع التخصصات الجامعية</span>
+            </div>
+            <div class="gcta-btn">تصفح المعدلات <i class="fas fa-arrow-left"></i></div>
+        </a>
         <a href="/feedback" class="gcta-card gcta-card--feedback">
             <div class="gcta-icon-circle"><i class="fas fa-star"></i></div>
             <div class="gcta-text">
@@ -84,21 +92,29 @@ function injectGlobalCTA() {
             </div>
             <div class="gcta-btn">اكتب رأيك <i class="fas fa-arrow-left"></i></div>
         </a>
-        <a href="/tools/calculator" class="gcta-card gcta-card--calc">
-            <div class="gcta-icon-circle"><i class="fas fa-calculator"></i></div>
+        <a href="/plans/monthly" class="gcta-card gcta-card--plans">
+            <div class="gcta-icon-circle"><i class="fas fa-rocket"></i></div>
             <div class="gcta-text">
-                <strong>حاسبة المعدل</strong>
-                <span>احسب معدلك واعرف نتيجتك التقديرية</span>
+                <strong>بكالوريا 2027؟ ابدأ بقوة!</strong>
+                <span>اكتشف خطط التميز الشهرية ونظم وقتك من بداية العام الدراسي</span>
             </div>
-            <div class="gcta-btn">احسب الآن <i class="fas fa-arrow-left"></i></div>
+            <div class="gcta-btn">تصفح الخطط <i class="fas fa-arrow-left"></i></div>
         </a>
-        <a href="/tools/weighted-calc" class="gcta-card gcta-card--weighted">
-            <div class="gcta-icon-circle"><i class="fas fa-balance-scale"></i></div>
+        <a href="/resources" class="gcta-card gcta-card--resources">
+            <div class="gcta-icon-circle"><i class="fas fa-briefcase"></i></div>
             <div class="gcta-text">
-                <strong>المعدل الموزون</strong>
-                <span>احسب معدلك الموزون للقبول في التخصصات الجامعية</span>
+                <strong>حقيبة بكالوريا 2027</strong>
+                <span>حمل أفضل الكتب الخارجية، الملخصات، ودرايفات المتفوقين</span>
             </div>
-            <div class="gcta-btn">احسب الآن <i class="fas fa-arrow-left"></i></div>
+            <div class="gcta-btn">تصفح المصادر <i class="fas fa-arrow-left"></i></div>
+        </a>
+        <a href="/oqba" class="gcta-card gcta-card--oqba">
+            <div class="gcta-icon-circle"><i class="fas fa-map-signs"></i></div>
+            <div class="gcta-text">
+                <strong>طريقك للنجاح 2027</strong>
+                <span>باقات عقبة بن نافع — دليلك الشامل لجميع المواد خطوة بخطوة</span>
+            </div>
+            <div class="gcta-btn">اكتشف الباقات <i class="fas fa-arrow-left"></i></div>
         </a>
         <a href="/university/specialities" class="gcta-card gcta-card--uni">
             <div class="gcta-icon-circle"><i class="fas fa-university"></i></div>
@@ -108,13 +124,21 @@ function injectGlobalCTA() {
             </div>
             <div class="gcta-btn">اكتشف الجامعة <i class="fas fa-arrow-left"></i></div>
         </a>
-        <a href="/university/averages-of-acceptance" class="gcta-card gcta-card--timer">
-            <div class="gcta-icon-circle"><i class="fas fa-chart-line"></i></div>
+        <a href="/tools/weighted-calc" class="gcta-card gcta-card--weighted">
+            <div class="gcta-icon-circle"><i class="fas fa-balance-scale"></i></div>
             <div class="gcta-text">
-                <strong>معدلات القبول 2026</strong>
-                <span>اطلع على معدلات القبول الرسمية لجميع التخصصات الجامعية</span>
+                <strong>المعدل الموزون</strong>
+                <span>احسب معدلك الموزون للقبول في التخصصات الجامعية</span>
             </div>
-            <div class="gcta-btn">تصفح المعدلات <i class="fas fa-arrow-left"></i></div>
+            <div class="gcta-btn">احسب الآن <i class="fas fa-arrow-left"></i></div>
+        </a>
+        <a href="/tools/calculator" class="gcta-card gcta-card--calc">
+            <div class="gcta-icon-circle"><i class="fas fa-calculator"></i></div>
+            <div class="gcta-text">
+                <strong>حاسبة المعدل</strong>
+                <span>احسب معدلك واعرف نتيجتك التقديرية</span>
+            </div>
+            <div class="gcta-btn">احسب الآن <i class="fas fa-arrow-left"></i></div>
         </a>
         <a href="/bac-2026" class="gcta-card gcta-card--correct">
             <div class="gcta-icon-circle"><i class="fas fa-check-double"></i></div>
@@ -124,10 +148,13 @@ function injectGlobalCTA() {
             </div>
             <div class="gcta-btn">تصفح الحلول <i class="fas fa-arrow-left"></i></div>
         </a>
-    </div>
+    </div></div>
     <!-- Mobile-only rotation dots -->
     <div class="gcta-dots" id="gcta-dots">
         <span class="gcta-dot gcta-dot--active"></span>
+        <span class="gcta-dot"></span>
+        <span class="gcta-dot"></span>
+        <span class="gcta-dot"></span>
         <span class="gcta-dot"></span>
         <span class="gcta-dot"></span>
         <span class="gcta-dot"></span>

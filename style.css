@@ -1310,6 +1310,22 @@ html {
     box-shadow: 0 8px 28px rgba(79, 70, 229, 0.15);
 }
 
+.gcta-card--plans {
+    background: linear-gradient(135deg, #0d5c75 0%, #17a2b8 50%, #00d2ff 100%);
+    box-shadow: 0 8px 28px rgba(23, 162, 184, 0.15);
+}
+
+.gcta-card--resources {
+    background: linear-gradient(135deg, #750d4d 0%, #b81775 50%, #ff007f 100%);
+    box-shadow: 0 8px 28px rgba(184, 23, 117, 0.15);
+}
+
+.gcta-card--oqba {
+    background: linear-gradient(135deg, #0d753b 0%, #17b85c 50%, #00ff73 100%);
+    box-shadow: 0 8px 28px rgba(23, 184, 92, 0.15);
+}
+
+
 .gcta-card--feedback {
     background:
         linear-gradient(120deg, #7a4f00 0%, #b8860b 30%, #d4a017 55%, #c8920e 75%, #8b6200 100%);
