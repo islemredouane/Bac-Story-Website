@@ -7,7 +7,6 @@ with open(file_path, "r", encoding="utf-8") as f:
 start_marker = '<div class="gcta-cards" id="gcta-cards">'
 end_marker = '</div>\n    <!-- Mobile-only rotation dots -->'
 
-# Extract dots section too
 dots_start_marker = '<div class="gcta-dots" id="gcta-dots">'
 dots_end_marker = '</section>`;'
 
@@ -52,30 +51,6 @@ new_cards = """<div class="gcta-cards" id="gcta-cards">
             </div>
             <div class="gcta-btn">اكتشف الباقات <i class="fas fa-arrow-left"></i></div>
         </a>
-        <a href="/university/specialities" class="gcta-card gcta-card--uni">
-            <div class="gcta-icon-circle"><i class="fas fa-university"></i></div>
-            <div class="gcta-text">
-                <strong>مرحباً بك في مرحلة جديدة!</strong>
-                <span>اكتشف نظام الجامعة الجزائرية وخطط لمستقبلك</span>
-            </div>
-            <div class="gcta-btn">اكتشف الجامعة <i class="fas fa-arrow-left"></i></div>
-        </a>
-        <a href="/tools/weighted-calc" class="gcta-card gcta-card--weighted">
-            <div class="gcta-icon-circle"><i class="fas fa-balance-scale"></i></div>
-            <div class="gcta-text">
-                <strong>المعدل الموزون</strong>
-                <span>احسب معدلك الموزون للقبول في التخصصات الجامعية</span>
-            </div>
-            <div class="gcta-btn">احسب الآن <i class="fas fa-arrow-left"></i></div>
-        </a>
-        <a href="/tools/calculator" class="gcta-card gcta-card--calc">
-            <div class="gcta-icon-circle"><i class="fas fa-calculator"></i></div>
-            <div class="gcta-text">
-                <strong>حاسبة المعدل</strong>
-                <span>احسب معدلك واعرف نتيجتك التقديرية</span>
-            </div>
-            <div class="gcta-btn">احسب الآن <i class="fas fa-arrow-left"></i></div>
-        </a>
         <a href="/bac-2026" class="gcta-card gcta-card--correct">
             <div class="gcta-icon-circle"><i class="fas fa-check-double"></i></div>
             <div class="gcta-text">
@@ -88,9 +63,6 @@ new_cards = """<div class="gcta-cards" id="gcta-cards">
 
 new_dots = """<div class="gcta-dots" id="gcta-dots">
         <span class="gcta-dot gcta-dot--active"></span>
-        <span class="gcta-dot"></span>
-        <span class="gcta-dot"></span>
-        <span class="gcta-dot"></span>
         <span class="gcta-dot"></span>
         <span class="gcta-dot"></span>
         <span class="gcta-dot"></span>
