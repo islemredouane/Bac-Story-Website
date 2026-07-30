@@ -6236,6 +6236,17 @@ body.pdf-body-lock {
     gap: 0;
 }
 
+.mobile-menu-socials .social-link {
+    width: 45px !important;
+    height: 45px !important;
+    min-height: 45px !important;
+    border-radius: 50% !important;
+    justify-content: center !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
 .footer-bottom {
     text-align: center;
     margin-top: 1.5rem;
