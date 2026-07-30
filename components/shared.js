@@ -108,13 +108,13 @@ function injectGlobalCTA() {
             </div>
             <div class="gcta-btn">اكتشف الجامعة <i class="fas fa-arrow-left"></i></div>
         </a>
-        <a href="/tools" class="gcta-card gcta-card--timer">
-            <div class="gcta-icon-circle"><i class="fas fa-hourglass-half"></i></div>
+        <a href="/university/averages-of-acceptance" class="gcta-card gcta-card--timer">
+            <div class="gcta-icon-circle"><i class="fas fa-chart-line"></i></div>
             <div class="gcta-text">
-                <strong>قداه بقى؟ </strong>
-                <span>شوف الوقت المتبقي للتصحيح والنتائج لحظة بلحظة</span>
+                <strong>معدلات القبول 2026</strong>
+                <span>اطلع على معدلات القبول الرسمية لجميع التخصصات الجامعية</span>
             </div>
-            <div class="gcta-btn">تفقد العد التنازلي <i class="fas fa-arrow-left"></i></div>
+            <div class="gcta-btn">تصفح المعدلات <i class="fas fa-arrow-left"></i></div>
         </a>
         <a href="/bac-2026" class="gcta-card gcta-card--correct">
             <div class="gcta-icon-circle"><i class="fas fa-check-double"></i></div>
