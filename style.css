@@ -6228,6 +6228,12 @@ body.pdf-body-lock {
     transform: translateY(-3px) scale(1.1);
 }
 
+.mobile-menu-socials {
+    margin-top: 0.5rem;
+    justify-content: center;
+    width: 100%;
+}
+
 .footer-bottom {
     text-align: center;
     margin-top: 1.5rem;

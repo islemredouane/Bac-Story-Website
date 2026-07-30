@@ -1199,7 +1199,7 @@ function setupSpecFilterTabs() {
 document.addEventListener('DOMContentLoaded', async () => {
     // Inject components concurrently using absolute paths
     await Promise.all([
-        injectComponent('#navbar-placeholder', '/components/navbar.html?v=1.1'),
+        injectComponent('#navbar-placeholder', '/components/navbar.html?v=1.2'),
         injectComponent('#footer-placeholder', '/components/footer.html')
     ]);
 
