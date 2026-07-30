@@ -6229,22 +6229,23 @@ body.pdf-body-lock {
 }
 
 .mobile-menu-socials {
-    margin: 0.5rem auto 0 auto;
-    width: 100%;
-    max-width: 320px;
-    justify-content: space-between;
-    gap: 0;
+    margin: 0.5rem auto 0 auto !important;
+    width: 100% !important;
+    max-width: 320px !important;
+    justify-content: space-between !important;
+    gap: 0 !important;
 }
 
 .mobile-menu-socials .social-link {
-    width: 45px !important;
-    height: 45px !important;
-    min-height: 45px !important;
+    width: 56px !important;
+    height: 56px !important;
+    min-height: 56px !important;
     border-radius: 50% !important;
     justify-content: center !important;
     background: rgba(255, 255, 255, 0.1) !important;
     padding: 0 !important;
     margin: 0 !important;
+    font-size: 1.4rem !important;
 }
 
 .footer-bottom {
