@@ -6232,8 +6232,8 @@ body.pdf-body-lock {
     margin: 0.5rem auto 0 auto !important;
     width: 100% !important;
     max-width: 320px !important;
-    justify-content: space-between !important;
-    gap: 0 !important;
+    justify-content: center !important;
+    gap: 2rem !important;
 }
 
 .mobile-menu-socials .social-link {
@@ -6246,6 +6246,12 @@ body.pdf-body-lock {
     padding: 0 !important;
     margin: 0 !important;
     font-size: 1.4rem !important;
+    transition: var(--transition-smooth) !important;
+}
+
+.mobile-menu-socials .social-link:hover {
+    background: white !important;
+    transform: translateY(-3px) scale(1.1) !important;
 }
 
 .footer-bottom {
