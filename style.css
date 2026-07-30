@@ -6229,9 +6229,11 @@ body.pdf-body-lock {
 }
 
 .mobile-menu-socials {
-    margin-top: 0.5rem;
-    justify-content: center;
+    margin: 0.5rem auto 0 auto;
     width: 100%;
+    max-width: 320px;
+    justify-content: space-between;
+    gap: 0;
 }
 
 .footer-bottom {
