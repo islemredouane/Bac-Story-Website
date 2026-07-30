@@ -1311,18 +1311,18 @@ html {
 }
 
 .gcta-card--plans {
-    background: linear-gradient(135deg, #0d5c75 0%, #17a2b8 50%, #00d2ff 100%);
-    box-shadow: 0 8px 28px rgba(23, 162, 184, 0.15);
+    background: linear-gradient(135deg, #7c3a00 0%, #c4600a 45%, #ff6b35 100%);
+    box-shadow: 0 8px 28px rgba(196, 96, 10, 0.17);
 }
 
 .gcta-card--resources {
-    background: linear-gradient(135deg, #750d4d 0%, #b81775 50%, #ff007f 100%);
-    box-shadow: 0 8px 28px rgba(184, 23, 117, 0.15);
+    background: linear-gradient(135deg, #0f2060 0%, #1a3a8f 45%, #2c5cc5 100%);
+    box-shadow: 0 8px 28px rgba(26, 58, 143, 0.17);
 }
 
 .gcta-card--oqba {
-    background: linear-gradient(135deg, #0d753b 0%, #17b85c 50%, #00ff73 100%);
-    box-shadow: 0 8px 28px rgba(23, 184, 92, 0.15);
+    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 45%, #4f46e5 100%);
+    box-shadow: 0 8px 28px rgba(79, 70, 229, 0.15);
 }
 
 
