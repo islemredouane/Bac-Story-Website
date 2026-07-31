@@ -9037,103 +9037,132 @@ body.pdf-body-lock {
 }
 
 .adp-audience-card {
-    background: linear-gradient(145deg, #1a2e6e, #2c5cc5);
-    border-radius: 26px;
-    padding: 2.25rem 2rem;
+    background: linear-gradient(135deg, #102a43 0%, #1a3b8b 100%);
+    border-radius: 28px;
+    padding: 2.75rem 2.25rem 2.5rem;
     color: white;
-    box-shadow: 0 24px 64px rgba(11, 20, 55, 0.18);
+    box-shadow: 0 30px 70px rgba(11, 20, 55, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     position: relative;
     overflow: hidden;
+    text-align: center;
 }
 
 .adp-audience-card::before {
     content: '';
     position: absolute;
     top: -50px;
-    left: -50px;
-    width: 200px;
-    height: 200px;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.18) 0%, transparent 70%);
+    right: -50px;
+    width: 220px;
+    height: 220px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, transparent 70%);
     pointer-events: none;
 }
 
+.adp-audience-card::after {
+    content: '';
+    position: absolute;
+    bottom: -60px;
+    left: -60px;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, rgba(0, 136, 204, 0.25) 0%, transparent 75%);
+    pointer-events: none;
+}
+
+.adp-tg-icon {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.adp-audience-card:hover .adp-tg-icon {
+    transform: rotate(-15deg) scale(1.1);
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
 .adp-audience-num {
-    font-family: 'Pattaya', serif;
-    font-size: 5.5rem;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 4.8rem !important;
+    font-weight: 900;
     color: white;
     line-height: 1;
-    margin-bottom: 0.2rem;
+    margin: 0.5rem 0 0.15rem;
+    letter-spacing: -1px;
 }
 
 .adp-audience-num-lbl {
     font-family: 'Tajawal', sans-serif;
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.55);
-    margin-bottom: 1.75rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 2rem;
+    letter-spacing: 0.5px;
 }
 
 .adp-audience-divider {
     height: 1px;
-    background: rgba(255, 255, 255, 0.08);
-    margin-bottom: 1.25rem;
-}
-
-/* ── TELEGRAM CHANNEL CARD ────────────────────────────────── */
-.adp-tg-icon {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.15);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.6rem;
-    color: white;
-    margin-bottom: 1rem;
+    width: 80%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+    margin: 0 auto 1.5rem;
 }
 
 .adp-tg-desc {
     font-family: 'Tajawal', sans-serif;
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.7);
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
+    font-size: 0.92rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.7;
+    margin-bottom: 2.25rem;
     text-align: center;
+    padding: 0 0.5rem;
 }
 
 .adp-tg-desc strong {
     color: white;
+    font-weight: 700;
 }
 
 .adp-tg-visit-btn {
     display: inline-flex;
     align-items: center;
-    gap: 0.45rem;
-    padding: 0.55rem 1.4rem;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 2rem;
     border-radius: 50px;
-    background: rgba(255, 255, 255, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    color: white;
+    background: #ffffff;
+    border: none;
+    color: #0088cc;
     font-family: 'Tajawal', sans-serif;
-    font-size: 0.88rem;
+    font-size: 0.95rem;
     font-weight: 700;
     text-decoration: none;
-    transition: background 0.2s ease;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .adp-tg-visit-btn:hover {
-    background: rgba(255, 255, 255, 0.25);
-    color: white;
+    background: #0088cc;
+    color: #ffffff;
+    box-shadow: 0 12px 30px rgba(0, 136, 204, 0.4);
+    transform: translateY(-3px);
     text-decoration: none;
 }
 
-/* Center the audience card content */
-.adp-audience-card {
-    text-align: center;
-}
-
-.adp-audience-num {
-    font-size: 4.5rem;
+.adp-tg-visit-btn:active {
+    transform: translateY(-1px);
 }
 
 /* ── DUAL PACKAGE CTAs ────────────────────────────────────── */
