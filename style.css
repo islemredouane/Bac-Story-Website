@@ -9037,12 +9037,12 @@ body.pdf-body-lock {
 }
 
 .adp-audience-card {
-    background: linear-gradient(135deg, #102a43 0%, #1a3b8b 100%);
+    background: linear-gradient(135deg, #229ed9 0%, #0088cc 100%);
     border-radius: 28px;
-    padding: 2.75rem 2.25rem 2.5rem;
+    padding: clamp(1.75rem, 5vw, 2.75rem) clamp(1.25rem, 5vw, 2.25rem) clamp(1.5rem, 5vw, 2.5rem);
     color: white;
-    box-shadow: 0 30px 70px rgba(11, 20, 55, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 30px 70px rgba(11, 20, 55, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     position: relative;
     overflow: hidden;
     text-align: center;
@@ -9055,7 +9055,7 @@ body.pdf-body-lock {
     right: -50px;
     width: 220px;
     height: 220px;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.18) 0%, transparent 70%);
     pointer-events: none;
 }
 
@@ -9066,7 +9066,7 @@ body.pdf-body-lock {
     left: -60px;
     width: 180px;
     height: 180px;
-    background: radial-gradient(circle, rgba(0, 136, 204, 0.25) 0%, transparent 75%);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, transparent 75%);
     pointer-events: none;
 }
 
@@ -9077,8 +9077,8 @@ body.pdf-body-lock {
     width: 46px;
     height: 46px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -9089,14 +9089,14 @@ body.pdf-body-lock {
 
 .adp-audience-card:hover .adp-tg-icon {
     transform: rotate(-15deg) scale(1.1);
-    background: rgba(255, 255, 255, 0.15);
-    border-color: rgba(255, 255, 255, 0.25);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.22);
+    border-color: rgba(255, 255, 255, 0.35);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
 }
 
 .adp-audience-num {
     font-family: 'Tajawal', sans-serif;
-    font-size: 4.8rem !important;
+    font-size: clamp(3rem, 12vw, 4.8rem) !important;
     font-weight: 900;
     color: white;
     line-height: 1;
@@ -9108,7 +9108,7 @@ body.pdf-body-lock {
     font-family: 'Tajawal', sans-serif;
     font-size: 0.95rem;
     font-weight: 500;
-    color: rgba(255, 255, 255, 0.65);
+    color: rgba(255, 255, 255, 0.75);
     margin-bottom: 2rem;
     letter-spacing: 0.5px;
 }
@@ -9116,14 +9116,14 @@ body.pdf-body-lock {
 .adp-audience-divider {
     height: 1px;
     width: 80%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
     margin: 0 auto 1.5rem;
 }
 
 .adp-tg-desc {
     font-family: 'Tajawal', sans-serif;
     font-size: 0.92rem;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.95);
     line-height: 1.7;
     margin-bottom: 2.25rem;
     text-align: center;
@@ -9149,20 +9149,30 @@ body.pdf-body-lock {
     font-size: 0.95rem;
     font-weight: 700;
     text-decoration: none;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .adp-tg-visit-btn:hover {
-    background: #0088cc;
+    background: #0d629a;
     color: #ffffff;
-    box-shadow: 0 12px 30px rgba(0, 136, 204, 0.4);
+    box-shadow: 0 12px 30px rgba(0, 98, 154, 0.4);
     transform: translateY(-3px);
     text-decoration: none;
 }
 
 .adp-tg-visit-btn:active {
     transform: translateY(-1px);
+}
+
+@media (max-width: 480px) {
+    .adp-tg-icon {
+        top: 1rem;
+        right: 1rem;
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
 }
 
 /* ── DUAL PACKAGE CTAs ────────────────────────────────────── */
