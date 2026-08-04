@@ -2555,6 +2555,7 @@ body.search-active .mobile-bottom-bar,
     border: none;
     border-radius: 12px;
     color: white;
+    text-decoration: none;
     font-size: clamp(0.9rem, 2.5vw, 1.1rem);
     font-weight: 700;
     font-family: 'Tajawal', sans-serif;
