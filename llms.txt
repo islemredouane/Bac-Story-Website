@@ -1,0 +1,65 @@
+# BAC STORY
+
+> BAC STORY (بك ستوري) is Algeria's leading free educational platform dedicated to helping students prepare for the Algerian Baccalaureate exam (البكالوريا الجزائرية). The platform serves over 15,000 daily visitors across all 58 wilayas of Algeria and has a Telegram community of 16,000+ subscribers.
+
+BAC STORY provides comprehensive, free study resources for all six Baccalaureate streams: Mathematics (رياضيات), Experimental Sciences (علوم تجريبية), Technical Mathematics (تقني رياضي), Management & Economics (تسيير واقتصاد), Literature & Philosophy (آداب وفلسفة), and Foreign Languages (لغات أجنبية).
+
+The platform is operated by Redouane Mohamed Islem and is accessible at https://www.bac-story.com. Contact: contact@bac-story.com
+
+## About
+
+- [عن المنصة](https://www.bac-story.com/about): Information about BAC STORY, its mission, and the team behind it.
+- [تواصل معنا](https://www.bac-story.com/contact): Contact page for support, suggestions, or partnerships.
+- [أعلن معنا](https://www.bac-story.com/advertise): Advertising opportunities for educators and training centers targeting Algerian bac students.
+- [قيّم الموقع](https://www.bac-story.com/feedback): Student reviews and ratings of the platform.
+
+## Study Resources
+
+- [المصادر الدراسية](https://www.bac-story.com/resources): Central hub for all study materials — choose a stream to access subject-specific resources.
+- [ملخصات وتمارين](https://www.bac-story.com/resources/resumes-exercises): Summaries and exercises for all subjects and streams of the Algerian Baccalaureate.
+- [كتب خارجية](https://www.bac-story.com/resources/books): External reference books recommended for bac preparation across all streams.
+- [درايفات المتفوقين](https://www.bac-story.com/resources/drives): Curated Google Drive collections from top-scoring students.
+- [باقات عقبة بن نافع](https://www.bac-story.com/oqba): Curated exercise and topic packages selected from top secondary schools across Algeria.
+
+## Resources by Stream
+
+- [شعبة رياضيات](https://www.bac-story.com/resources/math): Study resources for the Mathematics stream.
+- [شعبة علوم تجريبية](https://www.bac-story.com/resources/sci): Study resources for the Experimental Sciences stream.
+- [شعبة تقني رياضي](https://www.bac-story.com/resources/tech): Study resources for the Technical Mathematics stream.
+- [شعبة تسيير واقتصاد](https://www.bac-story.com/resources/ge): Study resources for the Management & Economics stream.
+- [شعبة آداب وفلسفة](https://www.bac-story.com/resources/lp): Study resources for the Literature & Philosophy stream.
+- [شعبة لغات أجنبية](https://www.bac-story.com/resources/le): Study resources for the Foreign Languages stream.
+
+## Bac Topics & Past Papers
+
+- [مواضيع وحوليات البكالوريا](https://www.bac-story.com/bac-topics): Official past Baccalaureate exam papers with model answers for all streams — 2026, 2025, 2024, 2023 and earlier.
+- [محاكاة البكالوريا](https://www.bac-story.com/simulation): Baccalaureate simulation tool — solve past papers under real exam conditions with a timer and detailed corrections.
+- [حلول بكالوريا 2026](https://www.bac-story.com/bac-2026): Official model answers (solutions) for the 2026 Algerian Baccalaureate exam across all streams and subjects.
+
+## Plans & Challenges
+
+- [الخطط والتحديات](https://www.bac-story.com/plans): Overview of all monthly study plans and excellence challenges.
+- [الخطط الشهرية](https://www.bac-story.com/plans/monthly): Monthly excellence study plans for the full academic year (September through April) plus a prerequisite knowledge booklet.
+- [خطط التميز في المواد](https://www.bac-story.com/plans/subject-plans): Subject-specific excellence plans for Arabic Literature, Islamic Studies, History & Geography, French, and English.
+- [تحديات التميز](https://www.bac-story.com/plans/challenges): Excellence challenges for Arabic Literature and memorization subjects.
+
+## Tools
+
+- [حاسبة معدل البكالوريا](https://www.bac-story.com/tools/calculator): Free bac grade calculator for all streams — enter your marks and get your average instantly with an official-style report.
+- [الوقت المتبقي للبكالوريا](https://www.bac-story.com/tools/countdown): Live countdown timer to the next Algerian Baccalaureate exam date and university registration deadline.
+- [حاسبة المعدل الموزون](https://www.bac-story.com/tools/weighted-calc): Weighted average calculator for university admission in Algeria — computes the final composite average used in the PROGRES orientation system.
+- [ورقة الإجابة الرسمية](https://www.bac-story.com/tools/exam-sheet): Practice with the official Baccalaureate answer sheet (ورقة التنظيم, الورقة الخضراء, ورقة الفصل) before exam day.
+
+## University Guide
+
+- [دليل الجامعة](https://www.bac-story.com/university): Complete guide to the Algerian university system — how it works, streams, and what to expect after the bac.
+- [معدلات القبول 2026](https://www.bac-story.com/university/averages-of-acceptance): Official 2026 university acceptance averages for all specialties and grandes écoles in Algeria.
+- [الدليل الوزاري للتخصصات](https://www.bac-story.com/university/ministry-guide): The official Ministry of Higher Education guide to all university specialties in Algeria.
+- [التعريف بالتخصصات](https://www.bac-story.com/university/specialities): Browse and search all university specialties and grandes écoles available in Algeria with acceptance conditions.
+- [دليل التجنيد العسكري](https://www.bac-story.com/university/military-guide): Guide to enrolling in Algerian military schools after the Baccalaureate — conditions, deadlines, and registration via mdn.dz.
+- [التوجيه الجامعي 2026](https://www.bac-story.com/orientation): Step-by-step guide to university orientation registration on orientation-esi.dz for 2026 bac graduates.
+
+## Community & Social
+
+- Telegram channel (16,000+ subscribers): https://t.me/islembacdz — main content channel for bac resources, announcements, and updates.
+- Telegram contact: https://t.me/islemcs — direct contact for advertising and partnerships.
