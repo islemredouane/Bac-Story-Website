@@ -39,7 +39,7 @@ window.BAC_ADS = {
   rotatingCards: [
     {
       id:           'card-techfocus-oran',
-      active:       true,
+      active:       false,
       priority:     1,
       type:         'tech-shop',
       layout:       'rich-bg',       // rich card: background image + HTML overlay
@@ -71,7 +71,7 @@ window.BAC_ADS = {
     },
     {
       id:           'card-orientation',
-      active:       false,
+      active:       true,
       priority:     2,
       type:         'orientation',
       sponsorLabel: 'محتوى مدعوم',
@@ -87,7 +87,7 @@ window.BAC_ADS = {
     },
     {
       id:           'card-bac2027',
-      active:       false,
+      active:       true,
       priority:     2,
       type:         'courses',
       sponsorLabel: 'محتوى مدعوم',
@@ -103,7 +103,7 @@ window.BAC_ADS = {
     },
     {
       id:           'card-languages',
-      active:       false,
+      active:       true,
       priority:     2,
       type:         'training',
       sponsorLabel: 'محتوى مدعوم',
@@ -119,7 +119,7 @@ window.BAC_ADS = {
     },
     {
       id:           'card-platform',
-      active:       false,
+      active:       true,
       priority:     2,
       type:         'platform',
       sponsorLabel: 'محتوى مدعوم',
