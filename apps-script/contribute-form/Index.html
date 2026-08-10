@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <base target="_top">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Reuses BAC STORY's own stylesheet + fonts, so this page matches the site exactly
+       with zero duplicated CSS. Bump the ?v= to match style.css's current version. -->
+  <link rel="stylesheet" href="https://www.bac-story.com/style.css?v=10.1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Pattaya&display=swap">
+
+  <style>
+    html, body {
+      background: #fff;
+      font-family: 'Tajawal', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .caf-wrap {
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 4rem;
+    }
+    .caf-brand {
+      text-align: center;
+      margin-bottom: 1.75rem;
+    }
+    .caf-brand .logo-text,
+    .caf-brand-name {
+      font-family: 'Pattaya', serif;
+      font-size: 1.6rem;
+      color: #2c5cc5;
+    }
+    .caf-title { font-size: 1.5rem; font-weight: 900; color: #1e293b; margin: 0.6rem 0 0.3rem; }
+    .caf-sub { font-size: 0.92rem; color: #64748b; margin: 0; line-height: 1.6; }
+
+    /* ── Dropzone ── */
+    .caf-drop {
+      border: 2px dashed rgba(44, 92, 195, 0.25);
+      border-radius: 16px;
+      padding: 2rem 1rem;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.2s ease, background 0.2s ease;
+      background: #f8fafc;
+    }
+    .caf-drop:hover, .caf-drop.drag {
+      border-color: #2c5cc5;
+      background: rgba(44, 92, 195, 0.05);
+    }
+    .caf-drop i { font-size: 1.8rem; color: #2c5cc5; margin-bottom: 0.6rem; display: block; }
+    .caf-drop-title { font-weight: 800; color: #1e293b; font-size: 0.95rem; margin-bottom: 0.2rem; }
+    .caf-drop-sub { font-size: 0.8rem; color: #94a3b8; }
+    .caf-drop input[type="file"] { display: none; }
+
+    /* ── File chips ── */
+    .caf-files { display: flex; flex-direction: column; gap: 0.6rem; margin-top: 1rem; }
+    .caf-file-chip {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      background: #fff;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 0.65rem 0.9rem;
+    }
+    .caf-file-icon { color: #2c5cc5; font-size: 1.1rem; flex-shrink: 0; }
+    .caf-file-body { flex: 1; min-width: 0; }
+    .caf-file-name { font-size: 0.86rem; font-weight: 700; color: #1e293b; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .caf-file-meta { font-size: 0.74rem; color: #94a3b8; }
+    .caf-file-remove {
+      background: none; border: none; cursor: pointer;
+      color: #cbd5e1; font-size: 1rem; padding: 4px;
+      transition: color 0.2s ease;
+    }
+    .caf-file-remove:hover { color: #dc2626; }
+    .caf-file-progress {
+      height: 4px; border-radius: 4px; background: #e2e8f0;
+      margin-top: 6px; overflow: hidden;
+    }
+    .caf-file-progress-bar {
+      height: 100%; width: 0%; background: #2c5cc5;
+      transition: width 0.2s ease;
+    }
+    .caf-file-chip.done .caf-file-icon { color: #16a34a; }
+    .caf-file-chip.done .caf-file-progress-bar { background: #16a34a; }
+    .caf-file-chip.error .caf-file-progress-bar { background: #dc2626; }
+
+    /* ── Checkboxes for material type ── */
+    .caf-check-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.6rem;
+    }
+    .caf-check {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #f8fafc;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 0.6rem 0.8rem;
+      font-size: 0.85rem;
+      color: #334155;
+      cursor: pointer;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+    .caf-check input { accent-color: #2c5cc5; }
+    .caf-check:has(input:checked) { border-color: #2c5cc5; background: rgba(44, 92, 195, 0.06); }
+
+    .caf-error-text {
+      display: none;
+      color: #dc2626;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-align: center;
+      margin-top: 1rem;
+    }
+    .caf-error-text.show { display: block; }
+
+    .caf-submit-status {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: #64748b;
+      margin-top: 0.9rem;
+    }
+    .caf-submit-status.show { display: flex; }
+
+    /* ── Thank-you state ── */
+    .caf-thanks { display: none; text-align: center; padding: 2rem 0.5rem; }
+    .caf-thanks.show { display: block; animation: fadeIn 0.5s ease-out; }
+    .caf-thanks-icon { font-size: 3rem; color: #16a34a; margin-bottom: 1rem; }
+    .caf-thanks h2 { font-size: 1.3rem; font-weight: 900; color: #1e293b; margin: 0 0 0.6rem; }
+    .caf-thanks p { color: #64748b; font-size: 0.92rem; line-height: 1.7; }
+    #cafFormShell.hidden { display: none; }
+
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+</head>
+<body>
+
+  <div class="caf-wrap">
+    <div class="caf-brand">
+      <div class="caf-brand-name">BAC STORY</div>
+      <h1 class="caf-title">شارك موادك</h1>
+      <p class="caf-sub">أكمل معلوماتك، ارفع ملفاتك مباشرة — بدون تسجيل دخول بحساب Google</p>
+    </div>
+
+    <div id="cafFormShell" class="contact-form-modern">
+      <form id="cafForm" autocomplete="off">
+
+        <div class="cfm-row">
+          <div class="cfm-group">
+            <label class="cfm-label">اسمك أو اسم مستعار</label>
+            <div class="cfm-input-wrap">
+              <input class="cfm-input" id="cafName" required maxlength="40" placeholder="مثال: إسلام" type="text">
+            </div>
+          </div>
+          <div class="cfm-group">
+            <label class="cfm-label">تيليغرام أو إيميل للتواصل</label>
+            <div class="cfm-input-wrap">
+              <input class="cfm-input" id="cafContact" required maxlength="60" placeholder="@username أو email" type="text">
+            </div>
+          </div>
+        </div>
+
+        <div class="cfm-row">
+          <div class="cfm-group">
+            <label class="cfm-label">الشعبة</label>
+            <div class="cfm-input-wrap">
+              <select class="cfm-input" id="cafStream" required>
+                <option value="">— اختر شعبتك —</option>
+                <option value="رياضيات">رياضيات</option>
+                <option value="علوم تجريبية">علوم تجريبية</option>
+                <option value="هندسة">هندسة</option>
+                <option value="تسيير واقتصاد">تسيير واقتصاد</option>
+                <option value="آداب وفلسفة">آداب وفلسفة</option>
+                <option value="لغات أجنبية">لغات أجنبية</option>
+              </select>
+            </div>
+          </div>
+          <div class="cfm-group">
+            <label class="cfm-label">المادة</label>
+            <div class="cfm-input-wrap">
+              <input class="cfm-input" id="cafSubject" required maxlength="40" placeholder="مثال: فيزياء" type="text">
+            </div>
+          </div>
+        </div>
+
+        <div class="cfm-group">
+          <label class="cfm-label">نوع المادة</label>
+          <div class="caf-check-grid">
+            <label class="caf-check"><input type="checkbox" value="ملخصات ودروس"> ملخصات ودروس</label>
+            <label class="caf-check"><input type="checkbox" value="تمارين محلولة"> تمارين محلولة</label>
+            <label class="caf-check"><input type="checkbox" value="اختبارات فصلية"> اختبارات فصلية</label>
+            <label class="caf-check"><input type="checkbox" value="أوراق مراجعة"> أوراق مراجعة</label>
+          </div>
+        </div>
+
+        <div class="cfm-group">
+          <label class="cfm-label">الملفات (PDF، صور، Word — حتى 6 ملفات)</label>
+          <div class="caf-drop" id="cafDrop">
+            <input type="file" id="cafFileInput" multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.zip">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <div class="caf-drop-title">اسحب ملفاتك هنا أو اضغط للاختيار</div>
+            <div class="caf-drop-sub">لا يوجد حد حجم صارم — الملفات تُرفع مباشرة لـ Google Drive</div>
+          </div>
+          <div class="caf-files" id="cafFiles"></div>
+        </div>
+
+        <div class="cfm-group">
+          <label class="cfm-label">ملاحظات إضافية <em style="color:#94a3b8; font-weight:500;">(اختياري)</em></label>
+          <div class="cfm-input-wrap">
+            <textarea class="cfm-input cfm-textarea" id="cafNotes" maxlength="400" placeholder="أي شيء تريد إخبارنا به..."></textarea>
+          </div>
+        </div>
+
+        <div class="caf-error-text" id="cafError"></div>
+        <div class="caf-submit-status" id="cafStatus"><i class="fas fa-circle-notch fa-spin"></i> <span id="cafStatusText">جاري الرفع…</span></div>
+
+        <button type="submit" class="cfm-submit" id="cafSubmitBtn">
+          <i class="fas fa-paper-plane"></i> إرسال مساهمتي
+        </button>
+      </form>
+    </div>
+
+    <div class="caf-thanks" id="cafThanks">
+      <div class="caf-thanks-icon"><i class="fas fa-circle-check"></i></div>
+      <h2>وصلتنا مساهمتك، بارك الله فيك!</h2>
+      <p>فريق BAC STORY يراجع موادك الآن. بعد المراجعة رح تُنشر باسمك ويستفيد منها آلاف الطلاب. شكراً لك.</p>
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var MAX_FILES = 6;
+    var files = []; // { file, id (client-side), status: 'pending'|'uploading'|'done'|'error', driveFileId, progressEl }
+
+    var dropZone = document.getElementById('cafDrop');
+    var fileInput = document.getElementById('cafFileInput');
+    var filesList = document.getElementById('cafFiles');
+    var form = document.getElementById('cafForm');
+    var errorBox = document.getElementById('cafError');
+    var statusBox = document.getElementById('cafStatus');
+    var statusText = document.getElementById('cafStatusText');
+    var submitBtn = document.getElementById('cafSubmitBtn');
+
+    dropZone.addEventListener('click', function () { fileInput.click(); });
+    dropZone.addEventListener('dragover', function (e) { e.preventDefault(); dropZone.classList.add('drag'); });
+    dropZone.addEventListener('dragleave', function () { dropZone.classList.remove('drag'); });
+    dropZone.addEventListener('drop', function (e) {
+      e.preventDefault();
+      dropZone.classList.remove('drag');
+      addFiles(e.dataTransfer.files);
+    });
+    fileInput.addEventListener('change', function () { addFiles(fileInput.files); fileInput.value = ''; });
+
+    function addFiles(fileListObj) {
+      Array.prototype.forEach.call(fileListObj, function (f) {
+        if (files.length >= MAX_FILES) return;
+        files.push({ file: f, id: 'f' + Date.now() + Math.random().toString(36).slice(2), status: 'pending' });
+      });
+      renderFiles();
+    }
+
+    function removeFile(id) {
+      files = files.filter(function (f) { return f.id !== id; });
+      renderFiles();
+    }
+
+    function formatSize(bytes) {
+      if (bytes < 1024 * 1024) return Math.round(bytes / 1024) + ' KB';
+      return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+    }
+
+    function renderFiles() {
+      filesList.innerHTML = '';
+      files.forEach(function (entry) {
+        var chip = document.createElement('div');
+        chip.className = 'caf-file-chip' + (entry.status === 'done' ? ' done' : entry.status === 'error' ? ' error' : '');
+        chip.id = 'chip-' + entry.id;
+        chip.innerHTML =
+          '<i class="fas fa-file caf-file-icon"></i>' +
+          '<div class="caf-file-body">' +
+            '<div class="caf-file-name">' + entry.file.name + '</div>' +
+            '<div class="caf-file-meta">' + formatSize(entry.file.size) + '</div>' +
+            '<div class="caf-file-progress"><div class="caf-file-progress-bar" id="bar-' + entry.id + '"></div></div>' +
+          '</div>' +
+          '<button type="button" class="caf-file-remove" aria-label="حذف"><i class="fas fa-times"></i></button>';
+        chip.querySelector('.caf-file-remove').addEventListener('click', function () { removeFile(entry.id); });
+        filesList.appendChild(chip);
+      });
+    }
+
+    function setProgress(id, pct) {
+      var bar = document.getElementById('bar-' + id);
+      if (bar) bar.style.width = pct + '%';
+    }
+
+    function uploadOne(entry) {
+      return new Promise(function (resolve, reject) {
+        entry.status = 'uploading';
+        google.script.run
+          .withSuccessHandler(function (res) { putFile(entry, res.uploadUrl, resolve, reject); })
+          .withFailureHandler(function (err) { entry.status = 'error'; reject(err); })
+          .startUpload(entry.file.name, entry.file.type || 'application/octet-stream');
+      });
+    }
+
+    function putFile(entry, uploadUrl, resolve, reject) {
+      var xhr = new XMLHttpRequest();
+      xhr.open('PUT', uploadUrl, true);
+      xhr.setRequestHeader('Content-Type', entry.file.type || 'application/octet-stream');
+      xhr.upload.onprogress = function (e) {
+        if (e.lengthComputable) setProgress(entry.id, Math.round((e.loaded / e.total) * 100));
+      };
+      xhr.onload = function () {
+        if (xhr.status >= 200 && xhr.status < 300) {
+          setProgress(entry.id, 100);
+          entry.status = 'done';
+          var chip = document.getElementById('chip-' + entry.id);
+          if (chip) chip.classList.add('done');
+          try {
+            entry.driveFileId = JSON.parse(xhr.responseText).id;
+          } catch (e) { /* ignore */ }
+          resolve();
+        } else {
+          entry.status = 'error';
+          var errChip = document.getElementById('chip-' + entry.id);
+          if (errChip) errChip.classList.add('error');
+          reject(new Error('فشل رفع ' + entry.file.name));
+        }
+      };
+      xhr.onerror = function () { entry.status = 'error'; reject(new Error('فشل رفع ' + entry.file.name)); };
+      xhr.send(entry.file);
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      errorBox.classList.remove('show');
+
+      var name = document.getElementById('cafName').value.trim();
+      var contact = document.getElementById('cafContact').value.trim();
+      var stream = document.getElementById('cafStream').value;
+      var subject = document.getElementById('cafSubject').value.trim();
+      var notes = document.getElementById('cafNotes').value.trim();
+      var materialTypes = Array.prototype.slice.call(document.querySelectorAll('.caf-check input:checked')).map(function (c) { return c.value; });
+
+      if (!name || !contact || !stream || !subject) {
+        errorBox.textContent = 'من فضلك أكمل جميع الحقول المطلوبة';
+        errorBox.classList.add('show');
+        return;
+      }
+      if (files.length === 0) {
+        errorBox.textContent = 'أضف ملفاً واحداً على الأقل';
+        errorBox.classList.add('show');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      statusBox.classList.add('show');
+      statusText.textContent = 'جاري رفع الملفات (0/' + files.length + ')…';
+
+      var uploaded = 0;
+      var uploadPromises = files.map(function (entry) {
+        return uploadOne(entry).then(function () {
+          uploaded++;
+          statusText.textContent = 'جاري رفع الملفات (' + uploaded + '/' + files.length + ')…';
+        });
+      });
+
+      Promise.all(uploadPromises)
+        .then(function () {
+          statusText.textContent = 'جاري إرسال البيانات…';
+          var fileIds = files.filter(function (f) { return f.driveFileId; }).map(function (f) { return f.driveFileId; });
+          return new Promise(function (resolve, reject) {
+            google.script.run
+              .withSuccessHandler(resolve)
+              .withFailureHandler(reject)
+              .submitContribution({ name: name, contact: contact, stream: stream, subject: subject, materialTypes: materialTypes, notes: notes, fileIds: fileIds });
+          });
+        })
+        .then(function () {
+          document.getElementById('cafFormShell').classList.add('hidden');
+          document.getElementById('cafThanks').classList.add('show');
+        })
+        .catch(function (err) {
+          submitBtn.disabled = false;
+          statusBox.classList.remove('show');
+          errorBox.textContent = 'حدث خطأ أثناء الإرسال، حاول مجدداً — ' + (err && err.message ? err.message : '');
+          errorBox.classList.add('show');
+        });
+    });
+  })();
+  </script>
+</body>
+</html>

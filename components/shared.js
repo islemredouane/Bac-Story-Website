@@ -92,13 +92,13 @@ function injectGlobalCTA() {
             </div>
             <div class="gcta-btn">اكتب رأيك <i class="fas fa-arrow-left"></i></div>
         </a>
-        <a href="/plans/monthly" class="gcta-card gcta-card--plans">
-            <div class="gcta-icon-circle"><i class="fas fa-rocket"></i></div>
+        <a href="/bac-2027-curriculum-changes" class="gcta-card gcta-card--changes2027">
+            <div class="gcta-icon-circle"><i class="fas fa-bolt"></i></div>
             <div class="gcta-text">
-                <strong>بكالوريا 2027؟ ابدأ بقوة!</strong>
-                <span>اكتشف خطط التميز الشهرية ونظم وقتك من بداية العام الدراسي</span>
+                <strong>التغييرات الجديدة في مناهج 2027</strong>
+                <span>تعرّف على التعديلات الرسمية في البرامج، المعاملات والشعب لبكالوريا 2027</span>
             </div>
-            <div class="gcta-btn">تصفح الخطط <i class="fas fa-arrow-left"></i></div>
+            <div class="gcta-btn">اطلع على التغييرات <i class="fas fa-arrow-left"></i></div>
         </a>
         <a href="/resources" class="gcta-card gcta-card--resources">
             <div class="gcta-icon-circle"><i class="fas fa-briefcase"></i></div>
@@ -108,6 +108,14 @@ function injectGlobalCTA() {
             </div>
             <div class="gcta-btn">تصفح المصادر <i class="fas fa-arrow-left"></i></div>
         </a>
+        <a href="/plans/monthly" class="gcta-card gcta-card--plans">
+            <div class="gcta-icon-circle"><i class="fas fa-rocket"></i></div>
+            <div class="gcta-text">
+                <strong>بكالوريا 2027؟ ابدأ بقوة!</strong>
+                <span>اكتشف خطط التميز الشهرية ونظم وقتك من بداية العام الدراسي</span>
+            </div>
+            <div class="gcta-btn">تصفح الخطط <i class="fas fa-arrow-left"></i></div>
+        </a>
         <a href="/oqba" class="gcta-card gcta-card--oqba">
             <div class="gcta-icon-circle"><i class="fas fa-map-signs"></i></div>
             <div class="gcta-text">
@@ -116,18 +124,19 @@ function injectGlobalCTA() {
             </div>
             <div class="gcta-btn">اكتشف الباقات <i class="fas fa-arrow-left"></i></div>
         </a>
-        <a href="/bac-2026" class="gcta-card gcta-card--correct">
-            <div class="gcta-icon-circle"><i class="fas fa-check-double"></i></div>
+        <a href="/computer-science/moktasabat" class="gcta-card gcta-card--moktasabat">
+            <div class="gcta-icon-circle"><i class="fas fa-laptop-code"></i></div>
             <div class="gcta-text">
-                <strong>تصحيحات بكالوريا 2026</strong>
-                <span>شاهد مواضيع وحلول البكالوريا لجميع الشعب فور توفرها</span>
+                <strong>المكتسبات القبلية — الإعلام الآلي</strong>
+                <span>4 أوراق مراجعة تغطي كل ما يجب أن تعرفه قبل بكالوريا 2027</span>
             </div>
-            <div class="gcta-btn">تصفح الحلول <i class="fas fa-arrow-left"></i></div>
+            <div class="gcta-btn">ابدأ المراجعة <i class="fas fa-arrow-left"></i></div>
         </a>
     </div></div>
     <!-- Mobile-only rotation dots -->
     <div class="gcta-dots" id="gcta-dots">
         <span class="gcta-dot gcta-dot--active"></span>
+        <span class="gcta-dot"></span>
         <span class="gcta-dot"></span>
         <span class="gcta-dot"></span>
         <span class="gcta-dot"></span>
@@ -505,16 +514,37 @@ function setupSearch() {
         { title: 'الرياضيات', desc: 'ملخصات، تمارين ومواضيع في الرياضيات', url: '/resources/math', icon: 'fas fa-calculator', specialty: null, keywords: ['رياضيات', 'math', 'حساب', 'ملخصات الرياضيات'] },
         { title: 'العلوم الفيزيائية', desc: 'ميكانيك، كهرباء، كيمياء وتحولات نووية', url: '/resources/sci', icon: 'fas fa-atom', specialty: null, keywords: ['فيزياء', 'فيزيائية', 'physics', 'ملخصات الفيزياء'] },
         { title: 'العلوم الطبيعية', desc: 'بيولوجيا، البروتين، المناعة والاتصال العصبي', url: '/resources/sci', icon: 'fas fa-flask', specialty: null, keywords: ['علوم طبيعية', 'بيولوجيا', 'علوم الحياة', 'ملخصات العلوم'] },
-        { title: 'مواد التكنولوجيا', desc: 'هندسة مدنية، كهربائية، ميكانيكية وطرائق', url: '/resources/tech', icon: 'fas fa-microchip', specialty: null, keywords: ['تكنولوجيا', 'تقني', 'هندسة'] },
+        { title: 'مواد التكنولوجيا', desc: 'هندسة مدنية، كهربائية، ميكانيكية وطرائق', url: '/resources/tech', icon: 'fas fa-microchip', specialty: null, keywords: ['تكنولوجيا', 'تقني', 'هندسة', 'تقني رياضي', 'شعبة هندسة', 'تكنو رياضي', 'شعبة تقني رياضي', 'التقني الرياضي'] },
         { title: 'تسيير واقتصاد', desc: 'محاسبة، قانون، اقتصاد ومناجمنت', url: '/resources/ge', icon: 'fas fa-chart-line', specialty: null, keywords: ['تسيير', 'اقتصاد', 'management'] },
-        { title: 'مواضيع البكالوريا', desc: 'مواضيع رسمية 2025 و2024 مع التصحيح', url: '/bac-topics', icon: 'fas fa-file-alt', specialty: null, keywords: ['مواضيع', 'بكالوريا', 'BAC', 'تصحيح', 'موضوع', 'اختبار رسمي', 'بكالوريات'] },
+        { title: 'المواضيع', desc: 'بوابة امتحانات الجزائر: بكالوريات سابقة، أشبال الأمة، مواضيع التميز والقناة', url: '/topics', icon: 'fas fa-file-alt', specialty: null, keywords: ['المواضيع', 'امتحانات', 'المواضيع والحلول', 'نماذج اختبارات'] },
+        { title: 'البكالوريات السابقة', desc: 'مواضيع وحوليات شهادة البكالوريا الرسمية من 2008 إلى 2026 مع التصحيح', url: '/topics/bac-topics', icon: 'fas fa-file-contract', specialty: null, keywords: ['بكالوريا سابقة', 'مواضيع البكالوريا', 'تصحيحات الباك', 'حوليات الباك'] },
+        { title: 'مواضيع أشبال الأمة', desc: 'امتحانات شهادة البكالوريا لمدارس أشبال الأمة الجزائرية مع التصحيح النموذجية', url: '/topics/achbal-eloma', icon: 'fa-solid fa-person-military-rifle', specialty: null, keywords: ['أشبال الأمة', 'امتحانات أشبال الأمة', 'بكالوريا أشبال الأمة'] },
+        { title: 'مواضيع التميز', desc: 'سلاسل تمارين واختبارات التميز النموذجية المخصصة للمتفوقين لجميع الشعب', url: '/topics/excellence-topics', icon: 'fas fa-medal', specialty: null, keywords: ['تميز', 'مواضيع التميز', 'تمارين المتفوقين', 'سلاسل التميز'] },
+        { title: 'البكالوريات التجريبية لقناتنا', desc: 'مواضيع البكالوريا التجريبية والمقترحات الخاصة بقناتنا دورة 2025 و2026', url: '/topics/channel-exams', icon: 'fas fa-scroll', specialty: null, keywords: ['تجريبي القناة', 'بكالوريا تجريبية', 'مقترحات القناة', 'قناتنا'] },
+        { title: 'أرشيف البكالوريات السابقة', desc: 'أرشيف وحوليات البكالوريا الجزائرية من 2008 إلى 2023 لجميع المواد والشعب', url: '/topics/bac-archives', icon: 'fas fa-archive', specialty: null, keywords: ['أرشيف الباك', 'البكالوريات السابقة', 'حوليات 2008', 'حوليات 2023'] },
         { title: 'تصحيحات بكالوريا 2026', desc: 'الحلول النموذجية لجميع الشعب — دورة 2026', url: '/bac-2026', icon: 'fas fa-check-double', specialty: null, keywords: ['2026', 'بكالوريا 2026', 'تصحيح 2026', 'حلول 2026', 'دورة 2026', 'نتائج', 'تصحيحات'] },
         { title: 'تصحيح 2026 — رياضيات', desc: 'حلول بكالوريا 2026 شعبة رياضيات', url: '/bac-2026/matheleme', icon: 'fas fa-check-double', specialty: 'رياضيات', keywords: ['تصحيح 2026', 'بكالوريا 2026', 'رياضيات', 'حلول رياضيات', 'موضوع رياضيات 2026', 'math 2026'] },
         { title: 'تصحيح 2026 — علوم تجريبية', desc: 'حلول بكالوريا 2026 شعبة علوم تجريبية', url: '/bac-2026/sci', icon: 'fas fa-check-double', specialty: 'علوم تجريبية', keywords: ['تصحيح 2026', 'بكالوريا 2026', 'علوم تجريبية', 'حلول علوم', 'موضوع علوم 2026', 'science 2026'] },
-        { title: 'تصحيح 2026 — تقني رياضي', desc: 'حلول بكالوريا 2026 شعبة تقني رياضي', url: '/bac-2026/tech', icon: 'fas fa-check-double', specialty: 'تقني رياضي', keywords: ['تصحيح 2026', 'بكالوريا 2026', 'تقني رياضي', 'تقني', 'tech 2026'] },
+        { title: 'تصحيح 2026 — هندسة', desc: 'حلول بكالوريا 2026 شعبة هندسة', url: '/bac-2026/tech', icon: 'fas fa-check-double', specialty: 'هندسة', keywords: ['تصحيح 2026', 'بكالوريا 2026', 'هندسة', 'تقني', 'tech 2026'] },
         { title: 'تصحيح 2026 — تسيير واقتصاد', desc: 'حلول بكالوريا 2026 شعبة تسيير واقتصاد', url: '/bac-2026/ge', icon: 'fas fa-check-double', specialty: 'تسيير واقتصاد', keywords: ['تصحيح 2026', 'بكالوريا 2026', 'تسيير', 'اقتصاد', 'ge 2026'] },
-        { title: 'تصحيح 2026 — آداب وفلسفة', desc: 'حلول بكالوريا 2026 شعبة آداب وفلسفة', url: '/bac-2026/le', icon: 'fas fa-check-double', specialty: 'آداب وفلسفة', keywords: ['تصحيح 2026', 'بكالوريا 2026', 'آداب', 'فلسفة', 'أدب 2026'] },
-        { title: 'تصحيح 2026 — لغات أجنبية', desc: 'حلول بكالوريا 2026 شعبة لغات أجنبية', url: '/bac-2026/lp', icon: 'fas fa-check-double', specialty: 'لغات أجنبية', keywords: ['تصحيح 2026', 'بكالوريا 2026', 'لغات أجنبية', 'لغات', 'lp 2026'] },
+        { title: 'تصحيح 2026 — آداب وفلسفة', desc: 'حلول بكالوريا 2026 شعبة آداب وفلسفة', url: '/bac-2026/lp', icon: 'fas fa-check-double', specialty: 'آداب وفلسفة', keywords: ['تصحيح 2026', 'بكالوريا 2026', 'آداب', 'فلسفة', 'أدب 2026'] },
+        { title: 'تصحيح 2026 — لغات أجنبية', desc: 'حلول بكالوريا 2026 شعبة لغات أجنبية', url: '/bac-2026/le', icon: 'fas fa-check-double', specialty: 'لغات أجنبية', keywords: ['تصحيح 2026', 'بكالوريا 2026', 'لغات أجنبية', 'لغات', 'le 2026'] },
+        { title: 'مواضيع وتصحيحات بكالوريا 2025', desc: 'الحلول النموذجية لجميع الشعب — دورة 2025', url: '/topics/bac-2025', icon: 'fas fa-check-double', specialty: null, keywords: ['2025', 'بكالوريا 2025', 'تصحيح 2025', 'حلول 2025', 'دورة 2025', 'نتائج 2025', 'تصحيحات'] },
+        { title: 'تصحيح 2025 — رياضيات', desc: 'حلول بكالوريا 2025 شعبة رياضيات', url: '/topics/bac-2025/matheleme', icon: 'fas fa-check-double', specialty: 'رياضيات', keywords: ['تصحيح 2025', 'بكالوريا 2025', 'رياضيات', 'حلول رياضيات', 'موضوع رياضيات 2025', 'math 2025'] },
+        { title: 'تصحيح 2025 — علوم تجريبية', desc: 'حلول بكالوريا 2025 شعبة علوم تجريبية', url: '/topics/bac-2025/sci', icon: 'fas fa-check-double', specialty: 'علوم تجريبية', keywords: ['تصحيح 2025', 'بكالوريا 2025', 'علوم تجريبية', 'حلول علوم', 'موضوع علوم 2025', 'science 2025'] },
+        { title: 'تصحيح 2025 — هندسة', desc: 'حلول بكالوريا 2025 شعبة هندسة', url: '/topics/bac-2025/tech', icon: 'fas fa-check-double', specialty: 'هندسة', keywords: ['تصحيح 2025', 'بكالوريا 2025', 'هندسة', 'تقني', 'tech 2025'] },
+        { title: 'تصحيح 2025 — تسيير واقتصاد', desc: 'حلول بكالوريا 2025 شعبة تسيير واقتصاد', url: '/topics/bac-2025/ge', icon: 'fas fa-check-double', specialty: 'تسيير واقتصاد', keywords: ['تصحيح 2025', 'بكالوريا 2025', 'تسيير', 'اقتصاد', 'ge 2025'] },
+        { title: 'تصحيح 2025 — آداب وفلسفة', desc: 'حلول بكالوريا 2025 شعبة آداب وفلسفة', url: '/topics/bac-2025/lp', icon: 'fas fa-check-double', specialty: 'آداب وفلسفة', keywords: ['تصحيح 2025', 'بكالوريا 2025', 'آداب', 'فلسفة', 'أدب 2025'] },
+        { title: 'تصحيح 2025 — لغات أجنبية', desc: 'حلول بكالوريا 2025 شعبة لغات أجنبية', url: '/topics/bac-2025/le', icon: 'fas fa-check-double', specialty: 'لغات أجنبية', keywords: ['تصحيح 2025', 'بكالوريا 2025', 'لغات أجنبية', 'لغات', 'le 2025'] },
+        { title: 'مواضيع وتصحيحات بكالوريا 2024', desc: 'الحلول النموذجية لجميع الشعب — دورة 2024', url: '/topics/bac-2024', icon: 'fas fa-check-double', specialty: null, keywords: ['2024', 'بكالوريا 2024', 'تصحيح 2024', 'حلول 2024', 'دورة 2024', 'نتائج 2024', 'تصحيحات'] },
+        { title: 'تصحيح 2024 — رياضيات', desc: 'حلول بكالوريا 2024 شعبة رياضيات', url: '/topics/bac-2024/matheleme', icon: 'fas fa-check-double', specialty: 'رياضيات', keywords: ['تصحيح 2024', 'بكالوريا 2024', 'رياضيات', 'حلول رياضيات', 'موضوع رياضيات 2024', 'math 2024'] },
+        { title: 'تصحيح 2024 — علوم تجريبية', desc: 'حلول بكالوريا 2024 شعبة علوم تجريبية', url: '/topics/bac-2024/sci', icon: 'fas fa-check-double', specialty: 'علوم تجريبية', keywords: ['تصحيح 2024', 'بكالوريا 2024', 'علوم تجريبية', 'حلول علوم', 'موضوع علوم 2024', 'science 2024'] },
+        { title: 'تصحيح 2024 — هندسة', desc: 'حلول بكالوريا 2024 شعبة هندسة', url: '/topics/bac-2024/tech', icon: 'fas fa-check-double', specialty: 'هندسة', keywords: ['تصحيح 2024', 'بكالوريا 2024', 'هندسة', 'تقني', 'tech 2024'] },
+        { title: 'تصحيح 2024 — تسيير واقتصاد', desc: 'حلول بكالوريا 2024 شعبة تسيير واقتصاد', url: '/topics/bac-2024/ge', icon: 'fas fa-check-double', specialty: 'تسيير واقتصاد', keywords: ['تصحيح 2024', 'بكالوريا 2024', 'تسيير', 'اقتصاد', 'ge 2024'] },
+        { title: 'تصحيح 2024 — آداب وفلسفة', desc: 'حلول بكالوريا 2024 شعبة آداب وفلسفة', url: '/topics/bac-2024/lp', icon: 'fas fa-check-double', specialty: 'آداب وفلسفة', keywords: ['تصحيح 2024', 'بكالوريا 2024', 'آداب', 'فلسفة', 'أدب 2024'] },
+        { title: 'تصحيح 2024 — لغات أجنبية', desc: 'حلول بكالوريا 2024 شعبة لغات أجنبية', url: '/topics/bac-2024/le', icon: 'fas fa-check-double', specialty: 'لغات أجنبية', keywords: ['تصحيح 2024', 'بكالوريا 2024', 'لغات أجنبية', 'لغات', 'le 2024'] },
+        { title: 'تغييرات مناهج البكالوريا 2027', desc: 'مواد ملغاة، معاملات جديدة وإعادة تسمية التقني الرياضي إلى هندسة', url: '/bac-2027-curriculum-changes', icon: 'fas fa-scroll', specialty: null, keywords: ['2027', 'تغييرات 2027', 'مناهج 2027', 'معاملات جديدة', 'مواد ملغاة', 'هندسة', 'تقني رياضي', 'فلسفة ملغاة', 'فرنسية ملغاة', 'تغييرات بكالوريا', 'منهج جديد', 'دفعة 2027', 'إسلاح مناهج', 'وزارة التربية', 'curriculum', 'شعبة هندسة', 'جدول معاملات'] },
+        { title: 'شارك موادك', desc: 'شارك ملخصاتك وتمارينك وساعد الجيل القادم من طلاب البكالوريا', url: '/contribute', icon: 'fas fa-upload', specialty: null, keywords: ['شارك موادك', 'مساهمة', 'ساهم', 'ارفع ملخصات', 'شارك ملخصات', 'contribute', 'أرسل ملخصاتك', 'تبرع بملخصاتك', 'انضم كمساهم'] },
         { title: 'محاكاة البكالوريا', desc: 'اختبارات تجريبية لمحاكاة ظروف الباك الحقيقية', url: '/simulation', icon: 'fas fa-vr-cardboard', specialty: null, keywords: ['محاكاة', 'تجريبي', 'امتحان تجريبي', 'simulation', 'محاكاة الباك', 'اختبار تجريبي'] },
         { title: 'باقات عقبة بن نافع', desc: 'دروس وتمارين منظمة من عقبة بن نافع', url: '/oqba', icon: 'fas fa-star', specialty: null, keywords: ['عقبة', 'عقبة بن نافع', 'باقات عقبة', 'oqba', 'باقات'] },
         { title: 'الكتب الخارجية', desc: 'كتب دراسية مختارة لتعميق الفهم في كل مادة', url: '/resources/books', icon: 'fas fa-book', specialty: null, keywords: ['كتب', 'كتاب', 'كتب خارجية', 'مراجع', 'مرجع', 'books', 'كتب دراسية'] },
@@ -535,7 +565,7 @@ function setupSearch() {
         // ── MATH — SPECIALTY SECTIONS ──────────────────────────────────────
         { title: 'الرياضيات', desc: 'دروس، ملخصات وتمارين', url: '/resources/math', icon: 'fas fa-calculator', specialty: 'رياضيات', keywords: ['رياضيات', 'ملخصات', 'دروس', 'تمارين'] },
         { title: 'الرياضيات', desc: 'دروس، ملخصات وتمارين', url: '/resources/sci', icon: 'fas fa-calculator', specialty: 'علوم تجريبية', keywords: ['رياضيات', 'ملخصات', 'دروس', 'تمارين'] },
-        { title: 'الرياضيات', desc: 'دروس، ملخصات وتمارين', url: '/resources/tech', icon: 'fas fa-calculator', specialty: 'تقني رياضي', keywords: ['رياضيات', 'ملخصات', 'دروس', 'تمارين'] },
+        { title: 'الرياضيات', desc: 'دروس، ملخصات وتمارين', url: '/resources/tech', icon: 'fas fa-calculator', specialty: 'هندسة', keywords: ['رياضيات', 'ملخصات', 'دروس', 'تمارين'] },
         { title: 'الرياضيات', desc: 'دروس، ملخصات وتمارين', url: '/resources/ge', icon: 'fas fa-calculator', specialty: 'تسيير واقتصاد', keywords: ['رياضيات', 'ملخصات', 'دروس', 'تمارين'] },
         { title: 'الرياضيات', desc: 'الرياضيات المختزلة', url: '/resources/le', icon: 'fas fa-calculator', specialty: 'آداب · لغات', keywords: ['رياضيات', 'ملخصات', 'دروس'] },
 
@@ -590,10 +620,10 @@ function setupSearch() {
         { title: 'المكتسبات القبلية', desc: 'مراجعة الأساسيات — علوم طبيعية', url: '/resources/sci', icon: 'fas fa-star', specialty: 'علوم طبيعية', keywords: ['المكتسبات القبلية', 'مراجعة', 'أساسيات علوم'] },
 
         // ── TECHNOLOGY TYPES ───────────────────────────────────────────────
-        { title: 'الهندسة المدنية', desc: 'مقاومة المواد، التربة والمنشآت', url: '/resources/tech', icon: 'fas fa-hard-hat', specialty: 'تقني رياضي', keywords: ['الهندسة المدنية', 'مدني', 'مقاومة المواد', 'التربة', 'خرسانة', 'هندسة مدنية'] },
-        { title: 'الهندسة الكهربائية', desc: 'الأنظمة الكهربائية والإلكترونية', url: '/resources/tech', icon: 'fas fa-plug', specialty: 'تقني رياضي', keywords: ['الهندسة الكهربائية', 'كهربائية', 'إلكترونية', 'دوائر', 'هندسة كهربائية'] },
-        { title: 'الهندسة الميكانيكية', desc: 'الأنظمة الميكانيكية وتحليل الحركات', url: '/resources/tech', icon: 'fas fa-cog', specialty: 'تقني رياضي', keywords: ['الهندسة الميكانيكية', 'ميكانيكية', 'الأنظمة', 'هندسة ميكانيكية'] },
-        { title: 'هندسة الطرائق', desc: 'تصميم الطرق والمشاريع الإنشائية', url: '/resources/tech', icon: 'fas fa-road', specialty: 'تقني رياضي', keywords: ['هندسة الطرائق', 'طرائق', 'الطرق', 'إنشائية'] },
+        { title: 'الهندسة المدنية', desc: 'مقاومة المواد، التربة والمنشآت', url: '/resources/tech', icon: 'fas fa-hard-hat', specialty: 'هندسة', keywords: ['الهندسة المدنية', 'مدني', 'مقاومة المواد', 'التربة', 'خرسانة', 'هندسة مدنية'] },
+        { title: 'الهندسة الكهربائية', desc: 'الأنظمة الكهربائية والإلكترونية', url: '/resources/tech', icon: 'fas fa-plug', specialty: 'هندسة', keywords: ['الهندسة الكهربائية', 'كهربائية', 'إلكترونية', 'دوائر', 'هندسة كهربائية'] },
+        { title: 'الهندسة الميكانيكية', desc: 'الأنظمة الميكانيكية وتحليل الحركات', url: '/resources/tech', icon: 'fas fa-cog', specialty: 'هندسة', keywords: ['الهندسة الميكانيكية', 'ميكانيكية', 'الأنظمة', 'هندسة ميكانيكية'] },
+        { title: 'هندسة الطرائق', desc: 'تصميم الطرق والمشاريع الإنشائية', url: '/resources/tech', icon: 'fas fa-road', specialty: 'هندسة', keywords: ['هندسة الطرائق', 'طرائق', 'الطرق', 'إنشائية'] },
 
         // ── MANAGEMENT TOPICS ──────────────────────────────────────────────
         { title: 'المحاسبة التحليلية والمالية', desc: 'التكاليف، التحليل المالي والتسيير المحاسبي', url: '/resources/ge', icon: 'fas fa-calculator', specialty: 'تسيير واقتصاد', keywords: ['المحاسبة', 'محاسبة', 'التحليل المالي', 'تكاليف', 'ميزانية', 'محاسبة تحليلية'] },
@@ -652,6 +682,10 @@ function setupSearch() {
         { title: 'اللغة الإيطالية', desc: 'قواعد، مصطلحات وكتب الإيطالية', url: '/resources/lp', icon: 'fas fa-globe-europe', specialty: 'لغات أجنبية', keywords: ['الإيطالية', 'إيطالي', 'Italiano', 'Italian', 'إيطالية', 'italien'] },
 
         // ── SPECIALTY OVERVIEWS ────────────────────────────────────────────
+        { title: 'شعبة رياضيات', desc: 'جميع مواد وموارد شعبة الرياضيات', url: '/resources/math', icon: 'fas fa-calculator', specialty: 'رياضيات', keywords: ['رياضيات', 'شعبة رياضيات', 'علوم رياضيات', 'math'] },
+        { title: 'شعبة علوم تجريبية', desc: 'جميع مواد وموارد شعبة العلوم التجريبية', url: '/resources/sci', icon: 'fas fa-flask', specialty: 'علوم تجريبية', keywords: ['علوم تجريبية', 'شعبة علوم', 'علوم طبيعية', 'sciences', 'علوم'] },
+        { title: 'شعبة هندسة', desc: 'جميع مواد وموارد شعبة هندسة (سابقاً التقني الرياضي)', url: '/resources/tech', icon: 'fas fa-microchip', specialty: 'هندسة', keywords: ['هندسة', 'شعبة هندسة', 'تقني رياضي', 'شعبة تقني رياضي', 'تكنو رياضي', 'التقني الرياضي'] },
+        { title: 'شعبة تسيير واقتصاد', desc: 'جميع مواد وموارد شعبة تسيير واقتصاد', url: '/resources/ge', icon: 'fas fa-chart-line', specialty: 'تسيير واقتصاد', keywords: ['تسيير واقتصاد', 'شعبة تسيير', 'اقتصاد', 'management', 'تسيير'] },
         { title: 'شعبة آداب وفلسفة', desc: 'جميع مواد وموارد شعبة الآداب وفلسفة', url: '/resources/le', icon: 'fas fa-pen-nib', specialty: 'آداب وفلسفة', keywords: ['آداب', 'فلسفة', 'أدب', 'شعبة آداب', 'أدب وفلسفة'] },
         { title: 'شعبة لغات أجنبية', desc: 'جميع مواد وموارد شعبة اللغات الأجنبية', url: '/resources/lp', icon: 'fas fa-comments', specialty: 'لغات أجنبية', keywords: ['لغات', 'لغات أجنبية', 'شعبة لغات', 'اللغات'] },
 
@@ -1199,8 +1233,8 @@ function setupSpecFilterTabs() {
 document.addEventListener('DOMContentLoaded', async () => {
     // Inject components concurrently using absolute paths
     await Promise.all([
-        injectComponent('#navbar-placeholder', '/components/navbar.html?v=1.2'),
-        injectComponent('#footer-placeholder', '/components/footer.html')
+        injectComponent('#navbar-placeholder', '/components/navbar.html?v=1.6'),
+        injectComponent('#footer-placeholder', '/components/footer.html?v=1.2')
     ]);
 
     // Ensure search placeholder is at body level for max z-index
