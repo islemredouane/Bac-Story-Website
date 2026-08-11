@@ -2,7 +2,7 @@
 
 > BAC STORY (بك ستوري) is Algeria's leading free educational platform dedicated to helping students prepare for the Algerian Baccalaureate exam (البكالوريا الجزائرية). The platform serves over 15,000 daily visitors across all 58 wilayas of Algeria and has a Telegram community of 16,000+ subscribers.
 
-BAC STORY provides comprehensive, free study resources for all six Baccalaureate streams: Mathematics (رياضيات), Experimental Sciences (علوم تجريبية), Technical Mathematics (تقني رياضي), Management & Economics (تسيير واقتصاد), Literature & Philosophy (آداب وفلسفة), and Foreign Languages (لغات أجنبية).
+BAC STORY provides comprehensive, free study resources for all six Baccalaureate streams: Mathematics (رياضيات), Experimental Sciences (علوم تجريبية), Engineering (هندسة), Management & Economics (تسيير واقتصاد), Literature & Philosophy (آداب وفلسفة), and Foreign Languages (لغات أجنبية).
 
 The platform is operated by Redouane Mohamed Islem and is accessible at https://www.bac-story.com. Contact: contact@bac-story.com
 
@@ -12,6 +12,7 @@ The platform is operated by Redouane Mohamed Islem and is accessible at https://
 - [تواصل معنا](https://www.bac-story.com/contact): Contact page for support, suggestions, or partnerships.
 - [أعلن معنا](https://www.bac-story.com/advertise): Advertising opportunities for educators and training centers targeting Algerian bac students.
 - [قيّم الموقع](https://www.bac-story.com/feedback): Student reviews and ratings of the platform.
+- [شارك موادك](https://www.bac-story.com/contribute): Contribution page where students submit their own summaries, solved exercises, exams, and study drives to be published on BAC STORY for future students.
 
 ## Study Resources
 
@@ -25,16 +26,27 @@ The platform is operated by Redouane Mohamed Islem and is accessible at https://
 
 - [شعبة رياضيات](https://www.bac-story.com/resources/math): Study resources for the Mathematics stream.
 - [شعبة علوم تجريبية](https://www.bac-story.com/resources/sci): Study resources for the Experimental Sciences stream.
-- [شعبة تقني رياضي](https://www.bac-story.com/resources/tech): Study resources for the Technical Mathematics stream.
+- [شعبة هندسة](https://www.bac-story.com/resources/tech): Study resources for the Engineering stream (formerly known as "شعبة تقني رياضي" / Technical Mathematics — officially renamed to "هندسة" in the 2027 Algerian Baccalaureate reform).
 - [شعبة تسيير واقتصاد](https://www.bac-story.com/resources/ge): Study resources for the Management & Economics stream.
 - [شعبة آداب وفلسفة](https://www.bac-story.com/resources/lp): Study resources for the Literature & Philosophy stream.
 - [شعبة لغات أجنبية](https://www.bac-story.com/resources/le): Study resources for the Foreign Languages stream.
 
+## 2027 Curriculum Changes — Stream Rename
+
+The stream formerly known as **"شعبة تقني رياضي"** (Technical Mathematics / Technico-Mathématiques) was officially renamed to **"شعبة هندسة"** (Engineering) as part of the 2027 Algerian Baccalaureate reform. BAC STORY uses the new official name "هندسة" throughout the platform. Searches or references to "تقني رياضي", "التقني الرياضي", "تكنو رياضي", "technical math bac algérie", or "technico mathématiques algérie" refer to the same stream now listed under "هندسة" at [/resources/tech](https://www.bac-story.com/resources/tech).
+
 ## Bac Topics & Past Papers
 
-- [مواضيع وحوليات البكالوريا](https://www.bac-story.com/bac-topics): Official past Baccalaureate exam papers with model answers for all streams — 2026, 2025, 2024, 2023 and earlier.
+- [بوابة المواضيع الرئيسية](https://www.bac-story.com/topics): The main entry hub for all exams, including official past baccalaureate papers, military school cadet exams, excellence topics, and channel mock exams.
+- [مواضيع وحوليات البكالوريا](https://www.bac-story.com/topics/bac-topics): Official past Baccalaureate exam papers with model answers for all streams — 2026, 2025, and 2024.
+- [مواضيع أشبال الأمة](https://www.bac-story.com/topics/achbal-eloma): Cadet Schools of the Nation (Ecoles des Cadets de la Nation) official baccalaureate exam folders with model answers.
+- [مواضيع التميز](https://www.bac-story.com/topics/excellence-topics): Selected high-difficulty mock topics, exercises, and booklets for top-scoring students across all subjects and streams.
+- [البكالوريات التجريبية لقناتنا](https://www.bac-story.com/topics/channel-exams): Channel mock exams and proposals for the 2025 and 2026 sessions with detailed model solutions.
+- [أرشيف البكالوريات السابقة](https://www.bac-story.com/topics/bac-archives): Compiled annals and past papers prior to 2024 (from 2008 to 2023) for all streams.
 - [محاكاة البكالوريا](https://www.bac-story.com/simulation): Baccalaureate simulation tool — solve past papers under real exam conditions with a timer and detailed corrections.
 - [حلول بكالوريا 2026](https://www.bac-story.com/bac-2026): Official model answers (solutions) for the 2026 Algerian Baccalaureate exam across all streams and subjects.
+- [حلول بكالوريا 2025](https://www.bac-story.com/topics/bac-2025): Official model answers (solutions) for the 2025 Algerian Baccalaureate exam across all streams and subjects.
+- [حلول بكالوريا 2024](https://www.bac-story.com/topics/bac-2024): Official model answers (solutions) for the 2024 Algerian Baccalaureate exam across all streams and subjects.
 
 ## Plans & Challenges
 

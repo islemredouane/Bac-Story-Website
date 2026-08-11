@@ -1,2 +1,9 @@
 # Cloudflare Pages handles clean URLs automatically (no .html needed)
 # No redirects required — domain redirects handled at Cloudflare DNS level
+# Cloudflare Pages 301 Redirects for BAC 2025
+/bac-2025 /topics/bac-2025 301
+/bac-2025/* /topics/bac-2025/:splat 301
+
+# Cloudflare Pages 301 Redirects for BAC 2024
+/bac-2024 /topics/bac-2024 301
+/bac-2024/* /topics/bac-2024/:splat 301
