@@ -41,7 +41,7 @@ export async function onRequest(context) {
   const GAS_URL = env.APPS_SCRIPT_URL_CONTRIBUTE;
 
   if (!GAS_URL || !GAS_URL.startsWith('https://script.google.com')) {
-    return jsonResponse({ success: false, error: 'Backend API not configured' }, 503);
+    return jsonResponse({ success: false, error: 'Backend API not configured' }, 200);
   }
 
   if (method === 'POST') {
@@ -81,14 +81,14 @@ export async function onRequest(context) {
         }
         return jsonResponse({
           success: false,
-          error: 'Unexpected response from upload database: ' + responseText.slice(0, 120)
-        }, 502);
+          error: 'Unexpected response from upload database'
+        }, 200);
       }
 
       return jsonResponse(result, 200);
 
     } catch (err) {
-      return jsonResponse({ success: false, error: 'Serverless fetch error: ' + err.toString() }, 502);
+      return jsonResponse({ success: false, error: 'Could not reach backend' }, 200);
     }
   }
 
