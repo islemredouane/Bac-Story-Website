@@ -7362,12 +7362,6 @@ body.pdf-body-lock {
         align-items: center;
     }
 
-    .main-btn {
-        width: 70%;
-        height: 100%;
-        font-size: 1rem;
-    }
-
     .btn-container,
     .specialty-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -7378,7 +7372,7 @@ body.pdf-body-lock {
     .main-btn {
         min-height: 110px;
         font-size: 0.95rem;
-        padding: 1rem;
+        padding: 1.2rem 0.75rem;
     }
 
     .main-btn i {
@@ -7400,12 +7394,6 @@ body.pdf-body-lock {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
         padding: 1.5rem;
-    }
-
-    .main-btn {
-        width: 90%;
-        height: 120px;
-        margin: 20px auto;
     }
 
     .section-title h2 {
@@ -7499,13 +7487,6 @@ body.pdf-body-lock {
         justify-content: center;
     }
 
-    .main-btn {
-        width: 90%;
-        height: 140px;
-        font-size: 1rem;
-        gap: 0.8rem
-    }
-
     .container {
         margin-top: 4rem;
     }
@@ -7532,13 +7513,14 @@ body.pdf-body-lock {
 
     .main-btn {
         min-height: 110px;
-        font-size: 0.95rem;
-        padding: 1rem;
+        font-size: 0.9rem;
+        padding: 1rem 0.65rem;
+        gap: 0.7rem;
     }
 
     .main-btn i {
-        font-size: 1.8rem;
-        margin-bottom: 0.5rem;
+        font-size: 1.6rem;
+        margin-bottom: 0.4rem;
     }
 }
 
@@ -7565,9 +7547,8 @@ body.pdf-body-lock {
 
     .main-btn {
         width: 100%;
-        height: 140px;
-        padding: 1rem;
-        gap: 0.8rem
+        padding: 1rem 0.6rem;
+        gap: 0.7rem;
     }
 
     .resource-content {
