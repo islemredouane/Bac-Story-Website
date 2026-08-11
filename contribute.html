@@ -1164,7 +1164,7 @@
                     resetFormUI();
                     showSuccess();
                 } catch (err) {
-                    showError('حدث خطأ أثناء الإرسال: ' + err.message);
+                    showError('تعذّر إرسال المساهمة. يرجى التحقق من الرابط والمحاولة مجدداً.');
                     setBtnLoading(false);
                     progressContainer.style.display = 'none';
                 }
@@ -1223,7 +1223,7 @@
 
             } catch (err) {
                 console.error(err);
-                showError('حدث خطأ أثناء الرفع: ' + err.message);
+                showError('تعذّر رفع الملف. يرجى التحقق من اتصالك بالإنترنت والمحاولة مجدداً.');
                 setBtnLoading(false);
                 progressContainer.style.display = 'none';
             }
@@ -1266,12 +1266,12 @@
                         progressStatus.textContent = 'تم رفع الملف بالكامل بنجاح!';
                         break;
                     } else {
-                        throw new Error(`سيرفر الرفع استجاب برمز الخطأ ${response.status}`);
+                        throw new Error('upload_server_error');
                     }
                 } catch (err) {
                     retryAttempt++;
                     if (retryAttempt > MAX_RETRIES) {
-                        throw new Error(`فشل رفع الملف بعد عدة محاولات بسبب ضعف الاتصال. (${err.message})`);
+                        throw new Error('upload_retry_exhausted');
                     }
 
                     // Exponential Backoff: wait 2s, 4s, 8s, 16s, 32s
