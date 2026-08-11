@@ -4,6 +4,9 @@
  *
  * Deploy as:  Execute as → Me  |  Who has access → Anyone
  *
+ * IMPORTANT — before first deploy, run testSetup() from the editor to
+ * complete the OAuth consent screen (authorises Spreadsheets + Drive).
+ *
  * Flow (file upload):
  *   1. POST { action:'initiateUpload', ...meta }
  *      → creates Drive resumable session + pending Sheet row
@@ -24,6 +27,22 @@ const PROPS       = PropertiesService.getScriptProperties();
 // Column indices (1-based) for the sheet
 const COL = { DATE:1, NAME:2, EMAIL:3, STREAM:4, SUBJECT:5, FILETYPE:6, SOURCE:7, LINK:8 };
 
+// ── Health check (GET) ────────────────────────────────────────────────────────
+
+/**
+ * Simple GET endpoint — open the deployment URL in a browser to verify
+ * the script is reachable and authorised.
+ */
+function doGet() {
+  try {
+    // Quick auth check — will throw if scopes not yet approved
+    PropertiesService.getScriptProperties().getKeys();
+    return respond({ success: true, status: 'BAC STORY GAS online', ts: new Date().toISOString() });
+  } catch (err) {
+    return respond({ success: false, status: 'auth_error', detail: err.message });
+  }
+}
+
 // ── Entry point ───────────────────────────────────────────────────────────────
 
 function doPost(e) {
@@ -43,11 +62,12 @@ function doPost(e) {
       case 'initiateUpload': return handleInitiateUpload(data);
       case 'completeUpload': return handleCompleteUpload(data);
       case 'submitWithLink': return handleSubmitWithLink(data);
-      default:               return respond({ success: false, error: 'Unknown action' });
+      default:               return respond({ success: false, error: 'Unknown action: ' + data.action });
     }
   } catch (err) {
     Logger.log('doPost fatal: ' + err.stack);
-    return respond({ success: false, error: 'Internal server error' });
+    // Return actual error message so Cloudflare proxy can surface it for diagnosis
+    return respond({ success: false, error: 'GAS error: ' + err.message });
   }
 }
 
@@ -65,8 +85,21 @@ function handleInitiateUpload(data) {
     return respond({ success: false, error: 'Invalid file size (max 1 GB)' });
   }
 
-  const folder = getOrCreateFolder_();
-  const token  = ScriptApp.getOAuthToken();
+  let folder;
+  try {
+    folder = getOrCreateFolder_();
+  } catch (err) {
+    Logger.log('getOrCreateFolder_ error: ' + err.message);
+    return respond({ success: false, error: 'Drive folder error: ' + err.message });
+  }
+
+  let token;
+  try {
+    token = ScriptApp.getOAuthToken();
+  } catch (err) {
+    Logger.log('getOAuthToken error: ' + err.message);
+    return respond({ success: false, error: 'OAuth token error: ' + err.message });
+  }
 
   let driveResp;
   try {
@@ -101,9 +134,15 @@ function handleInitiateUpload(data) {
     });
   }
 
-  // Append pending row inside a lock to prevent concurrent-write collision
-  const sheet = getOrCreateSheet_();
-  const lock  = LockService.getScriptLock();
+  let sheet;
+  try {
+    sheet = getOrCreateSheet_();
+  } catch (err) {
+    Logger.log('getOrCreateSheet_ error: ' + err.message);
+    return respond({ success: false, error: 'Sheet init error: ' + err.message });
+  }
+
+  const lock = LockService.getScriptLock();
   lock.waitLock(10000);
   let rowIndex;
   try {
@@ -132,7 +171,6 @@ function handleCompleteUpload(data) {
   if (!rowIndex || rowIndex < 2) {
     return respond({ success: false, error: 'Invalid rowIndex' });
   }
-  // Drive file IDs are alphanumeric + underscore + hyphen, 25–50 chars
   if (!/^[\w-]{25,50}$/.test(fileId)) {
     return respond({ success: false, error: 'Invalid fileId format' });
   }
@@ -144,24 +182,29 @@ function handleCompleteUpload(data) {
     return respond({ success: true });
   } catch (err) {
     Logger.log('completeUpload error: ' + err.message);
-    return respond({ success: false, error: 'Could not finalise upload record' });
+    return respond({ success: false, error: 'Could not finalise upload record: ' + err.message });
   }
 }
 
 function handleSubmitWithLink(data) {
   const link = String(data.fileLink || '').trim().slice(0, 1000);
 
-  // Only allow http/https
   if (!/^https?:\/\/.{4,}/i.test(link)) {
     return respond({ success: false, error: 'رابط غير صالح — يجب أن يبدأ بـ https://' });
   }
-  // Belt-and-suspenders: reject other URI schemes that could sneak through
   if (/^(javascript|data|vbscript|file):/i.test(link)) {
     return respond({ success: false, error: 'نوع الرابط غير مسموح به' });
   }
 
-  const sheet = getOrCreateSheet_();
-  const lock  = LockService.getScriptLock();
+  let sheet;
+  try {
+    sheet = getOrCreateSheet_();
+  } catch (err) {
+    Logger.log('getOrCreateSheet_ error in submitWithLink: ' + err.message);
+    return respond({ success: false, error: 'Sheet init error: ' + err.message });
+  }
+
+  const lock = LockService.getScriptLock();
   lock.waitLock(10000);
   try {
     sheet.appendRow([
@@ -179,6 +222,34 @@ function handleSubmitWithLink(data) {
   }
 
   return respond({ success: true });
+}
+
+// ── Manual setup / auth trigger ───────────────────────────────────────────────
+
+/**
+ * Run this function ONCE from the Apps Script editor to:
+ *   1. Complete the OAuth consent screen (authorises Spreadsheets + Drive)
+ *   2. Pre-create the folder + sheet so the first web-app call is instant
+ *
+ * After running it you should see no errors in the Execution log.
+ */
+function testSetup() {
+  Logger.log('=== testSetup starting ===');
+  try {
+    const folder = getOrCreateFolder_();
+    Logger.log('Folder OK: ' + folder.getName() + ' (' + folder.getId() + ')');
+  } catch (err) {
+    Logger.log('Folder ERROR: ' + err.message);
+    throw err;
+  }
+  try {
+    const sheet = getOrCreateSheet_();
+    Logger.log('Sheet OK: ' + sheet.getParent().getName());
+  } catch (err) {
+    Logger.log('Sheet ERROR: ' + err.message);
+    throw err;
+  }
+  Logger.log('=== testSetup complete — all services authorised ===');
 }
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
@@ -200,7 +271,6 @@ function safeCell_(value, maxLen) {
                 .replace(/[\r\n\t\x00-\x1F]/g, ' ')
                 .trim()
                 .slice(0, max);
-  // Leading chars that Google Sheets interprets as formula starters
   return /^[=+\-@|%`]/.test(s) ? "'" + s : s;
 }
 
@@ -214,7 +284,6 @@ function sanitizeFilename_(name) {
 
 /**
  * Whitelists MIME types accepted by the frontend file validator.
- * Anything not in the list falls back to octet-stream.
  */
 function sanitizeMime_(mime) {
   const ALLOWED = new Set([
@@ -236,8 +305,7 @@ function sanitizeMime_(mime) {
 }
 
 /**
- * Returns the Drive folder for uploads, caching its ID in script properties
- * to avoid repeated folder lookups.
+ * Returns the Drive folder for uploads, caching its ID in script properties.
  */
 function getOrCreateFolder_() {
   const savedId = PROPS.getProperty('FOLDER_ID');
@@ -253,7 +321,6 @@ function getOrCreateFolder_() {
 /**
  * Returns the contributions sheet.
  * Creates the spreadsheet + header row on first run, then caches the ID.
- * Uses the named sheet tab — not index 0 — to survive manual tab reordering.
  */
 function getOrCreateSheet_() {
   const savedId = PROPS.getProperty('SHEET_ID');
@@ -263,7 +330,6 @@ function getOrCreateSheet_() {
   }
 
   if (!ss) {
-    // First run: create spreadsheet
     ss = SpreadsheetApp.create(SHEET_NAME);
     PROPS.setProperty('SHEET_ID', ss.getId());
 
@@ -282,7 +348,6 @@ function getOrCreateSheet_() {
     return sh;
   }
 
-  // Prefer tab by name; guard against tab having been renamed/deleted
   const byName = ss.getSheetByName(SHEET_NAME);
   return byName || ss.getSheets()[0];
 }
