@@ -1,0 +1,398 @@
+/* ============================================================
+   FICHES DE RÉVISION — shared print/screen stylesheet
+   BAC STORY — الإعلام الآلي 2027
+
+   Header always uses the BAC STORY brand blue (#2c5cc5 / #1a3a8f).
+   Each fiche sets --fiche-accent + --fiche-accent-2 on :root for
+   section badges, bullets, table tints, definition borders, and
+   card details — so the topic colour lives in the detail layer
+   while the identity layer stays unified.
+
+   Print: @page margin boxes (CSS Paged Media, Chrome 116+).
+   Top-right = topic title, top-left = BAC STORY brand.
+   Bottom-right = sheet number, bottom-left = www.bac-story.com.
+   First page hides the top bars (the gradient header is enough).
+   Each fiche overrides @top-right / @bottom-right with its own
+   content strings in its own <style> block.
+
+   Direction: RTL only (<html lang="ar" dir="rtl">).
+   ============================================================ */
+
+/* ============================================================
+   @PAGE — running margin headers/footers (Chrome 116+)
+   These sit in the physical page margin area — never overlaps
+   document content. Per-fiche <style> blocks override
+   @top-right and @bottom-right with fiche-specific strings.
+   ============================================================ */
+@page {
+    size: A4;
+    margin: 11mm 16mm 13mm;
+
+    /* Top-left: BAC STORY brand mark */
+    @top-left {
+        content: "BAC STORY";
+        font-family: 'Pattaya', Georgia, serif;
+        font-size: 8.5pt;
+        color: #2c5cc5;
+        vertical-align: middle;
+        border-bottom: 0.75pt solid #e6eaf2;
+    }
+
+    /* Top-center: empty — bridges the hairline across the middle gap */
+    @top-center {
+        content: "";
+        vertical-align: middle;
+        border-bottom: 0.75pt solid #e6eaf2;
+    }
+
+    /* Top-right: fiche topic — overridden per fiche */
+    @top-right {
+        content: "الإعلام الآلي 2027";
+        font-family: 'Tajawal', Arial, sans-serif;
+        font-size: 7.5pt;
+        font-weight: 700;
+        color: #94a3b8;
+        vertical-align: middle;
+        text-align: right;
+        border-bottom: 0.75pt solid #e6eaf2;
+    }
+
+    /* Bottom-left: site URL */
+    @bottom-left {
+        content: "www.bac-story.com";
+        font-family: 'Tajawal', Arial, sans-serif;
+        font-size: 8pt;
+        font-weight: 700;
+        color: #2c5cc5;
+        vertical-align: middle;
+        border-top: 0.75pt solid #e6eaf2;
+    }
+
+    /* Bottom-center: empty — bridges the hairline across the middle gap */
+    @bottom-center {
+        content: "";
+        vertical-align: middle;
+        border-top: 0.75pt solid #e6eaf2;
+    }
+
+    /* Bottom-right: sheet number — overridden per fiche */
+    @bottom-right {
+        content: "الإعلام الآلي 2027";
+        font-family: 'Tajawal', Arial, sans-serif;
+        font-size: 7.5pt;
+        font-weight: 700;
+        color: #94a3b8;
+        vertical-align: middle;
+        text-align: right;
+        border-top: 0.75pt solid #e6eaf2;
+    }
+}
+
+/* Hide top bars on first page — the gradient header is the brand statement */
+@page :first {
+    @top-left   { content: none; border: none; }
+    @top-right  { content: none; border: none; }
+    @top-center { border: none; }
+}
+
+:root {
+    --fp-sp-1: .25rem;  --fp-sp-2: .5rem;  --fp-sp-3: .75rem;
+    --fp-sp-4: 1rem;    --fp-sp-5: 1.5rem; --fp-sp-6: 2rem; --fp-sp-8: 3rem;
+    --fp-fs-xs: .78rem; --fp-fs-sm: .9rem; --fp-fs-md: 1rem;
+    --fp-fs-lg: 1.18rem; --fp-fs-2xl: 1.9rem;
+    --fp-border: #e6eaf2;
+    --fp-surface-2: #f8fafc;
+    --fp-dark: #0f172a;
+    --fp-muted: #64748b;
+    --fp-faint: #94a3b8;
+    /* Brand blue — shared across all fiches, never overridden */
+    --fp-brand:   #2c5cc5;
+    --fp-brand-2: #1a3a8f;
+}
+
+/* ---- Page shell ---- */
+.fiche-page {
+    position: relative;
+    direction: rtl;
+    font-family: 'Tajawal', sans-serif;
+    max-width: 900px;
+    margin-inline: auto;
+    padding: var(--fp-sp-6) var(--fp-sp-6) var(--fp-sp-8);
+    background: #fff;
+}
+
+/* ---- Header: brand-blue hero banner ---- */
+.fiche-header {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--fp-sp-4);
+    background: linear-gradient(135deg, var(--fp-brand-2) 0%, var(--fp-brand) 100%);
+    border-radius: 24px;
+    padding: 2rem 2.2rem;
+    margin-bottom: var(--fp-sp-6);
+    overflow: hidden;
+    color: #fff;
+    box-shadow: 0 16px 40px color-mix(in srgb, var(--fp-brand) 28%, transparent);
+}
+.fiche-header::before {
+    content: '';
+    position: absolute;
+    top: -90px; left: -70px;
+    width: 260px; height: 260px;
+    background: radial-gradient(circle, rgba(255,255,255,.22) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+.fiche-header::after {
+    content: '';
+    position: absolute;
+    bottom: -110px; right: -80px;
+    width: 260px; height: 260px;
+    background: radial-gradient(circle, rgba(0,0,0,.14) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+.fiche-header > * { position: relative; z-index: 1; }
+
+.fiche-header-title { display: flex; flex-direction: column; gap: 6px; }
+.fiche-badge {
+    display: inline-flex; align-items: center; gap: 8px; align-self: flex-start;
+    background: rgba(255,255,255,.16);
+    border: 1px solid rgba(255,255,255,.28);
+    border-radius: 999px; padding: 5px 14px;
+    font-size: 0.76rem; font-weight: 800; letter-spacing: 0.2px;
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    margin-bottom: 2px;
+}
+.fiche-badge i { font-size: 0.78rem; }
+.fiche-title-ar {
+    font-family: 'Tajawal', sans-serif;
+    font-size: var(--fp-fs-2xl);
+    font-weight: 900;
+    letter-spacing: -0.3px;
+    color: #fff;
+    line-height: 1.3;
+}
+.fiche-title-fr {
+    font-size: var(--fp-fs-sm);
+    font-weight: 600;
+    color: rgba(255,255,255,.85);
+}
+
+.fiche-brand {
+    display: flex; flex-direction: column; align-items: flex-end;
+    gap: 2px; text-align: end; flex-shrink: 0;
+}
+.fiche-brand-name {
+    font-family: 'Pattaya', serif;
+    font-size: 1.2rem; font-weight: 400; letter-spacing: 0.02em;
+    color: #fff;
+}
+.fiche-brand-tag {
+    font-size: var(--fp-fs-xs); font-weight: 700;
+    color: rgba(255,255,255,.75); white-space: nowrap;
+}
+
+/* ---- Print top bar (hidden always — @page handles it) ---- */
+.fiche-print-topbar { display: none; }
+
+/* ---- Footer: screen-hidden, @page margin boxes handle print ---- */
+.fiche-footer { display: none; }
+
+/* ---- Section blocks ---- */
+.fiche-section { margin-bottom: var(--fp-sp-6); }
+
+.fiche-section-title {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: var(--fp-sp-4);
+}
+.fiche-section-num {
+    flex: none;
+    width: 42px; height: 42px;
+    border-radius: 13px;
+    background: linear-gradient(135deg, var(--fiche-accent-2) 0%, var(--fiche-accent) 100%);
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 1.05rem; font-weight: 900;
+    box-shadow: 0 6px 16px color-mix(in srgb, var(--fiche-accent) 35%, transparent);
+}
+.fiche-section-title h2 {
+    font-family: 'Tajawal', sans-serif;
+    font-size: var(--fp-fs-lg);
+    font-weight: 900;
+    color: var(--fp-dark);
+    margin: 0;
+}
+
+.fiche-text {
+    font-size: var(--fp-fs-sm);
+    color: #334155;
+    line-height: 1.9;
+    font-weight: 500;
+    margin-bottom: var(--fp-sp-3);
+}
+.fiche-list { list-style: none; display: flex; flex-direction: column; gap: var(--fp-sp-2); }
+.fiche-list li {
+    position: relative;
+    padding-inline-start: var(--fp-sp-4);
+    font-size: var(--fp-fs-sm);
+    color: #334155;
+    font-weight: 500;
+    line-height: 1.75;
+}
+.fiche-list li::before {
+    content: '';
+    position: absolute;
+    inset-inline-start: 0;
+    top: 0.65em;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--fiche-accent);
+}
+
+/* ---- Table ---- */
+.fiche-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-bottom: var(--fp-sp-4);
+    font-size: var(--fp-fs-sm);
+    border: 1.5px solid var(--fp-border);
+    border-radius: 16px;
+    overflow: hidden;
+}
+.fiche-table th, .fiche-table td {
+    padding: var(--fp-sp-3) var(--fp-sp-3);
+    text-align: right;
+    vertical-align: top;
+    border-bottom: 1px solid var(--fp-border);
+}
+.fiche-table tbody tr:last-child td { border-bottom: none; }
+.fiche-table thead th {
+    background: linear-gradient(135deg, color-mix(in srgb, var(--fiche-accent) 16%, #fff), color-mix(in srgb, var(--fiche-accent) 7%, #fff));
+    color: var(--fp-dark);
+    font-weight: 800;
+}
+.fiche-table tbody tr:nth-child(even) { background: var(--fp-surface-2); }
+.fiche-table caption {
+    caption-side: top; text-align: right; font-weight: 800;
+    color: var(--fiche-accent-2); padding-bottom: var(--fp-sp-2);
+}
+
+/* ---- Definition box ---- */
+.fiche-definition {
+    border-radius: 18px;
+    border: 1.5px solid color-mix(in srgb, var(--fiche-accent) 18%, transparent);
+    border-right: 4px solid var(--fiche-accent);
+    background: color-mix(in srgb, var(--fiche-accent) 5%, #fff);
+    box-shadow: 0 5px 18px color-mix(in srgb, var(--fiche-accent) 8%, transparent);
+    padding: var(--fp-sp-4) var(--fp-sp-5);
+    margin-bottom: var(--fp-sp-4);
+}
+.fiche-definition + .fiche-definition { margin-top: var(--fp-sp-3); }
+.fiche-definition-term { font-weight: 900; color: var(--fiche-accent-2); }
+.fiche-definition p { font-size: var(--fp-fs-sm); color: #334155; font-weight: 500; line-height: 1.85; }
+.fiche-definition p + p { margin-top: var(--fp-sp-2); }
+
+/* ---- Diagram container ---- */
+.fiche-diagram {
+    display: flex; align-items: center; justify-content: center;
+    border: 1.5px solid color-mix(in srgb, var(--fiche-accent) 14%, var(--fp-border));
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 0 5px 20px color-mix(in srgb, var(--fiche-accent) 6%, transparent);
+    padding: var(--fp-sp-5);
+    margin-bottom: var(--fp-sp-4);
+}
+.fiche-diagram svg { max-width: 100%; height: auto; }
+.fiche-diagram-caption {
+    text-align: center; font-size: var(--fp-fs-xs); color: var(--fp-faint); font-weight: 600;
+    margin-top: calc(-1 * var(--fp-sp-2)); margin-bottom: var(--fp-sp-4);
+}
+
+/* ---- Two-column layout ---- */
+.fiche-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: var(--fp-sp-5); align-items: start; }
+@media (max-width: 640px) { .fiche-two-col { grid-template-columns: 1fr; } }
+
+/* ---- Cards ---- */
+.fiche-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--fp-sp-4); }
+@media (max-width: 640px) { .fiche-cards { grid-template-columns: 1fr; } }
+
+.fiche-card {
+    background: #fff;
+    border: 1.5px solid color-mix(in srgb, var(--fiche-accent) 14%, transparent);
+    border-radius: 20px;
+    padding: 1.5rem 1.3rem;
+    text-align: center;
+    box-shadow: 0 5px 18px color-mix(in srgb, var(--fiche-accent) 7%, transparent);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.fiche-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px color-mix(in srgb, var(--fiche-accent) 20%, transparent);
+    border-color: color-mix(in srgb, var(--fiche-accent) 30%, transparent);
+}
+.fiche-card i {
+    display: flex; align-items: center; justify-content: center;
+    width: 46px; height: 46px; margin: 0 auto var(--fp-sp-3);
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--fiche-accent-2) 0%, var(--fiche-accent) 100%);
+    color: #fff; font-size: 1.15rem;
+    box-shadow: 0 8px 18px color-mix(in srgb, var(--fiche-accent) 32%, transparent);
+}
+.fiche-card h3 { font-size: var(--fp-fs-md); font-weight: 900; color: var(--fp-dark); margin-bottom: 4px; }
+.fiche-card p { font-size: var(--fp-fs-xs); color: var(--fp-muted); font-weight: 600; line-height: 1.65; }
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+    .fiche-card { transition: none !important; }
+}
+
+/* ============================================================
+   PRINT
+   @page margin boxes (defined at top of file) handle the
+   running header and footer bars — no position:fixed needed.
+   ============================================================ */
+@media print {
+    .no-print { display: none !important; }
+
+    html, body { background: #fff !important; }
+
+    .fiche-page { max-width: none; width: 100%; margin: 0; padding: 0; }
+
+    /* Header flattened to solid brand blue */
+    .fiche-header {
+        background: var(--fp-brand-2) !important;
+        box-shadow: none !important;
+        border-radius: 12px;
+    }
+    .fiche-header::before, .fiche-header::after { display: none !important; }
+
+    .fiche-card, .fiche-diagram, .fiche-definition { box-shadow: none !important; }
+    .fiche-card:hover { transform: none !important; }
+
+    /* HTML-based bars hidden — @page margin boxes replace them */
+    .fiche-print-topbar { display: none !important; }
+    .fiche-footer       { display: none !important; }
+
+    /* Colour accuracy for all branded elements */
+    .fiche-header, .fiche-section-num,
+    .fiche-table thead th, .fiche-table tbody tr,
+    .fiche-definition, .fiche-card {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+
+    /*
+     * margin-top on sections creates a gap between the @page border-bottom
+     * rule and the first content element on every page break.
+     * border-bottom on @top-* boxes always lands at the content boundary,
+     * so the gap must come from the content side.
+     */
+    .fiche-section  { break-inside: avoid; padding-top: 6mm; }
+    .fiche-table    { break-inside: avoid; }
+    .fiche-diagram  { break-inside: avoid; }
+}

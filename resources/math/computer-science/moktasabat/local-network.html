@@ -1,0 +1,233 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-T5H3TNJ4');</script>
+    <!-- End Google Tag Manager -->
+    <title>الشبكة المحلية — ورقة مراجعة | BAC STORY</title>
+    <meta name="description" content="ورقة مراجعة شاملة لمادة الإعلام الآلي: تعريف الشبكة المحلية والإنترنت، الفرق بين LAN و WAN، مكونات الشبكة، التوبولوجيا النجمية، وعنوان IP — بكالوريا 2027.">
+    <link rel="canonical" href="https://www.bac-story.com/resources/math/computer-science/moktasabat/local-network">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#1a3a8f">
+    <link rel="stylesheet" href="/style.css?v=9.32">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/solid.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/brands.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Pattaya&display=swap">
+    <link rel="stylesheet" href="/computer-science/moktasabat/assets/fiche-print.css">
+    <style>:root{--fiche-accent:#28a745; --fiche-accent-2:#15803d;}@page {
+    @top-right {
+        content: "الشبكة المحلية · المكتسبات القبلية في الإعلام الآلي";
+        font-family: 'Tajawal', Arial, sans-serif;
+        font-size: 7.5pt;
+        font-weight: 700;
+        color: #94a3b8;
+        vertical-align: middle;
+        text-align: right;
+    }
+    @bottom-right {
+        content: "المكتسبات القبلية في الإعلام الآلي · ورقة مراجعة 4 من 4";
+        font-family: 'Tajawal', Arial, sans-serif;
+        font-size: 7.5pt;
+        font-weight: 700;
+        color: #94a3b8;
+        vertical-align: middle;
+        text-align: right;
+    }
+}</style>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"ورقة مراجعة: الشبكة المحلية — الإعلام الآلي","description":"تعريف الشبكة، الفرق بين LAN و WAN، مكونات الشبكة، التوبولوجيا النجمية، وعنوان IP.","url":"https://www.bac-story.com/computer-science/moktasabat/local-network","inLanguage":"ar","learningResourceType":"ورقة مراجعة","about":{"@type":"Thing","name":"الإعلام الآلي"},"provider":{"@type":"EducationalOrganization","name":"BAC STORY","url":"https://www.bac-story.com"}}</script>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5H3TNJ4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <div id="navbar-placeholder"></div>
+
+    <main class="fiche-page">
+
+        <div class="ad-card-inject"></div>
+
+            <div class="fiche-print-topbar" aria-hidden="true">
+        <span>الشبكة المحلية · المكتسبات القبلية في الإعلام الآلي</span>
+        <span class="fp-topbar-brand">BAC STORY</span>
+    </div>
+        <header class="fiche-header">
+            <div class="fiche-header-title">
+                <span class="fiche-badge"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> ورقة مراجعة 4 من 4</span>
+                <h1 class="fiche-title-ar">الشبكة المحلية</h1>
+                <p class="fiche-title-fr">Local Network · LAN / WAN / Internet</p>
+            </div>
+            <div class="fiche-brand">
+                <span class="fiche-brand-name">BAC STORY</span>
+                <span class="fiche-brand-tag">الإعلام الآلي · بكالوريا 2027</span>
+            </div>
+        </header>
+
+        <!-- A — تعريف الشبكة وأنواعها -->
+        <section class="fiche-section" id="def">
+            <div class="fiche-section-title"><span class="fiche-section-num">A</span><h2>تعريف الشبكة وأنواعها</h2></div>
+            <p class="fiche-text">الشبكة المعلوماتية (Computer Network) هي مجموعة أجهزة حاسوب مرتبطة ببعضها لتبادل البيانات والموارد. تخيّل نظام الطرق: كل مدينة هي جهاز، والطرق بينها هي الكابلات أو الواي فاي، والشاحنات التي تنقل البضائع هي حزم البيانات. فائدة الشبكة: مشاركة الملفات والطابعة والاتصال بالإنترنت دون الحاجة لنقل فلاشة أو كابل في كل مرة.</p>
+            <table class="fiche-table">
+                <thead>
+                    <tr><th></th><th>LAN (الشبكة المحلية)</th><th>WAN (الشبكة الواسعة)</th><th>الإنترنت</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>التعريف</td><td>شبكة تربط أجهزة قريبة ضمن نفس المبنى أو المكان</td><td>شبكة تربط عدة شبكات محلية عبر مسافات جغرافية بعيدة</td><td>الشبكة العالمية التي تربط ملايين الشبكات حول العالم</td></tr>
+                    <tr><td>المدى الجغرافي</td><td>مبنى واحد (غرفة، مدرسة، مؤسسة)</td><td>مدن، دول، قارات</td><td>العالم كله</td></tr>
+                    <tr><td>السرعة</td><td>سريعة جدًا (تصل إلى Gbps)</td><td>أبطأ نسبيًا</td><td>متفاوتة حسب المزوّد</td></tr>
+                    <tr><td>مثال</td><td>شبكة حجرة الإعلام الآلي في المدرسة</td><td>شبكة بنك بين فروعه في مدن مختلفة</td><td>الويب، البريد الإلكتروني، التطبيقات</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- B — مكونات الشبكة -->
+        <section class="fiche-section" id="components">
+            <div class="fiche-section-title"><span class="fiche-section-num">B</span><h2>مكونات الشبكة</h2></div>
+            <p class="fiche-text">لإنشاء شبكة محلية تحتاج إلى عدة مكونات أساسية، كلٌّ منها يؤدي دورًا محددًا في نقل وتوجيه البيانات.</p>
+            <div class="fiche-cards">
+                <div class="fiche-card">
+                    <i class="fa-solid fa-server"></i>
+                    <h3>خادم (Server)</h3>
+                    <p>جهاز قوي يعمل باستمرار ويوفّر الخدمات لبقية الأجهزة: مشاركة الملفات، الطباعة، الاتصال بالإنترنت. في مدرستك، خادم شبكة الإعلام الآلي يخزّن برامج الدروس.</p>
+                </div>
+                <div class="fiche-card">
+                    <i class="fa-solid fa-desktop"></i>
+                    <h3>عميل (Client)</h3>
+                    <p>أي جهاز يستخدم خدمات الخادم — الحواسيب الشخصية في حجرة الدراسة هي عملاء يتصلون بالخادم للحصول على الملفات والبرامج.</p>
+                </div>
+                <div class="fiche-card">
+                    <i class="fa-solid fa-network-wired"></i>
+                    <h3>موزع (Switch)</h3>
+                    <p>يشبه لوحة توزيع الكهرباء — كل جهاز يُوصَل به بكابل، وهو يوجّه البيانات مباشرة نحو الجهاز المقصود فقط لا لجميع الأجهزة.</p>
+                </div>
+                <div class="fiche-card">
+                    <i class="fa-solid fa-ethernet"></i>
+                    <h3>كابل / موصل</h3>
+                    <p>الوسيط المادي لنقل البيانات — أشيعها كابل RJ45 (Ethernet) الذي يُشبه كابل الهاتف لكن أضخم قليلًا. السرعة تصل إلى 1 Gbps.</p>
+                </div>
+                <div class="fiche-card">
+                    <i class="fa-solid fa-wifi"></i>
+                    <h3>راوتر (Router)</h3>
+                    <p>يقف عند حدود شبكتك المحلية ويوصّلها بالإنترنت — يُحدّد المسار الصحيح لكل حزمة بيانات بين شبكتك والعالم الخارجي.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- C — التوبولوجيا النجمية -->
+        <section class="fiche-section" id="topology">
+            <div class="fiche-section-title"><span class="fiche-section-num">C</span><h2>التوبولوجيا النجمية</h2></div>
+            <p class="fiche-text">التوبولوجيا (Topology) هي الطريقة التي ترتبط بها الأجهزة في الشبكة. أشيع توبولوجيا في الشبكات المحلية هي <strong>التوبولوجيا النجمية (Star Topology)</strong>: كل جهاز يتصل مباشرةً بالموزع المركزي (Switch) ولا يتصل مباشرة بالأجهزة الأخرى.</p>
+            <div class="fiche-diagram">
+                <svg viewBox="0 0 500 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="التوبولوجيا النجمية: موزع مركزي متصل بأربعة أجهزة — حاسوب 1، حاسوب 2، طابعة، خادم">
+                    <line x1="250" y1="190" x2="250" y2="55" stroke="var(--fiche-accent)" stroke-width="2.5"></line>
+                    <line x1="250" y1="190" x2="435" y2="190" stroke="var(--fiche-accent)" stroke-width="2.5"></line>
+                    <line x1="250" y1="190" x2="250" y2="325" stroke="var(--fiche-accent)" stroke-width="2.5"></line>
+                    <line x1="250" y1="190" x2="65" y2="190" stroke="var(--fiche-accent)" stroke-width="2.5"></line>
+
+                    <rect x="185" y="15" width="130" height="55" rx="12" fill="color-mix(in srgb, var(--fiche-accent) 8%, #fff)" stroke="var(--fiche-accent)" stroke-width="2"></rect>
+                    <text x="250" y="48" text-anchor="middle" font-family="Tajawal, sans-serif" font-size="15" font-weight="700" fill="#0f172a">حاسوب 1</text>
+
+                    <rect x="365" y="163" width="130" height="55" rx="12" fill="color-mix(in srgb, var(--fiche-accent) 8%, #fff)" stroke="var(--fiche-accent)" stroke-width="2"></rect>
+                    <text x="430" y="196" text-anchor="middle" font-family="Tajawal, sans-serif" font-size="15" font-weight="700" fill="#0f172a">طابعة</text>
+
+                    <rect x="185" y="325" width="130" height="55" rx="12" fill="color-mix(in srgb, var(--fiche-accent) 8%, #fff)" stroke="var(--fiche-accent)" stroke-width="2"></rect>
+                    <text x="250" y="358" text-anchor="middle" font-family="Tajawal, sans-serif" font-size="15" font-weight="700" fill="#0f172a">خادم</text>
+
+                    <rect x="5" y="163" width="130" height="55" rx="12" fill="color-mix(in srgb, var(--fiche-accent) 8%, #fff)" stroke="var(--fiche-accent)" stroke-width="2"></rect>
+                    <text x="70" y="196" text-anchor="middle" font-family="Tajawal, sans-serif" font-size="15" font-weight="700" fill="#0f172a">حاسوب 2</text>
+
+                    <rect x="180" y="160" width="140" height="60" rx="14" fill="var(--fiche-accent)" stroke="var(--fiche-accent)" stroke-width="2"></rect>
+                    <text x="250" y="196" text-anchor="middle" font-family="Tajawal, sans-serif" font-size="16" font-weight="800" fill="#fff">Switch</text>
+                </svg>
+            </div>
+            <p class="fiche-diagram-caption">التوبولوجيا النجمية هي الأكثر استخدامًا لسهولة الصيانة.</p>
+            <ul class="fiche-list">
+                <li><strong>ميزة الصيانة السهلة:</strong> إذا تعطّل جهاز واحد أو انقطع كابله، تبقى بقية الأجهزة تعمل بشكل طبيعي — عيب الشبكة الخطية أن تعطّل جهاز يُوقف الشبكة كلها.</li>
+                <li><strong>ميزة الأداء الجيد:</strong> كل جهاز له مسار مستقل نحو الموزع، مما يُقلّل التزاحم في نقل البيانات.</li>
+                <li><strong>العيب الوحيد:</strong> إذا تعطّل الموزع المركزي (Switch) تنقطع الشبكة كلها — لهذا يُنصح بوجود موزع احتياطي.</li>
+            </ul>
+        </section>
+
+        <!-- D — عنوان IP -->
+        <section class="fiche-section" id="ip">
+            <div class="fiche-section-title"><span class="fiche-section-num">D</span><h2>عنوان IP</h2></div>
+            <p class="fiche-text">لكي تتمكن الأجهزة في الشبكة من التعارف وتبادل البيانات، يحتاج كل جهاز لعنوان فريد يُميّزه — تمامًا كما يحتاج كل منزل لعنوان بريدي حتى تصله الرسائل.</p>
+            <div class="fiche-definition">
+                <p><strong class="fiche-definition-term">عنوان IP (IP Address — Internet Protocol):</strong> عنوان رقمي فريد يُحدّد هوية كل جهاز في الشبكة. يتكوّن عنوان IPv4 من 4 أرقام تتراوح بين 0 و255 مفصولة بنقاط — مثال: <strong>192.168.1.10</strong>. كل رقم يُسمى "بايت" (Octet)، وللعنوان كله 32 بتًا.</p>
+            </div>
+            <div class="fiche-definition">
+                <p><strong class="fiche-definition-term">IP خاص مقابل IP عام:</strong></p>
+                <ul class="fiche-list">
+                    <li><strong>العنوان الخاص (Private IP):</strong> يُستخدم داخل الشبكة المحلية فقط ولا يظهر على الإنترنت — يبدأ عادةً بـ 192.168.x.x أو 10.x.x.x.</li>
+                    <li><strong>العنوان العام (IP Public):</strong> العنوان الذي تراه المواقع عبر الإنترنت — يمنحه مزوّد الإنترنت (ISP) وهو فريد عالميًا. مثال: <code>41.111.192.34</code> (عنوان جزائري من Algérie Télécom).</li>
+                </ul>
+            </div>
+            <p class="fiche-text"><strong>الشبكة المحلية مقابل الإنترنت:</strong> الشبكة المحلية (LAN) تربط أجهزة داخل مبنى واحد وتُدار بنفسك، أما الإنترنت فهو شبكة WAN عالمية تديرها شركات ومنظمات دولية متخصصة. جهازك في المنزل له عنوان IP خاص داخل شبكتك، والراوتر له عنوان IP عام يمثّل كل الشبكة المنزلية أمام الإنترنت.</p>
+        </section>
+
+        <footer class="fiche-footer">
+            <span>www.bac-story.com</span>
+            <span>المكتسبات القبلية في الإعلام الآلي · ورقة مراجعة 4 من 4</span>
+        </footer>
+
+    </main>
+    <div id="global-cta-placeholder"></div>
+    <div id="footer-placeholder"></div>
+    <script src="/ads-config.js?v=1.12"></script>
+    <script src="/components/shared.js?v=9.24"></script>
+    <script src="/script.js?v=8.1"></script>
+    <script>
+    (function () {
+        function buildShareBtn() {
+            if (document.getElementById('uniShareBtn')) return;
+            const btn = document.createElement('button');
+            btn.id = 'uniShareBtn';
+            btn.className = 'uni-share-btn visible no-print';
+            btn.setAttribute('data-tooltip', 'مشاركة الصفحة');
+            btn.innerHTML = '<i class="fas fa-share"></i>';
+            btn.addEventListener('click', handleShare);
+            document.body.appendChild(btn);
+        }
+        function handleShare() {
+            const url = location.href;
+            const title = document.title;
+            if (navigator.share) {
+                navigator.share({ title, url }).catch(() => {});
+            } else {
+                navigator.clipboard.writeText(url).then(() => showToast('تم نسخ الرابط ✓')).catch(() => {});
+            }
+        }
+        function showToast(msg) {
+            let t = document.getElementById('uniShareToast');
+            if (!t) {
+                t = document.createElement('div');
+                t.id = 'uniShareToast';
+                t.className = 'uni-share-toast';
+                document.body.appendChild(t);
+            }
+            t.textContent = msg;
+            t.classList.add('visible');
+            clearTimeout(t._timer);
+            t._timer = setTimeout(() => t.classList.remove('visible'), 2200);
+        }
+        window.addEventListener('load', buildShareBtn);
+    })();
+    </script>
+</body>
+</html>
+
+
+
+
+
