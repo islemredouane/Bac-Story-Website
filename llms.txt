@@ -12,7 +12,7 @@ The platform is operated by Redouane Mohamed Islem and is accessible at https://
 - [تواصل معنا](https://www.bac-story.com/contact): Contact page for support, suggestions, or partnerships.
 - [أعلن معنا](https://www.bac-story.com/advertise): Advertising opportunities for educators and training centers targeting Algerian bac students.
 - [قيّم الموقع](https://www.bac-story.com/feedback): Student reviews and ratings of the platform.
-- [شارك موادك](https://www.bac-story.com/contribute): Contribution page where students submit their own summaries, solved exercises, exams, and study drives to be published on BAC STORY for future students.
+- [ساهم في الموقع](https://www.bac-story.com/contribute): Student contribution page — upload summaries, solved exercises, past exam booklets, or Google Drive links. Submissions are reviewed by the BAC STORY team, published with the contributor's name credited, and made freely available to 15,000+ daily students across Algeria. No account required.
 
 ## Study Resources
 
