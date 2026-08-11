@@ -81,9 +81,7 @@ export async function onRequest(context) {
         }
         return jsonResponse({
           success: false,
-          error: 'Unexpected response from upload database',
-          _debug_status: gasResponse.status,
-          _debug_body: responseText.slice(0, 400)
+          error: 'Unexpected response from upload database'
         }, 200);
       }
 
