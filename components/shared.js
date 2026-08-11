@@ -882,6 +882,13 @@ function setupSearch() {
 
         // ── إدارة المطارات والعبور ──
         { title: 'إدارة المطارات والعبور – Management Aéroportuaire', desc: 'تخصص لطلبة الآداب واللغات — لوجيستيك جوي، عبور، جمارك، شحن جوي', url: '/university/speciality/aeroport', icon: 'fas fa-plane', specialty: 'اقتصاد وتسيير', keywords: ['إدارة المطارات', 'management aéroportuaire', 'transit', 'عبور', 'طيران', 'aviation', 'لوجيستيك جوي', 'شحن جوي', 'fret', 'EGSA', 'ground handling', 'آداب', 'لغات أجنبية', 'جمارك', 'douane', 'خطوط جوية', 'مطار', 'aéroport', 'aviation english', 'supply chain', 'courier', 'freight', 'استيراد تصدير'] },
+
+        // ── COMPUTER SCIENCE (BAC) ─────────────────────────────────────────
+        { title: 'الإعلام الآلي', desc: 'مكتسبات الإعلام الآلي — ملخصات وتمارين لجميع الشعب', url: '/resources/resumes-exercises', icon: 'fas fa-laptop-code', specialty: null, keywords: ['الإعلام الآلي', 'إعلام آلي', 'IA', 'informatique', 'computer science', 'مكتسبات', 'مكتسبات الإعلام الآلي', 'حاسوب', 'كمبيوتر', 'برمجة', 'خوارزمية', 'algorithme'] },
+        { title: 'مكونات الحاسوب', desc: 'ملخص مكونات الحاسوب — مادة الإعلام الآلي', url: '/computer-science/moktasabat/pc-components', icon: 'fas fa-desktop', specialty: null, keywords: ['مكونات الحاسوب', 'الحاسوب', 'مكونات', 'pc', 'hardware', 'معالج', 'ذاكرة', 'RAM', 'لوحة أم', 'شاشة', 'إعلام آلي'] },
+        { title: 'نظام التشغيل', desc: 'ملخص نظام التشغيل — مادة الإعلام الآلي', url: '/computer-science/moktasabat/operating-system', icon: 'fas fa-cogs', specialty: null, keywords: ['نظام التشغيل', 'Windows', 'linux', 'OS', 'operating system', 'نظام', 'إعلام آلي'] },
+        { title: 'الشبكة المحلية', desc: 'ملخص الشبكة المحلية LAN — مادة الإعلام الآلي', url: '/computer-science/moktasabat/local-network', icon: 'fas fa-network-wired', specialty: null, keywords: ['الشبكة المحلية', 'شبكة', 'LAN', 'réseau', 'network', 'wifi', 'إنترنت', 'بروتوكول', 'TCP', 'IP', 'إعلام آلي'] },
+        { title: 'حماية الحاسوب', desc: 'ملخص حماية الحاسوب والأمن المعلوماتي — مادة الإعلام الآلي', url: '/computer-science/moktasabat/pc-protection', icon: 'fas fa-shield-alt', specialty: null, keywords: ['حماية الحاسوب', 'أمن', 'فيروسات', 'antivirus', 'sécurité', 'cybersécurité', 'اختراق', 'برامج خبيثة', 'malware', 'virus', 'حماية', 'إعلام آلي'] },
     ];
 
     const PLACEHOLDER = '<div class="search-placeholder"><i class="fas fa-keyboard"></i><p>ابدأ الكتابة للبحث في المنصة</p></div>';
