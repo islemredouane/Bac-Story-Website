@@ -1272,8 +1272,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupScrollToTop();
     setupSpecFilterTabs();
 
-    // Add share button to all bac-2026 pages
-    if (window.location.pathname.includes('bac-2026')) {
+    // Add share button to bac-2026 pages and contribute page
+    if (window.location.pathname.includes('bac-2026') || window.location.pathname.includes('/contribute')) {
         buildBac2026ShareBtn();
     }
 
