@@ -1,10 +1,10 @@
-        const _exc = {
+﻿        const _exc = {
             math: {
                 name: 'الرياضيات',
                 sp: [
                     { n: 'علوم تجريبية', i: 'fas fa-flask', l: 'https://drive.google.com/drive/folders/1QfiXd9GJXJF2zRRo8EMDKHWZv-OderoI?usp=drive_link' },
                     { n: 'رياضيات', i: 'fas fa-calculator', l: 'https://drive.google.com/drive/folders/1sGMd4cBtQrTx6WndXwOkG-VrMhNZ6iNu?usp=drive_link' },
-                    { n: 'تقني رياضي', i: 'fas fa-microchip', l: 'https://drive.google.com/drive/folders/1JSMfGViG3OalekrZL_UwAdIr0YBOr4KP?usp=drive_link' },
+                    { n: 'هندسة', i: 'fas fa-microchip', l: 'https://drive.google.com/drive/folders/1JSMfGViG3OalekrZL_UwAdIr0YBOr4KP?usp=drive_link' },
                     { n: 'تسيير و اقتصاد', i: 'fas fa-chart-line', l: 'https://drive.google.com/drive/folders/132oZUhPy-efDj_ZCAsWVbWUZqxMwLD4N?usp=drive_link' },
                     { n: 'آداب و فلسفة', i: 'fas fa-pen-nib', l: 'https://drive.google.com/drive/folders/1IXDCcVB3YXrKIHnr_HsLptZtP_52z4aI?usp=drive_link' },
                     { n: 'لغات أجنبية', i: 'fas fa-globe', l: 'https://drive.google.com/drive/folders/1IXDCcVB3YXrKIHnr_HsLptZtP_52z4aI?usp=drive_link' },
@@ -15,7 +15,7 @@
                 sp: [
                     { n: 'علوم تجريبية', i: 'fas fa-flask', l: 'https://drive.google.com/drive/folders/1EFHAfflIpZDWNXzelAcm6UJL_h90sXXF?usp=drive_link' },
                     { n: 'رياضيات', i: 'fas fa-calculator', l: 'https://drive.google.com/drive/folders/1EFHAfflIpZDWNXzelAcm6UJL_h90sXXF?usp=drive_link' },
-                    { n: 'تقني رياضي', i: 'fas fa-microchip', l: 'https://drive.google.com/drive/folders/1EFHAfflIpZDWNXzelAcm6UJL_h90sXXF?usp=drive_link' },
+                    { n: 'هندسة', i: 'fas fa-microchip', l: 'https://drive.google.com/drive/folders/1EFHAfflIpZDWNXzelAcm6UJL_h90sXXF?usp=drive_link' },
                 ]
             },
             biology: {
@@ -30,7 +30,7 @@
                 sp: [
                     { n: 'علوم تجريبية', i: 'fas fa-flask', l: 'https://drive.google.com/drive/folders/11y99kZfWi6h8j_sj7_pmhBR7uDENf354?usp=drive_link' },
                     { n: 'رياضيات', i: 'fas fa-calculator', l: 'https://drive.google.com/drive/folders/11y99kZfWi6h8j_sj7_pmhBR7uDENf354?usp=drive_link' },
-                    { n: 'تقني رياضي', i: 'fas fa-microchip', l: 'https://drive.google.com/drive/folders/11y99kZfWi6h8j_sj7_pmhBR7uDENf354?usp=drive_link' },
+                    { n: 'هندسة', i: 'fas fa-microchip', l: 'https://drive.google.com/drive/folders/11y99kZfWi6h8j_sj7_pmhBR7uDENf354?usp=drive_link' },
                     { n: 'تسيير و اقتصاد', i: 'fas fa-chart-line', l: 'https://drive.google.com/drive/folders/11y99kZfWi6h8j_sj7_pmhBR7uDENf354?usp=drive_link' },
                     { n: 'آداب و فلسفة', i: 'fas fa-pen-nib', l: 'https://drive.google.com/drive/folders/12d9gujoYGfANUUFE7E6YAEnBk1yNBnWi?usp=drive_link' },
                     { n: 'لغات أجنبية', i: 'fas fa-globe', l: 'https://drive.google.com/drive/folders/12d9gujoYGfANUUFE7E6YAEnBk1yNBnWi?usp=drive_link' },
@@ -41,7 +41,7 @@
                 sp: [
                     { n: 'علوم تجريبية', i: 'fas fa-flask', l: 'https://drive.google.com/drive/folders/12Xtfgyii2w9XhfAD4my6P1pJSURTvWJs?usp=drive_link' },
                     { n: 'رياضيات', i: 'fas fa-calculator', l: 'https://drive.google.com/drive/folders/12Xtfgyii2w9XhfAD4my6P1pJSURTvWJs?usp=drive_link' },
-                    { n: 'تقني رياضي', i: 'fas fa-microchip', l: 'https://drive.google.com/drive/folders/12Xtfgyii2w9XhfAD4my6P1pJSURTvWJs?usp=drive_link' },
+                    { n: 'هندسة', i: 'fas fa-microchip', l: 'https://drive.google.com/drive/folders/12Xtfgyii2w9XhfAD4my6P1pJSURTvWJs?usp=drive_link' },
                     { n: 'تسيير و اقتصاد', i: 'fas fa-chart-line', l: 'https://drive.google.com/drive/folders/12Xtfgyii2w9XhfAD4my6P1pJSURTvWJs?usp=drive_link' },
                     { n: 'آداب و فلسفة', i: 'fas fa-pen-nib', l: 'https://drive.google.com/drive/folders/12Xtfgyii2w9XhfAD4my6P1pJSURTvWJs?usp=drive_link' },
                     { n: 'لغات أجنبية', i: 'fas fa-globe', l: 'https://drive.google.com/drive/folders/12Xtfgyii2w9XhfAD4my6P1pJSURTvWJs?usp=drive_link' },
@@ -52,7 +52,7 @@
                 sp: [
                     { n: 'علوم تجريبية', i: 'fas fa-flask', l: 'https://drive.google.com/drive/folders/1NFwwxEzWGWz1C25RwM2Uj4ReaFbW4pbp?usp=drive_link' },
                     { n: 'رياضيات', i: 'fas fa-calculator', l: 'https://drive.google.com/drive/folders/1NFwwxEzWGWz1C25RwM2Uj4ReaFbW4pbp?usp=drive_link' },
-                    { n: 'تقني رياضي', i: 'fas fa-microchip', l: 'https://drive.google.com/drive/folders/1NFwwxEzWGWz1C25RwM2Uj4ReaFbW4pbp?usp=drive_link' },
+                    { n: 'هندسة', i: 'fas fa-microchip', l: 'https://drive.google.com/drive/folders/1NFwwxEzWGWz1C25RwM2Uj4ReaFbW4pbp?usp=drive_link' },
                     { n: 'تسيير و اقتصاد', i: 'fas fa-chart-line', l: 'https://drive.google.com/drive/folders/1NFwwxEzWGWz1C25RwM2Uj4ReaFbW4pbp?usp=drive_link' },
                     { n: 'آداب و فلسفة', i: 'fas fa-pen-nib', l: 'https://drive.google.com/drive/folders/1oHOg6UIZjQ6dUEU47fE89S63Yo1LFfu1?usp=drive_link' },
                     { n: 'لغات أجنبية', i: 'fas fa-globe', l: 'https://drive.google.com/drive/folders/1oHOg6UIZjQ6dUEU47fE89S63Yo1LFfu1?usp=drive_link' },
@@ -63,7 +63,7 @@
                 sp: [
                     { n: 'علوم تجريبية', i: 'fas fa-flask', l: 'https://drive.google.com/drive/folders/1CIkG4iGe6tVTCkXE3QJGXQNGlKJxUx9m?usp=drive_link' },
                     { n: 'رياضيات', i: 'fas fa-calculator', l: 'https://drive.google.com/drive/folders/1CIkG4iGe6tVTCkXE3QJGXQNGlKJxUx9m?usp=drive_link' },
-                    { n: 'تقني رياضي', i: 'fas fa-microchip', l: 'https://drive.google.com/drive/folders/1CIkG4iGe6tVTCkXE3QJGXQNGlKJxUx9m?usp=drive_link' },
+                    { n: 'هندسة', i: 'fas fa-microchip', l: 'https://drive.google.com/drive/folders/1CIkG4iGe6tVTCkXE3QJGXQNGlKJxUx9m?usp=drive_link' },
                     { n: 'تسيير و اقتصاد', i: 'fas fa-chart-line', l: 'https://drive.google.com/drive/folders/1ELGX2F95S4XD6XQQb5uB8f7cN_bOpQrR?usp=drive_link' },
                     { n: 'آداب و فلسفة', i: 'fas fa-pen-nib', l: 'https://drive.google.com/drive/folders/12BWyAZ5byCPaDyZjsejIKF47Kl2Zs4d1?usp=drive_link' },
                     { n: 'لغات أجنبية', i: 'fas fa-globe', l: 'https://drive.google.com/drive/folders/1CIkG4iGe6tVTCkXE3QJGXQNGlKJxUx9m?usp=drive_link' },
@@ -145,7 +145,7 @@
                 ],
             },
             tech: {
-                label: 'تقني رياضي', has2025: true,
+                label: 'هندسة', has2025: true,
                 subjects2025: [
                     { n: 'التكنولوجيا', i: 'fas fa-microchip', l: 'https://drive.google.com/drive/folders/1qtITU9bLBAmU1ChSJkk1H7PGqqESxd-e?usp=drive_link' },
                     { n: 'الرياضيات', i: 'fa-solid fa-calculator', l: 'https://drive.google.com/drive/folders/1dR7wsxPXjeGbDTwcSUkrY-qFnkIcNn4X?usp=drive_link' },

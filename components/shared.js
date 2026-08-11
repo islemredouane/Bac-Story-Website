@@ -1,4 +1,4 @@
-/**
+﻿/**
  * shared.js — Runs on every page of Bac Story Website
  * Handles: component injection, loader, navbar, mobile menu, dropdowns, section nav
  */
@@ -92,6 +92,15 @@ function injectGlobalCTA() {
             </div>
             <div class="gcta-btn">اكتب رأيك <i class="fas fa-arrow-left"></i></div>
         </a>
+        <a href="/contribute" class="gcta-card gcta-card--contribute">
+            <div class="gcta-icon-circle"><i class="fas fa-upload"></i></div>
+            <div class="gcta-text">
+                <strong>شارك مصادرك مع الجيل القادم</strong>
+                <span>درس ساعدك؟ تمرين أنقذك؟ شاركه مجاناً وباسمك لآلاف الطلاب</span>
+            </div>
+            <div class="gcta-btn">شارك الآن <i class="fas fa-arrow-left"></i></div>
+        </a>
+        <!-- HIDDEN — page not live yet
         <a href="/bac-2027-curriculum-changes" class="gcta-card gcta-card--changes2027">
             <div class="gcta-icon-circle"><i class="fas fa-bolt"></i></div>
             <div class="gcta-text">
@@ -100,6 +109,7 @@ function injectGlobalCTA() {
             </div>
             <div class="gcta-btn">اطلع على التغييرات <i class="fas fa-arrow-left"></i></div>
         </a>
+        END HIDDEN -->
         <a href="/resources" class="gcta-card gcta-card--resources">
             <div class="gcta-icon-circle"><i class="fas fa-briefcase"></i></div>
             <div class="gcta-text">
@@ -124,6 +134,7 @@ function injectGlobalCTA() {
             </div>
             <div class="gcta-btn">اكتشف الباقات <i class="fas fa-arrow-left"></i></div>
         </a>
+        <!-- HIDDEN — page not live yet
         <a href="/computer-science/moktasabat" class="gcta-card gcta-card--moktasabat">
             <div class="gcta-icon-circle"><i class="fas fa-laptop-code"></i></div>
             <div class="gcta-text">
@@ -132,11 +143,11 @@ function injectGlobalCTA() {
             </div>
             <div class="gcta-btn">ابدأ المراجعة <i class="fas fa-arrow-left"></i></div>
         </a>
+        END HIDDEN -->
     </div></div>
-    <!-- Mobile-only rotation dots -->
+    <!-- Mobile-only rotation dots (count = active gcta-card count) -->
     <div class="gcta-dots" id="gcta-dots">
         <span class="gcta-dot gcta-dot--active"></span>
-        <span class="gcta-dot"></span>
         <span class="gcta-dot"></span>
         <span class="gcta-dot"></span>
         <span class="gcta-dot"></span>
@@ -1233,8 +1244,8 @@ function setupSpecFilterTabs() {
 document.addEventListener('DOMContentLoaded', async () => {
     // Inject components concurrently using absolute paths
     await Promise.all([
-        injectComponent('#navbar-placeholder', '/components/navbar.html?v=1.6'),
-        injectComponent('#footer-placeholder', '/components/footer.html?v=1.2')
+        injectComponent('#navbar-placeholder', '/components/navbar.html?v=1.7'),
+        injectComponent('#footer-placeholder', '/components/footer.html?v=1.3')
     ]);
 
     // Ensure search placeholder is at body level for max z-index

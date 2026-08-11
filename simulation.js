@@ -1,4 +1,4 @@
-/* ============================================
+﻿/* ============================================
    BAC SIMULATION ENGINE — simulation.js
    ============================================ */
 
@@ -30,7 +30,7 @@ const examData = {
         ]
     },
     tech_elec: {
-        label: "تقني رياضي - الهندسة الكهربائية", color: "#f39c12", icon: "fas fa-bolt",
+        label: "هندسة - الهندسة الكهربائية", color: "#f39c12", icon: "fas fa-bolt",
         subjects: [
             { name: "التكنولوجيا (هندسة كهربائية)", duration: 270, icon: "fas fa-bolt", examUrl: "https://drive.google.com/file/d/1RPb8yxD8pwp34lmuKuPDSAlLY8oMBsF4/preview", solutionUrl: "https://drive.google.com/file/d/1k-3Sb8Sda5m3ooMq0o6dIfj2btAuAiKW/preview", schedule: "الثلاثاء 05 ماي - 08:30" },
             { name: "الرياضيات", duration: 270, icon: "fa-solid fa-calculator", examUrl: "https://drive.google.com/file/d/1zLNcWx2rksnEqgmZO3-XVu7M6BQgP7S-/preview", solutionUrl: "https://drive.google.com/file/d/1qKQISWZhJbpN9nSy5wTsBtE8DDbyUvtT/preview", schedule: "الاثنين 04 ماي - 08:30" },
@@ -43,7 +43,7 @@ const examData = {
         ]
     },
     tech_civil: {
-        label: "تقني رياضي - الهندسة المدنية", color: "#f39c12", icon: "fas fa-hard-hat",
+        label: "هندسة - الهندسة المدنية", color: "#f39c12", icon: "fas fa-hard-hat",
         subjects: [
             { name: "التكنولوجيا (هندسة مدنية)", duration: 270, icon: "fas fa-hard-hat", examUrl: "https://drive.google.com/file/d/1KyCdMfFgV0TG40kJkXQfp9apCfykSZ3M/preview", solutionUrl: "https://drive.google.com/file/d/18DmSEoOalCDtQBGZ_CQSU8dQADVeREN3/preview", schedule: "الثلاثاء 05 ماي - 08:30" },
             { name: "الرياضيات", duration: 270, icon: "fa-solid fa-calculator", examUrl: "https://drive.google.com/file/d/1zLNcWx2rksnEqgmZO3-XVu7M6BQgP7S-/preview", solutionUrl: "https://drive.google.com/file/d/1qKQISWZhJbpN9nSy5wTsBtE8DDbyUvtT/preview", schedule: "الاثنين 04 ماي - 08:30" },
@@ -56,7 +56,7 @@ const examData = {
         ]
     },
     tech_mech: {
-        label: "تقني رياضي - الهندسة الميكانيكية", color: "#f39c12", icon: "fas fa-cogs",
+        label: "هندسة - الهندسة الميكانيكية", color: "#f39c12", icon: "fas fa-cogs",
         subjects: [
             { name: "التكنولوجيا (هندسة ميكانيكية)", duration: 270, icon: "fas fa-cogs", examUrl: "https://drive.google.com/file/d/1zYx3agyuvK3hoe4-pa3P-ANzJkXJ_21A/preview", solutionUrl: "https://drive.google.com/file/d/17UPsfdgYsRgqQY2ym8ZYMbF_hgnIxhh4/preview", schedule: "الثلاثاء 05 ماي - 08:30" },
             { name: "الرياضيات", duration: 270, icon: "fa-solid fa-calculator", examUrl: "https://drive.google.com/file/d/1zLNcWx2rksnEqgmZO3-XVu7M6BQgP7S-/preview", solutionUrl: "https://drive.google.com/file/d/1qKQISWZhJbpN9nSy5wTsBtE8DDbyUvtT/preview", schedule: "الاثنين 04 ماي - 08:30" },
@@ -69,7 +69,7 @@ const examData = {
         ]
     },
     tech_process: {
-        label: "تقني رياضي - هندسة طرائق", color: "#f39c12", icon: "fas fa-flask",
+        label: "هندسة - هندسة طرائق", color: "#f39c12", icon: "fas fa-flask",
         subjects: [
             { name: "التكنولوجيا (هندسة طرائق)", duration: 270, icon: "fas fa-flask", examUrl: "https://drive.google.com/file/d/1U7TPPiMT6kRRuAktbzUCeyQRVFnk1FCv/preview", solutionUrl: "https://drive.google.com/file/d/13sUQKa5yIfok-yqfipzmXIfjzoJzJCDv/preview", schedule: "الثلاثاء 05 ماي - 08:30" },
             { name: "الرياضيات", duration: 270, icon: "fa-solid fa-calculator", examUrl: "https://drive.google.com/file/d/1zLNcWx2rksnEqgmZO3-XVu7M6BQgP7S-/preview", solutionUrl: "https://drive.google.com/file/d/1qKQISWZhJbpN9nSy5wTsBtE8DDbyUvtT/preview", schedule: "الاثنين 04 ماي - 08:30" },
@@ -156,14 +156,14 @@ const examData = {
 
     /* ── MATH: شعبة رياضيات ──────────────────────────────────────────────── */
     const mathMATH = [ne(1,'17uLPDZz5ObEXwXL5La0_5ZLdQJWnrqd0'),ne(2,'15NfJO6AJIkPt7Jc8LHhSliNggvsaZjIF'),ne(3,'1ysLozkt6hDo-7RF3SZ_DfhumhjRI2lOC'),ne(4,'1umWCs3WJOe_YeSdti0C76mLf-lJX53x1'),ne(5,'1ytOyTTUZnsg2WPjssUFuxEFOdwupyN6F'),ne(6,'1_6lew7VqenvwFQjZVfmHwRoutwG3Rt5D'),ne(7,'1ir49WZBT7x0J8L15ns7fduIryVKT6-9J'),ne(8,'1ZhKjoSA9n0riYEfWMMbbDn4oIcKnXrJo'),ne(9,'1QOOX-qufUKtR6B39J1CaWttBgzCMqNMn'),ne(10,'15hDZI585-ZAFzc_kstFHdgrVN26Zd7eH'),ne(11,'18M6kpzcjdROz1GnuJkh6uWg51HqCIN8O'),ne(12,'1IZO_Ju0dIo3BssPxW2zSR-mtWU9k8MFh'),ne(13,'1y3Y1odAJhl-4s7nGZQ-APC_HZ3ILZ4pp'),ne(14,'1QVP2YSXEh4XIiMRJIqorkjP8dAYY9SDm'),ne(15,'17c2u_kxV48CLL0SbyxAsu3S65Bsm2Lhx'),ne(16,'1aCUeu5utGCugux_SjMxGehTOAzwm9gTq'),ne(17,'1QNGyImW6l2b0A96x_xJyOQpdS3kVzdGh'),ne(18,'1ziKFqfGnu5HZBCZX8qgnG3pVC_gosS8L'),ne(19,'1YtvPdc5iu456P9_ykpVWcRaU3tDweGWc')];
-    /* ── MATH: شعبة تقني رياضي ──────────────────────────────────────────── */
+    /* ── MATH: شعبة هندسة ──────────────────────────────────────────── */
     const mathTR = [ne(1,'1U5RpE4yFCVgqDsodQTxK7GD53FWlflZD'),ne(2,'1ZEmbT-Kcax_XP6CJwVkXcfkDMxNInVn7'),ne(3,'19KUuS5xOaAwP-AmXnZzWDF0A9zUVjEdL'),ne(4,'1QhY29z0Y9iV-nNN5IazNiXOHNqEZRNgC'),ne(5,'1TyWOfeeWDdL2b1L8tQlvcVa9wbIhxUug'),ne(6,'1I7JSBlPrYN6QKCBEzHA3OCVMzwhRU0mo'),ne(7,'1pDp29dx95EbbVmzm2PEXdkqvlpjSzD6H'),ne(8,'1myvP6ZlfRCEBdjGcAnuFsRjlBZ2hjvlf'),ne(9,'1nvCurR4ZF0nlMECqiiW3-mHsX-0PhpRR'),ne(10,'1VzEcMG8YQgvLnN32_rj5NHN-84PyC6LX')];
     /* ── MATH: شعبة علوم تجريبية ────────────────────────────────────────── */
     const mathSC = [ne(1,'1Jr_zsbkvu3BG_KjL2zVTokpDMJIMzZ60'),ne(2,'1RD9joXRLa1L3XnCdpmJu4WJeczYS1wXi'),ne(3,'1JMVI3AQ6vOvKDIh2i_QnrApmi0MdElDq'),ne(4,'1J-bfnXGrF3gquZdVLWgQpLdow5dj7l4x'),ne(5,'1A74vFZYP5lBeVof5--ndSBKq5R0dZH6i'),ne(6,'1go-y98kuz9-wzHJa79oYjFVqw5wnIef'),ne(7,'1wD2Yl3PqfgbCnsniBtvSAW8hk1jZblV5'),ne(8,'1FbgBu-3K3s7MtzRRa_HzpQJnCRuQ6cBv'),ne(9,'1UHYaP1SjaIdQPZxDyHrw2HzpIg9V4HLG'),ne(10,'1Pids0BB7OfiKVlWPDASWKjbEk7iJhpb2'),ne(11,'1QtIp_S_k9iBP76nTXNwr1SoOMcqb4GRE'),ne(12,'1IbuPxcSnRtoRLi7nYnpa5iixJ0Ak8qVx'),ne(13,'1qSx7WacE0tt303bfDHOmSoFrNu2Y73Wh'),ne(14,'1sYwtIE8FY8HOXLExnM2xsO3DyfkhEPKh'),ne(15,'1SEM2gJTHqjUvjwci6Ukw0jo6I50WFHVw'),ne(16,'17FaLmNX-ALF0TCRjQT2Hr2NKglhTisO1'),ne(17,'1czWAtw3Pz0YZHyR3nF_5BrMCDhxZfp3A'),ne(18,'12zE-c3oMRKV3kewuWwO4AxhrTYEqSOqA'),ne(19,'1PWbGfoYj1XZ2OfwkUe8od1NzHy93USH4'),ne(20,'1Oqs-4ULStb5WNfEz-HJxPimPR5H1FeRU')];
 
     /* ── PHYSICS: علوم تجريبية ──────────────────────────────────────────── */
     const physSC = [ne(1,'1ZH6jVpejgKB2Wkv3YYQ9IErMEvQJA9eV'),ne(2,'11pQxpzMVSnsg1Hkzqx6fz4ZOlfqkUHxM'),ne(3,'18VdAsjJ1txcGkc6USbcuSxp2pMAOra_M'),ne(4,'1BGwNm9BTaZzxPP65q8h9FsCuUBx3Eidk'),ne(5,'120oDDBKkQVbWJ3SxanxrShnWif25aQLP'),ne(6,'1Zu2yautSmL3mad9x-pbvD5ex1WS_N7wd'),ne(7,'1lyau-0w8yg-IuOy96xPlqJdWsKfb6Hbr'),ne(8,'10xlW1hM2Ncw8WQ4xgPndlEG8dEUllkYs'),ne(9,'16lAKnIPqdj9FzRSS-ijocyIIpLyip9Zk'),ne(10,'1J_12SBL8p1fM6NEmiDVOq_-rU1QxTxs7'),ne(11,'1g1-nH9dwl5booLBCLu9FI5XySm_GzMec'),ne(12,'1KJ8yH79j6n8r2YuG5aWsWI93fVX0z9xq')];
-    /* ── PHYSICS: رياضي + تقني رياضي ───────────────────────────────────── */
+    /* ── PHYSICS: رياضي + هندسة ───────────────────────────────────── */
     const physRT = [ne(1,'1h59Uq0EkRv9tK9V3NklNk3YAvxIIdPfy'),ne(2,'1-EqCafk1p7Ikp4GGtZqX5tE7oZ9Yb16S'),ne(3,'1NAqt2FUd2CkdRs0Tb_AMqyZ-Ivet4pcj'),ne(4,'1ti956-Jwgtmyy5Dmwglfnwme15CRQYr_'),ne(5,'1EYoL72kxJLXuz0jt3g3JZtpKW4HJ4lsr'),ne(6,'1dVyJkuE_aiREJ54y1KsIJ3Zhj3sg8Iq_'),ne(7,'1sPYwfa2WcEudAMJ-JdN0KxOIRZmIRhjf'),ne(8,'1u5dSiXJZYaHZ_4UdeqHH8ArciHhqUb6l'),ne(9,'1nYoCtlCitGg0o1ksyLI6qNyGE1Az191Z'),ne(10,'1nI7hdOgq01v56Y_j4lzSSC5UGnhj8WeS'),ne(11,'1xLr5co6T-BheT01nlYft4hgFllHuwqFI'),ne(12,'14j6DPh8rNAczQ28JTyZgHGpVVnxg_VL2')];
 
     /* ── NATURAL SCIENCES: علوم تجريبية (25 exams) ─────────────────────── */
@@ -213,14 +213,14 @@ const examData = {
     gs('science','العلوم الفيزيائية').extraExams  = physSC;   // ع تج only
     gs('math','العلوم الفيزيائية').extraExams      = physRT;   // رياضي
     ['tech_elec','tech_civil','tech_mech','tech_process'].forEach(sp => {
-        gs(sp,'العلوم الفيزيائية').extraExams = physRT;        // تقني رياضي
+        gs(sp,'العلوم الفيزيائية').extraExams = physRT;        // هندسة
     });
 
     // ── Math ─────────────────────────────────────────────────────────────────
     gs('math','الرياضيات').extraExams   = mathMATH;            // رياضي
     gs('science','الرياضيات').extraExams = mathSC;             // ع تج only
     ['tech_elec','tech_civil','tech_mech','tech_process'].forEach(sp => {
-        gs(sp,'الرياضيات').extraExams = mathTR;                // تقني رياضي only
+        gs(sp,'الرياضيات').extraExams = mathTR;                // هندسة only
     });
 
     // ── Natural Sciences ──────────────────────────────────────────────────────
@@ -250,7 +250,7 @@ const examData = {
     const mathSCI_T = [nts(1,'1DeoXRstUciuHOIbEFAaivBLhp0wZOSi3','1a4-vv6y2jWrDF0c4wUYRwy5HTfX0wri0')];
     add(gs('science','الرياضيات'), mathSCI_T);
 
-    /* ── MATH: شعبة تقني رياضي ───────────────────────────────────────────── */
+    /* ── MATH: شعبة هندسة ───────────────────────────────────────────── */
     // Note: mathTECH_T Tamayoz exams removed as requested.
 
     /* ── MATH: شعبة تسيير واقتصاد ───────────────────────────────────────── */
@@ -265,7 +265,7 @@ const examData = {
     // Note: Tamayoz exams for science removed as requested.
 
 
-    /* ── PHYSICS: رياضي + تقني رياضي ────────────────────────────────────── */
+    /* ── PHYSICS: رياضي + هندسة ────────────────────────────────────── */
     // Note: Tamayoz exams for physics removed as requested.
 
     /* ── PHYSICS: علوم تجريبية ───────────────────────────────────────────── */

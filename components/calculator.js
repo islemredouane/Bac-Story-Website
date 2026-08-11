@@ -1,95 +1,145 @@
-// ── BAC CALCULATOR — tools.html only ────────────────────────────────────────
+﻿// ── BAC CALCULATOR — tools.html only ────────────────────────────────────────
 // This file is loaded exclusively on tools.html.
 // It holds all calculator/reveal/gazette/weighted-calc code so that other
 // pages (resources, university, plans, …) don't pay the download cost.
 
 // Field coefficients (weights for each subject)
 const coefficients = {
+    // ── رياضيات ────────────────────────────────────────────────────────────
     math: {
-        'math-math-grade': 7,
-        'math-physics-grade': 6,
-        'math-arabic-grade': 3,
-        'math-science-grade': 2,
-        'math-islamics-grade': 2,
-        'math-history-geo-grade': 2,
-        'math-english-grade': 2,
-        'math-french-grade': 2,
-        'math-philo-grade': 2,
-        'math-tamazight-grade': 2,
-        'math-sport-grade': 1
+        // ── 2027 ──────────────────────────────────────────────────────────
+        'math-math-grade':        8,  // was 7
+        'math-physics-grade':     6,
+        'math-cs-grade':          3,  // NEW — إعلام آلي
+        'math-english-grade':     3,  // was 2
+        'math-science-grade':     2,
+        'math-islamics-grade':    2,
+        'math-history-grade':     2,  // renamed from math-history-geo-grade (geography removed)
+        'math-sport-grade':       1,  // optional
+        // ── 2026 (commented out — do not delete) ──────────────────────────
+        // 'math-math-grade':         7,
+        // 'math-arabic-grade':       3,  // REMOVED
+        // 'math-history-geo-grade':  2,  // renamed → math-history-grade
+        // 'math-english-grade':      2,  // now 3
+        // 'math-french-grade':       2,  // REMOVED
+        // 'math-philo-grade':        2,  // REMOVED
+        // 'math-tamazight-grade':    2,  // REMOVED (optional)
     },
+
+    // ── علوم تجريبية ────────────────────────────────────────────────────────
     science: {
-        'science-science-grade': 6,
-        'science-math-grade': 5,
-        'science-physics-grade': 5,
-        'science-arabic-grade': 3,
-        'science-islamics-grade': 2,
-        'science-history-geo-grade': 2,
-        'science-english-grade': 2,
-        'science-french-grade': 2,
-        'science-philo-grade': 2,
-        'science-tamazight-grade': 2,
-        'science-sport-grade': 1
+        // ── 2027 ──────────────────────────────────────────────────────────
+        'science-science-grade':   6,
+        'science-math-grade':      5,
+        'science-physics-grade':   4,  // was 5
+        'science-english-grade':   3,  // was 2
+        'science-arabic-grade':    2,  // was 3
+        'science-islamics-grade':  2,
+        'science-history-grade':   2,  // renamed from science-history-geo-grade (geography removed)
+        'science-tamazight-grade': 2,  // optional (stays)
+        'science-sport-grade':     1,  // optional
+        // ── 2026 (commented out — do not delete) ──────────────────────────
+        // 'science-physics-grade':      5,  // now 4
+        // 'science-arabic-grade':       3,  // now 2
+        // 'science-history-geo-grade':  2,  // renamed → science-history-grade
+        // 'science-english-grade':      2,  // now 3
+        // 'science-french-grade':       2,  // REMOVED
+        // 'science-philo-grade':        2,  // REMOVED
     },
+
+    // ── هندسة (formerly هندسة) ─────────────────────────────────────────
     tech: {
-        'tech-tech-grade': 7,
-        'tech-math-grade': 6,
-        'tech-physics-grade': 6,
-        'tech-arabic-grade': 3,
-        'tech-islamics-grade': 2,
-        'tech-history-geo-grade': 2,
-        'tech-english-grade': 2,
-        'tech-french-grade': 2,
-        'tech-philo-grade': 2,
-        'tech-tamazight-grade': 2,
-        'tech-sport-grade': 1
+        // ── 2027 ──────────────────────────────────────────────────────────
+        'tech-tech-grade':        7,
+        'tech-math-grade':        5,  // was 6
+        'tech-physics-grade':     4,  // was 6
+        'tech-cs-grade':          3,  // NEW — إعلام آلي
+        'tech-english-grade':     3,  // was 2
+        'tech-islamics-grade':    2,
+        'tech-history-grade':     2,  // renamed from tech-history-geo-grade (geography removed)
+        'tech-sport-grade':       1,  // optional
+        // ── 2026 (commented out — do not delete) ──────────────────────────
+        // 'tech-math-grade':         6,  // now 5
+        // 'tech-physics-grade':      6,  // now 4
+        // 'tech-arabic-grade':       3,  // REMOVED
+        // 'tech-history-geo-grade':  2,  // renamed → tech-history-grade
+        // 'tech-english-grade':      2,  // now 3
+        // 'tech-french-grade':       2,  // REMOVED
+        // 'tech-philo-grade':        2,  // REMOVED
+        // 'tech-tamazight-grade':    2,  // REMOVED (optional)
     },
+
+    // ── تسيير واقتصاد ───────────────────────────────────────────────────────
     management: {
-        'management-accounting-grade': 6,
-        'management-math-grade': 5,
-        'management-economics-grade': 5,
-        'management-arabic-grade': 3,
-        'management-history-geo-grade': 4,
-        'management-french-grade': 2,
-        'management-english-grade': 2,
-        'management-islamics-grade': 2,
-        'management-law-grade': 2,
-        'management-philo-grade': 2,
-        'management-sport-grade': 1,
-        'management-tamazight-grade': 1
+        // ── 2027 ──────────────────────────────────────────────────────────
+        'management-accounting-grade':  6,
+        'management-economics-grade':   4,  // was 5
+        'management-math-grade':        3,  // was 5
+        'management-history-geo-grade': 3,  // was 4 (keeps تاريخ وجغرافيا label)
+        'management-english-grade':     3,  // was 2
+        'management-arabic-grade':      2,  // was 3
+        'management-tamazight-grade':   2,  // was 1, optional
+        'management-islamics-grade':    2,
+        'management-law-grade':         2,
+        'management-sport-grade':       1,  // optional
+        // ── 2026 (commented out — do not delete) ──────────────────────────
+        // 'management-math-grade':        5,  // now 3
+        // 'management-economics-grade':   5,  // now 4
+        // 'management-arabic-grade':      3,  // now 2
+        // 'management-history-geo-grade': 4,  // now 3
+        // 'management-english-grade':     2,  // now 3
+        // 'management-tamazight-grade':   1,  // now 2, required
+        // 'management-french-grade':      2,  // REMOVED
+        // 'management-philo-grade':       2,  // REMOVED
     },
+
+    // ── آداب وفلسفة ─────────────────────────────────────────────────────────
     literature: {
-        'literature-arabic-grade': 6,
-        'literature-philo-grade': 6,
-        'literature-history-geo-grade': 4,
-        'literature-french-grade': 3,
-        'literature-english-grade': 3,
-        'literature-islamics-grade': 2,
-        'literature-math-grade': 2,
-        'literature-sport-grade': 1,
-        'literature-tamazight-grade': 2
+        // ── 2027 ──────────────────────────────────────────────────────────
+        'literature-arabic-grade':      7,  // was 6
+        'literature-philo-grade':       6,
+        'literature-history-geo-grade': 4,  // keeps تاريخ وجغرافيا label
+        'literature-tamazight-grade':   3,  // was 2
+        'literature-english-grade':     3,
+        'literature-french-grade':      2,  // was 3
+        'literature-islamics-grade':    2,
+        'literature-sport-grade':       1,  // optional
+        // ── 2026 (commented out — do not delete) ──────────────────────────
+        // 'literature-arabic-grade':    6,  // now 7
+        // 'literature-tamazight-grade': 2,  // now 3
+        // 'literature-french-grade':    3,  // now 2
+        // 'literature-math-grade':      2,  // REMOVED
     },
+
+    // ── لغات أجنبية ─────────────────────────────────────────────────────────
     languages: {
-        'languages-arabic-grade': 5,
-        'languages-french-grade': 5,
-        'languages-english-grade': 5,
-        'languages-lang3-grade': 4,
-        'languages-islamics-grade': 2,
-        'languages-history-geo-grade': 2,
-        'languages-philo-grade': 2,
-        'languages-math-grade': 2,
-        'languages-sport-grade': 1,
-        'languages-tamazight-grade': 2
-    }
+        // ── 2027 ──────────────────────────────────────────────────────────
+        'languages-lang3-grade':      6,  // was 4
+        'languages-english-grade':    4,  // was 5
+        'languages-french-grade':     4,  // was 5
+        'languages-arabic-grade':     2,  // was 5
+        'languages-tamazight-grade':  2,  // optional (unchanged)
+        'languages-islamics-grade':   2,
+        'languages-history-geo-grade':2,  // keeps تاريخ وجغرافيا label
+        'languages-sport-grade':      1,  // optional
+        // ── 2026 (commented out — do not delete) ──────────────────────────
+        // 'languages-lang3-grade':    4,  // now 6
+        // 'languages-english-grade':  5,  // now 4
+        // 'languages-french-grade':   5,  // now 4
+        // 'languages-arabic-grade':   5,  // now 2
+        // 'languages-philo-grade':    2,  // REMOVED
+        // 'languages-math-grade':     2,  // REMOVED
+    },
+
 };
 
 function getFieldName(field) {
-    if (field === 'math') return 'شعبة رياضيات';
-    if (field === 'science') return 'شعبة علوم تجريبية';
-    if (field === 'tech') return 'شعبة تقني رياضي';
+    if (field === 'math')       return 'شعبة رياضيات';
+    if (field === 'science')    return 'شعبة علوم تجريبية';
+    if (field === 'tech')       return 'شعبة هندسة';
     if (field === 'management') return 'شعبة تسيير وإقتصاد';
     if (field === 'literature') return 'شعبة آداب وفلسفة';
-    if (field === 'languages') return 'شعبة لغات أجنبية';
+    if (field === 'languages')  return 'شعبة لغات أجنبية';
     return '';
 }
 
@@ -117,15 +167,18 @@ function selectField(field) {
 }
 
 function showFieldSelection() {
-    document.querySelectorAll('.subject-container').forEach(container => {
-        container.style.display = 'none';
-    });
-    document.getElementById('fieldSelection').style.display = 'grid';
+    const fs = document.getElementById('fieldSelection');
+    if (!fs) { window.location.href = '/tools/calculator'; return; }
+    document.querySelectorAll('.subject-container').forEach(function(c) { c.style.display = 'none'; });
+    fs.style.display = 'grid';
     const nameRow = document.getElementById('calcNameRow');
     if (nameRow) nameRow.style.display = 'none';
-    document.querySelector('.calculator-header h2').textContent = 'حساب معدل البكالوريا';
-    document.querySelector('.calculator-header p').textContent = 'اختر شعبتك لحساب المعدل';
-    document.getElementById('resultSection').style.display = 'none';
+    const h2 = document.querySelector('.calculator-header h2');
+    const p  = document.querySelector('.calculator-header p');
+    if (h2) h2.textContent = 'حساب معدل البكالوريا';
+    if (p)  p.textContent  = 'اختر شعبتك لحساب المعدل';
+    const rs = document.getElementById('resultSection');
+    if (rs) rs.style.display = 'none';
     localStorage.setItem('calculatorState', 'fieldSelection');
 }
 
@@ -293,7 +346,7 @@ function bsUpdatePill(tab) {
 function _buildOEBContent() {
     const d = bsRevealData;
     const passed = d.mention !== null;
-    const reg = "2026" + String(Math.floor(1000 + Math.random() * 9000));
+    const reg = "2027" + String(Math.floor(1000 + Math.random() * 9000));
     const fields = [
         { lbl: 'رقم التسجيل', val: reg },
         { lbl: 'اللقب',        val: d.lastName  || '---' },
@@ -322,7 +375,7 @@ function _buildGazetteContent() {
     const fullName = [d.lastName, d.firstName].filter(Boolean).join(' ') || '---';
     const avgDisplay = d.average.toFixed(2);
     const mentionText = d.mention || 'غير ناجح';
-    const year = new Date().getFullYear();
+    const year = 2027;
     const wishText = passed ? 'متمنيين له دوام التفوق و النجاح' : 'متمنيين له التوفيق والنجاح في الفرص القادمة';
     document.getElementById('bsGazetteInner').innerHTML = `
         <div class="bs-gz-top">
@@ -718,53 +771,47 @@ function resetForm() {
 }
 
 function initSampleData() {
-    if (!document.getElementById('math-math-grade')) return;
-    document.getElementById('math-math-grade').value = '18.0';
-    document.getElementById('math-physics-grade').value = '16.5';
-    document.getElementById('math-arabic-grade').value = '14.5';
-    document.getElementById('math-science-grade').value = '17.5';
-    document.getElementById('math-islamics-grade').value = '15.5';
-    document.getElementById('math-history-geo-grade').value = '19.0';
-    document.getElementById('math-english-grade').value = '16.0';
-    document.getElementById('math-french-grade').value = '16.5';
-    document.getElementById('math-philo-grade').value = '19.5';
-    document.getElementById('math-tamazight-grade').value = '19.0';
-    document.getElementById('math-sport-grade').value = '18.33';
+    function sg(id, val) { var el = document.getElementById(id); if (el) el.value = val; }
+    if (!document.getElementById('math-math-grade') &&
+        !document.getElementById('science-science-grade') &&
+        !document.getElementById('tech-tech-grade') &&
+        !document.getElementById('management-accounting-grade') &&
+        !document.getElementById('literature-arabic-grade') &&
+        !document.getElementById('languages-lang3-grade')) return;
 
-    document.getElementById('science-science-grade').value = '18.5';
-    document.getElementById('science-math-grade').value = '19.0';
-    document.getElementById('science-physics-grade').value = '19.0';
-    document.getElementById('science-arabic-grade').value = '16.5';
-    document.getElementById('science-islamics-grade').value = '16.5';
-    document.getElementById('science-history-geo-grade').value = '18.5';
-    document.getElementById('science-english-grade').value = '18.5';
-    document.getElementById('science-french-grade').value = '18.0';
-    document.getElementById('science-philo-grade').value = '17.5';
-    document.getElementById('science-tamazight-grade').value = '';
-    document.getElementById('science-sport-grade').value = '19.83';
+    // math 2027
+    sg('math-math-grade', '18.0'); sg('math-physics-grade', '16.5'); sg('math-cs-grade', '17.0');
+    sg('math-english-grade', '16.0'); sg('math-science-grade', '17.5'); sg('math-islamics-grade', '15.5');
+    sg('math-history-grade', '19.0'); sg('math-sport-grade', '18.33');
 
-    document.getElementById('tech-tech-grade').value = '20';
-    document.getElementById('tech-math-grade').value = '20';
-    document.getElementById('tech-physics-grade').value = '19';
-    document.getElementById('tech-arabic-grade').value = '18.5';
-    document.getElementById('tech-islamics-grade').value = '20';
-    document.getElementById('tech-history-geo-grade').value = '18';
-    document.getElementById('tech-english-grade').value = '19.5';
-    document.getElementById('tech-french-grade').value = '18';
-    document.getElementById('tech-philo-grade').value = '16';
-    document.getElementById('tech-tamazight-grade').value = '';
-    document.getElementById('tech-sport-grade').value = '19';
+    // science 2027
+    sg('science-science-grade', '18.5'); sg('science-math-grade', '19.0'); sg('science-physics-grade', '19.0');
+    sg('science-english-grade', '18.5'); sg('science-arabic-grade', '16.5'); sg('science-islamics-grade', '16.5');
+    sg('science-history-grade', '18.5'); sg('science-tamazight-grade', ''); sg('science-sport-grade', '19.83');
 
-    document.getElementById('management-accounting-grade').value = '17.5';
-    document.getElementById('management-math-grade').value = '16.0';
-    document.getElementById('management-economics-grade').value = '18.0';
-    document.getElementById('management-arabic-grade').value = '14.5';
-    document.getElementById('management-history-geo-grade').value = '15.0';
-    document.getElementById('management-french-grade').value = '14.0';
-    document.getElementById('management-english-grade').value = '15.5';
-    document.getElementById('management-islamics-grade').value = '16.0';
-    document.getElementById('management-law-grade').value = '17.0';
-    document.getElementById('management-philo-grade').value = '15.0';
+    // engineering (tech) 2027
+    sg('tech-tech-grade', '20'); sg('tech-math-grade', '20'); sg('tech-physics-grade', '19');
+    sg('tech-cs-grade', '18.5'); sg('tech-english-grade', '19.5'); sg('tech-islamics-grade', '20');
+    sg('tech-history-grade', '18'); sg('tech-sport-grade', '19');
+
+    // management 2027
+    sg('management-accounting-grade', '18.50'); sg('management-economics-grade', '19.50');
+    sg('management-math-grade', '20.00'); sg('management-history-geo-grade', '18.50');
+    sg('management-english-grade', '19.50'); sg('management-arabic-grade', '15.00');
+    sg('management-tamazight-grade', ''); sg('management-islamics-grade', '18.00');
+    sg('management-law-grade', '19.50'); sg('management-sport-grade', '');
+
+    // literature 2027
+    sg('literature-arabic-grade', '19.5'); sg('literature-philo-grade', '16');
+    sg('literature-history-geo-grade', '15'); sg('literature-english-grade', '19');
+    sg('literature-french-grade', '17.5'); sg('literature-islamics-grade', '18.5');
+    sg('literature-tamazight-grade', ''); sg('literature-sport-grade', '');
+
+    // languages 2027
+    sg('languages-lang3-grade', '20'); sg('languages-english-grade', '19.5');
+    sg('languages-french-grade', '17.5'); sg('languages-arabic-grade', '17');
+    sg('languages-islamics-grade', '19'); sg('languages-history-geo-grade', '18.5');
+    sg('languages-tamazight-grade', ''); sg('languages-sport-grade', '18.58');
 }
 
 function saveCalculatorData() {

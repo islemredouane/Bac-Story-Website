@@ -1310,6 +1310,15 @@ html {
     box-shadow: 0 8px 28px rgba(79, 70, 229, 0.15);
 }
 
+.gcta-card--moktasabat {
+    background: linear-gradient(135deg, #014d8b 0%, #0369a1 45%, #0ea5e9 100%);
+    box-shadow: 0 8px 28px rgba(3, 105, 161, 0.18);
+}
+.gcta-card--changes2027 {
+    background: linear-gradient(135deg, #1a3a8f 0%, #2c5cc5 45%, #4f7de8 100%);
+    box-shadow: 0 8px 28px rgba(44, 92, 197, 0.22);
+}
+
 .gcta-card--plans {
     background: linear-gradient(135deg, #7c3a00 0%, #c4600a 45%, #ff6b35 100%);
     box-shadow: 0 8px 28px rgba(196, 96, 10, 0.17);
@@ -1325,6 +1334,11 @@ html {
     box-shadow: 0 8px 28px rgba(79, 70, 229, 0.15);
 }
 
+
+.gcta-card--contribute {
+    background: linear-gradient(135deg, #1a3a8f 0%, #2c5cc5 55%, #3d6ee0 100%);
+    box-shadow: 0 8px 28px rgba(26, 58, 143, 0.17);
+}
 
 .gcta-card--feedback {
     background:
@@ -3045,7 +3059,7 @@ body.search-active .mobile-bottom-bar,
 
 .view-all-btn {
     flex: 1;
-    padding: 1rem;
+    padding: 1rem 2.25rem;
     border: 2px solid transparent;
     background: #fff;
     color: #1a3a8f;
@@ -3085,7 +3099,7 @@ body.search-active .mobile-bottom-bar,
         width: 100%;
         white-space: nowrap;
         font-size: 0.82rem;
-        padding: 0.85rem 0.5rem;
+        padding: 0.85rem 1.5rem;
     }
 }
 
@@ -3248,7 +3262,7 @@ body.search-active .mobile-bottom-bar,
     font-weight: 700;
     cursor: pointer;
     transition: var(--transition);
-
+    display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
@@ -4116,11 +4130,29 @@ body.pdf-body-lock {
     font-weight: 700;
     color: var(--primary-color);
     margin-bottom: 1.2rem;
+    max-width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 1.5;
+    white-space: normal;
+    word-break: keep-all;
 }
 
 .social-proof-badge i {
     color: #ff6b35;
     font-size: 1rem;
+    flex-shrink: 0;
+}
+
+@media (max-width: 480px) {
+    .social-proof-badge {
+        display: flex;
+        justify-content: center;
+        font-size: 0.8rem;
+        padding: 0.5rem 0.85rem;
+        gap: 6px;
+        border-radius: 14px;
+    }
 }
 
 /* Calculator Section */
@@ -4195,12 +4227,12 @@ body.pdf-body-lock {
 .field-card {
     background: #ffffff;
     border-radius: var(--border-radius);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
     padding: 2rem;
     text-align: center;
     transition: var(--transition);
     cursor: pointer;
-    border: 2px solid transparent;
+    border: 1.5px solid color-mix(in srgb, var(--card-theme, #2c5cc5) 18%, transparent);
     position: relative;
     overflow: hidden;
     display: flex;
@@ -4225,10 +4257,22 @@ body.pdf-body-lock {
     transform: scaleX(1);
 }
 
+.field-card::after {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -60px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, color-mix(in srgb, var(--card-theme, #2c5cc5) 14%, transparent) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
 .field-card:hover {
-    transform: translateY(-4px);
-    border-color: color-mix(in srgb, var(--card-theme, #2c5cc5) 30%, transparent);
-    box-shadow: 0 10px 30px color-mix(in srgb, var(--card-theme, #2c5cc5) 12%, transparent);
+    transform: translateY(-6px);
+    border-color: color-mix(in srgb, var(--card-theme, #2c5cc5) 38%, transparent);
+    box-shadow: 0 18px 44px color-mix(in srgb, var(--card-theme, #2c5cc5) 16%, transparent), 0 4px 12px rgba(0,0,0,0.04);
 }
 
 .field-icon {
@@ -4243,11 +4287,11 @@ body.pdf-body-lock {
     background: linear-gradient(135deg, var(--grad-start, #1a3a8f), var(--grad-end, #3d6ee0));
     color: white !important;
     box-shadow: 0 5px 12px color-mix(in srgb, var(--card-theme, #2c5cc5) 35%, transparent);
-    transition: transform 0.2s ease;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .field-card:hover .field-icon {
-    transform: scale(1.1);
+    transform: scale(1.07) rotate(-8deg);
 }
 
 .field-card.math {
@@ -4257,40 +4301,40 @@ body.pdf-body-lock {
 }
 
 .field-card.science {
-    --card-theme: #ff6b35;
-    --grad-start: #d4530a;
-    --grad-end: #ff885e;
+    --card-theme: #28a745;
+    --grad-start: #1d7a33;
+    --grad-end: #32c85a;
 }
 
 .field-card.tech {
-    --card-theme: #2c5cc5;
-    --grad-start: #1a3a8f;
-    --grad-end: #3d6ee0;
+    --card-theme: #f39c12;
+    --grad-start: #c87f0a;
+    --grad-end: #f5b942;
 }
 
 .field-card.management {
-    --card-theme: #ff6b35;
-    --grad-start: #d4530a;
-    --grad-end: #ff885e;
+    --card-theme: #8e44ad;
+    --grad-start: #6c3483;
+    --grad-end: #a855c7;
 }
 
 .field-card.literature {
-    --card-theme: #2c5cc5;
-    --grad-start: #1a3a8f;
-    --grad-end: #3d6ee0;
+    --card-theme: #e74c3c;
+    --grad-start: #b03a2e;
+    --grad-end: #ef6b60;
 }
 
 .field-card.languages {
-    --card-theme: #ff6b35;
-    --grad-start: #d4530a;
-    --grad-end: #ff885e;
+    --card-theme: #16a085;
+    --grad-start: #117a65;
+    --grad-end: #1abc9c;
 }
 
 .field-title {
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
-    color: #2c5cc5;
+    color: var(--card-theme, #2c5cc5);
 }
 
 .field-description {
@@ -7587,7 +7631,7 @@ body.pdf-body-lock {
     }
 
     .calculator-section {
-        margin: 1.5rem 0.5rem;
+        margin: 1.5rem 0;
     }
 
     .calculator-header h2 {
@@ -14278,9 +14322,10 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
 @media (max-width: 520px) {
     .results-alert {
         flex-direction: column;
-        align-items: flex-start;
-        padding: 16px 18px;
-        gap: 12px;
+        align-items: center;
+        text-align: center;
+        padding: 22px 20px;
+        gap: 14px;
     }
     .results-alert-icon {
         width: 40px;
