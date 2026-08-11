@@ -1245,10 +1245,11 @@
                 progressPercent.textContent = `${percentage}%`;
 
                 try {
-                    const response = await fetch(sessionUrl, {
+                    const response = await fetch(GAS_WEB_APP_URL, {
                         method: 'PUT',
                         headers: {
-                            'Content-Range': `bytes ${startByte}-${endByte - 1}/${totalBytes}`
+                            'Content-Range': `bytes ${startByte}-${endByte - 1}/${totalBytes}`,
+                            'X-Drive-Session-Url': sessionUrl
                         },
                         body: chunk
                     });
@@ -1288,10 +1289,11 @@
         // Query status of resumable session
         async function queryUploadedBytesRange(sessionUrl, totalBytes) {
             try {
-                const response = await fetch(sessionUrl, {
+                const response = await fetch(GAS_WEB_APP_URL, {
                     method: 'PUT',
                     headers: {
-                        'Content-Range': `bytes */${totalBytes}`
+                        'Content-Range': `bytes */${totalBytes}`,
+                        'X-Drive-Session-Url': sessionUrl
                     }
                 });
 
