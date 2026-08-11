@@ -61,6 +61,9 @@ The stream formerly known as **"شعبة تقني رياضي"** (Technical Mathe
 - [الوقت المتبقي للبكالوريا](https://www.bac-story.com/tools/countdown): Live countdown timer to the next Algerian Baccalaureate exam date and university registration deadline.
 - [حاسبة المعدل الموزون](https://www.bac-story.com/tools/weighted-calc): Weighted average calculator for university admission in Algeria — computes the final composite average used in the PROGRES orientation system.
 - [ورقة الإجابة الرسمية](https://www.bac-story.com/tools/exam-sheet): Practice with the official Baccalaureate answer sheet (ورقة التنظيم, الورقة الخضراء, ورقة الفصل) before exam day.
+- [كيفية تنظيم ورقة الإجابة](https://www.bac-story.com/tools/exam-sheet/exam-sheet-organization): Visual guide to organizing the official BAC answer sheet — margins, headings, question numbering. Includes downloadable practice sheet.
+- [ورقة الإجابة النسخة الخضراء](https://www.bac-story.com/tools/exam-sheet/exam-sheet-green-version): The official green answer sheet used in Algerian Baccalaureate exams — downloadable template for home practice.
+- [ورقة الإجابة الفصلية](https://www.bac-story.com/tools/exam-sheet/trimestrial-exam-sheet): Official answer sheet used in trimestrial (semester) exams at Algerian secondary schools — downloadable for practice.
 
 ## University Guide
 

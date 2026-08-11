@@ -567,6 +567,9 @@ function setupSearch() {
         { title: 'حاسبة معدل البكالوريا', desc: 'احسب معدلك التقديري بدقة قبل النتائج', url: '/tools/calculator', icon: 'fas fa-calculator', specialty: null, keywords: ['حاسبة', 'معدل', 'احسب معدلي', 'حساب المعدل', 'calculator', 'معدلي', 'احتساب'] },
         { title: 'المعدل الموزون', desc: 'احسب معدلك الموزون للقبول في الجامعات', url: '/tools/weighted-calc', icon: 'fas fa-balance-scale', specialty: null, keywords: ['المعدل الموزون', 'معدل الباك', 'قبول جامعي', 'احتساب المعدل', 'التوجيه', 'موزون'] },
         { title: 'ورقة الإجابة', desc: 'نسخة رقمية من ورقة إجابة البكالوريا الرسمية', url: '/tools/exam-sheet', icon: 'fas fa-file-alt', specialty: null, keywords: ['ورقة الإجابة', 'ورقة امتحان', 'ورقة رسمية', 'exam sheet', 'نموذج', 'استمارة', 'ورقة اجابة'] },
+        { title: 'كيفية تنظيم ورقة الإجابة', desc: 'دليل مرئي لتنظيم ورقة إجابة البكالوريا — الهوامش والعناوين والترقيم', url: '/tools/exam-sheet/exam-sheet-organization', icon: 'fas fa-file-pen', specialty: null, keywords: ['تنظيم ورقة الإجابة', 'كيفية تنظيم', 'ورقة التنظيم', 'ورقة امتحان', 'هوامش', 'ترقيم الأسئلة', 'تنظيم الورقة', 'exam sheet'] },
+        { title: 'ورقة الإجابة النسخة الخضراء', desc: 'نموذج الورقة الخضراء الرسمية للبكالوريا للتحميل والطباعة', url: '/tools/exam-sheet/exam-sheet-green-version', icon: 'fas fa-file-lines', specialty: null, keywords: ['الورقة الخضراء', 'ورقة خضراء', 'نسخة خضراء', 'ورقة رسمية', 'ورقة البكالوريا', 'نموذج ورقة إجابة', 'exam sheet green'] },
+        { title: 'ورقة الإجابة الفصلية', desc: 'نموذج ورقة الإجابة في الإمتحانات الفصلية للثانوية', url: '/tools/exam-sheet/trimestrial-exam-sheet', icon: 'fas fa-file-contract', specialty: null, keywords: ['ورقة الفصل', 'امتحانات فصلية', 'ورقة فصلية', 'فصل أول', 'فصل ثاني', 'فصل ثالث', 'ورقة إجابة الفصل', 'trimestre', 'فصل'] },
         { title: 'النظام الجامعي الجزائري', desc: 'كل ما تحتاج معرفته عن نظام LMD والجامعة', url: '/university', icon: 'fas fa-university', specialty: null, keywords: ['النظام الجامعي', 'LMD', 'nظام lmd', 'ليسانس ماستر دكتوراه', 'الجامعة الجزائرية', 'نظام الجامعة'] },
         { title: 'الدليل الوزاري للتخصصات', desc: 'الدليل الرسمي لوزارة التعليم العالي', url: '/university/ministry-guide', icon: 'fas fa-scroll', specialty: null, keywords: ['الدليل الوزاري', 'وزاري', 'وزارة', 'الدليل الرسمي', 'دليل التخصصات', 'ministry'] },
         { title: 'التسجيل في المدارس العسكرية', desc: 'دليل التجنيد في الجيش الوطني الشعبي بعد البكالوريا', url: '/university/military-guide', icon: 'fas fa-shield-alt', specialty: null, keywords: ['عسكري', 'مدارس عسكرية', 'جيش', 'تجنيد', 'الجيش الوطني الشعبي', 'ANP', 'mdn', 'preinscription', 'وزارة الدفاع', 'تسجيل عسكري', 'الدفاع الوطني'] },
@@ -1272,8 +1275,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupScrollToTop();
     setupSpecFilterTabs();
 
-    // Add share button to bac-2026 pages and contribute page
-    if (window.location.pathname.includes('bac-2026') || window.location.pathname.includes('/contribute')) {
+    // Add share button to bac-2026 pages, contribute page, and exam-sheet sub-pages
+    if (window.location.pathname.includes('bac-2026') || window.location.pathname.includes('/contribute') || window.location.pathname.includes('/tools/exam-sheet/')) {
         buildBac2026ShareBtn();
     }
 
