@@ -525,7 +525,7 @@ function setupSearch() {
         { title: 'الرياضيات', desc: 'ملخصات، تمارين ومواضيع في الرياضيات', url: '/resources/math', icon: 'fas fa-calculator', specialty: null, keywords: ['رياضيات', 'math', 'حساب', 'ملخصات الرياضيات'] },
         { title: 'العلوم الفيزيائية', desc: 'ميكانيك، كهرباء، كيمياء وتحولات نووية', url: '/resources/sci', icon: 'fas fa-atom', specialty: null, keywords: ['فيزياء', 'فيزيائية', 'physics', 'ملخصات الفيزياء'] },
         { title: 'العلوم الطبيعية', desc: 'بيولوجيا، البروتين، المناعة والاتصال العصبي', url: '/resources/sci', icon: 'fas fa-flask', specialty: null, keywords: ['علوم طبيعية', 'بيولوجيا', 'علوم الحياة', 'ملخصات العلوم'] },
-        { title: 'مواد التكنولوجيا', desc: 'هندسة مدنية، كهربائية، ميكانيكية وطرائق', url: '/resources/tech', icon: 'fas fa-microchip', specialty: null, keywords: ['تكنولوجيا', 'تقني', 'هندسة', 'تقني رياضي', 'شعبة هندسة', 'تكنو رياضي', 'شعبة تقني رياضي', 'التقني الرياضي'] },
+        { title: 'مواد التكنولوجيا', desc: 'هندسة مدنية، كهربائية، ميكانيكية وطرائق', url: '/resources/engineering', icon: 'fas fa-microchip', specialty: null, keywords: ['تكنولوجيا', 'تقني', 'هندسة', 'تقني رياضي', 'شعبة هندسة', 'تكنو رياضي', 'شعبة تقني رياضي', 'التقني الرياضي'] },
         { title: 'تسيير واقتصاد', desc: 'محاسبة، قانون، اقتصاد ومناجمنت', url: '/resources/ge', icon: 'fas fa-chart-line', specialty: null, keywords: ['تسيير', 'اقتصاد', 'management'] },
         { title: 'المواضيع', desc: 'بوابة امتحانات الجزائر: بكالوريات سابقة، أشبال الأمة، مواضيع التميز والقناة', url: '/topics', icon: 'fas fa-file-alt', specialty: null, keywords: ['المواضيع', 'امتحانات', 'المواضيع والحلول', 'نماذج اختبارات'] },
         { title: 'البكالوريات السابقة', desc: 'مواضيع وحوليات شهادة البكالوريا الرسمية من 2008 إلى 2026 مع التصحيح', url: '/topics/bac-topics', icon: 'fas fa-file-contract', specialty: null, keywords: ['بكالوريا سابقة', 'مواضيع البكالوريا', 'تصحيحات الباك', 'حوليات الباك'] },
@@ -579,7 +579,7 @@ function setupSearch() {
         // ── MATH — SPECIALTY SECTIONS ──────────────────────────────────────
         { title: 'الرياضيات', desc: 'دروس، ملخصات وتمارين', url: '/resources/math', icon: 'fas fa-calculator', specialty: 'رياضيات', keywords: ['رياضيات', 'ملخصات', 'دروس', 'تمارين'] },
         { title: 'الرياضيات', desc: 'دروس، ملخصات وتمارين', url: '/resources/sci', icon: 'fas fa-calculator', specialty: 'علوم تجريبية', keywords: ['رياضيات', 'ملخصات', 'دروس', 'تمارين'] },
-        { title: 'الرياضيات', desc: 'دروس، ملخصات وتمارين', url: '/resources/tech', icon: 'fas fa-calculator', specialty: 'هندسة', keywords: ['رياضيات', 'ملخصات', 'دروس', 'تمارين'] },
+        { title: 'الرياضيات', desc: 'دروس، ملخصات وتمارين', url: '/resources/engineering/math', icon: 'fas fa-calculator', specialty: 'هندسة', keywords: ['رياضيات', 'ملخصات', 'دروس', 'تمارين'] },
         { title: 'الرياضيات', desc: 'دروس، ملخصات وتمارين', url: '/resources/ge', icon: 'fas fa-calculator', specialty: 'تسيير واقتصاد', keywords: ['رياضيات', 'ملخصات', 'دروس', 'تمارين'] },
         { title: 'الرياضيات', desc: 'الرياضيات المختزلة', url: '/resources/le', icon: 'fas fa-calculator', specialty: 'آداب · لغات', keywords: ['رياضيات', 'ملخصات', 'دروس'] },
 
@@ -634,10 +634,11 @@ function setupSearch() {
         { title: 'المكتسبات القبلية', desc: 'مراجعة الأساسيات — علوم طبيعية', url: '/resources/sci', icon: 'fas fa-star', specialty: 'علوم طبيعية', keywords: ['المكتسبات القبلية', 'مراجعة', 'أساسيات علوم'] },
 
         // ── TECHNOLOGY TYPES ───────────────────────────────────────────────
-        { title: 'الهندسة المدنية', desc: 'مقاومة المواد، التربة والمنشآت', url: '/resources/tech', icon: 'fas fa-hard-hat', specialty: 'هندسة', keywords: ['الهندسة المدنية', 'مدني', 'مقاومة المواد', 'التربة', 'خرسانة', 'هندسة مدنية'] },
-        { title: 'الهندسة الكهربائية', desc: 'الأنظمة الكهربائية والإلكترونية', url: '/resources/tech', icon: 'fas fa-plug', specialty: 'هندسة', keywords: ['الهندسة الكهربائية', 'كهربائية', 'إلكترونية', 'دوائر', 'هندسة كهربائية'] },
-        { title: 'الهندسة الميكانيكية', desc: 'الأنظمة الميكانيكية وتحليل الحركات', url: '/resources/tech', icon: 'fas fa-cog', specialty: 'هندسة', keywords: ['الهندسة الميكانيكية', 'ميكانيكية', 'الأنظمة', 'هندسة ميكانيكية'] },
-        { title: 'هندسة الطرائق', desc: 'تصميم الطرق والمشاريع الإنشائية', url: '/resources/tech', icon: 'fas fa-road', specialty: 'هندسة', keywords: ['هندسة الطرائق', 'طرائق', 'الطرق', 'إنشائية'] },
+        { title: 'التكنولوجيا — هندسة', desc: 'موارد مادة التكنولوجيا: هندسة مدنية، كهربائية، ميكانيكية وطرائق', url: '/resources/engineering/technology', icon: 'fas fa-hard-hat', specialty: 'هندسة', keywords: ['تكنولوجيا', 'التكنولوجيا', 'هندسة مدنية', 'هندسة كهربائية', 'هندسة ميكانيكية', 'هندسة طرائق'] },
+        { title: 'الهندسة المدنية', desc: 'مقاومة المواد، التربة والمنشآت', url: '/resources/engineering/civil-engineering', icon: 'fas fa-hard-hat', specialty: 'هندسة', keywords: ['الهندسة المدنية', 'مدني', 'مقاومة المواد', 'التربة', 'خرسانة', 'هندسة مدنية'] },
+        { title: 'الهندسة الكهربائية', desc: 'الأنظمة الكهربائية والإلكترونية', url: '/resources/engineering/electrical-engineering', icon: 'fas fa-plug', specialty: 'هندسة', keywords: ['الهندسة الكهربائية', 'كهربائية', 'إلكترونية', 'دوائر', 'هندسة كهربائية'] },
+        { title: 'الهندسة الميكانيكية', desc: 'الأنظمة الميكانيكية وتحليل الحركات', url: '/resources/engineering/mechanical-engineering', icon: 'fas fa-cog', specialty: 'هندسة', keywords: ['الهندسة الميكانيكية', 'ميكانيكية', 'الأنظمة', 'هندسة ميكانيكية'] },
+        { title: 'هندسة الطرائق', desc: 'تصميم الطرق والمشاريع الإنشائية', url: '/resources/engineering/road-engineering', icon: 'fas fa-road', specialty: 'هندسة', keywords: ['هندسة الطرائق', 'طرائق', 'الطرق', 'إنشائية'] },
 
         // ── MANAGEMENT TOPICS ──────────────────────────────────────────────
         { title: 'المحاسبة التحليلية والمالية', desc: 'التكاليف، التحليل المالي والتسيير المحاسبي', url: '/resources/ge', icon: 'fas fa-calculator', specialty: 'تسيير واقتصاد', keywords: ['المحاسبة', 'محاسبة', 'التحليل المالي', 'تكاليف', 'ميزانية', 'محاسبة تحليلية'] },
@@ -698,7 +699,7 @@ function setupSearch() {
         // ── SPECIALTY OVERVIEWS ────────────────────────────────────────────
         { title: 'شعبة رياضيات', desc: 'جميع مواد وموارد شعبة الرياضيات', url: '/resources/math', icon: 'fas fa-calculator', specialty: 'رياضيات', keywords: ['رياضيات', 'شعبة رياضيات', 'علوم رياضيات', 'math'] },
         { title: 'شعبة علوم تجريبية', desc: 'جميع مواد وموارد شعبة العلوم التجريبية', url: '/resources/sci', icon: 'fas fa-flask', specialty: 'علوم تجريبية', keywords: ['علوم تجريبية', 'شعبة علوم', 'علوم طبيعية', 'sciences', 'علوم'] },
-        { title: 'شعبة هندسة', desc: 'جميع مواد وموارد شعبة هندسة (سابقاً التقني الرياضي)', url: '/resources/tech', icon: 'fas fa-microchip', specialty: 'هندسة', keywords: ['هندسة', 'شعبة هندسة', 'تقني رياضي', 'شعبة تقني رياضي', 'تكنو رياضي', 'التقني الرياضي'] },
+        { title: 'شعبة هندسة', desc: 'جميع مواد وموارد شعبة هندسة (سابقاً التقني الرياضي)', url: '/resources/engineering', icon: 'fas fa-microchip', specialty: 'هندسة', keywords: ['هندسة', 'شعبة هندسة', 'تقني رياضي', 'شعبة تقني رياضي', 'تكنو رياضي', 'التقني الرياضي'] },
         { title: 'شعبة تسيير واقتصاد', desc: 'جميع مواد وموارد شعبة تسيير واقتصاد', url: '/resources/ge', icon: 'fas fa-chart-line', specialty: 'تسيير واقتصاد', keywords: ['تسيير واقتصاد', 'شعبة تسيير', 'اقتصاد', 'management', 'تسيير'] },
         { title: 'شعبة آداب وفلسفة', desc: 'جميع مواد وموارد شعبة الآداب وفلسفة', url: '/resources/le', icon: 'fas fa-pen-nib', specialty: 'آداب وفلسفة', keywords: ['آداب', 'فلسفة', 'أدب', 'شعبة آداب', 'أدب وفلسفة'] },
         { title: 'شعبة لغات أجنبية', desc: 'جميع مواد وموارد شعبة اللغات الأجنبية', url: '/resources/lp', icon: 'fas fa-comments', specialty: 'لغات أجنبية', keywords: ['لغات', 'لغات أجنبية', 'شعبة لغات', 'اللغات'] },

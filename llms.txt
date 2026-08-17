@@ -26,7 +26,7 @@ The platform is operated by Redouane Mohamed Islem and is accessible at https://
 
 - [شعبة رياضيات](https://www.bac-story.com/resources/math): Study resources for the Mathematics stream.
 - [شعبة علوم تجريبية](https://www.bac-story.com/resources/sci): Study resources for the Experimental Sciences stream.
-- [شعبة هندسة](https://www.bac-story.com/resources/tech): Study resources for the Engineering stream (formerly known as "شعبة تقني رياضي" / Technical Mathematics — officially renamed to "هندسة" in the 2027 Algerian Baccalaureate reform).
+- [شعبة هندسة](https://www.bac-story.com/resources/engineering): Study resources for the Engineering stream (formerly known as "شعبة تقني رياضي" / Technical Mathematics — officially renamed to "هندسة" in the 2027 Algerian Baccalaureate reform). Sub-pages: [التكنولوجيا](https://www.bac-story.com/resources/engineering/technology) — hub for: [الهندسة المدنية](https://www.bac-story.com/resources/engineering/civil-engineering), [الهندسة الكهربائية](https://www.bac-story.com/resources/engineering/electrical-engineering), [الهندسة الميكانيكية](https://www.bac-story.com/resources/engineering/mechanical-engineering), [هندسة الطرائق](https://www.bac-story.com/resources/engineering/road-engineering).
 - [شعبة تسيير واقتصاد](https://www.bac-story.com/resources/ge): Study resources for the Management & Economics stream.
 - [شعبة آداب وفلسفة](https://www.bac-story.com/resources/lp): Study resources for the Literature & Philosophy stream.
 - [شعبة لغات أجنبية](https://www.bac-story.com/resources/le): Study resources for the Foreign Languages stream.

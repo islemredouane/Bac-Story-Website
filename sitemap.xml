@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
@@ -1165,10 +1165,45 @@
   </url>
 
   <url>
-    <loc>https://www.bac-story.com/resources/tech</loc>
-    <lastmod>2026-06-09</lastmod>
+    <loc>https://www.bac-story.com/resources/engineering</loc>
+    <lastmod>2026-08-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.bac-story.com/resources/engineering/technology</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.bac-story.com/resources/engineering/civil-engineering</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.bac-story.com/resources/engineering/electrical-engineering</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.bac-story.com/resources/engineering/mechanical-engineering</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.bac-story.com/resources/engineering/road-engineering</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <url>
@@ -4879,4 +4914,104 @@
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
+
+  <!-- Books section — stream hubs -->
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/engineering</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/ge</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/lp</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/le</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Books/Math — individual subjects -->
+  <url><loc>https://www.bac-story.com/resources/books/math/physics</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.bac-story.com/resources/books/math/math</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.bac-story.com/resources/books/math/science</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.bac-story.com/resources/books/math/hist-geo</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.bac-story.com/resources/books/math/arabic</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.bac-story.com/resources/books/math/french</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.bac-story.com/resources/books/math/english</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.bac-story.com/resources/books/math/philosophy</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.bac-story.com/resources/books/math/islamics</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Books/Sci — individual subjects -->
+  <url><loc>https://www.bac-story.com/resources/books/sci/physics</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.bac-story.com/resources/books/sci/math</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.bac-story.com/resources/books/sci/science</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.bac-story.com/resources/books/sci/hist-geo</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.bac-story.com/resources/books/sci/arabic</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.bac-story.com/resources/books/sci/french</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.bac-story.com/resources/books/sci/english</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.bac-story.com/resources/books/sci/philosophy</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.bac-story.com/resources/books/sci/islamics</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Books/Engineering — individual subjects -->
+  <url><loc>https://www.bac-story.com/resources/books/engineering/physics</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.bac-story.com/resources/books/engineering/math</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.bac-story.com/resources/books/engineering/civil</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.bac-story.com/resources/books/engineering/electrical</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.bac-story.com/resources/books/engineering/road</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.bac-story.com/resources/books/engineering/hist-geo</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.bac-story.com/resources/books/engineering/arabic</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.bac-story.com/resources/books/engineering/french</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.bac-story.com/resources/books/engineering/philosophy</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Books/GE — individual subjects -->
+  <url><loc>https://www.bac-story.com/resources/books/ge/accounting</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.bac-story.com/resources/books/ge/economics</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.bac-story.com/resources/books/ge/law</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.bac-story.com/resources/books/ge/hist-geo</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.bac-story.com/resources/books/ge/arabic</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.bac-story.com/resources/books/ge/french</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.bac-story.com/resources/books/ge/english</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.bac-story.com/resources/books/ge/philosophy</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Books/LP — individual subjects -->
+  <url><loc>https://www.bac-story.com/resources/books/lp/arabic</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.bac-story.com/resources/books/lp/philosophy</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.bac-story.com/resources/books/lp/hist-geo</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.bac-story.com/resources/books/lp/math</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.bac-story.com/resources/books/lp/french</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.bac-story.com/resources/books/lp/english</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Books/LE — individual subjects -->
+  <url><loc>https://www.bac-story.com/resources/books/le/arabic</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.bac-story.com/resources/books/le/philosophy</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.bac-story.com/resources/books/le/hist-geo</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.bac-story.com/resources/books/le/math</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.bac-story.com/resources/books/le/french</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.bac-story.com/resources/books/le/english</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.bac-story.com/resources/books/le/german</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.bac-story.com/resources/books/le/spanish</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.bac-story.com/resources/books/le/italian</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 </urlset>
