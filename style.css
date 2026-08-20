@@ -14815,32 +14815,6 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
     .fb-avg-num { font-size: 2.9rem; }
 }
 
-/* ══════════════════════════════════════════════════════════════
-   RESOURCE BACK BUTTON (.res-back-btn)
-   ══════════════════════════════════════════════════════════════ */
-.res-back-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: linear-gradient(135deg, #1a3a8f 0%, #2c5cc5 100%);
-    color: #fff;
-    border-radius: 50px;
-    padding: 0.65rem 1.4rem;
-    font-family: 'Tajawal', sans-serif;
-    font-weight: 700;
-    font-size: 0.9rem;
-    text-decoration: none;
-    margin: 1rem 0 1.5rem;
-    transition: all 0.25s ease;
-    box-shadow: 0 4px 14px rgba(44, 92, 197, 0.25);
-}
-.res-back-btn:hover {
-    background: linear-gradient(135deg, #162f7a 0%, #1e3fa0 100%);
-    color: #fff;
-    text-decoration: none;
-    box-shadow: 0 6px 20px rgba(44, 92, 197, 0.38);
-    transform: translateX(3px);
-}
 
 /* ══════════════════════════════════════════════════════════════
    SHARED STATS STRIP (.crc-stats / .crc-stat)
