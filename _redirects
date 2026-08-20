@@ -7,3 +7,9 @@
 # Cloudflare Pages 301 Redirects for BAC 2024
 /bac-2024 /topics/bac-2024 301
 /bac-2024/* /topics/bac-2024/:splat 301
+
+# 404 → nearest relevant page
+/resultats-bac-2026 /bac-2026 301
+/resultats-bac-2026.html /bac-2026 301
+/university/speciality/ensee /university/specialities 301
+/university/speciality/ens-anglais /university/specialities 301
