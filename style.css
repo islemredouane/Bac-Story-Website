@@ -9178,6 +9178,8 @@ body.pdf-body-lock {
 }
 
 .adp-tg-visit-btn:hover {
+    background: #ffffff;
+    color: #0088cc;
     box-shadow: 0 12px 30px rgba(0, 98, 154, 0.4);
     transform: translateY(-3px);
     text-decoration: none;
