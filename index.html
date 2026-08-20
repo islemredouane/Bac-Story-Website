@@ -30,7 +30,7 @@
 <link href="https://www.bac-story.com" rel="canonical"/>
 <meta content="redouane mohamed islem" name="author"/>
 <meta content="qoBM-Cu5e5LU1w_2GOwKiuWhT7l8Z9eqZo0XNg77prE" name="google-site-verification"/>
-<link href="/style.css?v=10.10" rel="stylesheet"/>
+<link href="/style.css?v=10.13" rel="stylesheet"/>
 <link as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
 <noscript>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
@@ -695,6 +695,64 @@
     </div>
 </section>
 </div>
+
+<!-- ══════════════════════════════════════
+     STATS STRIP
+══════════════════════════════════════ -->
+<section class="hp-social" style="padding:2.5rem 0 0;">
+    <div class="hp-social-inner">
+        <div class="hp-social-header hp-reveal" style="margin-bottom:1.5rem;">
+            <h2 style="background:linear-gradient(120deg,#1a3a8f 0%,#2c5cc5 50%,#3d6ee0 100%);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;color:#2c5cc5;display:flex;align-items:center;justify-content:center;gap:0.45em;"><i class="fas fa-chart-bar"></i> المنصة بالأرقام</h2>
+        </div>
+        <div class="crc-stats hp-reveal" id="hp-stats-strip">
+            <div class="crc-stat">
+                <div class="crc-stat-num" data-count="6" data-suffix="">0</div>
+                <span>شعب بكالوريا<br>مغطاة كلياً</span>
+            </div>
+            <div class="crc-stat">
+                <div class="crc-stat-num" data-count="100" data-suffix="%">0</div>
+                <span>محتوى مجاني<br>بدون تسجيل</span>
+            </div>
+            <div class="crc-stat">
+                <div class="crc-stat-num" data-count="500" data-suffix="+">0</div>
+                <span>مورد تعليمي<br>متاح الآن</span>
+            </div>
+            <div class="crc-stat">
+                <div class="crc-stat-num">2027</div>
+                <span>محتوى محدَّث<br>لبكالوريا 2027</span>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+(function () {
+    function runCounters() {
+        document.querySelectorAll('#hp-stats-strip .crc-stat-num[data-count]').forEach(function (el) {
+            var target = +el.dataset.count;
+            var suffix = el.dataset.suffix || '';
+            var duration = 1200;
+            var start = null;
+            function step(ts) {
+                if (!start) start = ts;
+                var progress = Math.min((ts - start) / duration, 1);
+                var ease = 1 - Math.pow(1 - progress, 3);
+                el.textContent = Math.round(ease * target) + suffix;
+                if (progress < 1) requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step);
+        });
+    }
+    var strip = document.getElementById('hp-stats-strip');
+    if (!strip) return;
+    if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries, obs) {
+            if (entries[0].isIntersecting) { runCounters(); obs.disconnect(); }
+        }, { threshold: 0.3 }).observe(strip);
+    } else {
+        runCounters();
+    }
+}());
+</script>
 
 <!-- ══════════════════════════════════════
      SOCIAL PROOF — TESTIMONIALS WALL
