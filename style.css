@@ -14814,3 +14814,92 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
     .fb-rating-card { padding: 2rem 1.2rem; }
     .fb-avg-num { font-size: 2.9rem; }
 }
+
+/* ══════════════════════════════════════════════════════════════
+   SHARED STATS STRIP (.crc-stats / .crc-stat)
+   Used on: index.html, bac-2027-curriculum-changes.html
+   ══════════════════════════════════════════════════════════════ */
+.crc-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.4rem;
+    margin-bottom: 2.4rem;
+}
+.crc-stat {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: #fff;
+    border: 1.5px solid rgba(44, 92, 197, 0.1);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+.crc-stat::before {
+    content: '';
+    position: absolute;
+    top: 0; right: -60%;
+    width: 40%; height: 100%;
+    background: linear-gradient(105deg, transparent 40%, rgba(44, 92, 197, 0.05) 50%, transparent 60%);
+    animation: crc-stat-shimmer 3s ease-in-out infinite;
+}
+@keyframes crc-stat-shimmer {
+    0%   { right: -60%; }
+    50%  { right: 110%; }
+    100% { right: 110%; }
+}
+.crc-stat::after {
+    content: '';
+    position: absolute;
+    top: 14px; right: 14px;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: rgba(44, 92, 197, 0.18);
+    animation: crc-stat-pulse 2.5s ease-in-out infinite;
+}
+.crc-stat:nth-child(2)::after { animation-delay: 0.5s; }
+.crc-stat:nth-child(3)::after { animation-delay: 1s; }
+.crc-stat:nth-child(4)::after { animation-delay: 1.5s; }
+@keyframes crc-stat-pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50%       { transform: scale(1.8); opacity: 1; }
+}
+.crc-stat:hover {
+    box-shadow: 0 16px 48px rgba(44, 92, 197, 0.13);
+    transform: translateY(-5px);
+    border-color: rgba(44, 92, 197, 0.25);
+}
+.crc-stat-num {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(90deg, #1a3a8f, #2c5cc5, #3d6ee0, #2c5cc5, #1a3a8f);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: crc-stat-gradient 4s linear infinite;
+    font-variant-numeric: tabular-nums;
+}
+@keyframes crc-stat-gradient {
+    0%   { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+.crc-stat span {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #64748b;
+    font-family: 'Tajawal', sans-serif;
+    line-height: 1.4;
+}
+@media (max-width: 768px) {
+    .crc-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+    .crc-stats { gap: 0.8rem; }
+    .crc-stat { padding: 1.2rem 0.6rem; }
+    .crc-stat-num { font-size: 1.9rem; }
+}
