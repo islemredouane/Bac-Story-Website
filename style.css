@@ -14660,6 +14660,7 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
 /* ══ FAQ accordion (shared: bac-2027-curriculum-changes, index) ══ */
 .crc-faq { display: flex; flex-direction: column; gap: 0.8rem; margin-bottom: 2rem; }
 .crc-faq details {
+    cursor: pointer;
     background: #fff;
     border: 1.5px solid rgba(44, 92, 195, 0.09);
     border-radius: 20px;

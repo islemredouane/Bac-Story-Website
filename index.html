@@ -30,7 +30,7 @@
 <link href="https://www.bac-story.com" rel="canonical"/>
 <meta content="redouane mohamed islem" name="author"/>
 <meta content="qoBM-Cu5e5LU1w_2GOwKiuWhT7l8Z9eqZo0XNg77prE" name="google-site-verification"/>
-<link href="/style.css?v=10.9" rel="stylesheet"/>
+<link href="/style.css?v=10.10" rel="stylesheet"/>
 <link as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
 <noscript>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
@@ -974,7 +974,12 @@
                 anim.onfinish = function () { anim.cancel(); anim = null; };
             }
         }
-        summary.addEventListener('click', function (e) { e.preventDefault(); doToggle(); });
+        el.addEventListener('click', function (e) {
+            if (e.target.closest('a')) return;
+            if (el.open && !e.target.closest('summary')) return;
+            e.preventDefault();
+            doToggle();
+        });
     }
     document.querySelectorAll('.crc-faq details').forEach(setupSmoothDetails);
 }());
