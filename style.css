@@ -4146,8 +4146,7 @@ body.pdf-body-lock {
 
 @media (max-width: 480px) {
     .social-proof-badge {
-        display: flex;
-        justify-content: center;
+        display: inline-flex;
         font-size: 0.8rem;
         padding: 0.5rem 0.85rem;
         gap: 6px;
@@ -9834,11 +9833,13 @@ body.pdf-body-lock {
 @media (max-width: 600px) {
     .adp-stats-row {
         gap: 0.65rem;
+        flex-wrap: nowrap;
     }
 
     .adp-stat-card {
+        flex: 1;
         padding: 0.9rem 1.1rem;
-        min-width: 85px;
+        min-width: 0;
     }
 
     .adp-stat-val {
