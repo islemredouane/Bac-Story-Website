@@ -1274,10 +1274,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupScrollToTop();
     setupSpecFilterTabs();
 
-    // Add share button to bac-2026 pages, contribute page, exam-sheet sub-pages, homepage, and bac-2027 changes
-    if (window.location.pathname.includes('bac-2026') || window.location.pathname.includes('/contribute') || window.location.pathname.includes('/tools/exam-sheet/') || window.location.pathname === '/' || window.location.pathname.includes('bac-2027-curriculum-changes')) {
-        buildBac2026ShareBtn();
-    }
+    // Share button on every page
+    buildBac2026ShareBtn();
 
     // Handle hash-based section
     handleHashNav();
