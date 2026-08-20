@@ -1251,6 +1251,9 @@ function setupSpecFilterTabs() {
 
 // ─── PAGE BOOT ───────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', async () => {
+    // Share button runs immediately — before any async ops that could fail
+    buildBac2026ShareBtn();
+
     // Inject components concurrently using absolute paths
     await Promise.all([
         injectComponent('#navbar-placeholder', '/components/navbar.html?v=1.7'),
@@ -1273,9 +1276,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     injectAdCards();
     setupScrollToTop();
     setupSpecFilterTabs();
-
-    // Share button on every page
-    buildBac2026ShareBtn();
 
     // Handle hash-based section
     handleHashNav();
