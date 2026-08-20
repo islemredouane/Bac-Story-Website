@@ -14575,3 +14575,235 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
 }
 
 /* Speciality Navigation Buttons — consolidated above (line ~1389) */
+
+/* ── CTA card (shared: bac-2027-curriculum-changes, index) ── */
+.crc-cta {
+    position: relative;
+    background: linear-gradient(135deg, #1a3a8f 0%, #2c5cc5 100%);
+    border-radius: 28px;
+    padding: 3rem 2.4rem;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+    box-shadow: 0 16px 40px rgba(44, 92, 195, 0.24);
+}
+.crc-cta-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    background: rgba(255, 255, 255, 0.14);
+    color: #fff;
+    font-size: 0.82rem;
+    padding: 5px 16px;
+    border-radius: 50px;
+    font-weight: 800;
+    letter-spacing: 0.2px;
+    margin-bottom: 1.15rem;
+}
+.crc-cta-eyebrow i { color: #ff6b35; font-size: 0.85rem; }
+.crc-cta h2 {
+    font-size: clamp(1.5rem, 3.6vw, 2.05rem);
+    font-weight: 900;
+    margin: 0 0 0.9rem;
+    line-height: 1.4;
+    letter-spacing: -0.4px;
+    text-wrap: balance;
+}
+.crc-cta h2 em { font-style: normal; color: #ff6b35; }
+.crc-cta p {
+    font-size: 1.02rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 62ch;
+    margin: 0 auto 1.8rem;
+    line-height: 1.9;
+}
+.crc-cta p b { color: #fff; font-weight: 800; }
+.crc-cta-actions { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
+.crc-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    border-radius: 50px;
+    padding: 0.9rem 2.2rem;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+.crc-cta-btn--primary {
+    background: #fff;
+    color: #1a3a8f;
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.16);
+}
+.crc-cta-btn--primary:hover { transform: translateY(-3px); box-shadow: 0 16px 32px rgba(0, 0, 0, 0.22); color: #1a3a8f; }
+.crc-cta-btn--ghost {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 1.5px solid rgba(255, 255, 255, 0.3);
+}
+.crc-cta-btn--ghost:hover { background: rgba(255, 255, 255, 0.18); transform: translateY(-3px); color: #fff; }
+.crc-cta-btn--telegram {
+    background: #2AABEE;
+    color: #fff;
+    border: none;
+    box-shadow: 0 8px 20px rgba(42, 171, 238, 0.35);
+}
+.crc-cta-btn--telegram:hover { background: #1a9adc; transform: translateY(-3px); box-shadow: 0 12px 28px rgba(42, 171, 238, 0.45); color: #fff; }
+
+@media (max-width: 980px) { .crc-cta { padding: 2.4rem 1.6rem; } }
+@media (max-width: 640px) {
+    .crc-cta-actions { flex-direction: column; width: 100%; }
+    .crc-cta-btn { width: 100%; justify-content: center; }
+}
+
+/* ══ FAQ accordion (shared: bac-2027-curriculum-changes, index) ══ */
+.crc-faq { display: flex; flex-direction: column; gap: 0.8rem; margin-bottom: 2rem; }
+.crc-faq details {
+    background: #fff;
+    border: 1.5px solid rgba(44, 92, 195, 0.09);
+    border-radius: 20px;
+    padding: 1.1rem 1.3rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 6px 28px rgba(44, 92, 195, 0.06), 0 2px 6px rgba(0, 0, 0, 0.03);
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+}
+.crc-faq details::after {
+    content: '';
+    position: absolute;
+    top: -90px; right: -70px;
+    width: 220px; height: 220px;
+    background: radial-gradient(circle, rgba(44, 92, 197, 0.09) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+.crc-faq details:hover {
+    box-shadow: 0 18px 44px rgba(44, 92, 195, 0.13), 0 4px 12px rgba(0, 0, 0, 0.04);
+    border-color: rgba(44, 92, 195, 0.3);
+}
+.crc-faq summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    font-weight: 800;
+    color: #0f172a;
+    font-size: 0.98rem;
+}
+.crc-faq summary::-webkit-details-marker { display: none; }
+.crc-faq summary i { color: #2c5cc5; transition: transform 0.3s ease; flex: none; }
+.crc-faq details[open] summary i { transform: rotate(45deg); }
+.crc-faq details.is-closing summary i { transform: rotate(0deg) !important; }
+.crc-faq p { margin: 0.8rem 0 0; font-size: 0.92rem; line-height: 1.85; color: #475569; }
+.crc-faq-link { color: #2c5cc5; font-weight: 700; text-decoration: none; white-space: nowrap; }
+.crc-faq-link:hover { text-decoration: underline; }
+
+/* ── Rating card (shared by feedback.html and index.html) ── */
+@keyframes fbShimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+.fb-skel {
+    border-radius: 8px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.08) 25%, rgba(255,255,255,0.22) 50%, rgba(255,255,255,0.08) 75%);
+    background-size: 200% 100%;
+    animation: fbShimmer 1.6s ease-in-out infinite;
+}
+.fb-avg-skel { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 0.3rem 0 0.2rem; }
+.fb-avg-skel .fb-skel:nth-child(1) { width: 110px; height: 44px; border-radius: 12px; }
+.fb-avg-skel .fb-skel:nth-child(2) { width: 150px; height: 18px; }
+.fb-avg-skel .fb-skel:nth-child(3) { width: 190px; height: 14px; }
+.fb-rating-card {
+    background: linear-gradient(135deg, #1a3a8f 0%, #2c5cc5 50%, #2c5cc5 100%);
+    border-radius: 24px;
+    padding: 2.6rem 2rem;
+    color: #ffffff;
+    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.fb-rating-card::before {
+    content: '';
+    position: absolute;
+    top: -50%; right: -20%;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+.fb-rating-card::after {
+    content: '';
+    position: absolute;
+    bottom: -70px; left: -50px;
+    width: 220px; height: 220px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    pointer-events: none;
+}
+.fb-avg-loading { font-size: 1rem; opacity: 0.85; position: relative; z-index: 1; padding: 1.4rem 0; }
+.fb-avg-num {
+    font-size: 3.6rem;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -1px;
+    font-variant-numeric: tabular-nums;
+    position: relative;
+    z-index: 1;
+}
+.fb-avg-stars {
+    display: inline-flex;
+    justify-content: center;
+    font-size: 1.4rem;
+    margin: 10px 0 6px;
+    position: relative;
+    z-index: 1;
+}
+.fb-avg-stars-empty,
+.fb-avg-stars-fill {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 6px;
+}
+.fb-avg-stars-empty i { color: rgba(255, 255, 255, 0.25); }
+.fb-avg-stars-fill {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    pointer-events: none;
+}
+.fb-avg-stars-fill i { color: #f7b500; text-shadow: 0 4px 14px rgba(247, 181, 0, 0.5); }
+.fb-avg-count { font-size: 0.95rem; opacity: 0.9; font-weight: 500; min-height: 1.4em; position: relative; z-index: 1; }
+.fb-avg-cta {
+    display: none;
+    margin-top: 1.1rem;
+    position: relative;
+    z-index: 1;
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    background: #ffffff;
+    color: #1a3c8d;
+    border: none;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    text-decoration: none;
+}
+.fb-avg-cta:hover { transform: translateY(-3px); box-shadow: 0 14px 26px rgba(0, 0, 0, 0.16); }
+
+@media (max-width: 600px) {
+    .fb-rating-card { padding: 2rem 1.2rem; }
+    .fb-avg-num { font-size: 2.9rem; }
+}
