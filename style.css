@@ -9840,12 +9840,17 @@ body.pdf-body-lock {
 
     .adp-stat-card {
         flex: 1;
-        padding: 0.9rem 1.1rem;
+        padding: 0.8rem 0.6rem;
         min-width: 0;
     }
 
     .adp-stat-val {
-        font-size: 1.55rem;
+        font-size: clamp(0.95rem, 5vw, 1.35rem);
+        line-height: 1.2;
+    }
+
+    .adp-stat-lbl {
+        font-size: clamp(0.58rem, 2.2vw, 0.72rem);
     }
 
     .adp-audience-num {
