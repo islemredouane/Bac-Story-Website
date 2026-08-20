@@ -974,10 +974,10 @@
                 anim.onfinish = function () { anim.cancel(); anim = null; };
             }
         }
+        summary.addEventListener('click', function (e) { e.preventDefault(); doToggle(); });
         el.addEventListener('click', function (e) {
+            if (e.target.closest('summary')) return;
             if (e.target.closest('a')) return;
-            if (el.open && !e.target.closest('summary')) return;
-            e.preventDefault();
             doToggle();
         });
     }
