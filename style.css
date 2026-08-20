@@ -9180,7 +9180,7 @@ body.pdf-body-lock {
 .adp-tg-visit-btn:hover {
     background: #ffffff;
     color: #0088cc;
-    box-shadow: 0 12px 30px rgba(0, 98, 154, 0.4);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.35), 0 0 28px rgba(0, 136, 204, 0.65), 0 12px 30px rgba(0, 98, 154, 0.4);
     transform: translateY(-3px);
     text-decoration: none;
 }
