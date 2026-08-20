@@ -114,17 +114,66 @@
             .adp-hero-title { line-height: 1.6; }
         }
 
-        /* Stat cards on white */
+        /* Stat cards — styled like crc-stat on bac-2027 */
         .adp-stat-card {
-            background: rgba(26, 58, 143, 0.05);
-            border-color: rgba(26, 58, 143, 0.12);
+            background: #fff;
+            border: 1.5px solid rgba(44, 92, 197, 0.1);
+            border-radius: 20px;
+            padding: 2rem 1.75rem;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+        }
+        .adp-stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0; right: -60%;
+            width: 40%; height: 100%;
+            background: linear-gradient(105deg, transparent 40%, rgba(44, 92, 197, 0.05) 50%, transparent 60%);
+            animation: adp-stat-shimmer 3s ease-in-out infinite;
+        }
+        @keyframes adp-stat-shimmer {
+            0%   { right: -60%; }
+            50%  { right: 110%; }
+            100% { right: 110%; }
+        }
+        .adp-stat-card::after {
+            content: '';
+            position: absolute;
+            top: 14px; right: 14px;
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: rgba(44, 92, 197, 0.18);
+            animation: adp-stat-pulse 2.5s ease-in-out infinite;
+        }
+        .adp-stat-card:nth-child(2)::after { animation-delay: 0.5s; }
+        @keyframes adp-stat-pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50%       { transform: scale(1.8); opacity: 1; }
         }
         .adp-stat-card:hover {
-            background: rgba(26, 58, 143, 0.09);
-            border-color: rgba(26, 58, 143, 0.2);
+            box-shadow: 0 16px 48px rgba(44, 92, 197, 0.13);
+            transform: translateY(-5px);
+            border-color: rgba(44, 92, 197, 0.25);
+            background: #fff;
         }
-        .adp-stat-val { color: #2c5cc5; }
-        .adp-stat-lbl { color: #64748b; }
+        .adp-stat-val {
+            font-size: 2.8rem;
+            background: linear-gradient(90deg, #1a3a8f, #2c5cc5, #3d6ee0, #2c5cc5, #1a3a8f);
+            background-size: 200% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: adp-stat-gradient 4s linear infinite;
+            color: #2c5cc5;
+        }
+        @keyframes adp-stat-gradient {
+            0%   { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+        .adp-stat-lbl { color: #64748b; font-size: 0.85rem; font-weight: 700; }
         .adp-audience-num { font-family: 'Tajawal', sans-serif; font-weight: 900; }
         .adp-step-circle { font-family: 'Tajawal', sans-serif; font-weight: 900; }
         .adp-audience-text h2,
