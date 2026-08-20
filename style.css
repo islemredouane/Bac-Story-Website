@@ -13721,15 +13721,6 @@ body.pdf-body-lock {
 
 
 /* --- Final UI/UX Polish --- */
-::selection {
-    background: rgba(44, 92, 195, 0.25);
-    color: #1a3a8f;
-}
-
-::-moz-selection {
-    background: rgba(44, 92, 195, 0.25);
-    color: #1a3a8f;
-}
 
 /* Custom Scrollbar for a premium feel */
 ::-webkit-scrollbar {
