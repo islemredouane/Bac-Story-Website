@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
 <head>
@@ -13,8 +13,8 @@
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-T5H3TNJ4');</script>
-    <meta name="description" content="تعرف على منصة Bac Story ومؤسسيها ورؤيتنا في مساعدة وتوجيه طلاب البكالوريا في الجزائر لتحقيق التفوق والتميز الدراسي.">
-    
+    <meta name="description" content="تعرف على منصة BAC STORY: قصتها، رسالتها، وأثرها على آلاف طلاب البكالوريا في الجزائر عبر مواضيع وتصحيحات، حاسبة المعدل، دليل التخصصات الجامعية، ومحاكاة الامتحان.">
+
     <link rel="icon" href="/favicon.ico">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -23,7 +23,8 @@
     <meta name="theme-color" content="#1a3a8f">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="BAC STORY">    <title>عن المنصة | BAC STORY</title>
+    <meta name="apple-mobile-web-app-title" content="BAC STORY">
+    <title>عن المنصة | BAC STORY</title>
     <link rel="canonical" href="https://www.bac-story.com/about">
     <meta name="author" content="redouane mohamed islem">
     <link rel="stylesheet" href="/style.css?v=10.15">
@@ -42,13 +43,13 @@
     <!-- Open Graph / Facebook / Social Media -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="عن المنصة | BAC STORY">
-    <meta property="og:description" content="تعرف على منصة Bac Story ومؤسسيها ورؤيتنا في مساعدة وتوجيه طلاب البكالوريا في الجزائر لتحقيق التفوق والتميز الدراسي.">
+    <meta property="og:description" content="تعرف على منصة BAC STORY: قصتها، رسالتها، وأثرها على آلاف طلاب البكالوريا في الجزائر.">
     <meta property="og:image" content="https://pub-889477d66bc54c9582bba9a492cf605f.r2.dev/images/og-banner.png">
-    
+
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="عن المنصة | BAC STORY">
-    <meta name="twitter:description" content="تعرف على منصة Bac Story ومؤسسيها ورؤيتنا في مساعدة وتوجيه طلاب البكالوريا في الجزائر لتحقيق التفوق والتميز الدراسي.">
+    <meta name="twitter:description" content="تعرف على منصة BAC STORY: قصتها، رسالتها، وأثرها على آلاف طلاب البكالوريا في الجزائر.">
     <meta name="twitter:image" content="https://pub-889477d66bc54c9582bba9a492cf605f.r2.dev/images/og-banner.png">
     <script type="application/ld+json">
     {
@@ -65,6 +66,650 @@
         ]}
     }
     </script>
+
+    <style>
+    /* ══════════════════════════════════════════════════
+       ABOUT PAGE — abt-*
+       Brand: #2c5cc5 / #1a3a8f · accent #ff6b35 — no other hues on chrome;
+       mirrors the design language established on the curriculum-changes,
+       graduation/partners and calculator pages (lede → stats → cards → CTA).
+       ══════════════════════════════════════════════════ */
+
+    .abt-page {
+        padding-top: 24px;
+        padding-bottom: 60px;
+        min-width: 0;
+        width: 100%;
+    }
+
+    /* ══ LEDE ══ */
+    .abt-lede {
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+        gap: 2.6rem;
+        align-items: start;
+        background: linear-gradient(135deg, #1a3a8f 0%, #2c5cc5 100%);
+        border-radius: 28px;
+        padding: 2.9rem 3rem 2.7rem;
+        margin-bottom: 2.6rem;
+        overflow: hidden;
+        color: #fff;
+    }
+    .abt-lede > * { position: relative; z-index: 1; }
+    .abt-lede::before {
+        content: '';
+        position: absolute;
+        top: -90px; left: -70px;
+        width: 280px; height: 280px;
+        background: radial-gradient(circle, rgba(255,255,255,0.14) 0%, transparent 70%);
+        border-radius: 50%;
+        filter: blur(16px);
+        pointer-events: none;
+    }
+    .abt-lede::after {
+        content: '';
+        position: absolute;
+        bottom: -90px; right: -60px;
+        width: 240px; height: 240px;
+        background: radial-gradient(circle, rgba(255,107,53,0.16) 0%, transparent 70%);
+        border-radius: 50%;
+        filter: blur(16px);
+        pointer-events: none;
+    }
+
+    .abt-lede-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        background: rgba(255, 255, 255, 0.14);
+        border: 1px solid rgba(255, 255, 255, 0.24);
+        border-radius: 999px;
+        padding: 7px 17px;
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0.2px;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        margin-bottom: 1.15rem;
+    }
+    .abt-lede-badge i { color: #ff6b35; font-size: 0.85rem; }
+
+    .abt-lede h1 {
+        margin: 0 0 1.05rem;
+        font-size: clamp(1.75rem, 4vw, 2.5rem);
+        font-weight: 900;
+        line-height: 1.35;
+        letter-spacing: -0.5px;
+        color: #fff;
+        text-wrap: balance;
+    }
+    .abt-lede-kick {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-size: clamp(0.9rem, 1.9vw, 1.05rem);
+        font-weight: 800;
+        letter-spacing: 0.4px;
+        color: #ff6b35;
+    }
+    .abt-lede h1 em { font-style: normal; color: #a8c4ff; }
+
+    .abt-lede-lead {
+        margin: 0;
+        font-size: 1.03rem;
+        line-height: 1.95;
+        color: rgba(255, 255, 255, 0.9);
+        max-width: 48ch;
+    }
+    .abt-lede-lead b { color: #fff; font-weight: 800; }
+
+    .abt-lede-points {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
+    .abt-lede-points li {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        padding: 1.15rem 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.16);
+    }
+    .abt-lede-points li:first-child { border-top: 0; padding-top: 0.2rem; }
+    .abt-lede-points li:last-child { padding-bottom: 0; }
+    .abt-lede-points i {
+        flex: none;
+        width: 40px; height: 40px;
+        display: grid;
+        place-items: center;
+        border-radius: 13px;
+        background: rgba(255, 255, 255, 0.13);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: #fff;
+        font-size: 0.98rem;
+    }
+    .abt-lede-points b {
+        display: block;
+        font-size: 1rem;
+        font-weight: 800;
+        color: #fff;
+        margin-bottom: 3px;
+    }
+    .abt-lede-points span {
+        display: block;
+        font-size: 0.9rem;
+        line-height: 1.75;
+        color: rgba(255, 255, 255, 0.78);
+    }
+
+    /* ══ STATS STRIP ══ */
+    .abt-stats {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1.4rem;
+        margin-bottom: 3rem;
+    }
+    .abt-stat {
+        text-align: center;
+        padding: 2rem 1rem;
+        background: #fff;
+        border: 1.5px solid rgba(44, 92, 197, 0.1);
+        border-radius: 20px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+    .abt-stat::before {
+        content: '';
+        position: absolute;
+        top: 0; right: -60%;
+        width: 40%; height: 100%;
+        background: linear-gradient(105deg, transparent 40%, rgba(44, 92, 197, 0.05) 50%, transparent 60%);
+        animation: abt-stat-shimmer 3s ease-in-out infinite;
+    }
+    @keyframes abt-stat-shimmer {
+        0%   { right: -60%; }
+        50%  { right: 110%; }
+        100% { right: 110%; }
+    }
+    .abt-stat::after {
+        content: '';
+        position: absolute;
+        top: 14px; right: 14px;
+        width: 8px; height: 8px;
+        border-radius: 50%;
+        background: rgba(44, 92, 197, 0.18);
+        animation: abt-stat-pulse 2.5s ease-in-out infinite;
+    }
+    .abt-stat:nth-child(2)::after { animation-delay: 0.5s; }
+    .abt-stat:nth-child(3)::after { animation-delay: 1s; }
+    .abt-stat:nth-child(4)::after { animation-delay: 1.5s; }
+    @keyframes abt-stat-pulse {
+        0%, 100% { transform: scale(1); opacity: 0.5; }
+        50%       { transform: scale(1.8); opacity: 1; }
+    }
+    .abt-stat:hover {
+        box-shadow: 0 16px 48px rgba(44, 92, 197, 0.13);
+        transform: translateY(-5px);
+        border-color: rgba(44, 92, 197, 0.25);
+    }
+    .abt-stat-num {
+        font-family: 'Tajawal', sans-serif;
+        font-size: 2.6rem;
+        font-weight: 900;
+        line-height: 1;
+        margin-bottom: 0.4rem;
+        background: linear-gradient(135deg, #2c5cc5 0%, #4f7de8 50%, #2c5cc5 100%);
+        background-size: 200% 100%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: abt-stat-gradient 4s linear infinite;
+        font-variant-numeric: tabular-nums;
+    }
+    @keyframes abt-stat-gradient {
+        0%   { background-position: 0% 50%; }
+        100% { background-position: 200% 50%; }
+    }
+    .abt-stat span {
+        display: block;
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: #64748b;
+        line-height: 1.5;
+        position: relative;
+    }
+    @keyframes abt-card-in {
+        from { opacity: 0; transform: translateY(32px) scale(0.95); filter: blur(4px); }
+        to   { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+    }
+    .abt-js .abt-stat.abt-reveal { opacity: 0; transform: none; transition: none; will-change: transform, opacity, filter; }
+    .abt-js .abt-stat.abt-reveal.in { animation: abt-card-in 0.55s cubic-bezier(.22, 1, .36, 1) both; }
+    .abt-js .abt-stat.abt-reveal[data-s="1"].in { animation-delay: 0.08s; }
+    .abt-js .abt-stat.abt-reveal[data-s="2"].in { animation-delay: 0.16s; }
+    .abt-js .abt-stat.abt-reveal[data-s="3"].in { animation-delay: 0.24s; }
+    .abt-js .abt-stat.abt-reveal[data-s="4"].in { animation-delay: 0.32s; }
+
+    /* ══ MISSION & VISION ══ */
+    .abt-mv-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.6rem;
+        margin-bottom: 3rem;
+    }
+    /* vivid full-bleed gradient cards — same recipe as .results-channel-card
+       on orientation.html: solid gradient fill, translucent circular icon
+       badge, centered white copy. */
+    .abt-mv-card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+        border-radius: 24px;
+        padding: 2.2rem 1.8rem;
+        color: #fff;
+        overflow: hidden;
+        transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
+    }
+    .abt-mv-card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.05) 100%);
+        pointer-events: none;
+    }
+    .abt-mv-card:hover { transform: translateY(-6px); }
+    .abt-mv-icon {
+        position: relative;
+        z-index: 1;
+        flex: none;
+        width: 64px; height: 64px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.2);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.6rem;
+        transition: transform 0.3s ease;
+    }
+    .abt-mv-card:hover .abt-mv-icon { transform: scale(1.12); }
+    .abt-mv-mission {
+        background: linear-gradient(135deg, #1a3a8f 0%, #2c5cc5 100%);
+        box-shadow: 0 8px 24px rgba(44, 92, 195, 0.25);
+    }
+    .abt-mv-mission:hover { box-shadow: 0 16px 40px rgba(44, 92, 195, 0.35); }
+    .abt-mv-vision {
+        background: linear-gradient(135deg, #d35400 0%, #ff6b35 100%);
+        box-shadow: 0 8px 24px rgba(255, 107, 53, 0.22);
+    }
+    .abt-mv-vision:hover { box-shadow: 0 16px 40px rgba(255, 107, 53, 0.32); }
+    .abt-mv-title {
+        position: relative;
+        z-index: 1;
+        margin: 0;
+        font-size: 1.16rem;
+        font-weight: 900;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .abt-mv-text {
+        position: relative;
+        z-index: 1;
+        margin: 0;
+        font-size: 0.94rem;
+        line-height: 1.85;
+        opacity: 0.92;
+        max-width: 42ch;
+    }
+
+    /* ══ OFFER GRID (what we offer) ══ */
+    .abt-offer-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1.2rem;
+        margin-bottom: 3rem;
+    }
+    .abt-offer-card {
+        --o-c: #2c5cc5;
+        --o-c2: #1e3fa0;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        /* frosted glass — same corner-glow-through-blur recipe as .prt-card
+           on the graduation/partners page */
+        background: rgba(255, 255, 255, 0.68);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1.5px solid rgba(255, 255, 255, 0.55);
+        border-radius: 22px;
+        padding: 1.6rem 1.4rem 1.5rem;
+        text-decoration: none;
+        box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 5px 22px rgba(44, 92, 195, 0.07);
+        overflow: hidden;
+        transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .abt-offer-card::before {
+        content: '';
+        position: absolute;
+        top: 0; right: 0; left: 0;
+        height: 3.5px;
+        background: linear-gradient(90deg, transparent, var(--o-c));
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.3s ease;
+        z-index: 2;
+    }
+    /* accent glow in the corner, glowing through the frosted background */
+    .abt-offer-card::after {
+        content: '';
+        position: absolute;
+        top: -90px; left: -70px;
+        width: 220px; height: 220px;
+        background: radial-gradient(circle, color-mix(in srgb, var(--o-c) 20%, transparent) 0%, transparent 70%);
+        border-radius: 50%;
+        pointer-events: none;
+    }
+    .abt-offer-card:hover {
+        transform: translateY(-6px);
+        border-color: color-mix(in srgb, var(--o-c) 35%, transparent);
+        box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 16px 38px color-mix(in srgb, var(--o-c) 16%, transparent);
+    }
+    .abt-offer-card:hover::before { transform: scaleX(1); }
+    .abt-offer-icon {
+        position: relative;
+        z-index: 1;
+        width: 50px; height: 50px;
+        border-radius: 15px;
+        background: linear-gradient(135deg, var(--o-c2) 0%, var(--o-c) 100%);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        margin-bottom: 1.1rem;
+        box-shadow: 0 8px 20px color-mix(in srgb, var(--o-c) 30%, transparent);
+        transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .abt-offer-card:hover .abt-offer-icon { transform: scale(1.07) rotate(-4deg); }
+    .abt-offer-card h4 { position: relative; z-index: 1; margin: 0 0 0.5rem; font-size: 1.02rem; font-weight: 900; color: #0f172a; }
+    .abt-offer-card p { position: relative; z-index: 1; margin: 0 0 1rem; font-size: 0.86rem; line-height: 1.7; color: #64748b; flex: 1; }
+    .abt-offer-link {
+        position: relative;
+        z-index: 1;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.83rem;
+        font-weight: 800;
+        color: var(--o-c);
+    }
+    .abt-offer-link i { font-size: 0.72rem; transition: transform 0.25s ease; }
+    .abt-offer-card:hover .abt-offer-link i { transform: translateX(-4px); }
+    .abt-offer-card--topics  { --o-c: #2c5cc5; --o-c2: #1e3fa0; }
+    .abt-offer-card--calc    { --o-c: #28a745; --o-c2: #1d7a33; }
+    .abt-offer-card--uni     { --o-c: #8e44ad; --o-c2: #6c3483; }
+    .abt-offer-card--sim     { --o-c: #f39c12; --o-c2: #c87f0a; }
+
+    /* ══ MILESTONES — vertical scroll timeline ══
+       A central spine with a growing colored "progress" fill, milestones
+       alternating right/left of it, each row lighting up and sliding in from
+       its own side as it crosses the viewport. Collapses to a single-side
+       list on narrow screens. */
+    .abt-vtl {
+        position: relative;
+        margin-bottom: 3rem;
+        padding: 0.6rem 0;
+    }
+    .abt-vtl-line {
+        position: absolute;
+        top: 21px;
+        bottom: 21px;
+        right: 50%;
+        transform: translateX(50%);
+        width: 3px;
+        background: rgba(44, 92, 195, 0.13);
+        border-radius: 3px;
+        overflow: hidden;
+    }
+    .abt-vtl-progress {
+        position: absolute;
+        top: 0; right: 0; left: 0;
+        height: 0;
+        background: linear-gradient(180deg, #1a3a8f 0%, #2c5cc5 65%, #ff6b35 100%);
+        border-radius: 3px;
+        transition: height 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .abt-vtl-row {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 60px 1fr;
+        align-items: start;
+        margin-bottom: 2.6rem;
+    }
+    .abt-vtl-row:last-child { margin-bottom: 0; }
+    .abt-vtl-dot {
+        grid-column: 2;
+        justify-self: center;
+        position: relative;
+        z-index: 1;
+        width: 42px; height: 42px;
+        min-width: 42px;
+        border-radius: 50%;
+        background: #fff;
+        border: 2.5px solid rgba(44, 92, 195, 0.22);
+        color: #a8b4cc;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        transition: background 0.5s ease, border-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .abt-vtl-row.is-active .abt-vtl-dot {
+        background: linear-gradient(135deg, #1a3a8f 0%, #2c5cc5 100%);
+        border-color: transparent;
+        color: #fff;
+        box-shadow: 0 8px 20px rgba(44, 92, 195, 0.35);
+        transform: scale(1.08);
+    }
+    .abt-vtl-card {
+        position: relative;
+        background: #fff;
+        border: 1.5px solid rgba(44, 92, 195, 0.08);
+        border-radius: 18px;
+        padding: 1.25rem 1.5rem;
+        box-shadow: 0 5px 20px rgba(44, 92, 195, 0.05);
+        transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+    }
+    .abt-vtl-row.is-active .abt-vtl-card {
+        box-shadow: 0 10px 30px rgba(44, 92, 195, 0.1);
+        border-color: rgba(44, 92, 195, 0.16);
+    }
+    .abt-vtl-row:nth-child(odd)  .abt-vtl-card { grid-column: 1; text-align: right; }
+    .abt-vtl-row:nth-child(even) .abt-vtl-card { grid-column: 3; text-align: left; }
+    /* stub connecting the card to the dot */
+    .abt-vtl-card::after {
+        content: '';
+        position: absolute;
+        top: 20px;
+        width: 22px; height: 2px;
+        background: rgba(44, 92, 195, 0.18);
+    }
+    .abt-vtl-row:nth-child(odd)  .abt-vtl-card::after { right: -22px; }
+    .abt-vtl-row:nth-child(even) .abt-vtl-card::after { left: -22px; }
+    .abt-vtl-year { display: inline-block; font-size: 0.76rem; font-weight: 800; color: #ff6b35; letter-spacing: 0.3px; margin-bottom: 5px; }
+    .abt-vtl-card h4 { margin: 0 0 5px; font-size: 1.04rem; font-weight: 900; color: #0f172a; line-height: 1.4; }
+    .abt-vtl-card p { margin: 0; font-size: 0.86rem; line-height: 1.7; color: #64748b; }
+
+    /* reveal: each side slides in from its own outer edge */
+    .abt-js .abt-vtl-row:nth-child(odd)  .abt-vtl-card { opacity: 0; transform: translateX(28px); }
+    .abt-js .abt-vtl-row:nth-child(even) .abt-vtl-card { opacity: 0; transform: translateX(-28px); }
+    .abt-js .abt-vtl-row.is-active .abt-vtl-card { opacity: 1; transform: translateX(0); }
+
+    /* narrow screens: collapse to a single-side list, spine on the right */
+    @media (max-width: 700px) {
+        .abt-vtl-line { right: 20px; transform: none; }
+        .abt-vtl-row { grid-template-columns: 40px 1fr; column-gap: 1rem; }
+        .abt-vtl-dot { grid-column: 1; }
+        .abt-vtl-row:nth-child(odd)  .abt-vtl-card,
+        .abt-vtl-row:nth-child(even) .abt-vtl-card { grid-column: 2; text-align: right; }
+        .abt-vtl-row:nth-child(odd)  .abt-vtl-card::after,
+        .abt-vtl-row:nth-child(even) .abt-vtl-card::after { right: auto; left: -16px; width: 16px; }
+        .abt-js .abt-vtl-row:nth-child(even) .abt-vtl-card { transform: translateX(28px); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .abt-js .abt-vtl-card { opacity: 1 !important; transform: none !important; transition: none !important; }
+        .abt-vtl-dot { transition: none; }
+        .abt-vtl-progress { transition: none; }
+    }
+
+    /* ══ CLOSING CTA ══ */
+    .abt-cta {
+        position: relative;
+        background: linear-gradient(135deg, #1a3a8f 0%, #2c5cc5 100%);
+        border-radius: 28px;
+        padding: 3rem 2.4rem;
+        text-align: center;
+        color: #fff;
+        overflow: hidden;
+        box-shadow: 0 16px 40px rgba(44, 92, 195, 0.24);
+    }
+    .abt-cta > * { position: relative; z-index: 1; }
+    .abt-cta::before {
+        content: '';
+        position: absolute;
+        top: -90px; left: -70px;
+        width: 280px; height: 280px;
+        background: radial-gradient(circle, rgba(255,255,255,0.14) 0%, transparent 70%);
+        border-radius: 50%;
+        filter: blur(16px);
+        pointer-events: none;
+    }
+    .abt-cta-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        background: rgba(255, 255, 255, 0.14);
+        border: 1px solid rgba(255, 255, 255, 0.24);
+        border-radius: 999px;
+        padding: 7px 17px;
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0.2px;
+        margin-bottom: 1.15rem;
+    }
+    .abt-cta-eyebrow i { color: #ff6b35; font-size: 0.85rem; }
+    .abt-cta h2 {
+        font-size: clamp(1.5rem, 3.6vw, 2.05rem);
+        font-weight: 900;
+        margin: 0 0 0.9rem;
+        line-height: 1.4;
+        letter-spacing: -0.4px;
+        text-wrap: balance;
+    }
+    .abt-cta h2 em { font-style: normal; color: #ff6b35; }
+    .abt-cta p {
+        font-size: 1.02rem;
+        color: rgba(255, 255, 255, 0.9);
+        max-width: 62ch;
+        margin: 0 auto 1.8rem;
+        line-height: 1.9;
+    }
+    .abt-cta p b { color: #fff; font-weight: 800; }
+    .abt-cta-actions { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .abt-cta-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-family: 'Tajawal', sans-serif;
+        font-size: 1rem;
+        font-weight: 900;
+        border-radius: 999px;
+        padding: 0.9rem 2.2rem;
+        text-decoration: none;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .abt-cta-btn--primary {
+        background: #fff;
+        color: #1a3a8f;
+        box-shadow: 0 12px 26px rgba(0, 0, 0, 0.16);
+    }
+    .abt-cta-btn--primary:hover { transform: translateY(-3px); box-shadow: 0 16px 32px rgba(0, 0, 0, 0.22); }
+    .abt-cta-btn--ghost {
+        background: rgba(255,255,255,0.1);
+        color: #fff;
+        border: 1.5px solid rgba(255,255,255,0.3);
+    }
+    .abt-cta-btn--ghost:hover { background: rgba(255,255,255,0.18); transform: translateY(-3px); }
+
+    /* ── Section headers — centered, gradient, icon (matches index.html's
+       .hp-social-header treatment on the landing page) ── */
+    .abt-section-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.25rem;
+        margin: 1rem 0 2rem;
+        text-align: center;
+    }
+    .abt-section-header h2 {
+        font-size: clamp(1.4rem, 3.5vw, 2rem);
+        font-weight: 900;
+        margin: 0;
+        text-wrap: balance;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.45em;
+        background: linear-gradient(120deg, #1a3a8f 0%, #2c5cc5 50%, #3d6ee0 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: #2c5cc5;
+    }
+
+    /* ── Reveal on scroll ── */
+    .abt-js .abt-reveal {
+        opacity: 0;
+        transform: translateY(26px);
+        transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .abt-js .abt-reveal.in { opacity: 1; transform: translateY(0); }
+
+    @media (prefers-reduced-motion: reduce) {
+        .abt-js .abt-reveal { opacity: 1; transform: none; transition: none; }
+        .abt-cta-btn, .abt-offer-card, .abt-mv-card, .abt-stat { transition: none; }
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 980px) {
+        .abt-lede { grid-template-columns: 1fr; gap: 1.9rem; padding: 2.4rem 2.1rem; }
+        .abt-lede-main { text-align: center; }
+        .abt-lede-lead { max-width: none; margin: 0 auto; }
+        .abt-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .abt-mv-grid { grid-template-columns: 1fr; }
+        .abt-offer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .abt-cta { padding: 2.4rem 1.6rem; }
+    }
+    @media (max-width: 640px) {
+        .abt-lede { padding: 2rem 1.4rem; border-radius: 22px; }
+        .abt-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.8rem; }
+        .abt-stat { padding: 1.2rem 0.6rem; }
+        .abt-stat-num { font-size: 1.9rem; }
+        .abt-offer-grid { grid-template-columns: 1fr; }
+        .abt-cta-actions { flex-direction: column; width: 100%; }
+        .abt-cta-btn { width: 100%; justify-content: center; }
+    }
+    </style>
+    <script>document.documentElement.classList.add('abt-js');</script>
 </head>
 
 <body>
@@ -73,88 +718,168 @@
     <div id="navbar-placeholder"></div>
 
     <div id="about" class="resource-content active">
+        <div class="container abt-page">
 
-        <!-- ── HERO ── -->
-        <section class="modern-hero">
-            <h1 class="modern-title shiny-text">عن منصة <span style="font-family:'Pattaya',serif">BAC STORY</span></h1>
-            <p class="modern-subtitle">منصة تعليمية جزائرية مبتكرة تُرافق طالب البكالوريا من أول يوم دراسة حتى يوم النتائج.</p>
-            <div class="modern-utilities">
-                <span class="modern-tag"><i class="fas fa-users"></i> آلاف الطلاب</span>
-                <span class="modern-tag"><i class="fas fa-layer-group"></i> موارد شاملة</span>
-                <span class="modern-tag"><i class="fas fa-flag"></i> صُنع في الجزائر</span>
-            </div>
-            <button class="hero-scroll-btn" onclick="document.querySelector('#about .container').scrollIntoView({behavior:'smooth'})">
-                <i class="fas fa-chevron-down"></i>
-            </button>
-        </section>
+            <!-- ══ LEDE ══ -->
+            <section class="abt-lede">
+                <div class="abt-lede-main">
+                    <span class="abt-lede-badge"><i class="fas fa-flag"></i> صُنع في الجزائر، لطلاب الجزائر</span>
+                    <h1>
+                        <span class="abt-lede-kick">من طالب... إلى رفيق دراسة لآلاف الطلاب</span>
+                        عن منصة <em style="font-family:'Pattaya',serif;font-style:normal;color:#a8c4ff;">BAC STORY</em>
+                    </h1>
+                    <p class="abt-lede-lead">
+                        منصة تعليمية جزائرية بُنيت من قلب تجربة طالب بكالوريا حقيقية، لترافق كل تلميذ من أول يوم
+                        دراسة حتى يوم النتائج — بمواضيع، تصحيحات، أدوات ذكية، ودليل جامعي شامل، كل ذلك <b>مجاناً بالكامل</b>.
+                    </p>
+                </div>
 
-        <!-- ── MISSION & VISION ── -->
-        <div class="container">
-            <div class="modern-section-header"><h2>رسالتنا ورؤيتنا</h2></div>
-            <div class="about-mv-grid">
-                <div class="about-mv-card about-mv-mission">
-                    <div class="about-mv-icon-wrap">
-                        <div class="about-mv-icon"><i class="fas fa-bullseye"></i></div>
-                    </div>
-                    <div class="about-mv-body">
-                        <h3 class="about-mv-title">رسالتنا</h3>
-                        <p class="about-mv-text">تمكين طلاب البكالوريا من تحقيق أعلى النتائج من خلال توفير أدوات تعليمية متطورة وموارد شاملة تسهّل عملية التحضير للامتحان.</p>
-                    </div>
-                </div>
-                <div class="about-mv-card about-mv-vision">
-                    <div class="about-mv-icon-wrap">
-                        <div class="about-mv-icon"><i class="fas fa-eye"></i></div>
-                    </div>
-                    <div class="about-mv-body">
-                        <h3 class="about-mv-title">رؤيتنا</h3>
-                        <p class="about-mv-text">أن نكون المنصة التعليمية الأولى والأكثر موثوقية لطلاب البكالوريا في الجزائر، نُساعدهم على التميز والازدهار في مجتمعنا.</p>
-                    </div>
-                </div>
-            </div>
+                <ul class="abt-lede-points">
+                    <li>
+                        <i class="fas fa-seedling"></i>
+                        <div>
+                            <b>بدأت فكرة، صارت منصة</b>
+                            <span>انطلقت BAC STORY سنة 2025 من احتياج شخصي حقيقي، لا من خطة تسويقية.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-layer-group"></i>
+                        <div>
+                            <b>تغطية شاملة لكل الشعب</b>
+                            <span>مواضيع، تصحيحات، وأدوات محدّثة لكل شعبة من الشعب الست — بمعاملات 2027 الرسمية.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-heart"></i>
+                        <div>
+                            <b>بناها طالب، لطلاب مثله</b>
+                            <span>كل قرار في المنصة يُتخذ من منظور من عاش تجربة البكالوريا فعلاً، لا من مكتب بعيد عنها.</span>
+                        </div>
+                    </li>
+                </ul>
+            </section>
 
-            <!-- ── FEATURES ── -->
-            <div class="modern-section-header"><h2>مميزات المنصة</h2></div>
-            <div class="about-features-grid">
-                <div class="about-feature-card">
-                    <div class="about-feature-icon">
-                        <i class="fa-solid fa-book-open-reader"></i>
-                    </div>
-                    <div class="about-feature-body">
-                        <h4>مصادر دراسية شاملة</h4>
-                        <p>دروس مفصّلة وملخصات لكل المواد مع كتب خارجية ومراجع متكاملة.</p>
-                    </div>
+            <!-- ══ STATS ══ -->
+            <div class="abt-stats">
+                <div class="abt-stat abt-reveal" data-s="1">
+                    <div class="abt-stat-num">+63K</div>
+                    <span>زائر فريد شهرياً</span>
                 </div>
-                <div class="about-feature-card">
-                    <div class="about-feature-icon">
-                        <i class="fa-solid fa-file-pen"></i>
-                    </div>
-                    <div class="about-feature-body">
-                        <h4>مواضيع تحضيرية</h4>
-                        <p>مواضيع اختبارات فصلية لضمان التحضير الجيد لامتحانات البكالوريا.</p>
-                    </div>
+                <div class="abt-stat abt-reveal" data-s="2">
+                    <div class="abt-stat-num">6</div>
+                    <span>شعب مغطّاة بالكامل</span>
                 </div>
-                <div class="about-feature-card">
-                    <div class="about-feature-icon">
-                        <i class="fa-solid fa-calendar-check"></i>
-                    </div>
-                    <div class="about-feature-body">
-                        <h4>خطط وتحديات</h4>
-                        <p>خطط تساعدك على تنظيم دراستك وتحديات ترشدك لإكمالها بنجاح.</p>
-                    </div>
+                <div class="abt-stat abt-reveal" data-s="3">
+                    <div class="abt-stat-num">+300</div>
+                    <span>صفحة محتوى تعليمي</span>
                 </div>
-                <div class="about-feature-card">
-                    <div class="about-feature-icon">
-                        <i class="fas fa-clipboard-check"></i>
-                    </div>
-                    <div class="about-feature-body">
-                        <h4>محاكاة البكالوريا</h4>
-                        <p>تجربة امتحان حقيقية بمؤقت رسمي وتصحيح نموذجي لكل الشعب.</p>
-                    </div>
+                <div class="abt-stat abt-reveal" data-s="4">
+                    <div class="abt-stat-num">2025</div>
+                    <span>سنة الانطلاقة</span>
                 </div>
             </div>
 
-            <!-- ── FOUNDER ── -->
-            <div class="modern-section-header"><h2>فريق العمل</h2></div>
+            <!-- ══ MISSION & VISION ══ -->
+            <div class="abt-section-header"><h2><i class="fas fa-compass"></i> رسالتنا ورؤيتنا</h2></div>
+            <div class="abt-mv-grid">
+                <div class="abt-mv-card abt-mv-mission abt-reveal">
+                    <div class="abt-mv-icon"><i class="fas fa-bullseye"></i></div>
+                    <div>
+                        <h3 class="abt-mv-title">رسالتنا</h3>
+                        <p class="abt-mv-text">تمكين طلاب البكالوريا من تحقيق أعلى النتائج من خلال توفير أدوات تعليمية متطورة وموارد شاملة تسهّل عملية التحضير للامتحان، دون أي مقابل مادي.</p>
+                    </div>
+                </div>
+                <div class="abt-mv-card abt-mv-vision abt-reveal">
+                    <div class="abt-mv-icon"><i class="fas fa-eye"></i></div>
+                    <div>
+                        <h3 class="abt-mv-title">رؤيتنا</h3>
+                        <p class="abt-mv-text">أن نكون المنصة التعليمية الأولى والأكثر موثوقية لطلاب البكالوريا في الجزائر، نُساعدهم على التميز والازدهار في مسارهم الدراسي والجامعي.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══ WHAT WE OFFER ══ -->
+            <div class="abt-section-header"><h2><i class="fas fa-layer-group"></i> ماذا تقدّم لك المنصة</h2></div>
+            <div class="abt-offer-grid">
+                <a href="/topics" class="abt-offer-card abt-offer-card--topics abt-reveal">
+                    <div class="abt-offer-icon"><i class="fa-solid fa-file-pen"></i></div>
+                    <h4>مواضيع وتصحيحات</h4>
+                    <p>مواضيع بكالوريا سابقة مع التصحيح النموذجي لكل شعبة ومادة.</p>
+                    <span class="abt-offer-link">تصفّح المواضيع <i class="fas fa-arrow-left"></i></span>
+                </a>
+                <a href="/tools/calculator" class="abt-offer-card abt-offer-card--calc abt-reveal">
+                    <div class="abt-offer-icon"><i class="fa-solid fa-calculator"></i></div>
+                    <h4>حاسبة معدل البكالوريا</h4>
+                    <p>احسب معدلك بدقة بالمعاملات الرسمية لكل الشعب الست.</p>
+                    <span class="abt-offer-link">جرّب الحاسبة <i class="fas fa-arrow-left"></i></span>
+                </a>
+                <a href="/university/specialities" class="abt-offer-card abt-offer-card--uni abt-reveal">
+                    <div class="abt-offer-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <h4>دليل التخصصات الجامعية</h4>
+                    <p>تعرّف على كل تخصص جامعي، معدلات القبول، وفرص العمل بعده.</p>
+                    <span class="abt-offer-link">استكشف الدليل <i class="fas fa-arrow-left"></i></span>
+                </a>
+                <a href="/simulation" class="abt-offer-card abt-offer-card--sim abt-reveal">
+                    <div class="abt-offer-icon"><i class="fas fa-clipboard-check"></i></div>
+                    <h4>محاكاة البكالوريا</h4>
+                    <p>تجربة امتحان حقيقية بمؤقت رسمي وتصحيح نموذجي لكل الشعب.</p>
+                    <span class="abt-offer-link">ابدأ المحاكاة <i class="fas fa-arrow-left"></i></span>
+                </a>
+            </div>
+
+            <!-- ══ MILESTONES — vertical scroll timeline ══ -->
+            <div class="abt-section-header abt-reveal"><h2><i class="fas fa-road"></i> محطات في مسيرة المنصة</h2></div>
+            <div class="abt-vtl" id="abtVtl">
+                <div class="abt-vtl-line"><div class="abt-vtl-progress" id="abtVtlProgress"></div></div>
+
+                <div class="abt-vtl-row">
+                    <div class="abt-vtl-card">
+                        <span class="abt-vtl-year">2025</span>
+                        <h4>الانطلاقة</h4>
+                        <p>ولادة BAC STORY كفكرة بسيطة لمساعدة طلاب البكالوريا.</p>
+                    </div>
+                    <div class="abt-vtl-dot"><i class="fas fa-flag-checkered"></i></div>
+                </div>
+
+                <div class="abt-vtl-row">
+                    <div class="abt-vtl-card">
+                        <span class="abt-vtl-year">2025 – 2026</span>
+                        <h4>توسّع المحتوى</h4>
+                        <p>تغطية كاملة للشعب الست بمواضيع، تصحيحات، وأدوات ذكية.</p>
+                    </div>
+                    <div class="abt-vtl-dot"><i class="fas fa-layer-group"></i></div>
+                </div>
+
+                <div class="abt-vtl-row">
+                    <div class="abt-vtl-card">
+                        <span class="abt-vtl-year">مطلع 2026</span>
+                        <h4>دليل التوجيه الجامعي</h4>
+                        <p>إطلاق دليل التخصصات الجامعية لمساعدة الطلاب على اختيار تخصصهم بثقة ووضوح.</p>
+                    </div>
+                    <div class="abt-vtl-dot"><i class="fas fa-signs-post"></i></div>
+                </div>
+
+                <div class="abt-vtl-row">
+                    <div class="abt-vtl-card">
+                        <span class="abt-vtl-year">جوان 2026</span>
+                        <h4>تكريم المتفوقين</h4>
+                        <p>أول مبادرة لتكريم أوائل مجتمع BAC STORY بشراكة أكاديميات معروفة.</p>
+                    </div>
+                    <div class="abt-vtl-dot"><i class="fas fa-medal"></i></div>
+                </div>
+
+                <div class="abt-vtl-row">
+                    <div class="abt-vtl-card">
+                        <span class="abt-vtl-year">2027</span>
+                        <h4>مناهج جديدة، منصة أشمل</h4>
+                        <p>تحديث كامل بمعاملات ومواد بكالوريا 2027 فور صدورها رسمياً.</p>
+                    </div>
+                    <div class="abt-vtl-dot"><i class="fas fa-rocket"></i></div>
+                </div>
+            </div>
+
+            <!-- ══ FOUNDER ══ -->
+            <div class="abt-section-header"><h2><i class="fas fa-users"></i> فريق العمل</h2></div>
             <div class="about-founder-wrap">
                 <div class="about-founder-card">
                     <div class="about-founder-left">
@@ -182,13 +907,16 @@
                 </div>
             </div>
 
-            <!-- ── CLOSING ── -->
-            <div class="about-closing">
-                <div class="about-closing-inner">
-                    <i class="fas fa-heart about-closing-icon"></i>
-                    <p>نحن ملتزمون باستمرار في تطوير وتحسين منصتنا لتلبية احتياجات طلاب البكالوريا!</p>
+            <!-- ══ CLOSING CTA ══ -->
+            <section class="abt-cta abt-reveal">
+                <span class="abt-cta-eyebrow"><i class="fas fa-heart"></i> ملتزمون معك حتى يوم النتائج</span>
+                <h2>جاهز تبدأ رحلتك مع <em>BAC STORY</em>؟</h2>
+                <p>استكشف مئات الموارد المجانية، أو انضم إلى مجتمعنا على التلغرام لمتابعة كل جديد أول بأول.</p>
+                <div class="abt-cta-actions">
+                    <a href="/resources" class="abt-cta-btn abt-cta-btn--primary"><i class="fas fa-compass"></i> استكشف الموارد</a>
+                    <a href="https://t.me/islembacdz" target="_blank" rel="noopener" class="crc-cta-btn crc-cta-btn--telegram"><i class="fab fa-telegram-plane"></i> انضم إلينا على التلغرام</a>
                 </div>
-            </div>
+            </section>
         </div>
     </div>
 
@@ -196,6 +924,59 @@
     <div id="footer-placeholder"></div>
     <script src="/ads-config.js?v=1.12"></script>
     <script src="/components/shared.js?v=9.31"></script>
+    <script>
+    (function () {
+        var els = document.querySelectorAll('.abt-reveal');
+        if (!('IntersectionObserver' in window) || !els.length) {
+            els.forEach(function (el) { el.classList.add('in'); });
+            return;
+        }
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in');
+                    io.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        els.forEach(function (el) { io.observe(el); });
+    })();
+
+    (function () {
+        var rows = Array.prototype.slice.call(document.querySelectorAll('.abt-vtl-row'));
+        var line = document.querySelector('.abt-vtl-line');
+        var progress = document.getElementById('abtVtlProgress');
+        if (!rows.length || !line || !progress) return;
+
+        var maxIndex = -1;
+
+        function updateProgress() {
+            if (maxIndex < 0) return;
+            var dot = rows[maxIndex].querySelector('.abt-vtl-dot');
+            var lineTop = line.getBoundingClientRect().top;
+            var dotMid = dot.getBoundingClientRect().top + dot.offsetHeight / 2;
+            progress.style.height = Math.max(0, dotMid - lineTop) + 'px';
+        }
+
+        if (!('IntersectionObserver' in window)) {
+            rows.forEach(function (r) { r.classList.add('is-active'); });
+            progress.style.height = '100%';
+            return;
+        }
+
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('is-active');
+                var idx = rows.indexOf(entry.target);
+                if (idx > maxIndex) maxIndex = idx;
+            });
+            updateProgress();
+        }, { threshold: 0, rootMargin: '0px 0px -45% 0px' });
+
+        rows.forEach(function (r) { io.observe(r); });
+        window.addEventListener('resize', updateProgress);
+    })();
+    </script>
 </body>
 </html>
-
