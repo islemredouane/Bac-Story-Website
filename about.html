@@ -570,6 +570,121 @@
         .abt-vtl-progress { transition: none; }
     }
 
+    /* .about-founder-role's color declaration (later in style.css) otherwise
+       wins the specificity tie over .about-founder-badge's white text */
+    .about-founder-badge.about-founder-role { color: #fff; }
+
+    /* ══ TELEGRAM TEAM / CONTRIBUTORS ══
+       Sits below the founder card in the same "فريق العمل" section — glass
+       card + corner glow (same recipe as .abt-offer-card), themed in
+       Telegram blue to visually tie it to the platform these volunteers
+       help run, distinct from the founder's brand-blue card. */
+    .abt-team-card {
+        position: relative;
+        margin-top: 1.6rem;
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1.5px solid rgba(255, 255, 255, 0.55);
+        border-radius: 24px;
+        padding: 2rem 2rem 1.9rem;
+        box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 6px 28px rgba(36, 161, 222, 0.07);
+        overflow: hidden;
+        transition: box-shadow 0.35s ease, border-color 0.35s ease;
+    }
+    .abt-team-card::before {
+        content: '';
+        position: absolute;
+        top: 0; right: 0; left: 0;
+        height: 3.5px;
+        background: linear-gradient(90deg, transparent, #24A1DE);
+    }
+    .abt-team-card::after {
+        content: '';
+        position: absolute;
+        top: -90px; left: -70px;
+        width: 220px; height: 220px;
+        background: radial-gradient(circle, rgba(36, 161, 222, 0.16) 0%, transparent 70%);
+        border-radius: 50%;
+        pointer-events: none;
+    }
+    .abt-team-head {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 1.15rem;
+    }
+    .abt-team-icon {
+        flex: none;
+        width: 54px; height: 54px;
+        border-radius: 16px;
+        background: linear-gradient(135deg, #0d8ecf 0%, #24A1DE 100%);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+        box-shadow: 0 8px 20px rgba(36, 161, 222, 0.32);
+    }
+    .abt-team-badge {
+        display: inline-block;
+        font-size: 0.7rem;
+        font-weight: 800;
+        color: #0088cc;
+        background: rgba(36, 161, 222, 0.13);
+        padding: 3px 11px;
+        border-radius: 999px;
+        margin-bottom: 5px;
+    }
+    .abt-team-head h3 { margin: 0; font-size: 1.1rem; font-weight: 900; color: #0f172a; }
+    .abt-team-text {
+        position: relative;
+        z-index: 1;
+        margin: 0 0 1.3rem;
+        font-size: 0.93rem;
+        line-height: 1.9;
+        color: #475569;
+        max-width: 68ch;
+    }
+    .abt-team-chips {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+    }
+    .abt-team-chip {
+        display: inline-flex;
+        align-items: center;
+        font-size: 0.86rem;
+        font-weight: 700;
+        color: #0f172a;
+        background: #f8fafc;
+        border: 1.5px solid rgba(44, 92, 195, 0.12);
+        border-radius: 999px;
+        padding: 0.45rem 1.05rem;
+        transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+    .abt-team-chip:hover { background: #eef3fc; border-color: #24A1DE; transform: translateY(-2px); }
+    .abt-team-chip--brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: linear-gradient(135deg, #1a3a8f 0%, #2c5cc5 100%);
+        color: #fff;
+        border-color: transparent;
+        font-weight: 800;
+        box-shadow: 0 4px 12px rgba(44, 92, 195, 0.28);
+    }
+    .abt-team-chip--brand:hover {
+        background: linear-gradient(135deg, #14306e 0%, #2450a8 100%);
+        border-color: transparent;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 18px rgba(44, 92, 195, 0.4);
+    }
+
     /* ══ CLOSING CTA ══ */
     .abt-cta {
         position: relative;
@@ -834,7 +949,7 @@
 
                 <div class="abt-vtl-row">
                     <div class="abt-vtl-card">
-                        <span class="abt-vtl-year">2025</span>
+                        <span class="abt-vtl-year">جوان 2025</span>
                         <h4>الانطلاقة</h4>
                         <p>ولادة BAC STORY كفكرة بسيطة لمساعدة طلاب البكالوريا.</p>
                     </div>
@@ -852,16 +967,16 @@
 
                 <div class="abt-vtl-row">
                     <div class="abt-vtl-card">
-                        <span class="abt-vtl-year">مطلع 2026</span>
-                        <h4>دليل التوجيه الجامعي</h4>
-                        <p>إطلاق دليل التخصصات الجامعية لمساعدة الطلاب على اختيار تخصصهم بثقة ووضوح.</p>
+                        <span class="abt-vtl-year">جوان-جويلية 2026</span>
+                        <h4>توسعة دليل التوجيه الجامعي</h4>
+                        <p>توسعة دليل التخصصات الجامعية لمساعدة الطلاب على اختيار تخصصهم بثقة ووضوح.</p>
                     </div>
                     <div class="abt-vtl-dot"><i class="fas fa-signs-post"></i></div>
                 </div>
 
                 <div class="abt-vtl-row">
                     <div class="abt-vtl-card">
-                        <span class="abt-vtl-year">جوان 2026</span>
+                        <span class="abt-vtl-year">أوت 2026</span>
                         <h4>تكريم المتفوقين</h4>
                         <p>أول مبادرة لتكريم أوائل مجتمع BAC STORY بشراكة أكاديميات معروفة.</p>
                     </div>
@@ -870,7 +985,7 @@
 
                 <div class="abt-vtl-row">
                     <div class="abt-vtl-card">
-                        <span class="abt-vtl-year">2027</span>
+                        <span class="abt-vtl-year">موسم 2026-2027</span>
                         <h4>مناهج جديدة، منصة أشمل</h4>
                         <p>تحديث كامل بمعاملات ومواد بكالوريا 2027 فور صدورها رسمياً.</p>
                     </div>
@@ -887,7 +1002,7 @@
                             <i class="fas fa-user"></i>
                         </div>
                         <div class="about-founder-social">
-                            <a href="https://www.instagram.com/isl8m.r/" target="_blank" class="about-social-btn" aria-label="Instagram">
+                            <a href="https://www.instagram.com/isl8m.ai/" target="_blank" class="about-social-btn" aria-label="Instagram">
                                 <i class="fab fa-instagram"></i>
                             </a>
                             <a href="https://www.linkedin.com/in/mohamed-islem-redouane-5ba586338" target="_blank" class="about-social-btn" aria-label="LinkedIn">
@@ -899,10 +1014,35 @@
                         </div>
                     </div>
                     <div class="about-founder-right">
-                        <span class="about-founder-badge">فريق العمل</span>
                         <h3 class="about-founder-name">رضوان محمد إسلام</h3>
-                        <p class="about-founder-role">المؤسس والمطوّر</p>
+                        <span class="about-founder-badge about-founder-role">المؤسس والمطوّر</span>
                         <p class="about-founder-bio">مطور شغوف بالتعليم الرقمي، أسس منصة BAC STORY بهدف تقديم تجربة تعليمية استثنائية لكل طالب بكالوريا في الجزائر. يعمل باستمرار على تطوير أدوات وموارد تلبي الاحتياجات الحقيقية للطلاب.</p>
+                    </div>
+                </div>
+
+                <!-- ── Telegram team / contributors ── -->
+                <div class="abt-team-card abt-reveal">
+                    <div class="abt-team-head">
+                        <div class="abt-team-icon"><i class="fab fa-telegram-plane"></i></div>
+                        <div>
+                            <span class="abt-team-badge">فريق التلغرام</span>
+                            <h3>الفريق الداعم</h3>
+                        </div>
+                    </div>
+                    <p class="abt-team-text">
+                        بالإضافة إلى المؤسس، يقف خلف نجاح BAC STORY فريق من المشرفين على قناة التلغرام، حرصوا على مشاركة مصادرهم الخاصة ليستفيد منها زملاؤهم، وساهموا أيضاً بأفكار طوّرت الموقع باستمرار. كل الشكر والتقدير لهم:
+                    </p>
+                    <div class="abt-team-chips">
+                        <span class="abt-team-chip">يسرى</span>
+                        <span class="abt-team-chip">فراس</span>
+                        <span class="abt-team-chip">فرح</span>
+                        <span class="abt-team-chip">يونس</span>
+                        <span class="abt-team-chip">فاطمة</span>
+                        <span class="abt-team-chip">ريان</span>
+                        <span class="abt-team-chip">رحمة</span>
+                        <span class="abt-team-chip">شهيناز</span>
+                        <span class="abt-team-chip">منار</span>
+                        <span class="abt-team-chip abt-team-chip--brand"><i class="fab fa-telegram-plane"></i> فريق BAC STORY</span>
                     </div>
                 </div>
             </div>
