@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
 <head>
@@ -14,7 +14,7 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-T5H3TNJ4');</script>
     <meta name="description" content="تواصل مع فريق Bac Story للاستفسار، تقديم اقتراحات، أو طلب الدعم الفني. نحن هنا لمساعدتك في رحلة نجاحك في البكالوريا.">
-    
+
     <link rel="icon" href="/favicon.ico">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -44,7 +44,7 @@
     <meta property="og:title" content="تواصل معنا | BAC STORY">
     <meta property="og:description" content="تواصل مع فريق Bac Story للاستفسار، تقديم اقتراحات، أو طلب الدعم الفني. نحن هنا لمساعدتك في رحلة نجاحك في البكالوريا.">
     <meta property="og:image" content="https://pub-889477d66bc54c9582bba9a492cf605f.r2.dev/images/og-banner.png">
-    
+
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="تواصل معنا | BAC STORY">
@@ -53,18 +53,428 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "ContactPage",
-        "name": "تواصل معنا | BAC STORY",
-        "description": "تواصل مع فريق BAC STORY للاستفسار، تقديم اقتراحات، أو طلب الدعم الفني.",
-        "url": "https://www.bac-story.com/contact",
-        "inLanguage": "ar",
-        "publisher": {"@type": "EducationalOrganization", "name": "BAC STORY", "url": "https://www.bac-story.com"},
-        "breadcrumb": {"@type": "BreadcrumbList", "itemListElement": [
-            {"@type": "ListItem", "position": 1, "name": "الرئيسية", "item": "https://www.bac-story.com"},
-            {"@type": "ListItem", "position": 2, "name": "تواصل معنا", "item": "https://www.bac-story.com/contact"}
-        ]}
+        "@graph": [
+            {
+                "@type": "ContactPage",
+                "name": "تواصل معنا | BAC STORY",
+                "description": "تواصل مع فريق BAC STORY للاستفسار، تقديم اقتراحات، أو طلب الدعم الفني.",
+                "url": "https://www.bac-story.com/contact",
+                "inLanguage": "ar",
+                "publisher": {"@type": "EducationalOrganization", "name": "BAC STORY", "url": "https://www.bac-story.com"},
+                "breadcrumb": {"@type": "BreadcrumbList", "itemListElement": [
+                    {"@type": "ListItem", "position": 1, "name": "الرئيسية", "item": "https://www.bac-story.com"},
+                    {"@type": "ListItem", "position": 2, "name": "تواصل معنا", "item": "https://www.bac-story.com/contact"}
+                ]}
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "خلال أي مدة تردّون على الرسائل؟",
+                        "acceptedAnswer": {"@type": "Answer", "text": "نرد خلال 24 ساعة كحد أقصى عبر البريد الإلكتروني، وغالباً في وقت أسرع عبر التلغرام."}
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "هل يمكنني إرسال اقتراح لميزة جديدة في الموقع؟",
+                        "acceptedAnswer": {"@type": "Answer", "text": "بالتأكيد! نرحب بجميع الاقتراحات. أرسلها عبر نموذج التواصل أعلاه أو راسلنا مباشرة عبر التلغرام."}
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "كيف يمكنني الإبلاغ عن مشكلة تقنية في الموقع؟",
+                        "acceptedAnswer": {"@type": "Answer", "text": "استخدم النموذج واكتب في خانة الموضوع 'مشكلة تقنية' مع وصف دقيق للمشكلة، أو راسلنا مباشرة مع إرفاق التفاصيل وصورة إن أمكن."}
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "هل تتعاونون مع شركاء أو معلنين؟",
+                        "acceptedAnswer": {"@type": "Answer", "text": "نعم، نرحب بالشراكات والإعلانات. يمكنكم مراسلتنا عبر البريد الإلكتروني أو التلغرام لمناقشة التفاصيل."}
+                    }
+                ]
+            }
+        ]
     }
     </script>
+
+    <style>
+    /* ══════════════════════════════════════════════════
+       CONTACT PAGE — cus-*
+       Brand: #2c5cc5 / #1a3a8f · accent #ff6b35 — reuses the exact
+       hero / form / FAQ / CTA language already shipped on
+       feedback.html, contribute.html and about.html.
+       ══════════════════════════════════════════════════ */
+
+    /* ── Scroll reveal ── */
+    .cus-js .cus-r {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        will-change: opacity, transform;
+    }
+    .cus-js .cus-r.in { opacity: 1; transform: translateY(0); }
+
+    /* ── Hero (feedback/contribute hero treatment) ── */
+    #contact-page { margin-top: 0 !important; overflow-x: clip; overflow-y: visible; width: 100%; }
+    #contact-page .modern-hero { margin-top: 0; }
+    .cus-hero { position: relative; padding-top: 2rem; }
+    @media (min-width: 992px) { .cus-hero { padding-top: 4.5rem; } }
+    .cus-hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; pointer-events: none; z-index: 0; }
+    .cus-hero-content { position: relative; z-index: 1; width: 100%; display: flex; flex-direction: column; align-items: center; text-align: center; }
+    .cus-hero-orb { position: absolute; border-radius: 50%; pointer-events: none; filter: blur(2px); animation: cusHeroOrbFloat 10s ease-in-out infinite; }
+    .cus-hero-orb.o1 { width: 340px; height: 340px; top: -100px; right: 4%; background: radial-gradient(circle, rgba(44, 92, 195, 0.12) 0%, rgba(44, 92, 195, 0) 70%); }
+    .cus-hero-orb.o2 { width: 280px; height: 280px; bottom: -80px; left: 6%; background: radial-gradient(circle, rgba(255, 107, 53, 0.1) 0%, rgba(255, 107, 53, 0) 70%); animation-delay: -4s; }
+    .cus-hero-orb.o3 { width: 170px; height: 170px; top: 35%; left: 22%; background: radial-gradient(circle, rgba(44, 92, 195, 0.08) 0%, rgba(44, 92, 195, 0) 70%); animation-delay: -7s; }
+    @keyframes cusHeroOrbFloat { 0%, 100% { transform: translateY(0) translateX(0); } 50% { transform: translateY(-16px) translateX(10px); } }
+    .cus-hero-cta-row { display: flex; gap: 1rem; align-items: center; justify-content: center; flex-wrap: wrap; margin-top: 0.5rem; position: relative; z-index: 1; }
+    .cus-hero-cta-row .modern-cta-btn { white-space: nowrap; }
+    @media (prefers-reduced-motion: reduce) { .cus-hero-orb { animation: none !important; } }
+
+    /* ── Section headers — centered, gradient, icon (matches index.html's
+       .hp-social-header treatment on the landing page) ── */
+    .cus-section-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.25rem;
+        margin: 1rem 0 2rem;
+        text-align: center;
+    }
+    .cus-section-header h2 {
+        font-size: clamp(1.4rem, 3.5vw, 2rem);
+        font-weight: 900;
+        margin: 0;
+        text-wrap: balance;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.45em;
+        background: linear-gradient(120deg, #1a3a8f 0%, #2c5cc5 50%, #3d6ee0 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: #2c5cc5;
+    }
+
+    /* ── Contact channel cards — frosted glass + corner glow, same recipe
+       as .abt-offer-card / .prt-card / .cus-premium-form ── */
+    .cus-channel-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.4rem;
+        margin-bottom: 3rem;
+    }
+    .cus-channel-card {
+        --ch-c: #2c5cc5;
+        --ch-c2: #1a3a8f;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 1.3rem;
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1.5px solid rgba(255, 255, 255, 0.55);
+        border-radius: 24px;
+        padding: 1.8rem 1.7rem;
+        box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 6px 28px rgba(44, 92, 195, 0.06);
+        overflow: hidden;
+        transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+    }
+    .cus-channel-card::before {
+        content: '';
+        position: absolute;
+        top: 0; right: 0; left: 0;
+        height: 3.5px;
+        background: linear-gradient(90deg, transparent, var(--ch-c));
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.3s ease;
+        z-index: 2;
+    }
+    .cus-channel-card::after {
+        content: '';
+        position: absolute;
+        top: -90px; left: -70px;
+        width: 220px; height: 220px;
+        background: radial-gradient(circle, color-mix(in srgb, var(--ch-c) 20%, transparent) 0%, transparent 70%);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 0;
+    }
+    .cus-channel-card:hover {
+        transform: translateY(-6px);
+        border-color: color-mix(in srgb, var(--ch-c) 32%, transparent);
+        box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 16px 38px color-mix(in srgb, var(--ch-c) 14%, transparent);
+    }
+    .cus-channel-card:hover::before { transform: scaleX(1); }
+    .cus-channel-card--email { --ch-c: #2c5cc5; --ch-c2: #1a3a8f; }
+    .cus-channel-card--social { --ch-c: #f39c12; --ch-c2: #c87f0a; }
+
+    .cus-channel-head { position: relative; z-index: 1; display: flex; align-items: center; gap: 14px; }
+    .cus-channel-icon {
+        flex: none;
+        width: 54px; height: 54px;
+        border-radius: 16px;
+        background: linear-gradient(135deg, var(--ch-c2) 0%, var(--ch-c) 100%);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+        box-shadow: 0 8px 20px color-mix(in srgb, var(--ch-c) 30%, transparent);
+        transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .cus-channel-card:hover .cus-channel-icon { transform: scale(1.08) rotate(-5deg); }
+    .cus-channel-title h3 { margin: 0 0 3px; font-size: 1.08rem; font-weight: 900; color: #0f172a; }
+    .cus-channel-title span { display: flex; align-items: center; gap: 5px; font-size: 0.82rem; color: #64748b; font-weight: 600; }
+    .cus-channel-title span i { color: var(--ch-c); font-size: 0.75rem; }
+
+    .cus-channel-body { position: relative; z-index: 1; }
+
+    /* Email — premium copy-to-clipboard pill (same recipe as the partner
+       discount-code pills on bac-2026-graduation.html) */
+    .cus-email-copy {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+        background: rgba(248, 250, 252, 0.85);
+        border: 1.5px dashed rgba(44, 92, 195, 0.4);
+        border-radius: 14px;
+        padding: 0.75rem 0.9rem;
+        cursor: pointer;
+        font-family: 'Tajawal', sans-serif;
+        text-align: right;
+        transition: background 0.22s ease, border-color 0.22s ease, transform 0.2s ease;
+    }
+    .cus-email-copy:hover { background: #eef3fc; border-color: #2c5cc5; transform: translateY(-1px); }
+    .cus-email-copy-icon {
+        flex: none;
+        width: 38px; height: 38px;
+        border-radius: 11px;
+        background: linear-gradient(135deg, #1a3a8f 0%, #2c5cc5 100%);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.88rem;
+        box-shadow: 0 4px 12px rgba(44, 92, 195, 0.28);
+    }
+    .cus-email-copy-body { flex: 1; min-width: 0; }
+    .cus-email-copy-val {
+        display: block;
+        font-family: 'Tajawal', sans-serif;
+        font-size: 0.92rem;
+        font-weight: 700;
+        color: #0f172a;
+        direction: ltr;
+        text-align: right;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .cus-email-copy-action {
+        flex: none;
+        width: 34px; height: 34px;
+        border-radius: 9px;
+        background: rgba(44, 92, 195, 0.09);
+        color: #2c5cc5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.85rem;
+        transition: background 0.2s ease, color 0.2s ease;
+    }
+    .cus-email-copy.copied { background: #f0fdf4; border-color: #16a34a; border-style: solid; }
+    .cus-email-copy.copied .cus-email-copy-action { background: rgba(22, 163, 74, 0.14); color: #15803d; }
+    .cus-email-copy.copied .cus-email-copy-val { color: #15803d; }
+
+    /* Social row — same 4 platforms as the site footer's .social-link */
+    .cus-social-row { display: flex; gap: 1rem; justify-content: center; }
+    .cus-social-btn {
+        flex: none;
+        width: 52px;
+        height: 52px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        color: #fff;
+        font-size: 1.05rem;
+        text-decoration: none;
+        transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+    }
+    .cus-social-btn:hover { transform: translateY(-4px) scale(1.08); }
+    .cus-social-btn--tg { background: #24A1DE; box-shadow: 0 6px 16px rgba(36, 161, 222, 0.3); }
+    .cus-social-btn--ig { background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045); box-shadow: 0 6px 16px rgba(253, 29, 29, 0.25); }
+    .cus-social-btn--tt { background: #000; box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25); }
+    .cus-social-btn--fb { background: #1877F2; box-shadow: 0 6px 16px rgba(24, 119, 242, 0.3); }
+
+    @media (max-width: 700px) { .cus-channel-grid { grid-template-columns: 1fr; } }
+
+    /* ── Premium form card ── */
+    .cus-premium-form {
+        position: relative;
+        overflow: hidden;
+    }
+    .cus-premium-form::after {
+        content: '';
+        position: absolute;
+        top: -120px; left: -100px;
+        width: 260px; height: 260px;
+        background: radial-gradient(circle, rgba(44, 92, 195, 0.05) 0%, rgba(44, 92, 195, 0) 70%);
+        border-radius: 50%;
+        pointer-events: none;
+    }
+    .cus-form-heading {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.05rem;
+        font-weight: 800;
+        color: #2c5cc5;
+        margin: 0 0 1.4rem;
+        position: relative;
+        z-index: 1;
+    }
+    .cus-form-heading i { color: #ff6b35; }
+
+    /* ── Field labels with icon badge ── */
+    .cus-field-label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.88rem;
+        font-weight: 700;
+        color: #2c5cc5;
+        margin-bottom: 0.55rem;
+    }
+    .cus-field-icon {
+        width: 26px; height: 26px;
+        min-width: 26px;
+        border-radius: 8px;
+        background: linear-gradient(135deg, #1a3a8f 0%, #3d6ee0 100%);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.72rem;
+        box-shadow: 0 3px 8px rgba(26, 58, 143, 0.25);
+    }
+
+    /* ── Input focus-glow wrapper (matches feedback.html exactly) ── */
+    .cus-input-glow { position: relative; border-radius: 14px; transition: box-shadow 0.3s ease; }
+    .cus-input-glow::before {
+        content: '';
+        position: absolute;
+        inset: -2px;
+        border-radius: 16px;
+        background: #2c5cc5;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 0;
+    }
+    .cus-input-glow:focus-within::before { opacity: 0.55; }
+    .cus-input-glow:focus-within { box-shadow: 0 8px 22px rgba(44, 92, 195, 0.16); }
+    .cus-input-glow .cfm-input-wrap { position: relative; z-index: 1; margin: 2px; }
+    .cus-input-glow .cfm-input { border-color: transparent; background: #f8fafc; transition: background 0.25s ease, transform 0.2s ease; }
+    .cus-input-glow:focus-within .cfm-input { background: #ffffff; }
+    .cus-input-glow .cfm-input:focus { transform: scale(1.006); }
+
+    .cus-textarea-wrap { position: relative; }
+    .cus-textarea-wrap .cfm-input { resize: vertical; padding-bottom: 30px; }
+    .cus-char-counter {
+        position: absolute;
+        left: 14px;
+        bottom: 10px;
+        font-size: 0.72rem;
+        color: #b0b8c4;
+        font-weight: 600;
+        background: rgba(255, 255, 255, 0.85);
+        padding: 1px 6px;
+        border-radius: 6px;
+        pointer-events: none;
+        transition: color 0.2s ease;
+        z-index: 2;
+    }
+    .cus-char-counter.warn { color: #d97706; }
+    .cus-char-counter.max { color: #dc2626; }
+
+    /* ── Shine-sweep submit button ── */
+    @keyframes cusShine { 0% { transform: translateX(-110%); } 40% { transform: translateX(110%); } 100% { transform: translateX(110%); } }
+    .cus-cfm-submit { position: relative; overflow: hidden; border-radius: 999px; max-width: 340px; width: 100%; margin: 0.5rem auto 0; display: flex; }
+    @media (min-width: 992px) { .cus-cfm-submit { max-width: 380px; } }
+    .cus-cfm-submit::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.28) 48%, transparent 100%);
+        animation: cusShine 3s ease-in-out infinite;
+    }
+    .cus-cfm-submit i { transition: transform 0.28s ease; }
+    .cus-cfm-submit:hover i { transform: translateX(-4px); }
+
+    /* ── Success / error states — position:static overrides the fixed-toast
+       base .notification, laid out as a card in the form's natural flow ── */
+    @keyframes cusNotifyIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    #successMessage.cus-notify-success {
+        position: static !important;
+        animation: cusNotifyIn 0.4s ease both;
+        background: rgba(44, 92, 195, 0.06);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border: 1.5px solid rgba(44, 92, 195, 0.15);
+        border-radius: 20px;
+        padding: 2.2rem 1.5rem;
+        text-align: center;
+        margin-bottom: 1.75rem;
+        box-shadow: 0 8px 30px rgba(44, 92, 195, 0.08);
+    }
+    .cus-notify-icon {
+        width: 60px; height: 60px;
+        margin: 0 auto 14px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #1a3a8f 0%, #2c5cc5 100%);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        box-shadow: 0 8px 20px rgba(44, 92, 195, 0.3);
+    }
+    #successMessage.cus-notify-success h4 { margin: 0 0 8px; font-size: 1.15rem; font-weight: 900; color: #0f172a; }
+    #successMessage.cus-notify-success p { margin: 0; font-size: 0.9rem; color: #475569; line-height: 1.7; }
+
+    #errorMessage.cus-notify-error {
+        position: static !important;
+        animation: cusNotifyIn 0.4s ease both;
+        display: none;
+        background: rgba(239, 68, 68, 0.06);
+        border: 1.5px solid rgba(239, 68, 68, 0.18);
+        border-right: 3px solid #ef4444;
+        border-radius: 14px;
+        padding: 0.9rem 1rem 0.9rem 1.1rem;
+        margin-bottom: 1.5rem;
+        text-align: right;
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: #b91c1c;
+        line-height: 1.6;
+        box-shadow: none;
+    }
+    #errorMessage.cus-notify-error::before {
+        content: '\f06a';
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+        margin-left: 8px;
+        color: #dc2626;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .cus-js .cus-r { opacity: 1 !important; transform: none !important; transition: none !important; }
+        .cus-cfm-submit::before { animation: none !important; }
+    }
+    </style>
+    <script>document.documentElement.classList.add('cus-js');</script>
 </head>
 
 <body>
@@ -72,64 +482,99 @@
 
     <div id="navbar-placeholder"></div>
 
-    <div id="contact" class="resource-content active">
+    <div id="contact-page" class="resource-content active">
 
         <!-- ── HERO ── -->
-        <section class="modern-hero">
-            <h1 class="modern-title shiny-text">تواصل معنا</h1>
-            <p class="modern-subtitle">هنا لمساعدتك — سواء كان عندك سؤال، اقتراح، أو ملاحظة. نرد في أقرب وقت ممكن.</p>
-            <div class="modern-utilities">
-                <span class="modern-tag"><i class="fas fa-clock"></i> رد خلال 24 ساعة</span>
-                <span class="modern-tag"><i class="fab fa-telegram-plane"></i> تيليغرام</span>
-                <span class="modern-tag"><i class="fas fa-envelope"></i> بريد إلكتروني</span>
+        <section class="modern-hero cus-hero">
+            <div class="cus-hero-bg">
+                <div class="cus-hero-orb o1"></div>
+                <div class="cus-hero-orb o2"></div>
+                <div class="cus-hero-orb o3"></div>
             </div>
-            <button class="hero-scroll-btn" onclick="document.querySelector('#contact .container').scrollIntoView({behavior:'smooth'})">
-                <i class="fas fa-chevron-down"></i>
-            </button>
+
+            <div class="cus-hero-content">
+                <div class="social-proof-badge"><i class="fas fa-bolt"></i> نرد خلال 24 ساعة</div>
+
+                <h1 class="modern-title shiny-text">تواصل معنا</h1>
+                <p class="modern-subtitle">عندك سؤال، اقتراح، أو ملاحظة؟ فريق
+                    <strong style="color:#2c5cc5; font-family: pattaya;">BAC STORY</strong> هنا يسمعلك ويرد عليك بسرعة.</p>
+
+                <div class="modern-utilities">
+                    <div class="ticker-row">
+                        <div class="ticker-track">
+                            <span class="modern-tag"><i class="fas fa-envelope"></i> بريد إلكتروني</span>
+                            <span class="modern-tag"><i class="fab fa-telegram-plane"></i> تيليغرام</span>
+                            <span class="modern-tag ticker-dupe" aria-hidden="true"><i class="fas fa-envelope"></i> بريد إلكتروني</span>
+                            <span class="modern-tag ticker-dupe" aria-hidden="true"><i class="fab fa-telegram-plane"></i> تيليغرام</span>
+                        </div>
+                    </div>
+                    <div class="ticker-row">
+                        <div class="ticker-track ticker-track--rev">
+                            <span class="modern-tag"><i class="fas fa-lightbulb"></i> اقتراحات</span>
+                            <span class="modern-tag"><i class="fas fa-headset"></i> دعم فني</span>
+                            <span class="modern-tag ticker-dupe" aria-hidden="true"><i class="fas fa-lightbulb"></i> اقتراحات</span>
+                            <span class="modern-tag ticker-dupe" aria-hidden="true"><i class="fas fa-headset"></i> دعم فني</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cus-hero-cta-row">
+                    <a class="modern-cta-btn floating" href="#cusForm"
+                       onclick="event.preventDefault(); document.getElementById('cusForm').scrollIntoView({behavior:'smooth', block:'center'});">
+                        أرسل رسالة الآن <i class="fas fa-paper-plane"></i>
+                    </a>
+                </div>
+            </div>
         </section>
 
         <div class="container">
 
             <!-- ── CONTACT CHANNELS ── -->
-            <div class="modern-section-header"><h2>طرق التواصل</h2></div>
-            <div class="contact-channels-grid">
+            <div class="cus-section-header cus-r"><h2><i class="fas fa-address-book"></i> طرق التواصل</h2></div>
+            <div class="cus-channel-grid cus-r">
 
                 <!-- Email -->
-                <div class="cc-card">
-                    <div class="cc-head cc-head--blue">
-                        <div class="cc-head-icon"><i class="fas fa-envelope"></i></div>
-                        <div class="cc-head-text">
+                <div class="cus-channel-card cus-channel-card--email">
+                    <div class="cus-channel-head">
+                        <div class="cus-channel-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="cus-channel-title">
                             <h3>البريد الإلكتروني</h3>
                             <span><i class="fas fa-bolt"></i> رد خلال 24 ساعة</span>
                         </div>
                     </div>
-                    <div class="cc-body">
-                        <a href="mailto:contact@bac-story.com" class="cc-email-row">
-                            <i class="fas fa-at"></i>
-                            <span>contact@bac-story.com</span>
-                        </a>
+                    <div class="cus-channel-body">
+                        <button type="button" class="cus-email-copy" id="cusEmailCopy" data-email="contact@bac-story.com">
+                            <span class="cus-email-copy-icon"><i class="fas fa-at"></i></span>
+                            <span class="cus-email-copy-body">
+                                <span class="cus-email-copy-val">contact@bac-story.com</span>
+                            </span>
+                            <span class="cus-email-copy-action"><i class="fas fa-copy"></i></span>
+                        </button>
                     </div>
                 </div>
 
-                <!-- Social -->
-                <div class="cc-card">
-                    <div class="cc-head cc-head--orange">
-                        <div class="cc-head-icon"><i class="fas fa-share-nodes"></i></div>
-                        <div class="cc-head-text">
+                <!-- Social — same 4 platforms as the site footer -->
+                <div class="cus-channel-card cus-channel-card--social">
+                    <div class="cus-channel-head">
+                        <div class="cus-channel-icon"><i class="fas fa-share-nodes"></i></div>
+                        <div class="cus-channel-title">
                             <h3>مواقع التواصل</h3>
                             <span>تابعنا وتواصل معنا</span>
                         </div>
                     </div>
-                    <div class="cc-body">
-                        <div class="cc-social-row">
-                            <a href="https://t.me/islembacdz" target="_blank" rel="noopener" class="cc-social-item cc-tg" aria-label="تيليغرام">
-                                <div class="cc-social-icon"><i class="fab fa-telegram-plane"></i></div>
+                    <div class="cus-channel-body">
+                        <div class="cus-social-row">
+                            <a href="https://t.me/islembacdz" target="_blank" rel="noopener" class="cus-social-btn cus-social-btn--tg" aria-label="تيليغرام">
+                                <i class="fab fa-telegram-plane" aria-hidden="true"></i>
                             </a>
-                            <a href="https://www.instagram.com/islembacdz" target="_blank" rel="noopener" class="cc-social-item cc-ig" aria-label="إنستغرام">
-                                <div class="cc-social-icon"><i class="fab fa-instagram"></i></div>
+                            <a href="https://www.instagram.com/bacstory.platform?igsh=OWF2OTN6bHVqdnl5&utm_source=qr" target="_blank" rel="noopener" class="cus-social-btn cus-social-btn--ig" aria-label="إنستغرام">
+                                <i class="fab fa-instagram" aria-hidden="true"></i>
                             </a>
-                            <a href="https://www.linkedin.com/in/mohamed-islem-redouane-5ba586338" target="_blank" rel="noopener" class="cc-social-item cc-li" aria-label="لينكدإن">
-                                <div class="cc-social-icon"><i class="fab fa-linkedin"></i></div>
+                            <a href="https://www.tiktok.com/@bacstory.platform?_r=1" target="_blank" rel="noopener" class="cus-social-btn cus-social-btn--tt" aria-label="تيك توك">
+                                <i class="fab fa-tiktok" aria-hidden="true"></i>
+                            </a>
+                            <a href="https://www.facebook.com/share/1EMz54rJGz/?mibextid=wwXIfr" target="_blank" rel="noopener" class="cus-social-btn cus-social-btn--fb" aria-label="فيسبوك">
+                                <i class="fab fa-facebook-f" aria-hidden="true"></i>
                             </a>
                         </div>
                     </div>
@@ -137,49 +582,96 @@
             </div>
 
             <!-- ── FORM ── -->
-            <div class="modern-section-header"><h2>أرسل لنا رسالة</h2></div>
-            <div class="contact-form-modern">
+            <div class="cus-section-header cus-r" id="cusForm"><h2><i class="fas fa-paper-plane"></i> أرسل لنا رسالة</h2></div>
+            <div class="contact-form-modern cus-premium-form cus-r">
+                <div class="cus-form-heading"><i class="fas fa-feather-pointed"></i> نرد خلال 24 ساعة</div>
 
-                <div class="notification success" id="successMessage">
-                    <i class="fas fa-check-circle"></i> تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.
+                <div class="notification success cus-notify-success" id="successMessage">
+                    <div class="cus-notify-icon"><i class="fas fa-check"></i></div>
+                    <h4>تم إرسال رسالتك بنجاح!</h4>
+                    <p>سنراجع رسالتك ونتواصل معك في أقرب وقت، عادة خلال 24 ساعة.</p>
                 </div>
-                <div class="notification error" id="errorMessage">
-                    <i class="fas fa-exclamation-circle"></i> حدث خطأ أثناء إرسال الرسالة. يرجى المحاولة مرة أخرى.
-                </div>
+                <div class="notification error cus-notify-error" id="errorMessage">حدث خطأ أثناء إرسال الرسالة. يرجى المحاولة مرة أخرى.</div>
 
                 <form id="contactForm" action="api/form.js" method="POST">
                     <div class="cfm-row">
                         <div class="cfm-group">
-                            <label class="cfm-label" for="name">الاسم الكامل</label>
-                            <div class="cfm-input-wrap">
-                                <i class="fas fa-user cfm-input-icon"></i>
-                                <input type="text" id="name" name="name" class="cfm-input" placeholder="أدخل اسمك الكامل" required>
+                            <div class="cus-field-label"><span class="cus-field-icon"><i class="fas fa-user"></i></span> الاسم الكامل</div>
+                            <div class="cus-input-glow">
+                                <div class="cfm-input-wrap">
+                                    <input type="text" id="name" name="name" class="cfm-input" placeholder="أدخل اسمك الكامل" required>
+                                </div>
                             </div>
                         </div>
                         <div class="cfm-group">
-                            <label class="cfm-label" for="email">البريد الإلكتروني</label>
-                            <div class="cfm-input-wrap">
-                                <i class="fas fa-envelope cfm-input-icon"></i>
-                                <input type="email" id="email" name="email" class="cfm-input" placeholder="أدخل بريدك الإلكتروني" required>
+                            <div class="cus-field-label"><span class="cus-field-icon"><i class="fas fa-envelope"></i></span> البريد الإلكتروني</div>
+                            <div class="cus-input-glow">
+                                <div class="cfm-input-wrap">
+                                    <input type="email" id="email" name="email" class="cfm-input" placeholder="أدخل بريدك الإلكتروني" required>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="cfm-group">
-                        <label class="cfm-label" for="subject">الموضوع</label>
-                        <div class="cfm-input-wrap">
-                            <i class="fas fa-tag cfm-input-icon"></i>
-                            <input type="text" id="subject" name="subject" class="cfm-input" placeholder="موضوع رسالتك" required>
+                        <div class="cus-field-label"><span class="cus-field-icon"><i class="fas fa-tag"></i></span> الموضوع</div>
+                        <div class="cus-input-glow">
+                            <div class="cfm-input-wrap">
+                                <input type="text" id="subject" name="subject" class="cfm-input" placeholder="موضوع رسالتك" required>
+                            </div>
                         </div>
                     </div>
                     <div class="cfm-group">
-                        <label class="cfm-label" for="message">الرسالة</label>
-                        <textarea id="message" name="message" class="cfm-input cfm-textarea" placeholder="اكتب رسالتك هنا..." required></textarea>
+                        <div class="cus-field-label"><span class="cus-field-icon"><i class="fas fa-comment-dots"></i></span> الرسالة</div>
+                        <div class="cus-input-glow">
+                            <div class="cfm-input-wrap cus-textarea-wrap">
+                                <textarea id="message" name="message" class="cfm-input cfm-textarea" maxlength="1000" placeholder="اكتب رسالتك هنا..." required></textarea>
+                                <span class="cus-char-counter" id="cusMsgCounter">0/1000</span>
+                            </div>
+                        </div>
                     </div>
-                    <button type="submit" class="cfm-submit">
+                    <button type="submit" class="cfm-submit cus-cfm-submit">
                         <i class="fas fa-paper-plane"></i> إرسال الرسالة
                     </button>
                 </form>
             </div>
+
+            <!-- ── FAQ ── -->
+            <div class="cus-section-header cus-r">
+                <h2><i class="fas fa-circle-question"></i> أسئلة شائعة</h2>
+            </div>
+            <div class="crc-faq cus-r">
+                <details>
+                    <summary>خلال أي مدة تردّون على الرسائل؟ <i class="fas fa-plus"></i></summary>
+                    <p>نرد خلال 24 ساعة كحد أقصى عبر البريد الإلكتروني، وغالباً في وقت أسرع عبر التلغرام.</p>
+                </details>
+                <details>
+                    <summary>هل يمكنني إرسال اقتراح لميزة جديدة في الموقع؟ <i class="fas fa-plus"></i></summary>
+                    <p>بالتأكيد! نرحب بجميع الاقتراحات. أرسلها عبر نموذج التواصل أعلاه أو راسلنا مباشرة عبر التلغرام.</p>
+                </details>
+                <details>
+                    <summary>كيف يمكنني الإبلاغ عن مشكلة تقنية في الموقع؟ <i class="fas fa-plus"></i></summary>
+                    <p>استخدم النموذج واكتب في خانة الموضوع "مشكلة تقنية" مع وصف دقيق للمشكلة، أو راسلنا مباشرة مع إرفاق التفاصيل وصورة إن أمكن.</p>
+                </details>
+                <details>
+                    <summary>هل تتعاونون مع شركاء أو معلنين؟ <i class="fas fa-plus"></i></summary>
+                    <p>نعم، نرحب بالشراكات والإعلانات. يمكنكم مراسلتنا عبر البريد الإلكتروني أو التلغرام لمناقشة التفاصيل.</p>
+                </details>
+            </div>
+
+            <!-- ── CLOSING CTA ── -->
+            <section class="crc-cta cus-r" style="margin-top:2rem;">
+                <span class="crc-cta-eyebrow"><i class="fas fa-bolt"></i> رد أسرع عبر التلغرام</span>
+                <h2>ما بغيتش تستنى؟ <em style="color:#ff6b35;">راسلنا مباشرة</em></h2>
+                <p>راسلنا على التلغرام وسنرد عليك في بضع ساعات — أو استعمل النموذج أعلاه لتفاصيل أكثر.</p>
+                <div class="crc-cta-actions">
+                    <a href="https://t.me/islembacdz" target="_blank" rel="noopener" class="crc-cta-btn crc-cta-btn--telegram">
+                        <i class="fab fa-telegram-plane"></i> راسلنا على التلغرام
+                    </a>
+                    <a href="mailto:contact@bac-story.com" class="crc-cta-btn crc-cta-btn--ghost">
+                        <i class="fas fa-envelope"></i> راسلنا عبر البريد الإلكتروني
+                    </a>
+                </div>
+            </section>
 
         </div>
     </div>
@@ -188,6 +680,101 @@
     <div id="footer-placeholder"></div>
     <script src="/ads-config.js?v=1.12"></script>
     <script src="/components/shared.js?v=9.31"></script>
+    <script src="/script.js?v=8.2"></script>
+    <script>
+    (function () {
+        /* ── Scroll reveal ── */
+        var revealObs = new IntersectionObserver(function (entries) {
+            entries.forEach(function (en) {
+                if (en.isIntersecting) { en.target.classList.add('in'); revealObs.unobserve(en.target); }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.cus-r').forEach(function (el) { revealObs.observe(el); });
+
+        /* ── Copy email to clipboard ── */
+        var emailBtn = document.getElementById('cusEmailCopy');
+        if (emailBtn) {
+            emailBtn.addEventListener('click', function () {
+                var email = emailBtn.dataset.email;
+                var icon = emailBtn.querySelector('.cus-email-copy-action i');
+                function showCopied() {
+                    emailBtn.classList.add('copied');
+                    icon.className = 'fas fa-check';
+                    setTimeout(function () {
+                        emailBtn.classList.remove('copied');
+                        icon.className = 'fas fa-copy';
+                    }, 1600);
+                }
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(email).then(showCopied).catch(function () {});
+                } else {
+                    var ta2 = document.createElement('textarea');
+                    ta2.value = email;
+                    document.body.appendChild(ta2);
+                    ta2.select();
+                    try { document.execCommand('copy'); } catch (e) {}
+                    document.body.removeChild(ta2);
+                    showCopied();
+                }
+            });
+        }
+
+        /* ── Message character counter ── */
+        var ta = document.getElementById('message');
+        var counter = document.getElementById('cusMsgCounter');
+        if (ta && counter) {
+            var max = parseInt(ta.getAttribute('maxlength'), 10);
+            function updateCounter() {
+                var len = ta.value.length;
+                counter.textContent = len + '/' + max;
+                counter.classList.toggle('warn', len >= max * 0.85 && len < max);
+                counter.classList.toggle('max', len >= max);
+            }
+            ta.addEventListener('input', updateCounter);
+            updateCounter();
+        }
+
+        /* ── Smooth FAQ accordion (identical pattern to index.html) ── */
+        var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        function setupSmoothDetails(el) {
+            var summary = el.querySelector('summary');
+            if (!summary || !el.animate) return;
+            var closedH = el.offsetHeight;
+            var anim = null;
+            function doToggle() {
+                if (anim) { anim.cancel(); anim = null; el.classList.remove('is-closing'); }
+                if (reducedMotion) { el.open = !el.open; return; }
+                if (el.open) {
+                    var startH = el.offsetHeight;
+                    el.classList.add('is-closing');
+                    anim = el.animate(
+                        [{ height: startH + 'px' }, { height: closedH + 'px' }],
+                        { duration: 320, easing: 'cubic-bezier(0.4, 0, 0.2, 1)', fill: 'both' }
+                    );
+                    anim.onfinish = function () {
+                        el.open = false;
+                        el.classList.remove('is-closing');
+                        anim.cancel(); anim = null;
+                    };
+                } else {
+                    el.open = true;
+                    var endH = el.offsetHeight;
+                    anim = el.animate(
+                        [{ height: closedH + 'px' }, { height: endH + 'px' }],
+                        { duration: 320, easing: 'cubic-bezier(0.4, 0, 0.2, 1)', fill: 'both' }
+                    );
+                    anim.onfinish = function () { anim.cancel(); anim = null; };
+                }
+            }
+            summary.addEventListener('click', function (e) { e.preventDefault(); doToggle(); });
+            el.addEventListener('click', function (e) {
+                if (e.target.closest('summary')) return;
+                if (e.target.closest('a')) return;
+                doToggle();
+            });
+        }
+        document.querySelectorAll('.crc-faq details').forEach(setupSmoothDetails);
+    })();
+    </script>
 </body>
 </html>
-
