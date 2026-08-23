@@ -48,6 +48,21 @@ function showSection(id, push = true) {
         id === 'scienceSubjects' || id === 'techSubjects' || id === 'managementSubjects' ||
         id === 'literatureSubjects' || id === 'languagesSubjects') {
 
+        // Resolve to whatever this page can actually show, regardless of caller
+        // (initial load, popstate, a stale #mathSubjects hash link, anything).
+        // A specific subject only makes sense if this page has that subject's
+        // container — the hub page (/tools/calculator) never does. 'fieldSelection'
+        // only makes sense if this page has the picker grid — a per-subject page
+        // (/tools/calculator/math, etc.) never does, it always has exactly one
+        // subject to show instead.
+        if (id !== 'fieldSelection' && !document.getElementById(id)) {
+            id = 'fieldSelection';
+        }
+        if (id === 'fieldSelection' && !document.getElementById('fieldSelection')) {
+            const ownSubjectContainer = document.querySelector('.subject-container');
+            if (ownSubjectContainer) id = ownSubjectContainer.id;
+        }
+
         // Every element below only exists on the old single-page calculator layout.
         // The hub (/tools/calculator) has #fieldSelection but no .subject-container;
         // the per-subject pages (/tools/calculator/math, etc.) have the opposite —
@@ -500,18 +515,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const savedState = localStorage.getItem('calculatorState') || 'fieldSelection';
 
     if (initial === 'calculator') {
-        // The saved subject from localStorage only makes sense on the hub page
-        // (/tools/calculator), which shows nothing but the #fieldSelection grid —
-        // it has no .subject-container to jump into, so a stale value from a past
-        // visit to a subject page must never hide that grid with nothing to replace it.
-        // A per-subject page (/tools/calculator/math, etc.) has exactly one subject
-        // and always shows it, regardless of what's saved from a different subject.
-        const ownSubjectContainer = document.querySelector('.subject-container');
-        const effectiveState = ownSubjectContainer ? ownSubjectContainer.id : 'fieldSelection';
-
-        calculatorState = effectiveState;
-        history.replaceState({ section: 'calculator', calculatorState: effectiveState }, '', location.href);
-        showSection(effectiveState, false);
+        // showSection() resolves a saved subject that doesn't belong on this page
+        // (hub vs. per-subject page) on its own — see the guards at its top.
+        calculatorState = savedState;
+        history.replaceState({ section: 'calculator', calculatorState: savedState }, '', location.href);
+        showSection(savedState, false);
     } else {
         history.replaceState({ section: initial, calculatorState: savedState }, '', location.href);
         showSection(initial, false);
