@@ -3637,7 +3637,7 @@ body.pdf-body-lock {
 
 @media (min-width: 901px) {
     .timers-grid {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -3680,6 +3680,11 @@ body.pdf-body-lock {
 .compact-timer--bac27 {
     background: linear-gradient(135deg, #1a3a8f 0%, #2660d8 55%, #4a82f5 100%);
     box-shadow: 0 10px 40px rgba(38, 96, 216, 0.18);
+}
+
+.compact-timer--school {
+    background: linear-gradient(135deg, #4a82f5 0%, #2660d8 55%, #1a3a8f 100%);
+    box-shadow: 0 10px 40px rgba(26, 58, 143, 0.18);
 }
 
 .timer-done {

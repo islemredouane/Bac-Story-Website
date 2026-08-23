@@ -28,7 +28,7 @@
 <meta name="apple-mobile-web-app-title" content="BAC STORY">
 <meta name="author" content="redouane mohamed islem">
 <meta name="robots" content="index, follow">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"العد التنازلي للبكالوريا الجزائرية","description":"عداد تنازلي لبكالوريا 2027 الجزائر ونهاية التسجيلات الجامعية الأولية. تابع الأيام والساعات والثواني المتبقية.","url":"https://www.bac-story.com/tools/countdown","applicationCategory":"EducationalApplication","inLanguage":"ar","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"DZD"},"publisher":{"@type":"EducationalOrganization","name":"BAC STORY","url":"https://www.bac-story.com"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"BAC STORY","item":"https://www.bac-story.com"},{"@type":"ListItem","position":2,"name":"الأدوات","item":"https://www.bac-story.com/tools"},{"@type":"ListItem","position":3,"name":"العد التنازلي","item":"https://www.bac-story.com/tools/countdown"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"العدادات التنازلية للدخول المدرسي وبكالوريا 2027","description":"عدادات تنازلية دقيقة: الوقت المتبقي على الدخول المدرسي 2026 وبكالوريا 2027 الجزائر. تابع الأيام والساعات والدقائق والثواني المتبقية.","url":"https://www.bac-story.com/tools/countdown","applicationCategory":"EducationalApplication","inLanguage":"ar","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"DZD"},"publisher":{"@type":"EducationalOrganization","name":"BAC STORY","url":"https://www.bac-story.com"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"BAC STORY","item":"https://www.bac-story.com"},{"@type":"ListItem","position":2,"name":"الأدوات","item":"https://www.bac-story.com/tools"},{"@type":"ListItem","position":3,"name":"العد التنازلي","item":"https://www.bac-story.com/tools/countdown"}]}]}</script>
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="BAC STORY">
@@ -44,7 +44,7 @@
 <meta name="twitter:title" content="الوقت المتبقي لبكالوريا 2027 والتسجيلات الجامعية | BAC STORY">
 <meta name="twitter:description" content="عداد تنازلي لبكالوريا 2027 الجزائر ونهاية التسجيلات الجامعية الأولية.">
 <meta name="twitter:image" content="https://pub-889477d66bc54c9582bba9a492cf605f.r2.dev/images/og-banner.png">
-<link rel="stylesheet" href="/style.css?v=10.15">
+<link rel="stylesheet" href="/style.css?v=10.16">
 <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/solid.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/brands.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -65,12 +65,24 @@
 <div class="resource-content active" id="timer">
     <div class="container">        <div class="ad-card-inject"><a href="/tools" class="modern-cta-btn"><i class="fas fa-arrow-right"></i> العودة للأدوات</a>
 </div>
-        <h1 class="visually-hidden">الوقت المتبقي لبكالوريا 2027</h1>
+        <h1 class="visually-hidden">العدادات التنازلية: الوقت المتبقي للدخول المدرسي 2026 وبكالوريا 2027</h1>
         <div class="modern-section-header">
-            <h2>الوقت المتبقي لبكالوريا 2027</h2>
+            <h2>العدادات التنازلية</h2>
         </div>
         <div class="timers-grid">
+            <div class="compact-timer compact-timer--school">
+                <h3 class="visually-hidden">الوقت المتبقي للدخول المدرسي 2026</h3>
+                <p class="compact-timer__label">الوقت المتبقي <span style="color:#ff6b35;font-weight:900;">للدخول المدرسي</span></p>
+                <div class="timer-numbers">
+                    <div class="time-block"><div class="timer-number" id="t-days-4">--</div><div class="timer-label">يوم</div></div>
+                    <div class="time-block"><div class="timer-number" id="t-hours-4">--</div><div class="timer-label">ساعات</div></div>
+                    <div class="time-block"><div class="timer-number" id="t-min-4">--</div><div class="timer-label">دقيقة</div></div>
+                    <div class="time-block"><div class="timer-number" id="t-sec-4">--</div><div class="timer-label">ثانية</div></div>
+                </div>
+                <div class="timer-done" id="timer-done-4" style="display:none;">🏫 موعد الدخول المدرسي</div>
+            </div>
             <div class="compact-timer compact-timer--bac27">
+                <h3 class="visually-hidden">الوقت المتبقي لبكالوريا 2027</h3>
                 <p class="compact-timer__label">الوقت المتبقي <span style="color:#ff6b35;font-weight:900;">لبكالوريا 2027</span></p>
                 <div class="timer-numbers">
                     <div class="time-block"><div class="timer-number" id="t-days-3">--</div><div class="timer-label">يوم</div></div>
@@ -93,6 +105,6 @@
 <div id="footer-placeholder"></div>
 <script src="/ads-config.js?v=1.12"></script>
 <script src="/components/shared.js?v=9.31"></script>
-<script src="/script.js?v=8.3"></script>
+<script src="/script.js?v=8.4"></script>
 </body>
 </html>
