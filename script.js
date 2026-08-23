@@ -3,6 +3,39 @@
 // lives in components/calculator.js — loaded only on tools.html.
 let calculatorState = 'fieldSelection';
 
+// The section marked `.active` in a page's raw HTML is that page's true
+// default view — captured once, before any showSection() call mutates the
+// DOM. Every resources/*.html file bundles many sub-sections behind
+// showSection() but only index.html's default happens to be id="home"; the
+// literal 'home' fallback used to be hardcoded everywhere, so on every other
+// page (math.html, sci.html, etc.) going back to the initial state called
+// showSection('home', ...), found no matching element, and silently did
+// nothing — leaving the UI stuck on whatever sub-section was last shown.
+const DEFAULT_SECTION_ID = (function () {
+    var el = document.querySelector('.resource-content.active');
+    return (el && el.id) ? el.id : 'home';
+})();
+
+// Sub-sections reached via showSection() have no way back except this
+// button — browser/gesture back is fixed below, but a visible, page-agnostic
+// "رجوع" control removes the dependency on the user knowing that shortcut.
+function ensureBackButton(section) {
+    if (!section || section.id === DEFAULT_SECTION_ID) return;
+    var container = section.querySelector('.container');
+    if (!container || container.querySelector('.auto-back-wrap')) return;
+    var wrap = document.createElement('div');
+    wrap.className = 'auto-back-wrap';
+    wrap.style.textAlign = 'center';
+    wrap.style.marginTop = '1.5rem';
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'modern-cta-btn';
+    btn.innerHTML = '<i class="fas fa-arrow-right"></i> رجوع';
+    btn.addEventListener('click', function () { history.back(); });
+    wrap.appendChild(btn);
+    container.appendChild(wrap);
+}
+
 function showSection(id, push = true) {
     if (id === 'calculator') {
         const savedState = localStorage.getItem('calculatorState') || 'fieldSelection';
@@ -80,6 +113,7 @@ function showSection(id, push = true) {
             .forEach(sec => sec.classList.remove('active'));
 
         section.classList.add('active');
+        ensureBackButton(section);
         if (push) {
             history.pushState({ section: id, calculatorState }, '', `#${id}`);
         }
@@ -100,7 +134,7 @@ function showSection(id, push = true) {
 
 window.addEventListener('popstate', (event) => {
     const state = event.state;
-    const id = state?.section || location.hash.slice(1) || 'home';
+    const id = state?.section || location.hash.slice(1) || DEFAULT_SECTION_ID;
     const calcState = state?.calculatorState || 'fieldSelection';
 
     if (id === 'calculator') {
@@ -453,7 +487,7 @@ document.addEventListener('keydown', function (e) {
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Initial Section Loading — replaceState stamps the initial entry so
     //    the popstate handler always gets valid state when the user presses back.
-    const initial = location.hash.slice(1) || 'home';
+    const initial = location.hash.slice(1) || DEFAULT_SECTION_ID;
     const savedState = localStorage.getItem('calculatorState') || 'fieldSelection';
 
     if (initial === 'calculator') {
