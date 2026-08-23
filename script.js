@@ -48,8 +48,14 @@ function showSection(id, push = true) {
         id === 'scienceSubjects' || id === 'techSubjects' || id === 'managementSubjects' ||
         id === 'literatureSubjects' || id === 'languagesSubjects') {
 
-        document.getElementById('fieldSelection').style.display =
-            (id === 'fieldSelection') ? 'grid' : 'none';
+        // Every element below only exists on the old single-page calculator layout.
+        // The hub (/tools/calculator) has #fieldSelection but no .subject-container;
+        // the per-subject pages (/tools/calculator/math, etc.) have the opposite —
+        // null-guard each lookup so restoring a saved state on either page can't throw.
+        const fieldSelectionEl = document.getElementById('fieldSelection');
+        if (fieldSelectionEl) {
+            fieldSelectionEl.style.display = (id === 'fieldSelection') ? 'grid' : 'none';
+        }
 
         const nameRow = document.getElementById('calcNameRow');
         if (nameRow) {
@@ -60,17 +66,19 @@ function showSection(id, push = true) {
             container.style.display = (container.id === id) ? 'block' : 'none';
         });
 
-        if (id !== 'fieldSelection') {
+        const headerH2 = document.querySelector('.calculator-header h2');
+        const headerP = document.querySelector('.calculator-header p');
+        if (id !== 'fieldSelection' && typeof getFieldName === 'function') {
             const fieldName = getFieldName(id.replace('Subjects', ''));
-            document.querySelector('.calculator-header h2').textContent =
-                `حساب معدل البكالوريا - ${fieldName}`;
-            document.querySelector('.calculator-header p').textContent = 'أدخل علاماتك';
-        } else {
-            document.querySelector('.calculator-header h2').textContent = 'حساب معدل البكالوريا';
-            document.querySelector('.calculator-header p').textContent = 'اختر شعبتك لحساب المعدل';
+            if (headerH2) headerH2.textContent = `حساب معدل البكالوريا - ${fieldName}`;
+            if (headerP) headerP.textContent = 'أدخل علاماتك';
+        } else if (id === 'fieldSelection') {
+            if (headerH2) headerH2.textContent = 'حساب معدل البكالوريا';
+            if (headerP) headerP.textContent = 'اختر شعبتك لحساب المعدل';
         }
 
-        document.getElementById('resultSection').style.display = 'none';
+        const resultSection = document.getElementById('resultSection');
+        if (resultSection) resultSection.style.display = 'none';
 
         calculatorState = id;
         id = 'calculator';
@@ -492,9 +500,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const savedState = localStorage.getItem('calculatorState') || 'fieldSelection';
 
     if (initial === 'calculator') {
-        calculatorState = savedState;
-        history.replaceState({ section: 'calculator', calculatorState: savedState }, '', location.href);
-        showSection(savedState, false);
+        // The saved subject from localStorage only makes sense on the hub page
+        // (/tools/calculator), which shows nothing but the #fieldSelection grid —
+        // it has no .subject-container to jump into, so a stale value from a past
+        // visit to a subject page must never hide that grid with nothing to replace it.
+        // A per-subject page (/tools/calculator/math, etc.) has exactly one subject
+        // and always shows it, regardless of what's saved from a different subject.
+        const ownSubjectContainer = document.querySelector('.subject-container');
+        const effectiveState = ownSubjectContainer ? ownSubjectContainer.id : 'fieldSelection';
+
+        calculatorState = effectiveState;
+        history.replaceState({ section: 'calculator', calculatorState: effectiveState }, '', location.href);
+        showSection(effectiveState, false);
     } else {
         history.replaceState({ section: initial, calculatorState: savedState }, '', location.href);
         showSection(initial, false);
