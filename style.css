@@ -2552,6 +2552,16 @@ body.search-active .mobile-bottom-bar,
     border-radius: 2px;
 }
 
+/* On small widths .btn-container/.specialty-grid's own bottom margin shrinks and
+   collapses with this header's 1rem top margin, leaving barely any gap after the
+   previous section's buttons — widen it back out below the button grid breakpoint */
+@media (max-width: 768px) {
+    .btn-container + .modern-section-header,
+    .specialty-grid + .modern-section-header {
+        margin-top: 2.5rem;
+    }
+}
+
 /* Specialty Grid & Buttons */
 .specialty-grid {
     display: grid;
