@@ -2873,6 +2873,13 @@ body.search-active .mobile-bottom-bar,
     box-shadow: 0 8px 24px rgba(26, 58, 143, 0.18);
 }
 
+/* badge-wrapped buttons (.btn-container > div > .main-btn) sit one flex level deeper,
+   so the width:90%/100% overrides below apply to the button itself instead of being
+   absorbed by the wrapper's flex-basis — pin it to fill the wrapper at every breakpoint */
+.btn-container > div > .main-btn {
+    width: 100%;
+}
+
 .btn-container {
     display: flex;
     flex-wrap: wrap;
