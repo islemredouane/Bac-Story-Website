@@ -309,194 +309,64 @@
         /* ── Ad Preview Section ── */
         .adp-preview { padding: 3rem 1.5rem; }
 
-        .adprev-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 0.75rem;
-            margin: 2rem 0 2rem;
-            flex-wrap: wrap;
-        }
-        .adprev-tab {
+        .adprev-toggle-wrap { text-align: center; margin: 2rem 0 2rem; }
+        .adprev-toggle {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.65rem 1.4rem;
-            border: 2px solid rgba(44,92,197,0.2);
-            border-radius: 99px;
-            background: transparent;
-            color: #64748b;
-            font-family: 'Tajawal', sans-serif;
-            font-size: 0.95rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.2s ease;
+            position: relative;
+            vertical-align: top;
+            background: #f1f5f9;
+            border-radius: 999px;
+            padding: 4px;
+            gap: 0;
+            overflow: hidden;
         }
-        .adprev-tab:hover { border-color: rgba(44,92,197,0.45); color: #2c5cc5; }
-        .adprev-tab.active {
+        .adprev-toggle::before { display: none; }
+        .adprev-pill {
+            position: absolute;
+            top: 4px; bottom: 4px;
             background: #2c5cc5;
-            border-color: #2c5cc5;
-            color: #fff;
-            box-shadow: 0 6px 20px rgba(44,92,197,0.3);
+            border-radius: 999px;
+            transition: left 0.28s cubic-bezier(0.34,1.56,0.64,1), width 0.28s cubic-bezier(0.34,1.56,0.64,1);
+            box-shadow: 0 2px 8px rgba(44,92,195,0.3);
+            pointer-events: none;
+            z-index: 0;
         }
+        .adprev-tab {
+            position: relative; z-index: 1;
+            margin: 0 !important;
+            padding: 0.5rem 1.4rem;
+            border: none; background: transparent; border-radius: 999px;
+            font-family: 'Tajawal', sans-serif; font-size: 0.9rem; font-weight: 700;
+            color: #64748b; cursor: pointer; white-space: nowrap;
+            transition: color 0.22s ease;
+            display: inline-flex; align-items: center; gap: 6px;
+            user-select: none;
+        }
+        .adprev-tab.active { color: #fff; }
 
         .adprev-pane { display: none; }
         .adprev-pane.active { display: block; }
 
-        /* Popup preview frame */
-        .adprev-popup-frame {
-            max-width: 480px;
-            margin: 0 auto;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        /* ── Preview containers ── */
+        .adprev-container { border-radius: 24px; }
+        .adprev-container--inline { background: transparent; }
+        .adprev-container--inline .ad-card-wrap { margin: 0; }
+        #adprev-popup .welcome-announcement-card { box-shadow: none; margin: 0 auto; }
+        #adprev-popup .card-cta-btn {
+            background: #2AABEE; border: none;
+            box-shadow: 0 8px 20px rgba(42,171,238,0.35); color: #fff;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
         }
-        .adprev-screen-bar {
-            background: #1e293b;
-            padding: 10px 16px;
-            display: flex;
-            gap: 6px;
-            align-items: center;
+        #adprev-popup .card-cta-btn:hover {
+            box-shadow: 0 12px 28px rgba(42,171,238,0.45);
+            transform: translateY(-3px);
         }
-        .adprev-screen-bar span {
-            width: 10px; height: 10px;
-            border-radius: 50%;
-            background: #475569;
-            display: block;
-        }
-        .adprev-screen-bar span:nth-child(1) { background: #ef4444; }
-        .adprev-screen-bar span:nth-child(2) { background: #f59e0b; }
-        .adprev-screen-bar span:nth-child(3) { background: #22c55e; }
-        .adprev-popup-bg {
-            background: rgba(15,23,42,0.82);
-            backdrop-filter: blur(3px);
-            padding: 2rem 1.25rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 320px;
-        }
-        .adprev-popup-card {
-            background: #fff;
-            border-radius: 20px;
-            padding: 1.6rem 1.4rem 1.4rem;
-            width: 100%;
-            max-width: 340px;
-            position: relative;
-            box-shadow: 0 24px 64px rgba(0,0,0,0.35);
-            text-align: center;
-        }
-        .adprev-popup-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            background: linear-gradient(135deg,#2c5cc5,#1a3a8f);
-            color: #fff;
-            font-size: 0.75rem;
-            font-weight: 800;
-            padding: 0.35rem 0.85rem;
-            border-radius: 99px;
-            margin-bottom: 0.9rem;
-            font-family: 'Tajawal', sans-serif;
-        }
-        .adprev-popup-title {
-            font-size: 1.25rem;
-            font-weight: 900;
-            color: #0f172a;
-            margin-bottom: 0.5rem;
-            font-family: 'Tajawal', sans-serif;
-        }
-        .adprev-popup-desc {
-            font-size: 0.84rem;
-            color: #64748b;
-            line-height: 1.65;
-            margin-bottom: 1.1rem;
-            font-family: 'Tajawal', sans-serif;
-        }
-        .adprev-popup-cta {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            width: 100%;
-            padding: 0.75rem 1.2rem;
-            background: #25d366;
-            color: #fff;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-weight: 800;
-            font-family: 'Tajawal', sans-serif;
-            text-decoration: none;
-            margin-bottom: 0.5rem;
-        }
-        .adprev-close-btn {
-            position: absolute;
-            top: 10px;
-            left: 12px;
-            width: 26px; height: 26px;
-            border-radius: 50%;
-            background: #f1f5f9;
-            border: none;
-            font-size: 0.95rem;
-            color: #94a3b8;
-            cursor: default;
-            display: flex; align-items: center; justify-content: center;
-            font-family: monospace;
-        }
-
-        /* Inline preview frame */
-        .adprev-inline-frame {
-            max-width: 540px;
-            margin: 0 auto;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
-            border: 1.5px solid rgba(44,92,197,0.1);
-        }
-        .adprev-page-mock { background: var(--bg-secondary, #f8fafc); }
-        .adprev-page-hdr {
-            background: #fff;
-            border-bottom: 1px solid rgba(44,92,197,0.08);
-            padding: 0.75rem 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .adprev-page-logo {
-            font-size: 0.8rem;
-            font-weight: 900;
-            color: #2c5cc5;
-            font-family: 'Tajawal', sans-serif;
-            background: rgba(44,92,197,0.08);
-            padding: 4px 10px;
-            border-radius: 8px;
-        }
-        .adprev-page-nav { display: flex; gap: 6px; }
-        .adprev-page-nav span {
-            width: 28px; height: 6px;
-            border-radius: 99px;
-            background: rgba(44,92,197,0.15);
-            display: block;
-        }
-        .adprev-page-content { padding: 0.75rem 1rem 1rem; }
-        .adprev-page-line {
-            height: 8px;
-            border-radius: 99px;
-            background: rgba(44,92,197,0.08);
-            margin-bottom: 0.5rem;
-        }
-        .adprev-page-line.w80 { width: 80%; }
-        .adprev-page-line.w60 { width: 60%; }
-        .adprev-page-btns {
-            display: flex;
-            gap: 0.5rem;
-            margin-top: 0.75rem;
-            flex-wrap: wrap;
-        }
-        .adprev-page-btn {
-            height: 36px;
-            width: 90px;
-            border-radius: 10px;
-            background: rgba(44,92,197,0.1);
+        @media (max-width: 600px) {
+            .adp-preview { padding: 2rem 0.5rem; }
+            .adprev-toggle-wrap { display: flex; justify-content: center; }
+            .adprev-toggle { max-width: 100%; }
+            .adprev-tab { padding: 0.5rem 0.9rem; font-size: 0.8rem; }
         }
 
         /* shared note */
@@ -700,7 +570,90 @@
     </section>
 
     <!-- ══════════════════════════════════════════════
-         4. PACKAGES
+         4. AD PREVIEW
+    ══════════════════════════════════════════════ -->
+    <section class="adp-preview">
+        <div class="adp-section-wrap">
+            <div class="adp-why-header">
+                <span class="adp-tag">معاينة حية</span>
+                <h2>هكذا <span>سيبدو إعلانك</span></h2>
+                <p style="color:#64748b;font-size:.95rem;margin-top:.5rem;">ما يراه الطلاب فعلاً — نموذج تجريبي بالتصميم الحقيقي</p>
+            </div>
+
+            <div class="adprev-toggle-wrap">
+                <div class="adprev-toggle" id="adprev-toggle">
+                    <span class="adprev-pill" id="adprev-pill"></span>
+                    <button class="adprev-tab active" id="adprev-btn-popup" onclick="adprevSwitch('popup', this)">
+                        <i class="fas fa-layer-group"></i> بطاقة الإعلان
+                    </button>
+                    <button class="adprev-tab" id="adprev-btn-inline" onclick="adprevSwitch('inline', this)">
+                        <i class="fas fa-id-card"></i> البطاقة المدمجة
+                    </button>
+                </div>
+            </div>
+
+            <!-- ── Tab 1: Popup card ── -->
+            <div id="adprev-popup" class="adprev-pane active">
+                <div style="text-align:center;margin-bottom:.75rem;">
+                    <span class="adprev-demo-badge"><i class="fas fa-eye"></i> نموذج تجريبي</span>
+                </div>
+                <div class="adprev-container">
+                    <div class="adprev-popup-bg">
+                        <div class="welcome-announcement-card modal-version" style="animation:none;">
+                            <button class="announcement-modal-close" tabindex="-1" style="pointer-events:none;">×</button>
+                            <div class="welcome-badge-pill" style="background:linear-gradient(135deg,#ff6b1a,#e8420e);box-shadow:0 4px 14px rgba(232,66,14,0.35);border:none;"><i class="fas fa-layer-group"></i> إعلان مموّل</div>
+                            <h3>اسم مركزك أو خدمتك</h3>
+                            <p>وصف جذاب لما تقدمه — دورات تحضيرية، دعم مدرسي، منتجات، أو أي خدمة تستهدف طلاب الباك. يراه كل زائر عند دخوله الموقع.</p>
+                            <div class="card-cta-group">
+                                <a href="https://t.me/islembacdz" target="_blank" rel="noopener" class="card-cta-btn"><i class="fab fa-telegram-plane"></i> تواصل معنا الآن</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="adprev-note">
+                    <i class="fas fa-info-circle"></i>
+                    تظهر مرة واحدة في اليوم لكل مستخدم — ظهور مضمون وكامل، لا يمكن تجاهلها
+                </p>
+            </div>
+
+            <!-- ── Tab 2: Inline card ── -->
+            <div id="adprev-inline" class="adprev-pane">
+                <div style="text-align:center;margin-bottom:.75rem;">
+                    <span class="adprev-demo-badge"><i class="fas fa-eye"></i> نموذج تجريبي</span>
+                </div>
+                <div class="adprev-container adprev-container--inline">
+                    <div class="ad-card-inject">
+                        <div class="ad-card-wrap">
+                            <div class="ad-card">
+                                <span class="ad-card-sponsor">إعلان مموّل</span>
+                                <div class="ad-card-avatar" style="background:#2c5cc5;box-shadow:0 8px 24px #2c5cc599,0 2px 8px #2c5cc555;">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <div class="ad-card-body">
+                                    <p class="ad-card-name">اسم مركزك أو خدمتك</p>
+                                    <div class="ad-card-meta">
+                                        <span class="ad-card-subject">جميع الشعب</span>
+                                        <span class="ad-card-specialty">الجزائر وما حولها</span>
+                                    </div>
+                                    <p class="ad-card-pitch">وصف مختصر وجذاب لما تقدمه — يظهر في كل صفحات الموقع ويتدوار أمام آلاف الطلاب يومياً.</p>
+                                </div>
+                                <div class="ad-card-actions">
+                                    <a class="ad-card-cta">تواصل معنا <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="adprev-note">
+                    <i class="fas fa-info-circle"></i>
+                    تظهر في أعلى جميع صفحات المحتوى لكل الزوار
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         5. PACKAGES
     ══════════════════════════════════════════════ -->
     <section class="adp-packages">
         <div class="adp-section-wrap">
@@ -777,109 +730,7 @@
     </section>
 
     <!-- ══════════════════════════════════════════════
-         4b. AD PREVIEW
-    ══════════════════════════════════════════════ -->
-    <section class="adp-preview">
-        <div class="adp-section-wrap">
-            <div class="adp-why-header">
-                <span class="adp-tag">معاينة حية</span>
-                <h2>هكذا <span>سيبدو إعلانك</span></h2>
-                <p style="color:#64748b;font-size:.95rem;margin-top:.5rem;">ما يراه الطلاب فعلاً — نموذج تجريبي بالتصميم الحقيقي</p>
-            </div>
-
-            <div class="adprev-tabs">
-                <button class="adprev-tab active" onclick="adprevSwitch('popup')">
-                    <i class="fas fa-layer-group"></i> بطاقة الإعلان
-                </button>
-                <button class="adprev-tab" onclick="adprevSwitch('inline')">
-                    <i class="fas fa-id-card"></i> البطاقة المدمجة
-                </button>
-            </div>
-
-            <!-- ── Tab 1: Popup card ── -->
-            <div id="adprev-popup" class="adprev-pane active">
-                <div style="text-align:center;margin-bottom:.75rem;">
-                    <span class="adprev-demo-badge"><i class="fas fa-eye"></i> نموذج تجريبي</span>
-                </div>
-                <div class="adprev-popup-frame">
-                    <div class="adprev-screen-bar">
-                        <span></span><span></span><span></span>
-                    </div>
-                    <div class="adprev-popup-bg">
-                        <div class="adprev-popup-card">
-                            <button class="adprev-close-btn" tabindex="-1">×</button>
-                            <div class="adprev-popup-badge">
-                                <i class="fas fa-layer-group"></i> إعلان مموّل
-                            </div>
-                            <div class="adprev-popup-title">اسم مركزك أو خدمتك</div>
-                            <p class="adprev-popup-desc">وصف جذاب لما تقدمه — دورات تحضيرية، دعم مدرسي، منتجات، أو أي خدمة تستهدف طلاب الباك. يراه كل زائر عند دخوله الموقع.</p>
-                            <a class="adprev-popup-cta">
-                                <i class="fab fa-whatsapp"></i> تواصل معنا الآن
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <p class="adprev-note">
-                    <i class="fas fa-info-circle"></i>
-                    تظهر مرة واحدة في اليوم لكل مستخدم — ظهور مضمون وكامل، لا يمكن تجاهلها
-                </p>
-            </div>
-
-            <!-- ── Tab 2: Inline card ── -->
-            <div id="adprev-inline" class="adprev-pane">
-                <div style="text-align:center;margin-bottom:.75rem;">
-                    <span class="adprev-demo-badge"><i class="fas fa-eye"></i> نموذج تجريبي</span>
-                </div>
-                <div class="adprev-inline-frame">
-                    <div class="adprev-page-mock">
-                        <div class="adprev-page-hdr">
-                            <div class="adprev-page-logo">BAC STORY</div>
-                            <div class="adprev-page-nav">
-                                <span></span><span style="width:42px;"></span><span></span>
-                            </div>
-                        </div>
-                        <div class="ad-card-inject">
-                            <div class="ad-card-wrap">
-                                <div class="ad-card">
-                                    <span class="ad-card-sponsor">إعلان مموّل</span>
-                                    <div class="ad-card-avatar" style="background:#2c5cc5;box-shadow:0 8px 24px #2c5cc599,0 2px 8px #2c5cc555;">
-                                        <i class="fas fa-graduation-cap"></i>
-                                    </div>
-                                    <div class="ad-card-body">
-                                        <p class="ad-card-name">اسم مركزك أو خدمتك</p>
-                                        <div class="ad-card-meta">
-                                            <span class="ad-card-subject">جميع الشعب</span>
-                                            <span class="ad-card-specialty">الجزائر وما حولها</span>
-                                        </div>
-                                        <p class="ad-card-pitch">وصف مختصر وجذاب لما تقدمه — يظهر في كل صفحات الموقع ويتدوار أمام آلاف الطلاب يومياً.</p>
-                                    </div>
-                                    <div class="ad-card-actions">
-                                        <a class="ad-card-cta">تواصل معنا <i class="fas fa-arrow-left"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="adprev-page-content">
-                            <div class="adprev-page-line w80"></div>
-                            <div class="adprev-page-line w60"></div>
-                            <div class="adprev-page-btns">
-                                <div class="adprev-page-btn"></div>
-                                <div class="adprev-page-btn"></div>
-                                <div class="adprev-page-btn"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <p class="adprev-note">
-                    <i class="fas fa-info-circle"></i>
-                    تظهر في أعلى جميع صفحات المحتوى — تتدوار تلقائياً كل 7 ثوانٍ
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ══════════════════════════════════════════════
-         5. HOW IT WORKS
+         6. HOW IT WORKS
     ══════════════════════════════════════════════ -->
     <section class="adp-steps">
         <div class="adp-section-wrap">
@@ -937,12 +788,31 @@
     <script src="/ads-config.js?v=1.12"></script>
     <script src="/components/shared.js?v=9.34"></script>
     <script>
-    function adprevSwitch(tab) {
+    function adprevMovePill(btn) {
+        const pill = document.getElementById('adprev-pill');
+        const track = document.getElementById('adprev-toggle');
+        if (!pill || !track) return;
+        const trackRect = track.getBoundingClientRect();
+        const btnRect = btn.getBoundingClientRect();
+        pill.style.left = (btnRect.left - trackRect.left) + 'px';
+        pill.style.width = btnRect.width + 'px';
+    }
+    function adprevSwitch(tab, btn) {
         document.querySelectorAll('.adprev-pane').forEach(p => p.classList.remove('active'));
         document.querySelectorAll('.adprev-tab').forEach(t => t.classList.remove('active'));
         document.getElementById('adprev-' + tab).classList.add('active');
-        event.currentTarget.classList.add('active');
+        btn.classList.add('active');
+        adprevMovePill(btn);
     }
+    // Init pill after fonts + layout are ready
+    window.addEventListener('load', function () {
+        const firstBtn = document.getElementById('adprev-btn-popup');
+        if (!firstBtn) return;
+        const pill = document.getElementById('adprev-pill');
+        if (pill) pill.style.transition = 'none';
+        adprevMovePill(firstBtn);
+        requestAnimationFrame(() => { requestAnimationFrame(() => { if (pill) pill.style.transition = ''; }); });
+    });
 
     (function () {
         const cards = [...document.querySelectorAll('.adp-scard')];
