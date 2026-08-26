@@ -42,7 +42,7 @@ The stream formerly known as **"شعبة تقني رياضي"** (Technical Mathe
 - [مواضيع أشبال الأمة](https://www.bac-story.com/topics/achbal-eloma): Cadet Schools of the Nation (Ecoles des Cadets de la Nation) official baccalaureate exam folders with model answers.
 - [مواضيع التميز](https://www.bac-story.com/topics/excellence-topics): Selected high-difficulty mock topics, exercises, and booklets for top-scoring students across all subjects and streams.
 - [البكالوريات التجريبية لقناتنا](https://www.bac-story.com/topics/channel-exams): Channel mock exams and proposals for the 2025 and 2026 sessions with detailed model solutions.
-- [أرشيف البكالوريات السابقة](https://www.bac-story.com/topics/bac-archives): Compiled annals and past papers prior to 2024 (from 2008 to 2023) for all streams.
+- [أرشيف البكالوريات السابقة / تجميعية الحوليات](https://www.bac-story.com/topics/bac-archives): Hub for compiled annals (تجميعية) and past papers 2008–2023 for all streams. Each stream has its own page (/topics/bac-archives/{stream}) listing subjects, each linking to an individual page with the PDF embedded via iframe.
 - [محاكاة البكالوريا](https://www.bac-story.com/simulation): Baccalaureate simulation tool — solve past papers under real exam conditions with a timer and detailed corrections.
 - [حلول بكالوريا 2026](https://www.bac-story.com/bac-2026): Official model answers (solutions) for the 2026 Algerian Baccalaureate exam across all streams and subjects.
 - [حلول بكالوريا 2025](https://www.bac-story.com/topics/bac-2025): Official model answers (solutions) for the 2025 Algerian Baccalaureate exam across all streams and subjects.
