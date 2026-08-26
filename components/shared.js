@@ -645,16 +645,16 @@ function setupSearch() {
 
         // ── ARABIC — SPECIALTY SECTIONS ───────────────────────────────────
         { title: 'اللغة العربية', desc: 'الشعر، النثر، القواعد والبلاغة', url: '/resources', icon: 'fas fa-book', specialty: null, keywords: ['العربية', 'اللغة العربية', 'عربي', 'arabic', 'عربية'] },
-        { title: 'اللغة العربية', desc: 'الأدب العربي الكلاسيكي والحديث', url: '/resources/le', icon: 'fas fa-book', specialty: 'آداب وفلسفة', keywords: ['العربية', 'اللغة العربية', 'عربي', 'أدب عربي'] },
-        { title: 'اللغة العربية', desc: 'القواعد، المصطلحات والنصوص', url: '/resources/lp', icon: 'fas fa-book', specialty: 'لغات أجنبية', keywords: ['العربية', 'اللغة العربية', 'عربي'] },
+        { title: 'اللغة العربية', desc: 'الأدب العربي الكلاسيكي والحديث', url: '/resources/lp', icon: 'fas fa-book', specialty: 'آداب وفلسفة', keywords: ['العربية', 'اللغة العربية', 'عربي', 'أدب عربي'] },
+        { title: 'اللغة العربية', desc: 'القواعد، المصطلحات والنصوص', url: '/resources/le', icon: 'fas fa-book', specialty: 'لغات أجنبية', keywords: ['العربية', 'اللغة العربية', 'عربي'] },
 
         // ── ARABIC — GRANULAR TOPICS ───────────────────────────────────────
-        { title: 'الشعر التعليمي', desc: 'قصائد الشعر التعليمي وتحليلها', url: '/resources/le', icon: 'fas fa-feather-alt', specialty: null, keywords: ['شعر تعليمي', 'الشعر التعليمي', 'شعر', 'قصيدة', 'تعليمي'] },
-        { title: 'الشعر المهجري', desc: 'أدب المهجر وأبرز شعرائه', url: '/resources/le', icon: 'fas fa-feather-alt', specialty: null, keywords: ['شعر مهجري', 'المهجري', 'المهجر', 'شعر'] },
-        { title: 'الشعر السياسي', desc: 'الشعر في خدمة القضايا السياسية', url: '/resources/le', icon: 'fas fa-feather-alt', specialty: null, keywords: ['شعر سياسي', 'السياسي', 'شعر'] },
-        { title: 'الشعر الاجتماعي', desc: 'القضايا الاجتماعية في الشعر العربي', url: '/resources/le', icon: 'fas fa-feather-alt', specialty: null, keywords: ['شعر اجتماعي', 'الاجتماعي', 'شعر'] },
-        { title: 'شعر الآداب', desc: 'الشعر الكلاسيكي والحديث', url: '/resources/le', icon: 'fas fa-feather-alt', specialty: 'آداب وفلسفة', keywords: ['شعر', 'الشعر', 'قصيدة', 'أدب'] },
-        { title: 'نثر الآداب', desc: 'النثر الأدبي والنصوص', url: '/resources/le', icon: 'fas fa-pen', specialty: 'آداب وفلسفة', keywords: ['النثر', 'نثر', 'نصوص أدبية', 'أدب'] },
+        { title: 'الشعر التعليمي', desc: 'قصائد الشعر التعليمي وتحليلها', url: '/resources/lp', icon: 'fas fa-feather-alt', specialty: null, keywords: ['شعر تعليمي', 'الشعر التعليمي', 'شعر', 'قصيدة', 'تعليمي'] },
+        { title: 'الشعر المهجري', desc: 'أدب المهجر وأبرز شعرائه', url: '/resources/lp', icon: 'fas fa-feather-alt', specialty: null, keywords: ['شعر مهجري', 'المهجري', 'المهجر', 'شعر'] },
+        { title: 'الشعر السياسي', desc: 'الشعر في خدمة القضايا السياسية', url: '/resources/lp', icon: 'fas fa-feather-alt', specialty: null, keywords: ['شعر سياسي', 'السياسي', 'شعر'] },
+        { title: 'الشعر الاجتماعي', desc: 'القضايا الاجتماعية في الشعر العربي', url: '/resources/lp', icon: 'fas fa-feather-alt', specialty: null, keywords: ['شعر اجتماعي', 'الاجتماعي', 'شعر'] },
+        { title: 'شعر الآداب', desc: 'الشعر الكلاسيكي والحديث', url: '/resources/lp', icon: 'fas fa-feather-alt', specialty: 'آداب وفلسفة', keywords: ['شعر', 'الشعر', 'قصيدة', 'أدب'] },
+        { title: 'نثر الآداب', desc: 'النثر الأدبي والنصوص', url: '/resources/lp', icon: 'fas fa-pen', specialty: 'آداب وفلسفة', keywords: ['النثر', 'نثر', 'نصوص أدبية', 'أدب'] },
         { title: 'النشر العلمي المتأدب', desc: 'النصوص العلمية الأدبية وتحليلها', url: '/resources', icon: 'fas fa-pen', specialty: null, keywords: ['النشر العلمي', 'نشر علمي', 'نثر علمي', 'متأدب'] },
         { title: 'فن المقال', desc: 'كتابة المقال الأدبي والنقدي', url: '/resources', icon: 'fas fa-pen-alt', specialty: null, keywords: ['فن المقال', 'المقال', 'مقال', 'مقالة'] },
         { title: 'القواعد اللغوية', desc: 'النحو والصرف والإعراب', url: '/resources', icon: 'fas fa-spell-check', specialty: null, keywords: ['القواعد', 'اللغوية', 'النحو', 'الصرف', 'الإعراب', 'قواعد'] },
@@ -662,24 +662,24 @@ function setupSearch() {
 
         // ── FRENCH — SPECIALTY SECTIONS ───────────────────────────────────
         { title: 'اللغة الفرنسية', desc: 'النصوص، التعبير الكتابي والقواعد', url: '/resources', icon: 'fas fa-language', specialty: null, keywords: ['الفرنسية', 'فرنسي', 'français', 'french', 'فرنسية'] },
-        { title: 'اللغة الفرنسية', desc: 'الفرنسية الأدبية', url: '/resources/le', icon: 'fas fa-language', specialty: 'آداب وفلسفة', keywords: ['الفرنسية', 'فرنسي', 'français', 'فرنسية'] },
-        { title: 'اللغة الفرنسية', desc: 'الفرنسية — شعبة لغات', url: '/resources/lp', icon: 'fas fa-language', specialty: 'لغات أجنبية', keywords: ['الفرنسية', 'فرنسي', 'français', 'فرنسية'] },
+        { title: 'اللغة الفرنسية', desc: 'الفرنسية الأدبية', url: '/resources/lp', icon: 'fas fa-language', specialty: 'آداب وفلسفة', keywords: ['الفرنسية', 'فرنسي', 'français', 'فرنسية'] },
+        { title: 'اللغة الفرنسية', desc: 'الفرنسية — شعبة لغات', url: '/resources/le', icon: 'fas fa-language', specialty: 'لغات أجنبية', keywords: ['الفرنسية', 'فرنسي', 'français', 'فرنسية'] },
 
         // ── ENGLISH — SPECIALTY SECTIONS ──────────────────────────────────
         { title: 'اللغة الإنجليزية', desc: 'نصوص، محادثة وقواعد الإنجليزية', url: '/resources', icon: 'fas fa-globe', specialty: null, keywords: ['الإنجليزية', 'إنجليزي', 'English', 'إنجليزية', 'انجليزية', 'Grammer'] },
-        { title: 'اللغة الإنجليزية', desc: 'الإنجليزية الأدبية', url: '/resources/le', icon: 'fas fa-globe', specialty: 'آداب وفلسفة', keywords: ['الإنجليزية', 'إنجليزي', 'English', 'إنجليزية'] },
-        { title: 'اللغة الإنجليزية', desc: 'الإنجليزية — شعبة لغات', url: '/resources/lp', icon: 'fas fa-globe', specialty: 'لغات أجنبية', keywords: ['الإنجليزية', 'إنجليزي', 'English', 'إنجليزية'] },
+        { title: 'اللغة الإنجليزية', desc: 'الإنجليزية الأدبية', url: '/resources/lp', icon: 'fas fa-globe', specialty: 'آداب وفلسفة', keywords: ['الإنجليزية', 'إنجليزي', 'English', 'إنجليزية'] },
+        { title: 'اللغة الإنجليزية', desc: 'الإنجليزية — شعبة لغات', url: '/resources/le', icon: 'fas fa-globe', specialty: 'لغات أجنبية', keywords: ['الإنجليزية', 'إنجليزي', 'English', 'إنجليزية'] },
 
         // ── PHILOSOPHY — SPECIALTY SECTIONS ───────────────────────────────
         { title: 'الفلسفة', desc: 'مقالات فلسفية، جدلية واستقصاء', url: '/resources', icon: 'fas fa-lightbulb', specialty: null, keywords: ['الفلسفة', 'فلسفة', 'مقالة فلسفية', 'جدلية', 'استقصاء', 'فلسفي'] },
-        { title: 'الفلسفة', desc: 'الفلسفة الأدبية', url: '/resources/le', icon: 'fas fa-lightbulb', specialty: 'آداب وفلسفة', keywords: ['الفلسفة', 'فلسفة', 'مقالة فلسفية', 'جدلية', 'فلسفي'] },
-        { title: 'الفلسفة', desc: 'الفلسفة — شعبة لغات', url: '/resources/lp', icon: 'fas fa-lightbulb', specialty: 'لغات أجنبية', keywords: ['الفلسفة', 'فلسفة', 'مقالة فلسفية', 'فلسفي'] },
+        { title: 'الفلسفة', desc: 'الفلسفة الأدبية', url: '/resources/lp', icon: 'fas fa-lightbulb', specialty: 'آداب وفلسفة', keywords: ['الفلسفة', 'فلسفة', 'مقالة فلسفية', 'جدلية', 'فلسفي'] },
+        { title: 'الفلسفة', desc: 'الفلسفة — شعبة لغات', url: '/resources/le', icon: 'fas fa-lightbulb', specialty: 'لغات أجنبية', keywords: ['الفلسفة', 'فلسفة', 'مقالة فلسفية', 'فلسفي'] },
 
         // ── HISTORY-GEO — SPECIALTY SECTIONS ──────────────────────────────
         { title: 'التاريخ والجغرافيا', desc: 'الثورة الجزائرية، الحرب الباردة وحركات التحرر', url: '/resources', icon: 'fas fa-map-marked-alt', specialty: null, keywords: ['التاريخ', 'الجغرافيا', 'تاريخ', 'جغرافيا', 'الثورة الجزائرية', 'الحرب الباردة'] },
         { title: 'التاريخ والجغرافيا', desc: 'التاريخ والجغرافيا', url: '/resources/ge', icon: 'fas fa-map-marked-alt', specialty: 'تسيير واقتصاد', keywords: ['التاريخ', 'الجغرافيا', 'تاريخ', 'جغرافيا'] },
-        { title: 'التاريخ والجغرافيا', desc: 'التاريخ والجغرافيا', url: '/resources/le', icon: 'fas fa-map-marked-alt', specialty: 'آداب وفلسفة', keywords: ['التاريخ', 'الجغرافيا', 'تاريخ', 'جغرافيا'] },
-        { title: 'التاريخ والجغرافيا', desc: 'التاريخ والجغرافيا', url: '/resources/lp', icon: 'fas fa-map-marked-alt', specialty: 'لغات أجنبية', keywords: ['التاريخ', 'الجغرافيا', 'تاريخ', 'جغرافيا'] },
+        { title: 'التاريخ والجغرافيا', desc: 'التاريخ والجغرافيا', url: '/resources/lp', icon: 'fas fa-map-marked-alt', specialty: 'آداب وفلسفة', keywords: ['التاريخ', 'الجغرافيا', 'تاريخ', 'جغرافيا'] },
+        { title: 'التاريخ والجغرافيا', desc: 'التاريخ والجغرافيا', url: '/resources/le', icon: 'fas fa-map-marked-alt', specialty: 'لغات أجنبية', keywords: ['التاريخ', 'الجغرافيا', 'تاريخ', 'جغرافيا'] },
         { title: 'التاريخ — ملخصات', desc: 'الثورة الجزائرية والتاريخ الحديث', url: '/resources', icon: 'fas fa-landmark', specialty: null, keywords: ['الثورة الجزائرية', 'جزائر', 'الاستعمار', 'تاريخ الجزائر', 'التاريخ', 'حركات التحرر'] },
         { title: 'الجغرافيا — ملخصات', desc: 'ملخصات الجغرافيا والخرائط', url: '/resources', icon: 'fas fa-globe-africa', specialty: null, keywords: ['الجغرافيا', 'جغرافيا', 'خرائط', 'خريطة'] },
 
@@ -690,17 +690,20 @@ function setupSearch() {
         { title: 'اللغة الأمازيغية', desc: 'دروس وملخصات الأمازيغية', url: '/resources', icon: 'fas fa-mountain', specialty: null, keywords: ['الأمازيغية', 'أمازيغ', 'تمازيغت', 'tamazight', 'Tamazight', 'أمازيغية'] },
 
         // ── FOREIGN LANGUAGES (شعبة لغات) ─────────────────────────────────
-        { title: 'اللغة الألمانية', desc: 'قواعد، مصطلحات وكتب الألمانية', url: '/resources/lp', icon: 'fas fa-globe-europe', specialty: 'لغات أجنبية', keywords: ['الألمانية', 'ألماني', 'Deutsch', 'German', 'ألمانية', 'allemand'] },
-        { title: 'اللغة الإسبانية', desc: 'قواعد، مصطلحات وكتب الإسبانية', url: '/resources/lp', icon: 'fas fa-globe-europe', specialty: 'لغات أجنبية', keywords: ['الإسبانية', 'إسباني', 'Español', 'Spanish', 'إسبانية', 'espagnol'] },
-        { title: 'اللغة الإيطالية', desc: 'قواعد، مصطلحات وكتب الإيطالية', url: '/resources/lp', icon: 'fas fa-globe-europe', specialty: 'لغات أجنبية', keywords: ['الإيطالية', 'إيطالي', 'Italiano', 'Italian', 'إيطالية', 'italien'] },
+        { title: 'اللغة الألمانية', desc: 'قواعد، مصطلحات وكتب الألمانية', url: '/resources/le', icon: 'fas fa-globe-europe', specialty: 'لغات أجنبية', keywords: ['الألمانية', 'ألماني', 'Deutsch', 'German', 'ألمانية', 'allemand'] },
+        { title: 'اللغة الإسبانية', desc: 'قواعد، مصطلحات وكتب الإسبانية', url: '/resources/le', icon: 'fas fa-globe-europe', specialty: 'لغات أجنبية', keywords: ['الإسبانية', 'إسباني', 'Español', 'Spanish', 'إسبانية', 'espagnol'] },
+        { title: 'اللغة الإيطالية', desc: 'قواعد، مصطلحات وكتب الإيطالية', url: '/resources/le', icon: 'fas fa-globe-europe', specialty: 'لغات أجنبية', keywords: ['الإيطالية', 'إيطالي', 'Italiano', 'Italian', 'إيطالية', 'italien'] },
+        { title: 'برنامج مادة اللغة الألمانية', desc: 'البرنامج الرسمي للغة الألمانية', url: '/resources/le/german/program', icon: 'fas fa-graduation-cap', specialty: 'لغات أجنبية', keywords: ['برنامج الألمانية', 'برنامج المادة', 'الألمانية', 'Deutsch', 'German'] },
+        { title: 'برنامج مادة اللغة الإسبانية', desc: 'البرنامج الرسمي للغة الإسبانية', url: '/resources/le/spanish/program', icon: 'fas fa-graduation-cap', specialty: 'لغات أجنبية', keywords: ['برنامج الإسبانية', 'برنامج المادة', 'الإسبانية', 'Español', 'Spanish'] },
+        { title: 'برنامج مادة اللغة الإيطالية', desc: 'البرنامج الرسمي للغة الإيطالية', url: '/resources/le/italian/program', icon: 'fas fa-graduation-cap', specialty: 'لغات أجنبية', keywords: ['برنامج الإيطالية', 'برنامج المادة', 'الإيطالية', 'Italiano', 'Italian'] },
 
         // ── SPECIALTY OVERVIEWS ────────────────────────────────────────────
         { title: 'شعبة رياضيات', desc: 'جميع مواد وموارد شعبة الرياضيات', url: '/resources/math', icon: 'fas fa-calculator', specialty: 'رياضيات', keywords: ['رياضيات', 'شعبة رياضيات', 'علوم رياضيات', 'math'] },
         { title: 'شعبة علوم تجريبية', desc: 'جميع مواد وموارد شعبة العلوم التجريبية', url: '/resources/sci', icon: 'fas fa-flask', specialty: 'علوم تجريبية', keywords: ['علوم تجريبية', 'شعبة علوم', 'علوم طبيعية', 'sciences', 'علوم'] },
         { title: 'شعبة هندسة', desc: 'جميع مواد وموارد شعبة هندسة (سابقاً التقني الرياضي)', url: '/resources/engineering', icon: 'fas fa-microchip', specialty: 'هندسة', keywords: ['هندسة', 'شعبة هندسة', 'تقني رياضي', 'شعبة تقني رياضي', 'تكنو رياضي', 'التقني الرياضي'] },
         { title: 'شعبة تسيير واقتصاد', desc: 'جميع مواد وموارد شعبة تسيير واقتصاد', url: '/resources/ge', icon: 'fas fa-chart-line', specialty: 'تسيير واقتصاد', keywords: ['تسيير واقتصاد', 'شعبة تسيير', 'اقتصاد', 'management', 'تسيير'] },
-        { title: 'شعبة آداب وفلسفة', desc: 'جميع مواد وموارد شعبة الآداب وفلسفة', url: '/resources/le', icon: 'fas fa-pen-nib', specialty: 'آداب وفلسفة', keywords: ['آداب', 'فلسفة', 'أدب', 'شعبة آداب', 'أدب وفلسفة'] },
-        { title: 'شعبة لغات أجنبية', desc: 'جميع مواد وموارد شعبة اللغات الأجنبية', url: '/resources/lp', icon: 'fas fa-comments', specialty: 'لغات أجنبية', keywords: ['لغات', 'لغات أجنبية', 'شعبة لغات', 'اللغات'] },
+        { title: 'شعبة آداب وفلسفة', desc: 'جميع مواد وموارد شعبة الآداب وفلسفة', url: '/resources/lp', icon: 'fas fa-pen-nib', specialty: 'آداب وفلسفة', keywords: ['آداب', 'فلسفة', 'أدب', 'شعبة آداب', 'أدب وفلسفة'] },
+        { title: 'شعبة لغات أجنبية', desc: 'جميع مواد وموارد شعبة اللغات الأجنبية', url: '/resources/le', icon: 'fas fa-comments', specialty: 'لغات أجنبية', keywords: ['لغات', 'لغات أجنبية', 'شعبة لغات', 'اللغات'] },
 
         // ── UNIVERSITY SPECIALTIES — TOP SCHOOLS ──────────────────────────
         { title: 'ESTIN بجاية', desc: 'ذكاء اصطناعي، أمن سيبراني وإنترنت الأشياء', url: '/university/speciality/estin', icon: 'fas fa-robot', specialty: 'مدارس عليا', keywords: ['ESTIN', 'estin', 'بجاية', 'ذكاء اصطناعي', 'أمن سيبراني', 'cybersécurité', 'intelligence artificielle', 'iot', 'génie informatique', 'رقمنة', 'machine learning'] },
