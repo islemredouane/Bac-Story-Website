@@ -22,7 +22,7 @@ const DEFAULT_SECTION_ID = (function () {
 function ensureBackButton(section) {
     if (!section || section.id === DEFAULT_SECTION_ID) return;
     var container = section.querySelector('.container');
-    if (!container || container.querySelector('.auto-back-wrap') || container.querySelector('a.modern-cta-btn')) return;
+    if (!container || container.querySelector('.auto-back-wrap') || container.querySelector('a.modern-cta-btn, button.modern-cta-btn')) return;
     var wrap = document.createElement('div');
     wrap.className = 'auto-back-wrap';
     wrap.style.textAlign = 'center';
