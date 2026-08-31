@@ -319,7 +319,8 @@
 
 /* ---- Cards ---- */
 .fiche-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--fp-sp-4); }
-@media (max-width: 640px) { .fiche-cards { grid-template-columns: 1fr; } }
+@media (max-width: 900px) { .fiche-cards { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 540px) { .fiche-cards { grid-template-columns: 1fr; } }
 
 .fiche-card {
     background: #fff;
@@ -350,6 +351,109 @@
 @media (prefers-reduced-motion: reduce) {
     .fiche-card { transition: none !important; }
 }
+
+/* ============================================================
+   RESPONSIVE — screen breakpoints
+   ============================================================ */
+
+/* Tablet (≤ 992px) */
+@media (max-width: 992px) {
+    .fiche-page {
+        padding: 1rem 1.25rem 2.5rem;
+    }
+    .fiche-header {
+        padding: 1.6rem 1.8rem;
+        border-radius: 20px;
+    }
+    .fiche-title-ar {
+        font-size: 1.6rem;
+    }
+}
+
+/* Small tablet / large phone (≤ 768px) — matches main site .active breakpoint */
+@media (max-width: 768px) {
+    .fiche-page {
+        max-width: 100%;
+        margin: 0.5rem 0 0;
+        padding: 0.75rem 1rem 2rem;
+    }
+    .fiche-header {
+        flex-direction: column;
+        gap: var(--fp-sp-3);
+        padding: 1.4rem 1.4rem;
+        border-radius: 16px;
+    }
+    .fiche-brand {
+        align-items: flex-start;
+        text-align: start;
+    }
+    .fiche-title-ar {
+        font-size: 1.4rem;
+    }
+    .fiche-table {
+        font-size: var(--fp-fs-xs);
+    }
+    .fiche-table th, .fiche-table td {
+        padding: var(--fp-sp-2) var(--fp-sp-2);
+    }
+    .fiche-definition {
+        padding: var(--fp-sp-3) var(--fp-sp-4);
+    }
+    .fiche-section-num {
+        width: 36px; height: 36px;
+        border-radius: 10px;
+        font-size: 0.95rem;
+    }
+}
+
+/* Phone (≤ 540px) */
+@media (max-width: 540px) {
+    .fiche-page {
+        padding: 0.5rem 0.75rem 1.5rem;
+    }
+    .fiche-header {
+        padding: 1.2rem 1.2rem;
+        border-radius: 14px;
+        margin-bottom: var(--fp-sp-4);
+    }
+    .fiche-badge {
+        font-size: 0.7rem;
+        padding: 4px 11px;
+    }
+    .fiche-title-ar {
+        font-size: 1.25rem;
+    }
+    .fiche-title-fr {
+        font-size: 0.8rem;
+    }
+    .fiche-section-title h2 {
+        font-size: 1rem;
+    }
+    .fiche-text, .fiche-list li, .fiche-definition p {
+        font-size: 0.85rem;
+    }
+    /* Scrollable table on very small screens */
+    .fiche-table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        border-radius: 12px;
+    }
+}
+
+/* Very small phone (≤ 380px) */
+@media (max-width: 380px) {
+    .fiche-page {
+        padding: 0.4rem 0.5rem 1rem;
+    }
+    .fiche-header {
+        padding: 1rem;
+    }
+    .fiche-title-ar {
+        font-size: 1.1rem;
+    }
+}
+
 
 /* ============================================================
    PRINT
