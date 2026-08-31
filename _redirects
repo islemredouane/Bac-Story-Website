@@ -13,3 +13,7 @@
 /resultats-bac-2026.html /bac-2026 301
 /university/speciality/ensee /university/specialities 301
 /university/speciality/ens-anglais /university/specialities 301
+
+# Computer Science Moktasabat Clean Redirects
+/computer-science/moktasabat /resources/math/computer-science/moktasabat 301
+/computer-science/moktasabat/* /resources/math/computer-science/moktasabat/:splat 301
