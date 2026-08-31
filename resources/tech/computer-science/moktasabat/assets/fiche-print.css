@@ -115,9 +115,9 @@
     position: relative;
     direction: rtl;
     font-family: 'Tajawal', sans-serif;
-    max-width: 900px;
-    margin-inline: auto;
-    padding: var(--fp-sp-6) var(--fp-sp-6) var(--fp-sp-8);
+    max-width: 1200px;
+    margin: 2rem auto 0;
+    padding: 1rem 1.5rem 3rem;
     background: #fff;
 }
 
