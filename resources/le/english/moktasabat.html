@@ -108,58 +108,48 @@
     <link rel="stylesheet" href="/style.css?v=10.15">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/solid.min.css">
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden;
-            background-color: #f8f9fa;
-        }
-        .iframe-container {
-            width: 100%;
-            height: calc(100vh - 60px); /* Adjust height for the header */
-            border: none;
-        }
-        .header-bar {
-            height: 60px;
-            background-color: #2c5cc5;
-            color: white;
-            display: flex;
-            align-items: center;
-            padding: 0 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .header-bar a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-family: 'Tajawal', sans-serif;
-            font-weight: 700;
-        }
-        .header-bar h1 {
-            margin: 0 20px 0 0;
-            font-size: 1.2rem;
-            font-family: 'Tajawal', sans-serif;
-            font-weight: 700;
-        }
-    </style>
-</head>
-<body class="page-ready">
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5H3TNJ4"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+    </head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5H3TNJ4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<div id="navbar-placeholder"></div>
 
-    <div class="header-bar">
-        <a href="/resources/le/english"><i class="fas fa-arrow-right"></i> عودة</a>
-        <h1>المكتسبات القبلية في اللغة الإنجليزية</h1>
+<div class="resource-content active">
+    <div class="container">
+        <div class="ad-card-inject">
+            <a href="/resources/le/english" class="modern-cta-btn"><i class="fas fa-arrow-right"></i> العودة</a>
+        </div>
+        <h1 class="visually-hidden">المكتسبات القبلية في اللغة الإنجليزية</h1>
+        <div class="modern-section-header">
+            <h2>المكتسبات القبلية في اللغة الإنجليزية</h2>
+        </div>
+        <section class="pdf-viewer" style="text-align:center;padding-bottom:40px;">
+            <div class="pdf-wrapper">
+                <a href="https://t.me/islembacdz" target="_blank" rel="noopener" style="margin-bottom:40px;" class="search-telegram-btn">
+                    <i class="fab fa-telegram-plane"></i>
+                    <span>انضم إلينا على التلغرام</span>
+                </a>
+                <iframe src="https://drive.google.com/file/d/19HKp-JUfeMxMVykMj5DwDEmWHiHP9jU2/preview"
+                    class="responsive-pdf" loading="lazy" allowfullscreen></iframe>
+                <div class="pdf-buttons">
+                    <button onclick="toggleFullScreen(event)" class="full-btn" style="flex:1;border:none;font-size:16px;font-weight:500;cursor:pointer;">
+                        <i class="fa-solid fa-expand"></i> تكبير الملف
+                    </button>
+                    <a href="https://drive.google.com/uc?export=download&id=19HKp-JUfeMxMVykMj5DwDEmWHiHP9jU2" download class="down-btn"
+                        style="flex:1;text-decoration:none;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:500;">
+                        <i class="fa-solid fa-download"></i> تحميل الملف
+                    </a>
+                </div>
+            </div>
+        </section>
+        
     </div>
+</div>
 
-    <iframe class="iframe-container" src="https://drive.google.com/file/d/19HKp-JUfeMxMVykMj5DwDEmWHiHP9jU2/preview" allow="autoplay"></iframe>
-
+<div id="global-cta-placeholder"></div>
+<div id="footer-placeholder"></div>
+<script src="/ads-config.js?v=1.12"></script>
+<script src="/components/shared.js?v=9.34"></script>
+<script src="/script.js?v=8.7"></script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "6153c3a6dd54435780cd9d84f9f958f8"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
