@@ -51,9 +51,18 @@ The stream formerly known as **"شعبة تقني رياضي"** (Technical Mathe
 ## Plans & Challenges
 
 - [الخطط والتحديات](https://www.bac-story.com/plans): Overview of all monthly study plans and excellence challenges.
-- [الخطط الشهرية](https://www.bac-story.com/plans/monthly): Monthly excellence study plans for the full academic year (September through April) plus a prerequisite knowledge booklet.
-- [خطط التميز في المواد](https://www.bac-story.com/plans/subject-plans): Subject-specific excellence plans for Arabic Literature, Islamic Studies, History & Geography, French, and English.
-- [تحديات التميز](https://www.bac-story.com/plans/challenges): Excellence challenges for Arabic Literature and memorization subjects.
+- [الخطط الشهرية](https://www.bac-story.com/plans/monthly): Monthly excellence study plans for the full academic year — individual plan pages: [كُتيّب المكتسبات القبلية](https://www.bac-story.com/plans/monthly/prerequisites), [سبتمبر](https://www.bac-story.com/plans/monthly/september), [أكتوبر](https://www.bac-story.com/plans/monthly/october), [نوفمبر](https://www.bac-story.com/plans/monthly/november), [ديسمبر — خطة الاستدراك](https://www.bac-story.com/plans/monthly/december), [جانفي](https://www.bac-story.com/plans/monthly/january), [فيفري](https://www.bac-story.com/plans/monthly/february), [مارس](https://www.bac-story.com/plans/monthly/march), [أفريل](https://www.bac-story.com/plans/monthly/april), [منظم الخطط الشهرية](https://www.bac-story.com/plans/monthly/organizer).
+- [خطط التميز في المواد](https://www.bac-story.com/plans/subject-plans): Subject-specific excellence plans — individual pages: [كُتيّب المراجع المعتمدة](https://www.bac-story.com/plans/subject-plans/references), [الأدب العربي](https://www.bac-story.com/plans/subject-plans/arabic), [العلوم الإسلامية](https://www.bac-story.com/plans/subject-plans/islamic), [التاريخ والجغرافيا](https://www.bac-story.com/plans/subject-plans/history-geography), [اللغة الفرنسية](https://www.bac-story.com/plans/subject-plans/french), [اللغة الإنجليزية](https://www.bac-story.com/plans/subject-plans/english).
+- [تحديات التميز](https://www.bac-story.com/plans/challenges): Excellence challenges — individual pages: [تحدي الأدب العربي](https://www.bac-story.com/plans/challenges/arabic), [تحدي مواد الحفظ](https://www.bac-story.com/plans/challenges/memorization).
+
+## Prerequisites (المكتسبات القبلية)
+
+Subject-specific prerequisite knowledge booklets for Baccalaureate 2027 preparation:
+- [المكتسبات القبلية في المحاسبة](https://www.bac-story.com/resources/ge/accounting/moktasabat): Prerequisites for Accounting — Management & Economics stream.
+- [المكتسبات القبلية في اللغة الإسبانية](https://www.bac-story.com/resources/le/spanish/moktasabat): Prerequisites for Spanish — Foreign Languages stream.
+- [المكتسبات القبلية في اللغة الإنجليزية — لغات أجنبية](https://www.bac-story.com/resources/le/english/moktasabat): Prerequisites for English — Foreign Languages stream.
+- [المكتسبات القبلية في اللغة الإنجليزية — آداب وفلسفة](https://www.bac-story.com/resources/lp/english/moktasabat): Prerequisites for English — Literature & Philosophy stream.
+- [المكتسبات القبلية في اللغة الفرنسية](https://www.bac-story.com/resources/le/french/moktasabat): Prerequisites for French — Foreign Languages stream.
 
 ## Tools
 
