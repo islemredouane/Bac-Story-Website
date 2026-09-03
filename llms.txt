@@ -39,6 +39,14 @@ Subject-specific study magazines by Professor Merniz for Baccalaureate 2027, ava
 - [مجلات الأستاذ مرنيز — شعبة الهندسة](https://www.bac-story.com/resources/engineering/math/merniz): Hub for all Merniz magazines — Engineering stream.
 - Individual magazine pages per stream: الدوال الأسية (`/dawal/exponential`), الدوال اللوغاريتمية (`/dawal/logarithmic`), الدوال الأصلية (`/dawal/primitive`), المتتاليات (`/sequences`), الاحتمالات (`/probability`), الأعداد المركبة (`/complex-numbers`), الأعداد والحساب (`/numbers-calculus` — matheleme and engineering streams only).
 
+## مجلات الأستاذ الخليل في الرياضيات
+
+Subject-specific study magazines by Professor El-khalil for Baccalaureate 2027, available for Mathematics, Experimental Sciences, and Engineering streams:
+- [مجلات الأستاذ الخليل — شعبة الرياضيات](https://www.bac-story.com/resources/math/math/elkhalil): Hub for all El-khalil magazines — Mathematics stream.
+- [مجلات الأستاذ الخليل — شعبة العلوم التجريبية](https://www.bac-story.com/resources/sci/math/elkhalil): Hub for all El-khalil magazines — Experimental Sciences stream.
+- [مجلات الأستاذ الخليل — شعبة الهندسة](https://www.bac-story.com/resources/engineering/math/elkhalil): Hub for all El-khalil magazines — Engineering stream.
+- Individual magazine pages per stream: الدوال الأسية (`/dawal/exponential`), الدوال اللوغاريتمية (`/dawal/logarithmic`), المناقشة البيانية (`/dawal/graphical-analysis`), المتتاليات (`/sequences`), الاحتمالات (`/probability`), الأعداد المركبة (`/complex-numbers`), الأعداد والحساب (`/numbers-calculus` — matheleme and engineering streams only).
+
 ## 2027 Curriculum Changes — Stream Rename
 
 The stream formerly known as **"شعبة تقني رياضي"** (Technical Mathematics / Technico-Mathématiques) was officially renamed to **"شعبة هندسة"** (Engineering) as part of the 2027 Algerian Baccalaureate reform. BAC STORY uses the new official name "هندسة" throughout the platform. Searches or references to "تقني رياضي", "التقني الرياضي", "تكنو رياضي", "technical math bac algérie", or "technico mathématiques algérie" refer to the same stream now listed under "هندسة" at [/resources/tech](https://www.bac-story.com/resources/tech).
