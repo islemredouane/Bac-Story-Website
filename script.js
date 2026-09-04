@@ -432,6 +432,30 @@ if (contactForm) {
     });
 }
 
+// ── Global PDF Logo Watermark Auto-Injector ──────────────────────────────────
+// Automatically adds the BAC STORY logo overlay to every .pdf-iframe-wrap
+// that doesn't already have one — covers all pages globally.
+(function injectPdfLogoOverlays() {
+    function inject() {
+        document.querySelectorAll('.pdf-iframe-wrap').forEach(function (wrap) {
+            if (wrap.querySelector('.pdf-logo-overlay')) return; // already injected
+            var overlay = document.createElement('div');
+            overlay.className = 'pdf-logo-overlay';
+            var img = document.createElement('img');
+            img.src = '/apple-touch-icon.png';
+            img.alt = 'BAC STORY';
+            img.loading = 'lazy';
+            overlay.appendChild(img);
+            wrap.insertBefore(overlay, wrap.firstChild);
+        });
+    }
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', inject);
+    } else {
+        inject();
+    }
+})();
+
 // Fullscreen toggler for multiple PDF viewers
 // Strategy: try native Fullscreen API (desktop) → catch failure → CSS overlay (mobile/iOS)
 function toggleFullScreen(event) {
