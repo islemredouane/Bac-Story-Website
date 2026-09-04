@@ -3250,7 +3250,7 @@ body.search-active .mobile-bottom-bar,
 .pdf-logo-overlay {
     position: absolute;
     top: 6px;
-    left: 6px;
+    right: 6px;
     width: 42px;
     height: 42px;
     border-radius: 10px;
@@ -3266,10 +3266,7 @@ body.search-active .mobile-bottom-bar,
     object-fit: cover;
     display: block;
 }
-/* Hide logo overlay in fullscreen */
-.pdf-wrapper.pdf-fullscreen .pdf-logo-overlay {
-    display: none !important;
-}
+
 
 .responsive-pdf {
     display: block;
