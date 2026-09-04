@@ -1359,10 +1359,9 @@ window.switchPdf = function(button, fileId, isInit = false) {
 
     const pill = bar.querySelector('.pdf-switcher-pill');
     if (pill) {
-        const barRect = bar.getBoundingClientRect();
-        const btnRect = button.getBoundingClientRect();
-        pill.style.width = btnRect.width + 'px';
-        pill.style.left = (btnRect.left - barRect.left) + 'px';
+        // Use offsetLeft to correctly position the pill regardless of scroll position
+        pill.style.width = button.offsetWidth + 'px';
+        pill.style.left = button.offsetLeft + 'px';
     }
 
     if (!isInit) {
