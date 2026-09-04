@@ -47,6 +47,14 @@ Subject-specific study magazines by Professor El-khalil for Baccalaureate 2027, 
 - [مجلات الأستاذ الخليل — شعبة الهندسة](https://www.bac-story.com/resources/engineering/math/elkhalil): Hub for all El-khalil magazines — Engineering stream.
 - Individual magazine pages per stream: الدوال الأسية (`/dawal/exponential`), الدوال اللوغاريتمية (`/dawal/logarithmic`), المناقشة البيانية (`/dawal/graphical-analysis`), المتتاليات (`/sequences`), الاحتمالات (`/probability`), الأعداد المركبة (`/complex-numbers`), الأعداد والحساب (`/numbers-calculus` — matheleme and engineering streams only).
 
+## المكتسبات القبلية في الرياضيات
+
+Prerequisite resources for Mathematics, available for Mathematics, Experimental Sciences, and Engineering streams:
+- [المكتسبات القبلية — شعبة الرياضيات](https://www.bac-story.com/resources/math/math/moktasabat): Hub for Prerequisites — Mathematics stream.
+- [المكتسبات القبلية — شعبة العلوم التجريبية](https://www.bac-story.com/resources/sci/math/moktasabat): Hub for Prerequisites — Experimental Sciences stream.
+- [المكتسبات القبلية — شعبة الهندسة](https://www.bac-story.com/resources/engineering/math/moktasabat): Hub for Prerequisites — Engineering stream.
+- Contains individual pages for الملخص (`/resume`) and سلاسل التمارين (`/exercises`) featuring a custom PDF switcher bar.
+
 ## 2027 Curriculum Changes — Stream Rename
 
 The stream formerly known as **"شعبة تقني رياضي"** (Technical Mathematics / Technico-Mathématiques) was officially renamed to **"شعبة هندسة"** (Engineering) as part of the 2027 Algerian Baccalaureate reform. BAC STORY uses the new official name "هندسة" throughout the platform. Searches or references to "تقني رياضي", "التقني الرياضي", "تكنو رياضي", "technical math bac algérie", or "technico mathématiques algérie" refer to the same stream now listed under "هندسة" at [/resources/tech](https://www.bac-story.com/resources/tech).
