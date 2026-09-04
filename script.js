@@ -437,9 +437,8 @@ if (contactForm) {
 function toggleFullScreen(event) {
     const btn = event.currentTarget;
     const wrapper = btn.closest('.pdf-wrapper');
-    const iframe = wrapper.querySelector('iframe');
 
-    const ICON_EXPAND = '<i class="fa-solid fa-expand"></i> تكبير الملف';
+    const ICON_EXPAND   = '<i class="fa-solid fa-expand"></i> تكبير الملف';
     const ICON_COMPRESS = '<i class="fa-solid fa-compress"></i> تصغير الملف';
 
     // ── CSS overlay helpers ──────────────────────────────────────────────────
@@ -454,31 +453,27 @@ function toggleFullScreen(event) {
         btn.innerHTML = ICON_EXPAND;
     }
 
-    // ── Already in CSS fullscreen? → exit ───────────────────────────────────
-    if (wrapper.classList.contains('pdf-fullscreen')) {
+    // ── Already in fullscreen? → exit ────────────────────────────────────────
+    const fsEl = document.fullscreenElement || document.webkitFullscreenElement;
+    if (fsEl === wrapper || wrapper.classList.contains('pdf-fullscreen')) {
+        if (fsEl === wrapper) {
+            (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+        }
         exitCSSFullscreen();
         return;
     }
 
-    // ── Already in native fullscreen? → exit ────────────────────────────────
-    const fsEl = document.fullscreenElement || document.webkitFullscreenElement;
-    if (fsEl === wrapper) {
-        (document.exitFullscreen || document.webkitExitFullscreen).call(document);
-        return;
-    }
-
-    // ── Try native fullscreen; fall back to CSS on rejection (Android) ───────
+    // ── Try native fullscreen on wrapper; fall back to CSS (mobile/iOS) ───────
     const reqFS = wrapper.requestFullscreen
         || wrapper.webkitRequestFullscreen
         || wrapper.msRequestFullscreen;
 
     if (reqFS) {
-        // Add the class manually so our CSS overlays show up in native FS
         wrapper.classList.add('pdf-fullscreen');
         btn.innerHTML = ICON_COMPRESS;
         reqFS.call(wrapper).catch(() => enterCSSFullscreen());
     } else {
-        // iOS Safari — requestFullscreen not available on iframes
+        // iOS Safari — native FS not supported
         enterCSSFullscreen();
     }
 }
