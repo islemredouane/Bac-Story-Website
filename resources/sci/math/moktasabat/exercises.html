@@ -84,12 +84,12 @@
                         <span>انضم إلينا على التلغرام</span>
                     </a>
 
-                    <div style="margin-bottom: 20px; display: flex; justify-content: center;">
-                        <div class="bs-tab-bar" style="width: auto; display: inline-flex;" id="pdfTabBar">
-                            <div class="bs-tab-pill" id="pdfTabPill"></div>
-                            <button class="bs-tab-btn active" onclick="switchPdf(this, 'FILE_ID_1')"><i class="fas fa-file-pdf"></i> السلسلة 1</button>
-                            <button class="bs-tab-btn" onclick="switchPdf(this, 'FILE_ID_2')"><i class="fas fa-file-pdf"></i> السلسلة 2</button>
-                            <button class="bs-tab-btn" onclick="switchPdf(this, 'FILE_ID_3')"><i class="fas fa-file-pdf"></i> الحلول</button>
+                    <div class="pdf-switcher-wrap">
+                        <div class="pdf-switcher-toggle" id="pdfTabBar">
+                            <span class="pdf-switcher-pill" id="pdfTabPill"></span>
+                            <button class="pdf-switcher-tab active" onclick="switchPdf(this, 'FILE_ID_1')"><i class="fas fa-file-pdf"></i> السلسلة 1</button>
+                            <button class="pdf-switcher-tab" onclick="switchPdf(this, 'FILE_ID_2')"><i class="fas fa-file-pdf"></i> السلسلة 2</button>
+                            <button class="pdf-switcher-tab" onclick="switchPdf(this, 'FILE_ID_3')"><i class="fas fa-file-pdf"></i> الحلول</button>
                         </div>
                     </div>
 
@@ -122,7 +122,7 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const activeBtn = document.querySelector('.bs-tab-btn.active');
+            const activeBtn = document.querySelector('.pdf-switcher-tab.active');
             if (activeBtn) {
                 setTimeout(() => switchPdf(activeBtn, 'FILE_ID_1', true), 100);
             }
