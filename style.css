@@ -3236,10 +3236,39 @@ body.search-active .mobile-bottom-bar,
 .pdf-wrapper {
     max-width: 900px;
     width: 100%;
-
     margin: 0 auto;
     padding: 0 16px;
     box-sizing: border-box;
+    position: relative;
+}
+
+/* ── PDF iframe logo watermark overlay ── */
+.pdf-iframe-wrap {
+    position: relative;
+    display: block;
+}
+.pdf-logo-overlay {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 10;
+    pointer-events: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    opacity: 0.92;
+}
+.pdf-logo-overlay img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+/* Hide logo overlay in fullscreen */
+.pdf-wrapper.pdf-fullscreen .pdf-logo-overlay {
+    display: none !important;
 }
 
 .responsive-pdf {
