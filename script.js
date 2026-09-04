@@ -462,18 +462,21 @@ function toggleFullScreen(event) {
 
     // ── Already in native fullscreen? → exit ────────────────────────────────
     const fsEl = document.fullscreenElement || document.webkitFullscreenElement;
-    if (fsEl === iframe) {
+    if (fsEl === wrapper) {
         (document.exitFullscreen || document.webkitExitFullscreen).call(document);
         return;
     }
 
     // ── Try native fullscreen; fall back to CSS on rejection (Android) ───────
-    const reqFS = iframe.requestFullscreen
-        || iframe.webkitRequestFullscreen
-        || iframe.msRequestFullscreen;
+    const reqFS = wrapper.requestFullscreen
+        || wrapper.webkitRequestFullscreen
+        || wrapper.msRequestFullscreen;
 
     if (reqFS) {
-        reqFS.call(iframe).catch(() => enterCSSFullscreen());
+        // Add the class manually so our CSS overlays show up in native FS
+        wrapper.classList.add('pdf-fullscreen');
+        btn.innerHTML = ICON_COMPRESS;
+        reqFS.call(wrapper).catch(() => enterCSSFullscreen());
     } else {
         // iOS Safari — requestFullscreen not available on iframes
         enterCSSFullscreen();
@@ -485,6 +488,9 @@ function _syncFSButtons() {
     if (!document.fullscreenElement && !document.webkitFullscreenElement) {
         document.querySelectorAll('.full-btn').forEach(function (b) {
             b.innerHTML = '<i class="fa-solid fa-expand"></i> تكبير الملف';
+        });
+        document.querySelectorAll('.pdf-wrapper.pdf-fullscreen').forEach(function (w) {
+            w.classList.remove('pdf-fullscreen');
         });
     }
 }
