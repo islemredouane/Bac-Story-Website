@@ -3489,32 +3489,27 @@ body.pdf-body-lock {
     inset: 0 !important;
     width: 100vw !important;
     height: 100dvh !important;
-    /* dynamic viewport height accounts for mobile browser chrome */
     max-width: none !important;
     z-index: 99999 !important;
     background: #000 !important;
     border-radius: 0 !important;
     padding: 0 !important;
     margin: 0 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: stretch !important;
+    display: block !important;
     box-sizing: border-box !important;
 }
 .pdf-wrapper.pdf-fullscreen .pdf-iframe-wrap {
-    flex: 1 1 auto !important;
-    display: flex !important;
-    flex-direction: column !important;
-    min-height: 0 !important;
+    position: absolute !important;
+    inset: 0 !important;
     width: 100% !important;
+    height: 100% !important;
 }
 
 .pdf-wrapper.pdf-fullscreen iframe {
-    flex: 1 1 auto !important;
     width: 100% !important;
     height: 100% !important;
-    min-height: 0 !important;
     border: none !important;
+    display: block !important;
 }
 /* Floating bottom bar for fullscreen buttons */
 .pdf-wrapper.pdf-fullscreen .pdf-buttons {
