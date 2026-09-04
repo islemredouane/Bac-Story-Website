@@ -71,6 +71,15 @@
         .pdf-switcher-wrap {
             text-align: center;
             margin: 0 0 20px 0;
+            overflow-x: auto;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+            /* Hide scrollbar for a cleaner look */
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .pdf-switcher-wrap::-webkit-scrollbar {
+            display: none;
         }
         .pdf-switcher-toggle {
             display: inline-flex !important;
@@ -83,6 +92,7 @@
             gap: 0;
             overflow: hidden;
             border: 1px solid rgba(44, 92, 197, 0.1);
+            min-width: max-content; /* Ensure it doesn't shrink when scrolling */
         }
         .pdf-switcher-pill {
             position: absolute;
@@ -112,8 +122,12 @@
             color: #fff !important;
         }
         @media (max-width: 600px) {
-            .pdf-switcher-wrap { display: flex; justify-content: center; }
-            .pdf-switcher-toggle { max-width: 100%; }
+            .pdf-switcher-wrap { 
+                display: flex; 
+                justify-content: flex-start; /* Let it scroll from the start on mobile */
+                text-align: right;
+                padding-bottom: 5px; /* Spacing for shadow/pill */
+            }
             .pdf-switcher-tab { padding: 0.5rem 0.9rem; font-size: 0.8rem; }
         }
     </style>
