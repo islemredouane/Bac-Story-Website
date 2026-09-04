@@ -3547,7 +3547,8 @@ body.pdf-body-lock {
 .pdf-wrapper.pdf-fullscreen .search-telegram-btn,
 .pdf-wrapper.pdf-fullscreen .pdf-switcher-wrap,
 .pdf-wrapper.pdf-fullscreen .modern-section-header,
-.pdf-wrapper.pdf-fullscreen .correct-btn {
+.pdf-wrapper.pdf-fullscreen .correct-btn,
+.pdf-wrapper.pdf-fullscreen .share-btn {
     display: none !important;
 }
 
