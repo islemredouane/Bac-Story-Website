@@ -1339,23 +1339,37 @@ function showBacToast(message) {
 /* ==========================================================================
    Premium PDF Switcher (for individual pages with multiple files)
    ========================================================================== */
-window.switchPdf = function(button, fileId) {
+window.switchPdf = function(button, fileId, isInit = false) {
     // 1. Update the iframe source
     const iframe = document.querySelector('.responsive-pdf');
     const downloadBtn = document.querySelector('.down-btn');
     
-    if (iframe) {
+    if (iframe && !isInit) {
         iframe.src = `https://drive.google.com/file/d/${fileId}/preview`;
     }
-    if (downloadBtn) {
+    if (downloadBtn && !isInit) {
         downloadBtn.href = `https://drive.google.com/uc?export=download&id=${fileId}`;
     }
 
     // 2. Manage active button states
-    const allBtns = document.querySelectorAll('.pdf-switcher-btn');
+    const bar = button.closest('.bs-tab-bar');
+    if (!bar) return;
+    
+    const allBtns = bar.querySelectorAll('.bs-tab-btn');
     allBtns.forEach(btn => btn.classList.remove('active'));
     button.classList.add('active');
 
-    // 3. Scroll the active button into view if it's off-screen (useful for mobile)
-    button.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    // 3. Move the pill
+    const pill = bar.querySelector('.bs-tab-pill');
+    if (pill) {
+        const barRect = bar.getBoundingClientRect();
+        const btnRect = button.getBoundingClientRect();
+        pill.style.width = btnRect.width + 'px';
+        pill.style.left = (btnRect.left - barRect.left) + 'px';
+    }
+
+    // 4. Scroll the active button into view if it's off-screen
+    if (!isInit) {
+        button.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
 };
