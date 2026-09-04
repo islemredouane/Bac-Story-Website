@@ -3249,15 +3249,15 @@ body.search-active .mobile-bottom-bar,
 }
 .pdf-logo-overlay {
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 80px;
-    height: 55px;
-    border-radius: 0 0 0 12px;
+    top: 8px;
+    right: 11px;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
     overflow: hidden;
     z-index: 999;
     pointer-events: none;
-    box-shadow: -2px 2px 8px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
     opacity: 1;
 }
 .pdf-logo-overlay img {
@@ -3510,12 +3510,32 @@ body.pdf-body-lock {
     border: none !important;
 }
 
-/* Keep the exit button visible, overlay it at the bottom */
+/* Floating bottom bar for fullscreen buttons */
 .pdf-wrapper.pdf-fullscreen .pdf-buttons {
-    flex: 0 0 auto !important;
-    background: rgba(0, 0, 0, 0.75) !important;
-    padding: 6px 12px !important;
-    justify-content: center !important;
+    position: absolute !important;
+    bottom: 24px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px);
+    padding: 8px !important;
+    border-radius: 100px !important;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2) !important;
+    display: flex !important;
+    gap: 8px !important;
+    z-index: 100000 !important;
+    width: max-content !important;
+    max-width: 90% !important;
+}
+
+.pdf-wrapper.pdf-fullscreen .pdf-buttons button,
+.pdf-wrapper.pdf-fullscreen .pdf-buttons a {
+    margin: 0 !important;
+    padding: 10px 20px !important;
+    border-radius: 100px !important;
+    font-size: 14px !important;
+    flex: none !important;
+    white-space: nowrap !important;
 }
 
 /* Hide non-essential elements in CSS fullscreen */
