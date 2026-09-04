@@ -3523,19 +3523,22 @@ body.pdf-body-lock {
     border-radius: 100px !important;
     box-shadow: 0 8px 24px rgba(0,0,0,0.2) !important;
     display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
     gap: 8px !important;
     z-index: 100000 !important;
     width: max-content !important;
-    max-width: 90% !important;
+    max-width: 92vw !important;
 }
 
 .pdf-wrapper.pdf-fullscreen .pdf-buttons button,
 .pdf-wrapper.pdf-fullscreen .pdf-buttons a {
     margin: 0 !important;
-    padding: 10px 20px !important;
+    padding: 10px 16px !important;
     border-radius: 100px !important;
-    font-size: 14px !important;
+    font-size: 13px !important;
     flex: none !important;
+    width: auto !important;
     white-space: nowrap !important;
 }
 
