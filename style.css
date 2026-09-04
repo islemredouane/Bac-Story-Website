@@ -3494,7 +3494,24 @@ body.pdf-body-lock {
 
 /* Hide non-essential elements in CSS fullscreen */
 .pdf-wrapper.pdf-fullscreen .telegram-btn,
+.pdf-wrapper.pdf-fullscreen .search-telegram-btn,
+.pdf-wrapper.pdf-fullscreen .pdf-switcher-wrap,
+.pdf-wrapper.pdf-fullscreen .modern-section-header,
 .pdf-wrapper.pdf-fullscreen .correct-btn {
+    display: none !important;
+}
+
+/* Also hide elements outside the wrapper via body lock class */
+body.pdf-body-lock #navbar-placeholder,
+body.pdf-body-lock .modern-section-header,
+body.pdf-body-lock .ad-card-inject,
+body.pdf-body-lock .search-telegram-btn,
+body.pdf-body-lock .pdf-switcher-wrap,
+body.pdf-body-lock [class*="header"],
+body.pdf-body-lock [class*="back-"],
+body.pdf-body-lock [class*="breadcrumb"],
+body.pdf-body-lock [id="global-cta-placeholder"],
+body.pdf-body-lock [id="footer-placeholder"] {
     display: none !important;
 }
 
