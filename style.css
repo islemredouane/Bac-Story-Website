@@ -3548,7 +3548,11 @@ body.pdf-body-lock {
 .pdf-wrapper.pdf-fullscreen .pdf-switcher-wrap,
 .pdf-wrapper.pdf-fullscreen .modern-section-header,
 .pdf-wrapper.pdf-fullscreen .correct-btn,
-.pdf-wrapper.pdf-fullscreen .share-btn {
+.pdf-wrapper.pdf-fullscreen .share-btn,
+.pdf-wrapper.pdf-fullscreen .correct-btn-group,
+.pdf-wrapper.pdf-fullscreen .view-all-btn,
+.pdf-wrapper.pdf-fullscreen .modern-cta-btn,
+.pdf-wrapper.pdf-fullscreen .auto-back-wrap {
     display: none !important;
 }
 
