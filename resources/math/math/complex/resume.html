@@ -149,17 +149,17 @@
                 <div class="pdf-switcher-wrap">
                     <div class="pdf-switcher-toggle" id="pdfTabBar">
                         <span class="pdf-switcher-pill" id="pdfTabPill"></span>
-                        <button class="pdf-switcher-tab active" onclick="switchPdf(this, 'PLACEHOLDER')"><i class="fas fa-file-pdf"></i> الملف الأول</button>
-                        
-                        
-                        
-                        
+                        <button class="pdf-switcher-tab active" onclick="switchPdf(this, '1FeaklS3MhSKvx_GNpXq4EPBqMQgHVh56')"><i class="fas fa-file-pdf"></i> مجلة الخليل</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1heIJ64bC8kDmDVzySi_arY_MqeAklY-W')"><i class="fas fa-file-pdf"></i> ملخص متفوقة</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1f7H6urerbj4zo8bEGnVaOD4hdPAaWtnD')"><i class="fas fa-file-pdf"></i> حالات مجموعات النقط</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1r2BXNz43pfoqHQSzaVNUR3z9vGKEubW8')"><i class="fas fa-file-pdf"></i> طريقة تعيين مجموعة النقط</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1reN-4KEm91X5hpzBEjoEyIkymIGdUi-n')"><i class="fas fa-file-pdf"></i> التحويلات النقطية</button>
                     </div>
                 </div>
 
                 <div class="pdf-wrapper">
                     <div class="pdf-iframe-wrap">
-                    <iframe src="https://drive.google.com/file/d/1YUg7C01h4rfcMx4WU6Ew_ImvXTafKhu5/preview"
+                    <iframe src="https://drive.google.com/file/d/1FeaklS3MhSKvx_GNpXq4EPBqMQgHVh56/preview"
                         class="responsive-pdf" loading="lazy" allowfullscreen></iframe>
                     </div>
                     
@@ -167,7 +167,7 @@
                         <button onclick="toggleFullScreen(event)" class="full-btn" style="flex:1;border:none;font-size:16px;font-weight:500;cursor:pointer;">
                             <i class="fa-solid fa-expand"></i> تكبير الملف
                         </button>
-                        <a href="https://drive.google.com/uc?export=download&id=1YUg7C01h4rfcMx4WU6Ew_ImvXTafKhu5" download class="down-btn"
+                        <a href="https://drive.google.com/uc?export=download&id=1FeaklS3MhSKvx_GNpXq4EPBqMQgHVh56" download class="down-btn"
                             style="flex:1;text-decoration:none;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:500;">
                             <i class="fa-solid fa-download"></i> تحميل الملف
                         </a>
@@ -190,7 +190,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             const activeBtn = document.querySelector('.pdf-switcher-tab.active');
             if (activeBtn) {
-                setTimeout(() => switchPdf(activeBtn, '1YUg7C01h4rfcMx4WU6Ew_ImvXTafKhu5', true), 100);
+                setTimeout(() => switchPdf(activeBtn, '1FeaklS3MhSKvx_GNpXq4EPBqMQgHVh56', true), 100);
             }
         });
     </script>
