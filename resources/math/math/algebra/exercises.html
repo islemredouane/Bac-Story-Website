@@ -149,17 +149,20 @@
                 <div class="pdf-switcher-wrap">
                     <div class="pdf-switcher-toggle" id="pdfTabBar">
                         <span class="pdf-switcher-pill" id="pdfTabPill"></span>
-                        <button class="pdf-switcher-tab active" onclick="switchPdf(this, 'PLACEHOLDER')"><i class="fas fa-file-pdf"></i> الملف الأول</button>
-                        
-                        
-                        
-                        
+                        <button class="pdf-switcher-tab active" onclick="switchPdf(this, '1uTGElxZ2KlmyIak2g4qCGbjsPN99ZDy-')"><i class="fas fa-file-pdf"></i> سلسلة مصطفاي</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1nYRbFJGTptGBYu6ZVyUc9HR-1pxJlmcv')"><i class="fas fa-file-pdf"></i> تمارين تدريبية</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1TcGeUlVZaJWrVNn9rR5vGrEko0jBy9CA')"><i class="fas fa-file-pdf"></i> تمارين الموافقات و القسمة في Z</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1j8VpPiMoY_NcB_E-qRUv7PlX4L9DmPhL')"><i class="fas fa-file-pdf"></i> تمارين القسمة في Z في البكالوريا</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1k_BjPhHE9cQTB2xLVFHro1LbNcV4x2WT')"><i class="fas fa-file-pdf"></i> تمرينين مع الحل</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '14lCaK9CXwMMQomNQU7gqajPkJ7Dn5Ibm')"><i class="fas fa-file-pdf"></i> تمرين شامل</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1gW_EDF_D3EXU-a9ivLweAxuIHa3ZPOZU')"><i class="fas fa-file-pdf"></i> باقة عقبة</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1x70qDA7LhWlXJd-CROoltWznjt63W9Rr')"><i class="fas fa-file-pdf"></i> باقة 70 تمرينا</button>
                     </div>
                 </div>
 
                 <div class="pdf-wrapper">
                     <div class="pdf-iframe-wrap">
-                    <iframe src="https://drive.google.com/file/d/1YUg7C01h4rfcMx4WU6Ew_ImvXTafKhu5/preview"
+                    <iframe src="https://drive.google.com/file/d/1uTGElxZ2KlmyIak2g4qCGbjsPN99ZDy-/preview"
                         class="responsive-pdf" loading="lazy" allowfullscreen></iframe>
                     </div>
                     
@@ -167,7 +170,7 @@
                         <button onclick="toggleFullScreen(event)" class="full-btn" style="flex:1;border:none;font-size:16px;font-weight:500;cursor:pointer;">
                             <i class="fa-solid fa-expand"></i> تكبير الملف
                         </button>
-                        <a href="https://drive.google.com/uc?export=download&id=1YUg7C01h4rfcMx4WU6Ew_ImvXTafKhu5" download class="down-btn"
+                        <a href="https://drive.google.com/uc?export=download&id=1uTGElxZ2KlmyIak2g4qCGbjsPN99ZDy-" download class="down-btn"
                             style="flex:1;text-decoration:none;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:500;">
                             <i class="fa-solid fa-download"></i> تحميل الملف
                         </a>
@@ -190,7 +193,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             const activeBtn = document.querySelector('.pdf-switcher-tab.active');
             if (activeBtn) {
-                setTimeout(() => switchPdf(activeBtn, '1YUg7C01h4rfcMx4WU6Ew_ImvXTafKhu5', true), 100);
+                setTimeout(() => switchPdf(activeBtn, '1uTGElxZ2KlmyIak2g4qCGbjsPN99ZDy-', true), 100);
             }
         });
     </script>
