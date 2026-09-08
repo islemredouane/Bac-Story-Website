@@ -149,17 +149,21 @@
                 <div class="pdf-switcher-wrap">
                     <div class="pdf-switcher-toggle" id="pdfTabBar">
                         <span class="pdf-switcher-pill" id="pdfTabPill"></span>
-                        <button class="pdf-switcher-tab active" onclick="switchPdf(this, 'PLACEHOLDER')"><i class="fas fa-file-pdf"></i> الملف الأول</button>
-                        
-                        
-                        
-                        
+                        <button class="pdf-switcher-tab active" onclick="switchPdf(this, '1wThD04xC-VLEfuEIQCmUVIHgoPjg1-VE')"><i class="fas fa-file-pdf"></i> موضوع 1</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1hM43F08lLElL6baOpy683jOn53FWOr43')"><i class="fas fa-file-pdf"></i> موضوع 2</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '17J8jkuXSCk4u_akanRc7WuCq2Cbicf9c')"><i class="fas fa-file-pdf"></i> موضوع 3</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1NOO7u3qz6iqezniEelbqHg7cNRi-CB1z')"><i class="fas fa-file-pdf"></i> موضوع 4</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1r9sr_Vc7eccl7iZ24z8aLTYAsE4RX6nk')"><i class="fas fa-file-pdf"></i> موضوع 5</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1ZXV5kwzNjdKIWDJrHd8btTwOKgP92DOb')"><i class="fas fa-file-pdf"></i> موضوع 6</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1hvZ8_mmqsdLXkjd9P-CC-f28C63-y_fa')"><i class="fas fa-file-pdf"></i> موضوع 7</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1HFxBnWU9KNFBzYnd-5TSkpg-Oz3_4-kU')"><i class="fas fa-file-pdf"></i> موضوع 8</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1gufgUgEQMXvVmlRWSfeNU8HTKfDIS3FI')"><i class="fas fa-file-pdf"></i> موضوع 9</button>
                     </div>
                 </div>
 
                 <div class="pdf-wrapper">
                     <div class="pdf-iframe-wrap">
-                    <iframe src="https://drive.google.com/file/d/1YUg7C01h4rfcMx4WU6Ew_ImvXTafKhu5/preview"
+                    <iframe src="https://drive.google.com/file/d/1wThD04xC-VLEfuEIQCmUVIHgoPjg1-VE/preview"
                         class="responsive-pdf" loading="lazy" allowfullscreen></iframe>
                     </div>
                     
@@ -167,7 +171,7 @@
                         <button onclick="toggleFullScreen(event)" class="full-btn" style="flex:1;border:none;font-size:16px;font-weight:500;cursor:pointer;">
                             <i class="fa-solid fa-expand"></i> تكبير الملف
                         </button>
-                        <a href="https://drive.google.com/uc?export=download&id=1YUg7C01h4rfcMx4WU6Ew_ImvXTafKhu5" download class="down-btn"
+                        <a href="https://drive.google.com/uc?export=download&id=1wThD04xC-VLEfuEIQCmUVIHgoPjg1-VE" download class="down-btn"
                             style="flex:1;text-decoration:none;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:500;">
                             <i class="fa-solid fa-download"></i> تحميل الملف
                         </a>
@@ -190,7 +194,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             const activeBtn = document.querySelector('.pdf-switcher-tab.active');
             if (activeBtn) {
-                setTimeout(() => switchPdf(activeBtn, '1YUg7C01h4rfcMx4WU6Ew_ImvXTafKhu5', true), 100);
+                setTimeout(() => switchPdf(activeBtn, '1wThD04xC-VLEfuEIQCmUVIHgoPjg1-VE', true), 100);
             }
         });
     </script>
