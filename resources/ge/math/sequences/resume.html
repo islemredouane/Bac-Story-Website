@@ -149,16 +149,13 @@
                 <div class="pdf-switcher-wrap">
                     <div class="pdf-switcher-toggle" id="pdfTabBar">
                         <span class="pdf-switcher-pill" id="pdfTabPill"></span>
-                        <button class="pdf-switcher-tab active" onclick="switchPdf(this, '1o12Qp6nHcwxpDBCohZ2lFIwgm2s8j27r')"><i class="fas fa-file-pdf"></i> مجلة المتتاليات</button>
-                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1QQ1VDf5Axqu4xq9Eqby2TmIWb-goTl_1')"><i class="fas fa-file-pdf"></i> مجلة الخليل</button>
-                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1ad6pKdsXXIyQPzOqVHo1VOhmJLrw86dc')"><i class="fas fa-file-pdf"></i> ملخص متفوقة</button>
-                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1bzp-Of4k6M4b2R_BEvmJS3P9SC4feUHy')"><i class="fas fa-file-pdf"></i> المتتاليات و البرهان بالتراجع</button>
+                        <button class="pdf-switcher-tab active" onclick="switchPdf(this, '150Ss1uZBJrEJB4AHMYMNnNO4SjQqve3O')"><i class="fas fa-file-pdf"></i> ملخص المتتاليات</button>
                     </div>
                 </div>
 
                 <div class="pdf-wrapper">
                     <div class="pdf-iframe-wrap">
-                    <iframe src="https://drive.google.com/file/d/1o12Qp6nHcwxpDBCohZ2lFIwgm2s8j27r/preview"
+                    <iframe src="https://drive.google.com/file/d/150Ss1uZBJrEJB4AHMYMNnNO4SjQqve3O/preview"
                         class="responsive-pdf" loading="lazy" allowfullscreen></iframe>
                     </div>
                     
@@ -166,7 +163,7 @@
                         <button onclick="toggleFullScreen(event)" class="full-btn" style="flex:1;border:none;font-size:16px;font-weight:500;cursor:pointer;">
                             <i class="fa-solid fa-expand"></i> تكبير الملف
                         </button>
-                        <a href="https://drive.google.com/uc?export=download&id=1o12Qp6nHcwxpDBCohZ2lFIwgm2s8j27r" download class="down-btn"
+                        <a href="https://drive.google.com/uc?export=download&id=150Ss1uZBJrEJB4AHMYMNnNO4SjQqve3O" download class="down-btn"
                             style="flex:1;text-decoration:none;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:500;">
                             <i class="fa-solid fa-download"></i> تحميل الملف
                         </a>
@@ -189,7 +186,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             const activeBtn = document.querySelector('.pdf-switcher-tab.active');
             if (activeBtn) {
-                setTimeout(() => switchPdf(activeBtn, '1o12Qp6nHcwxpDBCohZ2lFIwgm2s8j27r', true), 100);
+                setTimeout(() => switchPdf(activeBtn, '150Ss1uZBJrEJB4AHMYMNnNO4SjQqve3O', true), 100);
             }
         });
     </script>
