@@ -149,15 +149,17 @@
                 <div class="pdf-switcher-wrap">
                     <div class="pdf-switcher-toggle" id="pdfTabBar">
                         <span class="pdf-switcher-pill" id="pdfTabPill"></span>
-                        <button class="pdf-switcher-tab active" onclick="switchPdf(this, '18YtIWkjZac43FBdO0DdUPvLV0OUB_8-l')"><i class="fas fa-file-pdf"></i> سلسلة بخاخشة</button>
-                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1wCz0jU3RMQWb98xAsKvV-B5u9eyinbUk')"><i class="fas fa-file-pdf"></i> 30 تمرين محلول</button>
-                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1QNUfdLSvROGAibrIbVaBM72WA6mfJ_nM')"><i class="fas fa-file-pdf"></i> سلسلة تمارين</button>
+                        <button class="pdf-switcher-tab active" onclick="switchPdf(this, '1QNUfdLSvROGAibrIbVaBM72WA6mfJ_nM')"><i class="fas fa-file-pdf"></i> سلسلة تمارين الإحتمالات</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '18YtIWkjZac43FBdO0DdUPvLV0OUB_8-l')"><i class="fas fa-file-pdf"></i> تمارين محلولة في الإحتمالات</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1wCz0jU3RMQWb98xAsKvV-B5u9eyinbUk')"><i class="fas fa-file-pdf"></i> 30 تمرين محلول في الإحتمالات</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1piV6oHIl2nExxfeFxXky6Vu95dDpOB3B')"><i class="fas fa-file-pdf"></i> مجلة الخليل في الإحتمالات</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1uv27pBKOkcC3yx0fp3uMU25rQLjD4k9f')"><i class="fas fa-file-pdf"></i> تمارين الإحتمالات الواردة في البكالوريا</button>
                     </div>
                 </div>
 
                 <div class="pdf-wrapper">
                     <div class="pdf-iframe-wrap">
-                    <iframe src="https://drive.google.com/file/d/18YtIWkjZac43FBdO0DdUPvLV0OUB_8-l/preview"
+                    <iframe src="https://drive.google.com/file/d/1QNUfdLSvROGAibrIbVaBM72WA6mfJ_nM/preview"
                         class="responsive-pdf" loading="lazy" allowfullscreen></iframe>
                     </div>
                     
@@ -165,7 +167,7 @@
                         <button onclick="toggleFullScreen(event)" class="full-btn" style="flex:1;border:none;font-size:16px;font-weight:500;cursor:pointer;">
                             <i class="fa-solid fa-expand"></i> تكبير الملف
                         </button>
-                        <a href="https://drive.google.com/uc?export=download&id=18YtIWkjZac43FBdO0DdUPvLV0OUB_8-l" download class="down-btn"
+                        <a href="https://drive.google.com/uc?export=download&id=1QNUfdLSvROGAibrIbVaBM72WA6mfJ_nM" download class="down-btn"
                             style="flex:1;text-decoration:none;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:500;">
                             <i class="fa-solid fa-download"></i> تحميل الملف
                         </a>
@@ -188,7 +190,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             const activeBtn = document.querySelector('.pdf-switcher-tab.active');
             if (activeBtn) {
-                setTimeout(() => switchPdf(activeBtn, '18YtIWkjZac43FBdO0DdUPvLV0OUB_8-l', true), 100);
+                setTimeout(() => switchPdf(activeBtn, '1QNUfdLSvROGAibrIbVaBM72WA6mfJ_nM', true), 100);
             }
         });
     </script>
