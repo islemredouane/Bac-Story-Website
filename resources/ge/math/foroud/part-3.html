@@ -131,13 +131,15 @@
                 <div class="pdf-switcher-wrap">
                     <div class="pdf-switcher-toggle" id="pdfTabBar">
                         <span class="pdf-switcher-pill" id="pdfTabPill"></span>
-                        <button class="pdf-switcher-tab active" onclick="switchPdf(this, '1WbvNXyH2SSAd_UYGBkMw9EQrWffIwMX1')"><i class="fas fa-file-pdf"></i> فرض 1</button>
+                        <button class="pdf-switcher-tab active" onclick="switchPdf(this, '120LJljUTiiN-7-Gdw_PeShMjRwkyAxm_')"><i class="fas fa-file-pdf"></i> فرض 1</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1zKOQEMaC6d_FdBqCYComVq5P5vLyTdjr')"><i class="fas fa-file-pdf"></i> فرض 2</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1L3FikXfjfPcDqjnR6wlWnJGLmiC198JC')"><i class="fas fa-file-pdf"></i> فرض 3</button>
                     </div>
                 </div>
 
                 <div class="pdf-wrapper">
                     <div class="pdf-iframe-wrap">
-                    <iframe src="https://drive.google.com/file/d/1WbvNXyH2SSAd_UYGBkMw9EQrWffIwMX1/preview"
+                    <iframe src="https://drive.google.com/file/d/120LJljUTiiN-7-Gdw_PeShMjRwkyAxm_/preview"
                         class="responsive-pdf" loading="lazy" allowfullscreen></iframe>
                     </div>
                     
@@ -145,7 +147,7 @@
                         <button onclick="toggleFullScreen(event)" class="full-btn" style="flex:1;border:none;font-size:16px;font-weight:500;cursor:pointer;">
                             <i class="fa-solid fa-expand"></i> تكبير الملف
                         </button>
-                        <a href="https://drive.google.com/uc?export=download&id=1WbvNXyH2SSAd_UYGBkMw9EQrWffIwMX1" download class="down-btn"
+                        <a href="https://drive.google.com/uc?export=download&id=120LJljUTiiN-7-Gdw_PeShMjRwkyAxm_" download class="down-btn"
                             style="flex:1;text-decoration:none;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:500;">
                             <i class="fa-solid fa-download"></i> تحميل الملف
                         </a>
@@ -168,7 +170,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             const activeBtn = document.querySelector('.pdf-switcher-tab.active');
             if (activeBtn) {
-                setTimeout(() => switchPdf(activeBtn, '1WbvNXyH2SSAd_UYGBkMw9EQrWffIwMX1', true), 100);
+                setTimeout(() => switchPdf(activeBtn, '120LJljUTiiN-7-Gdw_PeShMjRwkyAxm_', true), 100);
             }
         });
     </script>
