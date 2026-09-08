@@ -368,7 +368,7 @@ if (typeof window.showSection === 'undefined') {
 }
 
 // ─── BAC 2026 ANNOUNCEMENT MODAL ──────────────────────────────────────────────────
-const BAC2026_ANNOUNCE_KEY = 'bs_seen_telegram_series_v3';
+const BAC2026_ANNOUNCE_KEY = 'bs_seen_telegram_series_v4';
 
 function showBac2026AnnouncementModal() {
     if (localStorage.getItem(BAC2026_ANNOUNCE_KEY)) return;
@@ -386,10 +386,10 @@ function showBac2026AnnouncementModal() {
                 <i class="fas fa-star"></i> جديد القناة
             </div>
             <h3>سلسلة تجارب المتفوقين</h3>
-            <p style="margin-bottom: 1rem; line-height: 1.6;">أطلقنا سلسلة جديدة وحصرية على قناتنا تحت عنوان «تجارب المتفوقين»، حيث استضفنا نخبة من الطلبة الحاصلين على تقدير امتياز (بمعدلات تفوق 18) من مختلف الشعب الدراسية.<br><br>هؤلاء المتفوقون سيشاركونك رحلتهم نحو النجاح ويقدمون لك نصائح ذهبية لتستفيد منها. انضم إلينا الآن على تلغرام لتكون على اطلاع دائم بتجاربهم، فإذا كنت تطمح للتميز، فلا غنى لك عن الاقتداء بخطاهم!</p>
+            <p style="margin-bottom: 1rem; line-height: 1.6;">أطلقنا سلسلة جديدة وحصرية على قناتنا تحت عنوان «تجارب المتفوقين»، حيث استضفنا نخبة من الطلبة الحاصلين على تقدير امتياز (بمعدلات تفوق 18) من مختلف الشعب الدراسية.<br><br>هؤلاء المتفوقون سيشاركونك رحلتهم نحو النجاح ويقدمون لك نصائح ذهبية لتستفيد منها. انضم إلينا الآن على التلغرام لتكون على اطلاع دائم بتجاربهم، فإذا كنت تطمح للتميز، فلا غنى لك عن الاقتداء بخطاهم!</p>
             <div class="card-cta-group">
                 <a href="https://t.me/islembacdz" target="_blank" rel="noopener noreferrer" class="card-cta-btn card-cta-telegram" style="width: 100%; justify-content: center; font-size: 1.1rem; padding: 12px 40px; background: #2AABEE; color: #fff; border: none; box-shadow: 0 4px 15px rgba(42,171,238,0.4);">
-                    <i class="fab fa-telegram-plane" style="margin-left: 8px;"></i> انضم إلينا على تلغرام
+                    <i class="fab fa-telegram-plane" style="margin-left: 8px;"></i> انضم إلينا على التلغرام
                 </a>
             </div>
         </div>
