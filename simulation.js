@@ -1,4 +1,4 @@
-﻿/* ============================================
+/* ============================================
    BAC SIMULATION ENGINE — simulation.js
    ============================================ */
 
@@ -9,10 +9,11 @@ const examData = {
             { name: "الرياضيات", duration: 270, icon: "fa-solid fa-calculator", examUrl: "https://drive.google.com/file/d/1G4J-ccY-qikJK5pimxzXgaRiuYrdFcXu/preview", solutionUrl: "https://drive.google.com/file/d/1IQp4pFPm1clMIrKfIlu7IQPBi3ogxkli/preview", schedule: "الاثنين 04 ماي - 08:30" },
             { name: "العلوم الفيزيائية", duration: 270, icon: "fa-solid fa-atom", examUrl: "https://drive.google.com/file/d/17EZX9WNeV5uFrNwpNKuXUUOFu7QwQ6-F/preview", solutionUrl: "https://drive.google.com/file/d/1LzgcoYk3Vc2AFjO8UmM19HV13YxzIj-H/preview", schedule: "الخميس 07 ماي - 08:30" },
             { name: "العلوم الطبيعية", duration: 150, icon: "fa-solid fa-dna", examUrl: "https://drive.google.com/file/d/1iWRaeTH4K0ITGn5yLGGaEidhJcPY193v/preview", solutionUrl: "https://drive.google.com/file/d/1d2XefeyNPn8w5S_FQ4TWeBGR1hJi2nM-/preview",  },
-            { name: "اللغة العربية", duration: 150, icon: "fa-solid fa-language", examUrl: "https://drive.google.com/file/d/1lfIXDuPheU68cIz4RU1nLosn_pwp7et9/preview", solutionUrl: "https://drive.google.com/file/d/1J1ED3nxvnN3yGnvWgs4R446Q3W9KT6te/preview", schedule: "الأحد 03 ماي - 08:30" },
-            { name: "اللغة الفرنسية", duration: 150, icon: "fas fa-flag", examUrl: "https://drive.google.com/file/d/17-4u8xcL5hLLJRgTYusXQUj-dOyT17L6/preview", solutionUrl: "https://drive.google.com/file/d/1e_0IT0m1itjegNQ_lnDsTr1WbkffFZ06/preview", schedule: "الثلاثاء 05 ماي - 15:00" },
+            // BAC 2027: Arabic and French removed for Math stream
+            // { name: "اللغة العربية", duration: 150, icon: "fa-solid fa-language", examUrl: "https://drive.google.com/file/d/1lfIXDuPheU68cIz4RU1nLosn_pwp7et9/preview", solutionUrl: "https://drive.google.com/file/d/1J1ED3nxvnN3yGnvWgs4R446Q3W9KT6te/preview", schedule: "الأحد 03 ماي - 08:30" },
+            // { name: "اللغة الفرنسية", duration: 150, icon: "fas fa-flag", examUrl: "https://drive.google.com/file/d/17-4u8xcL5hLLJRgTYusXQUj-dOyT17L6/preview", solutionUrl: "https://drive.google.com/file/d/1e_0IT0m1itjegNQ_lnDsTr1WbkffFZ06/preview", schedule: "الثلاثاء 05 ماي - 15:00" },
             { name: "اللغة الإنجليزية", duration: 150, icon: "fas fa-comment-dots", examUrl: "https://drive.google.com/file/d/1r9LEVgy2HwV8B8JCabJpVrdzRysZvw-H/preview", solutionUrl: "https://drive.google.com/file/d/1D7I4GYzifVhzV0iQucemW3SKu8tj7sB8/preview", schedule: "الاثنين 04 ماي - 15:00" },
-            { name: "تاريخ وجغرافيا", duration: 210, icon: "fas fa-landmark", examUrl: "https://drive.google.com/file/d/1nl3vZkHrWN3ITAJWmTDIsNWg4Jc_-KUW/preview", solutionUrl: "https://drive.google.com/file/d/1O-dbnO9S5OOrnDXimDt0dieXQe2RC0D-/preview", schedule: "الأربعاء 06 ماي - 08:30" },
+            { name: "التاريخ", duration: 210, icon: "fas fa-landmark", examUrl: "https://drive.google.com/file/d/1nl3vZkHrWN3ITAJWmTDIsNWg4Jc_-KUW/preview", solutionUrl: "https://drive.google.com/file/d/1O-dbnO9S5OOrnDXimDt0dieXQe2RC0D-/preview", schedule: "الأربعاء 06 ماي - 08:30" },
             { name: "العلوم الإسلامية", duration: 150, icon: "fa-solid fa-mosque", examUrl: "https://drive.google.com/file/d/1fhOrK51LPssye7Cd755yUeCkdRwF8dZs/preview", solutionUrl: "https://drive.google.com/file/d/1wLaZhLISXi3c84H1laUYO3Gx4UktAA69/preview", schedule: "الأحد 03 ماي - 15:00" }
         ]
     },
@@ -23,9 +24,10 @@ const examData = {
             { name: "الرياضيات", duration: 210, icon: "fa-solid fa-calculator", examUrl: "https://drive.google.com/file/d/1XkxKLbgNfdqeiyR9hhOiro9bFyI6BucF/preview", solutionUrl: "https://drive.google.com/file/d/1IMYqPJE_q4mHtnErhnHbq_d9iTx8fRv9/preview", schedule: "الاثنين 04 ماي - 08:30" },
             { name: "العلوم الفيزيائية", duration: 210, icon: "fa-solid fa-atom", examUrl: "https://drive.google.com/file/d/1jcmPtJnvMdLN8__NIyl8yzGWXz--ujqI/preview", solutionUrl: "https://drive.google.com/file/d/1281tFAO53RmODuSoaKTgUQiyhM5TW55q/preview", schedule: "الخميس 07 ماي - 08:30" },
             { name: "اللغة العربية", duration: 150, icon: "fa-solid fa-language", examUrl: "https://drive.google.com/file/d/1lfIXDuPheU68cIz4RU1nLosn_pwp7et9/preview", solutionUrl: "https://drive.google.com/file/d/1J1ED3nxvnN3yGnvWgs4R446Q3W9KT6te/preview", schedule: "الأحد 03 ماي - 08:30" },
-            { name: "اللغة الفرنسية", duration: 150, icon: "fas fa-flag", examUrl: "https://drive.google.com/file/d/17-4u8xcL5hLLJRgTYusXQUj-dOyT17L6/preview", solutionUrl: "https://drive.google.com/file/d/1e_0IT0m1itjegNQ_lnDsTr1WbkffFZ06/preview", schedule: "الثلاثاء 05 ماي - 15:00" },
+            // BAC 2027: French removed for Science stream
+            // { name: "اللغة الفرنسية", duration: 150, icon: "fas fa-flag", examUrl: "https://drive.google.com/file/d/17-4u8xcL5hLLJRgTYusXQUj-dOyT17L6/preview", solutionUrl: "https://drive.google.com/file/d/1e_0IT0m1itjegNQ_lnDsTr1WbkffFZ06/preview", schedule: "الثلاثاء 05 ماي - 15:00" },
             { name: "اللغة الإنجليزية", duration: 150, icon: "fas fa-comment-dots", examUrl: "https://drive.google.com/file/d/1r9LEVgy2HwV8B8JCabJpVrdzRysZvw-H/preview", solutionUrl: "https://drive.google.com/file/d/1D7I4GYzifVhzV0iQucemW3SKu8tj7sB8/preview", schedule: "الاثنين 04 ماي - 15:00" },
-            { name: "تاريخ وجغرافيا", duration: 210, icon: "fas fa-landmark", examUrl: "https://drive.google.com/file/d/1nl3vZkHrWN3ITAJWmTDIsNWg4Jc_-KUW/preview", solutionUrl: "https://drive.google.com/file/d/1O-dbnO9S5OOrnDXimDt0dieXQe2RC0D-/preview", schedule: "الأربعاء 06 ماي - 08:30" },
+            { name: "التاريخ", duration: 210, icon: "fas fa-landmark", examUrl: "https://drive.google.com/file/d/1nl3vZkHrWN3ITAJWmTDIsNWg4Jc_-KUW/preview", solutionUrl: "https://drive.google.com/file/d/1O-dbnO9S5OOrnDXimDt0dieXQe2RC0D-/preview", schedule: "الأربعاء 06 ماي - 08:30" },
             { name: "العلوم الإسلامية", duration: 150, icon: "fa-solid fa-mosque", examUrl: "https://drive.google.com/file/d/1fhOrK51LPssye7Cd755yUeCkdRwF8dZs/preview", solutionUrl: "https://drive.google.com/file/d/1wLaZhLISXi3c84H1laUYO3Gx4UktAA69/preview", schedule: "الأحد 03 ماي - 15:00" }
         ]
     },
@@ -35,10 +37,11 @@ const examData = {
             { name: "التكنولوجيا (هندسة كهربائية)", duration: 270, icon: "fas fa-bolt", examUrl: "https://drive.google.com/file/d/1RPb8yxD8pwp34lmuKuPDSAlLY8oMBsF4/preview", solutionUrl: "https://drive.google.com/file/d/1k-3Sb8Sda5m3ooMq0o6dIfj2btAuAiKW/preview", schedule: "الثلاثاء 05 ماي - 08:30" },
             { name: "الرياضيات", duration: 270, icon: "fa-solid fa-calculator", examUrl: "https://drive.google.com/file/d/1zLNcWx2rksnEqgmZO3-XVu7M6BQgP7S-/preview", solutionUrl: "https://drive.google.com/file/d/1qKQISWZhJbpN9nSy5wTsBtE8DDbyUvtT/preview", schedule: "الاثنين 04 ماي - 08:30" },
             { name: "العلوم الفيزيائية", duration: 270, icon: "fa-solid fa-atom", examUrl: "https://drive.google.com/file/d/17EZX9WNeV5uFrNwpNKuXUUOFu7QwQ6-F/preview", solutionUrl: "https://drive.google.com/file/d/1LzgcoYk3Vc2AFjO8UmM19HV13YxzIj-H/preview", schedule: "الخميس 07 ماي - 08:30" },
-            { name: "اللغة العربية", duration: 150, icon: "fa-solid fa-language", examUrl: "https://drive.google.com/file/d/1lfIXDuPheU68cIz4RU1nLosn_pwp7et9/preview", solutionUrl: "https://drive.google.com/file/d/1J1ED3nxvnN3yGnvWgs4R446Q3W9KT6te/preview", schedule: "الأحد 03 ماي - 08:30" },
-            { name: "اللغة الفرنسية", duration: 150, icon: "fas fa-flag", examUrl: "https://drive.google.com/file/d/17-4u8xcL5hLLJRgTYusXQUj-dOyT17L6/preview", solutionUrl: "https://drive.google.com/file/d/1e_0IT0m1itjegNQ_lnDsTr1WbkffFZ06/preview", schedule: "الثلاثاء 05 ماي - 15:00" },
+            // BAC 2027: Arabic and French removed for Engineering stream
+            // { name: "اللغة العربية", duration: 150, icon: "fa-solid fa-language", examUrl: "https://drive.google.com/file/d/1lfIXDuPheU68cIz4RU1nLosn_pwp7et9/preview", solutionUrl: "https://drive.google.com/file/d/1J1ED3nxvnN3yGnvWgs4R446Q3W9KT6te/preview", schedule: "الأحد 03 ماي - 08:30" },
+            // { name: "اللغة الفرنسية", duration: 150, icon: "fas fa-flag", examUrl: "https://drive.google.com/file/d/17-4u8xcL5hLLJRgTYusXQUj-dOyT17L6/preview", solutionUrl: "https://drive.google.com/file/d/1e_0IT0m1itjegNQ_lnDsTr1WbkffFZ06/preview", schedule: "الثلاثاء 05 ماي - 15:00" },
             { name: "اللغة الإنجليزية", duration: 150, icon: "fas fa-comment-dots", examUrl: "https://drive.google.com/file/d/1r9LEVgy2HwV8B8JCabJpVrdzRysZvw-H/preview", solutionUrl: "https://drive.google.com/file/d/1D7I4GYzifVhzV0iQucemW3SKu8tj7sB8/preview", schedule: "الاثنين 04 ماي - 15:00" },
-            { name: "تاريخ وجغرافيا", duration: 210, icon: "fas fa-landmark", examUrl: "https://drive.google.com/file/d/1nl3vZkHrWN3ITAJWmTDIsNWg4Jc_-KUW/preview", solutionUrl: "https://drive.google.com/file/d/1O-dbnO9S5OOrnDXimDt0dieXQe2RC0D-/preview", schedule: "الأربعاء 06 ماي - 08:30" },
+            { name: "التاريخ", duration: 210, icon: "fas fa-landmark", examUrl: "https://drive.google.com/file/d/1nl3vZkHrWN3ITAJWmTDIsNWg4Jc_-KUW/preview", solutionUrl: "https://drive.google.com/file/d/1O-dbnO9S5OOrnDXimDt0dieXQe2RC0D-/preview", schedule: "الأربعاء 06 ماي - 08:30" },
             { name: "العلوم الإسلامية", duration: 150, icon: "fa-solid fa-mosque", examUrl: "https://drive.google.com/file/d/1fhOrK51LPssye7Cd755yUeCkdRwF8dZs/preview", solutionUrl: "https://drive.google.com/file/d/1wLaZhLISXi3c84H1laUYO3Gx4UktAA69/preview", schedule: "الأحد 03 ماي - 15:00" }
         ]
     },
@@ -48,10 +51,11 @@ const examData = {
             { name: "التكنولوجيا (هندسة مدنية)", duration: 270, icon: "fas fa-hard-hat", examUrl: "https://drive.google.com/file/d/1KyCdMfFgV0TG40kJkXQfp9apCfykSZ3M/preview", solutionUrl: "https://drive.google.com/file/d/18DmSEoOalCDtQBGZ_CQSU8dQADVeREN3/preview", schedule: "الثلاثاء 05 ماي - 08:30" },
             { name: "الرياضيات", duration: 270, icon: "fa-solid fa-calculator", examUrl: "https://drive.google.com/file/d/1zLNcWx2rksnEqgmZO3-XVu7M6BQgP7S-/preview", solutionUrl: "https://drive.google.com/file/d/1qKQISWZhJbpN9nSy5wTsBtE8DDbyUvtT/preview", schedule: "الاثنين 04 ماي - 08:30" },
             { name: "العلوم الفيزيائية", duration: 270, icon: "fa-solid fa-atom", examUrl: "https://drive.google.com/file/d/17EZX9WNeV5uFrNwpNKuXUUOFu7QwQ6-F/preview", solutionUrl: "https://drive.google.com/file/d/1LzgcoYk3Vc2AFjO8UmM19HV13YxzIj-H/preview", schedule: "الخميس 07 ماي - 08:30" },
-            { name: "اللغة العربية", duration: 150, icon: "fa-solid fa-language", examUrl: "https://drive.google.com/file/d/1lfIXDuPheU68cIz4RU1nLosn_pwp7et9/preview", solutionUrl: "https://drive.google.com/file/d/1J1ED3nxvnN3yGnvWgs4R446Q3W9KT6te/preview", schedule: "الأحد 03 ماي - 08:30" },
-            { name: "اللغة الفرنسية", duration: 150, icon: "fas fa-flag", examUrl: "https://drive.google.com/file/d/17-4u8xcL5hLLJRgTYusXQUj-dOyT17L6/preview", solutionUrl: "https://drive.google.com/file/d/1e_0IT0m1itjegNQ_lnDsTr1WbkffFZ06/preview", schedule: "الثلاثاء 05 ماي - 15:00" },
+            // BAC 2027: Arabic and French removed for Engineering stream
+            // { name: "اللغة العربية", duration: 150, icon: "fa-solid fa-language", examUrl: "https://drive.google.com/file/d/1lfIXDuPheU68cIz4RU1nLosn_pwp7et9/preview", solutionUrl: "https://drive.google.com/file/d/1J1ED3nxvnN3yGnvWgs4R446Q3W9KT6te/preview", schedule: "الأحد 03 ماي - 08:30" },
+            // { name: "اللغة الفرنسية", duration: 150, icon: "fas fa-flag", examUrl: "https://drive.google.com/file/d/17-4u8xcL5hLLJRgTYusXQUj-dOyT17L6/preview", solutionUrl: "https://drive.google.com/file/d/1e_0IT0m1itjegNQ_lnDsTr1WbkffFZ06/preview", schedule: "الثلاثاء 05 ماي - 15:00" },
             { name: "اللغة الإنجليزية", duration: 150, icon: "fas fa-comment-dots", examUrl: "https://drive.google.com/file/d/1r9LEVgy2HwV8B8JCabJpVrdzRysZvw-H/preview", solutionUrl: "https://drive.google.com/file/d/1D7I4GYzifVhzV0iQucemW3SKu8tj7sB8/preview", schedule: "الاثنين 04 ماي - 15:00" },
-            { name: "تاريخ وجغرافيا", duration: 210, icon: "fas fa-landmark", examUrl: "https://drive.google.com/file/d/1nl3vZkHrWN3ITAJWmTDIsNWg4Jc_-KUW/preview", solutionUrl: "https://drive.google.com/file/d/1O-dbnO9S5OOrnDXimDt0dieXQe2RC0D-/preview", schedule: "الأربعاء 06 ماي - 08:30" },
+            { name: "التاريخ", duration: 210, icon: "fas fa-landmark", examUrl: "https://drive.google.com/file/d/1nl3vZkHrWN3ITAJWmTDIsNWg4Jc_-KUW/preview", solutionUrl: "https://drive.google.com/file/d/1O-dbnO9S5OOrnDXimDt0dieXQe2RC0D-/preview", schedule: "الأربعاء 06 ماي - 08:30" },
             { name: "العلوم الإسلامية", duration: 150, icon: "fa-solid fa-mosque", examUrl: "https://drive.google.com/file/d/1fhOrK51LPssye7Cd755yUeCkdRwF8dZs/preview", solutionUrl: "https://drive.google.com/file/d/1wLaZhLISXi3c84H1laUYO3Gx4UktAA69/preview", schedule: "الأحد 03 ماي - 15:00" }
         ]
     },
@@ -61,10 +65,11 @@ const examData = {
             { name: "التكنولوجيا (هندسة ميكانيكية)", duration: 270, icon: "fas fa-cogs", examUrl: "https://drive.google.com/file/d/1zYx3agyuvK3hoe4-pa3P-ANzJkXJ_21A/preview", solutionUrl: "https://drive.google.com/file/d/17UPsfdgYsRgqQY2ym8ZYMbF_hgnIxhh4/preview", schedule: "الثلاثاء 05 ماي - 08:30" },
             { name: "الرياضيات", duration: 270, icon: "fa-solid fa-calculator", examUrl: "https://drive.google.com/file/d/1zLNcWx2rksnEqgmZO3-XVu7M6BQgP7S-/preview", solutionUrl: "https://drive.google.com/file/d/1qKQISWZhJbpN9nSy5wTsBtE8DDbyUvtT/preview", schedule: "الاثنين 04 ماي - 08:30" },
             { name: "العلوم الفيزيائية", duration: 270, icon: "fa-solid fa-atom", examUrl: "https://drive.google.com/file/d/17EZX9WNeV5uFrNwpNKuXUUOFu7QwQ6-F/preview", solutionUrl: "https://drive.google.com/file/d/1LzgcoYk3Vc2AFjO8UmM19HV13YxzIj-H/preview", schedule: "الخميس 07 ماي - 08:30" },
-            { name: "اللغة العربية", duration: 150, icon: "fa-solid fa-language", examUrl: "https://drive.google.com/file/d/1lfIXDuPheU68cIz4RU1nLosn_pwp7et9/preview", solutionUrl: "https://drive.google.com/file/d/1J1ED3nxvnN3yGnvWgs4R446Q3W9KT6te/preview", schedule: "الأحد 03 ماي - 08:30" },
-            { name: "اللغة الفرنسية", duration: 150, icon: "fas fa-flag", examUrl: "https://drive.google.com/file/d/17-4u8xcL5hLLJRgTYusXQUj-dOyT17L6/preview", solutionUrl: "https://drive.google.com/file/d/1e_0IT0m1itjegNQ_lnDsTr1WbkffFZ06/preview", schedule: "الثلاثاء 05 ماي - 15:00" },
+            // BAC 2027: Arabic and French removed for Engineering stream
+            // { name: "اللغة العربية", duration: 150, icon: "fa-solid fa-language", examUrl: "https://drive.google.com/file/d/1lfIXDuPheU68cIz4RU1nLosn_pwp7et9/preview", solutionUrl: "https://drive.google.com/file/d/1J1ED3nxvnN3yGnvWgs4R446Q3W9KT6te/preview", schedule: "الأحد 03 ماي - 08:30" },
+            // { name: "اللغة الفرنسية", duration: 150, icon: "fas fa-flag", examUrl: "https://drive.google.com/file/d/17-4u8xcL5hLLJRgTYusXQUj-dOyT17L6/preview", solutionUrl: "https://drive.google.com/file/d/1e_0IT0m1itjegNQ_lnDsTr1WbkffFZ06/preview", schedule: "الثلاثاء 05 ماي - 15:00" },
             { name: "اللغة الإنجليزية", duration: 150, icon: "fas fa-comment-dots", examUrl: "https://drive.google.com/file/d/1r9LEVgy2HwV8B8JCabJpVrdzRysZvw-H/preview", solutionUrl: "https://drive.google.com/file/d/1D7I4GYzifVhzV0iQucemW3SKu8tj7sB8/preview", schedule: "الاثنين 04 ماي - 15:00" },
-            { name: "تاريخ وجغرافيا", duration: 210, icon: "fas fa-landmark", examUrl: "https://drive.google.com/file/d/1nl3vZkHrWN3ITAJWmTDIsNWg4Jc_-KUW/preview", solutionUrl: "https://drive.google.com/file/d/1O-dbnO9S5OOrnDXimDt0dieXQe2RC0D-/preview", schedule: "الأربعاء 06 ماي - 08:30" },
+            { name: "التاريخ", duration: 210, icon: "fas fa-landmark", examUrl: "https://drive.google.com/file/d/1nl3vZkHrWN3ITAJWmTDIsNWg4Jc_-KUW/preview", solutionUrl: "https://drive.google.com/file/d/1O-dbnO9S5OOrnDXimDt0dieXQe2RC0D-/preview", schedule: "الأربعاء 06 ماي - 08:30" },
             { name: "العلوم الإسلامية", duration: 150, icon: "fa-solid fa-mosque", examUrl: "https://drive.google.com/file/d/1fhOrK51LPssye7Cd755yUeCkdRwF8dZs/preview", solutionUrl: "https://drive.google.com/file/d/1wLaZhLISXi3c84H1laUYO3Gx4UktAA69/preview", schedule: "الأحد 03 ماي - 15:00" }
         ]
     },
@@ -74,10 +79,11 @@ const examData = {
             { name: "التكنولوجيا (هندسة طرائق)", duration: 270, icon: "fas fa-flask", examUrl: "https://drive.google.com/file/d/1U7TPPiMT6kRRuAktbzUCeyQRVFnk1FCv/preview", solutionUrl: "https://drive.google.com/file/d/13sUQKa5yIfok-yqfipzmXIfjzoJzJCDv/preview", schedule: "الثلاثاء 05 ماي - 08:30" },
             { name: "الرياضيات", duration: 270, icon: "fa-solid fa-calculator", examUrl: "https://drive.google.com/file/d/1zLNcWx2rksnEqgmZO3-XVu7M6BQgP7S-/preview", solutionUrl: "https://drive.google.com/file/d/1qKQISWZhJbpN9nSy5wTsBtE8DDbyUvtT/preview", schedule: "الاثنين 04 ماي - 08:30" },
             { name: "العلوم الفيزيائية", duration: 270, icon: "fa-solid fa-atom", examUrl: "https://drive.google.com/file/d/17EZX9WNeV5uFrNwpNKuXUUOFu7QwQ6-F/preview", solutionUrl: "https://drive.google.com/file/d/1LzgcoYk3Vc2AFjO8UmM19HV13YxzIj-H/preview", schedule: "الخميس 07 ماي - 08:30" },
-            { name: "اللغة العربية", duration: 150, icon: "fa-solid fa-language", examUrl: "https://drive.google.com/file/d/1lfIXDuPheU68cIz4RU1nLosn_pwp7et9/preview", solutionUrl: "https://drive.google.com/file/d/1J1ED3nxvnN3yGnvWgs4R446Q3W9KT6te/preview", schedule: "الأحد 03 ماي - 08:30" },
-            { name: "اللغة الفرنسية", duration: 150, icon: "fas fa-flag", examUrl: "https://drive.google.com/file/d/17-4u8xcL5hLLJRgTYusXQUj-dOyT17L6/preview", solutionUrl: "https://drive.google.com/file/d/1e_0IT0m1itjegNQ_lnDsTr1WbkffFZ06/preview", schedule: "الثلاثاء 05 ماي - 15:00" },
+            // BAC 2027: Arabic and French removed for Engineering stream
+            // { name: "اللغة العربية", duration: 150, icon: "fa-solid fa-language", examUrl: "https://drive.google.com/file/d/1lfIXDuPheU68cIz4RU1nLosn_pwp7et9/preview", solutionUrl: "https://drive.google.com/file/d/1J1ED3nxvnN3yGnvWgs4R446Q3W9KT6te/preview", schedule: "الأحد 03 ماي - 08:30" },
+            // { name: "اللغة الفرنسية", duration: 150, icon: "fas fa-flag", examUrl: "https://drive.google.com/file/d/17-4u8xcL5hLLJRgTYusXQUj-dOyT17L6/preview", solutionUrl: "https://drive.google.com/file/d/1e_0IT0m1itjegNQ_lnDsTr1WbkffFZ06/preview", schedule: "الثلاثاء 05 ماي - 15:00" },
             { name: "اللغة الإنجليزية", duration: 150, icon: "fas fa-comment-dots", examUrl: "https://drive.google.com/file/d/1r9LEVgy2HwV8B8JCabJpVrdzRysZvw-H/preview", solutionUrl: "https://drive.google.com/file/d/1D7I4GYzifVhzV0iQucemW3SKu8tj7sB8/preview", schedule: "الاثنين 04 ماي - 15:00" },
-            { name: "تاريخ وجغرافيا", duration: 210, icon: "fas fa-landmark", examUrl: "https://drive.google.com/file/d/1nl3vZkHrWN3ITAJWmTDIsNWg4Jc_-KUW/preview", solutionUrl: "https://drive.google.com/file/d/1O-dbnO9S5OOrnDXimDt0dieXQe2RC0D-/preview", schedule: "الأربعاء 06 ماي - 08:30" },
+            { name: "التاريخ", duration: 210, icon: "fas fa-landmark", examUrl: "https://drive.google.com/file/d/1nl3vZkHrWN3ITAJWmTDIsNWg4Jc_-KUW/preview", solutionUrl: "https://drive.google.com/file/d/1O-dbnO9S5OOrnDXimDt0dieXQe2RC0D-/preview", schedule: "الأربعاء 06 ماي - 08:30" },
             { name: "العلوم الإسلامية", duration: 150, icon: "fa-solid fa-mosque", examUrl: "https://drive.google.com/file/d/1fhOrK51LPssye7Cd755yUeCkdRwF8dZs/preview", solutionUrl: "https://drive.google.com/file/d/1wLaZhLISXi3c84H1laUYO3Gx4UktAA69/preview", schedule: "الأحد 03 ماي - 15:00" }
         ]
     },
@@ -90,7 +96,8 @@ const examData = {
             { name: "الرياضيات", duration: 210, icon: "fa-solid fa-calculator", examUrl: "https://drive.google.com/file/d/1QHeNhbOnzd77x9WMrdwg1G-FvPJtPtac/preview", solutionUrl: "https://drive.google.com/file/d/14tl8cUMVQ7rf8O3mLymhE3t110KH2Izx/preview", schedule: "الاثنين 04 ماي - 08:30" },
             { name: "تاريخ وجغرافيا", duration: 210, icon: "fas fa-landmark", examUrl: "https://drive.google.com/file/d/1nZQeDE1JRY7cS-xeyv1D7zxgDxSWwrF6/preview", solutionUrl: "https://drive.google.com/file/d/1YC4exLpxk1AJjsrK72iTkXVN7o9qzc03/preview", schedule: "الأربعاء 06 ماي - 08:30" },
             { name: "اللغة العربية", duration: 150, icon: "fa-solid fa-language", examUrl: "https://drive.google.com/file/d/1lfIXDuPheU68cIz4RU1nLosn_pwp7et9/preview", solutionUrl: "https://drive.google.com/file/d/1J1ED3nxvnN3yGnvWgs4R446Q3W9KT6te/preview", schedule: "الأحد 03 ماي - 08:30" },
-            { name: "اللغة الفرنسية", duration: 150, icon: "fas fa-flag", examUrl: "https://drive.google.com/file/d/17-4u8xcL5hLLJRgTYusXQUj-dOyT17L6/preview", solutionUrl: "https://drive.google.com/file/d/1e_0IT0m1itjegNQ_lnDsTr1WbkffFZ06/preview", schedule: "الثلاثاء 05 ماي - 15:00" },
+            // BAC 2027: French removed for Management stream
+            // { name: "اللغة الفرنسية", duration: 150, icon: "fas fa-flag", examUrl: "https://drive.google.com/file/d/17-4u8xcL5hLLJRgTYusXQUj-dOyT17L6/preview", solutionUrl: "https://drive.google.com/file/d/1e_0IT0m1itjegNQ_lnDsTr1WbkffFZ06/preview", schedule: "الثلاثاء 05 ماي - 15:00" },
             { name: "اللغة الإنجليزية", duration: 150, icon: "fas fa-comment-dots", examUrl: "https://drive.google.com/file/d/1r9LEVgy2HwV8B8JCabJpVrdzRysZvw-H/preview", solutionUrl: "https://drive.google.com/file/d/1D7I4GYzifVhzV0iQucemW3SKu8tj7sB8/preview", schedule: "الاثنين 04 ماي - 15:00" },
             { name: "العلوم الإسلامية", duration: 150, icon: "fa-solid fa-mosque", examUrl: "https://drive.google.com/file/d/1fhOrK51LPssye7Cd755yUeCkdRwF8dZs/preview", solutionUrl: "https://drive.google.com/file/d/1wLaZhLISXi3c84H1laUYO3Gx4UktAA69/preview", schedule: "الأحد 03 ماي - 15:00" }
         ]
@@ -104,7 +111,8 @@ const examData = {
             { name: "اللغة الفرنسية", duration: 150, icon: "fas fa-flag", examUrl: "https://drive.google.com/file/d/1wm3N7u6uS9141pjthC-LnUR1FXnT2ZwB/preview", solutionUrl: "https://drive.google.com/file/d/1q8wKYQs4DP7looZHDsPs6HZMmadduS2R/preview", schedule: "الثلاثاء 05 ماي - 15:00" },
             { name: "اللغة الإنجليزية", duration: 150, icon: "fas fa-comment-dots", examUrl: "https://drive.google.com/file/d/1XQG_JG6NxLTSu2rygH4AdF_dTMslcxRJ/preview", solutionUrl: "https://drive.google.com/file/d/1YhgCr2uz_OT7co81_6t-ETY7kOZ2HSPw/preview", schedule: "الاثنين 04 ماي - 15:00" },
             { name: "العلوم الإسلامية", duration: 150, icon: "fa-solid fa-mosque", examUrl: "https://drive.google.com/file/d/1fhOrK51LPssye7Cd755yUeCkdRwF8dZs/preview", solutionUrl: "https://drive.google.com/file/d/1wLaZhLISXi3c84H1laUYO3Gx4UktAA69/preview", schedule: "الأحد 03 ماي - 15:00" },
-            { name: "الرياضيات", duration: 150, icon: "fa-solid fa-calculator", examUrl: "https://drive.google.com/file/d/1V3Cgq03y-coRYy9he3_JbAA32JlO-KMP/preview", solutionUrl: "https://drive.google.com/file/d/1vwkFcP1n74OL7Ku3FFCPQnXHOb4OHC8e/preview", schedule: "الاثنين 04 ماي - 08:30" }
+            // BAC 2027: Math removed for Lit/Philo stream
+            // { name: "الرياضيات", duration: 150, icon: "fa-solid fa-calculator", examUrl: "https://drive.google.com/file/d/1V3Cgq03y-coRYy9he3_JbAA32JlO-KMP/preview", solutionUrl: "https://drive.google.com/file/d/1vwkFcP1n74OL7Ku3FFCPQnXHOb4OHC8e/preview", schedule: "الاثنين 04 ماي - 08:30" }
         ]
     },
     lang_german: {
@@ -115,9 +123,10 @@ const examData = {
             { name: "اللغة الألمانية", duration: 210, icon: "fa-solid fa-language", examUrl: "https://drive.google.com/file/d/12D9Zth_njs3YXZJX8nT43DiWa7NE9cUX/preview", solutionUrl: "https://drive.google.com/file/d/1Nx24z8IEO64rmAdd0q6Iw2nV2DTVqGyX/preview", schedule: "الخميس 07 ماي - 08:30" },
             { name: "اللغة العربية", duration: 210, icon: "fa-solid fa-language", examUrl: "https://drive.google.com/file/d/1eWJBioO7WIl3nN32KycPRAwDsDG76VBv/preview", solutionUrl: "https://drive.google.com/file/d/1NO3eqI5KuIBtTId_04OrdZ7ntJhbLELz/preview", schedule: "الأحد 03 ماي - 08:30" },
             { name: "تاريخ وجغرافيا", duration: 210, icon: "fas fa-landmark", examUrl: "https://drive.google.com/file/d/1t6tJ9jEB8KHLDvPpcx-HFjH5q12Ip0OV/preview", solutionUrl: "https://drive.google.com/file/d/143IixWiSj4h9Iv_SEpKYRhc5R78BMzJW/preview", schedule: "الأربعاء 06 ماي - 08:30" },
-            { name: "الفلسفة", duration: 210, icon: "fas fa-brain", examUrl: "https://drive.google.com/file/d/10M79Tvm7C12IwiQ9gVa936AgX6ktGJ48/preview", solutionUrl: "https://drive.google.com/file/d/178dn4Kt4CLBo7lEtHLsChPInuS_5XXBg/preview", schedule: "الثلاثاء 05 ماي - 08:30" },
+            // BAC 2027: Philo and Math removed for Languages stream
+            // { name: "الفلسفة", duration: 210, icon: "fas fa-brain", examUrl: "https://drive.google.com/file/d/10M79Tvm7C12IwiQ9gVa936AgX6ktGJ48/preview", solutionUrl: "https://drive.google.com/file/d/178dn4Kt4CLBo7lEtHLsChPInuS_5XXBg/preview", schedule: "الثلاثاء 05 ماي - 08:30" },
             { name: "العلوم الإسلامية", duration: 150, icon: "fa-solid fa-mosque", examUrl: "https://drive.google.com/file/d/1fhOrK51LPssye7Cd755yUeCkdRwF8dZs/preview", solutionUrl: "https://drive.google.com/file/d/1wLaZhLISXi3c84H1laUYO3Gx4UktAA69/preview", schedule: "الأحد 03 ماي - 15:00" },
-            { name: "الرياضيات", duration: 150, icon: "fa-solid fa-calculator", examUrl: "https://drive.google.com/file/d/1V3Cgq03y-coRYy9he3_JbAA32JlO-KMP/preview", solutionUrl: "https://drive.google.com/file/d/1vwkFcP1n74OL7Ku3FFCPQnXHOb4OHC8e/preview", schedule: "الاثنين 04 ماي - 08:30" }
+            // { name: "الرياضيات", duration: 150, icon: "fa-solid fa-calculator", examUrl: "https://drive.google.com/file/d/1V3Cgq03y-coRYy9he3_JbAA32JlO-KMP/preview", solutionUrl: "https://drive.google.com/file/d/1vwkFcP1n74OL7Ku3FFCPQnXHOb4OHC8e/preview", schedule: "الاثنين 04 ماي - 08:30" }
         ]
     },
     lang_spanish: {
@@ -128,9 +137,10 @@ const examData = {
             { name: "اللغة الإسبانية", duration: 210, icon: "fa-solid fa-language", examUrl: "https://drive.google.com/file/d/1tlgAn7PwOtoR-oH-QuFxL-wbFzJUMl3P/preview", solutionUrl: "https://drive.google.com/file/d/1YXXeCPbzF0hrEW6MHyU14IkKGv4kpOSg/preview", schedule: "الخميس 07 ماي - 08:30" },
             { name: "اللغة العربية", duration: 210, icon: "fa-solid fa-language", examUrl: "https://drive.google.com/file/d/1eWJBioO7WIl3nN32KycPRAwDsDG76VBv/preview", solutionUrl: "https://drive.google.com/file/d/1NO3eqI5KuIBtTId_04OrdZ7ntJhbLELz/preview", schedule: "الأحد 03 ماي - 08:30" },
             { name: "تاريخ وجغرافيا", duration: 210, icon: "fas fa-landmark", examUrl: "https://drive.google.com/file/d/1t6tJ9jEB8KHLDvPpcx-HFjH5q12Ip0OV/preview", solutionUrl: "https://drive.google.com/file/d/143IixWiSj4h9Iv_SEpKYRhc5R78BMzJW/preview", schedule: "الأربعاء 06 ماي - 08:30" },
-            { name: "الفلسفة", duration: 210, icon: "fas fa-brain", examUrl: "https://drive.google.com/file/d/10M79Tvm7C12IwiQ9gVa936AgX6ktGJ48/preview", solutionUrl: "https://drive.google.com/file/d/178dn4Kt4CLBo7lEtHLsChPInuS_5XXBg/preview", schedule: "الثلاثاء 05 ماي - 08:30" },
+            // BAC 2027: Philo and Math removed for Languages stream
+            // { name: "الفلسفة", duration: 210, icon: "fas fa-brain", examUrl: "https://drive.google.com/file/d/10M79Tvm7C12IwiQ9gVa936AgX6ktGJ48/preview", solutionUrl: "https://drive.google.com/file/d/178dn4Kt4CLBo7lEtHLsChPInuS_5XXBg/preview", schedule: "الثلاثاء 05 ماي - 08:30" },
             { name: "العلوم الإسلامية", duration: 150, icon: "fa-solid fa-mosque", examUrl: "https://drive.google.com/file/d/1fhOrK51LPssye7Cd755yUeCkdRwF8dZs/preview", solutionUrl: "https://drive.google.com/file/d/1wLaZhLISXi3c84H1laUYO3Gx4UktAA69/preview", schedule: "الأحد 03 ماي - 15:00" },
-            { name: "الرياضيات", duration: 150, icon: "fa-solid fa-calculator", examUrl: "https://drive.google.com/file/d/1V3Cgq03y-coRYy9he3_JbAA32JlO-KMP/preview", solutionUrl: "https://drive.google.com/file/d/1vwkFcP1n74OL7Ku3FFCPQnXHOb4OHC8e/preview", schedule: "الاثنين 04 ماي - 08:30" }
+            // { name: "الرياضيات", duration: 150, icon: "fa-solid fa-calculator", examUrl: "https://drive.google.com/file/d/1V3Cgq03y-coRYy9he3_JbAA32JlO-KMP/preview", solutionUrl: "https://drive.google.com/file/d/1vwkFcP1n74OL7Ku3FFCPQnXHOb4OHC8e/preview", schedule: "الاثنين 04 ماي - 08:30" }
         ]
     },
     lang_italian: {
@@ -141,9 +151,10 @@ const examData = {
             { name: "اللغة الإيطالية", duration: 210, icon: "fa-solid fa-language", examUrl: "https://drive.google.com/file/d/1dWEC9EDYV-yVV7_TYafkboujGLFNzbVd/preview", solutionUrl: "https://drive.google.com/file/d/1cFrTcVPbt1cRGFi5MoXqsMhiTwZOM56p/preview", schedule: "الخميس 07 ماي - 08:30" },
             { name: "اللغة العربية", duration: 210, icon: "fa-solid fa-language", examUrl: "https://drive.google.com/file/d/1eWJBioO7WIl3nN32KycPRAwDsDG76VBv/preview", solutionUrl: "https://drive.google.com/file/d/1NO3eqI5KuIBtTId_04OrdZ7ntJhbLELz/preview", schedule: "الأحد 03 ماي - 08:30" },
             { name: "تاريخ وجغرافيا", duration: 210, icon: "fas fa-landmark", examUrl: "https://drive.google.com/file/d/1t6tJ9jEB8KHLDvPpcx-HFjH5q12Ip0OV/preview", solutionUrl: "https://drive.google.com/file/d/143IixWiSj4h9Iv_SEpKYRhc5R78BMzJW/preview", schedule: "الأربعاء 06 ماي - 08:30" },
-            { name: "الفلسفة", duration: 210, icon: "fas fa-brain", examUrl: "https://drive.google.com/file/d/10M79Tvm7C12IwiQ9gVa936AgX6ktGJ48/preview", solutionUrl: "https://drive.google.com/file/d/178dn4Kt4CLBo7lEtHLsChPInuS_5XXBg/preview", schedule: "الثلاثاء 05 ماي - 08:30" },
+            // BAC 2027: Philo and Math removed for Languages stream
+            // { name: "الفلسفة", duration: 210, icon: "fas fa-brain", examUrl: "https://drive.google.com/file/d/10M79Tvm7C12IwiQ9gVa936AgX6ktGJ48/preview", solutionUrl: "https://drive.google.com/file/d/178dn4Kt4CLBo7lEtHLsChPInuS_5XXBg/preview", schedule: "الثلاثاء 05 ماي - 08:30" },
             { name: "العلوم الإسلامية", duration: 150, icon: "fa-solid fa-mosque", examUrl: "https://drive.google.com/file/d/1fhOrK51LPssye7Cd755yUeCkdRwF8dZs/preview", solutionUrl: "https://drive.google.com/file/d/1wLaZhLISXi3c84H1laUYO3Gx4UktAA69/preview", schedule: "الأحد 03 ماي - 15:00" },
-            { name: "الرياضيات", duration: 150, icon: "fa-solid fa-calculator", examUrl: "https://drive.google.com/file/d/1V3Cgq03y-coRYy9he3_JbAA32JlO-KMP/preview", solutionUrl: "https://drive.google.com/file/d/1vwkFcP1n74OL7Ku3FFCPQnXHOb4OHC8e/preview", schedule: "الاثنين 04 ماي - 08:30" }
+            // { name: "الرياضيات", duration: 150, icon: "fa-solid fa-calculator", examUrl: "https://drive.google.com/file/d/1V3Cgq03y-coRYy9he3_JbAA32JlO-KMP/preview", solutionUrl: "https://drive.google.com/file/d/1vwkFcP1n74OL7Ku3FFCPQnXHOb4OHC8e/preview", schedule: "الاثنين 04 ماي - 08:30" }
         ]
     }
 };
@@ -189,7 +200,7 @@ const examData = {
     const techProc  = [ne(1,'1OZD1MRbc3gM60X6Fb-q6TUz2oi9iZOX0'),ne(2,'1XuTsoR3PV142CA0bUpIBOiuoIbd-iuXT'),ne(3,'1z6XWkj3myXiT3etOj5aqE9Nc5ZQ-TlHZ'),ne(4,'1JreY1Khn-4r05ePckrQv8KJMlp84o9Bi'),ne(5,'1SO_uLrrNzvhXIv3ZVfE3KgIdlai1fnhK')];
 
     // Helper: find a subject by name in a specialty
-    function gs(spec, name) { return examData[spec].subjects.find(s => s.name === name); }
+    function gs(spec, name) { return examData[spec].subjects.find(s => s.name === name || (name === 'تاريخ وجغرافيا' && s.name === 'التاريخ') || (name === 'التاريخ' && s.name === 'تاريخ وجغرافيا')); }
 
     // ── Islamic Sciences → ALL 11 specialties ────────────────────────────────
     ['math','science','tech_elec','tech_civil','tech_mech','tech_process','management','literature','lang_german','lang_spanish','lang_italian'].forEach(sp => {
@@ -239,7 +250,7 @@ const examData = {
     const pu  = id       => `https://drive.google.com/file/d/${id}/preview`;
     const nt  = (n, id)       => ({ label: `موضوع ${String(n).padStart(2,'0')}`, source: 'tamayoz', examUrl: pu(id),  solutionUrl: pu(id),  duration: null });
     const nts = (n, eid, sid) => ({ label: `موضوع ${String(n).padStart(2,'0')}`, source: 'tamayoz', examUrl: pu(eid), solutionUrl: pu(sid), duration: null });
-    function gs(spec, name) { return examData[spec].subjects.find(s => s.name === name); }
+    function gs(spec, name) { return examData[spec].subjects.find(s => s.name === name || (name === 'تاريخ وجغرافيا' && s.name === 'التاريخ') || (name === 'التاريخ' && s.name === 'تاريخ وجغرافيا')); }
     function add(subj, arr) { if (subj) subj.extraExams = (subj.extraExams || []).concat(arr); }
 
     /* ── MATH: شعبة رياضيات ──────────────────────────────────────────────── */
