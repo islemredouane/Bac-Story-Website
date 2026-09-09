@@ -316,7 +316,7 @@ const examData = {
 
     /* ── HISTORY/GEO: math+science+tech+languages ────────────────────────── */
     const histMAIN_T = [nt(1,'1shR4wx96tbYm_pTjrQqvmG_msf0E3RsM'),nt(2,'1DAH1c5uCDtNcp_w_xB36C2LlB3HYBSwx'),nt(3,'1Z71tt9Ba1HhBQWfpCO87_PFoy37tEXI4'),nt(4,'1F6yK-8LBAZuoLnnxRgTRrR6dhiBizokS'),nt(5,'1IX3XPc_x6WhK2FtOP3AUBc2w2m-OCvko'),nt(6,'11apIPoCodL1oS87EizwsRuuN1813Gtui'),nt(7,'1rQ_o1QWtmFGvrj-v6bG7bgDQGDbVNnd6'),nt(8,'1ZsjwbEePmNRGPxPIpMI2UFl7RJxlOddK'),nt(9,'1fAs-n0eSFqiJInxuQh_HSiNX1YiS1UNW'),nt(10,'1ZnDDZIhfLvDRLxSxgBPUNf56AdmKIuGx'),nt(11,'1W-G0G1ME2tLQIA_b-7IRZEce9B23tjtJ'),nt(12,'1rZGEyFzq48NKjq7kJcdACxMMkVCOfwha'),nt(13,'18Ouw9DOLo5nPvsHa-GohvKVDDhY6c38n'),nt(14,'1ZL12VhMgt5rE8PQeisq2-3k-dn_X5H5w'),nt(15,'1mxLXXF2osxvGcd9TiMRc7aVgrXxlzCCP'),nt(16,'17HXsm3B6ENbTuIqgy4JU5eXpG8v0hMGz'),nt(17,'1_HjRLBpAS76r7ThSVqHufFdqW8KSO5wK'),nt(18,'1y4iCpFSjfQRqVJu6i3eiI8tNbU72w9j9'),nt(19,'10ciJ7I3Lj5Rh-XEan0Bqyv3wyqzd439L'),nt(20,'1HVIBI1ykwqgGfXVKxSq_WJ75-7_IzYBF')];
-    ['math','science','tech_elec','tech_civil','tech_mech','tech_process','lang_german','lang_spanish','lang_italian'].forEach(sp => add(gs(sp,'تاريخ وجغرافيا'), histMAIN_T));
+    ['math','science','tech_elec','tech_civil','tech_mech','tech_process','lang_german','lang_spanish','lang_italian'].forEach(sp => add(gs(sp,'التاريخ'), histMAIN_T));
 
     /* ── HISTORY/GEO: آداب وفلسفة ───────────────────────────────────────── */
     const histLIT_T = [nt(1,'1a-ZicAUgeeq1e0IUlMRvCcdiWtDUtcs1'),nt(2,'13zgtz3okpp960pIUr_4vFLjJ2vgnPsmX'),nt(3,'1cOiW0h0xgA3BxsBHgsIukFvGkP46rj8W'),nt(4,'1-318Gdbtp83HFvRIgwVotf6b6zauRB_z'),nt(5,'1DCjW0tXnEEe4ye_lpMBL6aegkfUhq-W6'),nt(6,'1uCc_DgS7l6xjufbHFGtTLunsMDOVdJGV'),nt(7,'1MIPLWjVFvMqkKU40V_ybXZfzUm-wYLI_'),nt(8,'1JLReu61mj9kYdxAh4eCPR0gPQVKY0uu_'),nt(9,'1tuHB0TjAuxVhpXqLeE_hkSxhegyG9GB1'),nt(10,'1FaxovmTrfAspp8r83M90P-mtZa5BCQea'),nt(11,'1tqqN_AcdTEaFQIAKj40J2V771JigvHj3')];
@@ -425,8 +425,8 @@ const examData = {
     // ── العلوم الإسلامية (جميع الشعب) ────────────────────────────────────
     ['math','science','tech_elec','tech_civil','tech_mech','tech_process','management','literature','lang_german','lang_spanish','lang_italian'].forEach(sp => append(gs(sp,'العلوم الإسلامية'), [ch25('1KAU22eypXNMqrJptyYzhrWGHHKdIfLuE','1rbH2yCP2lxUH9EFEu1v2NTX9HFqn3C40')]));
 
-    // ── التاريخ والجغرافيا (رياضيات + علوم تجريبية + تقني فقط) ───────────
-    ['math','science','tech_elec','tech_civil','tech_mech','tech_process'].forEach(sp => append(gs(sp,'تاريخ وجغرافيا'), [ch25('1mpKNgQpZewbZQ5taWzxwFBoZ0TnpwoI8','1o-R6CStaGEXsj2A2JqNkQM_H-igwLtAa')]));
+    // ── التاريخ (رياضيات + علوم تجريبية + تقني فقط) ───────────
+    ['math','science','tech_elec','tech_civil','tech_mech','tech_process'].forEach(sp => append(gs(sp,'التاريخ'), [ch25('1mpKNgQpZewbZQ5taWzxwFBoZ0TnpwoI8','1o-R6CStaGEXsj2A2JqNkQM_H-igwLtAa')]));
 
     // ── التكنولوجيا ────────────────────────────────────────────────────────
     // كهربائية ومدنية: ملف موحد (موضوع + تصحيح معاً) — نفس الملف للاثنين
