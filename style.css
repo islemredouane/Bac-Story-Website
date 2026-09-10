@@ -4621,22 +4621,30 @@ body.pdf-body-lock [id="footer-placeholder"] {
 .calc-optional-banner {
     display: flex;
     align-items: center;
-    gap: 12px;
-    background: linear-gradient(135deg, rgba(44, 92, 197, 0.05) 0%, rgba(26, 58, 143, 0.08) 100%);
-    border: 1.5px solid rgba(44, 92, 197, 0.18);
+    gap: 14px;
+    background: linear-gradient(135deg, rgba(44, 92, 197, 0.06) 0%, rgba(26, 58, 143, 0.09) 100%);
+    border: 1.5px solid rgba(44, 92, 197, 0.2);
     border-right: 4px solid #2c5cc5;
-    border-radius: 14px;
-    padding: 0.9rem 1.25rem;
+    border-radius: 16px;
+    padding: 1rem 1.4rem;
+    margin-top: 1rem;
     margin-bottom: 1.5rem;
-    font-size: 0.92rem;
+    font-size: 0.95rem;
     color: #1e293b;
     line-height: 1.6;
-    box-shadow: 0 4px 16px rgba(44, 92, 197, 0.04);
+    box-shadow: 0 4px 20px rgba(44, 92, 197, 0.06);
 }
 
 .calc-optional-banner i.banner-icon {
     font-size: 1.25rem;
     color: #2c5cc5;
+    background: rgba(44, 92, 197, 0.12);
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
 }
 
@@ -4646,7 +4654,7 @@ body.pdf-body-lock [id="footer-placeholder"] {
 
 .calc-optional-banner strong {
     color: #1a3a8f;
-    font-weight: 700;
+    font-weight: 800;
 }
 
 .btn.calculate {
