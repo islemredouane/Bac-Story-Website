@@ -64,7 +64,7 @@
             {
                 "@type": "NewsArticle",
                 "headline": "حقيقة إلغاء تغييرات البكالوريا 2027 — صدور القرار الرسمي رقم 36 لوزارة التربية الوطنية",
-                "description": "أعلنت وزارة التربية الوطنية الجزائرية رسمياً إلغاء جميع التعديلات المقترحة لبكالوريا 2027 والعودة العمل بالقرار رقم 186 المؤرخ في 23 مارس 2006 الخاص بالمواقيت والمعاملات.",
+                "description": "أعلنت وزارة التربية الوطنية الجزائرية رسمياً إلغاء جميع التعديلات المقترحة لبكالوريا 2027 والعودة للعمل بالقرار رقم 186 المؤرخ في 23 مارس 2006 الخاص بالمواقيت والمعاملات.",
                 "url": "https://www.bac-story.com/bac-2027-curriculum-changes",
                 "datePublished": "2026-09-10T16:00:00+01:00",
                 "dateModified": "2026-09-10T16:00:00+01:00",
@@ -153,19 +153,18 @@
         display: inline-flex;
         align-items: center;
         gap: 9px;
-        background: rgba(239, 68, 68, 0.25);
-        border: 1px solid rgba(248, 113, 113, 0.4);
-        color: #fca5a5;
+        background: rgba(255, 255, 255, 0.14);
+        border: 1px solid rgba(255, 255, 255, 0.24);
         border-radius: 999px;
         padding: 7px 17px;
-        font-size: 0.85rem;
-        font-weight: 900;
+        font-size: 0.82rem;
+        font-weight: 800;
         letter-spacing: 0.2px;
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
         margin-bottom: 1.15rem;
     }
-    .crc-lede-badge i { color: #ef4444; font-size: 0.9rem; }
+    .crc-lede-badge i { color: #ff6b35; font-size: 0.85rem; }
 
     .crc-lede h1 {
         margin: 0 0 1.05rem;
@@ -324,6 +323,7 @@
         line-height: 1.5;
         position: relative;
     }
+    /* card-in entry animation for stat boxes */
     @keyframes crc-card-in {
         from { opacity: 0; transform: translateY(32px) scale(0.95); filter: blur(4px); }
         to   { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
@@ -334,7 +334,7 @@
     .crc-js .crc-stat.crc-reveal[data-s="2"].in { animation-delay: 0.16s; }
     .crc-js .crc-stat.crc-reveal[data-s="3"].in { animation-delay: 0.24s; }
 
-    /* ══ DECREE HIGHLIGHT BOX ══ */
+    /* ══ DECREE CARD ══ */
     .crc-decree-box {
         background: #fff;
         border: 1.5px solid rgba(220, 38, 38, 0.25);
@@ -405,6 +405,51 @@
         border-top: 1px dashed rgba(220, 38, 38, 0.15);
     }
 
+    /* ══ RENAME CALLOUT ══ */
+    .crc-rename {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.4rem;
+        flex-wrap: wrap;
+        background: #fff;
+        border: 1.5px solid rgba(220, 38, 38, 0.2);
+        border-radius: 20px;
+        padding: 1.5rem 2rem;
+        margin-bottom: 2.6rem;
+        box-shadow: 0 5px 20px rgba(220, 38, 38, 0.05);
+    }
+    .crc-rename-old, .crc-rename-new {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: 'Tajawal', sans-serif;
+        font-weight: 900;
+        font-size: 1.15rem;
+        border-radius: 999px;
+        padding: 0.6rem 1.4rem;
+    }
+    .crc-rename-old {
+        color: #94a3b8;
+        background: #f1f5f9;
+        text-decoration: line-through;
+        text-decoration-thickness: 2px;
+    }
+    .crc-rename-new {
+        color: #fff;
+        background: linear-gradient(135deg, #15803d 0%, #22c55e 100%);
+        box-shadow: 0 8px 20px rgba(34, 197, 94, 0.28);
+    }
+    .crc-rename-arrow { color: #16a34a; font-size: 1.3rem; }
+    .crc-rename-note {
+        flex-basis: 100%;
+        text-align: center;
+        font-size: 0.88rem;
+        color: #64748b;
+        font-weight: 600;
+        margin-top: 0.3rem;
+    }
+
     /* ══ JUMP CHIPS ══ */
     .crc-jump {
         display: flex;
@@ -439,6 +484,67 @@
         transform: translateY(-2px);
         box-shadow: 0 8px 18px color-mix(in srgb, var(--j-c) 30%, transparent);
     }
+
+    /* ══ GEOGRAPHY EXPLAINER ══ */
+    .crc-geo {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.4rem;
+        background: #fff;
+        border: 1.5px solid rgba(22, 163, 74, 0.25);
+        border-radius: 22px;
+        padding: 1.8rem 2rem;
+        margin-bottom: 3rem;
+        box-shadow: 0 6px 24px rgba(22, 163, 74, 0.06);
+    }
+    .crc-geo-head {
+        grid-column: 1 / -1;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 0.4rem;
+    }
+    .crc-geo-head i {
+        width: 42px; height: 42px;
+        border-radius: 13px;
+        background: linear-gradient(135deg, #15803d 0%, #22c55e 100%);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.05rem;
+        box-shadow: 0 6px 16px rgba(34, 197, 94, 0.28);
+    }
+    .crc-geo-head h2 { margin: 0; font-size: 1.24rem; font-weight: 900; color: #0f172a; }
+    .crc-geo-col h3 {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin: 0 0 0.8rem;
+        font-size: 0.95rem;
+        font-weight: 800;
+        color: #15803d;
+    }
+    .crc-geo-col ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.55rem;
+    }
+    .crc-geo-col li {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        font-size: 0.92rem;
+        font-weight: 700;
+        color: #334155;
+        background: #f8fafc;
+        border-radius: 10px;
+        padding: 0.6rem 0.9rem;
+    }
+    .crc-geo-col li i { color: #16a34a; }
 
     /* ══ STREAM ACCORDIONS ══ */
     .crc-toolbar {
@@ -639,9 +745,8 @@
     }
     .crc-tag--restored { color: #15803d; background: rgba(22, 163, 74, 0.12); }
     .crc-tag--same { color: #64748b; background: rgba(100, 116, 139, 0.12); }
-    .crc-tag--cancelled { color: #b91c1c; background: rgba(220, 38, 38, 0.1); }
 
-    /* per-stream palettes */
+    /* per-stream palettes — identical to original */
     .crc-stream--math    { --s-c: #2c5cc5; --s-c2: #1e3fa0; }
     .crc-stream--science { --s-c: #28a745; --s-c2: #1d7a33; }
     .crc-stream--tech    { --s-c: #f39c12; --s-c2: #c87f0a; --s-ct: #96610a; }
@@ -858,72 +963,70 @@
         color: #0f172a;
         font-size: 0.98rem;
     }
+    .crc-faq summary::-webkit-details-marker { display: none; }
     .crc-faq summary i { color: #2c5cc5; transition: transform 0.3s ease; flex: none; }
     .crc-faq details[open] summary i { transform: rotate(45deg); }
     .crc-faq p { margin: 0.8rem 0 0; font-size: 0.92rem; line-height: 1.85; color: #475569; }
+    .crc-faq-link { color: #2c5cc5; font-weight: 700; text-decoration: none; white-space: nowrap; }
+    .crc-faq-link:hover { text-decoration: underline; }
+
+    /* ── Smooth accordion ── */
+    .crc-stream.is-closing {
+        border-color: rgba(44, 92, 195, 0.08) !important;
+        box-shadow: none !important;
+    }
+    .crc-stream.is-closing .crc-stream-chevron {
+        transform: rotate(0deg) !important;
+        background: #f8fafc !important;
+        color: #64748b !important;
+    }
+    .crc-faq details.is-closing summary i { transform: rotate(0deg) !important; }
+
+    /* ── Reveal on scroll ── */
+    .crc-js .crc-reveal {
+        opacity: 0;
+        transform: translateY(26px);
+        transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .crc-js .crc-reveal.in { opacity: 1; transform: translateY(0); }
+
+    @media (prefers-reduced-motion: reduce) {
+        .crc-js .crc-reveal { opacity: 1; transform: none; transition: none; }
+        .crc-jump-chip, .crc-cta-btn, .crc-toggle-all { transition: none; }
+    }
 
     /* ── Responsive ── */
     @media (max-width: 980px) {
-        .crc-lede { grid-template-columns: 1fr; padding: 2.4rem 2rem; }
+        .crc-lede { grid-template-columns: 1fr; gap: 1.9rem; padding: 2.4rem 2.1rem; }
+        .crc-lede-main { text-align: center; }
+        .crc-lede-lead, .crc-lede-thanks { max-width: none; }
+        .crc-lede-thanks {
+            border-right: 0;
+            padding-right: 0;
+            padding-top: 1.35rem;
+            margin-top: 1.35rem;
+            text-align: right;
+        }
         .crc-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-        .crc-sources { grid-template-columns: 1fr; }
-        .crc-highlights-grid { grid-template-columns: 1fr; }
+        .crc-decree-list { grid-template-columns: 1fr; }
+        .crc-geo { grid-template-columns: 1fr; padding: 1.6rem; }
+        .crc-cta { padding: 2.4rem 1.6rem; }
     }
     @media (max-width: 640px) {
-        .crc-lede { padding: 1.8rem 1.3rem; border-radius: 22px; }
-        .crc-decree-card { padding: 1.4rem 1.1rem; }
+        .crc-lede { padding: 2rem 1.4rem; border-radius: 22px; }
+        .crc-decree-box { padding: 1.4rem 1.2rem; }
         .crc-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.8rem; }
-        .crc-stat-num { font-size: 2.2rem; }
+        .crc-stat { padding: 1.2rem 0.6rem; }
+        .crc-stat-num { font-size: 1.9rem; }
+        .crc-rename { padding: 1.3rem 1.3rem; gap: 1rem; }
+        .crc-rename-old, .crc-rename-new { font-size: 0.98rem; padding: 0.5rem 1rem; }
+        .crc-stream summary { padding: 1rem 1.1rem; gap: 0.7rem; }
+        .crc-stream-body { padding: 0 1.1rem 1.3rem; }
+        .crc-stream-title h3 { font-size: 1rem; }
+        .crc-stream-summary { display: none; }
         .crc-cta-actions { flex-direction: column; width: 100%; }
         .crc-cta-btn { width: 100%; justify-content: center; }
-    }
-    .crc-source-type {
-        font-size: .72rem;
-        font-weight: 800;
-        letter-spacing: .3px;
-        border-radius: 999px;
-        padding: 3px 9px;
-        display: inline-flex;
-        align-self: flex-start;
-        margin-bottom: 4px;
-    }
-    .crc-source-card--gov .crc-source-type { color: #1a3a8f; background: rgba(26, 58, 143, 0.09); }
-    .crc-source-card--fb  .crc-source-type { color: #1877F2; background: rgba(24, 119, 242, 0.09); }
-    .crc-source-title {
-        font-size: 1rem;
-        font-weight: 900;
-        color: #0f172a;
-        display: block;
-        margin-bottom: 4px;
-    }
-    .crc-source-desc {
-        font-size: .84rem;
-        line-height: 1.65;
-        color: #64748b;
-        font-weight: 600;
-        margin: 0 0 8px;
-    }
-    .crc-source-domain {
-        display: inline-flex;
-        align-items: center;
-        gap: 5px;
-        font-size: .76rem;
-        font-weight: 700;
-        color: #94a3b8;
-    }
-    .crc-source-ext {
-        flex: none;
-        color: #cbd5e1;
-        font-size: .9rem;
-        margin-top: 2px;
-        transition: color .2s ease, transform .2s ease;
-    }
-    .crc-source-card:hover .crc-source-ext { transform: translate(-2px, -2px); }
-    .crc-source-card--gov:hover .crc-source-ext { color: #2c5cc5; }
-    .crc-source-card--fb:hover  .crc-source-ext { color: #1877F2; }
-    @media (max-width: 640px) {
-        .crc-sources { grid-template-columns: 1fr; }
-        .crc-source-card { padding: 1.2rem 1.1rem; }
     }
     </style>
     <script>document.documentElement.classList.add('crc-js');</script>
@@ -940,79 +1043,108 @@
         <!-- ══ LEDE ══ -->
         <section class="crc-lede">
             <div class="crc-lede-main">
-                <span class="crc-lede-badge"><i class="fas fa-file-circle-check"></i> إصلاح رسمي للمنهج</span>
+                <span class="crc-lede-badge"><i class="fas fa-bell"></i> عاجل ورسمياً — القرار 36</span>
                 <h1>
-                    <span class="crc-lede-kick">قبل أن تُفاجَأ بها في القسم</span>
-                    المنهج الجديد لبكالوريا <em>2027</em>
+                    <span class="crc-lede-kick">القرار الوزاري رقم 36 يحسم الجدل</span>
+                    حقيقة إلغاء تغييرات <em>البكالوريا 2027</em>
                 </h1>
                 <p class="crc-lede-lead">
-                    غيّرت وزارة التربية الوطنية برنامج <b>السنة الثالثة ثانوي</b> بداية من الموسم
-                    2026-2027 — معاملات جديدة، مواد أُلغيت من عدة شعب، وتغييرات طالت كل شعبة.
-                    جمعنا لكم كل شعبة في مكان واحد، رقماً برقم.
+                    أعلنت وزارة التربية الوطنية رسمياً بموجب <b>القرار الوزاري رقم 36</b> الصادر في 9 سبتمبر 2026 عن <b>الإلغاء التام والكامل للقرار رقم 20</b> المتعلق بمواقيت ومعاملات البكالوريا، والعودة الرسمية الشاملة لأحكام <b>القرار رقم 186 المؤرخ في 23 مارس 2006</b>.
                 </p>
                 <p class="crc-lede-thanks">
-                    المعلومات مأخوذة من <a href="https://www.education.gov.dz/2026/07/29/%d8%a8%d9%84%d8%a7%d8%ba-%d8%ad%d9%88%d9%84-%d8%a7%d9%84%d8%aa%d8%b1%d8%aa%d9%8a%d8%a8%d8%a7%d8%aa-%d8%a7%d9%84%d8%a8%d9%8a%d8%af%d8%a7%d8%ba%d9%88%d8%ac%d9%8a%d8%a9-%d8%a7%d9%84%d9%85%d8%aa%d8%ae/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.9);font-weight:800;text-decoration:underline;text-underline-offset:3px;">الجداول الرسمية الصادرة عن وزارة التربية الوطنية</a>. حاسبة معدل البكالوريا على المنصة محدّثة الآن بجميع المعاملات الجديدة لكل الشعب.
+                    تأكيد رسمي: تم استرجاع كافة المواد التي قُرّر سابقاً حذفها (الفلسفة، الفرنسية، الأمازيغية، الجغرافيا) واستعادة التسميات والمعاملات الرسمية المعتمدة لجميع الشعب.
+                    المعلومات مأخوذة من <a href="https://www.education.gov.dz/2026/09/10/%d9%82%d8%b1%d8%a7%d8%b1-%d8%b1%d9%82%d9%85-36-%d9%85%d8%a4%d8%b1%d8%ae-%d9%81%d9%8a-27-%d8%b1%d8%a8%d9%8a%d8%b9-%d8%a7%d9%84%d8%a3%d9%88%d9%84-%d8%b9%d8%a7%d9%85-1448-%d8%a7%d9%84%d9%85%d9%88%d8%a7/" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.9);font-weight:800;text-decoration:underline;text-underline-offset:3px;">القرار الوزاري المنشور بموقع وزارة التربية الوطنية</a>.
                 </p>
             </div>
 
             <ul class="crc-lede-points">
                 <li>
-                    <i class="fas fa-map-location-dot"></i>
+                    <i class="fas fa-rotate-right" style="color:#10b981;"></i>
                     <div>
-                        <b>الجغرافيا تختفي من 3 شعب</b>
-                        <span>رياضيات وعلوم تجريبية وهندسة تحتفظ بمعامل «التاريخ» فقط، دون الجغرافيا.</span>
+                        <b>إلغاء الحذوفات والعودة للنظام السابق</b>
+                        <span>عودة الفلسفة والفرنسية والأمازيغية والعربية لجميع الشعب التي تقرر سابقاً حذفها منها.</span>
                     </div>
                 </li>
                 <li>
-                    <i class="fas fa-sliders"></i>
+                    <i class="fas fa-earth-africa" style="color:#60a5fa;"></i>
                     <div>
-                        <b>معاملات جديدة في كل شعبة</b>
-                        <span>من زيادة معامل الرياضيات إلى حذف الفلسفة من عدة شعب — لا شعبة نجت من التغيير.</span>
+                        <b>استرجاع الجغرافيا كاملاً</b>
+                        <span>الرياضيات والعلوم وتقني رياضي تسترجع مادة الجغرافيا بمعامل التاريخ والجغرافيا الأصلي.</span>
                     </div>
                 </li>
                 <li>
-                    <i class="fas fa-laptop-code"></i>
+                    <i class="fas fa-drafting-compass" style="color:#fbbf24;"></i>
                     <div>
-                        <b>الإعلام الآلي يدخل لأول مرة</b>
-                        <span>شعبتا الرياضيات والهندسة تكسبان مادة الإعلام الآلي بمعامل 3 — إضافة لم تكن موجودة قبل 2027.</span>
+                        <b>استعادة اسم «تقني رياضي»</b>
+                        <span>إلغاء تسمية "هندسة" واستعادة اسم شعبة تقني رياضي الرسمي والمعاملات السابقة.</span>
                     </div>
                 </li>
             </ul>
         </section>
 
-        <!-- ══ STATS ══ -->
+        <!-- ══ STATS STRIP ══ -->
         <div class="crc-stats">
             <div class="crc-stat crc-reveal" data-s="0">
-                <div class="crc-stat-num" data-count="20" data-suffix="+">0</div>
-                <span>معامل تغيّر في<br>مختلف الشعب</span>
+                <div class="crc-stat-num" data-count="36" data-suffix="">0</div>
+                <span>رقم القرار الوزاري<br>الملغي للتعديلات</span>
             </div>
             <div class="crc-stat crc-reveal" data-s="1">
-                <div class="crc-stat-num" data-count="15" data-suffix="">0</div>
-                <span>حالة حذف مادة<br>عبر مختلف الشعب</span>
+                <div class="crc-stat-num" data-count="186" data-suffix="">0</div>
+                <span>رقم القرار النافذ معتمداً<br>(23 مارس 2006)</span>
             </div>
             <div class="crc-stat crc-reveal" data-s="2">
-                <div class="crc-stat-num" data-count="3" data-suffix="">0</div>
-                <span>شعب فقدت<br>مادة الجغرافيا</span>
+                <div class="crc-stat-num" data-count="100" data-suffix="%">0</div>
+                <span>إلغاء تام وكامل<br>لجميع الحذوفات</span>
             </div>
             <div class="crc-stat crc-reveal" data-s="3">
-                <div class="crc-stat-num" data-count="2" data-suffix="">0</div>
-                <span>شعبتان كسبتا<br>مادة الإعلام الآلي</span>
+                <div class="crc-stat-num" data-count="6" data-suffix="">0</div>
+                <span>شعب عادت لموادها<br>ومعاملاتها الأصلية</span>
             </div>
         </div>
 
+        <!-- ══ DECREE CARD ══ -->
+        <section class="crc-decree-box crc-reveal">
+            <div class="crc-decree-box-head">
+                <h3><i class="fas fa-scroll"></i> نص القرار الوزاري الرسمي الصادر عن وزارة التربية الوطنية</h3>
+                <span class="crc-decree-badge-num">القرار رقم 36</span>
+            </div>
+            <ul class="crc-decree-list">
+                <li>
+                    <strong>المادة الأولى</strong>
+                    يُلغى القرار رقم 20 المؤرخ في 13 صفر عام 1448 الموافق 28 جولية سنة 2026، المتضمن مواقيت ومعاملات الثانوي.
+                </li>
+                <li>
+                    <strong>المادة الثانية</strong>
+                    تُلغى، ابتداء من تاريخ سريان هذا القرار، جميع المناشير المتعلقة بأحكام القرار رقم 20 المذكور أعلاه.
+                </li>
+                <li>
+                    <strong>المادة الثالثة</strong>
+                    تبقى أحكام القرار رقم 186 المؤرخ في 23 مارس 2006 (المتضمن المواقيت والمعاملات) سارية المفعول.
+                </li>
+                <li>
+                    <strong>المادة الرابعة</strong>
+                    يُكلف كل فيما يخصه بتطبيق أحكام هذا القرار، وينشر في النشرة الرسمية لوزارة التربية الوطنية.
+                </li>
+            </ul>
+            <div class="crc-decree-foot">
+                <span><i class="fas fa-pen-nib"></i> وزير التربية الوطنية: محمد صغير سعداوي</span>
+                <span><i class="fas fa-calendar-check"></i> حرر بالجزائر في 27 ربيع الأول 1448 (9 سبتمبر 2026)</span>
+            </div>
+        </section>
+
         <!-- ══ RENAME CALLOUT ══ -->
         <div class="crc-rename crc-reveal">
-            <span class="crc-rename-old">تقني رياضي</span>
+            <span class="crc-rename-old">هندسة (تسمية ملغاة)</span>
             <i class="fas fa-arrow-left-long crc-rename-arrow"></i>
-            <span class="crc-rename-new"><i class="fas fa-drafting-compass"></i> هندسة</span>
-            <p class="crc-rename-note">الاسم الرسمي الجديد لشعبة «تقني رياضي» — نفس الشعبة، بمعاملات ومواد محدّثة أدناه.</p>
+            <span class="crc-rename-new"><i class="fas fa-drafting-compass"></i> تقني رياضي</span>
+            <p class="crc-rename-note">تم إلغاء التسمية المقترحة "هندسة" واسترجاع الاسم الرسمي الأصلي "تقني رياضي" بجميع الخيارات الأربعة وفق القرار 186.</p>
         </div>
 
         <!-- ══ JUMP CHIPS ══ -->
         <nav class="crc-jump" id="crcJump" aria-label="انتقال سريع للشعب">
-            <button type="button" class="crc-jump-chip" style="--j-c:#2c5cc5;" data-target="crc-math"><i class="fas fa-square-root-variable"></i> رياضيات</button>
             <button type="button" class="crc-jump-chip" style="--j-c:#28a745;" data-target="crc-science"><i class="fas fa-flask"></i> علوم تجريبية</button>
-            <button type="button" class="crc-jump-chip" style="--j-c:#c87f0a;" data-target="crc-tech"><i class="fas fa-drafting-compass"></i> هندسة</button>
+            <button type="button" class="crc-jump-chip" style="--j-c:#2c5cc5;" data-target="crc-math"><i class="fas fa-square-root-variable"></i> رياضيات</button>
+            <button type="button" class="crc-jump-chip" style="--j-c:#c87f0a;" data-target="crc-tech"><i class="fas fa-drafting-compass"></i> تقني رياضي</button>
             <button type="button" class="crc-jump-chip" style="--j-c:#8e44ad;" data-target="crc-manage"><i class="fas fa-chart-pie"></i> تسيير واقتصاد</button>
             <button type="button" class="crc-jump-chip" style="--j-c:#e74c3c;" data-target="crc-lit"><i class="fas fa-feather-pointed"></i> آداب وفلسفة</button>
             <button type="button" class="crc-jump-chip" style="--j-c:#16a085;" data-target="crc-lang"><i class="fas fa-language"></i> لغات أجنبية</button>
@@ -1021,69 +1153,103 @@
         <!-- ══ GEOGRAPHY EXPLAINER ══ -->
         <section class="crc-geo crc-reveal">
             <div class="crc-geo-head">
-                <i class="fas fa-map-location-dot"></i>
-                <h2>ماذا حدث لمادة الجغرافيا؟</h2>
+                <i class="fas fa-earth-africa"></i>
+                <h2>ماذا حدث لمادة الجغرافيا بعد القرار 36؟</h2>
             </div>
-            <div class="crc-geo-col crc-geo-col--lost">
-                <h3><i class="fas fa-circle-xmark"></i> فقدت الجغرافيا (بقي معامل التاريخ فقط = 2)</h3>
+            <div class="crc-geo-col">
+                <h3><i class="fas fa-circle-check"></i> استرجاع الجغرافيا كاملاً (تاريخ وجغرافيا)</h3>
                 <ul>
-                    <li><i class="fas fa-square-root-variable"></i> رياضيات</li>
-                    <li><i class="fas fa-flask"></i> علوم تجريبية</li>
-                    <li><i class="fas fa-drafting-compass"></i> هندسة</li>
+                    <li><i class="fas fa-flask"></i> علوم تجريبية <span style="color:#94a3b8;font-weight:600;">(معامل 2 الأصلي)</span></li>
+                    <li><i class="fas fa-square-root-variable"></i> رياضيات <span style="color:#94a3b8;font-weight:600;">(معامل 2 الأصلي)</span></li>
+                    <li><i class="fas fa-drafting-compass"></i> تقني رياضي <span style="color:#94a3b8;font-weight:600;">(معامل 2 الأصلي)</span></li>
                 </ul>
             </div>
-            <div class="crc-geo-col crc-geo-col--kept">
-                <h3><i class="fas fa-circle-check"></i> احتفظت بـ«تاريخ وجغرافيا» كاملة</h3>
+            <div class="crc-geo-col">
+                <h3><i class="fas fa-circle-check"></i> ثبات مادة التاريخ والجغرافيا</h3>
                 <ul>
-                    <li><i class="fas fa-feather-pointed"></i> آداب وفلسفة <span style="color:#94a3b8;font-weight:600;">(معامل 4)</span></li>
-                    <li><i class="fas fa-language"></i> لغات أجنبية <span style="color:#94a3b8;font-weight:600;">(معامل 2)</span></li>
-                    <li><i class="fas fa-chart-pie"></i> تسيير واقتصاد <span style="color:#94a3b8;font-weight:600;">(معامل 3، كان 4)</span></li>
+                    <li><i class="fas fa-feather-pointed"></i> آداب وفلسفة <span style="color:#94a3b8;font-weight:600;">(معامل 4 الأصلي)</span></li>
+                    <li><i class="fas fa-chart-pie"></i> تسيير واقتصاد <span style="color:#94a3b8;font-weight:600;">(معامل 4 الأصلي)</span></li>
+                    <li><i class="fas fa-language"></i> لغات أجنبية <span style="color:#94a3b8;font-weight:600;">(معامل 2 الأصلي)</span></li>
                 </ul>
             </div>
         </section>
 
         <!-- ══ STREAM ACCORDIONS ══ -->
         <div class="modern-section-header">
-            <h2>التغييرات شعبة بشعبة</h2>
+            <h2>وضعية المواد والمعاملات لكل شعبة (العودة الكاملة للقرار 186)</h2>
         </div>
         <div class="crc-toolbar" style="margin-bottom: 1rem;">
-            <p style="margin:0;font-size:0.88rem;color:#64748b;font-weight:600;">انقر على أي شعبة لعرض التفاصيل الكاملة</p>
+            <p style="margin:0;font-size:0.88rem;color:#64748b;font-weight:600;">انقر على أي شعبة لعرض جدول المواد والمعاملات المعتمدة</p>
             <button type="button" class="crc-toggle-all" id="crcToggleAll"><i class="fas fa-expand"></i> فتح الكل</button>
         </div>
 
         <div class="crc-streams">
+
+            <!-- علوم تجريبية -->
+            <details class="crc-stream crc-stream--science crc-reveal" id="crc-science" open>
+                <summary>
+                    <div class="crc-stream-icon" style="background:linear-gradient(135deg, #1d7a33 0%, #28a745 100%);"><i class="fas fa-flask"></i></div>
+                    <div class="crc-stream-title">
+                        <h3>شعبة علوم تجريبية <span class="crc-restored-tag">العودة للنظام الأصلي</span></h3>
+                        <p class="crc-stream-summary">استرجاع الفرنسية والفلسفة والجغرافيا · العلوم 6 · الفيزياء 5 · الرياضيات 5 · العربية 3</p>
+                    </div>
+                    <div class="crc-stream-total"><b>30</b><span>أو 32 بالأمازيغية</span></div>
+                    <div class="crc-stream-chevron"><i class="fas fa-chevron-down"></i></div>
+                </summary>
+                <div class="crc-stream-body">
+                    <div class="crc-stream-body-inner">
+                        <div class="crc-note"><i class="fas fa-circle-check"></i> إلغاء كافة الحذوفات: عادت مادة الفلسفة واللغة الفرنسية وجزء الجغرافيا من التاريخ والجغرافيا رسمياً.</div>
+                        <div class="crc-table-wrap">
+                            <table class="crc-table">
+                                <thead><tr><th>المادة</th><th>المعامل المعتمد (القرار 186)</th><th>الحالة بعد القرار 36</th></tr></thead>
+                                <tbody>
+                                    <tr><td>علوم الطبيعة والحياة</td><td class="crc-num">6</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 6)</span></td></tr>
+                                    <tr><td>علوم فيزيائية</td><td class="crc-num">5</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 5)</span></td></tr>
+                                    <tr><td>رياضيات</td><td class="crc-num">5</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 5)</span></td></tr>
+                                    <tr><td>لغة عربية وآدابها</td><td class="crc-num">3</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 3)</span></td></tr>
+                                    <tr class="crc-restored"><td>لغة فرنسية</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--restored">مسترجعة (إلغاء الحذف)</span></td></tr>
+                                    <tr><td>لغة إنجليزية</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 2)</span></td></tr>
+                                    <tr class="crc-restored"><td>فلسفة</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--restored">مسترجعة (إلغاء الحذف)</span></td></tr>
+                                    <tr class="crc-restored"><td>تاريخ وجغرافيا</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--restored">مسترجعة الجغرافيا كاملاً</span></td></tr>
+                                    <tr><td>علوم إسلامية</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 2)</span></td></tr>
+                                    <tr><td>تربية بدنية</td><td class="crc-num">1</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 1)</span></td></tr>
+                                    <tr class="crc-total"><td>المجموع الكلي للمعاملات</td><td class="crc-num">30</td><td>المخطط الأصلي المعتمد</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </details>
 
             <!-- رياضيات -->
             <details class="crc-stream crc-stream--math crc-reveal" id="crc-math">
                 <summary>
                     <div class="crc-stream-icon"><i class="fas fa-square-root-variable"></i></div>
                     <div class="crc-stream-title">
-                        <h3>شعبة رياضيات</h3>
-                        <p class="crc-stream-summary">4 مواد محذوفة · مادة مضافة: إعلام آلي · معامل الرياضيات 7 ← 8</p>
+                        <h3>شعبة رياضيات <span class="crc-restored-tag">العودة للنظام الأصلي</span></h3>
+                        <p class="crc-stream-summary">استرجاع العربية والفرنسية والفلسفة والجغرافيا · الرياضيات 7 · الفيزياء 6 · العربية 3</p>
                     </div>
-                    <div class="crc-stream-total"><b>27</b><span>كان 31</span></div>
+                    <div class="crc-stream-total"><b>29</b><span>أو 31 بالأمازيغية</span></div>
                     <div class="crc-stream-chevron"><i class="fas fa-chevron-down"></i></div>
                 </summary>
                 <div class="crc-stream-body">
                     <div class="crc-stream-body-inner">
-                        <div class="crc-note"><i class="fas fa-circle-info"></i> تُحذف اللغة العربية والفرنسية والفلسفة والأمازيغية كلياً من هذه الشعبة. تبقى مادة التاريخ بمعامل 2 دون الجغرافيا.</div>
+                        <div class="crc-note"><i class="fas fa-circle-check"></i> إلغاء مقترح حذف العربية والفرنسية والفلسفة والعودة الكاملة للمخطط السابق.</div>
                         <div class="crc-table-wrap">
                             <table class="crc-table">
-                                <thead><tr><th>المادة</th><th>قديم</th><th>جديد</th><th>التغيير</th></tr></thead>
+                                <thead><tr><th>المادة</th><th>المعامل المعتمد (القرار 186)</th><th>الحالة بعد القرار 36</th></tr></thead>
                                 <tbody>
-                                    <tr><td>رياضيات</td><td class="crc-num">7</td><td class="crc-num">8</td><td><span class="crc-tag crc-tag--up">+1</span></td></tr>
-                                    <tr><td>علوم فيزيائية</td><td class="crc-num">6</td><td class="crc-num">6</td><td><span class="crc-tag crc-tag--same">=</span></td></tr>
-                                    <tr><td>إعلام آلي</td><td class="crc-num">—</td><td class="crc-num">3</td><td><span class="crc-tag crc-tag--new">جديد</span></td></tr>
-                                    <tr><td>لغة إنجليزية</td><td class="crc-num">2</td><td class="crc-num">3</td><td><span class="crc-tag crc-tag--up">+1</span></td></tr>
-                                    <tr><td>علوم الطبيعة والحياة</td><td class="crc-num">2</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--same">=</span></td></tr>
-                                    <tr><td>علوم إسلامية</td><td class="crc-num">2</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--same">=</span></td></tr>
-                                    <tr><td>التاريخ <small style="color:#94a3b8;">(كانت تاريخ وجغرافيا)</small></td><td class="crc-num">2</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--relabel">تغيّر المسمى</span></td></tr>
-                                    <tr><td>تربية بدنية</td><td class="crc-num">1</td><td class="crc-num">1</td><td><span class="crc-tag crc-tag--same">=</span></td></tr>
-                                    <tr class="crc-removed"><td>لغة عربية</td><td class="crc-num">3</td><td class="crc-num">—</td><td><span class="crc-tag crc-tag--removed">أُلغيت</span></td></tr>
-                                    <tr class="crc-removed"><td>لغة فرنسية</td><td class="crc-num">2</td><td class="crc-num">—</td><td><span class="crc-tag crc-tag--removed">أُلغيت</span></td></tr>
-                                    <tr class="crc-removed"><td>فلسفة</td><td class="crc-num">2</td><td class="crc-num">—</td><td><span class="crc-tag crc-tag--removed">أُلغيت</span></td></tr>
-                                    <tr class="crc-removed"><td>لغة أمازيغية</td><td class="crc-num">2</td><td class="crc-num">—</td><td><span class="crc-tag crc-tag--removed">أُلغيت</span></td></tr>
-                                    <tr class="crc-total"><td>المجموع</td><td class="crc-num">31</td><td class="crc-num">27</td><td></td></tr>
+                                    <tr><td>رياضيات</td><td class="crc-num">7</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 7)</span></td></tr>
+                                    <tr><td>علوم فيزيائية</td><td class="crc-num">6</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 6)</span></td></tr>
+                                    <tr class="crc-restored"><td>لغة عربية وآدابها</td><td class="crc-num">3</td><td><span class="crc-tag crc-tag--restored">مسترجعة (إلغاء الحذف)</span></td></tr>
+                                    <tr><td>علوم الطبيعة والحياة</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 2)</span></td></tr>
+                                    <tr class="crc-restored"><td>لغة فرنسية</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--restored">مسترجعة (إلغاء الحذف)</span></td></tr>
+                                    <tr><td>لغة إنجليزية</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 2)</span></td></tr>
+                                    <tr class="crc-restored"><td>فلسفة</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--restored">مسترجعة (إلغاء الحذف)</span></td></tr>
+                                    <tr class="crc-restored"><td>تاريخ وجغرافيا</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--restored">مسترجعة الجغرافيا كاملاً</span></td></tr>
+                                    <tr><td>علوم إسلامية</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 2)</span></td></tr>
+                                    <tr><td>تربية بدنية</td><td class="crc-num">1</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 1)</span></td></tr>
+                                    <tr class="crc-total"><td>المجموع الكلي للمعاملات</td><td class="crc-num">29</td><td>المخطط الأصلي المعتمد</td></tr>
                                 </tbody>
                             </table>
                         </div>
@@ -1091,74 +1257,34 @@
                 </div>
             </details>
 
-            <!-- علوم تجريبية -->
-            <details class="crc-stream crc-stream--science crc-reveal" id="crc-science">
-                <summary>
-                    <div class="crc-stream-icon"><i class="fas fa-flask"></i></div>
-                    <div class="crc-stream-title">
-                        <h3>شعبة علوم تجريبية</h3>
-                        <p class="crc-stream-summary">مادتان محذوفتان · العربية والأمازيغية باقيتان · الفيزياء 5 ← 4</p>
-                    </div>
-                    <div class="crc-stream-total"><b>27</b><span>كان 32</span></div>
-                    <div class="crc-stream-chevron"><i class="fas fa-chevron-down"></i></div>
-                </summary>
-                <div class="crc-stream-body">
-                    <div class="crc-stream-body-inner">
-                        <div class="crc-note"><i class="fas fa-triangle-exclamation"></i> خلافاً لبعض الشعب الأخرى، تبقى <b>اللغة العربية والأمازيغية</b> في شعبة علوم تجريبية — فقط معامل العربية ينخفض. المحذوف هنا هو الفرنسية والفلسفة فقط.</div>
-                        <div class="crc-table-wrap">
-                            <table class="crc-table">
-                                <thead><tr><th>المادة</th><th>قديم</th><th>جديد</th><th>التغيير</th></tr></thead>
-                                <tbody>
-                                    <tr><td>علوم الطبيعة والحياة</td><td class="crc-num">6</td><td class="crc-num">6</td><td><span class="crc-tag crc-tag--same">=</span></td></tr>
-                                    <tr><td>رياضيات</td><td class="crc-num">5</td><td class="crc-num">5</td><td><span class="crc-tag crc-tag--same">=</span></td></tr>
-                                    <tr><td>علوم فيزيائية</td><td class="crc-num">5</td><td class="crc-num">4</td><td><span class="crc-tag crc-tag--down">-1</span></td></tr>
-                                    <tr><td>لغة عربية</td><td class="crc-num">3</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--down">-1</span></td></tr>
-                                    <tr><td>لغة إنجليزية</td><td class="crc-num">2</td><td class="crc-num">3</td><td><span class="crc-tag crc-tag--up">+1</span></td></tr>
-                                    <tr><td>لغة أمازيغية</td><td class="crc-num">2</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--same">=</span></td></tr>
-                                    <tr><td>علوم إسلامية</td><td class="crc-num">2</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--same">=</span></td></tr>
-                                    <tr><td>التاريخ <small style="color:#94a3b8;">(كانت تاريخ وجغرافيا)</small></td><td class="crc-num">2</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--relabel">تغيّر المسمى</span></td></tr>
-                                    <tr><td>تربية بدنية</td><td class="crc-num">1</td><td class="crc-num">1</td><td><span class="crc-tag crc-tag--same">=</span></td></tr>
-                                    <tr class="crc-removed"><td>لغة فرنسية</td><td class="crc-num">2</td><td class="crc-num">—</td><td><span class="crc-tag crc-tag--removed">أُلغيت</span></td></tr>
-                                    <tr class="crc-removed"><td>فلسفة</td><td class="crc-num">2</td><td class="crc-num">—</td><td><span class="crc-tag crc-tag--removed">أُلغيت</span></td></tr>
-                                    <tr class="crc-total"><td>المجموع</td><td class="crc-num">32</td><td class="crc-num">27</td><td></td></tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </details>
-
-            <!-- هندسة -->
+            <!-- تقني رياضي -->
             <details class="crc-stream crc-stream--tech crc-reveal" id="crc-tech">
                 <summary>
-                    <div class="crc-stream-icon"><i class="fas fa-drafting-compass"></i></div>
+                    <div class="crc-stream-icon" style="background:linear-gradient(135deg, #c87f0a 0%, #f39c12 100%);"><i class="fas fa-drafting-compass"></i></div>
                     <div class="crc-stream-title">
-                        <h3>شعبة هندسة <span class="crc-renamed-tag">سابقاً: تقني رياضي</span></h3>
-                        <p class="crc-stream-summary">4 مواد محذوفة · مادة مضافة: إعلام آلي · الرياضيات والفيزياء تنخفضان</p>
+                        <h3>شعبة تقني رياضي <span class="crc-restored-tag">استرجاع الاسم والمواد</span></h3>
+                        <p class="crc-stream-summary">استرجاع تسمية تقني رياضي · عودة العربية والفرنسية والفلسفة والجغرافيا · التكنولوجيا 6/7 · الرياضيات 6 · الفيزياء 6</p>
                     </div>
-                    <div class="crc-stream-total"><b>27</b><span>كان 35</span></div>
+                    <div class="crc-stream-total"><b>33-35</b><span>حسب التخصص</span></div>
                     <div class="crc-stream-chevron"><i class="fas fa-chevron-down"></i></div>
                 </summary>
                 <div class="crc-stream-body">
                     <div class="crc-stream-body-inner">
-                        <div class="crc-note"><i class="fas fa-circle-info"></i> نفس بنية شعبة الرياضيات تقريباً: تُحذف العربية والفرنسية والفلسفة والأمازيغية، وتُضاف مادة الإعلام الآلي، وتبقى التاريخ فقط دون الجغرافيا.</div>
+                        <div class="crc-note"><i class="fas fa-circle-check"></i> إلغاء اسم "هندسة" وعودة التسمية والمخطط التكنولوجي الأصلي لجميع الخيارات (ميكانيك، كهرباء، مدنية، طرائق).</div>
                         <div class="crc-table-wrap">
                             <table class="crc-table">
-                                <thead><tr><th>المادة</th><th>قديم</th><th>جديد</th><th>التغيير</th></tr></thead>
+                                <thead><tr><th>المادة</th><th>المعامل المعتمد (القرار 186)</th><th>الحالة بعد القرار 36</th></tr></thead>
                                 <tbody>
-                                    <tr><td>تكنولوجيا</td><td class="crc-num">7</td><td class="crc-num">7</td><td><span class="crc-tag crc-tag--same">=</span></td></tr>
-                                    <tr><td>رياضيات</td><td class="crc-num">6</td><td class="crc-num">5</td><td><span class="crc-tag crc-tag--down">-1</span></td></tr>
-                                    <tr><td>علوم فيزيائية</td><td class="crc-num">6</td><td class="crc-num">4</td><td><span class="crc-tag crc-tag--down">-2</span></td></tr>
-                                    <tr><td>إعلام آلي</td><td class="crc-num">—</td><td class="crc-num">3</td><td><span class="crc-tag crc-tag--new">جديد</span></td></tr>
-                                    <tr><td>لغة إنجليزية</td><td class="crc-num">2</td><td class="crc-num">3</td><td><span class="crc-tag crc-tag--up">+1</span></td></tr>
-                                    <tr><td>علوم إسلامية</td><td class="crc-num">2</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--same">=</span></td></tr>
-                                    <tr><td>التاريخ <small style="color:#94a3b8;">(كانت تاريخ وجغرافيا)</small></td><td class="crc-num">2</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--relabel">تغيّر المسمى</span></td></tr>
-                                    <tr><td>تربية بدنية</td><td class="crc-num">1</td><td class="crc-num">1</td><td><span class="crc-tag crc-tag--same">=</span></td></tr>
-                                    <tr class="crc-removed"><td>لغة عربية</td><td class="crc-num">3</td><td class="crc-num">—</td><td><span class="crc-tag crc-tag--removed">أُلغيت</span></td></tr>
-                                    <tr class="crc-removed"><td>لغة فرنسية</td><td class="crc-num">2</td><td class="crc-num">—</td><td><span class="crc-tag crc-tag--removed">أُلغيت</span></td></tr>
-                                    <tr class="crc-removed"><td>فلسفة</td><td class="crc-num">2</td><td class="crc-num">—</td><td><span class="crc-tag crc-tag--removed">أُلغيت</span></td></tr>
-                                    <tr class="crc-removed"><td>لغة أمازيغية</td><td class="crc-num">2</td><td class="crc-num">—</td><td><span class="crc-tag crc-tag--removed">أُلغيت</span></td></tr>
-                                    <tr class="crc-total"><td>المجموع</td><td class="crc-num">35</td><td class="crc-num">27</td><td></td></tr>
+                                    <tr><td>تكنولوجيا (ميكانيك/كهرباء/مدنية/طرائق)</td><td class="crc-num">6 / 7</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 6 أو 7)</span></td></tr>
+                                    <tr><td>رياضيات</td><td class="crc-num">6</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 6)</span></td></tr>
+                                    <tr><td>علوم فيزيائية</td><td class="crc-num">6</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 6)</span></td></tr>
+                                    <tr class="crc-restored"><td>لغة عربية وآدابها</td><td class="crc-num">3</td><td><span class="crc-tag crc-tag--restored">مسترجعة (إلغاء الحذف)</span></td></tr>
+                                    <tr class="crc-restored"><td>لغة فرنسية</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--restored">مسترجعة (إلغاء الحذف)</span></td></tr>
+                                    <tr><td>لغة إنجليزية</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 2)</span></td></tr>
+                                    <tr class="crc-restored"><td>فلسفة</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--restored">مسترجعة (إلغاء الحذف)</span></td></tr>
+                                    <tr class="crc-restored"><td>تاريخ وجغرافيا</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--restored">مسترجعة الجغرافيا كاملاً</span></td></tr>
+                                    <tr><td>علوم إسلامية</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 2)</span></td></tr>
+                                    <tr><td>تربية بدنية</td><td class="crc-num">1</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 1)</span></td></tr>
                                 </tbody>
                             </table>
                         </div>
@@ -1169,34 +1295,32 @@
             <!-- تسيير واقتصاد -->
             <details class="crc-stream crc-stream--manage crc-reveal" id="crc-manage">
                 <summary>
-                    <div class="crc-stream-icon"><i class="fas fa-chart-pie"></i></div>
+                    <div class="crc-stream-icon" style="background:linear-gradient(135deg, #6c3483 0%, #8e44ad 100%);"><i class="fas fa-chart-pie"></i></div>
                     <div class="crc-stream-title">
-                        <h3>شعبة تسيير واقتصاد</h3>
-                        <p class="crc-stream-summary">مادتان محذوفتان · الرياضيات والاقتصاد ينخفضان · الأمازيغية ترتفع</p>
+                        <h3>شعبة تسيير واقتصاد <span class="crc-restored-tag">العودة للنظام الأصلي</span></h3>
+                        <p class="crc-stream-summary">استرجاع الفرنسية والفلسفة · التسيير 6 · الاقتصاد 5 · الرياضيات 5 · التاريخ والجغرافيا 4</p>
                     </div>
-                    <div class="crc-stream-total"><b>28</b><span>كان 35</span></div>
+                    <div class="crc-stream-total"><b>33</b><span>أو 35 بالأمازيغية</span></div>
                     <div class="crc-stream-chevron"><i class="fas fa-chevron-down"></i></div>
                 </summary>
                 <div class="crc-stream-body">
                     <div class="crc-stream-body-inner">
-                        <div class="crc-note"><i class="fas fa-circle-info"></i> تحتفظ هذه الشعبة بمادة «تاريخ وجغرافيا» كاملة، لكن معاملها ينخفض من 4 إلى 3.</div>
+                        <div class="crc-note"><i class="fas fa-circle-check"></i> عودة معاملات مادة التاريخ والجغرافيا والاقتصاد والرياضيات إلى المعاملات الأصلية المعتمدة.</div>
                         <div class="crc-table-wrap">
                             <table class="crc-table">
-                                <thead><tr><th>المادة</th><th>قديم</th><th>جديد</th><th>التغيير</th></tr></thead>
+                                <thead><tr><th>المادة</th><th>المعامل المعتمد (القرار 186)</th><th>الحالة بعد القرار 36</th></tr></thead>
                                 <tbody>
-                                    <tr><td>تسيير محاسبي ومالي</td><td class="crc-num">6</td><td class="crc-num">6</td><td><span class="crc-tag crc-tag--same">=</span></td></tr>
-                                    <tr><td>اقتصاد ومناجمنت</td><td class="crc-num">5</td><td class="crc-num">4</td><td><span class="crc-tag crc-tag--down">-1</span></td></tr>
-                                    <tr><td>رياضيات</td><td class="crc-num">5</td><td class="crc-num">3</td><td><span class="crc-tag crc-tag--down">-2</span></td></tr>
-                                    <tr><td>تاريخ وجغرافيا</td><td class="crc-num">4</td><td class="crc-num">3</td><td><span class="crc-tag crc-tag--down">-1</span></td></tr>
-                                    <tr><td>لغة عربية</td><td class="crc-num">3</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--down">-1</span></td></tr>
-                                    <tr><td>لغة إنجليزية</td><td class="crc-num">2</td><td class="crc-num">3</td><td><span class="crc-tag crc-tag--up">+1</span></td></tr>
-                                    <tr><td>قانون</td><td class="crc-num">2</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--same">=</span></td></tr>
-                                    <tr><td>علوم إسلامية</td><td class="crc-num">2</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--same">=</span></td></tr>
-                                    <tr><td>لغة أمازيغية</td><td class="crc-num">1</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--up">+1</span></td></tr>
-                                    <tr><td>تربية بدنية</td><td class="crc-num">1</td><td class="crc-num">1</td><td><span class="crc-tag crc-tag--same">=</span></td></tr>
-                                    <tr class="crc-removed"><td>لغة فرنسية</td><td class="crc-num">2</td><td class="crc-num">—</td><td><span class="crc-tag crc-tag--removed">أُلغيت</span></td></tr>
-                                    <tr class="crc-removed"><td>فلسفة</td><td class="crc-num">2</td><td class="crc-num">—</td><td><span class="crc-tag crc-tag--removed">أُلغيت</span></td></tr>
-                                    <tr class="crc-total"><td>المجموع</td><td class="crc-num">35</td><td class="crc-num">28</td><td></td></tr>
+                                    <tr><td>تسيير محاسبي ومالي</td><td class="crc-num">6</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 6)</span></td></tr>
+                                    <tr><td>اقتصاد ومناجمنت</td><td class="crc-num">5</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 5)</span></td></tr>
+                                    <tr><td>رياضيات</td><td class="crc-num">5</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 5)</span></td></tr>
+                                    <tr><td>تاريخ وجغرافيا</td><td class="crc-num">4</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 4)</span></td></tr>
+                                    <tr><td>لغة عربية وآدابها</td><td class="crc-num">3</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 3)</span></td></tr>
+                                    <tr><td>قانون</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 2)</span></td></tr>
+                                    <tr class="crc-restored"><td>لغة فرنسية</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--restored">مسترجعة (إلغاء الحذف)</span></td></tr>
+                                    <tr><td>لغة إنجليزية</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 2)</span></td></tr>
+                                    <tr class="crc-restored"><td>فلسفة</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--restored">مسترجعة (إلغاء الحذف)</span></td></tr>
+                                    <tr><td>علوم إسلامية</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 2)</span></td></tr>
+                                    <tr><td>تربية بدنية</td><td class="crc-num">1</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 1)</span></td></tr>
                                 </tbody>
                             </table>
                         </div>
@@ -1207,31 +1331,29 @@
             <!-- آداب وفلسفة -->
             <details class="crc-stream crc-stream--lit crc-reveal" id="crc-lit">
                 <summary>
-                    <div class="crc-stream-icon"><i class="fas fa-feather-pointed"></i></div>
+                    <div class="crc-stream-icon" style="background:linear-gradient(135deg, #b03a2e 0%, #e74c3c 100%);"><i class="fas fa-feather-pointed"></i></div>
                     <div class="crc-stream-title">
-                        <h3>شعبة آداب وفلسفة</h3>
-                        <p class="crc-stream-summary">مادة واحدة محذوفة (الرياضيات) · العربية والأمازيغية ترتفعان</p>
+                        <h3>شعبة آداب وفلسفة <span class="crc-restored-tag">العودة للنظام الأصلي</span></h3>
+                        <p class="crc-stream-summary">استرجاع مادة الرياضيات (معامل 2) · العربية 6 · الفلسفة 6 · التاريخ والجغرافيا 4</p>
                     </div>
-                    <div class="crc-stream-total"><b>28</b><span>كان 29</span></div>
+                    <div class="crc-stream-total"><b>29</b><span>أو 31 بالأمازيغية</span></div>
                     <div class="crc-stream-chevron"><i class="fas fa-chevron-down"></i></div>
                 </summary>
                 <div class="crc-stream-body">
                     <div class="crc-stream-body-inner">
-                        <div class="crc-note"><i class="fas fa-circle-check"></i> أقل شعبة تأثراً بالتغيير: مادة واحدة فقط أُلغيت، وتاريخ وجغرافيا بقيت كما هي بمعامل 4.</div>
+                        <div class="crc-note"><i class="fas fa-circle-check"></i> استرجاع مادة الرياضيات وإلغاء التعديل المقترح.</div>
                         <div class="crc-table-wrap">
                             <table class="crc-table">
-                                <thead><tr><th>المادة</th><th>قديم</th><th>جديد</th><th>التغيير</th></tr></thead>
+                                <thead><tr><th>المادة</th><th>المعامل المعتمد (القرار 186)</th><th>الحالة بعد القرار 36</th></tr></thead>
                                 <tbody>
-                                    <tr><td>لغة عربية</td><td class="crc-num">6</td><td class="crc-num">7</td><td><span class="crc-tag crc-tag--up">+1</span></td></tr>
-                                    <tr><td>فلسفة</td><td class="crc-num">6</td><td class="crc-num">6</td><td><span class="crc-tag crc-tag--same">=</span></td></tr>
-                                    <tr><td>تاريخ وجغرافيا</td><td class="crc-num">4</td><td class="crc-num">4</td><td><span class="crc-tag crc-tag--same">=</span></td></tr>
-                                    <tr><td>لغة إنجليزية</td><td class="crc-num">3</td><td class="crc-num">3</td><td><span class="crc-tag crc-tag--same">=</span></td></tr>
-                                    <tr><td>لغة فرنسية</td><td class="crc-num">3</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--down">-1</span></td></tr>
-                                    <tr><td>لغة أمازيغية</td><td class="crc-num">2</td><td class="crc-num">3</td><td><span class="crc-tag crc-tag--up">+1</span></td></tr>
-                                    <tr><td>علوم إسلامية</td><td class="crc-num">2</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--same">=</span></td></tr>
-                                    <tr><td>تربية بدنية</td><td class="crc-num">1</td><td class="crc-num">1</td><td><span class="crc-tag crc-tag--same">=</span></td></tr>
-                                    <tr class="crc-removed"><td>رياضيات</td><td class="crc-num">2</td><td class="crc-num">—</td><td><span class="crc-tag crc-tag--removed">أُلغيت</span></td></tr>
-                                    <tr class="crc-total"><td>المجموع</td><td class="crc-num">29</td><td class="crc-num">28</td><td></td></tr>
+                                    <tr><td>لغة عربية وآدابها</td><td class="crc-num">6</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 6)</span></td></tr>
+                                    <tr><td>فلسفة</td><td class="crc-num">6</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 6)</span></td></tr>
+                                    <tr><td>تاريخ وجغرافيا</td><td class="crc-num">4</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 4)</span></td></tr>
+                                    <tr><td>لغة فرنسية</td><td class="crc-num">3</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 3)</span></td></tr>
+                                    <tr><td>لغة إنجليزية</td><td class="crc-num">3</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 3)</span></td></tr>
+                                    <tr class="crc-restored"><td>رياضيات</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--restored">مسترجعة (إلغاء الحذف)</span></td></tr>
+                                    <tr><td>علوم إسلامية</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 2)</span></td></tr>
+                                    <tr><td>تربية بدنية</td><td class="crc-num">1</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 1)</span></td></tr>
                                 </tbody>
                             </table>
                         </div>
@@ -1242,32 +1364,30 @@
             <!-- لغات أجنبية -->
             <details class="crc-stream crc-stream--lang crc-reveal" id="crc-lang">
                 <summary>
-                    <div class="crc-stream-icon"><i class="fas fa-language"></i></div>
+                    <div class="crc-stream-icon" style="background:linear-gradient(135deg, #117a65 0%, #16a085 100%);"><i class="fas fa-language"></i></div>
                     <div class="crc-stream-title">
-                        <h3>شعبة لغات أجنبية</h3>
-                        <p class="crc-stream-summary">مادتان محذوفتان · اللغة الثالثة ترتفع بقوة · العربية تنخفض بشدة</p>
+                        <h3>شعبة لغات أجنبية <span class="crc-restored-tag">العودة للنظام الأصلي</span></h3>
+                        <p class="crc-stream-summary">استرجاع الفلسفة والرياضيات · العربية 5 · الفرنسية 5 · الإنجليزية 5 · اللغة الثالثة 4</p>
                     </div>
-                    <div class="crc-stream-total"><b>23</b><span>كان 30</span></div>
+                    <div class="crc-stream-total"><b>31</b><span>أو 33 بالأمازيغية</span></div>
                     <div class="crc-stream-chevron"><i class="fas fa-chevron-down"></i></div>
                 </summary>
                 <div class="crc-stream-body">
                     <div class="crc-stream-body-inner">
-                        <div class="crc-note"><i class="fas fa-circle-info"></i> أكبر تغيير هنا في معامل اللغة الأجنبية الثالثة (إسبانية/ألمانية/إيطالية)، التي تصبح المادة الأساسية للشعبة بمعامل 6.</div>
+                        <div class="crc-note"><i class="fas fa-circle-check"></i> استرجاع مادة الفلسفة والرياضيات ومعاملات اللغات الأصلية (5 للفرنسية والإنجليزية والعربية، 4 للغة الثالثة).</div>
                         <div class="crc-table-wrap">
                             <table class="crc-table">
-                                <thead><tr><th>المادة</th><th>قديم</th><th>جديد</th><th>التغيير</th></tr></thead>
+                                <thead><tr><th>المادة</th><th>المعامل المعتمد (القرار 186)</th><th>الحالة بعد القرار 36</th></tr></thead>
                                 <tbody>
-                                    <tr><td>اللغة الأجنبية الثالثة</td><td class="crc-num">4</td><td class="crc-num">6</td><td><span class="crc-tag crc-tag--up">+2</span></td></tr>
-                                    <tr><td>لغة إنجليزية</td><td class="crc-num">5</td><td class="crc-num">4</td><td><span class="crc-tag crc-tag--down">-1</span></td></tr>
-                                    <tr><td>لغة فرنسية</td><td class="crc-num">5</td><td class="crc-num">4</td><td><span class="crc-tag crc-tag--down">-1</span></td></tr>
-                                    <tr><td>لغة عربية</td><td class="crc-num">5</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--down">-3</span></td></tr>
-                                    <tr><td>لغة أمازيغية</td><td class="crc-num">2</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--same">=</span></td></tr>
-                                    <tr><td>تاريخ وجغرافيا</td><td class="crc-num">2</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--same">=</span></td></tr>
-                                    <tr><td>علوم إسلامية</td><td class="crc-num">2</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--same">=</span></td></tr>
-                                    <tr><td>تربية بدنية</td><td class="crc-num">1</td><td class="crc-num">1</td><td><span class="crc-tag crc-tag--same">=</span></td></tr>
-                                    <tr class="crc-removed"><td>فلسفة</td><td class="crc-num">2</td><td class="crc-num">—</td><td><span class="crc-tag crc-tag--removed">أُلغيت</span></td></tr>
-                                    <tr class="crc-removed"><td>رياضيات</td><td class="crc-num">2</td><td class="crc-num">—</td><td><span class="crc-tag crc-tag--removed">أُلغيت</span></td></tr>
-                                    <tr class="crc-total"><td>المجموع</td><td class="crc-num">30</td><td class="crc-num">23</td><td></td></tr>
+                                    <tr><td>لغة عربية وآدابها</td><td class="crc-num">5</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 5)</span></td></tr>
+                                    <tr><td>لغة فرنسية</td><td class="crc-num">5</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 5)</span></td></tr>
+                                    <tr><td>لغة إنجليزية</td><td class="crc-num">5</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 5)</span></td></tr>
+                                    <tr><td>اللغة الأجنبية الثالثة</td><td class="crc-num">4</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 4)</span></td></tr>
+                                    <tr class="crc-restored"><td>فلسفة</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--restored">مسترجعة (إلغاء الحذف)</span></td></tr>
+                                    <tr class="crc-restored"><td>رياضيات</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--restored">مسترجعة (إلغاء الحذف)</span></td></tr>
+                                    <tr><td>تاريخ وجغرافيا</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 2)</span></td></tr>
+                                    <tr><td>علوم إسلامية</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 2)</span></td></tr>
+                                    <tr><td>تربية بدنية</td><td class="crc-num">1</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 1)</span></td></tr>
                                 </tbody>
                             </table>
                         </div>
@@ -1279,26 +1399,26 @@
 
         <!-- ══ OFFICIAL SOURCES ══ -->
         <div class="modern-section-header crc-reveal" style="margin-top:0; margin-bottom:1.4rem;">
-            <h2>المصادر الرسمية</h2>
+            <h2>روابط المصادر الرسمية لنشر القرار 36</h2>
         </div>
         <div class="crc-sources crc-reveal">
-            <a href="https://www.education.gov.dz/2026/07/29/%d8%a8%d9%84%d8%a7%d8%ba-%d8%ad%d9%88%d9%84-%d8%a7%d9%84%d8%aa%d8%b1%d8%aa%d9%8a%d8%a8%d8%a7%d8%aa-%d8%a7%d9%84%d8%a8%d9%8a%d8%af%d8%a7%d8%ba%d9%88%d8%ac%d9%8a%d8%a9-%d8%a7%d9%84%d9%85%d8%aa%d8%ae/" target="_blank" rel="noopener noreferrer" class="crc-source-card crc-source-card--gov">
+            <a href="https://www.education.gov.dz/2026/09/10/%d9%82%d8%b1%d8%a7%d8%b1-%d8%b1%d9%82%d9%85-36-%d9%85%d8%a4%d8%b1%d8%ae-%d9%81%d9%8a-27-%d8%b1%d8%a8%d9%8a%d8%b9-%d8%a7%d9%84%d8%a3%d9%88%d9%84-%d8%b9%d8%a7%d9%85-1448-%d8%a7%d9%84%d9%85%d9%88%d8%a7/" target="_blank" rel="noopener noreferrer" class="crc-source-card crc-source-card--gov">
                 <div class="crc-source-icon"><i class="fas fa-landmark"></i></div>
                 <div class="crc-source-body">
                     <span class="crc-source-type">بيان رسمي</span>
-                    <strong class="crc-source-title">وزارة التربية الوطنية</strong>
-                    <p class="crc-source-desc">البيان الرسمي حول الترتيبات البيداغوجية المتخذة لتلاميذ السنة الثالثة ثانوي</p>
+                    <strong class="crc-source-title">موقع وزارة التربية الوطنية الرسمي</strong>
+                    <p class="crc-source-desc">نص القرار رقم 36 المؤرخ في 9 سبتمبر 2026 المتضمن إلغاء القرار رقم 20 بالكامل.</p>
                     <span class="crc-source-domain"><i class="fas fa-globe"></i> education.gov.dz</span>
                 </div>
                 <div class="crc-source-ext"><i class="fas fa-arrow-up-right-from-square"></i></div>
             </a>
-            <a href="https://web.facebook.com/share/p/1Ed71j1yvR/" target="_blank" rel="noopener noreferrer" class="crc-source-card crc-source-card--fb">
+            <a href="https://www.facebook.com/EducationAlgerie" target="_blank" rel="noopener noreferrer" class="crc-source-card crc-source-card--fb">
                 <div class="crc-source-icon"><i class="fab fa-facebook-f"></i></div>
                 <div class="crc-source-body">
                     <span class="crc-source-type">صفحة رسمية</span>
                     <strong class="crc-source-title">صفحة الوزارة على فيسبوك</strong>
-                    <p class="crc-source-desc">المنشور الرسمي الذي يتضمن جداول المواد والمعاملات الجديدة لكل الشعب</p>
-                    <span class="crc-source-domain"><i class="fab fa-facebook-f"></i> MEN.Algerie</span>
+                    <p class="crc-source-desc">منشور الصفحة الرسمية لوزارة التربية الوطنية الجزائرية على فيسبوك المتضمن نص القرار.</p>
+                    <span class="crc-source-domain"><i class="fab fa-facebook-f"></i> EducationAlgerie</span>
                 </div>
                 <div class="crc-source-ext"><i class="fas fa-arrow-up-right-from-square"></i></div>
             </a>
@@ -1306,15 +1426,14 @@
 
         <!-- ══ CLOSING CTA ══ -->
         <section class="crc-cta crc-reveal">
-            <span class="crc-cta-eyebrow"><i class="fas fa-circle-check"></i> حاسبة المعدل محدّثة</span>
-            <h2>احسب معدلك بـ<em>معاملات 2027</em> الآن</h2>
+            <span class="crc-cta-eyebrow"><i class="fas fa-calculator"></i> حاسبة المعدل محدّثة</span>
+            <h2>احسب معدلك بـ<em>المعاملات المعتمدة الرسمية</em> الآن</h2>
             <p>
-                حاسبة معدل البكالوريا على BAC STORY محدّثة بالكامل بالمعاملات الرسمية الجديدة
-                لجميع الشعب الست. أدخل علاماتك واحصل على نتيجتك فوراً.
+                تم تعديل وتطبيق المعاملات المعتمدة وفق القرار رقم 186 في حاسبة المعدل لجميع الشعب على منصة <b>BAC STORY</b>.
             </p>
             <div class="crc-cta-actions">
                 <a href="/tools/calculator" class="crc-cta-btn crc-cta-btn--primary">
-                    <i class="fas fa-calculator"></i> جرّب حاسبة 2027
+                    <i class="fas fa-calculator"></i> احسب معدلك الآن
                 </a>
                 <a href="https://t.me/islembacdz" target="_blank" rel="noopener" class="crc-cta-btn crc-cta-btn--telegram">
                     <i class="fab fa-telegram-plane"></i> تابعنا على تيليجرام
@@ -1324,28 +1443,28 @@
 
         <!-- ══ FAQ ══ -->
         <div class="modern-section-header" style="margin-top: 3rem;">
-            <h2>أسئلة شائعة</h2>
+            <h2>أسئلة شائعة حول إلغاء تغييرات البكالوريا 2027</h2>
         </div>
         <div class="crc-faq">
-            <details>
-                <summary>متى سيبدأ العمل بالمنهج الجديد؟ <i class="fas fa-plus"></i></summary>
-                <p>بداية من الموسم الدراسي 2026-2027، أي أن دفعة بكالوريا 2027 هي أول دفعة تخضع لهذه التغييرات في السنة الثالثة ثانوي.</p>
+            <details open>
+                <summary>هل أُلغيت تغييرات بكالوريا 2027 رسمياً؟ <i class="fas fa-plus"></i></summary>
+                <p>نعم، أُلغيت رسمياً بموجب القرار الوزاري رقم 36 المؤرخ في 9 سبتمبر 2026 الصادر عن وزير التربية الوطنية محمد صغير سعداوي.</p>
             </details>
             <details>
-                <summary>هل التغييرات تشمل السنة الأولى والثانية ثانوي أيضاً؟ <i class="fas fa-plus"></i></summary>
-                <p>لا، كل التغييرات الموثقة في هذه الصفحة تخص مواد ومعاملات السنة الثالثة (النهائية) فقط.</p>
+                <summary>ما هو القرار الذي ينظم مواقيت ومعاملات البكالوريا حالياً؟ <i class="fas fa-plus"></i></summary>
+                <p>القرار المعتمد حالياً هو <strong>القرار رقم 186 المؤرخ في 23 مارس 2006</strong>، حيث نصت المادة الثالثة من القرار رقم 36 على بقاء أحكامه سارية المفعول دون تغيير.</p>
+            </details>
+            <details>
+                <summary>هل عادت المواد الملغاة سابقاً مثل الفلسفة والفرنسية والجغرافيا؟ <i class="fas fa-plus"></i></summary>
+                <p>نعم، عودتها رسمية ومؤكدة لكل الشعب التي قُرّر سابقاً حذفها منها، وبنفس المعاملات والمواقيت السابقة.</p>
             </details>
             <details>
                 <summary>هل حاسبة معدل البكالوريا على المنصة محدثة بهذه المعاملات؟ <i class="fas fa-plus"></i></summary>
-                <p>نعم، حاسبة معدل البكالوريا على BAC STORY محدّثة الآن بالكامل بمعاملات 2027 لجميع الشعب الست. يمكنك استخدامها مباشرةً من <a href="/tools/calculator" class="crc-faq-link">صفحة حاسبة المعدل</a>.</p>
+                <p>نعم، حاسبة معدل البكالوريا على منصة BAC STORY تعمل بالكامل بالمعاملات والمواد الرسمية المعتمدة وفق القرار 186 لكل الشعب.</p>
             </details>
             <details>
-                <summary>ماهو مصدر هذه المعلومات؟ <i class="fas fa-plus"></i></summary>
-                <p>المعلومات مأخوذة من الجداول الرسمية التي نشرتها <a href="https://www.education.gov.dz/2026/07/29/%d8%a8%d9%84%d8%a7%d8%ba-%d8%ad%d9%88%d9%84-%d8%a7%d9%84%d8%aa%d8%b1%d8%aa%d9%8a%d8%a8%d8%a7%d8%aa-%d8%a7%d9%84%d8%a8%d9%8a%d8%af%d8%a7%d8%ba%d9%88%d8%ac%d9%8a%d8%a9-%d8%a7%d9%84%d9%85%d8%aa%d8%ae/" target="_blank" rel="noopener noreferrer" class="crc-faq-link">وزارة التربية الوطنية</a> على موقعها الرسمي، وعلى <a href="https://web.facebook.com/share/p/1Ed71j1yvR/" target="_blank" rel="noopener noreferrer" class="crc-faq-link">صفحتها الرسمية على فيسبوك</a>.</p>
-            </details>
-            <details>
-                <summary>أين أجد دروس ومواضيع مادة الإعلام الآلي للباك؟ <i class="fas fa-plus"></i></summary>
-                <p>الإعلام الآلي تخصص مطوري الموقع — لذلك ستجدون الدروس والمواضيع والموارد الخاصة بهذه المادة مباشرةً في موقعنا <strong>BAC STORY</strong>، نحن نعمل على إضافتها حالياً. تابعونا على <a href="https://t.me/islembacdz" target="_blank" rel="noopener noreferrer" class="crc-faq-link"><i class="fab fa-telegram-plane"></i> تيليجرام</a> لتعرفوا متى تُضاف وآخر المستجدات حولها.</p>
+                <summary>أين يمكنني الاطلاع على نص القرار الوزاري الرسمي رقم 36؟ <i class="fas fa-plus"></i></summary>
+                <p>يمكنك الاطلاع المباشر عليه من خلال الرابطين المدرجين في قسم المصادر الرسمية بهذه الصفحة عبر <a href="https://www.education.gov.dz/2026/09/10/%d9%82%d8%b1%d8%a7%d8%b1-%d8%b1%d9%82%d9%85-36-%d9%85%d8%a4%d8%b1%d8%ae-%d9%81%d9%8a-27-%d8%b1%d8%a8%d9%8a%d8%b9-%d8%a7%d9%84%d8%a3%d9%88%d9%84-%d8%b9%d8%a7%d9%85-1448-%d8%a7%d9%84%d9%85%d9%88%d8%a7/" target="_blank" rel="noopener noreferrer" class="crc-faq-link">موقع وزارة التربية الوطنية</a> و<a href="https://www.facebook.com/EducationAlgerie" target="_blank" rel="noopener noreferrer" class="crc-faq-link">صفحتها الرسمية على فيسبوك</a>.</p>
             </details>
         </div>
     </div>
@@ -1406,7 +1525,7 @@
 
         document.querySelectorAll('.crc-stream, .crc-faq details').forEach(setupSmoothDetails);
 
-        /* ── Jump chips: scroll to section, open it if collapsed ── */
+        /* ── Jump chips ── */
         var jump = document.getElementById('crcJump');
         if (jump) {
             jump.addEventListener('click', function (e) {
