@@ -153,31 +153,37 @@ function calculateAverage(field) {
 
     for (const [inputId, coefficient] of Object.entries(fieldCoefficients)) {
         const input = document.getElementById(inputId);
+        if (!input) continue;
         const value = parseFloat(input.value);
         const isOptional = input.closest('.subject-card.optional') !== null;
 
         const errorSpan = input.parentElement.querySelector('.error-message');
-        errorSpan.classList.remove('visible');
-        errorSpan.innerHTML = '';
+        if (errorSpan) {
+            errorSpan.classList.remove('visible');
+            errorSpan.innerHTML = '';
+        }
 
         input.classList.remove('input-error');
         input.closest('.subject-card')?.classList.remove('card-error');
-
 
         if (isOptional && (isNaN(value) || input.value.trim() === '')) {
             continue;
         }
 
-        if (isNaN(value)) {
-            errorSpan.innerHTML = '<i class="fas fa-circle-exclamation"></i> الرجاء إدخال علامة صحيحة';
-            errorSpan.classList.add('visible');
+        if (isNaN(value) || input.value.trim() === '') {
+            if (errorSpan) {
+                errorSpan.innerHTML = '<i class="fas fa-circle-exclamation"></i> الرجاء إدخال علامة صحيحة';
+                errorSpan.classList.add('visible');
+            }
             input.classList.add('input-error');
             input.closest('.subject-card')?.classList.add('card-error');
             if (!firstErrorInput) firstErrorInput = input;
             hasError = true;
         } else if (value < 0 || value > 20) {
-            errorSpan.innerHTML = '<i class="fas fa-circle-exclamation"></i> يجب أن تكون العلامة بين 0 و 20';
-            errorSpan.classList.add('visible');
+            if (errorSpan) {
+                errorSpan.innerHTML = '<i class="fas fa-circle-exclamation"></i> يجب أن تكون العلامة بين 0 و 20';
+                errorSpan.classList.add('visible');
+            }
             input.classList.add('input-error');
             input.closest('.subject-card')?.classList.add('card-error');
             if (!firstErrorInput) firstErrorInput = input;

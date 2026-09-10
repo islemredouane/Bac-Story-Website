@@ -4252,7 +4252,7 @@ body.pdf-body-lock [id="footer-placeholder"] {
     background: white;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    overflow: hidden;
+    overflow: visible;
     margin: 1rem 0;
     animation: fadeIn 0.5s ease-out;
 }
@@ -4593,9 +4593,10 @@ body.pdf-body-lock [id="footer-placeholder"] {
 }
 
 .error-message.visible {
-    display: flex;
-    opacity: 1;
-    transform: translateY(0);
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
 }
 
 .input-error {
