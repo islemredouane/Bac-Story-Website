@@ -14331,9 +14331,9 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
     padding: 20px 24px;
     display: flex;
     align-items: flex-start;
-    gap: 16px;
+    gap: 18px;
     margin: 24px 0;
-    max-width: 720px;
+    width: 100%;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     box-shadow: 0 4px 20px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04);
@@ -14454,6 +14454,10 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
         text-align: center;
         padding: 18px 14px;
     }
+    .results-alert-icon {
+        align-self: center;
+        margin-top: 0;
+    }
 }
 
 @media (max-width: 520px) {
@@ -14465,6 +14469,8 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
         gap: 14px;
     }
     .results-alert-icon {
+        align-self: center;
+        margin-top: 0;
         width: 40px;
         height: 40px;
         font-size: 1.1rem;
