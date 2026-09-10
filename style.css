@@ -14330,9 +14330,10 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
     border-radius: 18px;
     padding: 20px 24px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 16px;
     margin: 24px 0;
+    max-width: 720px;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     box-shadow: 0 4px 20px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04);
@@ -14374,6 +14375,8 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
 .results-alert-icon {
     font-size: 1.3rem;
     flex-shrink: 0;
+    align-self: flex-start;
+    margin-top: 2px;
     width: 46px;
     height: 46px;
     display: flex;
@@ -14390,9 +14393,9 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
     flex: 1;
     min-width: 0;
     display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 4px 8px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
 }
 
 .results-alert-body > strong {
@@ -14416,6 +14419,7 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
     display: inline;
     margin-bottom: 0;
     font-weight: 800;
+    color: #1a1a1a;
 }
 
 .results-alert.gold  .results-alert-body > strong { color: #7a4f09; }
