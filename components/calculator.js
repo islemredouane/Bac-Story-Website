@@ -739,38 +739,44 @@ function initSampleData() {
         !document.getElementById('literature-arabic-grade') &&
         !document.getElementById('languages-lang3-grade')) return;
 
-    // math 2027
-    sg('math-math-grade', '18.0'); sg('math-physics-grade', '16.5'); sg('math-cs-grade', '17.0');
-    sg('math-english-grade', '16.0'); sg('math-science-grade', '17.5'); sg('math-islamics-grade', '15.5');
-    sg('math-history-grade', '19.0'); sg('math-sport-grade', '18.33');
+    // math (رضوان محمد إسلام)
+    sg('math-math-grade', '18.00'); sg('math-physics-grade', '16.50'); sg('math-science-grade', '17.50');
+    sg('math-arabic-grade', '14.50'); sg('math-french-grade', '16.50'); sg('math-english-grade', '16.00');
+    sg('math-philo-grade', '19.50'); sg('math-history-geo-grade', '19.00'); sg('math-islamics-grade', '15.50');
+    sg('math-tamazight-grade', '19.00'); sg('math-sport-grade', '18.33');
 
-    // science 2027
-    sg('science-science-grade', '18.5'); sg('science-math-grade', '19.0'); sg('science-physics-grade', '19.0');
-    sg('science-english-grade', '18.5'); sg('science-arabic-grade', '16.5'); sg('science-islamics-grade', '16.5');
-    sg('science-history-grade', '18.5'); sg('science-tamazight-grade', ''); sg('science-sport-grade', '19.83');
+    // science
+    sg('science-science-grade', '18.50'); sg('science-math-grade', '19.00'); sg('science-physics-grade', '19.00');
+    sg('science-arabic-grade', '16.50'); sg('science-french-grade', '18.00'); sg('science-english-grade', '18.50');
+    sg('science-philo-grade', '17.50'); sg('science-history-geo-grade', '18.50'); sg('science-islamics-grade', '16.50');
+    sg('science-tamazight-grade', ''); sg('science-sport-grade', '19.83');
 
-    // engineering (tech) 2027
-    sg('tech-tech-grade', '20'); sg('tech-math-grade', '20'); sg('tech-physics-grade', '19');
-    sg('tech-cs-grade', '18.5'); sg('tech-english-grade', '19.5'); sg('tech-islamics-grade', '20');
-    sg('tech-history-grade', '18'); sg('tech-sport-grade', '19');
+    // engineering (tech)
+    sg('tech-tech-grade', '20.00'); sg('tech-math-grade', '20.00'); sg('tech-physics-grade', '19.00');
+    sg('tech-arabic-grade', '18.50'); sg('tech-french-grade', '18.00'); sg('tech-english-grade', '19.50');
+    sg('tech-philo-grade', '16.00'); sg('tech-history-geo-grade', '18.00'); sg('tech-islamics-grade', '20.00');
+    sg('tech-tamazight-grade', ''); sg('tech-sport-grade', '19.00');
 
-    // management 2027
+    // management
     sg('management-accounting-grade', '18.50'); sg('management-economics-grade', '19.50');
-    sg('management-math-grade', '20.00'); sg('management-history-geo-grade', '18.50');
-    sg('management-english-grade', '19.50'); sg('management-arabic-grade', '15.00');
-    sg('management-tamazight-grade', ''); sg('management-islamics-grade', '18.00');
-    sg('management-law-grade', '19.50'); sg('management-sport-grade', '');
+    sg('management-law-grade', '19.50'); sg('management-math-grade', '20.00');
+    sg('management-history-geo-grade', '18.50'); sg('management-arabic-grade', '15.00');
+    sg('management-french-grade', '14.50'); sg('management-english-grade', '19.50');
+    sg('management-philo-grade', '18.50'); sg('management-islamics-grade', '18.00');
+    sg('management-tamazight-grade', ''); sg('management-sport-grade', '');
 
-    // literature 2027
-    sg('literature-arabic-grade', '19.5'); sg('literature-philo-grade', '16');
-    sg('literature-history-geo-grade', '15'); sg('literature-english-grade', '19');
-    sg('literature-french-grade', '17.5'); sg('literature-islamics-grade', '18.5');
-    sg('literature-tamazight-grade', ''); sg('literature-sport-grade', '');
+    // literature
+    sg('literature-arabic-grade', '19.50'); sg('literature-philo-grade', '16.00');
+    sg('literature-history-geo-grade', '15.00'); sg('literature-french-grade', '17.50');
+    sg('literature-english-grade', '19.00'); sg('literature-math-grade', '18.00');
+    sg('literature-islamics-grade', '18.50'); sg('literature-tamazight-grade', '');
+    sg('literature-sport-grade', '');
 
-    // languages 2027
-    sg('languages-lang3-grade', '20'); sg('languages-english-grade', '19.5');
-    sg('languages-french-grade', '17.5'); sg('languages-arabic-grade', '17');
-    sg('languages-islamics-grade', '19'); sg('languages-history-geo-grade', '18.5');
+    // languages
+    sg('languages-lang3-grade', '20.00'); sg('languages-english-grade', '19.50');
+    sg('languages-french-grade', '17.50'); sg('languages-arabic-grade', '17.00');
+    sg('languages-philo-grade', '16.50'); sg('languages-history-geo-grade', '18.50');
+    sg('languages-math-grade', '20.00'); sg('languages-islamics-grade', '19.00');
     sg('languages-tamazight-grade', ''); sg('languages-sport-grade', '18.58');
 }
 
