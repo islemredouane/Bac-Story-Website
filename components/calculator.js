@@ -324,8 +324,8 @@ function bsSwitchTab(tab) {
 function bsUpdatePill(tab) {
     const pill = document.getElementById('bsTabPill');
     const btn = document.getElementById(tab === 'oeb' ? 'bsTabOeb' : 'bsTabGazette');
+    if (!pill || !btn || !btn.parentElement) return;
     const bar = btn.parentElement;
-    if (!pill || !btn) return;
     const barRect = bar.getBoundingClientRect();
     const btnRect = btn.getBoundingClientRect();
     pill.style.width = btnRect.width + 'px';
@@ -743,7 +743,9 @@ if (!document.getElementById('bs-confetti-style')) {
 }
 
 function resetForm() {
-    localStorage.removeItem('calculatorGrades');
+    localStorage.removeItem('calculatorGrades'); // legacy key
+    const _s = getCurrentStream();
+    if (_s) localStorage.removeItem(_streamKey(_s));
     initSampleData();
 
     document.querySelectorAll('.grade-input').forEach(input => {
@@ -823,23 +825,46 @@ function initSampleData() {
     sg('languages-tamazight-grade', ''); sg('languages-sport-grade', '18.58');
 }
 
+/* ── Detect which stream this page is for ───────────────── */
+function getCurrentStream() {
+    // Each page has exactly one subject-container visible (or one subjects-grid)
+    const streams = ['math','science','tech','management','literature','languages'];
+    for (const s of streams) {
+        if (document.getElementById(s + 'Subjects') ||
+            document.getElementById(s + '-' + s + '-grade') ||
+            document.getElementById(s + '-accounting-grade') ||
+            document.getElementById(s + '-arabic-grade') ||
+            document.getElementById(s + '-lang3-grade')) {
+            // Verify by checking a known input for this stream
+            const check = document.querySelector('[id^="' + s + '-"]');
+            if (check) return s;
+        }
+    }
+    return null;
+}
+
+function _streamKey(stream) {
+    return stream ? ('calcGrades_' + stream) : 'calcGrades_unknown';
+}
+
 function saveCalculatorData() {
+    const stream = getCurrentStream();
     const grades = {};
     document.querySelectorAll('.grade-input').forEach(input => {
-        if (input.value.trim() !== '') {
-            grades[input.id] = input.value;
-        }
+        grades[input.id] = input.value; // save all (including empty) to faithfully restore
     });
     const firstName = document.getElementById('calcFirstName')?.value || '';
     const lastName = document.getElementById('calcLastName')?.value || '';
-    localStorage.setItem('calculatorGrades', JSON.stringify({ grades, firstName, lastName }));
+    localStorage.setItem(_streamKey(stream), JSON.stringify({ grades, firstName, lastName }));
 }
 
 function loadCalculatorData() {
     // Always initialize sample data first so no inputs remain empty!
     initSampleData();
 
-    const saved = localStorage.getItem('calculatorGrades');
+    const stream = getCurrentStream();
+    // Try stream-specific key first, fall back to old shared key for migration
+    const saved = localStorage.getItem(_streamKey(stream)) || localStorage.getItem('calculatorGrades');
     if (!saved) return;
 
     try {
@@ -847,8 +872,16 @@ function loadCalculatorData() {
         if (grades) {
             for (const [id, val] of Object.entries(grades)) {
                 const el = document.getElementById(id);
-                if (el && val !== undefined && val !== '') {
-                    el.value = val;
+                if (!el) continue;
+                if (val === undefined || val === null) continue;
+                const clean = val.toString().replace(',', '.').trim();
+                if (clean === '') {
+                    el.value = ''; // restore intentionally cleared optional fields
+                    continue;
+                }
+                const num = parseFloat(clean);
+                if (!isNaN(num) && num >= 0 && num <= 20) {
+                    el.value = clean;
                 }
             }
         }
@@ -857,19 +890,20 @@ function loadCalculatorData() {
         const lnInput = document.getElementById('calcLastName');
         if (lnInput && lastName) lnInput.value = lastName;
     } catch (e) {
-        // Sample data initialized above
+        // Sample data still applied from initSampleData() above
     }
 }
 
 function validateGradeInput(input) {
-    const val = parseFloat(input.value);
+    const cleanVal = (input.value || '').replace(',', '.').trim();
+    const val = parseFloat(cleanVal);
     const isOptional = input.closest('.subject-card.optional') !== null;
-    const errorSpan = input.parentElement.querySelector('.error-message');
+    const errorSpan = input.parentElement ? input.parentElement.querySelector('.error-message') : null;
     const card = input.closest('.subject-card');
 
     if (!errorSpan) return;
 
-    const empty = input.value.trim() === '' || isNaN(val);
+    const empty = cleanVal === '' || isNaN(val);
     const outOfRange = !isNaN(val) && (val < 0 || val > 20);
 
     if (isOptional && empty) {
@@ -910,4 +944,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Restore saved grades (or fill sample data on first visit)
     loadCalculatorData();
+
+    // Wire up calculate button via JS as well (belt-and-suspenders fix
+    // in case any browser blocks inline onclick on the stream pages)
+    const stream = getCurrentStream();
+    if (stream) {
+        document.querySelectorAll('.btn.calculate').forEach(btn => {
+            btn.addEventListener('click', function () {
+                calculateAverage(stream);
+            });
+        });
+    }
 });
