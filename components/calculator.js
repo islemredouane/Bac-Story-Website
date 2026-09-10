@@ -1,142 +1,102 @@
-﻿// ── BAC CALCULATOR — tools.html only ────────────────────────────────────────
+// ── BAC CALCULATOR — tools.html only ────────────────────────────────────────
 // This file is loaded exclusively on tools.html.
 // It holds all calculator/reveal/gazette/weighted-calc code so that other
 // pages (resources, university, plans, …) don't pay the download cost.
 
-// Field coefficients (weights for each subject)
 const coefficients = {
     // ── رياضيات ────────────────────────────────────────────────────────────
     math: {
-        // ── 2027 ──────────────────────────────────────────────────────────
-        'math-math-grade':        8,  // was 7
+        'math-math-grade':        7,
         'math-physics-grade':     6,
-        'math-cs-grade':          3,  // NEW — إعلام آلي
-        'math-english-grade':     3,  // was 2
         'math-science-grade':     2,
+        'math-arabic-grade':      3,
+        'math-french-grade':      2,
+        'math-english-grade':     2,
+        'math-philo-grade':       2,
+        'math-history-geo-grade': 2,
         'math-islamics-grade':    2,
-        'math-history-grade':     2,  // renamed from math-history-geo-grade (geography removed)
+        'math-tamazight-grade':   2,  // optional
         'math-sport-grade':       1,  // optional
-        // ── 2026 (commented out — do not delete) ──────────────────────────
-        // 'math-math-grade':         7,
-        // 'math-arabic-grade':       3,  // REMOVED
-        // 'math-history-geo-grade':  2,  // renamed → math-history-grade
-        // 'math-english-grade':      2,  // now 3
-        // 'math-french-grade':       2,  // REMOVED
-        // 'math-philo-grade':        2,  // REMOVED
-        // 'math-tamazight-grade':    2,  // REMOVED (optional)
     },
 
     // ── علوم تجريبية ────────────────────────────────────────────────────────
     science: {
-        // ── 2027 ──────────────────────────────────────────────────────────
-        'science-science-grade':   6,
-        'science-math-grade':      5,
-        'science-physics-grade':   4,  // was 5
-        'science-english-grade':   3,  // was 2
-        'science-arabic-grade':    2,  // was 3
-        'science-islamics-grade':  2,
-        'science-history-grade':   2,  // renamed from science-history-geo-grade (geography removed)
-        'science-tamazight-grade': 2,  // optional (stays)
-        'science-sport-grade':     1,  // optional
-        // ── 2026 (commented out — do not delete) ──────────────────────────
-        // 'science-physics-grade':      5,  // now 4
-        // 'science-arabic-grade':       3,  // now 2
-        // 'science-history-geo-grade':  2,  // renamed → science-history-grade
-        // 'science-english-grade':      2,  // now 3
-        // 'science-french-grade':       2,  // REMOVED
-        // 'science-philo-grade':        2,  // REMOVED
+        'science-science-grade':    6,
+        'science-math-grade':       5,
+        'science-physics-grade':    5,
+        'science-arabic-grade':     3,
+        'science-french-grade':     2,
+        'science-english-grade':    2,
+        'science-philo-grade':      2,
+        'science-history-geo-grade':2,
+        'science-islamics-grade':   2,
+        'science-tamazight-grade':  2,  // optional
+        'science-sport-grade':      1,  // optional
     },
 
-    // ── هندسة (formerly هندسة) ─────────────────────────────────────────
+    // ── تقني رياضي ─────────────────────────────────────────────────────────
     tech: {
-        // ── 2027 ──────────────────────────────────────────────────────────
         'tech-tech-grade':        7,
-        'tech-math-grade':        5,  // was 6
-        'tech-physics-grade':     4,  // was 6
-        'tech-cs-grade':          3,  // NEW — إعلام آلي
-        'tech-english-grade':     3,  // was 2
+        'tech-math-grade':        6,
+        'tech-physics-grade':     6,
+        'tech-arabic-grade':      3,
+        'tech-french-grade':      2,
+        'tech-english-grade':     2,
+        'tech-philo-grade':       2,
+        'tech-history-geo-grade': 2,
         'tech-islamics-grade':    2,
-        'tech-history-grade':     2,  // renamed from tech-history-geo-grade (geography removed)
+        'tech-tamazight-grade':   2,  // optional
         'tech-sport-grade':       1,  // optional
-        // ── 2026 (commented out — do not delete) ──────────────────────────
-        // 'tech-math-grade':         6,  // now 5
-        // 'tech-physics-grade':      6,  // now 4
-        // 'tech-arabic-grade':       3,  // REMOVED
-        // 'tech-history-geo-grade':  2,  // renamed → tech-history-grade
-        // 'tech-english-grade':      2,  // now 3
-        // 'tech-french-grade':       2,  // REMOVED
-        // 'tech-philo-grade':        2,  // REMOVED
-        // 'tech-tamazight-grade':    2,  // REMOVED (optional)
     },
 
     // ── تسيير واقتصاد ───────────────────────────────────────────────────────
     management: {
-        // ── 2027 ──────────────────────────────────────────────────────────
         'management-accounting-grade':  6,
-        'management-economics-grade':   4,  // was 5
-        'management-math-grade':        3,  // was 5
-        'management-history-geo-grade': 3,  // was 4 (keeps تاريخ وجغرافيا label)
-        'management-english-grade':     3,  // was 2
-        'management-arabic-grade':      2,  // was 3
-        'management-tamazight-grade':   2,  // was 1, optional
-        'management-islamics-grade':    2,
+        'management-economics-grade':   5,
         'management-law-grade':         2,
+        'management-math-grade':        5,
+        'management-history-geo-grade': 4,
+        'management-arabic-grade':      3,
+        'management-french-grade':      2,
+        'management-english-grade':     2,
+        'management-philo-grade':       2,
+        'management-islamics-grade':    2,
+        'management-tamazight-grade':   1,  // optional
         'management-sport-grade':       1,  // optional
-        // ── 2026 (commented out — do not delete) ──────────────────────────
-        // 'management-math-grade':        5,  // now 3
-        // 'management-economics-grade':   5,  // now 4
-        // 'management-arabic-grade':      3,  // now 2
-        // 'management-history-geo-grade': 4,  // now 3
-        // 'management-english-grade':     2,  // now 3
-        // 'management-tamazight-grade':   1,  // now 2, required
-        // 'management-french-grade':      2,  // REMOVED
-        // 'management-philo-grade':       2,  // REMOVED
     },
 
     // ── آداب وفلسفة ─────────────────────────────────────────────────────────
     literature: {
-        // ── 2027 ──────────────────────────────────────────────────────────
-        'literature-arabic-grade':      7,  // was 6
+        'literature-arabic-grade':      6,
         'literature-philo-grade':       6,
-        'literature-history-geo-grade': 4,  // keeps تاريخ وجغرافيا label
-        'literature-tamazight-grade':   3,  // was 2
+        'literature-history-geo-grade': 4,
+        'literature-french-grade':      3,
         'literature-english-grade':     3,
-        'literature-french-grade':      2,  // was 3
+        'literature-math-grade':        2,
         'literature-islamics-grade':    2,
+        'literature-tamazight-grade':   2,  // optional
         'literature-sport-grade':       1,  // optional
-        // ── 2026 (commented out — do not delete) ──────────────────────────
-        // 'literature-arabic-grade':    6,  // now 7
-        // 'literature-tamazight-grade': 2,  // now 3
-        // 'literature-french-grade':    3,  // now 2
-        // 'literature-math-grade':      2,  // REMOVED
     },
 
     // ── لغات أجنبية ─────────────────────────────────────────────────────────
     languages: {
-        // ── 2027 ──────────────────────────────────────────────────────────
-        'languages-lang3-grade':      6,  // was 4
-        'languages-english-grade':    4,  // was 5
-        'languages-french-grade':     4,  // was 5
-        'languages-arabic-grade':     2,  // was 5
-        'languages-tamazight-grade':  2,  // optional (unchanged)
+        'languages-lang3-grade':      4,
+        'languages-english-grade':    5,
+        'languages-french-grade':     5,
+        'languages-arabic-grade':     5,
+        'languages-philo-grade':      2,
+        'languages-math-grade':       2,
+        'languages-history-geo-grade':2,
         'languages-islamics-grade':   2,
-        'languages-history-geo-grade':2,  // keeps تاريخ وجغرافيا label
+        'languages-tamazight-grade':  2,  // optional
         'languages-sport-grade':      1,  // optional
-        // ── 2026 (commented out — do not delete) ──────────────────────────
-        // 'languages-lang3-grade':    4,  // now 6
-        // 'languages-english-grade':  5,  // now 4
-        // 'languages-french-grade':   5,  // now 4
-        // 'languages-arabic-grade':   5,  // now 2
-        // 'languages-philo-grade':    2,  // REMOVED
-        // 'languages-math-grade':     2,  // REMOVED
     },
-
 };
 
 function getFieldName(field) {
     if (field === 'math')       return 'شعبة رياضيات';
     if (field === 'science')    return 'شعبة علوم تجريبية';
-    if (field === 'tech')       return 'شعبة هندسة';
+    if (field === 'tech')       return 'شعبة تقني رياضي';
     if (field === 'management') return 'شعبة تسيير وإقتصاد';
     if (field === 'literature') return 'شعبة آداب وفلسفة';
     if (field === 'languages')  return 'شعبة لغات أجنبية';
