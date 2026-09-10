@@ -641,9 +641,13 @@
         font-size: 0.72rem;
         font-weight: 800;
         color: #15803d;
-        background: rgba(22, 163, 74, 0.14);
-        border-radius: 999px;
-        padding: 3px 10px;
+        background: rgba(22, 163, 74, 0.12);
+        border-radius: 8px;
+        padding: 3px 9px;
+        display: inline-flex;
+        align-items: center;
+        line-height: 1.35;
+        vertical-align: middle;
     }
     .crc-stream-summary {
         margin: 0;
@@ -1037,12 +1041,22 @@
         .crc-stat-num { font-size: 1.9rem; }
         .crc-rename { padding: 1.3rem 1.3rem; gap: 1rem; }
         .crc-rename-old, .crc-rename-new { font-size: 0.98rem; padding: 0.5rem 1rem; }
-        .crc-stream summary { padding: 1rem 1.1rem; gap: 0.7rem; }
-        .crc-stream-body { padding: 0 1.1rem 1.3rem; }
-        .crc-stream-title h3 { font-size: 1rem; }
+        .crc-stream summary { padding: 0.9rem 0.9rem; gap: 0.6rem; align-items: flex-start; }
+        .crc-stream-icon { width: 38px; height: 38px; min-width: 38px; font-size: 0.95rem; border-radius: 12px; margin-top: 1px; }
+        .crc-stream-body { padding: 0 0.9rem 1.2rem; }
+        .crc-stream-title h3 { font-size: 0.96rem; line-height: 1.4; gap: 5px; }
+        .crc-stream-title .crc-restored-tag { font-size: 0.68rem; padding: 2px 7px; border-radius: 6px; margin-top: 2px; }
         .crc-stream-summary { display: none; }
+        .crc-stream-total { margin-top: 1px; }
+        .crc-stream-total b { font-size: 1.25rem; }
+        .crc-stream-total span { font-size: 0.65rem; margin-top: 1px; white-space: nowrap; }
+        .crc-stream-chevron { width: 30px; height: 30px; margin-top: 3px; }
         .crc-cta-actions { flex-direction: column; width: 100%; }
         .crc-cta-btn { width: 100%; justify-content: center; }
+    }
+    @media (max-width: 400px) {
+        .crc-stream summary { padding: 0.8rem 0.75rem; gap: 0.45rem; }
+        .crc-stream-total span { font-size: 0.6rem; max-width: 60px; line-height: 1.15; white-space: normal; text-align: center; }
     }
     </style>
     <script>document.documentElement.classList.add('crc-js');</script>
