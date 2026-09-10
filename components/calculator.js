@@ -713,8 +713,13 @@ if (!document.getElementById('bs-confetti-style')) {
 }
 
 function resetForm() {
+    localStorage.removeItem('calculatorGrades');
+    initSampleData();
+
     document.querySelectorAll('.grade-input').forEach(input => {
-        input.value = '';
+        input.classList.remove('input-error');
+        const card = input.closest('.subject-card');
+        if (card) card.classList.remove('card-error');
         const errorSpan = input.parentElement.querySelector('.error-message');
         if (errorSpan) {
             errorSpan.classList.remove('visible');
@@ -727,13 +732,15 @@ function resetForm() {
     const lnInput = document.getElementById('calcLastName');
     if (lnInput) lnInput.value = '';
 
-    localStorage.removeItem('calculatorGrades');
-
     document.getElementById('resultSection').style.display = 'none';
-    document.getElementById('calculatedAverage').textContent = '0.00';
-    document.getElementById('totalPoints').textContent = '0';
-    document.getElementById('totalCoeffs').textContent = '0';
-    document.getElementById('subjectCount').textContent = '0';
+    const avgEl = document.getElementById('calculatedAverage');
+    if (avgEl) avgEl.textContent = '0.00';
+    const tpEl = document.getElementById('totalPoints');
+    if (tpEl) tpEl.textContent = '0';
+    const tcEl = document.getElementById('totalCoeffs');
+    if (tcEl) tcEl.textContent = '0';
+    const scEl = document.getElementById('subjectCount');
+    if (scEl) scEl.textContent = '0';
 }
 
 function initSampleData() {
@@ -799,25 +806,28 @@ function saveCalculatorData() {
 }
 
 function loadCalculatorData() {
+    // Always initialize sample data first so no inputs remain empty!
+    initSampleData();
+
     const saved = localStorage.getItem('calculatorGrades');
-    if (!saved) {
-        initSampleData();
-        return;
-    }
+    if (!saved) return;
+
     try {
         const { grades, firstName, lastName } = JSON.parse(saved);
         if (grades) {
             for (const [id, val] of Object.entries(grades)) {
                 const el = document.getElementById(id);
-                if (el) el.value = val;
+                if (el && val !== undefined && val !== '') {
+                    el.value = val;
+                }
             }
         }
         const fnInput = document.getElementById('calcFirstName');
-        if (fnInput && firstName !== undefined) fnInput.value = firstName;
+        if (fnInput && firstName) fnInput.value = firstName;
         const lnInput = document.getElementById('calcLastName');
-        if (lnInput && lastName !== undefined) lnInput.value = lastName;
+        if (lnInput && lastName) lnInput.value = lastName;
     } catch (e) {
-        initSampleData();
+        // Sample data initialized above
     }
 }
 
