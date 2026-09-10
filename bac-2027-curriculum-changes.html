@@ -345,7 +345,7 @@
     }
     .crc-decree-box-head {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         justify-content: space-between;
         gap: 1rem;
         border-bottom: 1.5px solid rgba(220, 38, 38, 0.12);
@@ -355,14 +355,25 @@
     }
     .crc-decree-box-head h3 {
         margin: 0;
-        font-size: 1.35rem;
+        font-size: clamp(1.05rem, 2.5vw, 1.35rem);
         font-weight: 900;
         color: #0f172a;
         display: flex;
-        align-items: center;
-        gap: 12px;
+        align-items: flex-start;
+        gap: 10px;
+        flex: 1;
+        min-width: 250px;
+        line-height: 1.45;
     }
-    .crc-decree-box-head h3 i { color: #dc2626; }
+    .crc-decree-box-head h3 i {
+        color: #dc2626;
+        margin-top: 0.18em;
+        flex-shrink: 0;
+    }
+    .crc-decree-box-head h3 span {
+        flex: 1;
+        min-width: 0;
+    }
     .crc-decree-badge-num {
         background: #dc2626;
         color: #fff;
@@ -370,6 +381,8 @@
         font-size: 0.88rem;
         padding: 5px 16px;
         border-radius: 999px;
+        flex-shrink: 0;
+        align-self: flex-start;
     }
     .crc-decree-list {
         list-style: none;
@@ -1016,6 +1029,9 @@
     @media (max-width: 640px) {
         .crc-lede { padding: 2rem 1.4rem; border-radius: 22px; }
         .crc-decree-box { padding: 1.4rem 1.2rem; }
+        .crc-decree-box-head { gap: 0.75rem; padding-bottom: 0.9rem; }
+        .crc-decree-box-head h3 { font-size: 1.05rem; min-width: 0; }
+        .crc-decree-badge-num { font-size: 0.8rem; padding: 4px 13px; }
         .crc-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.8rem; }
         .crc-stat { padding: 1.2rem 0.6rem; }
         .crc-stat-num { font-size: 1.9rem; }
@@ -1102,7 +1118,7 @@
         <!-- ══ DECREE CARD ══ -->
         <section class="crc-decree-box crc-reveal">
             <div class="crc-decree-box-head">
-                <h3><i class="fas fa-scroll"></i> نص القرار الوزاري الرسمي الصادر عن وزارة التربية الوطنية</h3>
+                <h3><i class="fas fa-scroll"></i> <span>نص القرار الوزاري الرسمي الصادر عن وزارة التربية الوطنية</span></h3>
                 <span class="crc-decree-badge-num">القرار رقم 36</span>
             </div>
             <ul class="crc-decree-list">
