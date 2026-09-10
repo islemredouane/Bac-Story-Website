@@ -14389,17 +14389,30 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
 .results-alert-body {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px 8px;
 }
 
 .results-alert-body > strong {
-    display: block;
+    display: inline-block;
     font-size: 0.95rem;
     font-weight: 800;
-    margin-bottom: 4px;
+    margin-bottom: 0;
     letter-spacing: -0.01em;
 }
 
-.results-alert-body p strong {
+.results-alert-body p,
+.results-alert-body span {
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.65;
+    display: inline;
+}
+
+.results-alert-body p strong,
+.results-alert-body span strong {
     display: inline;
     margin-bottom: 0;
     font-weight: 800;
@@ -14409,15 +14422,12 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
 .results-alert.info  .results-alert-body > strong { color: #1a3a8f; }
 .results-alert.danger .results-alert-body > strong { color: #922b21; }
 
-.results-alert-body p {
-    font-size: 0.9rem;
-    margin: 0;
-    line-height: 1.65;
-}
-
-.results-alert.gold  .results-alert-body p { color: #6b4400; }
-.results-alert.info  .results-alert-body p { color: #2d4a8a; }
-.results-alert.danger .results-alert-body p { color: #7b241c; }
+.results-alert.gold  .results-alert-body p,
+.results-alert.gold  .results-alert-body span { color: #6b4400; }
+.results-alert.info  .results-alert-body p,
+.results-alert.info  .results-alert-body span { color: #2d4a8a; }
+.results-alert.danger .results-alert-body p,
+.results-alert.danger .results-alert-body span { color: #7b241c; }
 
 /* Centre buttons inside detail-cards regardless of wrapper text-align or inline style */
 .detail-card .acceptance-calc-btn {
