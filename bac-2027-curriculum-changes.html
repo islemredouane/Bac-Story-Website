@@ -1130,17 +1130,17 @@
         </section>
 
         <!-- ══ RENAME CALLOUT ══ -->
-        <div class="crc-rename crc-reveal" style="border-color: rgba(22, 163, 74, 0.25); box-shadow: 0 5px 20px rgba(22, 163, 74, 0.06);">
+        <div class="crc-rename crc-reveal" style="border-color: rgba(243, 156, 18, 0.25); box-shadow: 0 5px 20px rgba(243, 156, 18, 0.06);">
             <span class="crc-rename-old">تقني رياضي (تسمية سابقة)</span>
-            <i class="fas fa-arrow-left-long crc-rename-arrow"></i>
-            <span class="crc-rename-new"><i class="fas fa-drafting-compass"></i> شعبة هندسة</span>
+            <i class="fas fa-arrow-left-long crc-rename-arrow" style="color:#f39c12;"></i>
+            <span class="crc-rename-new" style="background:linear-gradient(135deg, #f39c12 0%, #c87f0a 100%);box-shadow:0 8px 20px rgba(243, 156, 18, 0.28);"><i class="fas fa-drafting-compass"></i> شعبة هندسة</span>
             <p class="crc-rename-note">التغيير الوحيد المحتفظ به رسمياً هو اعتماد اسم "شعبة هندسة" بدلاً من "تقني رياضي" بجميع الخيارات الأربعة، مع عودة المواد والمعاملات وفق القرار 186.</p>
         </div>
 
         <!-- ══ JUMP CHIPS ══ -->
         <nav class="crc-jump" id="crcJump" aria-label="انتقال سريع للشعب">
-            <button type="button" class="crc-jump-chip" style="--j-c:#28a745;" data-target="crc-science"><i class="fas fa-flask"></i> علوم تجريبية</button>
             <button type="button" class="crc-jump-chip" style="--j-c:#2c5cc5;" data-target="crc-math"><i class="fas fa-square-root-variable"></i> رياضيات</button>
+            <button type="button" class="crc-jump-chip" style="--j-c:#28a745;" data-target="crc-science"><i class="fas fa-flask"></i> علوم تجريبية</button>
             <button type="button" class="crc-jump-chip" style="--j-c:#c87f0a;" data-target="crc-tech"><i class="fas fa-drafting-compass"></i> شعبة هندسة</button>
             <button type="button" class="crc-jump-chip" style="--j-c:#8e44ad;" data-target="crc-manage"><i class="fas fa-chart-pie"></i> تسيير واقتصاد</button>
             <button type="button" class="crc-jump-chip" style="--j-c:#e74c3c;" data-target="crc-lit"><i class="fas fa-feather-pointed"></i> آداب وفلسفة</button>
@@ -1156,8 +1156,8 @@
             <div class="crc-geo-col">
                 <h3><i class="fas fa-circle-check"></i> استرجاع الجغرافيا كاملاً (تاريخ وجغرافيا)</h3>
                 <ul>
-                    <li><i class="fas fa-flask"></i> علوم تجريبية <span style="color:#94a3b8;font-weight:600;">(معامل 2 الأصلي)</span></li>
                     <li><i class="fas fa-square-root-variable"></i> رياضيات <span style="color:#94a3b8;font-weight:600;">(معامل 2 الأصلي)</span></li>
+                    <li><i class="fas fa-flask"></i> علوم تجريبية <span style="color:#94a3b8;font-weight:600;">(معامل 2 الأصلي)</span></li>
                     <li><i class="fas fa-drafting-compass"></i> شعبة هندسة <span style="color:#94a3b8;font-weight:600;">(معامل 2 الأصلي)</span></li>
                 </ul>
             </div>
@@ -1182,8 +1182,44 @@
 
         <div class="crc-streams">
 
+            <!-- رياضيات -->
+            <details class="crc-stream crc-stream--math crc-reveal" id="crc-math" open>
+                <summary>
+                    <div class="crc-stream-icon" style="background:linear-gradient(135deg, #1e3fa0 0%, #2c5cc5 100%);"><i class="fas fa-square-root-variable"></i></div>
+                    <div class="crc-stream-title">
+                        <h3>شعبة رياضيات <span class="crc-restored-tag">العودة للنظام الأصلي</span></h3>
+                        <p class="crc-stream-summary">استرجاع العربية والفرنسية والفلسفة والجغرافيا · الرياضيات 7 · الفيزياء 6 · العربية 3</p>
+                    </div>
+                    <div class="crc-stream-total"><b>29</b><span>أو 31 بالأمازيغية</span></div>
+                    <div class="crc-stream-chevron"><i class="fas fa-chevron-down"></i></div>
+                </summary>
+                <div class="crc-stream-body">
+                    <div class="crc-stream-body-inner">
+                        <div class="crc-note"><i class="fas fa-circle-check"></i> إلغاء مقترح حذف العربية والفرنسية والفلسفة والعودة الكاملة للمخطط السابق.</div>
+                        <div class="crc-table-wrap">
+                            <table class="crc-table">
+                                <thead><tr><th>المادة</th><th>المعامل المعتمد (القرار 186)</th><th>الحالة بعد القرار 36</th></tr></thead>
+                                <tbody>
+                                    <tr><td>رياضيات</td><td class="crc-num">7</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 7)</span></td></tr>
+                                    <tr><td>علوم فيزيائية</td><td class="crc-num">6</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 6)</span></td></tr>
+                                    <tr class="crc-restored"><td>لغة عربية وآدابها</td><td class="crc-num">3</td><td><span class="crc-tag crc-tag--restored">مسترجعة (إلغاء الحذف)</span></td></tr>
+                                    <tr><td>علوم الطبيعة والحياة</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 2)</span></td></tr>
+                                    <tr class="crc-restored"><td>لغة فرنسية</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--restored">مسترجعة (إلغاء الحذف)</span></td></tr>
+                                    <tr><td>لغة إنجليزية</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 2)</span></td></tr>
+                                    <tr class="crc-restored"><td>فلسفة</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--restored">مسترجعة (إلغاء الحذف)</span></td></tr>
+                                    <tr class="crc-restored"><td>تاريخ وجغرافيا</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--restored">مسترجعة الجغرافيا كاملاً</span></td></tr>
+                                    <tr><td>علوم إسلامية</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 2)</span></td></tr>
+                                    <tr><td>تربية بدنية</td><td class="crc-num">1</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 1)</span></td></tr>
+                                    <tr class="crc-total"><td>المجموع الكلي للمعاملات</td><td class="crc-num">29</td><td>المخطط الأصلي المعتمد</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </details>
+
             <!-- علوم تجريبية -->
-            <details class="crc-stream crc-stream--science crc-reveal" id="crc-science" open>
+            <details class="crc-stream crc-stream--science crc-reveal" id="crc-science">
                 <summary>
                     <div class="crc-stream-icon" style="background:linear-gradient(135deg, #1d7a33 0%, #28a745 100%);"><i class="fas fa-flask"></i></div>
                     <div class="crc-stream-title">
@@ -1211,42 +1247,6 @@
                                     <tr><td>علوم إسلامية</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 2)</span></td></tr>
                                     <tr><td>تربية بدنية</td><td class="crc-num">1</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 1)</span></td></tr>
                                     <tr class="crc-total"><td>المجموع الكلي للمعاملات</td><td class="crc-num">30</td><td>المخطط الأصلي المعتمد</td></tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </details>
-
-            <!-- رياضيات -->
-            <details class="crc-stream crc-stream--math crc-reveal" id="crc-math">
-                <summary>
-                    <div class="crc-stream-icon"><i class="fas fa-square-root-variable"></i></div>
-                    <div class="crc-stream-title">
-                        <h3>شعبة رياضيات <span class="crc-restored-tag">العودة للنظام الأصلي</span></h3>
-                        <p class="crc-stream-summary">استرجاع العربية والفرنسية والفلسفة والجغرافيا · الرياضيات 7 · الفيزياء 6 · العربية 3</p>
-                    </div>
-                    <div class="crc-stream-total"><b>29</b><span>أو 31 بالأمازيغية</span></div>
-                    <div class="crc-stream-chevron"><i class="fas fa-chevron-down"></i></div>
-                </summary>
-                <div class="crc-stream-body">
-                    <div class="crc-stream-body-inner">
-                        <div class="crc-note"><i class="fas fa-circle-check"></i> إلغاء مقترح حذف العربية والفرنسية والفلسفة والعودة الكاملة للمخطط السابق.</div>
-                        <div class="crc-table-wrap">
-                            <table class="crc-table">
-                                <thead><tr><th>المادة</th><th>المعامل المعتمد (القرار 186)</th><th>الحالة بعد القرار 36</th></tr></thead>
-                                <tbody>
-                                    <tr><td>رياضيات</td><td class="crc-num">7</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 7)</span></td></tr>
-                                    <tr><td>علوم فيزيائية</td><td class="crc-num">6</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 6)</span></td></tr>
-                                    <tr class="crc-restored"><td>لغة عربية وآدابها</td><td class="crc-num">3</td><td><span class="crc-tag crc-tag--restored">مسترجعة (إلغاء الحذف)</span></td></tr>
-                                    <tr><td>علوم الطبيعة والحياة</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 2)</span></td></tr>
-                                    <tr class="crc-restored"><td>لغة فرنسية</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--restored">مسترجعة (إلغاء الحذف)</span></td></tr>
-                                    <tr><td>لغة إنجليزية</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 2)</span></td></tr>
-                                    <tr class="crc-restored"><td>فلسفة</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--restored">مسترجعة (إلغاء الحذف)</span></td></tr>
-                                    <tr class="crc-restored"><td>تاريخ وجغرافيا</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--restored">مسترجعة الجغرافيا كاملاً</span></td></tr>
-                                    <tr><td>علوم إسلامية</td><td class="crc-num">2</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 2)</span></td></tr>
-                                    <tr><td>تربية بدنية</td><td class="crc-num">1</td><td><span class="crc-tag crc-tag--same">مستمرة (معامل 1)</span></td></tr>
-                                    <tr class="crc-total"><td>المجموع الكلي للمعاملات</td><td class="crc-num">29</td><td>المخطط الأصلي المعتمد</td></tr>
                                 </tbody>
                             </table>
                         </div>
