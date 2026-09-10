@@ -141,29 +141,57 @@
 <script>
 function wcValidate(input) {
     const val = parseFloat(input.value);
-    const err = document.getElementById('err-' + input.id);
-    const invalid = input.value !== '' && (isNaN(val) || val < 0 || val > 20);
+    const err = document.getElementById('err-' + input.id) || input.parentElement.querySelector('.error-message');
+    const card = input.closest('.subject-card');
+    const invalid = input.value.trim() !== '' && (isNaN(val) || val < 0 || val > 20);
     input.classList.toggle('input-error', invalid);
+    if (card) card.classList.toggle('card-error', invalid);
     if (err) {
-        err.innerHTML = invalid ? '<i class="fas fa-circle-exclamation"></i> القيمة يجب أن تكون بين 0 و 20' : '';
+        err.innerHTML = invalid ? '<i class="fas fa-circle-exclamation"></i> يجب أن تكون العلامة بين 0 و 20' : '';
         err.classList.toggle('visible', invalid);
     }
+}
+function wcValidateStrict(input) {
+    const val = parseFloat(input.value);
+    const err = document.getElementById('err-' + input.id) || input.parentElement.querySelector('.error-message');
+    const card = input.closest('.subject-card');
+    const empty = input.value.trim() === '' || isNaN(val);
+    const outOfRange = !isNaN(val) && (val < 0 || val > 20);
+    const invalid = empty || outOfRange;
+    input.classList.toggle('input-error', invalid);
+    if (card) card.classList.toggle('card-error', invalid);
+    if (err) {
+        if (empty) {
+            err.innerHTML = '<i class="fas fa-circle-exclamation"></i> الرجاء إدخال علامة صحيحة';
+        } else if (outOfRange) {
+            err.innerHTML = '<i class="fas fa-circle-exclamation"></i> يجب أن تكون العلامة بين 0 و 20';
+        } else {
+            err.innerHTML = '';
+        }
+        err.classList.toggle('visible', invalid);
+    }
+    return !invalid;
 }
 function wcCalculateTranslation() {
     const bacEl = document.getElementById('wc-bac');
     const l1El = document.getElementById('wc-lang1');
     const l2El = document.getElementById('wc-lang2');
     const l3El = document.getElementById('wc-lang3');
+    const v1 = wcValidateStrict(bacEl);
+    const v2 = wcValidateStrict(l1El);
+    const v3 = wcValidateStrict(l2El);
+    const v4 = wcValidateStrict(l3El);
+    if (!v1 || !v2 || !v3 || !v4) {
+        const firstErr = !v1 ? bacEl : (!v2 ? l1El : (!v3 ? l2El : l3El));
+        firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        firstErr.focus();
+        return;
+    }
     const bac = parseFloat(bacEl.value);
     const l1 = parseFloat(l1El.value);
     const l2 = parseFloat(l2El.value);
     const l3 = parseFloat(l3El.value);
-    if (isNaN(bac) || bac < 0 || bac > 20 || isNaN(l1) || l1 < 0 || l1 > 20 || isNaN(l2) || l2 < 0 || l2 > 20 || isNaN(l3) || l3 < 0 || l3 > 20) {
-        alert('يرجى إدخال قيم صحيحة بين 0 و 20 لكل الحقول');
-        return;
-    }
-    const avgL = (l1 + l2 + l3) / 3;
-    const avg = (bac * 2 + avgL) / 3;
+    const avg = (bac * 2 + (l1 + l2 + l3) / 3) / 3;
     const rounded = (Math.round(avg * 100) / 100).toFixed(2);
     document.getElementById('wc-result-value').textContent = rounded;
     const result = document.getElementById('wc-result');

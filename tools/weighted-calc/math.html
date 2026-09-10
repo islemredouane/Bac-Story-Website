@@ -122,23 +122,50 @@
 <script>
 function wcValidate(input) {
     const val = parseFloat(input.value);
-    const err = document.getElementById('err-' + input.id);
-    const invalid = input.value !== '' && (isNaN(val) || val < 0 || val > 20);
+    const err = document.getElementById('err-' + input.id) || input.parentElement.querySelector('.error-message');
+    const card = input.closest('.subject-card');
+    const invalid = input.value.trim() !== '' && (isNaN(val) || val < 0 || val > 20);
     input.classList.toggle('input-error', invalid);
+    if (card) card.classList.toggle('card-error', invalid);
     if (err) {
-        err.innerHTML = invalid ? '<i class="fas fa-circle-exclamation"></i> القيمة يجب أن تكون بين 0 و 20' : '';
+        err.innerHTML = invalid ? '<i class="fas fa-circle-exclamation"></i> يجب أن تكون العلامة بين 0 و 20' : '';
         err.classList.toggle('visible', invalid);
     }
+}
+function wcValidateStrict(input) {
+    const val = parseFloat(input.value);
+    const err = document.getElementById('err-' + input.id) || input.parentElement.querySelector('.error-message');
+    const card = input.closest('.subject-card');
+    const empty = input.value.trim() === '' || isNaN(val);
+    const outOfRange = !isNaN(val) && (val < 0 || val > 20);
+    const invalid = empty || outOfRange;
+    input.classList.toggle('input-error', invalid);
+    if (card) card.classList.toggle('card-error', invalid);
+    if (err) {
+        if (empty) {
+            err.innerHTML = '<i class="fas fa-circle-exclamation"></i> الرجاء إدخال علامة صحيحة';
+        } else if (outOfRange) {
+            err.innerHTML = '<i class="fas fa-circle-exclamation"></i> يجب أن تكون العلامة بين 0 و 20';
+        } else {
+            err.innerHTML = '';
+        }
+        err.classList.toggle('visible', invalid);
+    }
+    return !invalid;
 }
 function wcCalculateMath() {
     const bacEl = document.getElementById('wc-bac');
     const mathEl = document.getElementById('wc-math');
-    const bac = parseFloat(bacEl.value);
-    const math = parseFloat(mathEl.value);
-    if (isNaN(bac) || bac < 0 || bac > 20 || isNaN(math) || math < 0 || math > 20) {
-        alert('يرجى إدخال قيم صحيحة بين 0 و 20');
+    const v1 = wcValidateStrict(bacEl);
+    const v2 = wcValidateStrict(mathEl);
+    if (!v1 || !v2) {
+        const firstErr = !v1 ? bacEl : mathEl;
+        firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        firstErr.focus();
         return;
     }
+    const bac = parseFloat(bacEl.value);
+    const math = parseFloat(mathEl.value);
     const avg = (bac * 2 + math) / 3;
     const rounded = (Math.round(avg * 100) / 100).toFixed(2);
     document.getElementById('wc-result-value').textContent = rounded;

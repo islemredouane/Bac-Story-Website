@@ -4603,9 +4603,17 @@ body.pdf-body-lock [id="footer-placeholder"] {
     box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.09) !important;
 }
 
-.card-error {
+.card-error,
+.subject-card.card-error,
+.subject-card:has(.error-message.visible) {
     border-color: #e74c3c !important;
     box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.07) !important;
+    z-index: 50 !important;
+    position: relative !important;
+}
+
+.subject-card:focus-within {
+    z-index: 20;
 }
 
 .btn.calculate {
