@@ -100,13 +100,13 @@ function injectGlobalCTA() {
             </div>
             <div class="gcta-btn">شارك الآن <i class="fas fa-arrow-left"></i></div>
         </a>
-        <a href="/bac-2027-curriculum-changes" class="gcta-card gcta-card--changes2027">
-            <div class="gcta-icon-circle"><i class="fas fa-bolt"></i></div>
+        <a href="https://t.me/islembacdz" target="_blank" rel="noopener noreferrer" class="gcta-card gcta-card--news">
+            <div class="gcta-icon-circle"><i class="fas fa-newspaper"></i></div>
             <div class="gcta-text">
-                <strong>التغييرات الجديدة في مناهج 2027</strong>
-                <span>تعرّف على التعديلات الرسمية في البرامج، المعاملات والشعب لبكالوريا 2027</span>
+                <strong>آخر الأخبار والتحديثات</strong>
+                <span>تابع قناتنا الرسمية على التلغرام للحصول على المستجدات والنصائح اليومية</span>
             </div>
-            <div class="gcta-btn">اطلع على التغييرات <i class="fas fa-arrow-left"></i></div>
+            <div class="gcta-btn">تابع الأخبار <i class="fas fa-arrow-left"></i></div>
         </a>
         <a href="/resources" class="gcta-card gcta-card--resources">
             <div class="gcta-icon-circle"><i class="fas fa-briefcase"></i></div>
@@ -132,19 +132,10 @@ function injectGlobalCTA() {
             </div>
             <div class="gcta-btn">اكتشف الباقات <i class="fas fa-arrow-left"></i></div>
         </a>
-        <a href="/computer-science/moktasabat" class="gcta-card gcta-card--moktasabat">
-            <div class="gcta-icon-circle"><i class="fas fa-laptop-code"></i></div>
-            <div class="gcta-text">
-                <strong>المكتسبات القبلية — الإعلام الآلي</strong>
-                <span>4 أوراق مراجعة تغطي كل ما يجب أن تعرفه قبل بكالوريا 2027</span>
-            </div>
-            <div class="gcta-btn">ابدأ المراجعة <i class="fas fa-arrow-left"></i></div>
-        </a>
     </div></div>
     <!-- Mobile-only rotation dots (count = active gcta-card count) -->
     <div class="gcta-dots" id="gcta-dots">
         <span class="gcta-dot gcta-dot--active"></span>
-        <span class="gcta-dot"></span>
         <span class="gcta-dot"></span>
         <span class="gcta-dot"></span>
         <span class="gcta-dot"></span>
