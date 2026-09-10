@@ -4252,7 +4252,7 @@ body.pdf-body-lock [id="footer-placeholder"] {
     background: white;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    overflow: visible;
+    overflow: hidden;
     margin: 1rem 0;
     animation: fadeIn 0.5s ease-out;
 }
@@ -4265,6 +4265,7 @@ body.pdf-body-lock [id="footer-placeholder"] {
     animation: fadeIn 0.5s ease-out;
     position: relative;
     overflow: hidden;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
 }
 
 .calculator-header::before {
