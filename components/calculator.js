@@ -150,14 +150,20 @@ function calculateAverage(field) {
     let firstErrorInput = null;
 
     const fieldCoefficients = coefficients[field];
+    if (!fieldCoefficients) {
+        console.error('Invalid calculator field:', field);
+        return;
+    }
 
     for (const [inputId, coefficient] of Object.entries(fieldCoefficients)) {
         const input = document.getElementById(inputId);
         if (!input) continue;
-        const value = parseFloat(input.value);
+
+        const cleanVal = (input.value || '').replace(',', '.').trim();
+        const value = parseFloat(cleanVal);
         const isOptional = input.closest('.subject-card.optional') !== null;
 
-        const errorSpan = input.parentElement.querySelector('.error-message');
+        const errorSpan = input.parentElement ? input.parentElement.querySelector('.error-message') : null;
         if (errorSpan) {
             errorSpan.classList.remove('visible');
             errorSpan.innerHTML = '';
@@ -166,11 +172,11 @@ function calculateAverage(field) {
         input.classList.remove('input-error');
         input.closest('.subject-card')?.classList.remove('card-error');
 
-        if (isOptional && (isNaN(value) || input.value.trim() === '')) {
+        if (isOptional && (isNaN(value) || cleanVal === '')) {
             continue;
         }
 
-        if (isNaN(value) || input.value.trim() === '') {
+        if (isNaN(value) || cleanVal === '') {
             if (errorSpan) {
                 errorSpan.innerHTML = '<i class="fas fa-circle-exclamation"></i> الرجاء إدخال علامة صحيحة';
                 errorSpan.classList.add('visible');
@@ -203,12 +209,18 @@ function calculateAverage(field) {
         return;
     }
 
+    if (totalCoefficient === 0) return;
+
     const average = totalScore / totalCoefficient;
 
-    document.getElementById('calculatedAverage').textContent = average.toFixed(2);
-    document.getElementById('totalPoints').textContent = totalScore.toFixed(2);
-    document.getElementById('totalCoeffs').textContent = totalCoefficient;
-    document.getElementById('subjectCount').textContent = subjectCount;
+    const avgEl = document.getElementById('calculatedAverage');
+    if (avgEl) avgEl.textContent = average.toFixed(2);
+    const tpEl = document.getElementById('totalPoints');
+    if (tpEl) tpEl.textContent = totalScore.toFixed(2);
+    const tcEl = document.getElementById('totalCoeffs');
+    if (tcEl) tcEl.textContent = totalCoefficient;
+    const scEl = document.getElementById('subjectCount');
+    if (scEl) scEl.textContent = subjectCount;
 
     // Store reveal data
     bsRevealData.firstName = (document.getElementById('calcFirstName') || {}).value?.trim() || '';
@@ -217,7 +229,9 @@ function calculateAverage(field) {
     bsRevealData.mention   = bsGetMention(average);
     bsRevealData.specialty = getFieldName(field);
 
-    document.getElementById('resultSection').style.display = 'none';
+    const rsEl = document.getElementById('resultSection');
+    if (rsEl) rsEl.style.display = 'none';
+
     showReveal();
 
     localStorage.setItem('calculatorState', field + 'Subjects');
@@ -245,18 +259,28 @@ function bsCloseReveal(id) {
 /* ── UNIFIED REVEAL ───────────────────────────── */
 function showReveal() {
     _buildOEBContent();
-    // Reset gazette so it builds fresh on first switch
-    document.getElementById('bsGazetteInner').innerHTML = '';
-    // Always start on OEB tab
-    document.getElementById('bsOebWrapper').style.display = 'flex';
-    document.getElementById('bsGazetteWrapper').style.display = 'none';
-    document.getElementById('bsTabOeb').classList.add('active');
-    document.getElementById('bsTabGazette').classList.remove('active');
+
+    const gazetteInner = document.getElementById('bsGazetteInner');
+    if (gazetteInner) gazetteInner.innerHTML = '';
+
+    const oebWrapper = document.getElementById('bsOebWrapper');
+    if (oebWrapper) oebWrapper.style.display = 'flex';
+
+    const gazetteWrapper = document.getElementById('bsGazetteWrapper');
+    if (gazetteWrapper) gazetteWrapper.style.display = 'none';
+
+    const tabOeb = document.getElementById('bsTabOeb');
+    if (tabOeb) tabOeb.classList.add('active');
+
+    const tabGazette = document.getElementById('bsTabGazette');
+    if (tabGazette) tabGazette.classList.remove('active');
 
     const overlay = document.getElementById('bs-reveal-overlay');
-    overlay.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-    overlay.scrollTo({ top: 0, behavior: 'instant' });
+    if (overlay) {
+        overlay.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        overlay.scrollTop = 0;
+    }
 
     // Position pill on OEB after layout paint
     requestAnimationFrame(() => bsUpdatePill('oeb'));
@@ -321,17 +345,23 @@ function _buildOEBContent() {
         { lbl: 'المعدل',       val: '0.00', id: 'bsOebAvg', big: true, highlight: true },
         { lbl: 'الملاحظة',     val: d.mention || 'راسب', pass: passed },
     ];
-    document.getElementById('bsOebCongrats').textContent = passed ? 'ألف مبروك' : 'للأسف...';
-    document.getElementById('bsOebCongrats').className = 'bs-oeb-congrats ' + (passed ? 'pass' : 'fail');
-    document.getElementById('bsOebFields').innerHTML = fields.map(f => `
-        <div class="bs-oeb-field${f.highlight ? ' highlight' : ''}">
-            <span class="bs-oeb-field-lbl${f.highlight ? '" style="color:#1a3a8f;font-weight:900' : ''}">${f.lbl}</span>
-            <span class="bs-oeb-field-sep">:</span>
-            <span class="${f.big ? 'bs-oeb-field-val big' : 'bs-oeb-field-val'}"
-                  ${f.id ? `id="${f.id}"` : ''}
-                  ${f.pass !== undefined ? `style="color:${f.pass ? '#27ae60' : '#7f8c8d'};font-weight:900"` : ''}
-            >${f.val}</span>
-        </div>`).join('');
+    const congratsEl = document.getElementById('bsOebCongrats');
+    if (congratsEl) {
+        congratsEl.textContent = passed ? 'ألف مبروك' : 'للأسف...';
+        congratsEl.className = 'bs-oeb-congrats ' + (passed ? 'pass' : 'fail');
+    }
+    const fieldsEl = document.getElementById('bsOebFields');
+    if (fieldsEl) {
+        fieldsEl.innerHTML = fields.map(f => `
+            <div class="bs-oeb-field${f.highlight ? ' highlight' : ''}">
+                <span class="bs-oeb-field-lbl${f.highlight ? '" style="color:#1a3a8f;font-weight:900' : ''}">${f.lbl}</span>
+                <span class="bs-oeb-field-sep">:</span>
+                <span class="${f.big ? 'bs-oeb-field-val big' : 'bs-oeb-field-val'}"
+                      ${f.id ? `id="${f.id}"` : ''}
+                      ${f.pass !== undefined ? `style="color:${f.pass ? '#27ae60' : '#7f8c8d'};font-weight:900"` : ''}
+                >${f.val}</span>
+            </div>`).join('');
+    }
 }
 
 /* ── BUILD GAZETTE CONTENT ────────────────────── */
