@@ -15,3 +15,8 @@ Thumbs.db
 # Editor
 .vscode/
 *.swp
+
+# Computer Science pages (BAC 2027 draft pages retained locally)
+resources/*/computer-science*
+resources/*/computer-science/*
+
