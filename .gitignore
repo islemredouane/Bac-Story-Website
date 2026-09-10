@@ -20,3 +20,6 @@ Thumbs.db
 resources/*/computer-science*
 resources/*/computer-science/*
 
+# Backup reference files (retained locally)
+bac-2027-curriculum-changes-old-backup.html
+
