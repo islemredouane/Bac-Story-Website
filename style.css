@@ -1340,6 +1340,11 @@ html {
     box-shadow: 0 8px 28px rgba(26, 58, 143, 0.17);
 }
 
+.gcta-card--news {
+    background: linear-gradient(135deg, #0c4a6e 0%, #0284c7 45%, #2aabee 100%);
+    box-shadow: 0 8px 28px rgba(2, 132, 199, 0.22);
+}
+
 .gcta-card--feedback {
     background:
         linear-gradient(120deg, #7a4f00 0%, #b8860b 30%, #d4a017 55%, #c8920e 75%, #8b6200 100%);
