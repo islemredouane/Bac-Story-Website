@@ -53,6 +53,7 @@ html {
 .page-loader.loader-hiding {
     opacity: 0;
     visibility: hidden;
+    pointer-events: none !important;
 }
 
 /* ── Subtle background tint (matches site's light feel) ─────────── */
@@ -243,15 +244,15 @@ html {
     }
 
     50% {
-        width: 62%;
+        width: 65%;
     }
 
-    75% {
-        width: 78%;
+    80% {
+        width: 88%;
     }
 
     100% {
-        width: 88%;
+        width: 100%;
     }
 }
 
@@ -261,15 +262,15 @@ html {
     }
 
     50% {
-        left: 62%;
+        left: 65%;
     }
 
-    75% {
-        left: 78%;
+    80% {
+        left: 88%;
     }
 
     100% {
-        left: 88%;
+        left: 100%;
     }
 }
 
