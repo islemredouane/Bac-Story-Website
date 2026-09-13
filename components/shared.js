@@ -1431,14 +1431,6 @@ async function bootPage() {
             window.addEventListener('load', regSw, { once: true });
         }
 
-        navigator.serviceWorker.addEventListener('controllerchange', () => {
-            if (!hadController) return;
-            try {
-                if (sessionStorage.getItem('bsSwReloaded')) return;
-                sessionStorage.setItem('bsSwReloaded', '1');
-            } catch (e) {}
-            window.location.reload();
-        });
     }
 }
 
