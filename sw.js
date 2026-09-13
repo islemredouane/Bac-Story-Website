@@ -1,4 +1,4 @@
-const CACHE_NAME = 'bac-story-v6';
+const CACHE_NAME = 'bac-story-v7';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
@@ -30,7 +30,7 @@ self.addEventListener('install', (event) => {
   self.skipWaiting();
 });
 
-// Activate Event
+// Activate Event - Purge old caches immediately
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((keys) => {
@@ -42,67 +42,44 @@ self.addEventListener('activate', (event) => {
   self.clients.claim();
 });
 
-// Fetch Event - Network First with Fast 2s Cache Fallback
+// Fetch Event
 self.addEventListener('fetch', (event) => {
   const req = event.request;
 
-  // Only handle same-origin GET requests — never intercept POSTs or cross-origin calls
+  // 1. NEVER intercept full-page navigations!
+  // Allowing the browser to handle HTML navigations natively completely eliminates
+  // ERR_FAILED, prevents clean-URL redirect failures, and lets Chrome perform native
+  // multi-IP failover if an edge IP is temporarily unreachable.
+  if (req.mode === 'navigate') {
+    return;
+  }
+
+  // 2. Only handle same-origin GET requests
   let sameOrigin = false;
   try { sameOrigin = new URL(req.url).origin === self.location.origin; } catch (e) {}
   if (req.method !== 'GET' || !sameOrigin) {
     return;
   }
 
-  // Never intercept dynamic API endpoints
+  // 3. Never intercept dynamic API endpoints
   try {
     if (new URL(req.url).pathname.startsWith('/api/')) return;
   } catch (e) {}
 
+  // 4. Stale-While-Revalidate for sub-resources (CSS, JS, images, component HTML)
   event.respondWith(
-    new Promise((resolve) => {
-      let resolved = false;
-
-      // Fast fallback: if network hangs for > 2000ms, serve from cache if available
-      const timeoutTimer = setTimeout(() => {
-        caches.match(req).then((cached) => {
-          if (cached && !resolved) {
-            resolved = true;
-            resolve(cached);
+    caches.match(req).then((cachedResponse) => {
+      const networkFetch = fetch(req)
+        .then((networkResponse) => {
+          if (networkResponse && networkResponse.ok) {
+            const resClone = networkResponse.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(req, resClone));
           }
-        });
-      }, 2000);
-
-      fetch(req)
-        .then((response) => {
-          clearTimeout(timeoutTimer);
-          if (response && response.ok) {
-            const resClone = response.clone();
-            caches.open(CACHE_NAME).then((cache) => {
-              cache.put(req, resClone);
-            });
-          }
-          if (!resolved) {
-            resolved = true;
-            resolve(response);
-          }
+          return networkResponse;
         })
-        .catch(() => {
-          clearTimeout(timeoutTimer);
-          caches.match(req).then((cached) => {
-            if (!resolved) {
-              resolved = true;
-              if (cached) {
-                resolve(cached);
-              } else if (req.mode === 'navigate') {
-                caches.match('/index.html').then((fallback) => {
-                  resolve(fallback || new Response('Offline', { status: 503 }));
-                });
-              } else {
-                resolve(new Response('', { status: 504, statusText: 'Gateway Timeout' }));
-              }
-            }
-          });
-        });
+        .catch(() => cachedResponse);
+
+      return cachedResponse || networkFetch;
     })
   );
 });
