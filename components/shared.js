@@ -5,42 +5,60 @@
 
 // ─── PAGE LOADER ─────────────────────────────────────────────────────────────
 const _loaderShownAt = Date.now();
-const _LOADER_MIN_MS = 1200; // always visible for at least 1.2 s
+const _LOADER_MIN_MS = 1000; // visible for at least 1.0 s for animation
+let _loaderDismissed = false;
 
 (function injectLoader() {
-    const loader = document.createElement('div');
-    loader.id = 'page-loader';
-    loader.className = 'page-loader';
-    // HTML matches the CSS classes in style.css exactly
-    loader.innerHTML = `
-        <div class="loader-orb"></div>
-        <div class="loader-orb loader-orb--2"></div>
-        <div class="loader-content">
-            <div class="loader-letters">
-                <span class="ll">B</span>
-                <span class="ll">A</span>
-                <span class="ll">C</span>
-                <span class="loader-gap"></span>
-                <span class="ll">S</span>
-                <span class="ll">T</span>
-                <span class="ll">O</span>
-                <span class="ll">R</span>
-                <span class="ll">Y</span>
-            </div>
-            <div class="loader-divider"><span></span></div>
-            <div class="loader-tagline">منصة التميز في البكالوريا</div>
-            <div class="loader-bar">
-                <div class="loader-bar-fill"></div>
-                <div class="loader-bar-glow"></div>
-            </div>
-        </div>`;
-    document.body.prepend(loader);
+    try {
+        const loader = document.createElement('div');
+        loader.id = 'page-loader';
+        loader.className = 'page-loader';
+        // HTML matches the CSS classes in style.css exactly
+        loader.innerHTML = `
+            <div class="loader-orb"></div>
+            <div class="loader-orb loader-orb--2"></div>
+            <div class="loader-content">
+                <div class="loader-letters">
+                    <span class="ll">B</span>
+                    <span class="ll">A</span>
+                    <span class="ll">C</span>
+                    <span class="loader-gap"></span>
+                    <span class="ll">S</span>
+                    <span class="ll">T</span>
+                    <span class="ll">O</span>
+                    <span class="ll">R</span>
+                    <span class="ll">Y</span>
+                </div>
+                <div class="loader-divider"><span></span></div>
+                <div class="loader-tagline">منصة التميز في البكالوريا</div>
+                <div class="loader-bar">
+                    <div class="loader-bar-fill"></div>
+                    <div class="loader-bar-glow"></div>
+                </div>
+            </div>`;
+        (document.body || document.documentElement).prepend(loader);
+    } catch (e) {
+        console.warn('Loader inject error', e);
+    }
 })();
+
+// Safety Watchdog: Under NO circumstances should the loader block the screen longer than 2.5s
+setTimeout(function () {
+    hideLoader();
+}, 2500);
 
 // ─── COMPONENT INJECTOR ───────────────────────────────────────────────────────
 async function injectComponent(selector, url) {
     try {
-        const res = await fetch(url);
+        let res;
+        if (typeof AbortSignal !== 'undefined' && typeof AbortSignal.timeout === 'function') {
+            res = await fetch(url, { signal: AbortSignal.timeout(2200) });
+        } else {
+            const controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+            const timer = controller ? setTimeout(() => controller.abort(), 2200) : null;
+            res = await fetch(url, controller ? { signal: controller.signal } : {});
+            if (timer) clearTimeout(timer);
+        }
         if (!res.ok) {
             console.warn(`Failed to fetch component: ${url} (Status: ${res.status})`);
             return;
@@ -55,15 +73,22 @@ async function injectComponent(selector, url) {
 
 // ─── HIDE LOADER ─────────────────────────────────────────────────────────────
 function hideLoader() {
+    if (_loaderDismissed) return;
     const loader = document.getElementById('page-loader');
-    if (!loader) return;
-    // Guarantee minimum visible time so the animation is always seen
+    if (!loader) {
+        _loaderDismissed = true;
+        return;
+    }
+    _loaderDismissed = true;
     const elapsed = Date.now() - _loaderShownAt;
     const delay   = Math.max(0, _LOADER_MIN_MS - elapsed);
     setTimeout(function () {
         loader.classList.add('loader-hiding');
-        loader.addEventListener('transitionend', () => loader.remove(), { once: true });
-        setTimeout(() => { if (loader.parentNode) loader.remove(); }, 700);
+        loader.style.pointerEvents = 'none';
+        loader.addEventListener('transitionend', () => {
+            if (loader.parentNode) loader.remove();
+        }, { once: true });
+        setTimeout(() => { if (loader.parentNode) loader.remove(); }, 600);
     }, delay);
 }
 
@@ -362,7 +387,11 @@ if (typeof window.showSection === 'undefined') {
 const BAC2026_ANNOUNCE_KEY = 'bs_seen_telegram_series_v4';
 
 function showBac2026AnnouncementModal() {
-    if (localStorage.getItem(BAC2026_ANNOUNCE_KEY)) return;
+    try {
+        if (localStorage.getItem(BAC2026_ANNOUNCE_KEY)) return;
+    } catch (e) {
+        return;
+    }
     // Don't invite people already on the feedback page
     if (location.pathname.replace(/\/$/, '').endsWith('/feedback')) return;
 
@@ -399,7 +428,7 @@ function showBac2026AnnouncementModal() {
     });
 
     const dismissModal = () => {
-        localStorage.setItem(BAC2026_ANNOUNCE_KEY, '1');
+        try { localStorage.setItem(BAC2026_ANNOUNCE_KEY, '1'); } catch (e) {}
         overlay.classList.remove('active');
         document.documentElement.style.overflow = '';
         setTimeout(() => {
@@ -1330,79 +1359,91 @@ function setupSpecFilterTabs() {
 }
 
 // ─── PAGE BOOT ───────────────────────────────────────────────────────────────
-document.addEventListener('DOMContentLoaded', async () => {
-    // Share button runs immediately — before any async ops that could fail
-    buildBac2026ShareBtn();
+async function bootPage() {
+    try {
+        // Share button runs immediately — before any async ops that could fail
+        try { buildBac2026ShareBtn(); } catch (e) { console.warn(e); }
 
-    // Inject components concurrently using absolute paths
-    await Promise.all([
-        injectComponent('#navbar-placeholder', '/components/navbar.html?v=1.7'),
-        injectComponent('#footer-placeholder', '/components/footer.html?v=1.4')
-    ]);
+        // Inject components concurrently with safe timeouts
+        await Promise.all([
+            injectComponent('#navbar-placeholder', '/components/navbar.html?v=1.7'),
+            injectComponent('#footer-placeholder', '/components/footer.html?v=1.4')
+        ]);
 
-    // Ensure search placeholder is at body level for max z-index
-    if (!document.getElementById('search-placeholder')) {
-        const sp = document.createElement('div');
-        sp.id = 'search-placeholder';
-        document.body.appendChild(sp);
+        // Ensure search placeholder is at body level for max z-index
+        if (!document.getElementById('search-placeholder')) {
+            const sp = document.createElement('div');
+            sp.id = 'search-placeholder';
+            (document.body || document.documentElement).appendChild(sp);
+        }
+        await injectComponent('#search-placeholder', '/components/search.html');
+
+        // Setup after injection - isolate each step so one failure cannot kill boot
+        try { setupMobileMenu(); } catch (e) { console.warn('MobileMenu error', e); }
+        try { setupNavbarScroll(); } catch (e) { console.warn('NavbarScroll error', e); }
+        try { setupSearch(); } catch (e) { console.warn('Search error', e); }
+        try { injectAdStrip(); } catch (e) { console.warn('AdStrip error', e); }
+        try { injectAdCards(); } catch (e) { console.warn('AdCards error', e); }
+        try { setupScrollToTop(); } catch (e) { console.warn('ScrollToTop error', e); }
+        try { setupSpecFilterTabs(); } catch (e) { console.warn('SpecFilter error', e); }
+
+        // Handle hash-based section
+        try { handleHashNav(); } catch (e) { console.warn('HashNav error', e); }
+
+        // Fade in the content
+        const pageContent = document.querySelector('main');
+        if (pageContent) {
+            pageContent.classList.add('fade-in');
+        }
+        if (document.body) {
+            document.body.classList.add('page-ready');
+        }
+
+        // Inject global CTA section (all pages except university)
+        try { injectGlobalCTA(); } catch (e) { console.warn('CTA error', e); }
+    } catch (err) {
+        console.error('Error during page boot:', err);
+    } finally {
+        // GUARANTEE LOADER DISMISSAL: hideLoader() is always called regardless of success or failure
+        hideLoader();
     }
-    await injectComponent('#search-placeholder', '/components/search.html');
-
-    // Setup after injection
-    setupMobileMenu();
-    setupNavbarScroll();
-    setupSearch();
-    injectAdStrip();
-    injectAdCards();
-    setupScrollToTop();
-    setupSpecFilterTabs();
-
-    // Handle hash-based section
-    handleHashNav();
-
-    // Fade in the content
-    const pageContent = document.querySelector('main');
-    if (pageContent) {
-        pageContent.classList.add('fade-in');
-    }
-    document.body.classList.add('page-ready');
-
-    // Inject global CTA section (all pages except university)
-    injectGlobalCTA();
-
-    // Hide loader
-    hideLoader();
 
     // Show premium one-time Bac 2026 Announcement modal (900ms after loader)
-    if (!localStorage.getItem(BAC2026_ANNOUNCE_KEY)) {
-        setTimeout(showBac2026AnnouncementModal, 900);
-    }
+    try {
+        if (!localStorage.getItem(BAC2026_ANNOUNCE_KEY)) {
+            setTimeout(showBac2026AnnouncementModal, 900);
+        }
+    } catch (e) {}
 
     // Register Service Worker for PWA / Shortcut functionality
     if ('serviceWorker' in navigator) {
-        // Captured before registration resolves, so a brand-new visitor (no
-        // prior controller) never gets force-reloaded on first install —
-        // only real updates for returning visitors trigger a refresh.
         var hadController = !!navigator.serviceWorker.controller;
 
-        window.addEventListener('load', () => {
+        const regSw = () => {
             navigator.serviceWorker.register('/sw.js')
-                .then(reg => {
-                    reg.update();
-                })
+                .then(reg => { reg.update(); })
                 .catch(err => console.warn('SW failed', err));
-        });
+        };
 
-        // Reload once when a new service worker takes control. The guard is
-        // stored in sessionStorage (not a local variable) so it survives the
-        // reload itself — a local var resets to false on every page load,
-        // which let a single controllerchange event trigger an infinite
-        // reload loop during CDN cache propagation.
+        if (document.readyState === 'complete') {
+            regSw();
+        } else {
+            window.addEventListener('load', regSw, { once: true });
+        }
+
         navigator.serviceWorker.addEventListener('controllerchange', () => {
             if (!hadController) return;
-            if (sessionStorage.getItem('bsSwReloaded')) return;
-            try { sessionStorage.setItem('bsSwReloaded', '1'); } catch (e) {}
+            try {
+                if (sessionStorage.getItem('bsSwReloaded')) return;
+                sessionStorage.setItem('bsSwReloaded', '1');
+            } catch (e) {}
             window.location.reload();
         });
     }
-});
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bootPage, { once: true });
+} else {
+    bootPage();
+}
