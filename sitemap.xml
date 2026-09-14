@@ -1093,7 +1093,55 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.bac-story.com/resources/books/engineering/arabic/al-jawhara</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/engineering/arabic/al-moraja3a-an-nihaiya</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/engineering/arabic/an-nawabigh</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/engineering/arabic/ostad-hamache</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.bac-story.com/resources/books/engineering/civil</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/engineering/civil/al-kafi</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/engineering/civil/al-mokhtar</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/engineering/civil/az-zad</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/engineering/civil/textbook</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1105,7 +1153,61 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.bac-story.com/resources/books/engineering/electrical/al-mokhtar</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/engineering/electrical/annales-bac</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/engineering/electrical/tech-lessons-notebook</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.bac-story.com/resources/books/engineering/french</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/engineering/french/al-moraja3a-an-nihaiya</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/engineering/french/boughdada-literary</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/engineering/french/boughdada-scientific</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/engineering/french/mounir-cheboua-proposals</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/engineering/french/mounir-cheboua-resume</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/engineering/french/ostad-mansouri</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1117,7 +1219,67 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.bac-story.com/resources/books/engineering/hist-geo/20-indirect-questions</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/engineering/hist-geo/comprehensive-matrix-oqba</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/engineering/hist-geo/green-series-bournane</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/engineering/hist-geo/purple-series-bournane</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/engineering/hist-geo/resume-bournane</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.bac-story.com/resources/books/engineering/math</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/engineering/math/complex-numbers-alif-ya</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/engineering/math/dawal-alif-ya</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/engineering/math/numbers-calculus-alif-ya</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/engineering/math/probability-alif-ya</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/engineering/math/sequences-alif-ya</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1129,13 +1291,115 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.bac-story.com/resources/books/engineering/philosophy/al-hoda</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/engineering/philosophy/al-jawhara-adel-makroud</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/engineering/philosophy/hiba-djebabria</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/engineering/philosophy/philosophy-diagrams</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.bac-story.com/resources/books/engineering/physics</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.bac-story.com/resources/books/engineering/physics/al-dolphin</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/engineering/physics/al-moghni</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/engineering/physics/fergani-fares-part-1</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/engineering/physics/fergani-fares-part-2</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/engineering/physics/fergani-fares-part-3</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/engineering/physics/guezouri</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/engineering/physics/ostad-abdellah-part-1</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/engineering/physics/ostad-abdellah-part-2</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/engineering/physics/tashirat-an-najah-part-1</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/engineering/physics/tashirat-an-najah-part-2</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/engineering/physics/tashirat-an-najah-part-3</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.bac-story.com/resources/books/engineering/road</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/engineering/road/book-15odr8j5</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/engineering/road/book-1kxntaiz</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1153,7 +1417,61 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.bac-story.com/resources/books/ge/accounting/al-jalis</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/ge/accounting/al-moraja3a-an-nihaiya</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/ge/accounting/analytical-accounting-magazine</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/ge/accounting/book-1vxjv-uy</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/ge/accounting/klik-pamphlets</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.bac-story.com/resources/books/ge/arabic</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/ge/arabic/al-jawhara</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/ge/arabic/al-moraja3a-an-nihaiya</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/ge/arabic/an-nawabigh</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/ge/arabic/ostad-hamache</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1165,7 +1483,43 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.bac-story.com/resources/books/ge/economics/al-bassit</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/ge/economics/al-khabbach</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/ge/economics/book-1gvxngld</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.bac-story.com/resources/books/ge/english</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/ge/english/al-moraja3a-an-nihaiya</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/ge/english/an-nawabigh</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/ge/english/ostad-mansouri</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1177,7 +1531,61 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.bac-story.com/resources/books/ge/french/al-moraja3a-an-nihaiya</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/ge/french/boughdada-literary</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/ge/french/boughdada-scientific</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/ge/french/mounir-cheboua-proposals</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/ge/french/mounir-cheboua-resume</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/ge/french/ostad-mansouri</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.bac-story.com/resources/books/ge/hist-geo</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/ge/hist-geo/al-mokhtasar-al-moufid</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/ge/hist-geo/purple-series</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/ge/hist-geo/resume-bournane</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1189,7 +1597,49 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.bac-story.com/resources/books/ge/law/al-khabbach</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/ge/law/al-moujtahid</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/ge/law/book-1ltdxosr</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.bac-story.com/resources/books/ge/philosophy</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/ge/philosophy/al-hoda</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/ge/philosophy/al-jawhara-adel-makroud</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/ge/philosophy/hiba-djebabria</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/ge/philosophy/philosophy-diagrams</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1207,7 +1657,55 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.bac-story.com/resources/books/le/arabic/al-moraja3a-an-nihaiya</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/le/arabic/an-nawabigh</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/le/arabic/book-1wd2fej5</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/le/arabic/book-1zrzy75i</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/le/arabic/ostad-hamache</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.bac-story.com/resources/books/le/english</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/le/english/al-moraja3a-an-nihaiya</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/le/english/an-nawabigh</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/le/english/ostad-mansouri</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1219,7 +1717,61 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.bac-story.com/resources/books/le/french/al-moraja3a-an-nihaiya</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/le/french/boughdada-literary</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/le/french/boughdada-scientific</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/le/french/mounir-cheboua-proposals</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/le/french/mounir-cheboua-resume</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/le/french/ostad-mansouri</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.bac-story.com/resources/books/le/german</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/le/german/book-1cl2fnia</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/le/german/book-1ryocg9r</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/le/german/book-1tt_1oeq</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1231,7 +1783,61 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.bac-story.com/resources/books/le/hist-geo/al-mokhtasar-al-moufid</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/le/hist-geo/purple-series</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/le/hist-geo/resume-bournane</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.bac-story.com/resources/books/le/italian</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/le/italian/book-174l7kkj</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/le/italian/book-1bpny_0c</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/le/italian/book-1dl95cef</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/le/italian/book-1p17r0gs</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/le/italian/book-1rowzk21</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/le/italian/book-1x-plt4k</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1243,13 +1849,79 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.bac-story.com/resources/books/le/math/book-12w-m0fu</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/le/math/book-15sbkjuz</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/le/math/silver-series</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.bac-story.com/resources/books/le/philosophy</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.bac-story.com/resources/books/le/philosophy/al-hoda</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/le/philosophy/al-jawhara-adel-makroud</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/le/philosophy/khalil-saidani</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/le/philosophy/ostada-daif</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.bac-story.com/resources/books/le/spanish</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/le/spanish/book-1kzjrou8</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/le/spanish/book-1uzh7zgw</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/le/spanish/book-1zecbt2d</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/le/spanish/textbook</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1267,7 +1939,55 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.bac-story.com/resources/books/lp/arabic/al-moraja3a-an-nihaiya</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/lp/arabic/an-nawabigh</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/lp/arabic/book-1wd2fej5</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/lp/arabic/book-1zrzy75i</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/lp/arabic/ostad-hamache</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.bac-story.com/resources/books/lp/english</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/lp/english/al-moraja3a-an-nihaiya</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/lp/english/an-nawabigh</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/lp/english/ostad-mansouri</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1279,7 +1999,61 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.bac-story.com/resources/books/lp/french/al-moraja3a-an-nihaiya</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/lp/french/boughdada-literary</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/lp/french/boughdada-scientific</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/lp/french/mounir-cheboua-proposals</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/lp/french/mounir-cheboua-resume</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/lp/french/ostad-mansouri</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.bac-story.com/resources/books/lp/hist-geo</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/lp/hist-geo/al-mokhtasar-al-moufid</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/lp/hist-geo/purple-series</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/lp/hist-geo/resume-bournane</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1291,7 +2065,55 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.bac-story.com/resources/books/lp/math/book-12w-m0fu</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/lp/math/book-15sbkjuz</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/lp/math/silver-series</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.bac-story.com/resources/books/lp/philosophy</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/lp/philosophy/al-hoda</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/lp/philosophy/al-jawhara-adel-makroud</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/lp/philosophy/khalil-saidani</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/lp/philosophy/philosophical-texts</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/lp/philosophy/silver-series</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1309,7 +2131,49 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.bac-story.com/resources/books/math/arabic/al-jawhara</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/arabic/al-moraja3a-an-nihaiya</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/arabic/an-nawabigh</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/arabic/ostad-hamache</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.bac-story.com/resources/books/math/english</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/english/al-moraja3a-an-nihaiya</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/english/an-nawabigh</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/english/ostad-mansouri</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1321,7 +2185,73 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.bac-story.com/resources/books/math/french/al-moraja3a-an-nihaiya</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/french/boughdada-literary</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/french/boughdada-scientific</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/french/mounir-cheboua-proposals</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/french/mounir-cheboua-resume</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/french/ostad-mansouri</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.bac-story.com/resources/books/math/hist-geo</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/hist-geo/20-indirect-questions</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/hist-geo/comprehensive-matrix-oqba</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/hist-geo/green-series-bournane</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/hist-geo/purple-series-bournane</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/hist-geo/resume-bournane</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1333,7 +2263,49 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.bac-story.com/resources/books/math/history/20-indirect-questions</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/history/comprehensive-matrix-oqba</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/history/green-series-bournane</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/history/purple-series-bournane</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/history/resume-bournane</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.bac-story.com/resources/books/math/islamics</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/islamics/green-series</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/islamics/purple-series</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1345,7 +2317,61 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.bac-story.com/resources/books/math/math/complex-numbers-alif-ya</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/math/dawal-alif-ya</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/math/numbers-calculus-alif-ya</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/math/probability-alif-ya</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/math/sequences-alif-ya</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.bac-story.com/resources/books/math/philosophy</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/philosophy/al-hoda</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/philosophy/al-jawhara-adel-makroud</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/philosophy/hiba-djebabria</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/philosophy/philosophy-diagrams</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1357,7 +2383,121 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.bac-story.com/resources/books/math/physics/al-dolphin</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/physics/al-moghni</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/physics/fergani-fares-part-1</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/physics/fergani-fares-part-2</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/physics/fergani-fares-part-3</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/physics/guezouri</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/physics/ostad-abdellah-part-1</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/physics/ostad-abdellah-part-2</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/physics/tashirat-an-najah-part-1</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/physics/tashirat-an-najah-part-2</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/physics/tashirat-an-najah-part-3</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.bac-story.com/resources/books/math/science</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/science/blue-series-topics</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/science/ostad-rahman-talhi</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/science/silver-series-energy-transformations</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/science/silver-series-nervous-system</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/science/silver-series-proteins</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/science/tamayoz-math</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/science/tamayoz-science</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/math/science/textbook-math</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1375,7 +2515,49 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.bac-story.com/resources/books/sci/arabic/al-jawhara</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/arabic/al-moraja3a-an-nihaiya</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/arabic/an-nawabigh</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/arabic/ostad-hamache</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.bac-story.com/resources/books/sci/english</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/english/al-moraja3a-an-nihaiya</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/english/an-nawabigh</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/english/ostad-mansouri</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1387,7 +2569,73 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.bac-story.com/resources/books/sci/french/al-moraja3a-an-nihaiya</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/french/boughdada-literary</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/french/boughdada-scientific</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/french/mounir-cheboua-proposals</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/french/mounir-cheboua-resume</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/french/ostad-mansouri</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.bac-story.com/resources/books/sci/hist-geo</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/hist-geo/20-indirect-questions</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/hist-geo/comprehensive-matrix-oqba</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/hist-geo/green-series-bournane</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/hist-geo/purple-series-bournane</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/hist-geo/resume-bournane</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1399,7 +2647,49 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.bac-story.com/resources/books/sci/history/20-indirect-questions</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/history/comprehensive-matrix-oqba</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/history/green-series-bournane</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/history/purple-series-bournane</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/history/resume-bournane</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.bac-story.com/resources/books/sci/islamics</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/islamics/green-series</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/islamics/purple-series</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1411,7 +2701,61 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.bac-story.com/resources/books/sci/math/complex-numbers-alif-ya</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/math/dawal-alif-ya</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/math/numbers-calculus-alif-ya</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/math/probability-alif-ya</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/math/sequences-alif-ya</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.bac-story.com/resources/books/sci/philosophy</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/philosophy/al-hoda</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/philosophy/al-jawhara-adel-makroud</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/philosophy/hiba-djebabria</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/philosophy/philosophy-diagrams</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1423,7 +2767,121 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.bac-story.com/resources/books/sci/physics/al-dolphin</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/physics/al-moghni</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/physics/fergani-fares-part-1</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/physics/fergani-fares-part-2</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/physics/fergani-fares-part-3</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/physics/guezouri</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/physics/ostad-abdellah-part-1</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/physics/ostad-abdellah-part-2</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/physics/tashirat-an-najah-part-1</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/physics/tashirat-an-najah-part-2</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/physics/tashirat-an-najah-part-3</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.bac-story.com/resources/books/sci/science</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/science/blue-series-topics</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/science/ostad-rahman-talhi</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/science/silver-series-energy-transformations</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/science/silver-series-nervous-system</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/science/silver-series-proteins</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/science/tamayoz-math</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/science/tamayoz-science</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/sci/science/textbook-science</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
