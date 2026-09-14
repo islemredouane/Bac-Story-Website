@@ -70,6 +70,7 @@
             overflow-y: hidden;
             white-space: nowrap;
             -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
@@ -174,6 +175,7 @@
             if (!pill || !tab) return;
             pill.style.left = tab.offsetLeft + 'px';
             pill.style.width = tab.offsetWidth + 'px';
+            tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
         }
 
         function switchPdf(btn, fileId) {
