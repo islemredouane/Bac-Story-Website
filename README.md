@@ -184,8 +184,9 @@ bacstory.vercel.app/advertise    →  advertise.html
 ## 👨‍💻 Developer
 
 **Redouane Mohamed Islem**
-- Telegram Channel: [@BacStoryWithIslem](https://t.me/islemcs)
-- Platform: [BAC STORY](https://bacstory.vercel.app)
+- Telegram Channel: [@BacStoryWithIslem](https://t.me/islembacdz)
+- Telegram Contact: [@bacstorycontact](https://t.me/bacstorycontact)
+- Platform: [BAC STORY](https://www.bac-story.com)
 
 ---
 
