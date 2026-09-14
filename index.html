@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html dir="rtl" lang="ar">
 <head>
@@ -258,6 +258,122 @@
     font-size: 0.95rem;
     color: #64748b;
     margin: 0;
+}
+
+/* Rating card in landing page */
+.fb-rating-card {
+    background: linear-gradient(135deg, #1a3a8f 0%, #2c5cc5 50%, #2c5cc5 100%);
+    border-radius: 24px;
+    padding: 2.2rem 2rem;
+    color: #ffffff;
+    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 480px;
+}
+.fb-rating-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 260px;
+    height: 260px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+.fb-avg-num {
+    font-size: 3.2rem;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -1px;
+    font-variant-numeric: tabular-nums;
+    position: relative;
+    z-index: 1;
+}
+.fb-avg-stars {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    margin: 10px 0 6px;
+    position: relative;
+    z-index: 1;
+    gap: 6px;
+    direction: rtl;
+}
+.fb-star-unit {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.4rem;
+    height: 1.4rem;
+    flex-shrink: 0;
+    line-height: 1;
+}
+.fb-star-unit .star-bg {
+    color: rgba(255, 255, 255, 0.25);
+    font-size: 1.4rem;
+    line-height: 1;
+    display: block;
+}
+.fb-star-unit .star-fill-clip {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+.fb-star-unit .star-fill-clip i {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #f7b500;
+    font-size: 1.4rem;
+    line-height: 1;
+    display: block;
+    width: 1.4rem;
+    height: 1.4rem;
+}
+.fb-avg-count {
+    font-size: 0.95rem;
+    opacity: 0.9;
+    font-weight: 500;
+    min-height: 1.4em;
+    position: relative;
+    z-index: 1;
+}
+.fb-avg-cta {
+    margin-top: 1rem;
+    position: relative;
+    z-index: 1;
+    padding: 9px 22px;
+    border-radius: 50px;
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 700;
+    font-size: 0.88rem;
+    cursor: pointer;
+    background: #ffffff;
+    color: #1a3c8d;
+    border: none;
+    align-items: center;
+    gap: 7px;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+.fb-avg-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
 }
 
 /* Wall rows */
@@ -926,12 +1042,21 @@
             var pill = document.getElementById('hpRatingPill');
             document.getElementById('hpRatingNum').textContent = parseFloat(data.avg).toFixed(1);
             var starsEl = document.getElementById('hpRatingStars');
-            var pct = (data.avg / 5 * 100).toFixed(2);
-            var clipLeft = (100 - parseFloat(pct)).toFixed(2);
-            var starIcons = '<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>';
-            starsEl.innerHTML =
-                '<span class="fb-avg-stars-empty">' + starIcons + '</span>' +
-                '<span class="fb-avg-stars-fill" style="clip-path:inset(0 0 0 ' + clipLeft + '%)">' + starIcons + '</span>';
+            var avg = parseFloat(data.avg);
+            var html = '';
+            for (var i = 1; i <= 5; i++) {
+                var fillPct = 0;
+                if (avg >= i) {
+                    fillPct = 100;
+                } else if (avg > i - 1) {
+                    fillPct = Math.round((avg - (i - 1)) * 100);
+                }
+                html += '<span class="fb-star-unit">' +
+                    '<i class="fas fa-star star-bg"></i>' +
+                    (fillPct > 0 ? '<span class="star-fill-clip" style="width:' + fillPct + '%;"><i class="fas fa-star"></i></span>' : '') +
+                    '</span>';
+            }
+            starsEl.innerHTML = html;
             document.getElementById('hpRatingCount').textContent = 'من ' + data.count + ' تقييم من تلاميذ دفعة 2026';
             pill.style.display = 'flex';
         }
