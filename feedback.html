@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
 <head>
@@ -162,26 +162,50 @@
         .fb-avg-stars {
             display: inline-flex;
             justify-content: center;
+            align-items: center;
             font-size: 1.4rem;
             margin: 10px 0 6px;
             position: relative;
             z-index: 1;
-        }
-        .fb-avg-stars-empty,
-        .fb-avg-stars-fill {
-            display: flex;
-            flex-direction: row-reverse;
             gap: 6px;
+            direction: rtl;
         }
-        .fb-avg-stars-empty i { color: rgba(255, 255, 255, 0.25); }
-        .fb-avg-stars-fill {
+        .fb-star-unit {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 1.4rem;
+            height: 1.4rem;
+            flex-shrink: 0;
+            line-height: 1;
+        }
+        .fb-star-unit .star-bg {
+            color: rgba(255, 255, 255, 0.25);
+            font-size: 1.4rem;
+            line-height: 1;
+            display: block;
+        }
+        .fb-star-unit .star-fill-clip {
             position: absolute;
-            top: 0; left: 0;
-            width: 100%;
-            color: #f7b500;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            height: 100%;
+            overflow: hidden;
             pointer-events: none;
         }
-        .fb-avg-stars-fill i { color: #f7b500; text-shadow: 0 4px 14px rgba(247, 181, 0, 0.5); }
+        .fb-star-unit .star-fill-clip i {
+            position: absolute;
+            top: 0;
+            right: 0;
+            color: #f7b500;
+            font-size: 1.4rem;
+            line-height: 1;
+            display: block;
+            width: 1.4rem;
+            height: 1.4rem;
+        }
         .fb-avg-count { font-size: 0.95rem; opacity: 0.9; font-weight: 500; min-height: 1.4em; position: relative; z-index: 1; }
         .fb-avg-cta {
             display: none;
@@ -1093,7 +1117,7 @@
         function starRow(n) {
             var s = '';
             for (var i = 1; i <= 5; i++) {
-                s += '<i class="fas fa-star" style="color:' + (i <= n ? '#f7b500' : '#d8dee8') + (i <= n ? ';text-shadow:0 4px 14px rgba(247,181,0,0.5)' : '') + '"></i>';
+                s += '<i class="fas fa-star" style="color:' + (i <= n ? '#f7b500' : '#d8dee8') + '"></i>';
             }
             return s;
         }
@@ -1136,16 +1160,22 @@
                 requestAnimationFrame(step);
             }
 
-            // Partial-fill stars: exact percentage (e.g. 4.6/5 = 92%)
-            // Stars are flex-direction:row-reverse so star-1 is on the right.
-            // Clipping from the LEFT hides the leftmost (highest) stars first.
-            var pct = (avg / 5 * 100).toFixed(2);
-            var clipLeft = (100 - parseFloat(pct)).toFixed(2);
+            // Build 5 individual star units with exact fractional clipping inside each star
             var starsEl = document.getElementById('fbAvgStars');
-            var starIcons = '<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>';
-            starsEl.innerHTML =
-                '<span class="fb-avg-stars-empty">' + starIcons + '</span>' +
-                '<span class="fb-avg-stars-fill" style="clip-path:inset(0 0 0 ' + clipLeft + '%)">' + starIcons + '</span>';
+            var html = '';
+            for (var i = 1; i <= 5; i++) {
+                var fillPct = 0;
+                if (avg >= i) {
+                    fillPct = 100;
+                } else if (avg > i - 1) {
+                    fillPct = Math.round((avg - (i - 1)) * 100);
+                }
+                html += '<span class="fb-star-unit">' +
+                    '<i class="fas fa-star star-bg"></i>' +
+                    (fillPct > 0 ? '<span class="star-fill-clip" style="width:' + fillPct + '%;"><i class="fas fa-star"></i></span>' : '') +
+                    '</span>';
+            }
+            starsEl.innerHTML = html;
         }
 
         /* ── Testimonials wall ── */
