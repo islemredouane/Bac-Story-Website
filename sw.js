@@ -1,4 +1,4 @@
-const CACHE_NAME = 'bac-story-v7';
+const CACHE_NAME = 'bac-story-v8';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
