@@ -2,7 +2,7 @@
 
 > BAC STORY (بك ستوري) is Algeria's leading free educational platform dedicated to helping students prepare for the Algerian Baccalaureate exam (البكالوريا الجزائرية). The platform serves over 15,000 daily visitors across all 58 wilayas of Algeria and has a Telegram community of 16,000+ subscribers.
 
-BAC STORY provides comprehensive, free study resources for all six Baccalaureate streams: Mathematics (رياضيات), Experimental Sciences (علوم تجريبية), Engineering (هندسة), Management & Economics (تسيير واقتصاد), Literature & Philosophy (آداب وفلسفة), and Foreign Languages (لغات أجنبية).
+BAC STORY provides comprehensive, free study resources for all six Baccalaureate streams: Mathematics (رياضيات), Experimental Sciences (علوم تجريبية), Engineering (هندسة / تقني رياضي), Management & Economics (تسيير واقتصاد), Literature & Philosophy (آداب وفلسفة), and Foreign Languages (لغات أجنبية).
 
 The platform is operated by Redouane Mohamed Islem and is accessible at https://www.bac-story.com. Contact: contact@bac-story.com
 
@@ -30,6 +30,85 @@ The platform is operated by Redouane Mohamed Islem and is accessible at https://
 - [شعبة تسيير واقتصاد](https://www.bac-story.com/resources/ge): Study resources for the Management & Economics stream.
 - [شعبة آداب وفلسفة](https://www.bac-story.com/resources/lp): Study resources for the Literature & Philosophy stream.
 - [شعبة لغات أجنبية](https://www.bac-story.com/resources/le): Study resources for the Foreign Languages stream.
+
+## البرامج والتدرجات السنوية الرسمية — بكالوريا 2027 (Official Programs & Annual Progressions)
+
+Official Ministry of National Education curriculum and annual progression documents for Baccalaureate 2027 candidates across all 6 streams:
+
+### شعبة العلوم التجريبية (Experimental Sciences)
+- [برنامج الرياضيات](https://www.bac-story.com/resources/sci/math/program)
+- [برنامج العلوم الفيزيائية](https://www.bac-story.com/resources/sci/physics/program)
+- [برنامج علوم الطبيعة والحياة](https://www.bac-story.com/resources/sci/science/program)
+- [برنامج اللغة العربية وآدابها](https://www.bac-story.com/resources/sci/arabic/program)
+- [برنامج اللغة الفرنسية](https://www.bac-story.com/resources/sci/french/program)
+- [برنامج اللغة الإنجليزية](https://www.bac-story.com/resources/sci/english/program)
+- [برنامج الفلسفة](https://www.bac-story.com/resources/sci/philo/program)
+- [برنامج التاريخ والجغرافيا](https://www.bac-story.com/resources/sci/hist-geo/program)
+- [برنامج العلوم الإسلامية](https://www.bac-story.com/resources/sci/islamics/program)
+- [برنامج اللغة الأمازيغية](https://www.bac-story.com/resources/sci/Tamaziɣt/program)
+
+### شعبة الرياضيات (Mathematics)
+- [برنامج الرياضيات](https://www.bac-story.com/resources/math/math/program)
+- [برنامج العلوم الفيزيائية](https://www.bac-story.com/resources/math/physics/program)
+- [برنامج علوم الطبيعة والحياة](https://www.bac-story.com/resources/math/science/program)
+- [برنامج اللغة العربية وآدابها](https://www.bac-story.com/resources/math/arabic/program)
+- [برنامج اللغة الفرنسية](https://www.bac-story.com/resources/math/french/program)
+- [برنامج اللغة الإنجليزية](https://www.bac-story.com/resources/math/english/program)
+- [برنامج الفلسفة](https://www.bac-story.com/resources/math/philo/program)
+- [برنامج التاريخ والجغرافيا](https://www.bac-story.com/resources/math/hist-geo/program)
+- [برنامج العلوم الإسلامية](https://www.bac-story.com/resources/math/islamics/program)
+- [برنامج اللغة الأمازيغية](https://www.bac-story.com/resources/math/Tamaziɣt/program)
+
+### شعبة الهندسة / تقني رياضي (Engineering)
+- [برنامج الهندسة المدنية](https://www.bac-story.com/resources/engineering/civil-engineering/program)
+- [برنامج الهندسة الكهربائية](https://www.bac-story.com/resources/engineering/electrical-engineering/program)
+- [برنامج الهندسة الميكانيكية](https://www.bac-story.com/resources/engineering/mechanical-engineering/program)
+- [برنامج هندسة الطرائق](https://www.bac-story.com/resources/engineering/road-engineering/program)
+- [برنامج الرياضيات](https://www.bac-story.com/resources/engineering/math/program)
+- [برنامج العلوم الفيزيائية](https://www.bac-story.com/resources/engineering/physics/program)
+- [برنامج اللغة العربية وآدابها](https://www.bac-story.com/resources/engineering/arabic/program)
+- [برنامج اللغة الفرنسية](https://www.bac-story.com/resources/engineering/french/program)
+- [برنامج اللغة الإنجليزية](https://www.bac-story.com/resources/engineering/english/program)
+- [برنامج الفلسفة](https://www.bac-story.com/resources/engineering/philo/program)
+- [برنامج التاريخ والجغرافيا](https://www.bac-story.com/resources/engineering/hist-geo/program)
+- [برنامج العلوم الإسلامية](https://www.bac-story.com/resources/engineering/islamics/program)
+- [برنامج اللغة الأمازيغية](https://www.bac-story.com/resources/engineering/Tamaziɣt/program)
+
+### شعبة التسيير والاقتصاد (Management & Economics)
+- [برنامج التسيير المحاسبي والمالي (المحاسبة)](https://www.bac-story.com/resources/ge/accounting/program)
+- [برنامج الاقتصاد والمناجمنت](https://www.bac-story.com/resources/ge/economics/program)
+- [برنامج القانون](https://www.bac-story.com/resources/ge/law/program)
+- [برنامج الرياضيات](https://www.bac-story.com/resources/ge/math/program)
+- [برنامج التاريخ والجغرافيا](https://www.bac-story.com/resources/ge/hist-geo/program)
+- [برنامج الفلسفة](https://www.bac-story.com/resources/ge/philo/program)
+- [برنامج العلوم الإسلامية](https://www.bac-story.com/resources/ge/islamics/program)
+- [برنامج اللغة العربية وآدابها](https://www.bac-story.com/resources/ge/arabic/program)
+- [برنامج اللغة الفرنسية](https://www.bac-story.com/resources/ge/french/program)
+- [برنامج اللغة الإنجليزية](https://www.bac-story.com/resources/ge/english/program)
+- [برنامج اللغة الأمازيغية](https://www.bac-story.com/resources/ge/Tamaziɣt/program)
+
+### شعبة الآداب والفلسفة (Literature & Philosophy)
+- [برنامج مادة الفلسفة](https://www.bac-story.com/resources/lp/philo/program)
+- [برنامج اللغة العربية وآدابها](https://www.bac-story.com/resources/lp/arabic/program)
+- [برنامج التاريخ والجغرافيا](https://www.bac-story.com/resources/lp/hist-geo/program)
+- [برنامج العلوم الإسلامية](https://www.bac-story.com/resources/lp/islamics/program)
+- [برنامج اللغة الفرنسية](https://www.bac-story.com/resources/lp/french/program)
+- [برنامج اللغة الإنجليزية](https://www.bac-story.com/resources/lp/english/program)
+- [برنامج الرياضيات](https://www.bac-story.com/resources/lp/math/program)
+- [برنامج اللغة الأمازيغية](https://www.bac-story.com/resources/lp/Tamaziɣt/program)
+
+### شعبة اللغات الأجنبية (Foreign Languages)
+- [برنامج اللغة العربية وآدابها](https://www.bac-story.com/resources/le/arabic/program)
+- [برنامج اللغة الفرنسية](https://www.bac-story.com/resources/le/french/program)
+- [برنامج اللغة الإنجليزية](https://www.bac-story.com/resources/le/english/program)
+- [برنامج اللغة الألمانية](https://www.bac-story.com/resources/le/german/program)
+- [برنامج اللغة الإسبانية](https://www.bac-story.com/resources/le/spanish/program)
+- [برنامج اللغة الإيطالية](https://www.bac-story.com/resources/le/italian/program)
+- [برنامج الفلسفة](https://www.bac-story.com/resources/le/philo/program)
+- [برنامج التاريخ والجغرافيا](https://www.bac-story.com/resources/le/hist-geo/program)
+- [برنامج العلوم الإسلامية](https://www.bac-story.com/resources/le/islamics/program)
+- [برنامج الرياضيات](https://www.bac-story.com/resources/le/math/program)
+- [برنامج اللغة الأمازيغية](https://www.bac-story.com/resources/le/Tamaziɣt/program)
 
 ## مجلات الأستاذ مرنيز في الرياضيات
 
@@ -82,6 +161,7 @@ The stream formerly known as **"شعبة تقني رياضي"** (Technical Mathe
 ## Prerequisites (المكتسبات القبلية)
 
 Subject-specific prerequisite knowledge booklets for Baccalaureate 2027 preparation:
+- [المكتسبات القبلية في الهندسة المدنية](https://www.bac-story.com/resources/engineering/civil-engineering/moktasabat): Prerequisites for Civil Engineering — Engineering stream.
 - [المكتسبات القبلية في المحاسبة](https://www.bac-story.com/resources/ge/accounting/moktasabat): Prerequisites for Accounting — Management & Economics stream.
 - [المكتسبات القبلية في اللغة الإسبانية](https://www.bac-story.com/resources/le/spanish/moktasabat): Prerequisites for Spanish — Foreign Languages stream.
 - [المكتسبات القبلية في اللغة الإنجليزية — لغات أجنبية](https://www.bac-story.com/resources/le/english/moktasabat): Prerequisites for English — Foreign Languages stream.
