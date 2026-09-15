@@ -3145,6 +3145,24 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.bac-story.com/resources/engineering/electrical-engineering/foroud</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/engineering/electrical-engineering/foroud/term-1</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/engineering/electrical-engineering/foroud/term-2</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.bac-story.com/resources/engineering/electrical-engineering/preparation</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -3152,18 +3170,6 @@
   </url>
   <url>
     <loc>https://www.bac-story.com/resources/engineering/electrical-engineering/preparation/experimental</loc>
-    <lastmod>2026-09-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.bac-story.com/resources/engineering/electrical-engineering/preparation/foroud-term-1</loc>
-    <lastmod>2026-09-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.bac-story.com/resources/engineering/electrical-engineering/preparation/foroud-term-2</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
