@@ -164,6 +164,7 @@ Subject-specific prerequisite knowledge booklets for Baccalaureate 2027 preparat
 - [المكتسبات القبلية في الهندسة المدنية](https://www.bac-story.com/resources/engineering/civil-engineering/moktasabat): Prerequisites for Civil Engineering — Engineering stream.
 - [المكتسبات القبلية في المحاسبة](https://www.bac-story.com/resources/ge/accounting/moktasabat): Prerequisites for Accounting — Management & Economics stream.
 - [المكتسبات القبلية في اللغة الإسبانية](https://www.bac-story.com/resources/le/spanish/moktasabat): Prerequisites for Spanish — Foreign Languages stream.
+- [المكتسبات القبلية في اللغة الألمانية](https://www.bac-story.com/resources/le/german/moktasabat): Prerequisites for German — Foreign Languages stream.
 - [المكتسبات القبلية في اللغة الإنجليزية — لغات أجنبية](https://www.bac-story.com/resources/le/english/moktasabat): Prerequisites for English — Foreign Languages stream.
 - [المكتسبات القبلية في اللغة الإنجليزية — آداب وفلسفة](https://www.bac-story.com/resources/lp/english/moktasabat): Prerequisites for English — Literature & Philosophy stream.
 - [المكتسبات القبلية في اللغة الفرنسية](https://www.bac-story.com/resources/le/french/moktasabat): Prerequisites for French — Foreign Languages stream.
