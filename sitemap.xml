@@ -4519,6 +4519,12 @@
     <priority>0.85</priority>
   </url>
   <url>
+    <loc>https://www.bac-story.com/resources/le/german/moktasabat</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.bac-story.com/resources/le/german/program</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
