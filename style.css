@@ -15201,7 +15201,7 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
    ========================================================================== */
 .moktasabat-guide-card {
     position: relative;
-    background: linear-gradient(135deg, #1a3a8f 0%, #2c5cc5 55%, #3d6ee0 100%);
+    background: linear-gradient(135deg, #1a3a8f 0%, #2c5cc5 55%, #3d6ee0 100%) !important;
     border-radius: 24px;
     padding: 2.2rem 2rem;
     margin: 1.5rem auto 2.5rem auto;
@@ -15217,11 +15217,11 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
 .moktasabat-guide-card::before {
     content: '';
     position: absolute;
-    top: -80px;
-    left: -80px;
-    width: 260px;
-    height: 260px;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+    top: -60px;
+    left: -40px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.08);
     border-radius: 50%;
     pointer-events: none;
 }
@@ -15229,11 +15229,11 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
 .moktasabat-guide-card::after {
     content: '';
     position: absolute;
-    bottom: -80px;
-    right: -80px;
-    width: 240px;
-    height: 240px;
-    background: radial-gradient(circle, rgba(255, 107, 53, 0.2) 0%, transparent 70%);
+    bottom: -60px;
+    right: -40px;
+    width: 180px;
+    height: 180px;
+    background: rgba(255, 255, 255, 0.05);
     border-radius: 50%;
     pointer-events: none;
 }
@@ -15333,13 +15333,14 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
 }
 
 .mgc-how-to-box {
-    background: rgba(10, 25, 68, 0.35);
+    background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 18px;
     padding: 1.35rem;
     margin-bottom: 1.6rem;
     position: relative;
     overflow: hidden;
+    backdrop-filter: blur(8px);
 }
 
 .mgc-how-title {
