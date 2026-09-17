@@ -101,6 +101,38 @@ function injectGlobalCTA() {
 <section class="global-cta" id="global-cta">
     <!-- CTA Cards (side-by-side on desktop, rotating on mobile) -->
     <div class="gcta-cards" id="gcta-cards">
+        <a href="/university/averages-of-acceptance" class="gcta-card gcta-card--timer">
+            <div class="gcta-icon-circle"><i class="fas fa-chart-line"></i></div>
+            <div class="gcta-text">
+                <strong>معدلات القبول 2026</strong>
+                <span>اطلع على معدلات القبول الرسمية لجميع التخصصات الجامعية</span>
+            </div>
+            <div class="gcta-btn">تصفح المعدلات <i class="fas fa-arrow-left"></i></div>
+        </a>
+        <a href="/feedback" class="gcta-card gcta-card--feedback">
+            <div class="gcta-icon-circle"><i class="fas fa-star"></i></div>
+            <div class="gcta-text">
+                <strong>قيّم تجربتك مع BAC STORY</strong>
+                <span>رافقناك طول العام — الآن جاء دورك. اترك رأيك ونصيحتك لدفعة 2027</span>
+            </div>
+            <div class="gcta-btn">اكتب رأيك <i class="fas fa-arrow-left"></i></div>
+        </a>
+        <a href="/contribute" class="gcta-card gcta-card--contribute">
+            <div class="gcta-icon-circle"><i class="fas fa-upload"></i></div>
+            <div class="gcta-text">
+                <strong>شارك مصادرك مع الجيل القادم</strong>
+                <span>درس ساعدك؟ تمرين أنقذك؟ شاركه مجاناً وباسمك لآلاف الطلاب</span>
+            </div>
+            <div class="gcta-btn">شارك الآن <i class="fas fa-arrow-left"></i></div>
+        </a>
+        <a href="https://t.me/islembacdz" target="_blank" rel="noopener noreferrer" class="gcta-card gcta-card--news">
+            <div class="gcta-icon-circle"><i class="fas fa-newspaper"></i></div>
+            <div class="gcta-text">
+                <strong>آخر الأخبار والتحديثات</strong>
+                <span>تابع قناتنا الرسمية على التلغرام للحصول على المستجدات والنصائح اليومية</span>
+            </div>
+            <div class="gcta-btn">تابع الأخبار <i class="fas fa-arrow-left"></i></div>
+        </a>
         <a href="/plans/monthly/prerequisites" class="gcta-card gcta-card--moktasabat">
             <div class="gcta-icon-circle"><i class="fa-solid fa-book-open-reader"></i></div>
             <div class="gcta-text">
@@ -132,38 +164,6 @@ function injectGlobalCTA() {
                 <span>باقات عقبة بن نافع — دليلك الشامل لجميع المواد خطوة بخطوة</span>
             </div>
             <div class="gcta-btn">اكتشف الباقات <i class="fas fa-arrow-left"></i></div>
-        </a>
-        <a href="/feedback" class="gcta-card gcta-card--feedback">
-            <div class="gcta-icon-circle"><i class="fas fa-star"></i></div>
-            <div class="gcta-text">
-                <strong>قيّم تجربتك مع BAC STORY</strong>
-                <span>رافقناك طول العام — الآن جاء دورك. اترك رأيك ونصيحتك لدفعة 2027</span>
-            </div>
-            <div class="gcta-btn">اكتب رأيك <i class="fas fa-arrow-left"></i></div>
-        </a>
-        <a href="/contribute" class="gcta-card gcta-card--contribute">
-            <div class="gcta-icon-circle"><i class="fas fa-upload"></i></div>
-            <div class="gcta-text">
-                <strong>شارك مصادرك مع الجيل القادم</strong>
-                <span>درس ساعدك؟ تمرين أنقذك؟ شاركه مجاناً وباسمك لآلاف الطلاب</span>
-            </div>
-            <div class="gcta-btn">شارك الآن <i class="fas fa-arrow-left"></i></div>
-        </a>
-        <a href="https://t.me/islembacdz" target="_blank" rel="noopener noreferrer" class="gcta-card gcta-card--news">
-            <div class="gcta-icon-circle"><i class="fas fa-newspaper"></i></div>
-            <div class="gcta-text">
-                <strong>آخر الأخبار والتحديثات</strong>
-                <span>تابع قناتنا الرسمية على التلغرام للحصول على المستجدات والنصائح اليومية</span>
-            </div>
-            <div class="gcta-btn">تابع الأخبار <i class="fas fa-arrow-left"></i></div>
-        </a>
-        <a href="/university/averages-of-acceptance" class="gcta-card gcta-card--timer">
-            <div class="gcta-icon-circle"><i class="fas fa-chart-line"></i></div>
-            <div class="gcta-text">
-                <strong>معدلات القبول 2026</strong>
-                <span>اطلع على معدلات القبول الرسمية لجميع التخصصات الجامعية</span>
-            </div>
-            <div class="gcta-btn">تصفح المعدلات <i class="fas fa-arrow-left"></i></div>
         </a>
     </div></div>
     <!-- Mobile-only rotation dots (count = active gcta-card count) -->
