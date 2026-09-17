@@ -15201,7 +15201,7 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
    ========================================================================== */
 .moktasabat-guide-card {
     position: relative;
-    background: linear-gradient(135deg, #1a3a8f 0%, #2c5cc5 55%, #3d6ee0 100%) !important;
+    background: linear-gradient(135deg, #1a3a8f 0%, #2c5cc5 100%) !important;
     border-radius: 24px;
     padding: 2.2rem 2rem;
     margin: 1.5rem auto 2.5rem auto;
