@@ -8073,27 +8073,50 @@ body.pdf-body-lock [id="footer-placeholder"] {
 }
 
 .search-telegram-btn {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.75rem;
-    background: #24A1DE;
-    /* Telegram Blue */
-    color: white;
+    gap: 10px;
+    background: linear-gradient(135deg, #2AABEE 0%, #229ED9 100%);
+    color: white !important;
     text-decoration: none;
-    padding: 0.6rem 1.2rem;
+    padding: 14px 32px;
+    min-height: 50px;
     border-radius: 50px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    transition: var(--transition);
-    box-shadow: 0 4px 15px rgba(36, 161, 222, 0.18);
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.2;
+    transition: all 0.25s ease;
+    box-shadow: 0 6px 20px rgba(34, 158, 217, 0.32);
+    border: 1px solid rgba(255, 255, 255, 0.25);
     width: fit-content;
     margin: 0 auto;
+    box-sizing: border-box;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.search-telegram-btn i {
+    font-size: 1.25rem;
+    transition: transform 0.25s ease;
+    flex-shrink: 0;
+}
+
+.search-telegram-btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(34, 158, 217, 0.45);
+    filter: brightness(1.06);
+}
+
+.search-telegram-btn:hover i {
+    transform: rotate(-10deg) scale(1.15);
 }
 
 .search-footer .search-telegram-btn {
     margin: 0;
-    /* Keep it on the side in the search overlay */
+    padding: 0.6rem 1.2rem;
+    min-height: auto;
+    font-size: 0.9rem;
 }
 
 .mobile-menu-footer .search-telegram-btn {
@@ -8101,16 +8124,23 @@ body.pdf-body-lock [id="footer-placeholder"] {
     width: 100%;
     max-width: 320px;
     justify-content: center;
-    padding: 0.75rem 1.5rem;
+    padding: 12px 24px;
+    min-height: 48px;
     font-size: 1rem;
     border-radius: 50px;
-    box-shadow: 0 4px 20px rgba(36, 161, 222, 0.3);
+    box-shadow: 0 6px 20px rgba(36, 161, 222, 0.3);
 }
 
-.search-telegram-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(36, 161, 222, 0.24);
-    filter: brightness(1.1);
+@media (max-width: 768px) {
+    .search-telegram-btn {
+        padding: 13px 24px;
+        min-height: 46px;
+        font-size: 0.95rem;
+        gap: 8px;
+    }
+    .search-telegram-btn i {
+        font-size: 1.15rem;
+    }
 }
 
 /* Mobile Menu Footer Branding */
