@@ -133,6 +133,14 @@ function injectGlobalCTA() {
             </div>
             <div class="gcta-btn">تابع الأخبار <i class="fas fa-arrow-left"></i></div>
         </a>
+        <a href="/plans/monthly/prerequisites" class="gcta-card gcta-card--moktasabat">
+            <div class="gcta-icon-circle"><i class="fa-solid fa-book-open-reader"></i></div>
+            <div class="gcta-text">
+                <strong>كُتيّب المكتسبات القبلية 2027</strong>
+                <span>شروحات يوتيوب تفاعلية وروابط ملخصات وتمارين لجميع الشعب</span>
+            </div>
+            <div class="gcta-btn">تصفح الكُتيّب <i class="fas fa-arrow-left"></i></div>
+        </a>
         <a href="/resources" class="gcta-card gcta-card--resources">
             <div class="gcta-icon-circle"><i class="fas fa-briefcase"></i></div>
             <div class="gcta-text">
@@ -161,6 +169,7 @@ function injectGlobalCTA() {
     <!-- Mobile-only rotation dots (count = active gcta-card count) -->
     <div class="gcta-dots" id="gcta-dots">
         <span class="gcta-dot gcta-dot--active"></span>
+        <span class="gcta-dot"></span>
         <span class="gcta-dot"></span>
         <span class="gcta-dot"></span>
         <span class="gcta-dot"></span>
