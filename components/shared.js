@@ -1401,6 +1401,9 @@ async function bootPage() {
 
         // Inject global CTA section (all pages except university)
         try { injectGlobalCTA(); } catch (e) { console.warn('CTA error', e); }
+
+        // Setup smooth accordion animations for FAQs across the site
+        try { initSmoothDetails(); } catch (e) { console.warn('FAQ anim error', e); }
     } catch (err) {
         console.error('Error during page boot:', err);
     } finally {
@@ -1432,6 +1435,63 @@ async function bootPage() {
         }
 
     }
+}
+
+/* ── Global Smooth Details / FAQ Accordion ── */
+function initSmoothDetails() {
+    var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function setupSmoothDetails(el) {
+        if (el._smoothInit) return;
+        el._smoothInit = true;
+        var summary = el.querySelector('summary');
+        if (!summary || !el.animate) return;
+        var closedH = el.offsetHeight;
+        var anim = null;
+
+        function doToggle() {
+            if (anim) { anim.cancel(); anim = null; el.classList.remove('is-closing'); }
+            if (reducedMotion) { el.open = !el.open; return; }
+
+            if (el.open) {
+                var startH = el.offsetHeight;
+                el.classList.add('is-closing');
+                anim = el.animate(
+                    [{ height: startH + 'px' }, { height: closedH + 'px' }],
+                    { duration: 320, easing: 'cubic-bezier(0.4, 0, 0.2, 1)', fill: 'both' }
+                );
+                anim.onfinish = function () {
+                    el.open = false;
+                    el.classList.remove('is-closing');
+                    anim.cancel();
+                    anim = null;
+                };
+            } else {
+                el.open = true;
+                var endH = el.offsetHeight;
+                anim = el.animate(
+                    [{ height: closedH + 'px' }, { height: endH + 'px' }],
+                    { duration: 320, easing: 'cubic-bezier(0.4, 0, 0.2, 1)', fill: 'both' }
+                );
+                anim.onfinish = function () {
+                    anim.cancel();
+                    anim = null;
+                };
+            }
+        }
+
+        summary.addEventListener('click', function (e) {
+            e.preventDefault();
+            doToggle();
+        });
+        el.addEventListener('click', function (e) {
+            if (e.target.closest('summary') || e.target.closest('a') || e.target.closest('button')) return;
+            doToggle();
+        });
+        el._smoothOpen = function () { if (!el.open) doToggle(); };
+        el._smoothClose = function () { if (el.open) doToggle(); };
+    }
+
+    document.querySelectorAll('.crc-faq details, .faq-accordion details, details.smooth-details').forEach(setupSmoothDetails);
 }
 
 if (document.readyState === 'loading') {
