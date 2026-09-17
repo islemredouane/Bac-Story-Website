@@ -15195,3 +15195,267 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
     .pdf-switcher-toggle { max-width: 100%; }
     .pdf-switcher-tab { padding: 0.5rem 0.9rem; font-size: 0.8rem; }
 }
+
+/* ==========================================================================
+   PREMIUM MOKTASABAT GUIDE CARD (كُتيّب المكتسبات القبلية التفاعلي)
+   ========================================================================== */
+.moktasabat-guide-card {
+    position: relative;
+    background: linear-gradient(135deg, #0b1528 0%, #132b68 45%, #1d4ed8 100%);
+    border-radius: 24px;
+    padding: 2.5rem 2rem;
+    margin: 2.5rem auto 2rem auto;
+    color: #ffffff;
+    box-shadow: 0 20px 50px rgba(13, 27, 62, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    overflow: hidden;
+    text-align: right;
+    max-width: 900px;
+    direction: rtl;
+    font-family: 'Tajawal', sans-serif;
+}
+
+.moktasabat-guide-card::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.25) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.moktasabat-guide-card::after {
+    content: '';
+    position: absolute;
+    bottom: -80px;
+    right: -80px;
+    width: 260px;
+    height: 260px;
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.18) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.mgc-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
+    color: #ffffff;
+    font-size: 0.88rem;
+    font-weight: 800;
+    padding: 6px 16px;
+    border-radius: 50px;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.35);
+}
+
+.mgc-title {
+    font-size: 1.75rem;
+    font-weight: 900;
+    color: #ffffff;
+    margin-bottom: 0.9rem;
+    line-height: 1.35;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.mgc-intro {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: #f1f5f9;
+    margin-bottom: 0.75rem;
+}
+
+.mgc-purpose {
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: #cbd5e1;
+    margin-bottom: 1.75rem;
+}
+
+.mgc-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+}
+
+.mgc-feature-item {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    padding: 1.1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    backdrop-filter: blur(8px);
+    transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+}
+
+.mgc-feature-item:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+.mgc-feat-icon {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fbbf24;
+    font-size: 1.15rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.mgc-feat-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.mgc-feat-text strong {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.mgc-feat-text span {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: #cbd5e1;
+}
+
+.mgc-how-to-box {
+    background: rgba(15, 23, 42, 0.55);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    border-radius: 18px;
+    padding: 1.4rem;
+    margin-bottom: 1.75rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.mgc-how-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #60a5fa;
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.mgc-how-desc {
+    font-size: 0.94rem;
+    line-height: 1.65;
+    color: #e2e8f0;
+    margin-bottom: 1.1rem;
+}
+
+.mgc-steps-flow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 0.9rem 1rem;
+}
+
+.mgc-step {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.mgc-step span {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #3b82f6;
+    color: #ffffff;
+    font-size: 0.78rem;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mgc-step-arrow {
+    color: rgba(255, 255, 255, 0.35);
+    font-size: 0.75rem;
+}
+
+.mgc-cta-wrap {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.mgc-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
+    color: #ffffff !important;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 800;
+    padding: 14px 34px;
+    border-radius: 50px;
+    box-shadow: 0 8px 24px rgba(234, 88, 12, 0.38);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.mgc-cta-btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(234, 88, 12, 0.55);
+}
+
+.mgc-cta-btn i.fa-arrow-left {
+    transition: transform 0.25s ease;
+}
+
+.mgc-cta-btn:hover i.fa-arrow-left {
+    transform: translateX(-4px);
+}
+
+@media (max-width: 768px) {
+    .moktasabat-guide-card {
+        padding: 1.75rem 1.25rem;
+        border-radius: 18px;
+        margin: 2rem auto;
+    }
+    .mgc-title {
+        font-size: 1.35rem;
+    }
+    .mgc-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+    .mgc-steps-flow {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .mgc-step-arrow {
+        display: none;
+    }
+    .mgc-cta-btn {
+        width: 100%;
+        padding: 12px 20px;
+        font-size: 1rem;
+    }
+}
