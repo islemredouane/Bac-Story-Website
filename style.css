@@ -15414,10 +15414,11 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
     background: linear-gradient(135deg, #ff6b35 0%, #ea580c 100%);
     color: #ffffff !important;
     text-decoration: none;
-    font-size: 1.05rem;
+    font-size: 1.08rem;
     font-weight: 800;
     line-height: 1.2;
-    padding: 14px 30px;
+    min-height: 52px;
+    padding: 15px 32px;
     border-radius: 50px;
     box-shadow: 0 8px 24px rgba(234, 88, 12, 0.38);
     transition: all 0.25s ease;
@@ -15425,10 +15426,11 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
     max-width: 100%;
     box-sizing: border-box;
     white-space: nowrap !important;
+    cursor: pointer;
 }
 
 .mgc-cta-btn i {
-    font-size: 1.15rem;
+    font-size: 1.18rem;
     flex-shrink: 0;
 }
 
@@ -15471,39 +15473,42 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
         display: none;
     }
     .mgc-cta-btn {
-        font-size: 0.92rem;
-        padding: 12px 18px;
-        gap: 8px;
+        font-size: 0.94rem;
+        min-height: 48px;
+        padding: 14px 22px;
+        gap: 9px;
         border-radius: 50px;
         white-space: nowrap !important;
     }
     .mgc-cta-btn i {
-        font-size: 1rem;
+        font-size: 1.05rem;
     }
 }
 
 @media (max-width: 500px) {
     .mgc-cta-btn {
-        font-size: 0.82rem;
-        padding: 11px 14px;
-        gap: 6px;
+        font-size: 0.84rem;
+        min-height: 46px;
+        padding: 13px 16px;
+        gap: 7px;
         border-radius: 50px;
         white-space: nowrap !important;
     }
     .mgc-cta-btn i {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
     }
 }
 
 @media (max-width: 380px) {
     .mgc-cta-btn {
-        font-size: 0.73rem;
-        padding: 10px 10px;
+        font-size: 0.74rem;
+        min-height: 44px;
+        padding: 12px 10px;
         gap: 5px;
         border-radius: 50px;
         white-space: nowrap !important;
     }
     .mgc-cta-btn i {
-        font-size: 0.82rem;
+        font-size: 0.85rem;
     }
 }
