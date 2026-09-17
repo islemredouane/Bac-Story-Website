@@ -15416,14 +15416,15 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
     text-decoration: none;
     font-size: 1.05rem;
     font-weight: 800;
-    line-height: 1.35;
-    padding: 14px 32px;
+    line-height: 1.2;
+    padding: 14px 30px;
     border-radius: 50px;
     box-shadow: 0 8px 24px rgba(234, 88, 12, 0.38);
     transition: all 0.25s ease;
     border: 1px solid rgba(255, 255, 255, 0.25);
     max-width: 100%;
     box-sizing: border-box;
+    white-space: nowrap !important;
 }
 
 .mgc-cta-btn i {
@@ -15432,7 +15433,7 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
 }
 
 .mgc-cta-btn span {
-    white-space: nowrap;
+    white-space: nowrap !important;
 }
 
 .mgc-cta-btn:hover {
@@ -15469,20 +15470,40 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
     .mgc-step-arrow {
         display: none;
     }
+    .mgc-cta-btn {
+        font-size: 0.92rem;
+        padding: 12px 18px;
+        gap: 8px;
+        border-radius: 50px;
+        white-space: nowrap !important;
+    }
+    .mgc-cta-btn i {
+        font-size: 1rem;
+    }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 500px) {
     .mgc-cta-btn {
-        width: 100%;
-        max-width: 100%;
-        padding: 12px 16px;
-        font-size: 0.95rem;
-        gap: 10px;
-        border-radius: 16px;
+        font-size: 0.82rem;
+        padding: 11px 14px;
+        gap: 6px;
+        border-radius: 50px;
+        white-space: nowrap !important;
     }
-    .mgc-cta-btn span {
-        white-space: normal;
-        text-align: center;
-        line-height: 1.4;
+    .mgc-cta-btn i {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .mgc-cta-btn {
+        font-size: 0.73rem;
+        padding: 10px 10px;
+        gap: 5px;
+        border-radius: 50px;
+        white-space: nowrap !important;
+    }
+    .mgc-cta-btn i {
+        font-size: 0.82rem;
     }
 }
