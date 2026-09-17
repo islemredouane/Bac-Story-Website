@@ -15250,19 +15250,6 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
     border-radius: 50px;
     margin-bottom: 1.15rem;
     box-shadow: 0 4px 14px rgba(234, 88, 12, 0.35);
-    animation: mgcBadgeBreathe 2.2s ease-in-out infinite;
-    transform-origin: right center;
-}
-
-@keyframes mgcBadgeBreathe {
-    0%, 100% {
-        transform: scale(1);
-        box-shadow: 0 4px 14px rgba(234, 88, 12, 0.35);
-    }
-    50% {
-        transform: scale(1.05);
-        box-shadow: 0 6px 20px rgba(255, 107, 53, 0.55), 0 0 0 4px rgba(255, 107, 53, 0.2);
-    }
 }
 
 .mgc-title {
