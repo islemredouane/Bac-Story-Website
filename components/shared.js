@@ -1454,35 +1454,34 @@ function initSmoothDetails() {
         el._smoothInit = true;
         var summary = el.querySelector('summary');
         if (!summary || !el.animate) return;
-        var closedH = el.offsetHeight;
         var anim = null;
 
         function doToggle() {
             if (anim) { anim.cancel(); anim = null; el.classList.remove('is-closing'); }
             if (reducedMotion) { el.open = !el.open; return; }
 
+            var summaryH = summary.offsetHeight || 52;
+
             if (el.open) {
                 var startH = el.offsetHeight;
                 el.classList.add('is-closing');
                 anim = el.animate(
-                    [{ height: startH + 'px' }, { height: closedH + 'px' }],
-                    { duration: 320, easing: 'cubic-bezier(0.4, 0, 0.2, 1)', fill: 'both' }
+                    [{ height: startH + 'px' }, { height: summaryH + 'px' }],
+                    { duration: 300, easing: 'cubic-bezier(0.4, 0, 0.2, 1)' }
                 );
                 anim.onfinish = function () {
                     el.open = false;
                     el.classList.remove('is-closing');
-                    anim.cancel();
                     anim = null;
                 };
             } else {
                 el.open = true;
                 var endH = el.offsetHeight;
                 anim = el.animate(
-                    [{ height: closedH + 'px' }, { height: endH + 'px' }],
-                    { duration: 320, easing: 'cubic-bezier(0.4, 0, 0.2, 1)', fill: 'both' }
+                    [{ height: summaryH + 'px' }, { height: endH + 'px' }],
+                    { duration: 300, easing: 'cubic-bezier(0.4, 0, 0.2, 1)' }
                 );
                 anim.onfinish = function () {
-                    anim.cancel();
                     anim = null;
                 };
             }
@@ -1492,15 +1491,12 @@ function initSmoothDetails() {
             e.preventDefault();
             doToggle();
         });
-        el.addEventListener('click', function (e) {
-            if (e.target.closest('summary') || e.target.closest('a') || e.target.closest('button')) return;
-            doToggle();
-        });
+
         el._smoothOpen = function () { if (!el.open) doToggle(); };
         el._smoothClose = function () { if (el.open) doToggle(); };
     }
 
-    document.querySelectorAll('.crc-faq details, .faq-accordion details, details.smooth-details').forEach(setupSmoothDetails);
+    document.querySelectorAll('.crc-faq details, .crc-stream, .faq-accordion details, details.smooth-details').forEach(setupSmoothDetails);
 }
 
 if (document.readyState === 'loading') {

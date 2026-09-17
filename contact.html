@@ -26,7 +26,7 @@
     <meta name="apple-mobile-web-app-title" content="BAC STORY">    <title>تواصل معنا | BAC STORY</title>
     <link rel="canonical" href="https://www.bac-story.com/contact">
     <meta name="author" content="redouane mohamed islem">
-    <link rel="stylesheet" href="/style.css?v=10.48">
+    <link rel="stylesheet" href="/style.css?v=10.49">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/solid.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/brands.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -679,7 +679,7 @@
     <div id="global-cta-placeholder"></div>
     <div id="footer-placeholder"></div>
     <script src="/ads-config.js?v=1.12"></script>
-    <script src="/components/shared.js?v=9.49"></script>
+    <script src="/components/shared.js?v=9.50"></script>
     <script src="/script.js?v=9.5"></script>
     <script>
     (function () {
@@ -733,47 +733,6 @@
             ta.addEventListener('input', updateCounter);
             updateCounter();
         }
-
-        /* ── Smooth FAQ accordion (identical pattern to index.html) ── */
-        var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        function setupSmoothDetails(el) {
-            var summary = el.querySelector('summary');
-            if (!summary || !el.animate) return;
-            var closedH = el.offsetHeight;
-            var anim = null;
-            function doToggle() {
-                if (anim) { anim.cancel(); anim = null; el.classList.remove('is-closing'); }
-                if (reducedMotion) { el.open = !el.open; return; }
-                if (el.open) {
-                    var startH = el.offsetHeight;
-                    el.classList.add('is-closing');
-                    anim = el.animate(
-                        [{ height: startH + 'px' }, { height: closedH + 'px' }],
-                        { duration: 320, easing: 'cubic-bezier(0.4, 0, 0.2, 1)', fill: 'both' }
-                    );
-                    anim.onfinish = function () {
-                        el.open = false;
-                        el.classList.remove('is-closing');
-                        anim.cancel(); anim = null;
-                    };
-                } else {
-                    el.open = true;
-                    var endH = el.offsetHeight;
-                    anim = el.animate(
-                        [{ height: closedH + 'px' }, { height: endH + 'px' }],
-                        { duration: 320, easing: 'cubic-bezier(0.4, 0, 0.2, 1)', fill: 'both' }
-                    );
-                    anim.onfinish = function () { anim.cancel(); anim = null; };
-                }
-            }
-            summary.addEventListener('click', function (e) { e.preventDefault(); doToggle(); });
-            el.addEventListener('click', function (e) {
-                if (e.target.closest('summary')) return;
-                if (e.target.closest('a')) return;
-                doToggle();
-            });
-        }
-        document.querySelectorAll('.crc-faq details').forEach(setupSmoothDetails);
     })();
     </script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "6153c3a6dd54435780cd9d84f9f958f8"}'></script><!-- End Cloudflare Web Analytics -->
