@@ -15201,12 +15201,12 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
    ========================================================================== */
 .moktasabat-guide-card {
     position: relative;
-    background: linear-gradient(135deg, #0b1528 0%, #132b68 45%, #1d4ed8 100%);
+    background: linear-gradient(135deg, #1a3a8f 0%, #2c5cc5 55%, #3d6ee0 100%);
     border-radius: 24px;
-    padding: 2.5rem 2rem;
-    margin: 2.5rem auto 2rem auto;
+    padding: 2.2rem 2rem;
+    margin: 1.5rem auto 2.5rem auto;
     color: #ffffff;
-    box-shadow: 0 20px 50px rgba(13, 27, 62, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    box-shadow: 0 16px 44px rgba(26, 58, 143, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.15) inset;
     overflow: hidden;
     text-align: right;
     max-width: 900px;
@@ -15217,11 +15217,11 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
 .moktasabat-guide-card::before {
     content: '';
     position: absolute;
-    top: -100px;
-    left: -100px;
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.25) 0%, transparent 70%);
+    top: -80px;
+    left: -80px;
+    width: 260px;
+    height: 260px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
     border-radius: 50%;
     pointer-events: none;
 }
@@ -15231,9 +15231,9 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
     position: absolute;
     bottom: -80px;
     right: -80px;
-    width: 260px;
-    height: 260px;
-    background: radial-gradient(circle, rgba(245, 158, 11, 0.18) 0%, transparent 70%);
+    width: 240px;
+    height: 240px;
+    background: radial-gradient(circle, rgba(255, 107, 53, 0.2) 0%, transparent 70%);
     border-radius: 50%;
     pointer-events: none;
 }
@@ -15242,49 +15242,49 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
+    background: linear-gradient(135deg, #ff6b35 0%, #ea580c 100%);
     color: #ffffff;
     font-size: 0.88rem;
     font-weight: 800;
     padding: 6px 16px;
     border-radius: 50px;
-    margin-bottom: 1.25rem;
-    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.35);
+    margin-bottom: 1.15rem;
+    box-shadow: 0 4px 14px rgba(234, 88, 12, 0.3);
 }
 
 .mgc-title {
-    font-size: 1.75rem;
+    font-size: 1.7rem;
     font-weight: 900;
     color: #ffffff;
-    margin-bottom: 0.9rem;
+    margin-bottom: 0.85rem;
     line-height: 1.35;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 .mgc-intro {
     font-size: 1.05rem;
     line-height: 1.75;
-    color: #f1f5f9;
+    color: #ffffff;
     margin-bottom: 0.75rem;
 }
 
 .mgc-purpose {
     font-size: 0.98rem;
     line-height: 1.7;
-    color: #cbd5e1;
-    margin-bottom: 1.75rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1.6rem;
 }
 
 .mgc-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
-    margin-bottom: 1.75rem;
+    margin-bottom: 1.6rem;
 }
 
 .mgc-feature-item {
-    background: rgba(255, 255, 255, 0.07);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: 16px;
     padding: 1.1rem;
     display: flex;
@@ -15296,8 +15296,8 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
 
 .mgc-feature-item:hover {
     transform: translateY(-3px);
-    background: rgba(255, 255, 255, 0.12);
-    border-color: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.16);
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
 .mgc-feat-icon {
@@ -15305,13 +15305,13 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
     height: 42px;
     min-width: 42px;
     border-radius: 12px;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+    background: rgba(255, 255, 255, 0.18);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fbbf24;
+    color: #ffda79;
     font-size: 1.15rem;
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .mgc-feat-text {
@@ -15329,15 +15329,15 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
 .mgc-feat-text span {
     font-size: 0.88rem;
     line-height: 1.55;
-    color: #cbd5e1;
+    color: rgba(255, 255, 255, 0.88);
 }
 
 .mgc-how-to-box {
-    background: rgba(15, 23, 42, 0.55);
-    border: 1px solid rgba(59, 130, 246, 0.3);
+    background: rgba(10, 25, 68, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 18px;
-    padding: 1.4rem;
-    margin-bottom: 1.75rem;
+    padding: 1.35rem;
+    margin-bottom: 1.6rem;
     position: relative;
     overflow: hidden;
 }
@@ -15345,7 +15345,7 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
 .mgc-how-title {
     font-size: 1.15rem;
     font-weight: 800;
-    color: #60a5fa;
+    color: #ffda79;
     margin-bottom: 0.6rem;
     display: flex;
     align-items: center;
@@ -15355,7 +15355,7 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
 .mgc-how-desc {
     font-size: 0.94rem;
     line-height: 1.65;
-    color: #e2e8f0;
+    color: #ffffff;
     margin-bottom: 1.1rem;
 }
 
@@ -15365,9 +15365,9 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 8px;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.08);
     border-radius: 12px;
-    padding: 0.9rem 1rem;
+    padding: 0.85rem 1rem;
 }
 
 .mgc-step {
@@ -15383,7 +15383,7 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    background: #3b82f6;
+    background: #ff6b35;
     color: #ffffff;
     font-size: 0.78rem;
     font-weight: 800;
@@ -15393,13 +15393,16 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
 }
 
 .mgc-step-arrow {
-    color: rgba(255, 255, 255, 0.35);
+    color: rgba(255, 255, 255, 0.45);
     font-size: 0.75rem;
 }
 
 .mgc-cta-wrap {
-    text-align: center;
-    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.25rem;
+    width: 100%;
 }
 
 .mgc-cta-btn {
@@ -15407,16 +15410,28 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
     align-items: center;
     justify-content: center;
     gap: 12px;
-    background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
+    background: linear-gradient(135deg, #ff6b35 0%, #ea580c 100%);
     color: #ffffff !important;
     text-decoration: none;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 800;
-    padding: 14px 34px;
+    line-height: 1.35;
+    padding: 14px 32px;
     border-radius: 50px;
     box-shadow: 0 8px 24px rgba(234, 88, 12, 0.38);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.25s ease;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.mgc-cta-btn i {
+    font-size: 1.15rem;
+    flex-shrink: 0;
+}
+
+.mgc-cta-btn span {
+    white-space: nowrap;
 }
 
 .mgc-cta-btn:hover {
@@ -15434,9 +15449,9 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
 
 @media (max-width: 768px) {
     .moktasabat-guide-card {
-        padding: 1.75rem 1.25rem;
+        padding: 1.6rem 1.15rem;
         border-radius: 18px;
-        margin: 2rem auto;
+        margin: 1.25rem auto 2rem auto;
     }
     .mgc-title {
         font-size: 1.35rem;
@@ -15453,9 +15468,20 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
     .mgc-step-arrow {
         display: none;
     }
+}
+
+@media (max-width: 600px) {
     .mgc-cta-btn {
         width: 100%;
-        padding: 12px 20px;
-        font-size: 1rem;
+        max-width: 100%;
+        padding: 12px 16px;
+        font-size: 0.95rem;
+        gap: 10px;
+        border-radius: 16px;
+    }
+    .mgc-cta-btn span {
+        white-space: normal;
+        text-align: center;
+        line-height: 1.4;
     }
 }
