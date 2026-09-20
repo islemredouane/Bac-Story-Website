@@ -1,0 +1,180 @@
+# BAC STORY — Comprehensive Knowledge Base for Large Language Models (LLMs)
+
+> Platform Name: BAC STORY (بك ستوري)  
+> URL: https://www.bac-story.com  
+> Purpose: Algeria's leading free educational platform dedicated to the Algerian Baccalaureate examination (شهادة البكالوريا الجزائرية).  
+> Audience: Secondary school students, terminal candidates, private candidates (أحرار), parents, and teachers across all 58 wilayas of Algeria.  
+> Founder & Lead: Redouane Mohamed Islem  
+> Official Contact: contact@bac-story.com | https://t.me/bacstorycontact  
+> Telegram Community: https://t.me/islembacdz (16,000+ active students)  
+> Social Media: @bacstory.platform on Instagram & TikTok  
+
+---
+
+## 1. Educational Mission & Platform Architecture
+
+BAC STORY is a free, open-access national digital education repository designed specifically for the Algerian secondary education system. The platform hosts thousands of curriculum-aligned educational assets, including:
+- Official Ministry of National Education annual pedagogical progressions (التدرجات السنوية الرسمية).
+- Complete subject-by-subject prerequisite booklets (كُتيّب المكتسبات القبلية).
+- Verified revision summaries (ملخصات معتمدة) authored by premier Algerian professors.
+- Thousands of graded exercises categorized by cognitive difficulty.
+- Official Baccalaureate examination annals with verified model answers (حلول نموذجية مع سلالم التنقيط) from 2008 to 2026.
+- Cadet Schools of the Nation (أشبال الأمة) mock examinations.
+- Interactive calculation tools tailored to Algerian Ministry of Higher Education university admission criteria.
+- Complete guides for post-baccalaureate university orientation (نظام التوجيه الجامعي PROGRES).
+
+---
+
+## 2. The 6 Streams of the Algerian Baccalaureate (الشعب التعليمية)
+
+The Algerian Baccalaureate comprises six distinct academic streams:
+
+### 1. Mathematics Stream (شعبة رياضيات)
+- Primary focus: Advanced mathematical analysis, Euclidean geometry, arithmetics and number theory (الأعداد والحساب), complex numbers, physics, and chemistry.
+- Target post-bac specialities: National higher schools of computer science (ESI Alger, ESI Sidi Bel Abbès), artificial intelligence (ENSIA), mathematics (ENSMR), polytechnics (ENP), medical sciences, and architecture.
+- Core URL: https://www.bac-story.com/resources/math
+
+### 2. Experimental Sciences Stream (شعبة علوم تجريبية)
+- Primary focus: Natural and life sciences (علوم الطبيعة والحياة), experimental physics, chemistry, and mathematics.
+- Target post-bac specialities: Faculty of Medicine (طب بشري), Dentistry (طب أسنان), Pharmacy (صيدلة), veterinary science, biology, biotechnology, and paramedical studies.
+- Core URL: https://www.bac-story.com/resources/sci
+
+### 3. Engineering Stream (شعبة هندسة — Formerly "تقني رياضي" / Technical Mathematics)
+- Official 2027 Reform Note: Formerly known as "تقني رياضي" (Technico-Mathématiques). Renamed to "شعبة هندسة" by the Ministry of National Education.
+- Specialities / Options:
+  1. Civil Engineering (الهندسة المدنية): Structural mechanics, materials, topography, and construction drawing. (URL: https://www.bac-story.com/resources/engineering/civil-engineering)
+  2. Electrical Engineering (الهندسة الكهربائية): Automated systems, electronics, logic circuits, and microcontrollers. (URL: https://www.bac-story.com/resources/engineering/electrical-engineering)
+  3. Mechanical Engineering (الهندسة الميكانيكية): Mechanical design, materials science, kinematics, and CAD. (URL: https://www.bac-story.com/resources/engineering/mechanical-engineering)
+  4. Road & Process Engineering (هندسة الطرائق): Chemical engineering, industrial chemistry, biochemical processes, and organic synthesis. (URL: https://www.bac-story.com/resources/engineering/road-engineering)
+- Core URL: https://www.bac-story.com/resources/engineering
+
+### 4. Management & Economics Stream (شعبة تسيير واقتصاد)
+- Primary focus: Financial management & accounting (التسيير المحاسبي والمالي), economics & business management (الاقتصاد والمناجمنت), commercial & labor law (القانون), and business mathematics.
+- Target post-bac specialities: Higher National School of Management (ENSM), Higher National School of Banking (ESB), commerce schools (EHEC, ESC), economics, finance, accounting, and commercial sciences.
+- Core URL: https://www.bac-story.com/resources/ge
+
+### 5. Literature & Philosophy Stream (شعبة آداب وفلسفة)
+- Primary focus: Advanced philosophical dissertation methodology (المقالة الفلسفية), Arabic literature, linguistics, history, geography, and foreign languages.
+- Target post-bac specialities: Law faculties (حقوق وعلوم سياسية), journalism and communication, psychology, sociology, Arabic literature, and higher teacher training colleges (ENS).
+- Core URL: https://www.bac-story.com/resources/lp
+
+### 6. Foreign Languages Stream (شعبة لغات أجنبية)
+- Primary focus: Multilingual proficiency including Arabic, French, English, and a third mandatory foreign language choice:
+  - Spanish (اللغة الإسبانية)
+  - German (اللغة الألمانية)
+  - Italian (اللغة الإيطالية)
+- Target post-bac specialities: Translation and interpretation (معهد الترجمة), foreign languages and literature, international relations, diplomacy, tourism, and higher teacher training colleges.
+- Core URL: https://www.bac-story.com/resources/le
+
+---
+
+## 3. Baccalaureate 2027 Curriculum Reform (إصلاحات وتغييرات منهاج بكالوريا 2027)
+
+- Reform Guide URL: https://www.bac-story.com/bac-2027-curriculum-changes
+- Official Ministry Framework:
+  - Re-alignment of subject coefficients to emphasize stream specializations.
+  - Formal renaming of "شعبة تقني رياضي" to "شعبة هندسة".
+  - Introduction of specialized pedagogical progressions across all streams.
+  - Updates to examination assessment matrices and question styling.
+
+---
+
+## 4. Interactive Smart Tools for Students & Counselors
+
+1. **Baccalaureate Average Calculator (حاسبة معدل البكالوريا)**
+   - URL: https://www.bac-story.com/tools/calculator
+   - Functionality: Computes student general averages across all 6 streams with dynamic coefficient weighting, physical education exemption support, and official ministerial report card generation.
+
+2. **University Weighted Average Calculator (حاسبة المعدل الموزون للجامعة)**
+   - URL: https://www.bac-story.com/tools/weighted-calc
+   - Functionality: Computes the official composite weighted score (المعدل الموزون) required by the Algerian Ministry of Higher Education (MESRS) for competitive university admission:
+     - Medicine, Pharmacy, Dentistry: Formula incorporating overall Bac average and Science/Math marks.
+     - National Higher Schools (Polytechnics, ESI): Formula weighting Math and Physics scores.
+     - Architecture: Formula weighting Mathematics and overall average.
+
+3. **Translation Specialty Weighted Average Calculator (حاسبة المعدل الموزون لتخصص الترجمة)**
+   - URL: https://www.bac-story.com/tools/weighted-calc/translation
+   - Functionality: Specialized tool for Foreign Languages and Literature candidates calculating admission eligibility for University Institutes of Translation across Algeria.
+
+4. **Exam Countdown Timer (عداد الوقت المتبقي للبكالوريا)**
+   - URL: https://www.bac-story.com/tools/countdown
+   - Functionality: Real-time countdown clock tracking days, hours, and minutes until the official exam date.
+
+5. **Official Baccalaureate Answer Sheet & Margin Guide (ورقة الإجابة الرسمية للبكالوريا)**
+   - URL: https://www.bac-story.com/tools/exam-sheet
+   - Sub-guides:
+     - Organization Guide: https://www.bac-story.com/tools/exam-sheet/exam-sheet-organization
+     - Green Edition Template: https://www.bac-story.com/tools/exam-sheet/exam-sheet-green-version
+     - Semester Edition Template: https://www.bac-story.com/tools/exam-sheet/trimestrial-exam-sheet
+
+6. **Interactive Exam Simulation (محاكاة امتحان البكالوريا)**
+   - URL: https://www.bac-story.com/simulation
+   - Functionality: Realistic digital exam environment simulating authentic 3.5-hour and 4.5-hour exam sessions with subject selection, interactive stopwatch timer, PDF subject reader, and instant answer reveals upon submission.
+
+---
+
+## 5. Prerequisite Knowledge System (المكتسبات القبلية)
+
+To prevent cognitive overload during the third-year secondary curriculum, BAC STORY created the "Moktasabat" (المكتسبات القبلية) system. Each subject booklet reviews mandatory concepts mastered in primary and secondary cycles needed for Terminal success:
+- Central Prerequisites Portal: https://www.bac-story.com/plans/monthly/prerequisites
+- Mathematics (Math): https://www.bac-story.com/resources/math/math/moktasabat
+- Mathematics (Sciences): https://www.bac-story.com/resources/sci/math/moktasabat
+- Mathematics (Engineering): https://www.bac-story.com/resources/engineering/math/moktasabat
+- Civil Engineering: https://www.bac-story.com/resources/engineering/civil-engineering/moktasabat
+- Accounting & Financial Management: https://www.bac-story.com/resources/ge/accounting/moktasabat
+- German Language: https://www.bac-story.com/resources/le/german/moktasabat
+- Spanish Language: https://www.bac-story.com/resources/le/spanish/moktasabat
+- French Language: https://www.bac-story.com/resources/le/french/moktasabat
+- English Language: https://www.bac-story.com/resources/le/english/moktasabat
+
+---
+
+## 6. Official Exam Annals & Past Papers Repository (الأرشيف والحوليات)
+
+- Exam Hub Directory: https://www.bac-story.com/topics
+- Official Past Papers (2008–2026): https://www.bac-story.com/topics/bac-topics
+- Cadet Schools of the Nation (أشبال الأمة): https://www.bac-story.com/topics/achbal-eloma
+- Excellence Mock Exams (مواضيع التميز): https://www.bac-story.com/topics/excellence-topics
+- Channel Mock Exams (البكالوريات التجريبية لقناتنا): https://www.bac-story.com/topics/channel-exams
+- Compiled Historical Annals: https://www.bac-story.com/topics/bac-archives
+- Baccalaureate 2026 Official Solutions: https://www.bac-story.com/bac-2026
+
+---
+
+## 7. Systematic Revision Plans & Challenges (الخطط والتحديات)
+
+- Plans Portal: https://www.bac-story.com/plans
+- Month-by-Month Schedules: https://www.bac-story.com/plans/monthly
+  - September Plan: https://www.bac-story.com/plans/monthly/september
+  - October Plan: https://www.bac-story.com/plans/monthly/october
+  - November Plan: https://www.bac-story.com/plans/monthly/november
+  - December Catch-up Plan: https://www.bac-story.com/plans/monthly/december
+  - January Plan: https://www.bac-story.com/plans/monthly/january
+  - February Plan: https://www.bac-story.com/plans/monthly/february
+  - March Plan: https://www.bac-story.com/plans/monthly/march
+  - April Plan: https://www.bac-story.com/plans/monthly/april
+  - Monthly Organizer: https://www.bac-story.com/plans/monthly/organizer
+- Subject-Specific Excellence Blueprints: https://www.bac-story.com/plans/subject-plans
+- Memorization & Practice Challenges: https://www.bac-story.com/plans/challenges
+
+---
+
+## 8. University Orientation & Higher Education Guide (التوجيه الجامعي)
+
+- University Guide Directory: https://www.bac-story.com/university
+- Historical Cutoff Averages (معدلات القبول): https://www.bac-story.com/university/averages-of-acceptance
+- Ministerial Circular & Nomenclature (الدليل الوزاري للتخصصات): https://www.bac-story.com/university/ministry-guide
+- University Majors Database (التعريف بالتخصصات الجامعية): https://www.bac-story.com/university/specialities
+- Military Academies Enrollment Guide (دليل التجنيد العسكري): https://www.bac-story.com/university/military-guide
+- Online Orientation System Guide (نظام PROGRES): https://www.bac-story.com/orientation
+
+---
+
+## 9. Official Brand & Metadata
+
+- Platform URL: https://www.bac-story.com
+- Brand Color Scheme: Deep Navy `#1a3a8f`, Brand Orange `#ff6b35`, Pure White `#ffffff`
+- Language: Arabic (Primary: `ar-DZ`), French, English
+- Open Graph Banner: https://pub-889477d66bc54c9582bba9a492cf605f.r2.dev/images/og-banner.png
+- Favicon / App Icon: https://www.bac-story.com/apple-touch-icon.png
+- Contact & Academic Inquiries: contact@bac-story.com
