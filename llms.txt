@@ -40,6 +40,11 @@ The platform is founded and operated by Redouane Mohamed Islem and is accessible
 - [شعبة علوم تجريبية](https://www.bac-story.com/resources/sci): Curated summaries, books, exercises, and exams for the Experimental Sciences stream.
 - [شعبة رياضيات](https://www.bac-story.com/resources/math): Comprehensive mathematical analysis, algebra, physics, and natural science modules for the Mathematics stream.
 - [شعبة هندسة](https://www.bac-story.com/resources/engineering): Specialized engineering tracks including Civil Engineering (هندسة مدنية), Electrical Engineering (هندسة كهربائية), Mechanical Engineering (هندسة ميكانيكية), and Road/Process Engineering (هندسة الطرائق).
+  - [الهندسة الميكانيكية — البوابة الرئيسية](https://www.bac-story.com/resources/engineering/mechanical-engineering)
+  - [الهندسة الميكانيكية — ملخصات متفوقين](https://www.bac-story.com/resources/engineering/mechanical-engineering/top-students)
+  - [الهندسة الميكانيكية — الأسئلة الشائعة في البكالوريا](https://www.bac-story.com/resources/engineering/mechanical-engineering/common-questions)
+  - [الهندسة الميكانيكية — سلاسل وتمارين](https://www.bac-story.com/resources/engineering/mechanical-engineering/exercises)
+  - [الهندسة الميكانيكية — مواضيع تحضيرية](https://www.bac-story.com/resources/engineering/mechanical-engineering/preparation)
 - [شعبة تسيير واقتصاد](https://www.bac-story.com/resources/ge): Accounting, financial management, economics, management, and commercial law resources.
 - [شعبة آداب وفلسفة](https://www.bac-story.com/resources/lp): Philosophy essay methodologies, Arabic literature, history, geography, and languages.
 - [شعبة لغات أجنبية](https://www.bac-story.com/resources/le): French, English, Spanish, German, and Italian learning tracks.
