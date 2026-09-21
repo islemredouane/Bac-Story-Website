@@ -680,28 +680,25 @@
         display: flex;
         flex-direction: column;
         background: #ffffff;
-        border: 1.5px solid rgba(44, 92, 195, 0.1);
+        border: 1.5px solid color-mix(in srgb, var(--w-c) 22%, #e2e8f0);
         border-radius: 24px;
         padding: 1.65rem 1.6rem 1.5rem;
-        box-shadow: 0 6px 24px rgba(44, 92, 195, 0.05);
+        box-shadow: 0 6px 24px color-mix(in srgb, var(--w-c) 7%, transparent);
         overflow: hidden;
         transition: box-shadow 0.35s ease,
                     border-color 0.35s ease;
     }
     .dark-mode .exp-card {
         background: #1e293b;
-        border-color: rgba(255, 255, 255, 0.08);
+        border-color: color-mix(in srgb, var(--w-c) 30%, rgba(255, 255, 255, 0.08));
         box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
     }
     .exp-card::before {
         content: '';
         position: absolute;
         top: 0; right: 0; left: 0;
-        height: 4px;
-        background: linear-gradient(90deg, transparent, var(--w-c));
-        transform: scaleX(0);
-        transform-origin: right;
-        transition: transform 0.3s ease;
+        height: 5px;
+        background: linear-gradient(90deg, var(--w-c2), var(--w-c));
         z-index: 2;
     }
     .exp-card::after {
@@ -709,19 +706,18 @@
         position: absolute;
         top: -80px; left: -60px;
         width: 200px; height: 200px;
-        background: radial-gradient(circle, color-mix(in srgb, var(--w-c) 12%, transparent) 0%, transparent 70%);
+        background: radial-gradient(circle, color-mix(in srgb, var(--w-c) 14%, transparent) 0%, transparent 70%);
         border-radius: 50%;
         pointer-events: none;
     }
     .exp-card:hover {
-        border-color: color-mix(in srgb, var(--w-c) 35%, transparent);
-        box-shadow: 0 16px 38px color-mix(in srgb, var(--w-c) 14%, transparent);
+        border-color: color-mix(in srgb, var(--w-c) 45%, transparent);
+        box-shadow: 0 16px 38px color-mix(in srgb, var(--w-c) 18%, transparent);
     }
     .dark-mode .exp-card:hover {
         box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
-        border-color: color-mix(in srgb, var(--w-c) 40%, transparent);
+        border-color: color-mix(in srgb, var(--w-c) 50%, transparent);
     }
-    .exp-card:hover::before { transform: scaleX(1); }
 
     /* Card Top Bar */
     .exp-card-top {
@@ -754,7 +750,8 @@
         font-size: 0.88rem;
         font-weight: 800;
         color: var(--w-ct);
-        background: color-mix(in srgb, var(--w-c) 10%, transparent);
+        background: color-mix(in srgb, var(--w-c) 12%, transparent);
+        border: 1px solid color-mix(in srgb, var(--w-c) 25%, transparent);
         border-radius: 999px;
         padding: 5px 13px;
         line-height: 1.4;
@@ -892,9 +889,9 @@
         justify-content: center;
         gap: 8px;
         width: 100%;
-        background: color-mix(in srgb, var(--w-c) 8%, transparent);
+        background: color-mix(in srgb, var(--w-c) 10%, transparent);
         color: var(--w-ct) !important;
-        border: 1.5px solid color-mix(in srgb, var(--w-c) 25%, transparent);
+        border: 1.5px solid color-mix(in srgb, var(--w-c) 28%, transparent);
         border-radius: 24px;
         padding: 0.72rem 1rem;
         font-size: 0.92rem;
@@ -905,11 +902,11 @@
         white-space: nowrap;
     }
     .exp-card-cta:hover {
-        background: var(--w-c);
+        background: linear-gradient(135deg, var(--w-c) 0%, var(--w-c2) 100%);
         color: #ffffff !important;
-        border-color: var(--w-c);
+        border-color: transparent;
         transform: translateY(-2px);
-        box-shadow: 0 6px 18px color-mix(in srgb, var(--w-c) 30%, transparent);
+        box-shadow: 0 6px 20px color-mix(in srgb, var(--w-c) 35%, transparent);
     }
     .exp-card-cta i { font-size: 1rem; }
 
