@@ -13701,6 +13701,20 @@ body.pdf-body-lock [id="footer-placeholder"] {
     transform: translateY(-3px);
 }
 
+.card-cta-web {
+    background: #ffffff;
+    color: #1a3c8d !important;
+    border: none;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.card-cta-web:hover {
+    background: #f8fafc;
+    box-shadow: 0 16px 28px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+    color: #1a3c8d !important;
+}
+
 .card-cta-telegram {
     background: #0088cc;
     color: #ffffff;
