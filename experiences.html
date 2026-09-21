@@ -1136,6 +1136,15 @@
         .exp-lede-lead {
             max-width: none;
         }
+        .exp-lede-points li {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+        }
+        .exp-lede-points i {
+            margin: 0 auto;
+        }
     }
     @media (max-width: 768px) {
         .exp-lede {
@@ -1151,6 +1160,26 @@
         }
         .exp-lede h1 {
             font-size: 1.7rem;
+        }
+        .exp-lede-points li {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+            padding: 1.15rem 0;
+        }
+        .exp-lede-points i {
+            margin: 0 auto;
+            width: 42px;
+            height: 42px;
+        }
+        .exp-lede-points b {
+            font-size: 1.02rem;
+        }
+        .exp-lede-points span {
+            font-size: 0.9rem;
+            max-width: 44ch;
+            margin: 0 auto;
         }
         .exp-grid {
             grid-template-columns: 1fr;
