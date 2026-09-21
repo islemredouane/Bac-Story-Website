@@ -107,7 +107,7 @@
        Brand: #1a3a8f / #2c5cc5 · Accent: #ff6b35 · Success: #10b981
        ══════════════════════════════════════════════════ */
     body {
-        font-family: 'Tajawal', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+        font-family: 'Tajawal', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         background: #f8fafc;
         color: #1e293b;
         margin: 0;
@@ -117,12 +117,23 @@
         background: #0f172a;
         color: #f8fafc;
     }
-    .exp-page, .exp-page * {
-        font-family: 'Tajawal', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
-    }
     .exp-page {
+        font-family: 'Tajawal', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         padding: 1.5rem 0 4rem;
         min-height: 70vh;
+    }
+    /* Protect FontAwesome icons from any font-family overrides */
+    .fa, .fas, .fa-solid {
+        font-family: "Font Awesome 6 Free" !important;
+        font-weight: 900 !important;
+    }
+    .far, .fa-regular {
+        font-family: "Font Awesome 6 Free" !important;
+        font-weight: 400 !important;
+    }
+    .fab, .fa-brands {
+        font-family: "Font Awesome 6 Brands" !important;
+        font-weight: 400 !important;
     }
 
     /* ══ HERO BANNER ══ */
