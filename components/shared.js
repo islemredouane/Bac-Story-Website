@@ -473,10 +473,10 @@ function showBac2026AnnouncementModal() {
             <h3>سلسلة تجارب المتفوقين</h3>
             <p style="margin-bottom: 1.2rem; line-height: 1.65; color: rgba(255, 255, 255, 0.95);">أطلقنا سلسلة جديدة وحصرية على قناتنا تحت عنوان «تجارب المتفوقين»، حيث استضفنا نخبة من الطلبة الحاصلين على تقدير امتياز (بمعدلات تفوق 18) من مختلف الشعب الدراسية.<br><br>هؤلاء المتفوقون سيشاركونك رحلتهم نحو النجاح ويقدمون لك نصائح ذهبية لتستفيد منها. تصفحوا التجارب الآن عبر الموقع أو تابعوها عبر قناتنا على التلغرام!</p>
             <div class="card-cta-group" style="display: flex; flex-direction: column; gap: 10px; width: 100%;">
-                <a href="/experiences" class="card-cta-btn card-cta-web" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; font-size: 1.05rem; font-weight: 800; padding: 12px 24px; background: #ffffff; color: #1a3a8f !important; border: none; border-radius: 999px; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15); text-decoration: none; transition: transform 0.2s ease, box-shadow 0.2s ease;">
+                <a href="/experiences" class="card-cta-btn card-cta-web" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; font-size: 1.05rem; font-weight: 800; padding: 12px 24px; border-radius: 999px; text-decoration: none;">
                     <i class="fas fa-medal" style="color: #ff6b35;"></i> تصفح التجارب على الموقع
                 </a>
-                <a href="https://t.me/islembacdz" target="_blank" rel="noopener noreferrer" class="card-cta-btn card-cta-telegram" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; font-size: 1.05rem; font-weight: 800; padding: 12px 24px; background: #2AABEE; color: #ffffff !important; border: none; border-radius: 999px; box-shadow: 0 4px 15px rgba(42,171,238,0.4); text-decoration: none; transition: transform 0.2s ease, box-shadow 0.2s ease;">
+                <a href="https://t.me/islembacdz" target="_blank" rel="noopener noreferrer" class="card-cta-btn card-cta-telegram" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; font-size: 1.05rem; font-weight: 800; padding: 12px 24px; border-radius: 999px; text-decoration: none;">
                     <i class="fab fa-telegram-plane"></i> انضم إلينا على التلغرام
                 </a>
             </div>
