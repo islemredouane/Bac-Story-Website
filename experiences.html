@@ -50,9 +50,8 @@
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="/style.css?v=10.52">
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/solid.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/brands.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Pattaya&display=swap">
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -103,6 +102,20 @@
        EXPERIENCES PAGE — exp-*
        Brand: #1a3a8f / #2c5cc5 · Accent: #ff6b35 · Success: #10b981
        ══════════════════════════════════════════════════ */
+    body {
+        font-family: 'Tajawal', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+        background: #f8fafc;
+        color: #1e293b;
+        margin: 0;
+        padding: 0;
+    }
+    body.dark-mode {
+        background: #0f172a;
+        color: #f8fafc;
+    }
+    .exp-page, .exp-page * {
+        font-family: 'Tajawal', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    }
     .exp-page {
         padding: 1.5rem 0 4rem;
         min-height: 70vh;
