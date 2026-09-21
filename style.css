@@ -13708,17 +13708,35 @@ body.pdf-body-lock [id="footer-placeholder"] {
     transform: translateY(-3px);
 }
 
-.card-cta-web {
-    background: #ffffff;
+.card-cta-web,
+.welcome-announcement-card .card-cta-web,
+.welcome-announcement-card.modal-version .card-cta-web,
+.bac2026-overlay .card-cta-web {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
     color: #1a3c8d !important;
-    border: none;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+    border: 2px solid #ffffff !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 999px !important;
+    text-decoration: none !important;
 }
 
-.card-cta-web:hover {
-    background: #f8fafc;
-    box-shadow: 0 16px 28px rgba(0, 0, 0, 0.2);
-    transform: translateY(-3px);
+.card-cta-web:hover,
+.welcome-announcement-card .card-cta-web:hover,
+.welcome-announcement-card.modal-version .card-cta-web:hover,
+.bac2026-overlay .card-cta-web:hover {
+    background: #f8fafc !important;
+    background-color: #f8fafc !important;
+    box-shadow: 0 16px 28px rgba(0, 0, 0, 0.25) !important;
+    transform: translateY(-3px) !important;
+    color: #1a3c8d !important;
+}
+
+.card-cta-web span,
+.welcome-announcement-card .card-cta-web span {
     color: #1a3c8d !important;
 }
 
