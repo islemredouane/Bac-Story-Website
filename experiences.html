@@ -917,6 +917,9 @@
 
     /* Telegram CTA in card */
     .exp-card-cta {
+        position: relative;
+        overflow: hidden;
+        isolation: isolate;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -930,16 +933,34 @@
         font-size: 0.92rem;
         font-weight: 800;
         text-decoration: none;
-        transition: all 0.25s ease;
+        transition: color 0.3s ease, border-color 0.3s ease, transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease;
         box-sizing: border-box;
         white-space: nowrap;
     }
-    .exp-card-cta:hover {
+    .exp-card-cta::before {
+        content: '';
+        position: absolute;
+        inset: 0;
         background: linear-gradient(135deg, var(--w-c) 0%, var(--w-c2) 100%);
+        opacity: 0;
+        transition: opacity 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+        z-index: 1;
+        border-radius: inherit;
+        pointer-events: none;
+    }
+    .exp-card-cta:hover {
         color: #ffffff !important;
         border-color: transparent;
         transform: translateY(-2px);
         box-shadow: 0 6px 20px color-mix(in srgb, var(--w-c) 35%, transparent);
+    }
+    .exp-card-cta:hover::before {
+        opacity: 1;
+    }
+    .exp-card-cta i,
+    .exp-card-cta span {
+        position: relative;
+        z-index: 2;
     }
     .exp-card-cta i { font-size: 1rem; }
 
@@ -969,6 +990,10 @@
         background: color-mix(in srgb, var(--w-c) 8%, transparent);
         border: 1.5px dashed color-mix(in srgb, var(--w-c) 35%, transparent);
         color: var(--w-ct) !important;
+        transition: all 0.3s ease;
+    }
+    .exp-card-cta--upcoming::before {
+        display: none;
     }
     .dark-mode .exp-card-cta--upcoming {
         background: color-mix(in srgb, var(--w-c) 12%, transparent);
