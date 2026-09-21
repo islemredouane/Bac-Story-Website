@@ -655,7 +655,7 @@
         margin-bottom: 3.5rem;
     }
 
-    /* ── Experience Card Base (Matching specialities.html .spec-card architecture) ── */
+    /* ── Experience Card Base ── */
     .exp-card {
         --w-c: #2c5cc5;
         --w-c2: #1e3fa0;
@@ -668,7 +668,7 @@
         border-radius: 24px;
         padding: 1.65rem 1.6rem 1.5rem;
         box-shadow: 0 6px 24px color-mix(in srgb, var(--w-c) 8%, transparent);
-        overflow: hidden;
+        overflow: visible;
         transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
     .dark-mode .exp-card {
@@ -679,11 +679,12 @@
     .exp-card::before {
         content: '';
         position: absolute;
-        top: 0;
-        right: 0;
-        left: 0;
+        top: -1.5px;
+        right: 20px;
+        left: 20px;
         height: 3.5px;
         background: linear-gradient(90deg, transparent, var(--w-c));
+        border-radius: 999px;
         transform: scaleX(0);
         transform-origin: right;
         transition: transform 0.3s ease;
@@ -750,24 +751,24 @@
     .dark-mode .exp-card.exp-card--lp   { --w-ct: #fca5a5; }
     .dark-mode .exp-card.exp-card--le   { --w-ct: #5eead4; }
 
-    /* ── Year Corner Badge ── */
+    /* ── Year Corner Badge (Full Floating Pill Badge) ── */
     .exp-card-year-badge {
         position: absolute;
-        top: 0;
+        top: -12px;
         left: 20px;
         color: #ffffff;
         font-family: 'Tajawal', sans-serif;
         font-size: 0.72rem;
         font-weight: 900;
-        padding: 4px 13px;
-        border-radius: 0 0 11px 11px;
+        padding: 3px 14px;
+        border-radius: 999px;
         white-space: nowrap;
-        z-index: 3;
+        z-index: 4;
         letter-spacing: 0.3px;
         display: inline-flex;
         align-items: center;
         gap: 5px;
-        line-height: 1.3;
+        line-height: 1.4;
     }
     .exp-card-year-badge--2026 {
         background: linear-gradient(135deg, #ff6b35, #d44500);
