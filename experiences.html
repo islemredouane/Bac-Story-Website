@@ -1010,34 +1010,91 @@
 
     /* ══ COMMUNITY CALLOUT FOOTER ══ */
     .exp-footer-callout {
-        background: linear-gradient(135deg, rgba(26, 58, 143, 0.06) 0%, rgba(255, 107, 53, 0.08) 100%);
-        border: 1.5px solid rgba(44, 92, 195, 0.15);
-        border-radius: 24px;
-        padding: 2.2rem 2rem;
+        position: relative;
+        background: linear-gradient(135deg, #1a3a8f 0%, #2c5cc5 100%);
+        border-radius: 28px;
+        padding: 3rem 2.4rem;
         text-align: center;
-        margin-top: 1rem;
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03);
+        color: #fff;
+        overflow: hidden;
+        margin-top: 1.5rem;
+        box-shadow: 0 16px 40px rgba(44, 92, 195, 0.24);
     }
     .dark-mode .exp-footer-callout {
-        background: #1e293b;
-        border-color: rgba(255, 255, 255, 0.08);
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+    }
+    .exp-footer-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        background: rgba(255, 255, 255, 0.14);
+        border: 1px solid rgba(255, 255, 255, 0.24);
+        border-radius: 999px;
+        padding: 7px 17px;
+        font-size: 0.84rem;
+        font-weight: 800;
+        letter-spacing: 0.2px;
+        margin-bottom: 1.15rem;
+        color: #ffffff;
+    }
+    .exp-footer-eyebrow i {
+        color: #ff6b35;
+        font-size: 0.85rem;
     }
     .exp-footer-callout h2 {
-        font-size: 1.45rem;
+        font-size: clamp(1.5rem, 3.6vw, 2.05rem);
         font-weight: 900;
-        margin: 0 0 0.6rem;
-        color: #0f172a;
+        margin: 0 0 0.9rem;
+        line-height: 1.4;
+        letter-spacing: -0.4px;
+        color: #ffffff !important;
+        text-wrap: balance;
     }
-    .dark-mode .exp-footer-callout h2 { color: #f8fafc; }
+    .exp-footer-callout h2 em {
+        font-style: normal;
+        color: #ff6b35;
+    }
     .exp-footer-callout p {
-        font-size: 0.98rem;
-        line-height: 1.75;
-        color: #475569;
-        max-width: 620px;
-        margin: 0 auto 1.4rem;
+        font-size: 1.02rem;
+        color: rgba(255, 255, 255, 0.92) !important;
+        max-width: 62ch;
+        margin: 0 auto 1.8rem;
+        line-height: 1.9;
     }
-    .dark-mode .exp-footer-callout p { color: #cbd5e1; }
+    .exp-footer-callout p b {
+        color: #fff;
+        font-weight: 800;
+    }
+    .exp-footer-actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+    .exp-footer-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-family: 'Tajawal', sans-serif;
+        font-size: 1rem;
+        font-weight: 900;
+        border-radius: 999px;
+        padding: 0.9rem 2.2rem;
+        text-decoration: none;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .exp-footer-btn--primary {
+        background: #fff;
+        color: #1a3a8f;
+        box-shadow: 0 12px 26px rgba(0, 0, 0, 0.16);
+    }
+    .exp-footer-btn--primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.22);
+    }
 
     /* Empty state */
     .exp-empty {
@@ -1662,14 +1719,16 @@
 
             <!-- ══ COMMUNITY CALLOUT FOOTER ══ -->
             <section class="exp-footer-callout">
-                <h2>هل لديك سؤال لأحد المتفوقين؟</h2>
+                <span class="exp-footer-eyebrow"><i class="fab fa-telegram-plane"></i> مجتمع المتفوقين التفاعلي</span>
+                <h2>هل لديك سؤال <em>لأحد المتفوقين؟</em></h2>
                 <p>
                     نستضيف ضيوفنا المتفوقين دورياً في بثوث ومناقشات تفاعلية للإجابة عن كامل تساؤلاتكم ومساعدتكم على تجاوز كافة الصعوبات. انضم لمجتمعنا على تلغرام لتكون قريباً منهم.
                 </p>
-                <a href="https://t.me/islembacdz" target="_blank" rel="noopener noreferrer" class="exp-telegram-btn">
-                    <i class="fab fa-telegram-plane"></i>
-                    <span>اطرح سؤالك في مجتمع التلغرام</span>
-                </a>
+                <div class="exp-footer-actions">
+                    <a href="https://t.me/islembacdz" target="_blank" rel="noopener noreferrer" class="exp-footer-btn exp-footer-btn--primary">
+                        <i class="fab fa-telegram-plane"></i> اطرح سؤالك في مجتمع التلغرام
+                    </a>
+                </div>
             </section>
         </div>
     </main>
