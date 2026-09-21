@@ -1349,6 +1349,11 @@ html {
 .gcta-card--moktasabat:hover .gcta-btn i.fa-arrow-left {
     transform: translateX(-4px);
 }
+.gcta-card--experiences {
+    background: linear-gradient(135deg, #065f46 0%, #059669 45%, #10b981 100%);
+    box-shadow: 0 8px 28px rgba(5, 150, 105, 0.22);
+}
+
 .gcta-card--changes2027 {
     background: linear-gradient(135deg, #1a3a8f 0%, #2c5cc5 45%, #4f7de8 100%);
     box-shadow: 0 8px 28px rgba(44, 92, 197, 0.22);

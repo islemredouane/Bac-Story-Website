@@ -101,13 +101,13 @@ function injectGlobalCTA() {
 <section class="global-cta" id="global-cta">
     <!-- CTA Cards (side-by-side on desktop, rotating on mobile) -->
     <div class="gcta-cards" id="gcta-cards">
-        <a href="/university/averages-of-acceptance" class="gcta-card gcta-card--timer">
-            <div class="gcta-icon-circle"><i class="fas fa-chart-line"></i></div>
+        <a href="/experiences" class="gcta-card gcta-card--experiences">
+            <div class="gcta-icon-circle"><i class="fas fa-medal"></i></div>
             <div class="gcta-text">
-                <strong>معدلات القبول 2026</strong>
-                <span>اطلع على معدلات القبول الرسمية لجميع التخصصات الجامعية</span>
+                <strong>تجارب أوائل البكالوريا</strong>
+                <span>خلاصة مسيرة ونظام دراسة أوائل الجزائر بمعدلات تفوق 18 و19</span>
             </div>
-            <div class="gcta-btn">تصفح المعدلات <i class="fas fa-arrow-left"></i></div>
+            <div class="gcta-btn">تصفح التجارب <i class="fas fa-arrow-left"></i></div>
         </a>
         <a href="/feedback" class="gcta-card gcta-card--feedback">
             <div class="gcta-icon-circle"><i class="fas fa-star"></i></div>
