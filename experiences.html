@@ -506,39 +506,45 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        gap: 8px;
         margin-bottom: 1.1rem;
     }
     .exp-card-stream-wrap {
         display: flex;
         align-items: center;
-        gap: 9px;
+        gap: 8px;
+        min-width: 0;
     }
     .exp-card-rank {
-        width: 34px; height: 34px;
-        min-width: 34px;
-        border-radius: 11px;
+        width: 32px; height: 32px;
+        min-width: 32px;
+        border-radius: 10px;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 0.95rem;
+        font-size: 0.9rem;
         color: #ffffff;
         background: linear-gradient(135deg, var(--w-c) 0%, var(--w-c2) 100%);
         box-shadow: 0 4px 12px color-mix(in srgb, var(--w-c) 35%, transparent);
+        flex-shrink: 0;
     }
     .exp-card-stream {
-        font-size: 0.84rem;
+        font-size: 0.82rem;
         font-weight: 800;
         color: var(--w-ct);
         background: color-mix(in srgb, var(--w-c) 10%, transparent);
         border-radius: 999px;
-        padding: 4px 13px;
-        line-height: 1.5;
+        padding: 4px 11px;
+        line-height: 1.4;
+        white-space: nowrap;
     }
     .exp-card-candidacy {
-        font-size: 0.78rem;
+        font-size: 0.76rem;
         font-weight: 800;
-        padding: 4px 11px;
+        padding: 4px 10px;
         border-radius: 999px;
+        white-space: nowrap;
+        flex-shrink: 0;
     }
     .exp-card-candidacy--regular {
         background: rgba(16, 185, 129, 0.12);
@@ -622,24 +628,12 @@
         display: inline-flex;
         align-items: center;
         gap: 6px;
+        white-space: nowrap;
     }
     .dark-mode .exp-card-univ {
         background: #0f172a;
         color: #cbd5e1;
     }
-
-    /* Takeaway Quote */
-    .exp-card-quote {
-        position: relative;
-        padding-right: 14px;
-        border-right: 3px solid var(--w-c);
-        font-size: 0.88rem;
-        line-height: 1.68;
-        color: #334155;
-        margin: 0 0 1rem;
-        font-weight: 500;
-    }
-    .dark-mode .exp-card-quote { color: #cbd5e1; }
 
     /* Key takeaways list */
     .exp-card-points {
@@ -685,6 +679,7 @@
         text-decoration: none;
         transition: all 0.25s ease;
         box-sizing: border-box;
+        white-space: nowrap;
     }
     .exp-card-cta:hover {
         background: var(--w-c);
@@ -711,6 +706,7 @@
         border: 1px solid color-mix(in srgb, var(--w-c) 25%, transparent);
         padding: 5px 12px;
         border-radius: 999px;
+        white-space: nowrap;
     }
     .exp-card-badge-batch i {
         color: #ff6b35;
@@ -787,14 +783,16 @@
     .dark-mode .exp-empty h3 { color: #f1f5f9; }
 
     /* ══ RESPONSIVE BREAKPOINTS ══ */
+    @media (max-width: 1200px) {
+        .exp-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
     @media (max-width: 1024px) {
         .exp-lede {
             grid-template-columns: 1fr;
             padding: 2.5rem 2.2rem;
             gap: 2.2rem;
-        }
-        .exp-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
         }
     }
     @media (max-width: 768px) {
@@ -819,6 +817,41 @@
         .exp-chip {
             font-size: 0.82rem;
             padding: 0.4rem 0.9rem;
+        }
+    }
+    @media (max-width: 480px) {
+        .exp-card {
+            padding: 1.3rem 1.1rem 1.2rem;
+            border-radius: 20px;
+        }
+        .exp-card-top {
+            gap: 6px;
+        }
+        .exp-card-stream-wrap {
+            gap: 6px;
+        }
+        .exp-card-rank {
+            width: 28px;
+            height: 28px;
+            min-width: 28px;
+            font-size: 0.8rem;
+            border-radius: 8px;
+        }
+        .exp-card-stream {
+            font-size: 0.76rem;
+            padding: 3px 8px;
+        }
+        .exp-card-candidacy {
+            font-size: 0.72rem;
+            padding: 3px 8px;
+        }
+        .exp-card-univ {
+            font-size: 0.74rem;
+            padding: 4px 8px;
+        }
+        .exp-card-cta {
+            font-size: 0.85rem;
+            padding: 0.65rem 0.8rem;
         }
     }
     </style>
