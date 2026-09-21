@@ -468,7 +468,7 @@ function showBac2026AnnouncementModal() {
         <div class="welcome-announcement-card modal-version">
             <button class="announcement-modal-close" aria-label="إغلاق">&times;</button>
             <div class="welcome-badge-pill" style="background: linear-gradient(135deg, #ff6b1a, #e8420e); color: #fff; box-shadow: 0 4px 14px rgba(232,66,14,0.35); border: none;">
-                <i class="fas fa-star"></i> جديد القناة
+                <i class="fas fa-star"></i> جديد القناة و المنصة
             </div>
             <h3>سلسلة تجارب المتفوقين</h3>
             <p style="margin-bottom: 1.2rem; line-height: 1.65; color: rgba(255, 255, 255, 0.95);">أطلقنا سلسلة جديدة وحصرية على قناتنا تحت عنوان «تجارب المتفوقين»، حيث نستضيف نخبة من الطلبة الحاصلين على تقدير امتياز (بمعدلات تفوق 18) من مختلف الشعب الدراسية.<br><br>هؤلاء المتفوقون سيشاركونك رحلتهم نحو النجاح ويقدمون لك نصائح ذهبية لتستفيد منها. تصفح التجارب الآن عبر الموقع أو تابعها عبر قناتنا على التلغرام!</p>
