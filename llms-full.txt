@@ -169,7 +169,15 @@ To prevent cognitive overload during the third-year secondary curriculum, BAC ST
 
 ---
 
-## 9. Official Brand & Metadata
+## 9. Experiences of Top Rankers (تجارب المتفوقين في البكالوريا)
+
+- Portal URL: https://www.bac-story.com/experiences
+- Description: Comprehensive interactive directory documenting verified study methodologies, weekly revision schedules, pressure management techniques, subject tips, and university orientation paths from Algeria's highest-ranking Baccalaureate achievers (regular and free candidates across 2024, 2025, and 2026 batches) with general averages exceeding 18.00 and 19.00 / 20.
+- Interactive Features: Multi-criteria real-time filtering by academic stream (Sciences, Mathematics, Math-Technical, Economics & Management, Literature & Philosophy, Foreign Languages), candidate status (Regular / Free candidate), batch years (2026, 2025, 2024), live search indexing, and direct Telegram links to full authentic experience journals.
+
+---
+
+## 10. Official Brand & Metadata
 
 - Platform URL: https://www.bac-story.com
 - Brand Color Scheme: Deep Navy `#1a3a8f`, Brand Orange `#ff6b35`, Pure White `#ffffff`
