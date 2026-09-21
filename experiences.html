@@ -385,9 +385,6 @@
         flex: 0 0 auto !important;
         align-items: center;
         gap: 6px;
-        background: rgba(44, 92, 195, 0.07) !important;
-        color: rgb(44, 92, 195) !important;
-        border: 1.5px solid rgba(44, 92, 195, 0.18) !important;
         padding: 0.38rem 1rem !important;
         border-radius: 50px !important;
         font-size: 0.84rem !important;
@@ -399,31 +396,224 @@
         box-shadow: none !important;
         transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease, background 0.18s ease, border-color 0.18s ease;
     }
-    .dark-mode .exp-chip {
-        background: rgba(44, 92, 195, 0.15) !important;
-        color: #93c5fd !important;
-        border-color: rgba(147, 197, 253, 0.25) !important;
+
+    /* ── Stream & Type Chip Color Palettes (Identical to resources.html & style.css) ── */
+    /* 1. All & Default / Math (Royal Blue) */
+    .filter-chip[data-stream="all"],
+    .filter-chip[data-type="all"] {
+        background: rgba(44, 92, 197, 0.08) !important;
+        color: #2c5cc5 !important;
+        border: 1.5px solid rgba(44, 92, 197, 0.22) !important;
     }
-    .exp-chip:hover:not(.active) {
-        background: rgba(44, 92, 195, 0.12) !important;
-        border-color: rgba(44, 92, 195, 0.28) !important;
+    .filter-chip[data-stream="all"]:hover:not(.active),
+    .filter-chip[data-type="all"]:hover:not(.active) {
+        background: rgba(44, 92, 197, 0.14) !important;
+        border-color: rgba(44, 92, 197, 0.35) !important;
         transform: translateY(-2px);
     }
-    .dark-mode .exp-chip:hover:not(.active) {
-        background: rgba(44, 92, 195, 0.25) !important;
-        border-color: rgba(147, 197, 253, 0.4) !important;
-    }
-    .exp-chip.active {
+    .filter-chip[data-stream="all"].active,
+    .filter-chip[data-type="all"].active {
         background: linear-gradient(135deg, #1a3a8f 0%, #3d6ee0 100%) !important;
         color: #ffffff !important;
         border-color: transparent !important;
-        box-shadow: 0 4px 14px rgba(44, 92, 195, 0.25) !important;
+        box-shadow: 0 4px 14px rgba(44, 92, 197, 0.28) !important;
         transform: translateY(-1px);
     }
-    .dark-mode .exp-chip.active {
-        background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%) !important;
+
+    /* 2. Math (Royal Blue) */
+    .filter-chip[data-stream="math"] {
+        background: rgba(44, 92, 197, 0.08) !important;
+        color: #2c5cc5 !important;
+        border: 1.5px solid rgba(44, 92, 197, 0.22) !important;
+    }
+    .filter-chip[data-stream="math"]:hover:not(.active) {
+        background: rgba(44, 92, 197, 0.14) !important;
+        border-color: rgba(44, 92, 197, 0.35) !important;
+        transform: translateY(-2px);
+    }
+    .filter-chip[data-stream="math"].active {
+        background: linear-gradient(135deg, #2c5cc5 0%, #1e3fa0 100%) !important;
         color: #ffffff !important;
-        box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4) !important;
+        border-color: transparent !important;
+        box-shadow: 0 4px 14px rgba(44, 92, 197, 0.28) !important;
+        transform: translateY(-1px);
+    }
+
+    /* 3. Experimental Science (Vibrant Green) */
+    .filter-chip[data-stream="sci"] {
+        background: rgba(40, 167, 69, 0.08) !important;
+        color: #1a7a38 !important;
+        border: 1.5px solid rgba(40, 167, 69, 0.22) !important;
+    }
+    .filter-chip[data-stream="sci"]:hover:not(.active) {
+        background: rgba(40, 167, 69, 0.14) !important;
+        border-color: rgba(40, 167, 69, 0.35) !important;
+        transform: translateY(-2px);
+    }
+    .filter-chip[data-stream="sci"].active {
+        background: linear-gradient(135deg, #28a745 0%, #1d7a33 100%) !important;
+        color: #ffffff !important;
+        border-color: transparent !important;
+        box-shadow: 0 4px 14px rgba(40, 167, 69, 0.28) !important;
+        transform: translateY(-1px);
+    }
+
+    /* 4. Tech (Golden Amber) */
+    .filter-chip[data-stream="tech"] {
+        background: rgba(243, 156, 18, 0.09) !important;
+        color: #b7770d !important;
+        border: 1.5px solid rgba(243, 156, 18, 0.25) !important;
+    }
+    .filter-chip[data-stream="tech"]:hover:not(.active) {
+        background: rgba(243, 156, 18, 0.16) !important;
+        border-color: rgba(243, 156, 18, 0.4) !important;
+        transform: translateY(-2px);
+    }
+    .filter-chip[data-stream="tech"].active {
+        background: linear-gradient(135deg, #f39c12 0%, #c87f0a 100%) !important;
+        color: #ffffff !important;
+        border-color: transparent !important;
+        box-shadow: 0 4px 14px rgba(243, 156, 18, 0.28) !important;
+        transform: translateY(-1px);
+    }
+
+    /* 5. Management & Economics (Purple) */
+    .filter-chip[data-stream="ge"] {
+        background: rgba(142, 68, 173, 0.08) !important;
+        color: #7d3c98 !important;
+        border: 1.5px solid rgba(142, 68, 173, 0.22) !important;
+    }
+    .filter-chip[data-stream="ge"]:hover:not(.active) {
+        background: rgba(142, 68, 173, 0.14) !important;
+        border-color: rgba(142, 68, 173, 0.35) !important;
+        transform: translateY(-2px);
+    }
+    .filter-chip[data-stream="ge"].active {
+        background: linear-gradient(135deg, #8e44ad 0%, #6c3483 100%) !important;
+        color: #ffffff !important;
+        border-color: transparent !important;
+        box-shadow: 0 4px 14px rgba(142, 68, 173, 0.28) !important;
+        transform: translateY(-1px);
+    }
+
+    /* 6. Foreign Languages (Teal / Emerald) */
+    .filter-chip[data-stream="le"] {
+        background: rgba(22, 160, 133, 0.08) !important;
+        color: #117a65 !important;
+        border: 1.5px solid rgba(22, 160, 133, 0.22) !important;
+    }
+    .filter-chip[data-stream="le"]:hover:not(.active) {
+        background: rgba(22, 160, 133, 0.14) !important;
+        border-color: rgba(22, 160, 133, 0.35) !important;
+        transform: translateY(-2px);
+    }
+    .filter-chip[data-stream="le"].active {
+        background: linear-gradient(135deg, #16a085 0%, #117a65 100%) !important;
+        color: #ffffff !important;
+        border-color: transparent !important;
+        box-shadow: 0 4px 14px rgba(22, 160, 133, 0.28) !important;
+        transform: translateY(-1px);
+    }
+
+    /* 7. Literature & Philosophy (Crimson Red) */
+    .filter-chip[data-stream="lp"] {
+        background: rgba(231, 76, 60, 0.08) !important;
+        color: #c0392b !important;
+        border: 1.5px solid rgba(231, 76, 60, 0.22) !important;
+    }
+    .filter-chip[data-stream="lp"]:hover:not(.active) {
+        background: rgba(231, 76, 60, 0.14) !important;
+        border-color: rgba(231, 76, 60, 0.35) !important;
+        transform: translateY(-2px);
+    }
+    .filter-chip[data-stream="lp"].active {
+        background: linear-gradient(135deg, #e74c3c 0%, #b03a2e 100%) !important;
+        color: #ffffff !important;
+        border-color: transparent !important;
+        box-shadow: 0 4px 14px rgba(231, 76, 60, 0.28) !important;
+        transform: translateY(-1px);
+    }
+
+    /* 8. Candidacy: Regular (Emerald Green) */
+    .filter-chip[data-type="regular"] {
+        background: rgba(16, 185, 129, 0.08) !important;
+        color: #059669 !important;
+        border: 1.5px solid rgba(16, 185, 129, 0.25) !important;
+    }
+    .filter-chip[data-type="regular"]:hover:not(.active) {
+        background: rgba(16, 185, 129, 0.14) !important;
+        border-color: rgba(16, 185, 129, 0.35) !important;
+        transform: translateY(-2px);
+    }
+    .filter-chip[data-type="regular"].active {
+        background: linear-gradient(135deg, #059669 0%, #047857 100%) !important;
+        color: #ffffff !important;
+        border-color: transparent !important;
+        box-shadow: 0 4px 14px rgba(5, 150, 105, 0.28) !important;
+        transform: translateY(-1px);
+    }
+
+    /* 9. Candidacy: Free (Violet) */
+    .filter-chip[data-type="free"] {
+        background: rgba(124, 58, 237, 0.08) !important;
+        color: #7c3aed !important;
+        border: 1.5px solid rgba(124, 58, 237, 0.25) !important;
+    }
+    .filter-chip[data-type="free"]:hover:not(.active) {
+        background: rgba(124, 58, 237, 0.14) !important;
+        border-color: rgba(124, 58, 237, 0.35) !important;
+        transform: translateY(-2px);
+    }
+    .filter-chip[data-type="free"].active {
+        background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%) !important;
+        color: #ffffff !important;
+        border-color: transparent !important;
+        box-shadow: 0 4px 14px rgba(124, 58, 237, 0.28) !important;
+        transform: translateY(-1px);
+    }
+
+    /* Dark Mode Adjustments for Filter Chips */
+    .dark-mode .filter-chip[data-stream="math"]:not(.active),
+    .dark-mode .filter-chip[data-stream="all"]:not(.active),
+    .dark-mode .filter-chip[data-type="all"]:not(.active) {
+        background: rgba(44, 92, 197, 0.16) !important;
+        color: #93c5fd !important;
+        border-color: rgba(147, 197, 253, 0.28) !important;
+    }
+    .dark-mode .filter-chip[data-stream="sci"]:not(.active) {
+        background: rgba(40, 167, 69, 0.16) !important;
+        color: #86efac !important;
+        border-color: rgba(134, 239, 172, 0.28) !important;
+    }
+    .dark-mode .filter-chip[data-stream="tech"]:not(.active) {
+        background: rgba(243, 156, 18, 0.16) !important;
+        color: #fde047 !important;
+        border-color: rgba(253, 224, 71, 0.28) !important;
+    }
+    .dark-mode .filter-chip[data-stream="ge"]:not(.active) {
+        background: rgba(142, 68, 173, 0.16) !important;
+        color: #d8b4fe !important;
+        border-color: rgba(216, 180, 254, 0.28) !important;
+    }
+    .dark-mode .filter-chip[data-stream="le"]:not(.active) {
+        background: rgba(22, 160, 133, 0.16) !important;
+        color: #5eead4 !important;
+        border-color: rgba(94, 234, 212, 0.28) !important;
+    }
+    .dark-mode .filter-chip[data-stream="lp"]:not(.active) {
+        background: rgba(231, 76, 60, 0.16) !important;
+        color: #fca5a5 !important;
+        border-color: rgba(252, 165, 165, 0.28) !important;
+    }
+    .dark-mode .filter-chip[data-type="regular"]:not(.active) {
+        background: rgba(16, 185, 129, 0.16) !important;
+        color: #6ee7b7 !important;
+        border-color: rgba(110, 231, 183, 0.28) !important;
+    }
+    .dark-mode .filter-chip[data-type="free"]:not(.active) {
+        background: rgba(124, 58, 237, 0.16) !important;
+        color: #c4b5fd !important;
+        border-color: rgba(196, 181, 253, 0.28) !important;
     }
 
     /* Live counter bar */
