@@ -52,6 +52,7 @@ The platform is founded and operated by Redouane Mohamed Islem and is accessible
 - [شعبة لغات أجنبية](https://www.bac-story.com/resources/le): French, English, Spanish, German, and Italian learning tracks.
 - [كتب ومراجع خارجية](https://www.bac-story.com/resources/books): Complete library of external textbooks, series (السلسلة الفضية، السلسلة الأرجوانية، كليك، المعاصر), and verified study books.
 - [درايفات المتفوقين](https://www.bac-story.com/resources/drives): Top-scoring baccalaureate candidates' curated Google Drive repositories.
+- [تجارب المتفوقين](https://www.bac-story.com/experiences): Real, detailed study experiences, schedules, and tips from top-scoring Algerian Baccalaureate students (regular and free candidates) shared via the official BAC STORY Telegram community.
 - [باقات عقبة بن نافع](https://www.bac-story.com/oqba): Elite exam packages and problem sets selected from top secondary pilot institutions across Algeria.
 
 ## Prerequisites (كُتيّب المكتسبات القبلية)
