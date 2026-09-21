@@ -2831,27 +2831,27 @@ body.search-active .mobile-bottom-bar,
     background: var(--primary-color);
     color: white !important;
     border: none;
-    padding: 0.85rem 2.2rem;
+    padding: 1rem 2.6rem;
     border-radius: 999px;
     font-family: 'Tajawal', sans-serif;
-    font-size: 1.05rem;
-    font-weight: 700;
+    font-size: 1.15rem;
+    font-weight: 800;
     line-height: 1.25;
     cursor: pointer;
     transition: transform 0.22s ease, box-shadow 0.22s ease, background-color 0.22s ease;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.8rem;
+    gap: 0.9rem;
     text-decoration: none !important;
-    box-shadow: 0 6px 20px rgba(44, 92, 197, 0.18);
+    box-shadow: 0 8px 24px rgba(44, 92, 197, 0.22);
     z-index: 1;
     animation: fadeIn 1.8s ease-out;
     max-width: 100%;
     text-align: center;
     white-space: nowrap;
     box-sizing: border-box;
-    min-height: 52px;
+    min-height: 58px;
     user-select: none;
 }
 
@@ -2870,7 +2870,7 @@ body.search-active .mobile-bottom-bar,
 }
 
 .modern-cta-btn:hover {
-    box-shadow: 0 10px 28px rgba(44, 92, 197, 0.28);
+    box-shadow: 0 12px 32px rgba(44, 92, 197, 0.32);
     transform: translateY(-2px);
     color: white !important;
 }
@@ -2881,11 +2881,11 @@ body.search-active .mobile-bottom-bar,
 
 .modern-cta-btn:active {
     transform: translateY(0) scale(0.98);
-    box-shadow: 0 4px 12px rgba(44, 92, 197, 0.2);
+    box-shadow: 0 4px 14px rgba(44, 92, 197, 0.22);
 }
 
 .modern-cta-btn i {
-    font-size: 0.95em;
+    font-size: 1em;
     flex-shrink: 0;
     transition: transform 0.25s ease;
 }
@@ -2897,37 +2897,37 @@ body.search-active .mobile-bottom-bar,
 /* Responsive Scaling for Modern CTA & Back Buttons */
 @media screen and (max-width: 768px) {
     .modern-cta-btn {
-        font-size: 0.98rem;
-        padding: 0.78rem 1.85rem;
-        gap: 0.75rem;
-        min-height: 50px;
+        font-size: 1.08rem;
+        padding: 0.95rem 2.2rem;
+        gap: 0.85rem;
+        min-height: 56px;
     }
 }
 
 @media screen and (max-width: 576px) {
     .modern-cta-btn {
-        font-size: 0.92rem;
-        padding: 0.72rem 1.55rem;
-        gap: 0.7rem;
-        min-height: 48px;
+        font-size: 1.02rem;
+        padding: 0.88rem 1.8rem;
+        gap: 0.8rem;
+        min-height: 54px;
     }
 }
 
 @media screen and (max-width: 420px) {
     .modern-cta-btn {
-        font-size: 0.86rem;
-        padding: 0.68rem 1.25rem;
-        gap: 0.6rem;
-        min-height: 46px;
+        font-size: 0.92rem;
+        padding: 0.8rem 1.4rem;
+        gap: 0.7rem;
+        min-height: 50px;
     }
 }
 
 @media screen and (max-width: 350px) {
     .modern-cta-btn {
-        font-size: 0.80rem;
-        padding: 0.62rem 1rem;
-        gap: 0.5rem;
-        min-height: 44px;
+        font-size: 0.85rem;
+        padding: 0.75rem 1.1rem;
+        gap: 0.6rem;
+        min-height: 48px;
     }
 }
 
