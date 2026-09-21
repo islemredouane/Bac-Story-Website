@@ -448,7 +448,7 @@ if (typeof window.showSection === 'undefined') {
 }
 
 // ─── BAC 2026 ANNOUNCEMENT MODAL ──────────────────────────────────────────────────
-const BAC2026_ANNOUNCE_KEY = 'bs_seen_telegram_series_v6';
+const BAC2026_ANNOUNCE_KEY = 'bs_seen_telegram_series_v7';
 
 function showBac2026AnnouncementModal() {
     try {
