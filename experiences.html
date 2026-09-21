@@ -683,8 +683,11 @@
         content: '';
         position: absolute;
         top: 0; right: 0; left: 0;
-        height: 6px;
+        height: 5px;
         background: linear-gradient(90deg, var(--w-c2), var(--w-c));
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
         z-index: 2;
     }
     .exp-card::after {
@@ -699,6 +702,9 @@
     .exp-card:hover {
         border-color: color-mix(in srgb, var(--w-c) 50%, transparent);
         box-shadow: 0 16px 38px color-mix(in srgb, var(--w-c) 20%, transparent);
+    }
+    .exp-card:hover::before {
+        transform: scaleX(1);
     }
     .dark-mode .exp-card:hover {
         box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
