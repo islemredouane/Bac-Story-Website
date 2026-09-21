@@ -50,6 +50,145 @@
     </noscript>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Pattaya&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Pattaya&display=swap"></noscript>
+    <style>
+        .empty-state-card {
+            margin: 24px auto;
+            max-width: 620px;
+            padding: 42px 24px;
+            background: linear-gradient(135deg, #f8faff 0%, #edf3fe 100%);
+            border: 2px dashed rgba(44, 92, 195, 0.35);
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(44, 92, 195, 0.06);
+            text-align: center;
+        }
+        .empty-state-icon {
+            width: 72px;
+            height: 72px;
+            margin: 0 auto 18px;
+            background: rgba(44, 92, 195, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .empty-state-icon i {
+            font-size: 2rem;
+            color: var(--primary-color, #2c5cc5);
+        }
+        .empty-state-title {
+            color: #1a3a8f;
+            margin-bottom: 10px;
+            font-weight: 800;
+            font-size: 1.4rem;
+            font-family: 'Tajawal', sans-serif;
+        }
+        .empty-state-desc {
+            font-size: 1rem;
+            color: #475569;
+            line-height: 1.7;
+            margin: 0 auto 24px;
+            max-width: 480px;
+        }
+        .empty-state-actions {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .empty-contribute-btn {
+            background: var(--primary-color, #2c5cc5);
+            color: #ffffff !important;
+            padding: 0.65rem 1.6rem;
+            border-radius: 999px;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-decoration: none !important;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            white-space: nowrap;
+            box-shadow: 0 4px 14px rgba(44, 92, 195, 0.28);
+            transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+            cursor: pointer;
+        }
+        .empty-contribute-btn:hover {
+            background: #234eb3;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 22px rgba(44, 92, 195, 0.38);
+            color: #ffffff !important;
+        }
+        .empty-telegram-btn {
+            padding: 0.65rem 1.4rem;
+            border-radius: 999px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none !important;
+            transition: transform 0.22s ease, box-shadow 0.22s ease;
+        }
+        @media (max-width: 600px) {
+            .empty-state-card {
+                padding: 30px 16px;
+                margin: 16px auto;
+            }
+            .empty-state-icon {
+                width: 58px;
+                height: 58px;
+                margin-bottom: 12px;
+            }
+            .empty-state-icon i {
+                font-size: 1.5rem;
+            }
+            .empty-state-title {
+                font-size: 1.25rem;
+            }
+            .empty-state-desc {
+                font-size: 0.9rem;
+                margin-bottom: 20px;
+                line-height: 1.6;
+            }
+            .empty-state-actions {
+                gap: 10px;
+            }
+            .empty-contribute-btn {
+                font-size: 0.86rem;
+                padding: 0.6rem 1.25rem;
+                gap: 6px;
+            }
+            .empty-telegram-btn {
+                font-size: 0.86rem;
+                padding: 0.6rem 1.15rem;
+                gap: 6px;
+            }
+        }
+        @media (max-width: 420px) {
+            .empty-state-actions {
+                flex-direction: column;
+                width: 100%;
+            }
+            .empty-contribute-btn,
+            .empty-telegram-btn {
+                width: 100%;
+                max-width: 280px;
+                font-size: 0.82rem;
+                padding: 0.58rem 1rem;
+            }
+        }
+        @media (max-width: 350px) {
+            .empty-contribute-btn,
+            .empty-telegram-btn {
+                font-size: 0.78rem;
+                padding: 0.52rem 0.85rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5H3TNJ4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -63,19 +202,19 @@
             </div>
             
             <section style="text-align:center;padding:20px 10px 40px;">
-                <div class="empty-state-card" style="margin: 20px auto; max-width: 650px; padding: 45px 24px; background: linear-gradient(135deg, #f8faff 0%, #eef4ff 100%); border: 2px dashed #3b82f6; border-radius: 18px; box-shadow: 0 10px 25px -5px rgba(44, 92, 195, 0.08); text-align: center;">
-                    <div style="width: 76px; height: 76px; margin: 0 auto 20px; background: #dbeafe; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-folder-open" style="font-size: 2.2rem; color: #2563eb;"></i>
+                <div class="empty-state-card">
+                    <div class="empty-state-icon">
+                        <i class="fas fa-folder-open"></i>
                     </div>
-                    <h3 style="color: #1e3a8a; margin-bottom: 12px; font-weight: 800; font-size: 1.5rem; font-family: 'Tajawal', sans-serif;">لا توجد ملفات متوفرة حالياً</h3>
-                    <p style="font-size: 1.05rem; color: #4b5563; line-height: 1.7; margin-bottom: 24px; max-width: 480px; margin-left: auto; margin-right: auto;">
+                    <h3 class="empty-state-title">لا توجد ملفات متوفرة حالياً</h3>
+                    <p class="empty-state-desc">
                         هذا القسم بانتظار مساهماتكم القيّمة! إذا كان لديك نماذج اختبارات لهذا الفصل، شاركها معنا الآن لتفيد آلاف طلبة البكالوريا في الجزائر.
                     </p>
-                    <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
-                        <a href="/contribute" class="modern-cta-btn" style="background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); color: #fff; padding: 12px 28px; border-radius: 999px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);">
+                    <div class="empty-state-actions">
+                        <a href="/contribute" class="empty-contribute-btn">
                             <i class="fas fa-upload"></i> ساهم وشارك ملفاتك الآن
                         </a>
-                        <a href="https://t.me/islembacdz" target="_blank" rel="noopener" class="search-telegram-btn" style="padding: 12px 24px; border-radius: 999px;">
+                        <a href="https://t.me/islembacdz" target="_blank" rel="noopener" class="search-telegram-btn empty-telegram-btn">
                             <i class="fab fa-telegram-plane"></i> أرسلها عبر التلغرام
                         </a>
                     </div>
