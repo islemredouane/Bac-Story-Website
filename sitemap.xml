@@ -2887,6 +2887,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.bac-story.com/experiences</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.bac-story.com/resources/tech</loc>
     <lastmod>2026-09-20</lastmod>
     <changefreq>weekly</changefreq>
