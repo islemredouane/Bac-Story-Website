@@ -39,7 +39,7 @@
     <meta name="theme-color" content="#1a3a8f">
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-    <link rel="stylesheet" href="/style.css?v=10.49">
+    <link rel="stylesheet" href="/style.css?v=10.50">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/solid.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/brands.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -93,99 +93,127 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
             flex-wrap: wrap;
         }
         .empty-contribute-btn {
             background: var(--primary-color, #2c5cc5);
             color: #ffffff !important;
-            padding: 0.65rem 1.6rem;
+            padding: 0.78rem 1.85rem;
+            min-height: 50px;
+            box-sizing: border-box;
             border-radius: 999px;
             font-family: 'Tajawal', sans-serif;
-            font-size: 0.95rem;
+            font-size: 1rem;
             font-weight: 700;
+            line-height: 1.25;
             text-decoration: none !important;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 10px;
             white-space: nowrap;
-            box-shadow: 0 4px 14px rgba(44, 92, 195, 0.28);
+            box-shadow: 0 4px 16px rgba(44, 92, 195, 0.28);
             transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
             cursor: pointer;
+            user-select: none;
         }
         .empty-contribute-btn:hover {
             background: #234eb3;
             transform: translateY(-2px);
-            box-shadow: 0 8px 22px rgba(44, 92, 195, 0.38);
+            box-shadow: 0 8px 24px rgba(44, 92, 195, 0.38);
             color: #ffffff !important;
         }
+        .empty-contribute-btn:active {
+            transform: translateY(0) scale(0.98);
+            box-shadow: 0 3px 10px rgba(44, 92, 195, 0.25);
+        }
         .empty-telegram-btn {
-            padding: 0.65rem 1.4rem;
+            padding: 0.78rem 1.6rem;
+            min-height: 50px;
+            box-sizing: border-box;
             border-radius: 999px;
-            font-size: 0.95rem;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1rem;
             font-weight: 700;
+            line-height: 1.25;
             white-space: nowrap;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 10px;
             text-decoration: none !important;
+            box-shadow: 0 4px 14px rgba(36, 161, 222, 0.22);
             transition: transform 0.22s ease, box-shadow 0.22s ease;
+            user-select: none;
+        }
+        .empty-telegram-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 22px rgba(36, 161, 222, 0.35);
+        }
+        .empty-telegram-btn:active {
+            transform: translateY(0) scale(0.98);
         }
         @media (max-width: 600px) {
             .empty-state-card {
-                padding: 30px 16px;
+                padding: 32px 18px;
                 margin: 16px auto;
             }
             .empty-state-icon {
-                width: 58px;
-                height: 58px;
-                margin-bottom: 12px;
+                width: 60px;
+                height: 60px;
+                margin-bottom: 14px;
             }
             .empty-state-icon i {
-                font-size: 1.5rem;
+                font-size: 1.6rem;
             }
             .empty-state-title {
                 font-size: 1.25rem;
             }
             .empty-state-desc {
-                font-size: 0.9rem;
-                margin-bottom: 20px;
-                line-height: 1.6;
+                font-size: 0.92rem;
+                margin-bottom: 22px;
+                line-height: 1.65;
             }
             .empty-state-actions {
-                gap: 10px;
+                gap: 12px;
             }
             .empty-contribute-btn {
-                font-size: 0.86rem;
-                padding: 0.6rem 1.25rem;
-                gap: 6px;
+                font-size: 0.92rem;
+                padding: 0.72rem 1.45rem;
+                min-height: 48px;
+                gap: 8px;
             }
             .empty-telegram-btn {
-                font-size: 0.86rem;
-                padding: 0.6rem 1.15rem;
-                gap: 6px;
+                font-size: 0.92rem;
+                padding: 0.72rem 1.35rem;
+                min-height: 48px;
+                gap: 8px;
             }
         }
         @media (max-width: 420px) {
             .empty-state-actions {
                 flex-direction: column;
                 width: 100%;
+                gap: 10px;
             }
             .empty-contribute-btn,
             .empty-telegram-btn {
                 width: 100%;
-                max-width: 280px;
-                font-size: 0.82rem;
-                padding: 0.58rem 1rem;
+                max-width: 290px;
+                font-size: 0.86rem;
+                padding: 0.7rem 1.15rem;
+                min-height: 46px;
+                gap: 7px;
             }
         }
         @media (max-width: 350px) {
             .empty-contribute-btn,
             .empty-telegram-btn {
-                font-size: 0.78rem;
-                padding: 0.52rem 0.85rem;
+                font-size: 0.80rem;
+                padding: 0.65rem 0.95rem;
+                min-height: 44px;
+                gap: 6px;
             }
         }
     </style>
