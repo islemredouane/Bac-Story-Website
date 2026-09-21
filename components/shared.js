@@ -448,7 +448,7 @@ if (typeof window.showSection === 'undefined') {
 }
 
 // ─── BAC 2026 ANNOUNCEMENT MODAL ──────────────────────────────────────────────────
-const BAC2026_ANNOUNCE_KEY = 'bs_seen_telegram_series_v5';
+const BAC2026_ANNOUNCE_KEY = 'bs_seen_telegram_series_v6';
 
 function showBac2026AnnouncementModal() {
     try {
@@ -456,9 +456,8 @@ function showBac2026AnnouncementModal() {
     } catch (e) {
         return;
     }
-    // Don't show modal to visitors already on experiences or feedback page
-    const p = location.pathname.replace(/\/$/, '');
-    if (p.endsWith('/feedback') || p.endsWith('/experiences')) return;
+    // Don't invite people already on the feedback page
+    if (location.pathname.replace(/\/$/, '').endsWith('/feedback')) return;
 
     // Create the overlay container
     const overlay = document.createElement('div');
