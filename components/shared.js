@@ -448,7 +448,7 @@ if (typeof window.showSection === 'undefined') {
 }
 
 // ─── BAC 2026 ANNOUNCEMENT MODAL ──────────────────────────────────────────────────
-const BAC2026_ANNOUNCE_KEY = 'bs_seen_telegram_series_v7';
+const BAC2026_ANNOUNCE_KEY = 'bs_seen_telegram_series_v8';
 
 function showBac2026AnnouncementModal() {
     try {
@@ -472,10 +472,10 @@ function showBac2026AnnouncementModal() {
             <h3>سلسلة تجارب المتفوقين</h3>
             <p style="margin-bottom: 1.2rem; line-height: 1.65; color: rgba(255, 255, 255, 0.95);">أطلقنا سلسلة جديدة وحصرية على قناتنا تحت عنوان «تجارب المتفوقين»، حيث نستضيف نخبة من الطلبة الحاصلين على تقدير امتياز (بمعدلات تفوق 18) من مختلف الشعب الدراسية.<br><br>هؤلاء المتفوقون سيشاركونك رحلتهم نحو النجاح ويقدمون لك نصائح ذهبية لتستفيد منها. تصفح التجارب الآن عبر الموقع أو تابعها عبر قناتنا على التلغرام!</p>
             <div class="card-cta-group" style="display: flex; flex-direction: column; gap: 10px; width: 100%;">
-                <a href="/experiences" class="card-cta-btn card-cta-web" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; font-size: 1.05rem; font-weight: 800; padding: 12px 24px; border-radius: 999px; text-decoration: none;">
+                <a href="/experiences" class="card-cta-btn card-cta-web" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; font-size: 1.05rem; font-weight: 800; padding: 13px 24px; background: #ffffff !important; color: #1a3c8d !important; border: none; border-radius: 999px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); text-decoration: none; cursor: pointer; transition: transform 0.25s ease, box-shadow 0.25s ease;" onmouseenter="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.22)'" onmouseleave="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 15px rgba(0,0,0,0.15)'">
                     <i class="fas fa-medal" style="color: #ff6b35;"></i> تصفح التجارب على الموقع
                 </a>
-                <a href="https://t.me/islembacdz" target="_blank" rel="noopener noreferrer" class="card-cta-btn card-cta-telegram" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; font-size: 1.05rem; font-weight: 800; padding: 12px 24px; border-radius: 999px; text-decoration: none;">
+                <a href="https://t.me/islembacdz" target="_blank" rel="noopener noreferrer" class="card-cta-btn card-cta-telegram" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; font-size: 1.05rem; font-weight: 800; padding: 13px 24px; background: #2AABEE !important; color: #ffffff !important; border: none; border-radius: 999px; box-shadow: 0 4px 15px rgba(42, 171, 238, 0.4); text-decoration: none; cursor: pointer; transition: transform 0.25s ease, box-shadow 0.25s ease;" onmouseenter="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 24px rgba(42,171,238,0.55)'" onmouseleave="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 15px rgba(42,171,238,0.4)'">
                     <i class="fab fa-telegram-plane"></i> انضم إلينا على التلغرام
                 </a>
             </div>
