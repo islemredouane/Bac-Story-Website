@@ -655,7 +655,7 @@
         margin-bottom: 3.5rem;
     }
 
-    /* ── Experience Card Base (Exact specialities.html .spec-card architecture) ── */
+    /* ── Experience Card Base ── */
     .exp-card {
         --w-c: #2c5cc5;
         --w-c2: #1e3fa0;
@@ -668,29 +668,13 @@
         border-radius: 24px;
         padding: 1.65rem 1.6rem 1.5rem;
         box-shadow: 0 6px 24px color-mix(in srgb, var(--w-c) 8%, transparent);
-        overflow: hidden;
-        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        overflow: visible;
+        transition: box-shadow 0.3s ease, border-color 0.3s ease;
     }
     .dark-mode .exp-card {
         background: #1e293b;
         border-color: color-mix(in srgb, var(--w-c) 30%, rgba(255, 255, 255, 0.08));
         box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
-    }
-    .exp-card::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        left: 0;
-        height: 3.5px;
-        background: linear-gradient(90deg, transparent, var(--w-c));
-        border-top-left-radius: 24px;
-        border-top-right-radius: 24px;
-        transform: scaleX(0);
-        transform-origin: right;
-        transition: transform 0.3s ease;
-        z-index: 2;
-        pointer-events: none;
     }
     .exp-card::after {
         content: '';
@@ -702,12 +686,8 @@
         pointer-events: none;
     }
     .exp-card:hover {
-        transform: translateY(-5px);
         border-color: color-mix(in srgb, var(--w-c) 35%, transparent);
-        box-shadow: 0 14px 35px color-mix(in srgb, var(--w-c) 15%, transparent);
-    }
-    .exp-card:hover::before {
-        transform: scaleX(1);
+        box-shadow: 0 10px 30px color-mix(in srgb, var(--w-c) 14%, transparent);
     }
     .dark-mode .exp-card:hover {
         box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
@@ -753,26 +733,24 @@
     .dark-mode .exp-card.exp-card--lp   { --w-ct: #fca5a5; }
     .dark-mode .exp-card.exp-card--le   { --w-ct: #5eead4; }
 
-    /* ── Year Corner Badge ── */
-    .exp-card-top-badges {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        flex-wrap: wrap;
-    }
+    /* ── Floating Year Corner Badge ── */
     .exp-card-year-badge {
+        position: absolute;
+        top: -12px;
+        left: 20px;
         color: #ffffff;
         font-family: 'Tajawal', sans-serif;
-        font-size: 0.78rem;
+        font-size: 0.76rem;
         font-weight: 800;
-        padding: 4px 12px;
+        padding: 3.5px 13px;
         border-radius: 999px;
         white-space: nowrap;
-        letter-spacing: 0.2px;
+        z-index: 4;
+        letter-spacing: 0.3px;
         display: inline-flex;
         align-items: center;
         gap: 5px;
-        line-height: 1.35;
+        line-height: 1.4;
     }
     .exp-card-year-badge--2026 {
         background: linear-gradient(135deg, #ff6b35, #d44500);
@@ -907,6 +885,10 @@
         background: linear-gradient(135deg, var(--w-c) 0%, var(--w-c2) 100%);
         box-shadow: 0 4px 12px color-mix(in srgb, var(--w-c) 35%, transparent);
         flex-shrink: 0;
+        transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .exp-card:hover .exp-card-rank {
+        transform: scale(1.1) rotate(-6deg);
     }
     .exp-card-stream {
         font-size: 0.88rem;
@@ -1481,15 +1463,13 @@
 
             <!-- 1. Mohamed Amine Beddad (Math - Regular - 19.05 - 2026) -->
             <article class="exp-card exp-card--math" data-year="2026" data-stream="math" data-type="regular" data-keywords="محمد أمين بداد رياضيات نظامي 19.05 19,05 ESI اعلام الي مدرسة الاعلام الالي العاصمة الجزائر بكالوريا 2026">
+                <span class="exp-card-year-badge exp-card-year-badge--2026">بكالوريا 2026 ✦</span>
                 <div class="exp-card-top">
                     <div class="exp-card-stream-wrap">
                         <div class="exp-card-rank"><i class="fas fa-trophy"></i></div>
                         <span class="exp-card-stream">شعبة رياضيات</span>
                     </div>
-                    <div class="exp-card-top-badges">
-                        <span class="exp-card-year-badge exp-card-year-badge--2026">بكالوريا 2026 ✦</span>
-                        <span class="exp-card-candidacy exp-card-candidacy--regular">🎓 تلميذ نظامي</span>
-                    </div>
+                    <span class="exp-card-candidacy exp-card-candidacy--regular">🎓 تلميذ نظامي</span>
                 </div>
 
                 <h3>محمد أمين بداد</h3>
@@ -1519,15 +1499,13 @@
 
             <!-- 2. Younes (Math - Free Student - 17.50 - 2026) -->
             <article class="exp-card exp-card--math" data-year="2026" data-stream="math" data-type="free" data-keywords="يونس رياضيات حر 17.5 17,5 طالب حر اعادة البكالوريا ESI اعلام الي مدرسة الاعلام الالي العاصمة بكالوريا 2026">
+                <span class="exp-card-year-badge exp-card-year-badge--2026">بكالوريا 2026 ✦</span>
                 <div class="exp-card-top">
                     <div class="exp-card-stream-wrap">
                         <div class="exp-card-rank"><i class="fas fa-redo-alt"></i></div>
                         <span class="exp-card-stream">شعبة رياضيات</span>
                     </div>
-                    <div class="exp-card-top-badges">
-                        <span class="exp-card-year-badge exp-card-year-badge--2026">بكالوريا 2026 ✦</span>
-                        <span class="exp-card-candidacy exp-card-candidacy--free">🦅 طالب حر</span>
-                    </div>
+                    <span class="exp-card-candidacy exp-card-candidacy--free">🦅 طالب حر</span>
                 </div>
 
                 <h3>يونس</h3>
@@ -1557,15 +1535,13 @@
 
             <!-- 3. Khadidja (Experimental Science - Regular - 18.12 - 2026) -->
             <article class="exp-card exp-card--sci" data-year="2026" data-stream="sci" data-type="regular" data-keywords="خديجة علوم تجريبية نظامية 18.12 18,12 ENP بوليتكنيك الحراش المدرسة متعددة التقنيات بكالوريا 2026">
+                <span class="exp-card-year-badge exp-card-year-badge--2026">بكالوريا 2026 ✦</span>
                 <div class="exp-card-top">
                     <div class="exp-card-stream-wrap">
                         <div class="exp-card-rank"><i class="fas fa-flask"></i></div>
                         <span class="exp-card-stream">علوم تجريبية</span>
                     </div>
-                    <div class="exp-card-top-badges">
-                        <span class="exp-card-year-badge exp-card-year-badge--2026">بكالوريا 2026 ✦</span>
-                        <span class="exp-card-candidacy exp-card-candidacy--regular">🎓 تلميذة نظامية</span>
-                    </div>
+                    <span class="exp-card-candidacy exp-card-candidacy--regular">🎓 تلميذة نظامية</span>
                 </div>
 
                 <h3>خديجة</h3>
@@ -1595,15 +1571,13 @@
 
             <!-- 4. Malak (Experimental Science - Regular - 18.23 - 2026) -->
             <article class="exp-card exp-card--sci" data-year="2026" data-stream="sci" data-type="regular" data-keywords="ملاك علوم تجريبية نظامية 18.23 18,23 الامن السيبراني المدرسة العليا بكالوريا 2026">
+                <span class="exp-card-year-badge exp-card-year-badge--2026">بكالوريا 2026 ✦</span>
                 <div class="exp-card-top">
                     <div class="exp-card-stream-wrap">
                         <div class="exp-card-rank"><i class="fas fa-shield-halved"></i></div>
                         <span class="exp-card-stream">علوم تجريبية</span>
                     </div>
-                    <div class="exp-card-top-badges">
-                        <span class="exp-card-year-badge exp-card-year-badge--2026">بكالوريا 2026 ✦</span>
-                        <span class="exp-card-candidacy exp-card-candidacy--regular">🎓 تلميذة نظامية</span>
-                    </div>
+                    <span class="exp-card-candidacy exp-card-candidacy--regular">🎓 تلميذة نظامية</span>
                 </div>
 
                 <h3>ملاك</h3>
@@ -1633,15 +1607,13 @@
 
             <!-- 5. Ons (Experimental Science - Free Student - 18.81 - 2026) -->
             <article class="exp-card exp-card--sci" data-year="2026" data-stream="sci" data-type="free" data-keywords="أنس أنس علوم تجريبية حرة طالبة حرة 18.81 18,81 ESI اعلام الي مدرسة الاعلام الالي العاصمة اعادة بكالوريا 2026">
+                <span class="exp-card-year-badge exp-card-year-badge--2026">بكالوريا 2026 ✦</span>
                 <div class="exp-card-top">
                     <div class="exp-card-stream-wrap">
                         <div class="exp-card-rank"><i class="fas fa-laptop-code"></i></div>
                         <span class="exp-card-stream">علوم تجريبية</span>
                     </div>
-                    <div class="exp-card-top-badges">
-                        <span class="exp-card-year-badge exp-card-year-badge--2026">بكالوريا 2026 ✦</span>
-                        <span class="exp-card-candidacy exp-card-candidacy--free">🦅 طالبة حرة</span>
-                    </div>
+                    <span class="exp-card-candidacy exp-card-candidacy--free">🦅 طالبة حرة</span>
                 </div>
 
                 <h3>أُنس</h3>
@@ -1671,15 +1643,13 @@
 
             <!-- 6. Soulaf (Math-Tech Electrical - Regular - 18.22 - 2026) -->
             <article class="exp-card exp-card--tech" data-year="2026" data-stream="tech" data-type="regular" data-keywords="سلاف تقني رياضي هندسة كهربائية نظامية 18.22 18,22 الانظمة المستقلة بكالوريا 2026">
+                <span class="exp-card-year-badge exp-card-year-badge--2026">بكالوريا 2026 ✦</span>
                 <div class="exp-card-top">
                     <div class="exp-card-stream-wrap">
                         <div class="exp-card-rank"><i class="fas fa-bolt"></i></div>
                         <span class="exp-card-stream">هندسة كهربائية</span>
                     </div>
-                    <div class="exp-card-top-badges">
-                        <span class="exp-card-year-badge exp-card-year-badge--2026">بكالوريا 2026 ✦</span>
-                        <span class="exp-card-candidacy exp-card-candidacy--regular">🎓 تلميذة نظامية</span>
-                    </div>
+                    <span class="exp-card-candidacy exp-card-candidacy--regular">🎓 تلميذة نظامية</span>
                 </div>
 
                 <h3>سلاف</h3>
@@ -1709,15 +1679,13 @@
 
             <!-- 7. Mohamed (Math-Tech Mechanical - Regular - 18.32 - 2026) -->
             <article class="exp-card exp-card--tech" data-year="2026" data-stream="tech" data-type="regular" data-keywords="محمد تقني رياضي هندسة ميكانيكية نظامي 18.32 18,32 تلميذ نظامي الامن السيبراني المدرسة العليا بكالوريا 2026">
+                <span class="exp-card-year-badge exp-card-year-badge--2026">بكالوريا 2026 ✦</span>
                 <div class="exp-card-top">
                     <div class="exp-card-stream-wrap">
                         <div class="exp-card-rank"><i class="fas fa-cogs"></i></div>
                         <span class="exp-card-stream">هندسة ميكانيكية</span>
                     </div>
-                    <div class="exp-card-top-badges">
-                        <span class="exp-card-year-badge exp-card-year-badge--2026">بكالوريا 2026 ✦</span>
-                        <span class="exp-card-candidacy exp-card-candidacy--regular">🎓 تلميذ نظامي</span>
-                    </div>
+                    <span class="exp-card-candidacy exp-card-candidacy--regular">🎓 تلميذ نظامي</span>
                 </div>
 
                 <h3>محمد</h3>
@@ -1746,15 +1714,13 @@
 
             <!-- 8. Anissa Benkhelouf (Management & Economics - Regular - 18.41 - 2026) -->
             <article class="exp-card exp-card--ge" data-year="2026" data-stream="ge" data-type="regular" data-keywords="بن خلوف أنيسة انيسة تسيير واقتصاد تسيير و اقتصاد 18.41 18,41 تلميذة نظامية المدرسة العليا للتجارة ESC بكالوريا 2026">
+                <span class="exp-card-year-badge exp-card-year-badge--2026">بكالوريا 2026 ✦</span>
                 <div class="exp-card-top">
                     <div class="exp-card-stream-wrap">
                         <div class="exp-card-rank"><i class="fas fa-chart-pie"></i></div>
                         <span class="exp-card-stream">تسيير واقتصاد</span>
                     </div>
-                    <div class="exp-card-top-badges">
-                        <span class="exp-card-year-badge exp-card-year-badge--2026">بكالوريا 2026 ✦</span>
-                        <span class="exp-card-candidacy exp-card-candidacy--regular">🎓 تلميذة نظامية</span>
-                    </div>
+                    <span class="exp-card-candidacy exp-card-candidacy--regular">🎓 تلميذة نظامية</span>
                 </div>
 
                 <h3>أنيسة</h3>
@@ -1783,15 +1749,13 @@
 
             <!-- 9. Lina (Literature & Philosophy - Regular - 17.54 - 2026) -->
             <article class="exp-card exp-card--lp" data-year="2026" data-stream="lp" data-type="regular" data-keywords="لينا آداب وفلسفة اداب وفلسفة 17.54 17,54 تلميذة نظامية المدرسة العليا للأساتذة الاساتذة ENS بكالوريا 2026">
+                <span class="exp-card-year-badge exp-card-year-badge--2026">بكالوريا 2026 ✦</span>
                 <div class="exp-card-top">
                     <div class="exp-card-stream-wrap">
                         <div class="exp-card-rank"><i class="fas fa-feather-pointed"></i></div>
                         <span class="exp-card-stream">آداب وفلسفة</span>
                     </div>
-                    <div class="exp-card-top-badges">
-                        <span class="exp-card-year-badge exp-card-year-badge--2026">بكالوريا 2026 ✦</span>
-                        <span class="exp-card-candidacy exp-card-candidacy--regular">🎓 تلميذة نظامية</span>
-                    </div>
+                    <span class="exp-card-candidacy exp-card-candidacy--regular">🎓 تلميذة نظامية</span>
                 </div>
 
                 <h3>لينا</h3>
@@ -1820,15 +1784,13 @@
 
             <!-- 10. Roumaissa (Foreign Languages Spanish - Regular - 18.45 - 2026) -->
             <article class="exp-card exp-card--le" data-year="2026" data-stream="le" data-type="regular" data-keywords="روميساء لغات أجنبية لغات اجنبية لغة إسبانية اسبانية 18.45 18,45 تلميذة نظامية المدرسة العليا للأساتذة بكالوريا 2026">
+                <span class="exp-card-year-badge exp-card-year-badge--2026">بكالوريا 2026 ✦</span>
                 <div class="exp-card-top">
                     <div class="exp-card-stream-wrap">
                         <div class="exp-card-rank"><i class="fas fa-language"></i></div>
                         <span class="exp-card-stream">لغات أجنبية</span>
                     </div>
-                    <div class="exp-card-top-badges">
-                        <span class="exp-card-year-badge exp-card-year-badge--2026">بكالوريا 2026 ✦</span>
-                        <span class="exp-card-candidacy exp-card-candidacy--regular">🎓 تلميذة نظامية</span>
-                    </div>
+                    <span class="exp-card-candidacy exp-card-candidacy--regular">🎓 تلميذة نظامية</span>
                 </div>
 
                 <h3>روميساء</h3>
@@ -1857,15 +1819,13 @@
 
             <!-- 11. Rouaida (Foreign Languages Italian - Regular - 17.90 - 2026) -->
             <article class="exp-card exp-card--le" data-year="2026" data-stream="le" data-type="regular" data-keywords="رويدة دربال لغات أجنبية لغات اجنبية لغة إيطالية ايطالية 17.90 17,90 تلميذة نظامية المدرسة العليا للأساتذة بكالوريا 2026">
+                <span class="exp-card-year-badge exp-card-year-badge--2026">بكالوريا 2026 ✦</span>
                 <div class="exp-card-top">
                     <div class="exp-card-stream-wrap">
                         <div class="exp-card-rank"><i class="fas fa-language"></i></div>
                         <span class="exp-card-stream">لغات أجنبية</span>
                     </div>
-                    <div class="exp-card-top-badges">
-                        <span class="exp-card-year-badge exp-card-year-badge--2026">بكالوريا 2026 ✦</span>
-                        <span class="exp-card-candidacy exp-card-candidacy--regular">🎓 تلميذة نظامية</span>
-                    </div>
+                    <span class="exp-card-candidacy exp-card-candidacy--regular">🎓 تلميذة نظامية</span>
                 </div>
 
                 <h3>رويدة</h3>
@@ -1894,15 +1854,13 @@
 
             <!-- 12. Hiba (Foreign Languages Italian - Free Student - 17.44 - 2026) -->
             <article class="exp-card exp-card--le" data-year="2026" data-stream="le" data-type="free" data-keywords="هبة لغات أجنبية لغات اجنبية لغة إيطالية ايطالية طالبة حرة حر اعادة البكالوريا تغيير الشعبة علوم تجريبية 11.24 17.44 17,44 المدرسة العليا للأساتذة بكالوريا 2026">
+                <span class="exp-card-year-badge exp-card-year-badge--2026">بكالوريا 2026 ✦</span>
                 <div class="exp-card-top">
                     <div class="exp-card-stream-wrap">
                         <div class="exp-card-rank"><i class="fas fa-language"></i></div>
                         <span class="exp-card-stream">لغات أجنبية</span>
                     </div>
-                    <div class="exp-card-top-badges">
-                        <span class="exp-card-year-badge exp-card-year-badge--2026">بكالوريا 2026 ✦</span>
-                        <span class="exp-card-candidacy exp-card-candidacy--free">🦅 طالبة حرة</span>
-                    </div>
+                    <span class="exp-card-candidacy exp-card-candidacy--free">🦅 طالبة حرة</span>
                 </div>
 
                 <h3>هبة</h3>
@@ -1935,15 +1893,13 @@
 
             <!-- 13. Farah (Math - Regular - 18.52 - 2025) -->
             <article class="exp-card exp-card--math" data-year="2025" data-stream="math" data-type="regular" data-keywords="فرح رياضيات نظامية 18.52 18,52 الذكاء الاصطناعي ENSIA مدرسة الذكاء الاصطناعي بكالوريا 2025">
+                <span class="exp-card-year-badge exp-card-year-badge--2025">بكالوريا 2025 ✦</span>
                 <div class="exp-card-top">
                     <div class="exp-card-stream-wrap">
                         <div class="exp-card-rank"><i class="fas fa-brain"></i></div>
                         <span class="exp-card-stream">شعبة رياضيات</span>
                     </div>
-                    <div class="exp-card-top-badges">
-                        <span class="exp-card-year-badge exp-card-year-badge--2025">بكالوريا 2025 ✦</span>
-                        <span class="exp-card-candidacy exp-card-candidacy--regular">🎓 تلميذة نظامية</span>
-                    </div>
+                    <span class="exp-card-candidacy exp-card-candidacy--regular">🎓 تلميذة نظامية</span>
                 </div>
 
                 <h3>فرح</h3>
@@ -1973,15 +1929,13 @@
 
             <!-- 14. Rayan (Math - Free Student - 18.93 - 2025) -->
             <article class="exp-card exp-card--math" data-year="2025" data-stream="math" data-type="free" data-keywords="ريان رياضيات حر 18.93 18,93 الامن السيبراني المدرسة العليا طالب حر اعادة البكالوريا بكالوريا 2025">
+                <span class="exp-card-year-badge exp-card-year-badge--2025">بكالوريا 2025 ✦</span>
                 <div class="exp-card-top">
                     <div class="exp-card-stream-wrap">
                         <div class="exp-card-rank"><i class="fas fa-shield-halved"></i></div>
                         <span class="exp-card-stream">شعبة رياضيات</span>
                     </div>
-                    <div class="exp-card-top-badges">
-                        <span class="exp-card-year-badge exp-card-year-badge--2025">بكالوريا 2025 ✦</span>
-                        <span class="exp-card-candidacy exp-card-candidacy--free">🦅 طالب حر</span>
-                    </div>
+                    <span class="exp-card-candidacy exp-card-candidacy--free">🦅 طالب حر</span>
                 </div>
 
                 <h3>ريان</h3>
@@ -2011,15 +1965,13 @@
 
             <!-- 15. Ikram (Math - Free Student - 18.41 - 2025 - ENS) -->
             <article class="exp-card exp-card--math" data-year="2025" data-stream="math" data-type="free" data-keywords="إكرام اكرام رياضيات حرة 18.41 18,41 13.88 المدرسة العليا للأساتذة الاساتذة ENS طالبة حرة اعادة البكالوريا بكالوريا 2025">
+                <span class="exp-card-year-badge exp-card-year-badge--2025">بكالوريا 2025 ✦</span>
                 <div class="exp-card-top">
                     <div class="exp-card-stream-wrap">
                         <div class="exp-card-rank"><i class="fas fa-redo-alt"></i></div>
                         <span class="exp-card-stream">شعبة رياضيات</span>
                     </div>
-                    <div class="exp-card-top-badges">
-                        <span class="exp-card-year-badge exp-card-year-badge--2025">بكالوريا 2025 ✦</span>
-                        <span class="exp-card-candidacy exp-card-candidacy--free">🦅 طالبة حرة</span>
-                    </div>
+                    <span class="exp-card-candidacy exp-card-candidacy--free">🦅 طالبة حرة</span>
                 </div>
 
                 <h3>إكرام</h3>
@@ -2049,15 +2001,13 @@
 
             <!-- 16. Firas (Experimental Science - Regular - 18.28 - 2025) -->
             <article class="exp-card exp-card--sci" data-year="2025" data-stream="sci" data-type="regular" data-keywords="فراس علوم تجريبية نظامي 18.28 18,28 ESI اعلام الي مدرسة الاعلام الالي بكالوريا 2025">
+                <span class="exp-card-year-badge exp-card-year-badge--2025">بكالوريا 2025 ✦</span>
                 <div class="exp-card-top">
                     <div class="exp-card-stream-wrap">
                         <div class="exp-card-rank"><i class="fas fa-laptop-code"></i></div>
                         <span class="exp-card-stream">علوم تجريبية</span>
                     </div>
-                    <div class="exp-card-top-badges">
-                        <span class="exp-card-year-badge exp-card-year-badge--2025">بكالوريا 2025 ✦</span>
-                        <span class="exp-card-candidacy exp-card-candidacy--regular">🎓 تلميذ نظامي</span>
-                    </div>
+                    <span class="exp-card-candidacy exp-card-candidacy--regular">🎓 تلميذ نظامي</span>
                 </div>
 
                 <h3>فراس</h3>
@@ -2087,15 +2037,13 @@
 
             <!-- 17. Yousra (Math-Tech Civil - Regular - 19.14 - 2025) -->
             <article class="exp-card exp-card--tech" data-year="2025" data-stream="tech" data-type="regular" data-keywords="يسرى تقني رياضي هندسة مدنية نظامية 19.14 19,14 الامن السيبراني مدرسة الامن السيبيراني بكالوريا 2025">
+                <span class="exp-card-year-badge exp-card-year-badge--2025">بكالوريا 2025 ✦</span>
                 <div class="exp-card-top">
                     <div class="exp-card-stream-wrap">
                         <div class="exp-card-rank"><i class="fas fa-shield-halved"></i></div>
                         <span class="exp-card-stream">هندسة مدنية</span>
                     </div>
-                    <div class="exp-card-top-badges">
-                        <span class="exp-card-year-badge exp-card-year-badge--2025">بكالوريا 2025 ✦</span>
-                        <span class="exp-card-candidacy exp-card-candidacy--regular">🎓 تلميذة نظامية</span>
-                    </div>
+                    <span class="exp-card-candidacy exp-card-candidacy--regular">🎓 تلميذة نظامية</span>
                 </div>
 
                 <h3>يسرى</h3>
@@ -2129,15 +2077,13 @@
 
             <!-- 18. Lina (Experimental Science - Regular - 19.42 - 5th Nationally - 2024) -->
             <article class="exp-card exp-card--sci" data-year="2024" data-stream="sci" data-type="regular" data-keywords="لين علوم تجريبية نظامية الخامسة وطنيا 19.42 19,42 طب بيولوجيا بكالوريا 2024">
+                <span class="exp-card-year-badge exp-card-year-badge--2024">بكالوريا 2024 ✦</span>
                 <div class="exp-card-top">
                     <div class="exp-card-stream-wrap">
                         <div class="exp-card-rank"><i class="fas fa-trophy"></i></div>
                         <span class="exp-card-stream">علوم تجريبية</span>
                     </div>
-                    <div class="exp-card-top-badges">
-                        <span class="exp-card-year-badge exp-card-year-badge--2024">بكالوريا 2024 ✦</span>
-                        <span class="exp-card-candidacy exp-card-candidacy--regular">🎓 تلميذة نظامية</span>
-                    </div>
+                    <span class="exp-card-candidacy exp-card-candidacy--regular">🎓 تلميذة نظامية</span>
                 </div>
 
                 <h3>لين</h3>
@@ -2167,15 +2113,13 @@
 
             <!-- 19. Islem (Math - Regular - ESI - 17.19 - 2024 - Founder) -->
             <article class="exp-card exp-card--math" data-year="2024" data-stream="math" data-type="regular" data-keywords="إسلام اسلام صاحب مؤسس قناة منصة BAC STORY 17.19 17,19 تلميذ نظامي شعبة رياضيات مدرسة الاعلام الالي ESI بكالوريا 2024">
+                <span class="exp-card-year-badge exp-card-year-badge--2024">بكالوريا 2024 ✦</span>
                 <div class="exp-card-top">
                     <div class="exp-card-stream-wrap">
                         <div class="exp-card-rank"><i class="fas fa-crown"></i></div>
                         <span class="exp-card-stream">شعبة رياضيات</span>
                     </div>
-                    <div class="exp-card-top-badges">
-                        <span class="exp-card-year-badge exp-card-year-badge--2024">بكالوريا 2024 ✦</span>
-                        <span class="exp-card-candidacy exp-card-candidacy--regular">🎓 تلميذ نظامي</span>
-                    </div>
+                    <span class="exp-card-candidacy exp-card-candidacy--regular">🎓 تلميذ نظامي</span>
                 </div>
 
                 <h3>إسلام</h3>
