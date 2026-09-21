@@ -187,22 +187,26 @@ function injectGlobalCTA() {
     </div>
 </section>`;
 
-    // ── Card rotation (all screen sizes) ─────────────────────────
+    // ── Card rotation (viewport-aware + hover pause + dot navigation) ──
     const gcCards   = document.querySelectorAll('.gcta-card');
     const gcDots    = document.querySelectorAll('#gcta-dots .gcta-dot');
     const gcWrapper = document.getElementById('gcta-cards');
+    const gcSection = document.getElementById('global-cta');
     let gcCurrent   = 0;
+    let gcTimer     = null;
+    let isPaused    = false;
 
     function gcSetHeight() {
-        // Temporarily make visible to measure, then restore
+        if (!gcCards.length || !gcCards[gcCurrent]) return;
         gcCards[gcCurrent].style.position = 'relative';
         gcWrapper.style.minHeight = gcCards[gcCurrent].offsetHeight + 'px';
         gcCards[gcCurrent].style.position = '';
     }
 
     function gcShow(idx) {
+        gcCurrent = (idx + gcCards.length) % gcCards.length;
         gcCards.forEach(function(c, i) {
-            if (i === idx) {
+            if (i === gcCurrent) {
                 c.classList.remove('gcta-hidden');
                 c.classList.add('gcta-visible');
             } else {
@@ -211,14 +215,42 @@ function injectGlobalCTA() {
             }
         });
         gcDots.forEach(function(d, i) {
-            d.classList.toggle('gcta-dot--active', i === idx);
+            d.classList.toggle('gcta-dot--active', i === gcCurrent);
         });
         setTimeout(gcSetHeight, 20);
     }
 
     function gcRotate() {
-        gcCurrent = (gcCurrent + 1) % gcCards.length;
-        gcShow(gcCurrent);
+        if (!isPaused) {
+            gcShow(gcCurrent + 1);
+        }
+    }
+
+    function startTimer() {
+        if (gcTimer) clearInterval(gcTimer);
+        gcTimer = setInterval(gcRotate, 4500);
+    }
+
+    function stopTimer() {
+        if (gcTimer) {
+            clearInterval(gcTimer);
+            gcTimer = null;
+        }
+    }
+
+    // Interactive dots
+    gcDots.forEach(function(dot, idx) {
+        dot.style.cursor = 'pointer';
+        dot.addEventListener('click', function() {
+            gcShow(idx);
+            startTimer();
+        });
+    });
+
+    // Pause on hover
+    if (gcWrapper) {
+        gcWrapper.addEventListener('mouseenter', function() { isPaused = true; });
+        gcWrapper.addEventListener('mouseleave', function() { isPaused = false; });
     }
 
     // Always show dots
@@ -227,7 +259,22 @@ function injectGlobalCTA() {
 
     gcShow(0);
     window.addEventListener('resize', gcSetHeight);
-    setInterval(gcRotate, 4000);
+
+    // Viewport-aware: only rotate when CTA section is in view
+    if (gcSection && 'IntersectionObserver' in window) {
+        const obs = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    startTimer();
+                } else {
+                    stopTimer();
+                }
+            });
+        }, { threshold: 0.15 });
+        obs.observe(gcSection);
+    } else {
+        startTimer();
+    }
 }
 
 // ─── MOBILE MENU SETUP ───────────────────────────────────────────────────────
