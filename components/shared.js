@@ -101,38 +101,7 @@ function injectGlobalCTA() {
 <section class="global-cta" id="global-cta">
     <!-- CTA Cards (side-by-side on desktop, rotating on mobile) -->
     <div class="gcta-cards" id="gcta-cards">
-        <a href="/experiences" class="gcta-card gcta-card--experiences">
-            <div class="gcta-icon-circle"><i class="fas fa-medal"></i></div>
-            <div class="gcta-text">
-                <strong>تجارب أوائل البكالوريا</strong>
-                <span>خلاصة مسيرة ونظام دراسة أوائل الجزائر بمعدلات تفوق 18 و19</span>
-            </div>
-            <div class="gcta-btn">تصفح التجارب <i class="fas fa-arrow-left"></i></div>
-        </a>
-        <a href="/feedback" class="gcta-card gcta-card--feedback">
-            <div class="gcta-icon-circle"><i class="fas fa-star"></i></div>
-            <div class="gcta-text">
-                <strong>قيّم تجربتك مع BAC STORY</strong>
-                <span>رافقناك طول العام — الآن جاء دورك. اترك رأيك ونصيحتك لدفعة 2027</span>
-            </div>
-            <div class="gcta-btn">اكتب رأيك <i class="fas fa-arrow-left"></i></div>
-        </a>
-        <a href="/contribute" class="gcta-card gcta-card--contribute">
-            <div class="gcta-icon-circle"><i class="fas fa-upload"></i></div>
-            <div class="gcta-text">
-                <strong>شارك مصادرك مع الجيل القادم</strong>
-                <span>درس ساعدك؟ تمرين أنقذك؟ شاركه مجاناً وباسمك لآلاف الطلاب</span>
-            </div>
-            <div class="gcta-btn">شارك الآن <i class="fas fa-arrow-left"></i></div>
-        </a>
-        <a href="https://t.me/islembacdz" target="_blank" rel="noopener noreferrer" class="gcta-card gcta-card--news">
-            <div class="gcta-icon-circle"><i class="fas fa-newspaper"></i></div>
-            <div class="gcta-text">
-                <strong>آخر الأخبار والتحديثات</strong>
-                <span>تابع قناتنا الرسمية على التلغرام للحصول على المستجدات والنصائح اليومية</span>
-            </div>
-            <div class="gcta-btn">تابع الأخبار <i class="fas fa-arrow-left"></i></div>
-        </a>
+        <!-- 1. Urgent Start of Year / Prerequisites -->
         <a href="/plans/monthly/prerequisites" class="gcta-card gcta-card--moktasabat">
             <div class="gcta-icon-circle"><i class="fa-solid fa-book-open-reader"></i></div>
             <div class="gcta-text">
@@ -141,6 +110,16 @@ function injectGlobalCTA() {
             </div>
             <div class="gcta-btn">تصفح الكُتيّب <i class="fas fa-arrow-left"></i></div>
         </a>
+        <!-- 2. Experiences of Top Rankers -->
+        <a href="/experiences" class="gcta-card gcta-card--experiences">
+            <div class="gcta-icon-circle"><i class="fas fa-medal"></i></div>
+            <div class="gcta-text">
+                <strong>تجارب أوائل البكالوريا</strong>
+                <span>خلاصة مسيرة ونظام دراسة أوائل الجزائر بمعدلات تفوق 18 و19</span>
+            </div>
+            <div class="gcta-btn">تصفح التجارب <i class="fas fa-arrow-left"></i></div>
+        </a>
+        <!-- 3. Essential Bag & Resources -->
         <a href="/resources" class="gcta-card gcta-card--resources">
             <div class="gcta-icon-circle"><i class="fas fa-briefcase"></i></div>
             <div class="gcta-text">
@@ -149,6 +128,7 @@ function injectGlobalCTA() {
             </div>
             <div class="gcta-btn">تصفح المصادر <i class="fas fa-arrow-left"></i></div>
         </a>
+        <!-- 4. Monthly Study Plans -->
         <a href="/plans/monthly" class="gcta-card gcta-card--plans">
             <div class="gcta-icon-circle"><i class="fas fa-rocket"></i></div>
             <div class="gcta-text">
@@ -157,6 +137,7 @@ function injectGlobalCTA() {
             </div>
             <div class="gcta-btn">تصفح الخطط <i class="fas fa-arrow-left"></i></div>
         </a>
+        <!-- 5. Oqba Roadmaps -->
         <a href="/oqba" class="gcta-card gcta-card--oqba">
             <div class="gcta-icon-circle"><i class="fas fa-map-signs"></i></div>
             <div class="gcta-text">
@@ -164,6 +145,33 @@ function injectGlobalCTA() {
                 <span>باقات عقبة بن نافع — دليلك الشامل لجميع المواد خطوة بخطوة</span>
             </div>
             <div class="gcta-btn">اكتشف الباقات <i class="fas fa-arrow-left"></i></div>
+        </a>
+        <!-- 6. Telegram Community & News -->
+        <a href="https://t.me/islembacdz" target="_blank" rel="noopener noreferrer" class="gcta-card gcta-card--news">
+            <div class="gcta-icon-circle"><i class="fas fa-newspaper"></i></div>
+            <div class="gcta-text">
+                <strong>آخر الأخبار والتحديثات</strong>
+                <span>تابع قناتنا الرسمية على التلغرام للحصول على المستجدات والنصائح اليومية</span>
+            </div>
+            <div class="gcta-btn">تابع الأخبار <i class="fas fa-arrow-left"></i></div>
+        </a>
+        <!-- 7. Contribute Resources -->
+        <a href="/contribute" class="gcta-card gcta-card--contribute">
+            <div class="gcta-icon-circle"><i class="fas fa-upload"></i></div>
+            <div class="gcta-text">
+                <strong>شارك مصادرك مع الجيل القادم</strong>
+                <span>درس ساعدك؟ تمرين أنقذك؟ شاركه مجاناً وباسمك لآلاف الطلاب</span>
+            </div>
+            <div class="gcta-btn">شارك الآن <i class="fas fa-arrow-left"></i></div>
+        </a>
+        <!-- 8. Platform Feedback & Rating -->
+        <a href="/feedback" class="gcta-card gcta-card--feedback">
+            <div class="gcta-icon-circle"><i class="fas fa-star"></i></div>
+            <div class="gcta-text">
+                <strong>قيّم تجربتك مع BAC STORY</strong>
+                <span>رافقناك طول العام — الآن جاء دورك. اترك رأيك ونصيحتك لدفعة 2027</span>
+            </div>
+            <div class="gcta-btn">اكتب رأيك <i class="fas fa-arrow-left"></i></div>
         </a>
     </div></div>
     <!-- Mobile-only rotation dots (count = active gcta-card count) -->
