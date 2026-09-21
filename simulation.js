@@ -1,4 +1,4 @@
-﻿/* ============================================
+/* ============================================
    BAC SIMULATION ENGINE — simulation.js
    ============================================ */
 
@@ -30,7 +30,7 @@ const examData = {
         ]
     },
     tech_elec: {
-        label: "هندسة - الهندسة الكهربائية", color: "#f39c12", icon: "fas fa-bolt",
+        label: "تقني رياضي - الهندسة الكهربائية", color: "#f39c12", icon: "fas fa-bolt",
         subjects: [
             { name: "التكنولوجيا (هندسة كهربائية)", duration: 270, icon: "fas fa-bolt", examUrl: "https://drive.google.com/file/d/1RPb8yxD8pwp34lmuKuPDSAlLY8oMBsF4/preview", solutionUrl: "https://drive.google.com/file/d/1k-3Sb8Sda5m3ooMq0o6dIfj2btAuAiKW/preview", schedule: "الثلاثاء 05 ماي - 08:30" },
             { name: "الرياضيات", duration: 270, icon: "fa-solid fa-calculator", examUrl: "https://drive.google.com/file/d/1zLNcWx2rksnEqgmZO3-XVu7M6BQgP7S-/preview", solutionUrl: "https://drive.google.com/file/d/1qKQISWZhJbpN9nSy5wTsBtE8DDbyUvtT/preview", schedule: "الاثنين 04 ماي - 08:30" },
@@ -43,7 +43,7 @@ const examData = {
         ]
     },
     tech_civil: {
-        label: "هندسة - الهندسة المدنية", color: "#f39c12", icon: "fas fa-hard-hat",
+        label: "تقني رياضي - الهندسة المدنية", color: "#f39c12", icon: "fas fa-hard-hat",
         subjects: [
             { name: "التكنولوجيا (هندسة مدنية)", duration: 270, icon: "fas fa-hard-hat", examUrl: "https://drive.google.com/file/d/1KyCdMfFgV0TG40kJkXQfp9apCfykSZ3M/preview", solutionUrl: "https://drive.google.com/file/d/18DmSEoOalCDtQBGZ_CQSU8dQADVeREN3/preview", schedule: "الثلاثاء 05 ماي - 08:30" },
             { name: "الرياضيات", duration: 270, icon: "fa-solid fa-calculator", examUrl: "https://drive.google.com/file/d/1zLNcWx2rksnEqgmZO3-XVu7M6BQgP7S-/preview", solutionUrl: "https://drive.google.com/file/d/1qKQISWZhJbpN9nSy5wTsBtE8DDbyUvtT/preview", schedule: "الاثنين 04 ماي - 08:30" },
@@ -56,7 +56,7 @@ const examData = {
         ]
     },
     tech_mech: {
-        label: "هندسة - الهندسة الميكانيكية", color: "#f39c12", icon: "fas fa-cogs",
+        label: "تقني رياضي - الهندسة الميكانيكية", color: "#f39c12", icon: "fas fa-cogs",
         subjects: [
             { name: "التكنولوجيا (هندسة ميكانيكية)", duration: 270, icon: "fas fa-cogs", examUrl: "https://drive.google.com/file/d/1zYx3agyuvK3hoe4-pa3P-ANzJkXJ_21A/preview", solutionUrl: "https://drive.google.com/file/d/17UPsfdgYsRgqQY2ym8ZYMbF_hgnIxhh4/preview", schedule: "الثلاثاء 05 ماي - 08:30" },
             { name: "الرياضيات", duration: 270, icon: "fa-solid fa-calculator", examUrl: "https://drive.google.com/file/d/1zLNcWx2rksnEqgmZO3-XVu7M6BQgP7S-/preview", solutionUrl: "https://drive.google.com/file/d/1qKQISWZhJbpN9nSy5wTsBtE8DDbyUvtT/preview", schedule: "الاثنين 04 ماي - 08:30" },
@@ -69,7 +69,7 @@ const examData = {
         ]
     },
     tech_process: {
-        label: "هندسة - هندسة طرائق", color: "#f39c12", icon: "fas fa-flask",
+        label: "تقني رياضي - هندسة الطرائق", color: "#f39c12", icon: "fas fa-flask",
         subjects: [
             { name: "التكنولوجيا (هندسة طرائق)", duration: 270, icon: "fas fa-flask", examUrl: "https://drive.google.com/file/d/1U7TPPiMT6kRRuAktbzUCeyQRVFnk1FCv/preview", solutionUrl: "https://drive.google.com/file/d/13sUQKa5yIfok-yqfipzmXIfjzoJzJCDv/preview", schedule: "الثلاثاء 05 ماي - 08:30" },
             { name: "الرياضيات", duration: 270, icon: "fa-solid fa-calculator", examUrl: "https://drive.google.com/file/d/1zLNcWx2rksnEqgmZO3-XVu7M6BQgP7S-/preview", solutionUrl: "https://drive.google.com/file/d/1qKQISWZhJbpN9nSy5wTsBtE8DDbyUvtT/preview", schedule: "الاثنين 04 ماي - 08:30" },
