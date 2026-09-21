@@ -765,6 +765,55 @@
         box-shadow: 0 4px 14px rgba(124, 58, 237, 0.35);
     }
 
+    /* ── Year Grid Section Dividers (Separate Batches Cleanly) ── */
+    .exp-year-divider {
+        grid-column: 1 / -1;
+        margin-top: 1.8rem;
+        margin-bottom: 0.2rem;
+    }
+    .exp-year-divider:first-child {
+        margin-top: 0;
+    }
+    .exp-year-divider-inner {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+    .exp-year-divider-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 18px;
+        border-radius: 999px;
+        font-size: 0.92rem;
+        font-weight: 800;
+        font-family: 'Tajawal', sans-serif;
+        color: #ffffff;
+        white-space: nowrap;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    }
+    .exp-year-divider-badge i {
+        font-size: 0.85rem;
+    }
+    .exp-year-divider-badge--2026 {
+        background: linear-gradient(135deg, #ff6b35 0%, #d44500 100%);
+    }
+    .exp-year-divider-badge--2025 {
+        background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    }
+    .exp-year-divider-badge--2024 {
+        background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+    }
+    .exp-year-divider-line {
+        flex: 1;
+        height: 1.5px;
+        background: linear-gradient(to left, transparent, #e2e8f0 70%);
+        border-radius: 999px;
+    }
+    .dark-mode .exp-year-divider-line {
+        background: linear-gradient(to left, transparent, rgba(255, 255, 255, 0.12) 70%);
+    }
+
     /* ── Year Filter Chips Palette ── */
     .filter-chip[data-year="all"] {
         background: rgba(44, 92, 197, 0.08) !important;
@@ -1460,6 +1509,14 @@
             <!-- ═══════════════════════════════════════════════════════════
                  BATCH 1: بكالوريا 2026 (CURRENT)
                  ═══════════════════════════════════════════════════════════ -->
+            <div class="exp-year-divider" data-year-divider="2026">
+                <div class="exp-year-divider-inner">
+                    <span class="exp-year-divider-badge exp-year-divider-badge--2026">
+                        <i class="fas fa-sparkles"></i> تجارب بكالوريا 2026
+                    </span>
+                    <div class="exp-year-divider-line"></div>
+                </div>
+            </div>
 
             <!-- 1. Mohamed Amine Beddad (Math - Regular - 19.05 - 2026) -->
             <article class="exp-card exp-card--math" data-year="2026" data-stream="math" data-type="regular" data-keywords="محمد أمين بداد رياضيات نظامي 19.05 19,05 ESI اعلام الي مدرسة الاعلام الالي العاصمة الجزائر بكالوريا 2026">
@@ -1890,6 +1947,14 @@
             <!-- ═══════════════════════════════════════════════════════════
                  BATCH 2: بكالوريا 2025
                  ═══════════════════════════════════════════════════════════ -->
+            <div class="exp-year-divider" data-year-divider="2025">
+                <div class="exp-year-divider-inner">
+                    <span class="exp-year-divider-badge exp-year-divider-badge--2025">
+                        <i class="fas fa-history"></i> تجارب بكالوريا 2025
+                    </span>
+                    <div class="exp-year-divider-line"></div>
+                </div>
+            </div>
 
             <!-- 13. Farah (Math - Regular - 18.52 - 2025) -->
             <article class="exp-card exp-card--math" data-year="2025" data-stream="math" data-type="regular" data-keywords="فرح رياضيات نظامية 18.52 18,52 الذكاء الاصطناعي ENSIA مدرسة الذكاء الاصطناعي بكالوريا 2025">
@@ -2074,6 +2139,14 @@
             <!-- ═══════════════════════════════════════════════════════════
                  BATCH 3: بكالوريا 2024
                  ═══════════════════════════════════════════════════════════ -->
+            <div class="exp-year-divider" data-year-divider="2024">
+                <div class="exp-year-divider-inner">
+                    <span class="exp-year-divider-badge exp-year-divider-badge--2024">
+                        <i class="fas fa-award"></i> تجارب بكالوريا 2024
+                    </span>
+                    <div class="exp-year-divider-line"></div>
+                </div>
+            </div>
 
             <!-- 18. Lina (Experimental Science - Regular - 19.42 - 5th Nationally - 2024) -->
             <article class="exp-card exp-card--sci" data-year="2024" data-stream="sci" data-type="regular" data-keywords="لين علوم تجريبية نظامية الخامسة وطنيا 19.42 19,42 طب بيولوجيا بكالوريا 2024">
@@ -2182,6 +2255,7 @@
         const yearChips = document.querySelectorAll('.exp-chip[data-year]');
         const searchInput = document.getElementById('expSearch');
         const cards = document.querySelectorAll('.exp-card');
+        const yearDividers = document.querySelectorAll('.exp-year-divider');
         const emptyState = document.getElementById('expEmpty');
         const countSpan = document.getElementById('expVisibleCount');
         const resetBtn = document.getElementById('expResetBtn');
@@ -2193,6 +2267,7 @@
 
         function filterCards() {
             let visibleCount = 0;
+            const yearCounts = { '2026': 0, '2025': 0, '2024': 0 };
 
             cards.forEach(card => {
                 const cardStream = card.getAttribute('data-stream');
@@ -2209,9 +2284,17 @@
                 if (streamMatch && typeMatch && yearMatch && searchMatch) {
                     card.style.display = 'flex';
                     visibleCount++;
+                    if (yearCounts[cardYear] !== undefined) {
+                        yearCounts[cardYear]++;
+                    }
                 } else {
                     card.style.display = 'none';
                 }
+            });
+
+            yearDividers.forEach(divider => {
+                const yr = divider.getAttribute('data-year-divider');
+                divider.style.display = (yearCounts[yr] > 0) ? 'block' : 'none';
             });
 
             if (countSpan) countSpan.textContent = visibleCount;
