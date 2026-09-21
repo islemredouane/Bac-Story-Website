@@ -7,7 +7,7 @@
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
+
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -48,14 +48,11 @@
     <meta name="twitter:description" content="تجارب أوائل ومتفوقي البكالوريا (نظاميون وأحرار) بمعدلات 18 و19 لجميع الشعب عبر منصة BAC STORY.">
     <meta name="twitter:image" content="https://pub-889477d66bc54c9582bba9a492cf605f.r2.dev/images/og-banner.png">
 
-    <!-- Stylesheets & Icon Libraries -->
+    <!-- Stylesheets & Fonts -->
     <link rel="stylesheet" href="/style.css?v=10.52">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/solid.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/brands.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/regular.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Pattaya&display=swap">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Pattaya&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Pattaya&display=swap"></noscript>
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -103,163 +100,221 @@
 
     <style>
     /* ══════════════════════════════════════════════════
-       EXPERIENCES PAGE — exp-*
-       Brand: #1a3a8f / #2c5cc5 · Accent: #ff6b35 · Success: #10b981
+       EXPERIENCES PAGE ARCHITECTURE — exp-*
+       Brand: #1a3a8f / #2c5cc5 · Accent: #ff6b35 · Neutral: #0f172a
        ══════════════════════════════════════════════════ */
     body {
         font-family: 'Tajawal', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        background: #f8fafc;
+        background-color: #f8fafc;
         color: #1e293b;
         margin: 0;
         padding: 0;
+        -webkit-font-smoothing: antialiased;
     }
     body.dark-mode {
-        background: #0f172a;
-        color: #f8fafc;
-    }
-    .exp-page {
-        font-family: 'Tajawal', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        padding: 1.5rem 0 4rem;
-        min-height: 70vh;
-    }
-    /* Protect FontAwesome icons from any font-family overrides */
-    .fa, .fas, .fa-solid {
-        font-family: "Font Awesome 6 Free" !important;
-        font-weight: 900 !important;
-    }
-    .far, .fa-regular {
-        font-family: "Font Awesome 6 Free" !important;
-        font-weight: 400 !important;
-    }
-    .fab, .fa-brands {
-        font-family: "Font Awesome 6 Brands" !important;
-        font-weight: 400 !important;
+        background-color: #0b1120;
+        color: #f1f5f9;
     }
 
-    /* ══ HERO BANNER ══ */
-    .exp-hero {
-        background: linear-gradient(135deg, rgba(26, 58, 143, 0.08) 0%, rgba(44, 92, 197, 0.12) 50%, rgba(255, 107, 53, 0.08) 100%);
-        border: 1px solid rgba(44, 92, 197, 0.18);
-        border-radius: 20px;
-        padding: 2.2rem 2rem;
-        text-align: center;
-        margin-bottom: 2rem;
+    /* Icon font preservation */
+    .fa, .fas, .fa-solid { font-family: "Font Awesome 6 Free" !important; font-weight: 900 !important; }
+    .far, .fa-regular { font-family: "Font Awesome 6 Free" !important; font-weight: 400 !important; }
+    .fab, .fa-brands { font-family: "Font Awesome 6 Brands" !important; font-weight: 400 !important; }
+
+    .exp-page {
+        padding-top: 20px;
+        padding-bottom: 70px;
+        width: 100%;
+        min-width: 0;
+    }
+
+    /* ══ LEDE (Page Opener - Inspired by bac-2027-curriculum-changes & bac-2026-graduation) ══ */
+    .exp-lede {
         position: relative;
+        display: grid;
+        grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+        gap: 2.6rem;
+        align-items: center;
+        background: linear-gradient(135deg, #1a3a8f 0%, #2c5cc5 100%);
+        border-radius: 28px;
+        padding: 3rem 3.2rem 2.8rem;
+        margin-bottom: 2.5rem;
         overflow: hidden;
-        box-shadow: 0 10px 30px -10px rgba(26, 58, 143, 0.1);
+        color: #ffffff;
+        box-shadow: 0 16px 40px rgba(26, 58, 143, 0.22);
     }
-    .dark-mode .exp-hero {
-        background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
-        border-color: rgba(255, 255, 255, 0.08);
-        box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.4);
+    .dark-mode .exp-lede {
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
     }
-    .exp-hero::before {
+    .exp-lede > * { position: relative; z-index: 1; }
+
+    /* Lede decorative orb */
+    .exp-lede::after {
         content: '';
         position: absolute;
-        top: -60px;
-        right: -60px;
-        width: 180px;
-        height: 180px;
-        background: radial-gradient(circle, rgba(255, 107, 53, 0.25) 0%, transparent 70%);
+        top: -100px;
+        left: -80px;
+        width: 320px;
+        height: 320px;
+        background: radial-gradient(circle, rgba(255, 107, 53, 0.28) 0%, transparent 70%);
         border-radius: 50%;
         pointer-events: none;
     }
-    .exp-hero__badge {
+
+    .exp-lede-badge {
         display: inline-flex;
         align-items: center;
-        gap: 0.5rem;
-        padding: 0.4rem 1.1rem;
+        gap: 9px;
+        background: rgba(255, 255, 255, 0.14);
+        border: 1px solid rgba(255, 255, 255, 0.25);
         border-radius: 999px;
-        background: rgba(44, 92, 197, 0.12);
-        color: #1a3a8f;
-        font-size: 0.88rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-        border: 1px solid rgba(44, 92, 197, 0.2);
+        padding: 6px 18px;
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0.3px;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        margin-bottom: 1.15rem;
+        color: #ffffff;
     }
-    .dark-mode .exp-hero__badge {
-        background: rgba(96, 165, 250, 0.15);
-        color: #93c5fd;
-        border-color: rgba(96, 165, 250, 0.3);
-    }
-    .exp-hero__title {
-        font-size: 2rem;
-        font-weight: 900;
-        color: #0f172a;
-        margin: 0 0 0.75rem;
-        line-height: 1.3;
-    }
-    .dark-mode .exp-hero__title {
-        color: #f8fafc;
-    }
-    .exp-hero__desc {
-        max-width: 720px;
-        margin: 0 auto 1.5rem;
-        font-size: 1.05rem;
-        line-height: 1.7;
-        color: #475569;
-    }
-    .dark-mode .exp-hero__desc {
-        color: #cbd5e1;
+    .exp-lede-badge i { color: #ff6b35; font-size: 0.9rem; }
+
+    .exp-lede-kick {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+        font-weight: 800;
+        letter-spacing: 0.5px;
+        color: #ff6b35;
     }
 
-    /* Telegram CTA inside Hero */
-    .exp-hero__telegram {
+    .exp-lede h1 {
+        margin: 0 0 1.1rem;
+        font-size: clamp(1.85rem, 4.2vw, 2.65rem);
+        font-weight: 900;
+        line-height: 1.35;
+        letter-spacing: -0.5px;
+        color: #ffffff;
+    }
+    .exp-lede h1 em {
+        font-style: normal;
+        color: #a8c4ff;
+    }
+
+    .exp-lede-lead {
+        margin: 0 0 1.5rem;
+        font-size: 1.05rem;
+        line-height: 1.95;
+        color: rgba(255, 255, 255, 0.92);
+        max-width: 48ch;
+    }
+    .exp-lede-lead b { color: #ffffff; font-weight: 800; }
+
+    /* Telegram CTA Button in Lede */
+    .exp-telegram-btn {
         display: inline-flex;
         align-items: center;
-        justify-content: center;
-        gap: 0.6rem;
+        gap: 10px;
         background: linear-gradient(135deg, #0088cc 0%, #0077b5 100%);
         color: #ffffff !important;
-        font-weight: 700;
-        font-size: 1rem;
-        padding: 0.75rem 1.75rem;
-        border-radius: 12px;
+        font-weight: 800;
+        font-size: 0.98rem;
+        padding: 0.85rem 1.85rem;
+        border-radius: 14px;
         text-decoration: none;
-        box-shadow: 0 6px 18px rgba(0, 136, 204, 0.35);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        box-shadow: 0 8px 24px rgba(0, 136, 204, 0.4);
+        transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease;
     }
-    .exp-hero__telegram:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 24px rgba(0, 136, 204, 0.5);
+    .exp-telegram-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 30px rgba(0, 136, 204, 0.6);
+    }
+    .exp-telegram-btn i { font-size: 1.15rem; }
+
+    /* Lede Points (Left Column) */
+    .exp-lede-points {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
+    .exp-lede-points li {
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+        padding: 1.15rem 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.16);
+    }
+    .exp-lede-points li:first-child { border-top: 0; padding-top: 0; }
+    .exp-lede-points li:last-child { padding-bottom: 0; }
+    .exp-lede-points i {
+        flex: none;
+        width: 44px;
+        height: 44px;
+        display: grid;
+        place-items: center;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        color: #ffffff;
+        font-size: 1.05rem;
+    }
+    .exp-lede-points b {
+        display: block;
+        font-size: 1.02rem;
+        font-weight: 800;
+        color: #ffffff;
+        margin-bottom: 4px;
+    }
+    .exp-lede-points span {
+        display: block;
+        font-size: 0.9rem;
+        line-height: 1.7;
+        color: rgba(255, 255, 255, 0.82);
     }
 
-    /* ══ CONTROLS / FILTER BAR ══ */
+    /* ══ CONTROLS BAR (Inspired by specialities.html) ══ */
     .exp-controls {
         background: #ffffff;
-        border: 1px solid #e2e8f0;
-        border-radius: 16px;
-        padding: 1.25rem;
-        margin-bottom: 2rem;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+        border: 1.5px solid rgba(44, 92, 195, 0.1);
+        border-radius: 22px;
+        padding: 1.5rem 1.6rem;
+        margin-bottom: 2.2rem;
+        box-shadow: 0 6px 24px rgba(44, 92, 195, 0.05);
     }
     .dark-mode .exp-controls {
         background: #1e293b;
         border-color: rgba(255, 255, 255, 0.08);
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
     }
-    .exp-search-box {
+
+    /* Search input */
+    .exp-search-wrap {
         position: relative;
-        margin-bottom: 1.1rem;
+        margin-bottom: 1.3rem;
     }
-    .exp-search-box i {
+    .exp-search-wrap i {
         position: absolute;
-        right: 1.1rem;
+        right: 1.25rem;
         top: 50%;
         transform: translateY(-50%);
         color: #94a3b8;
-        font-size: 1rem;
+        font-size: 1.05rem;
     }
     .exp-search-input {
         width: 100%;
-        padding: 0.75rem 2.8rem 0.75rem 1rem;
-        border: 1.5px solid #cbd5e1;
-        border-radius: 12px;
+        padding: 0.85rem 3rem 0.85rem 1.2rem;
+        border: 1.5px solid #e2e8f0;
+        border-radius: 14px;
         font-family: inherit;
-        font-size: 0.95rem;
+        font-size: 0.98rem;
         background: #f8fafc;
-        color: #1e293b;
-        transition: border-color 0.2s, background-color 0.2s;
+        color: #0f172a;
+        box-sizing: border-box;
+        transition: all 0.25s ease;
     }
     .dark-mode .exp-search-input {
         background: #0f172a;
@@ -270,353 +325,478 @@
         outline: none;
         border-color: #2c5cc5;
         background: #ffffff;
+        box-shadow: 0 0 0 4px rgba(44, 92, 197, 0.12);
     }
     .dark-mode .exp-search-input:focus {
         background: #1e293b;
     }
 
     /* Filter rows */
-    .exp-filter-row {
+    .exp-filter-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.9rem;
+    }
+    .exp-chips-row {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        gap: 0.5rem;
-        margin-bottom: 0.75rem;
+        gap: 0.6rem;
     }
-    .exp-filter-row:last-child {
-        margin-bottom: 0;
-    }
-    .exp-filter-label {
-        font-size: 0.85rem;
-        font-weight: 700;
+    .exp-chips-label {
+        font-size: 0.86rem;
+        font-weight: 800;
         color: #64748b;
-        margin-left: 0.5rem;
-        min-width: 60px;
+        min-width: 65px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
     }
-    .dark-mode .exp-filter-label {
-        color: #94a3b8;
-    }
-    .exp-filter-btn {
+    .dark-mode .exp-chips-label { color: #94a3b8; }
+
+    .exp-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
         background: #f1f5f9;
         border: 1px solid #e2e8f0;
         color: #475569;
-        padding: 0.4rem 0.9rem;
+        padding: 0.45rem 1.1rem;
         border-radius: 999px;
-        font-size: 0.86rem;
-        font-weight: 600;
+        font-size: 0.88rem;
+        font-weight: 700;
         cursor: pointer;
-        transition: all 0.2s ease;
+        transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
         font-family: inherit;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.35rem;
     }
-    .dark-mode .exp-filter-btn {
+    .dark-mode .exp-chip {
         background: #0f172a;
         border-color: #334155;
         color: #cbd5e1;
     }
-    .exp-filter-btn:hover {
+    .exp-chip:hover {
         background: #e2e8f0;
         color: #0f172a;
+        transform: translateY(-1px);
     }
-    .dark-mode .exp-filter-btn:hover {
+    .dark-mode .exp-chip:hover {
         background: #1e293b;
         color: #ffffff;
     }
-    .exp-filter-btn.active {
+    .exp-chip.active {
         background: #1a3a8f;
         border-color: #1a3a8f;
-        color: #ffffff;
-        box-shadow: 0 4px 10px rgba(26, 58, 143, 0.25);
+        color: #ffffff !important;
+        box-shadow: 0 4px 14px rgba(26, 58, 143, 0.28);
     }
-    .dark-mode .exp-filter-btn.active {
+    .dark-mode .exp-chip.active {
         background: #3b82f6;
         border-color: #3b82f6;
-        color: #ffffff;
     }
 
-    /* ══ GRID & CARDS ══ */
+    /* Live counter bar */
+    .exp-count-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 1rem;
+        padding-top: 0.9rem;
+        border-top: 1px solid #f1f5f9;
+        font-size: 0.86rem;
+        color: #64748b;
+    }
+    .dark-mode .exp-count-bar {
+        border-top-color: #334155;
+        color: #94a3b8;
+    }
+    .exp-count-bar b { color: #1a3a8f; font-weight: 800; }
+    .dark-mode .exp-count-bar b { color: #60a5fa; }
+    .exp-reset-btn {
+        background: none;
+        border: none;
+        color: #ff6b35;
+        font-weight: 700;
+        cursor: pointer;
+        font-size: 0.84rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 0;
+        font-family: inherit;
+    }
+    .exp-reset-btn:hover { text-decoration: underline; }
+
+    /* ══ EXPERIENCES GRID (Inspired by bac-2026-graduation .prt-winners) ══ */
     .exp-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 1.5rem;
+        margin-bottom: 3.5rem;
     }
+
+    /* ── Stream Palettes ── */
+    .exp-card--math    { --w-c: #2c5cc5; --w-c2: #1e3fa0; --w-ct: #1a3a8f; }
+    .exp-card--sci     { --w-c: #28a745; --w-c2: #1d7a33; --w-ct: #1a6f2d; }
+    .exp-card--tech    { --w-c: #f39c12; --w-c2: #c87f0a; --w-ct: #96610a; }
+    .exp-card--ge      { --w-c: #8e44ad; --w-c2: #6c3483; --w-ct: #5b2c6f; }
+    .exp-card--lp      { --w-c: #e74c3c; --w-c2: #b03a2e; --w-ct: #922b21; }
+    .exp-card--le      { --w-c: #16a085; --w-c2: #117a65; --w-ct: #0e6655; }
+    .dark-mode .exp-card--math { --w-ct: #93c5fd; }
+    .dark-mode .exp-card--sci  { --w-ct: #86efac; }
+    .dark-mode .exp-card--tech { --w-ct: #fde047; }
+    .dark-mode .exp-card--ge   { --w-ct: #d8b4fe; }
+    .dark-mode .exp-card--lp   { --w-ct: #fca5a5; }
+    .dark-mode .exp-card--le   { --w-ct: #5eead4; }
+
+    /* ── Experience Card ── */
     .exp-card {
-        background: #ffffff;
-        border: 1px solid #e2e8f0;
-        border-radius: 18px;
-        padding: 1.5rem;
+        --w-c: #2c5cc5;
+        --w-c2: #1a3a8f;
+        --w-ct: #1a3a8f;
+        position: relative;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        position: relative;
-        transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+        background: #ffffff;
+        border: 1.5px solid rgba(44, 92, 195, 0.1);
+        border-radius: 24px;
+        padding: 1.6rem 1.5rem 1.4rem;
+        box-shadow: 0 6px 24px rgba(44, 92, 195, 0.05);
+        overflow: hidden;
+        transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                    box-shadow 0.35s ease,
+                    border-color 0.35s ease;
     }
     .dark-mode .exp-card {
         background: #1e293b;
         border-color: rgba(255, 255, 255, 0.08);
-        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
+    }
+    .exp-card::before {
+        content: '';
+        position: absolute;
+        top: 0; right: 0; left: 0;
+        height: 4px;
+        background: linear-gradient(90deg, transparent, var(--w-c));
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.3s ease;
+        z-index: 2;
+    }
+    .exp-card::after {
+        content: '';
+        position: absolute;
+        top: -80px; left: -60px;
+        width: 200px; height: 200px;
+        background: radial-gradient(circle, color-mix(in srgb, var(--w-c) 12%, transparent) 0%, transparent 70%);
+        border-radius: 50%;
+        pointer-events: none;
     }
     .exp-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 12px 28px -6px rgba(26, 58, 143, 0.15);
-        border-color: rgba(44, 92, 197, 0.35);
+        transform: translateY(-6px);
+        border-color: color-mix(in srgb, var(--w-c) 35%, transparent);
+        box-shadow: 0 16px 38px color-mix(in srgb, var(--w-c) 14%, transparent);
     }
     .dark-mode .exp-card:hover {
-        box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.6);
-        border-color: rgba(96, 165, 250, 0.4);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+        border-color: color-mix(in srgb, var(--w-c) 40%, transparent);
     }
+    .exp-card:hover::before { transform: scaleX(1); }
 
-    /* Card Header */
-    .exp-card__header {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        gap: 1rem;
-        margin-bottom: 1rem;
-    }
-    .exp-card__user {
+    /* Card Top Bar */
+    .exp-card-top {
         display: flex;
         align-items: center;
-        gap: 0.85rem;
+        justify-content: space-between;
+        margin-bottom: 1.1rem;
     }
-    .exp-card__avatar {
-        width: 48px;
-        height: 48px;
-        border-radius: 14px;
+    .exp-card-stream-wrap {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+    }
+    .exp-card-rank {
+        width: 34px; height: 34px;
+        min-width: 34px;
+        border-radius: 11px;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.35rem;
-        background: linear-gradient(135deg, rgba(44, 92, 197, 0.12), rgba(26, 58, 143, 0.2));
-        color: #1a3a8f;
-        flex-shrink: 0;
+        font-size: 0.95rem;
+        color: #ffffff;
+        background: linear-gradient(135deg, var(--w-c) 0%, var(--w-c2) 100%);
+        box-shadow: 0 4px 12px color-mix(in srgb, var(--w-c) 35%, transparent);
     }
-    .dark-mode .exp-card__avatar {
-        background: linear-gradient(135deg, rgba(96, 165, 250, 0.2), rgba(30, 58, 138, 0.35));
-        color: #93c5fd;
-    }
-    .exp-card__name {
-        font-size: 1.12rem;
+    .exp-card-stream {
+        font-size: 0.84rem;
         font-weight: 800;
-        color: #0f172a;
-        margin: 0 0 0.2rem;
-        line-height: 1.3;
+        color: var(--w-ct);
+        background: color-mix(in srgb, var(--w-c) 10%, transparent);
+        border-radius: 999px;
+        padding: 4px 13px;
+        line-height: 1.5;
     }
-    .dark-mode .exp-card__name {
-        color: #f8fafc;
+    .exp-card-candidacy {
+        font-size: 0.78rem;
+        font-weight: 800;
+        padding: 4px 11px;
+        border-radius: 999px;
     }
-    .exp-card__subtext {
-        font-size: 0.82rem;
-        color: #64748b;
-        margin: 0;
-    }
-    .dark-mode .exp-card__subtext {
-        color: #94a3b8;
-    }
-
-    /* Badges */
-    .exp-badge-candidate {
-        padding: 0.25rem 0.65rem;
-        border-radius: 8px;
-        font-size: 0.76rem;
-        font-weight: 700;
-        white-space: nowrap;
-    }
-    .exp-badge-candidate--regular {
+    .exp-card-candidacy--regular {
         background: rgba(16, 185, 129, 0.12);
         color: #059669;
-        border: 1px solid rgba(16, 185, 129, 0.25);
+        border: 1px solid rgba(16, 185, 129, 0.28);
     }
-    .dark-mode .exp-badge-candidate--regular {
+    .dark-mode .exp-card-candidacy--regular {
         background: rgba(16, 185, 129, 0.2);
         color: #34d399;
     }
-    .exp-badge-candidate--free {
+    .exp-card-candidacy--free {
         background: rgba(168, 85, 247, 0.12);
         color: #7c3aed;
-        border: 1px solid rgba(168, 85, 247, 0.25);
+        border: 1px solid rgba(168, 85, 247, 0.28);
     }
-    .dark-mode .exp-badge-candidate--free {
+    .dark-mode .exp-card-candidacy--free {
         background: rgba(168, 85, 247, 0.2);
         color: #c084fc;
     }
-
-    /* Meta Pills row */
-    .exp-card__pills {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.45rem;
-        margin-bottom: 1.1rem;
-    }
-    .exp-pill {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.35rem;
-        padding: 0.28rem 0.65rem;
-        border-radius: 7px;
-        font-size: 0.78rem;
-        font-weight: 700;
-    }
-    .exp-pill--stream {
-        background: #f1f5f9;
-        color: #334155;
-    }
-    .dark-mode .exp-pill--stream {
-        background: #0f172a;
-        color: #cbd5e1;
-    }
-    .exp-pill--score {
+    .exp-card-candidacy--upcoming {
         background: rgba(255, 107, 53, 0.12);
         color: #e8420e;
-        border: 1px solid rgba(255, 107, 53, 0.25);
+        border: 1px solid rgba(255, 107, 53, 0.28);
     }
-    .dark-mode .exp-pill--score {
+    .dark-mode .exp-card-candidacy--upcoming {
         background: rgba(255, 107, 53, 0.2);
         color: #ff8c5a;
     }
-    .exp-pill--univ {
-        background: rgba(44, 92, 197, 0.1);
-        color: #1a3a8f;
-    }
-    .dark-mode .exp-pill--univ {
-        background: rgba(96, 165, 250, 0.15);
-        color: #93c5fd;
-    }
 
-    /* Highlights / Quote */
-    .exp-card__body {
-        margin-bottom: 1.4rem;
-        flex-grow: 1;
+    /* Name & Title */
+    .exp-card h3 {
+        margin: 0 0 0.4rem;
+        font-size: 1.22rem;
+        font-weight: 900;
+        color: #0f172a;
+        line-height: 1.35;
+        letter-spacing: -0.3px;
     }
-    .exp-card__quote {
-        background: #f8fafc;
-        border-right: 3px solid #ff6b35;
-        border-radius: 0 10px 10px 0;
-        padding: 0.75rem 0.85rem;
-        font-size: 0.88rem;
-        line-height: 1.6;
+    .dark-mode .exp-card h3 { color: #f8fafc; }
+    .exp-card-role {
+        font-size: 0.83rem;
+        color: #64748b;
+        margin: 0 0 1rem;
+        font-weight: 600;
+    }
+    .dark-mode .exp-card-role { color: #94a3b8; }
+
+    /* Average & University Destination */
+    .exp-card-avg-block {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 0.95rem;
+        margin-bottom: 1rem;
+        border-bottom: 1px solid color-mix(in srgb, var(--w-c) 14%, transparent);
+    }
+    .exp-card-avg {
+        display: flex;
+        align-items: baseline;
+        gap: 6px;
+    }
+    .exp-card-avg b {
+        font-size: 1.95rem;
+        font-weight: 900;
+        line-height: 1;
+        color: var(--w-ct);
+        letter-spacing: -1px;
+    }
+    .exp-card-avg span {
+        font-size: 0.82rem;
+        color: #94a3b8;
+        font-weight: 700;
+    }
+    .exp-card-univ {
+        font-size: 0.8rem;
+        font-weight: 800;
         color: #334155;
-        margin: 0 0 0.85rem;
+        background: #f1f5f9;
+        border-radius: 9px;
+        padding: 5px 11px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
     }
-    .dark-mode .exp-card__quote {
+    .dark-mode .exp-card-univ {
         background: #0f172a;
         color: #cbd5e1;
     }
-    .exp-card__points {
+
+    /* Takeaway Quote */
+    .exp-card-quote {
+        position: relative;
+        padding-right: 14px;
+        border-right: 3px solid var(--w-c);
+        font-size: 0.88rem;
+        line-height: 1.68;
+        color: #334155;
+        margin: 0 0 1rem;
+        font-weight: 500;
+    }
+    .dark-mode .exp-card-quote { color: #cbd5e1; }
+
+    /* Key takeaways list */
+    .exp-card-points {
         list-style: none;
+        margin: 0 0 1.3rem;
         padding: 0;
-        margin: 0;
         display: flex;
         flex-direction: column;
-        gap: 0.4rem;
+        gap: 0.45rem;
+        margin-top: auto;
     }
-    .exp-card__points li {
-        font-size: 0.84rem;
-        color: #475569;
+    .exp-card-points li {
         display: flex;
         align-items: flex-start;
-        gap: 0.45rem;
-        line-height: 1.5;
+        gap: 8px;
+        font-size: 0.84rem;
+        color: #475569;
+        line-height: 1.55;
+        font-weight: 600;
     }
-    .dark-mode .exp-card__points li {
-        color: #94a3b8;
-    }
-    .exp-card__points li i {
-        color: #10b981;
-        font-size: 0.8rem;
-        margin-top: 0.25rem;
+    .dark-mode .exp-card-points li { color: #94a3b8; }
+    .exp-card-points i {
+        color: var(--w-c);
+        font-size: 0.76rem;
+        margin-top: 5px;
         flex-shrink: 0;
     }
 
-    /* Card Footer / Action Button */
-    .exp-card__footer {
-        margin-top: auto;
-    }
-    .exp-btn-telegram {
+    /* Telegram CTA in card */
+    .exp-card-cta {
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 0.5rem;
+        gap: 8px;
         width: 100%;
-        background: #f0f9ff;
-        color: #0284c7 !important;
-        border: 1.5px solid #bae6fd;
-        border-radius: 12px;
-        padding: 0.7rem 1rem;
+        background: color-mix(in srgb, var(--w-c) 8%, transparent);
+        color: var(--w-ct) !important;
+        border: 1.5px solid color-mix(in srgb, var(--w-c) 25%, transparent);
+        border-radius: 13px;
+        padding: 0.72rem 1rem;
         font-size: 0.92rem;
-        font-weight: 700;
+        font-weight: 800;
         text-decoration: none;
-        transition: all 0.2s ease;
+        transition: all 0.25s ease;
+        box-sizing: border-box;
     }
-    .dark-mode .exp-btn-telegram {
-        background: rgba(2, 132, 199, 0.15);
-        color: #38bdf8 !important;
-        border-color: rgba(2, 132, 199, 0.35);
-    }
-    .exp-btn-telegram:hover {
-        background: #0284c7;
+    .exp-card-cta:hover {
+        background: var(--w-c);
         color: #ffffff !important;
-        border-color: #0284c7;
+        border-color: var(--w-c);
         transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+        box-shadow: 0 6px 18px color-mix(in srgb, var(--w-c) 30%, transparent);
+    }
+    .exp-card-cta i { font-size: 1rem; }
+
+    .exp-card-cta--upcoming {
+        background: #f8fafc;
+        border: 1.5px dashed #cbd5e1;
+        color: #64748b !important;
+    }
+    .dark-mode .exp-card-cta--upcoming {
+        background: #0f172a;
+        border-color: #334155;
+        color: #94a3b8 !important;
+    }
+    .exp-card-cta--upcoming:hover {
+        border-color: #0088cc;
+        color: #0088cc !important;
+        background: rgba(0, 136, 204, 0.08);
     }
 
-    .exp-btn-upcoming {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-        width: 100%;
-        background: #f8fafc;
-        color: #64748b !important;
-        border: 1.5px dashed #cbd5e1;
-        border-radius: 12px;
-        padding: 0.7rem 1rem;
-        font-size: 0.88rem;
-        font-weight: 700;
-        text-decoration: none;
-        transition: all 0.2s ease;
+    /* ══ COMMUNITY CALLOUT FOOTER ══ */
+    .exp-footer-callout {
+        background: linear-gradient(135deg, rgba(26, 58, 143, 0.06) 0%, rgba(255, 107, 53, 0.08) 100%);
+        border: 1.5px solid rgba(44, 92, 195, 0.15);
+        border-radius: 24px;
+        padding: 2.2rem 2rem;
+        text-align: center;
+        margin-top: 1rem;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03);
     }
-    .dark-mode .exp-btn-upcoming {
-        background: rgba(255, 255, 255, 0.03);
-        color: #94a3b8 !important;
-        border-color: #334155;
+    .dark-mode .exp-footer-callout {
+        background: #1e293b;
+        border-color: rgba(255, 255, 255, 0.08);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
     }
-    .exp-btn-upcoming:hover {
-        border-color: #0284c7;
-        color: #0284c7 !important;
+    .exp-footer-callout h2 {
+        font-size: 1.45rem;
+        font-weight: 900;
+        margin: 0 0 0.6rem;
+        color: #0f172a;
     }
+    .dark-mode .exp-footer-callout h2 { color: #f8fafc; }
+    .exp-footer-callout p {
+        font-size: 0.98rem;
+        line-height: 1.75;
+        color: #475569;
+        max-width: 620px;
+        margin: 0 auto 1.4rem;
+    }
+    .dark-mode .exp-footer-callout p { color: #cbd5e1; }
 
     /* Empty state */
     .exp-empty {
         grid-column: 1 / -1;
         text-align: center;
-        padding: 3rem 1rem;
+        padding: 3.5rem 1rem;
         color: #64748b;
         display: none;
     }
     .exp-empty i {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
+        font-size: 3rem;
+        margin-bottom: 1.2rem;
         color: #94a3b8;
     }
+    .exp-empty h3 {
+        font-size: 1.3rem;
+        font-weight: 800;
+        margin: 0 0 0.5rem;
+        color: #1e293b;
+    }
+    .dark-mode .exp-empty h3 { color: #f1f5f9; }
 
-    /* Responsive */
+    /* ══ RESPONSIVE BREAKPOINTS ══ */
+    @media (max-width: 1024px) {
+        .exp-lede {
+            grid-template-columns: 1fr;
+            padding: 2.5rem 2.2rem;
+            gap: 2.2rem;
+        }
+        .exp-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
     @media (max-width: 768px) {
-        .exp-hero {
-            padding: 1.75rem 1.25rem;
+        .exp-lede {
+            padding: 2rem 1.5rem;
+            border-radius: 22px;
         }
-        .exp-hero__title {
-            font-size: 1.55rem;
-        }
-        .exp-hero__desc {
-            font-size: 0.95rem;
+        .exp-lede h1 {
+            font-size: 1.7rem;
         }
         .exp-grid {
             grid-template-columns: 1fr;
+            gap: 1.2rem;
+        }
+        .exp-controls {
+            padding: 1.2rem;
+            border-radius: 18px;
+        }
+        .exp-chips-row {
+            gap: 0.45rem;
+        }
+        .exp-chip {
+            font-size: 0.82rem;
+            padding: 0.4rem 0.9rem;
         }
     }
     </style>
@@ -624,466 +804,524 @@
 
 <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5H3TNJ4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    
+
     <!-- Navbar Component -->
     <div id="navbar-placeholder"></div>
 
-    <main class="resource-content active exp-page" id="experiences">
+    <main class="exp-page" id="experiences">
         <div class="container">
             <div class="ad-card-inject">
                 <a href="/resources" class="modern-cta-btn"><i class="fas fa-arrow-right"></i> العودة للمصادر</a>
             </div>
 
-            <!-- Hero Section -->
-            <section class="exp-hero">
-                <div class="exp-hero__badge">
-                    <i class="fas fa-medal"></i>
-                    <span>سلسلة تجارب أوائل بكالوريا الجزائر</span>
+            <!-- ══ LEDE (PAGE OPENER) ══ -->
+            <section class="exp-lede">
+                <div class="exp-lede-main">
+                    <div class="exp-lede-badge">
+                        <i class="fas fa-star"></i>
+                        <span>سلسلة حصرية من أوائل القناة</span>
+                    </div>
+                    <span class="exp-lede-kick">تجارب واقعية ملهمة وموثقة</span>
+                    <h1>تجارب المتفوقين <em>في البكالوريا</em></h1>
+                    <p class="exp-lede-lead">
+                        خلاصة مسيرة أوائل بكالوريا الجزائر <b>(نظاميون وأحرار)</b> بمعدلات تفوق 18 و19. خططهم الأسبوعية، كيفية تسيير الضغط، والمصادر التي صنعت تميزهم منشورة بالكامل عبر قناتنا.
+                    </p>
+                    <div>
+                        <a href="https://t.me/islembacdz" target="_blank" rel="noopener noreferrer" class="exp-telegram-btn">
+                            <i class="fab fa-telegram-plane"></i>
+                            <span>قناة التلغرام الرسمية @islembacdz</span>
+                        </a>
+                    </div>
                 </div>
-                <h1 class="exp-hero__title">تجارب المتفوقين في البكالوريا</h1>
-                <p class="exp-hero__desc">
-                    خلاصة وتجارب حقيقية ومفصلة من أوائل البكالوريا (نظاميون وأحرار) بمعدلات تفوق 18 و19 من جميع الشعب. تعرّف على خططهم الدراسية، كيفية تنظيم أوقاتهم، والمصادر التي قادتهم للقمة.
-                </p>
-                <div>
-                    <a href="https://t.me/islembacdz" target="_blank" rel="noopener noreferrer" class="exp-hero__telegram">
-                        <i class="fab fa-telegram-plane"></i>
-                        <span>قناة التلغرام الرسمية @islembacdz</span>
-                    </a>
-                </div>
+
+                <ul class="exp-lede-points">
+                    <li>
+                        <i class="fas fa-medal"></i>
+                        <div>
+                            <b>أوائل الشُّعب الرسميون</b>
+                            <span>أصحاب المراتب الأولى بمعدلات استثنائية (19.05، 18.92، 18.81، 18.26).</span>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-calendar-check"></i>
+                        <div>
+                            <b>نظاميون وطلبة أحرار</b>
+                            <span>تجارب حقيقية لإعادة الباك والتوفيق بين الجامعة والتحضير الفردي.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-book-bookmark"></i>
+                        <div>
+                            <b>المصادر والكتب المعتمدة</b>
+                            <span>المراجع والسلاسل ودروس اليوتيوب التي اعتمدوا عليها عملياً للتفوق.</span>
+                        </div>
+                    </li>
+                </ul>
             </section>
 
-            <!-- Search & Filters -->
+            <!-- ══ CONTROLS (SEARCH & CHIPS) ══ -->
             <section class="exp-controls" aria-label="أدوات التصفية والبحث">
-                <div class="exp-search-box">
+                <div class="exp-search-wrap">
                     <i class="fas fa-search" aria-hidden="true"></i>
-                    <input type="text" id="expSearch" class="exp-search-input" placeholder="ابحث باسم الطالب، المعدل، المادة أو التخصص الجامعي...">
+                    <input type="text" id="expSearch" class="exp-search-input" placeholder="ابحث باسم الطالب، المعدل، المادة، أو المدرسة العليا...">
                 </div>
 
-                <!-- Streams Filter -->
-                <div class="exp-filter-row">
-                    <span class="exp-filter-label"><i class="fas fa-graduation-cap"></i> الشعبة:</span>
-                    <button class="exp-filter-btn active" data-stream="all">الكل</button>
-                    <button class="exp-filter-btn" data-stream="sci"><i class="fas fa-flask"></i> علوم تجريبية</button>
-                    <button class="exp-filter-btn" data-stream="math"><i class="fas fa-square-root-variable"></i> رياضيات</button>
-                    <button class="exp-filter-btn" data-stream="tech"><i class="fas fa-drafting-compass"></i> تقني رياضي</button>
-                    <button class="exp-filter-btn" data-stream="ge"><i class="fas fa-chart-pie"></i> تسيير واقتصاد</button>
-                    <button class="exp-filter-btn" data-stream="le"><i class="fas fa-language"></i> لغات أجنبية</button>
-                    <button class="exp-filter-btn" data-stream="lp"><i class="fas fa-feather-pointed"></i> آداب وفلسفة</button>
+                <div class="exp-filter-group">
+                    <!-- Stream filter chips -->
+                    <div class="exp-chips-row">
+                        <span class="exp-chips-label"><i class="fas fa-graduation-cap"></i> الشعبة:</span>
+                        <button class="exp-chip active" data-stream="all">الكل</button>
+                        <button class="exp-chip" data-stream="sci"><i class="fas fa-flask"></i> علوم تجريبية</button>
+                        <button class="exp-chip" data-stream="math"><i class="fas fa-square-root-variable"></i> رياضيات</button>
+                        <button class="exp-chip" data-stream="tech"><i class="fas fa-drafting-compass"></i> تقني رياضي</button>
+                        <button class="exp-chip" data-stream="ge"><i class="fas fa-chart-pie"></i> تسيير واقتصاد</button>
+                        <button class="exp-chip" data-stream="le"><i class="fas fa-language"></i> لغات أجنبية</button>
+                        <button class="exp-chip" data-stream="lp"><i class="fas fa-feather-pointed"></i> آداب وفلسفة</button>
+                    </div>
+
+                    <!-- Candidacy filter chips -->
+                    <div class="exp-chips-row">
+                        <span class="exp-chips-label"><i class="fas fa-user-tag"></i> المترشح:</span>
+                        <button class="exp-chip active" data-type="all">الكل</button>
+                        <button class="exp-chip" data-type="regular"><i class="fas fa-school"></i> تلميذ نظامي</button>
+                        <button class="exp-chip" data-type="free"><i class="fas fa-feather"></i> طالب حر</button>
+                    </div>
                 </div>
 
-                <!-- Candidacy Type Filter -->
-                <div class="exp-filter-row">
-                    <span class="exp-filter-label"><i class="fas fa-user-check"></i> المترشح:</span>
-                    <button class="exp-filter-btn active" data-type="all">الكل</button>
-                    <button class="exp-filter-btn" data-type="regular"><i class="fas fa-school"></i> تلميذ نظامي</button>
-                    <button class="exp-filter-btn" data-type="free"><i class="fas fa-feather"></i> طالب حر</button>
+                <div class="exp-count-bar">
+                    <span>عرض <b id="expVisibleCount">11</b> تجربة وقصة نجاح</span>
+                    <button class="exp-reset-btn" id="expResetBtn" style="display:none;" onclick="resetExpFilters()">
+                        <i class="fas fa-rotate-left"></i> إعادة ضبط الفلاتر
+                    </button>
                 </div>
             </section>
 
-            <!-- Experiences Grid -->
+            <!-- ══ EXPERIENCES CARDS GRID ══ -->
             <section class="exp-grid" id="expGrid">
 
                 <!-- 1. Mohamed Amine Beddad (Math - Regular) -->
-                <article class="exp-card" data-stream="math" data-type="regular" data-keywords="محمد أمين بداد رياضيات نظامي 19.05 ESI اعلام الي العاصمة">
-                    <div>
-                        <div class="exp-card__header">
-                            <div class="exp-card__user">
-                                <div class="exp-card__avatar"><i class="fas fa-calculator"></i></div>
-                                <div>
-                                    <h2 class="exp-card__name">محمد أمين بداد</h2>
-                                    <p class="exp-card__subtext">المرتبة الأولى بالقناة — بكالوريا 2026</p>
-                                </div>
-                            </div>
-                            <span class="exp-badge-candidate exp-badge-candidate--regular">🎓 نظامي</span>
+                <article class="exp-card exp-card--math" data-stream="math" data-type="regular" data-keywords="محمد أمين بداد رياضيات نظامي 19.05 ESI اعلام الي العاصمة الجزائر">
+                    <div class="exp-card-top">
+                        <div class="exp-card-stream-wrap">
+                            <div class="exp-card-rank"><i class="fas fa-trophy"></i></div>
+                            <span class="exp-card-stream">شعبة رياضيات</span>
                         </div>
-                        <div class="exp-card__pills">
-                            <span class="exp-pill exp-pill--stream"><i class="fas fa-square-root-variable"></i> شعبة رياضيات</span>
-                            <span class="exp-pill exp-pill--score"><i class="fas fa-star"></i> معدل 19.05</span>
-                            <span class="exp-pill exp-pill--univ"><i class="fas fa-university"></i> ESI العاصمة</span>
+                        <span class="exp-card-candidacy exp-card-candidacy--regular">🎓 تلميذ نظامي</span>
+                    </div>
+
+                    <h3>محمد أمين بداد</h3>
+                    <p class="exp-card-role">المرتبة الأولى شعبة رياضيات بالقناة — بكالوريا 2026</p>
+
+                    <div class="exp-card-avg-block">
+                        <div class="exp-card-avg">
+                            <b>19.05</b>
+                            <span>/ 20</span>
                         </div>
-                        <div class="exp-card__body">
-                            <div class="exp-card__quote">
-                                "بدأت من سبتمبر مع المكتسبات القبلية في الرياضيات والفيزياء، ونظام Pomodoro لحفظ التركيز... والحمد لله علامة 20/20 في كلا المادتين."
-                            </div>
-                            <ul class="exp-card__points">
-                                <li><i class="fas fa-check-circle"></i> علامة 20/20 كاملة في مادتي الرياضيات والفيزياء.</li>
-                                <li><i class="fas fa-check-circle"></i> إنهاء برنامج العلوم الطبيعية قبل اختبارات الفصل الثاني.</li>
-                                <li><i class="fas fa-check-circle"></i> مراجعة التاريخ والجغرافيا دورياً من أول درس لترسيخ الحفظ.</li>
-                            </ul>
+                        <div class="exp-card-univ">
+                            <i class="fas fa-university"></i> ESI الجزائر العاصمة
                         </div>
                     </div>
-                    <div class="exp-card__footer">
-                        <a href="https://t.me/islembacdz/4598" target="_blank" rel="noopener noreferrer" class="exp-btn-telegram">
-                            <i class="fab fa-telegram-plane"></i>
-                            <span>قراءة التجربة كاملة على تلغرام</span>
-                        </a>
+
+                    <div class="exp-card-quote">
+                        "بدأت من سبتمبر بالتركيز على المكتسبات القبلية في الرياضيات والفيزياء، ونظام Pomodoro لحفظ التركيز... والحمد لله علامة 20/20 في كلا المادتين."
                     </div>
+
+                    <ul class="exp-card-points">
+                        <li><i class="fas fa-check-circle"></i> علامة 20/20 كاملة في مادتي الرياضيات والفيزياء.</li>
+                        <li><i class="fas fa-check-circle"></i> إنهاء برنامج العلوم الطبيعية قبل اختبارات الفصل الثاني.</li>
+                        <li><i class="fas fa-check-circle"></i> المراجعة التراكمية الدورية لمواد الحفظ من الدرس الأول.</li>
+                    </ul>
+
+                    <a href="https://t.me/islembacdz/4598" target="_blank" rel="noopener noreferrer" class="exp-card-cta">
+                        <i class="fab fa-telegram-plane"></i>
+                        <span>قراءة التجربة كاملة على تلغرام</span>
+                    </a>
                 </article>
 
                 <!-- 2. Younes (Math - Free Student) -->
-                <article class="exp-card" data-stream="math" data-type="free" data-keywords="يونس رياضيات حر طالب حر اعادة البكالوريا الكترونيك بومرداس">
-                    <div>
-                        <div class="exp-card__header">
-                            <div class="exp-card__user">
-                                <div class="exp-card__avatar"><i class="fas fa-redo-alt"></i></div>
-                                <div>
-                                    <h2 class="exp-card__name">يونس</h2>
-                                    <p class="exp-card__subtext">تجربة إعادة البكالوريا — بتقدير جيد جداً</p>
-                                </div>
-                            </div>
-                            <span class="exp-badge-candidate exp-badge-candidate--free">🦅 طالب حر</span>
+                <article class="exp-card exp-card--math" data-stream="math" data-type="free" data-keywords="يونس رياضيات حر طالب حر اعادة البكالوريا الكترونيك بومرداس">
+                    <div class="exp-card-top">
+                        <div class="exp-card-stream-wrap">
+                            <div class="exp-card-rank"><i class="fas fa-redo-alt"></i></div>
+                            <span class="exp-card-stream">شعبة رياضيات</span>
                         </div>
-                        <div class="exp-card__pills">
-                            <span class="exp-pill exp-pill--stream"><i class="fas fa-square-root-variable"></i> شعبة رياضيات</span>
-                            <span class="exp-pill exp-pill--score"><i class="fas fa-award"></i> باك ثاني بتفوق</span>
-                            <span class="exp-pill exp-pill--univ"><i class="fas fa-university"></i> معهد الإلكترونيك</span>
+                        <span class="exp-card-candidacy exp-card-candidacy--free">🦅 طالب حر</span>
+                    </div>
+
+                    <h3>يونس</h3>
+                    <p class="exp-card-role">تجربة إعادة البكالوريا — بتقدير جيد جداً</p>
+
+                    <div class="exp-card-avg-block">
+                        <div class="exp-card-avg">
+                            <b>جيد جداً</b>
+                            <span>باك 2</span>
                         </div>
-                        <div class="exp-card__body">
-                            <div class="exp-card__quote">
-                                "تحصلت على 17.06 في الباك الأول وقررت الإعادة لكسر الصورة النمطية.. الخطة الشهرية والـ To-Do List هما سر تحكم الطالب الحر في وقته."
-                            </div>
-                            <ul class="exp-card__points">
-                                <li><i class="fas fa-check-circle"></i> تفصيل شامل لقرار (تبلوكي العام في الجامعة ولا لا).</li>
-                                <li><i class="fas fa-check-circle"></i> قفزة علامة اللغة العربية من 13.5 إلى 16.5 بفضل المنهجية.</li>
-                                <li><i class="fas fa-check-circle"></i> الاعتماد التام على مصادر وخطط منصة BAC STORY.</li>
-                            </ul>
+                        <div class="exp-card-univ">
+                            <i class="fas fa-microchip"></i> معهد الإلكترونيك بومرداس
                         </div>
                     </div>
-                    <div class="exp-card__footer">
-                        <a href="https://t.me/islembacdz/4618" target="_blank" rel="noopener noreferrer" class="exp-btn-telegram">
-                            <i class="fab fa-telegram-plane"></i>
-                            <span>قراءة التجربة كاملة على تلغرام</span>
-                        </a>
+
+                    <div class="exp-card-quote">
+                        "تحصلت على 17.06 في الباك الأول وقررت الإعادة لكسر الصورة النمطية.. الخطة الشهرية والـ To-Do List هما سر تحكم الطالب الحر في وقته."
                     </div>
+
+                    <ul class="exp-card-points">
+                        <li><i class="fas fa-check-circle"></i> تفصيل شامل لقرار (تبلوكي العام في الجامعة ولا لا).</li>
+                        <li><i class="fas fa-check-circle"></i> قفزة علامة اللغة العربية من 13.5 إلى 16.5 بفضل المنهجية.</li>
+                        <li><i class="fas fa-check-circle"></i> الاعتماد التام على مصادر وخطط منصة BAC STORY.</li>
+                    </ul>
+
+                    <a href="https://t.me/islembacdz/4618" target="_blank" rel="noopener noreferrer" class="exp-card-cta">
+                        <i class="fab fa-telegram-plane"></i>
+                        <span>قراءة التجربة كاملة على تلغرام</span>
+                    </a>
                 </article>
 
                 <!-- 3. Experimental Science Regular Student 1 (18.12 - ENP) -->
-                <article class="exp-card" data-stream="sci" data-type="regular" data-keywords="علوم تجريبية نظامية 18.12 ENP بوليتكنيك الحراش">
-                    <div>
-                        <div class="exp-card__header">
-                            <div class="exp-card__user">
-                                <div class="exp-card__avatar"><i class="fas fa-flask"></i></div>
-                                <div>
-                                    <h2 class="exp-card__name">تلميذة متفوقة نظامية</h2>
-                                    <p class="exp-card__subtext">بكالوريا 2026 — طالبة بالبوليتكنيك</p>
-                                </div>
-                            </div>
-                            <span class="exp-badge-candidate exp-badge-candidate--regular">🎓 نظامية</span>
+                <article class="exp-card exp-card--sci" data-stream="sci" data-type="regular" data-keywords="علوم تجريبية نظامية 18.12 ENP بوليتكنيك الحراش">
+                    <div class="exp-card-top">
+                        <div class="exp-card-stream-wrap">
+                            <div class="exp-card-rank"><i class="fas fa-flask"></i></div>
+                            <span class="exp-card-stream">علوم تجريبية</span>
                         </div>
-                        <div class="exp-card__pills">
-                            <span class="exp-pill exp-pill--stream"><i class="fas fa-flask"></i> علوم تجريبية</span>
-                            <span class="exp-pill exp-pill--score"><i class="fas fa-star"></i> معدل 18.12</span>
-                            <span class="exp-pill exp-pill--univ"><i class="fas fa-university"></i> ENP الجزائر (الحراش)</span>
+                        <span class="exp-card-candidacy exp-card-candidacy--regular">🎓 تلميذة نظامية</span>
+                    </div>
+
+                    <h3>تلميذة متفوقة نظامية</h3>
+                    <p class="exp-card-role">بكالوريا 2026 — طالبة بالمدرسة الوطنية متعددة التقنيات</p>
+
+                    <div class="exp-card-avg-block">
+                        <div class="exp-card-avg">
+                            <b>18.12</b>
+                            <span>/ 20</span>
                         </div>
-                        <div class="exp-card__body">
-                            <div class="exp-card__quote">
-                                "ابدأوا تدريجياً وابعدوا عن المقارنات وفخ المثالية.. كنت نفرح كي نغلط في الفروض والامتحانات لأن كل خطأ تدونه راح يشفعلك يوم الباك."
-                            </div>
-                            <ul class="exp-card__points">
-                                <li><i class="fas fa-check-circle"></i> الانطلاقة من أوت بتخصيص ساعتين يومياً لبناء الروتين.</li>
-                                <li><i class="fas fa-check-circle"></i> التوقف عن الدروس الخصوصية في جانفي والاعتماد على الذات.</li>
-                                <li><i class="fas fa-check-circle"></i> دفتر تدوين الأخطاء والملاحظات الخاصة بكل وحدة.</li>
-                            </ul>
+                        <div class="exp-card-univ">
+                            <i class="fas fa-cogs"></i> ENP الجزائر (الحراش)
                         </div>
                     </div>
-                    <div class="exp-card__footer">
-                        <a href="https://t.me/islembacdz/4626" target="_blank" rel="noopener noreferrer" class="exp-btn-telegram">
-                            <i class="fab fa-telegram-plane"></i>
-                            <span>قراءة التجربة كاملة على تلغرام</span>
-                        </a>
+
+                    <div class="exp-card-quote">
+                        "ابدأوا تدريجياً وابعدوا عن المقارنات وفخ المثالية.. كنت نفرح كي نغلط في الفروض والامتحانات لأن كل خطأ تدونه راح يشفعلك يوم الباك."
                     </div>
+
+                    <ul class="exp-card-points">
+                        <li><i class="fas fa-check-circle"></i> الانطلاقة من أوت بتخصيص ساعتين يومياً لبناء الروتين.</li>
+                        <li><i class="fas fa-check-circle"></i> التوقف عن الدروس الخصوصية في جانفي والاعتماد على الذات.</li>
+                        <li><i class="fas fa-check-circle"></i> دفتر تدوين الأخطاء والملاحظات الخاصة بكل وحدة.</li>
+                    </ul>
+
+                    <a href="https://t.me/islembacdz/4626" target="_blank" rel="noopener noreferrer" class="exp-card-cta">
+                        <i class="fab fa-telegram-plane"></i>
+                        <span>قراءة التجربة كاملة على تلغرام</span>
+                    </a>
                 </article>
 
                 <!-- 4. Experimental Science Regular Student 2 (18.23 - Cybersecurity) -->
-                <article class="exp-card" data-stream="sci" data-type="regular" data-keywords="علوم تجريبية نظامية 18.23 الامن السيبراني المدرسة العليا">
-                    <div>
-                        <div class="exp-card__header">
-                            <div class="exp-card__user">
-                                <div class="exp-card__avatar"><i class="fas fa-shield-alt"></i></div>
-                                <div>
-                                    <h2 class="exp-card__name">تلميذة متفوقة نظامية</h2>
-                                    <p class="exp-card__subtext">بكالوريا 2026 — المدرسة العليا للأمن السيبراني</p>
-                                </div>
-                            </div>
-                            <span class="exp-badge-candidate exp-badge-candidate--regular">🎓 نظامية</span>
+                <article class="exp-card exp-card--sci" data-stream="sci" data-type="regular" data-keywords="علوم تجريبية نظامية 18.23 الامن السيبراني المدرسة العليا">
+                    <div class="exp-card-top">
+                        <div class="exp-card-stream-wrap">
+                            <div class="exp-card-rank"><i class="fas fa-shield-halved"></i></div>
+                            <span class="exp-card-stream">علوم تجريبية</span>
                         </div>
-                        <div class="exp-card__pills">
-                            <span class="exp-pill exp-pill--stream"><i class="fas fa-flask"></i> علوم تجريبية</span>
-                            <span class="exp-pill exp-pill--score"><i class="fas fa-star"></i> معدل 18.23</span>
-                            <span class="exp-pill exp-pill--univ"><i class="fas fa-university"></i> مدرسة الأمن السيبراني</span>
+                        <span class="exp-card-candidacy exp-card-candidacy--regular">🎓 تلميذة نظامية</span>
+                    </div>
+
+                    <h3>تلميذة متفوقة نظامية</h3>
+                    <p class="exp-card-role">بكالوريا 2026 — المدرسة العليا للأمن السيبراني</p>
+
+                    <div class="exp-card-avg-block">
+                        <div class="exp-card-avg">
+                            <b>18.23</b>
+                            <span>/ 20</span>
                         </div>
-                        <div class="exp-card__body">
-                            <div class="exp-card__quote">
-                                "العلوم الطبيعية فهم عميق ورسومات تخطيطية، الفلسفة 19/20 بفضل الفهم وتوحيد الحجج مع برنامج القسم، والفيزياء تحتاج فقط عدم الخوف."
-                            </div>
-                            <ul class="exp-card__points">
-                                <li><i class="fas fa-check-circle"></i> علامة 19/20 في مادة الفلسفة من خلال ضبط الحجج المنهجية.</li>
-                                <li><i class="fas fa-check-circle"></i> طريقة التلخيص الفوري المزدوج في العلوم والفيزياء.</li>
-                                <li><i class="fas fa-check-circle"></i> نصيحة ذهبية: حضور القسم ومواكبته بوصلة النجاح الحقيقية.</li>
-                            </ul>
+                        <div class="exp-card-univ">
+                            <i class="fas fa-lock"></i> مدرسة الأمن السيبراني
                         </div>
                     </div>
-                    <div class="exp-card__footer">
-                        <a href="https://t.me/islembacdz/4642" target="_blank" rel="noopener noreferrer" class="exp-btn-telegram">
-                            <i class="fab fa-telegram-plane"></i>
-                            <span>قراءة التجربة كاملة على تلغرام</span>
-                        </a>
+
+                    <div class="exp-card-quote">
+                        "العلوم الطبيعية فهم عميق ورسومات تخطيطية، الفلسفة 19/20 بفضل الفهم وتوحيد الحجج مع برنامج القسم، والفيزياء تحتاج فقط عدم الخوف."
                     </div>
+
+                    <ul class="exp-card-points">
+                        <li><i class="fas fa-check-circle"></i> علامة 19/20 في مادة الفلسفة من خلال ضبط الحجج المنهجية.</li>
+                        <li><i class="fas fa-check-circle"></i> طريقة التلخيص الفوري المزدوج في العلوم والفيزياء.</li>
+                        <li><i class="fas fa-check-circle"></i> نصيحة ذهبية: حضور القسم ومواكبته بوصلة النجاح الحقيقية.</li>
+                    </ul>
+
+                    <a href="https://t.me/islembacdz/4642" target="_blank" rel="noopener noreferrer" class="exp-card-cta">
+                        <i class="fab fa-telegram-plane"></i>
+                        <span>قراءة التجربة كاملة على تلغرام</span>
+                    </a>
                 </article>
 
                 <!-- 5. Experimental Science Free Student (18.81 - ESI Algiers) -->
-                <article class="exp-card" data-stream="sci" data-type="free" data-keywords="علوم تجريبية حرة طالبة حرة 18.81 ESI اعلام الي العاصمة اعادة">
-                    <div>
-                        <div class="exp-card__header">
-                            <div class="exp-card__user">
-                                <div class="exp-card__avatar"><i class="fas fa-laptop-code"></i></div>
-                                <div>
-                                    <h2 class="exp-card__name">طالبة حرة متفوقة</h2>
-                                    <p class="exp-card__subtext">بكالوريا 2026 — المدرسة العليا للإعلام الآلي</p>
-                                </div>
-                            </div>
-                            <span class="exp-badge-candidate exp-badge-candidate--free">🦅 طالبة حرة</span>
+                <article class="exp-card exp-card--sci" data-stream="sci" data-type="free" data-keywords="علوم تجريبية حرة طالبة حرة 18.81 ESI اعلام الي العاصمة اعادة">
+                    <div class="exp-card-top">
+                        <div class="exp-card-stream-wrap">
+                            <div class="exp-card-rank"><i class="fas fa-laptop-code"></i></div>
+                            <span class="exp-card-stream">علوم تجريبية</span>
                         </div>
-                        <div class="exp-card__pills">
-                            <span class="exp-pill exp-pill--stream"><i class="fas fa-flask"></i> علوم تجريبية</span>
-                            <span class="exp-pill exp-pill--score"><i class="fas fa-star"></i> معدل 18.81</span>
-                            <span class="exp-pill exp-pill--univ"><i class="fas fa-university"></i> ESI العاصمة</span>
+                        <span class="exp-card-candidacy exp-card-candidacy--free">🦅 طالبة حرة</span>
+                    </div>
+
+                    <h3>طالبة حرة متفوقة</h3>
+                    <p class="exp-card-role">بكالوريا 2026 — المدرسة العليا للإعلام الآلي</p>
+
+                    <div class="exp-card-avg-block">
+                        <div class="exp-card-avg">
+                            <b>18.81</b>
+                            <span>/ 20</span>
                         </div>
-                        <div class="exp-card__body">
-                            <div class="exp-card__quote">
-                                "ما بلوكيتش العام في الجامعة، كنت نقرا في المكتبة وأواخر الأسبوع.. الباك توكل وسعي، اعرفوا كيفاش تقراو وما تقارنوش رواحكم بغيركم."
-                            </div>
-                            <ul class="exp-card__points">
-                                <li><i class="fas fa-check-circle"></i> التوفيق الذكي بين دراسة الجامعة والتحضير للبكالوريا الحرة.</li>
-                                <li><i class="fas fa-check-circle"></i> علامة 20/20 كاملة في الشريعة الإسلامية.</li>
-                                <li><i class="fas fa-check-circle"></i> السرية والتركيز الفردي التام في الدراسة بدون تشتيت.</li>
-                            </ul>
+                        <div class="exp-card-univ">
+                            <i class="fas fa-graduation-cap"></i> ESI الجزائر العاصمة
                         </div>
                     </div>
-                    <div class="exp-card__footer">
-                        <a href="https://t.me/islembacdz/4654" target="_blank" rel="noopener noreferrer" class="exp-btn-telegram">
-                            <i class="fab fa-telegram-plane"></i>
-                            <span>قراءة التجربة كاملة على تلغرام</span>
-                        </a>
+
+                    <div class="exp-card-quote">
+                        "ما بلوكيتش العام في الجامعة، كنت نقرا في المكتبة وأواخر الأسبوع.. الباك توكل وسعي، اعرفوا كيفاش تقراو وما تقارنوش رواحكم بغيركم."
                     </div>
+
+                    <ul class="exp-card-points">
+                        <li><i class="fas fa-check-circle"></i> التوفيق الذكي بين دراسة الجامعة والتحضير للبكالوريا الحرة.</li>
+                        <li><i class="fas fa-check-circle"></i> علامة 20/20 كاملة في الشريعة الإسلامية.</li>
+                        <li><i class="fas fa-check-circle"></i> السرية والتركيز الفردي التام في الدراسة بدون تشتيت.</li>
+                    </ul>
+
+                    <a href="https://t.me/islembacdz/4654" target="_blank" rel="noopener noreferrer" class="exp-card-cta">
+                        <i class="fab fa-telegram-plane"></i>
+                        <span>قراءة التجربة كاملة على تلغرام</span>
+                    </a>
                 </article>
 
                 <!-- 6. Math-Tech Regular Student (18.22 - Autonomous Systems) -->
-                <article class="exp-card" data-stream="tech" data-type="regular" data-keywords="تقني رياضي هندسة كهربائية نظامية 18.22 الانظمة المستقلة">
-                    <div>
-                        <div class="exp-card__header">
-                            <div class="exp-card__user">
-                                <div class="exp-card__avatar"><i class="fas fa-bolt"></i></div>
-                                <div>
-                                    <h2 class="exp-card__name">تلميذة متفوقة نظامية</h2>
-                                    <p class="exp-card__subtext">بكالوريا 2026 — هندسة كهربائية</p>
-                                </div>
-                            </div>
-                            <span class="exp-badge-candidate exp-badge-candidate--regular">🎓 نظامية</span>
+                <article class="exp-card exp-card--tech" data-stream="tech" data-type="regular" data-keywords="تقني رياضي هندسة كهربائية نظامية 18.22 الانظمة المستقلة">
+                    <div class="exp-card-top">
+                        <div class="exp-card-stream-wrap">
+                            <div class="exp-card-rank"><i class="fas fa-bolt"></i></div>
+                            <span class="exp-card-stream">تقني رياضي</span>
                         </div>
-                        <div class="exp-card__pills">
-                            <span class="exp-pill exp-pill--stream"><i class="fas fa-drafting-compass"></i> تقني رياضي</span>
-                            <span class="exp-pill exp-pill--score"><i class="fas fa-star"></i> معدل 18.22</span>
-                            <span class="exp-pill exp-pill--univ"><i class="fas fa-university"></i> مدرسة الأنظمة المستقلة</span>
+                        <span class="exp-card-candidacy exp-card-candidacy--regular">🎓 تلميذة نظامية</span>
+                    </div>
+
+                    <h3>تلميذة متفوقة نظامية</h3>
+                    <p class="exp-card-role">بكالوريا 2026 — هندسة كهربائية</p>
+
+                    <div class="exp-card-avg-block">
+                        <div class="exp-card-avg">
+                            <b>18.22</b>
+                            <span>/ 20</span>
                         </div>
-                        <div class="exp-card__body">
-                            <div class="exp-card__quote">
-                                "الامتياز في البكالوريا يحتاج الدراسة بذكاء لا بجهد.. لا تخافوا، كنت متأخرة في المواد الأدبية وختمتهم قبل البكالوريا بأسبوع وجبت معدلي."
-                            </div>
-                            <ul class="exp-card__points">
-                                <li><i class="fas fa-check-circle"></i> تخصيص أيام الأسبوع للتكنولوجيا والرياضيات وعطلة الأسبوع للمواد الثانوية.</li>
-                                <li><i class="fas fa-check-circle"></i> التركيز على تمارين الأفكار المتنوعة بدلاً من حل مواضيع عشوائية.</li>
-                                <li><i class="fas fa-check-circle"></i> أخذ فترات راحة حقيقية عند الشعور بالتعب لتجديد النشاط.</li>
-                            </ul>
+                        <div class="exp-card-univ">
+                            <i class="fas fa-robot"></i> مدرسة الأنظمة المستقلة
                         </div>
                     </div>
-                    <div class="exp-card__footer">
-                        <a href="https://t.me/islembacdz/4665" target="_blank" rel="noopener noreferrer" class="exp-btn-telegram">
-                            <i class="fab fa-telegram-plane"></i>
-                            <span>قراءة التجربة كاملة على تلغرام</span>
-                        </a>
+
+                    <div class="exp-card-quote">
+                        "الامتياز في البكالوريا يحتاج الدراسة بذكاء لا بجهد.. لا تخافوا، كنت متأخرة في المواد الأدبية وختمتهم قبل البكالوريا بأسبوع وجبت معدلي."
                     </div>
+
+                    <ul class="exp-card-points">
+                        <li><i class="fas fa-check-circle"></i> تخصيص أيام الأسبوع للتكنولوجيا والرياضيات وعطلة الأسبوع للمواد الأدبية.</li>
+                        <li><i class="fas fa-check-circle"></i> التركيز على تمارين الأفكار المتنوعة بدلاً من حل مواضيع عشوائية.</li>
+                        <li><i class="fas fa-check-circle"></i> أخذ فترات راحة حقيقية عند الشعور بالتعب لتجديد النشاط.</li>
+                    </ul>
+
+                    <a href="https://t.me/islembacdz/4665" target="_blank" rel="noopener noreferrer" class="exp-card-cta">
+                        <i class="fab fa-telegram-plane"></i>
+                        <span>قراءة التجربة كاملة على تلغرام</span>
+                    </a>
                 </article>
 
                 <!-- 7. Founder Experience: Mohamed Islem (17.19 - Math) -->
-                <article class="exp-card" data-stream="math" data-type="regular" data-keywords="محمد إسلام اسلام مؤسس القناة رياضيات 17.19 ESTIN بجاية اعلام الي">
-                    <div>
-                        <div class="exp-card__header">
-                            <div class="exp-card__user">
-                                <div class="exp-card__avatar"><i class="fas fa-code"></i></div>
-                                <div>
-                                    <h2 class="exp-card__name">محمد إسلام</h2>
-                                    <p class="exp-card__subtext">مؤسس BAC STORY وقناة التلغرام</p>
-                                </div>
-                            </div>
-                            <span class="exp-badge-candidate exp-badge-candidate--regular">🎓 نظامي</span>
+                <article class="exp-card exp-card--math" data-stream="math" data-type="regular" data-keywords="محمد إسلام اسلام مؤسس القناة رياضيات 17.19 ESTIN بجاية اعلام الي">
+                    <div class="exp-card-top">
+                        <div class="exp-card-stream-wrap">
+                            <div class="exp-card-rank"><i class="fas fa-code"></i></div>
+                            <span class="exp-card-stream">شعبة رياضيات</span>
                         </div>
-                        <div class="exp-card__pills">
-                            <span class="exp-pill exp-pill--stream"><i class="fas fa-square-root-variable"></i> شعبة رياضيات</span>
-                            <span class="exp-pill exp-pill--score"><i class="fas fa-star"></i> معدل 17.19</span>
-                            <span class="exp-pill exp-pill--univ"><i class="fas fa-university"></i> ESTIN بجاية</span>
+                        <span class="exp-card-candidacy exp-card-candidacy--regular">🎓 مؤسس المنصة</span>
+                    </div>
+
+                    <h3>محمد إسلام</h3>
+                    <p class="exp-card-role">مؤسس BAC STORY وقناة التلغرام</p>
+
+                    <div class="exp-card-avg-block">
+                        <div class="exp-card-avg">
+                            <b>17.19</b>
+                            <span>/ 20</span>
                         </div>
-                        <div class="exp-card__body">
-                            <div class="exp-card__quote">
-                                "دخلت لعام الباك وعندي نقص كبير في الفيزياء والكيمياء وضعف لغوي، بصح حلم المدرسة العليا خلاني نتحدى روحي ونكتشف حلول قادتني للتفوق وتأسيس BAC STORY."
-                            </div>
-                            <ul class="exp-card__points">
-                                <li><i class="fas fa-check-circle"></i> كيف تتغلب على ضعف الأساس المعرفي في المواد العلمية.</li>
-                                <li><i class="fas fa-check-circle"></i> المراجع الحقيقية المختارة التي أثبتت جدارتها.</li>
-                                <li><i class="fas fa-check-circle"></i> بناء منصة متكاملة تجمع كل ما يحتاجه طالب البكالوريا.</li>
-                            </ul>
+                        <div class="exp-card-univ">
+                            <i class="fas fa-code-branch"></i> ESTIN بجاية
                         </div>
                     </div>
-                    <div class="exp-card__footer">
-                        <a href="https://t.me/islembacdz/4582" target="_blank" rel="noopener noreferrer" class="exp-btn-telegram">
-                            <i class="fab fa-telegram-plane"></i>
-                            <span>قراءة التجربة كاملة على تلغرام</span>
-                        </a>
+
+                    <div class="exp-card-quote">
+                        "دخلت لعام الباك وعندي نقص كبير في الفيزياء والكيمياء وضعف لغوي، بصح حلم المدرسة العليا خلاني نتحدى روحي ونكتشف حلول قادتني للتفوق وتأسيس BAC STORY."
                     </div>
+
+                    <ul class="exp-card-points">
+                        <li><i class="fas fa-check-circle"></i> كيف تتغلب على ضعف الأساس المعرفي في المواد العلمية.</li>
+                        <li><i class="fas fa-check-circle"></i> المراجع الحقيقية المختارة التي أثبتت جدارتها.</li>
+                        <li><i class="fas fa-check-circle"></i> بناء منصة متكاملة تجمع كل ما يحتاجه طالب البكالوريا.</li>
+                    </ul>
+
+                    <a href="https://t.me/islembacdz/4582" target="_blank" rel="noopener noreferrer" class="exp-card-cta">
+                        <i class="fab fa-telegram-plane"></i>
+                        <span>قراءة التجربة كاملة على تلغرام</span>
+                    </a>
                 </article>
 
-                <!-- 8. Upcoming Stream: Math-Tech Free Candidate (Oqba Ibn Nafi) -->
-                <article class="exp-card" data-stream="tech" data-type="free" data-keywords="ودان عقبة ابن نافع تقني رياضي حر 18.26 باقات عقبة">
-                    <div>
-                        <div class="exp-card__header">
-                            <div class="exp-card__user">
-                                <div class="exp-card__avatar"><i class="fas fa-cogs"></i></div>
-                                <div>
-                                    <h2 class="exp-card__name">ودان عقبة ابن نافع</h2>
-                                    <p class="exp-card__subtext">المرتبة الأولى شعبة تقني رياضي بالقناة</p>
-                                </div>
-                            </div>
-                            <span class="exp-badge-candidate exp-badge-candidate--free">⏳ قريباً</span>
+                <!-- 8. Upcoming Stream: Math-Tech (Oqba Ibn Nafi) -->
+                <article class="exp-card exp-card--tech" data-stream="tech" data-type="free" data-keywords="ودان عقبة ابن نافع تقني رياضي حر 18.26 باقات عقبة">
+                    <div class="exp-card-top">
+                        <div class="exp-card-stream-wrap">
+                            <div class="exp-card-rank"><i class="fas fa-cogs"></i></div>
+                            <span class="exp-card-stream">تقني رياضي</span>
                         </div>
-                        <div class="exp-card__pills">
-                            <span class="exp-pill exp-pill--stream"><i class="fas fa-drafting-compass"></i> تقني رياضي</span>
-                            <span class="exp-pill exp-pill--score"><i class="fas fa-medal"></i> معدل 18.26</span>
-                            <span class="exp-pill exp-pill--univ"><i class="fas fa-clock"></i> تُنشر قريباً</span>
+                        <span class="exp-card-candidacy exp-card-candidacy--upcoming">⏳ قريباً</span>
+                    </div>
+
+                    <h3>ودان عقبة ابن نافع</h3>
+                    <p class="exp-card-role">المرتبة الأولى شعبة تقني رياضي بالقناة</p>
+
+                    <div class="exp-card-avg-block">
+                        <div class="exp-card-avg">
+                            <b>18.26</b>
+                            <span>/ 20</span>
                         </div>
-                        <div class="exp-card__body">
-                            <div class="exp-card__quote">
-                                صاحب باقات التميز المعروفة "باقات عقبة بن نافع". سيتم نشر تجربته الكاملة وطريقة تفوقه في التكنولوجيا والرياضيات قريباً على القناة!
-                            </div>
-                            <ul class="exp-card__points">
-                                <li><i class="fas fa-clock"></i> الأول على شعبة تقني رياضي في قناة BAC STORY.</li>
-                                <li><i class="fas fa-clock"></i> تفاصيل دراسة التكنولوجيا واكتساب المنهجية.</li>
-                            </ul>
+                        <div class="exp-card-univ">
+                            <i class="fas fa-star"></i> باقات عقبة بن نافع
                         </div>
                     </div>
-                    <div class="exp-card__footer">
-                        <a href="https://t.me/islembacdz" target="_blank" rel="noopener noreferrer" class="exp-btn-upcoming">
-                            <i class="fab fa-telegram-plane"></i>
-                            <span>ترقب النشر على القناة</span>
-                        </a>
+
+                    <div class="exp-card-quote">
+                        صاحب باقات التميز المعروفة "باقات عقبة بن نافع". سيتم نشر تجربته الكاملة وطريقة تفوقه في التكنولوجيا والرياضيات قريباً على القناة!
                     </div>
+
+                    <ul class="exp-card-points">
+                        <li><i class="fas fa-clock"></i> الأول على شعبة تقني رياضي في قناة BAC STORY.</li>
+                        <li><i class="fas fa-clock"></i> تفاصيل دراسة التكنولوجيا واكتساب المنهجية.</li>
+                    </ul>
+
+                    <a href="https://t.me/islembacdz" target="_blank" rel="noopener noreferrer" class="exp-card-cta exp-card-cta--upcoming">
+                        <i class="fab fa-telegram-plane"></i>
+                        <span>ترقب النشر على القناة</span>
+                    </a>
                 </article>
 
                 <!-- 9. Upcoming Stream: Management & Economics (Anissa Benkhelouf) -->
-                <article class="exp-card" data-stream="ge" data-type="regular" data-keywords="أنيسة بن خلوف تسيير واقتصاد نظامية 18.41 تسيير و اقتصاد الاولى">
-                    <div>
-                        <div class="exp-card__header">
-                            <div class="exp-card__user">
-                                <div class="exp-card__avatar"><i class="fas fa-chart-line"></i></div>
-                                <div>
-                                    <h2 class="exp-card__name">بن خلوف أنيسة</h2>
-                                    <p class="exp-card__subtext">المرتبة الأولى شعبة تسيير واقتصاد بالقناة</p>
-                                </div>
-                            </div>
-                            <span class="exp-badge-candidate exp-badge-candidate--regular">⏳ قريباً</span>
+                <article class="exp-card exp-card--ge" data-stream="ge" data-type="regular" data-keywords="أنيسة بن خلوف تسيير واقتصاد نظامية 18.41 تسيير و اقتصاد الاولى">
+                    <div class="exp-card-top">
+                        <div class="exp-card-stream-wrap">
+                            <div class="exp-card-rank"><i class="fas fa-chart-line"></i></div>
+                            <span class="exp-card-stream">تسيير واقتصاد</span>
                         </div>
-                        <div class="exp-card__pills">
-                            <span class="exp-pill exp-pill--stream"><i class="fas fa-chart-pie"></i> تسيير واقتصاد</span>
-                            <span class="exp-pill exp-pill--score"><i class="fas fa-medal"></i> معدل 18.41</span>
-                            <span class="exp-pill exp-pill--univ"><i class="fas fa-clock"></i> تُنشر قريباً</span>
+                        <span class="exp-card-candidacy exp-card-candidacy--upcoming">⏳ قريباً</span>
+                    </div>
+
+                    <h3>بن خلوف أنيسة</h3>
+                    <p class="exp-card-role">المرتبة الأولى شعبة تسيير واقتصاد بالقناة</p>
+
+                    <div class="exp-card-avg-block">
+                        <div class="exp-card-avg">
+                            <b>18.41</b>
+                            <span>/ 20</span>
                         </div>
-                        <div class="exp-card__body">
-                            <div class="exp-card__quote">
-                                المرتبة الأولى على شعبة التسيير والاقتصاد بمعدل استثنائي (18.41). ستشارككم أسرار المحاسبة، الاقتصاد، والرياضيات قريباً!
-                            </div>
-                            <ul class="exp-card__points">
-                                <li><i class="fas fa-clock"></i> معدل 18.41 في شعبة التسيير والاقتصاد.</li>
-                                <li><i class="fas fa-clock"></i> كيفية التوفيق بين المحاسبة ومواد الحفظ واللغات.</li>
-                            </ul>
+                        <div class="exp-card-univ">
+                            <i class="fas fa-award"></i> الأولى وطقياً بالقناة
                         </div>
                     </div>
-                    <div class="exp-card__footer">
-                        <a href="https://t.me/islembacdz" target="_blank" rel="noopener noreferrer" class="exp-btn-upcoming">
-                            <i class="fab fa-telegram-plane"></i>
-                            <span>ترقب النشر على القناة</span>
-                        </a>
+
+                    <div class="exp-card-quote">
+                        المرتبة الأولى على شعبة التسيير والاقتصاد بمعدل استثنائي (18.41). ستشارككم أسرار المحاسبة، الاقتصاد، والرياضيات قريباً!
                     </div>
+
+                    <ul class="exp-card-points">
+                        <li><i class="fas fa-clock"></i> معدل 18.41 في شعبة التسيير والاقتصاد.</li>
+                        <li><i class="fas fa-clock"></i> كيفية التوفيق بين المحاسبة ومواد الحفظ واللغات.</li>
+                    </ul>
+
+                    <a href="https://t.me/islembacdz" target="_blank" rel="noopener noreferrer" class="exp-card-cta exp-card-cta--upcoming">
+                        <i class="fab fa-telegram-plane"></i>
+                        <span>ترقب النشر على القناة</span>
+                    </a>
                 </article>
 
                 <!-- 10. Upcoming Stream: Foreign Languages (Rouaida Derbal) -->
-                <article class="exp-card" data-stream="le" data-type="regular" data-keywords="دربال رويدة لغات أجنبية لغات اجنبية 17.90 الاولى لغات">
-                    <div>
-                        <div class="exp-card__header">
-                            <div class="exp-card__user">
-                                <div class="exp-card__avatar"><i class="fas fa-globe-africa"></i></div>
-                                <div>
-                                    <h2 class="exp-card__name">دربال رويدة</h2>
-                                    <p class="exp-card__subtext">المرتبة الأولى شعبة لغات أجنبية بالقناة</p>
-                                </div>
-                            </div>
-                            <span class="exp-badge-candidate exp-badge-candidate--regular">⏳ قريباً</span>
+                <article class="exp-card exp-card--le" data-stream="le" data-type="regular" data-keywords="دربال رويدة لغات أجنبية لغات اجنبية 17.90 الاولى لغات">
+                    <div class="exp-card-top">
+                        <div class="exp-card-stream-wrap">
+                            <div class="exp-card-rank"><i class="fas fa-globe-africa"></i></div>
+                            <span class="exp-card-stream">لغات أجنبية</span>
                         </div>
-                        <div class="exp-card__pills">
-                            <span class="exp-pill exp-pill--stream"><i class="fas fa-language"></i> لغات أجنبية</span>
-                            <span class="exp-pill exp-pill--score"><i class="fas fa-medal"></i> معدل 17.90</span>
-                            <span class="exp-pill exp-pill--univ"><i class="fas fa-clock"></i> تُنشر قريباً</span>
+                        <span class="exp-card-candidacy exp-card-candidacy--upcoming">⏳ قريباً</span>
+                    </div>
+
+                    <h3>دربال رويدة</h3>
+                    <p class="exp-card-role">المرتبة الأولى شعبة لغات أجنبية بالقناة</p>
+
+                    <div class="exp-card-avg-block">
+                        <div class="exp-card-avg">
+                            <b>17.90</b>
+                            <span>/ 20</span>
                         </div>
-                        <div class="exp-card__body">
-                            <div class="exp-card__quote">
-                                المتفوقة الأولى في شعبة اللغات الأجنبية بمعدل 17.90. تجربة ملهمة عن تطوير الرصيد اللغوي والتفوق في اللغات الأجنبية واللغة الثالثة.
-                            </div>
-                            <ul class="exp-card__points">
-                                <li><i class="fas fa-clock"></i> أسرار التعامل مع موضوع البكالوريا في اللغات.</li>
-                                <li><i class="fas fa-clock"></i> إدارة المواد الثانوية لضمان معدل امتياز.</li>
-                            </ul>
+                        <div class="exp-card-univ">
+                            <i class="fas fa-language"></i> تميز اللغات الأجنبية
                         </div>
                     </div>
-                    <div class="exp-card__footer">
-                        <a href="https://t.me/islembacdz" target="_blank" rel="noopener noreferrer" class="exp-btn-upcoming">
-                            <i class="fab fa-telegram-plane"></i>
-                            <span>ترقب النشر على القناة</span>
-                        </a>
+
+                    <div class="exp-card-quote">
+                        المتفوقة الأولى في شعبة اللغات الأجنبية بمعدل 17.90. تجربة ملهمة عن تطوير الرصيد اللغوي والتفوق في اللغات الأجنبية واللغة الثالثة.
                     </div>
+
+                    <ul class="exp-card-points">
+                        <li><i class="fas fa-clock"></i> أسرار التعامل مع موضوع البكالوريا في اللغات.</li>
+                        <li><i class="fas fa-clock"></i> إدارة المواد الثانوية لضمان معدل امتياز.</li>
+                    </ul>
+
+                    <a href="https://t.me/islembacdz" target="_blank" rel="noopener noreferrer" class="exp-card-cta exp-card-cta--upcoming">
+                        <i class="fab fa-telegram-plane"></i>
+                        <span>ترقب النشر على القناة</span>
+                    </a>
                 </article>
 
                 <!-- 11. Upcoming Stream: Literature & Philosophy (Lina Salam) -->
-                <article class="exp-card" data-stream="lp" data-type="regular" data-keywords="لينا سلام آداب وفلسفة اداب وفلسفة 17.52 الاولى اداب">
-                    <div>
-                        <div class="exp-card__header">
-                            <div class="exp-card__user">
-                                <div class="exp-card__avatar"><i class="fas fa-book-open"></i></div>
-                                <div>
-                                    <h2 class="exp-card__name">لينا سلام</h2>
-                                    <p class="exp-card__subtext">المرتبة الأولى شعبة آداب وفلسفة بالقناة</p>
-                                </div>
-                            </div>
-                            <span class="exp-badge-candidate exp-badge-candidate--regular">⏳ قريباً</span>
+                <article class="exp-card exp-card--lp" data-stream="lp" data-type="regular" data-keywords="لينا سلام آداب وفلسفة اداب وفلسفة 17.52 الاولى اداب">
+                    <div class="exp-card-top">
+                        <div class="exp-card-stream-wrap">
+                            <div class="exp-card-rank"><i class="fas fa-feather-pointed"></i></div>
+                            <span class="exp-card-stream">آداب وفلسفة</span>
                         </div>
-                        <div class="exp-card__pills">
-                            <span class="exp-pill exp-pill--stream"><i class="fas fa-feather-pointed"></i> آداب وفلسفة</span>
-                            <span class="exp-pill exp-pill--score"><i class="fas fa-medal"></i> معدل 17.52</span>
-                            <span class="exp-pill exp-pill--univ"><i class="fas fa-clock"></i> تُنشر قريباً</span>
+                        <span class="exp-card-candidacy exp-card-candidacy--upcoming">⏳ قريباً</span>
+                    </div>
+
+                    <h3>لينا سلام</h3>
+                    <p class="exp-card-role">المرتبة الأولى شعبة آداب وفلسفة بالقناة</p>
+
+                    <div class="exp-card-avg-block">
+                        <div class="exp-card-avg">
+                            <b>17.52</b>
+                            <span>/ 20</span>
                         </div>
-                        <div class="exp-card__body">
-                            <div class="exp-card__quote">
-                                صاحبة المرتبة الأولى في شعبة الآداب والفلسفة بمعدل 17.52. ستشرح منهجية المقالة الفلسفية وكيفية التميز في اللغة العربية ومواد الحفظ.
-                            </div>
-                            <ul class="exp-card__points">
-                                <li><i class="fas fa-clock"></i> منهجية كتابة المقالات الفلسفية بدون حفظ أعمى.</li>
-                                <li><i class="fas fa-clock"></i> الاستعداد النفسي للامتحان ورفع سقف الطموح.</li>
-                            </ul>
+                        <div class="exp-card-univ">
+                            <i class="fas fa-book"></i> امتياز الآداب والفلسفة
                         </div>
                     </div>
-                    <div class="exp-card__footer">
-                        <a href="https://t.me/islembacdz" target="_blank" rel="noopener noreferrer" class="exp-btn-upcoming">
-                            <i class="fab fa-telegram-plane"></i>
-                            <span>ترقب النشر على القناة</span>
-                        </a>
+
+                    <div class="exp-card-quote">
+                        صاحبة المرتبة الأولى في شعبة الآداب والفلسفة بمعدل 17.52. ستشرح منهجية المقالة الفلسفية وكيفية التميز في اللغة العربية ومواد الحفظ.
                     </div>
+
+                    <ul class="exp-card-points">
+                        <li><i class="fas fa-clock"></i> منهجية كتابة المقالات الفلسفية بدون حفظ أعمى.</li>
+                        <li><i class="fas fa-clock"></i> الاستعداد النفسي للامتحان ورفع سقف الطموح.</li>
+                    </ul>
+
+                    <a href="https://t.me/islembacdz" target="_blank" rel="noopener noreferrer" class="exp-card-cta exp-card-cta--upcoming">
+                        <i class="fab fa-telegram-plane"></i>
+                        <span>ترقب النشر على القناة</span>
+                    </a>
                 </article>
 
                 <!-- Empty State -->
@@ -1092,6 +1330,18 @@
                     <h3>لم نجد تجارب تطابق خيارات البحث</h3>
                     <p>جرّب اختيار شعبة أخرى أو مسح كلمات البحث في الأعلى.</p>
                 </div>
+            </section>
+
+            <!-- ══ COMMUNITY CALLOUT FOOTER ══ -->
+            <section class="exp-footer-callout">
+                <h2>هل لديك سؤال لأحد المتفوقين؟</h2>
+                <p>
+                    نستضيف ضيوفنا المتفوقين دورياً في بثوث ومناقشات تفاعلية للإجابة عن كامل تساؤلاتكم ومساعدتكم على تجاوز كافة الصعوبات. انضم لمجتمعنا على تلغرام لتكون قريباً منهم.
+                </p>
+                <a href="https://t.me/islembacdz" target="_blank" rel="noopener noreferrer" class="exp-telegram-btn">
+                    <i class="fab fa-telegram-plane"></i>
+                    <span>اطرح سؤالك في مجتمع التلغرام</span>
+                </a>
             </section>
         </div>
     </main>
@@ -1103,11 +1353,13 @@
     <script src="/components/shared.js?v=9.1"></script>
     <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const streamButtons = document.querySelectorAll('.exp-filter-btn[data-stream]');
-        const typeButtons = document.querySelectorAll('.exp-filter-btn[data-type]');
+        const streamChips = document.querySelectorAll('.exp-chip[data-stream]');
+        const typeChips = document.querySelectorAll('.exp-chip[data-type]');
         const searchInput = document.getElementById('expSearch');
         const cards = document.querySelectorAll('.exp-card');
         const emptyState = document.getElementById('expEmpty');
+        const countSpan = document.getElementById('expVisibleCount');
+        const resetBtn = document.getElementById('expResetBtn');
 
         let activeStream = 'all';
         let activeType = 'all';
@@ -1134,25 +1386,27 @@
                 }
             });
 
-            if (emptyState) {
-                emptyState.style.display = (visibleCount === 0) ? 'block' : 'none';
+            if (countSpan) countSpan.textContent = visibleCount;
+            if (emptyState) emptyState.style.display = (visibleCount === 0) ? 'block' : 'none';
+            if (resetBtn) {
+                resetBtn.style.display = (activeStream !== 'all' || activeType !== 'all' || searchQuery !== '') ? 'inline-flex' : 'none';
             }
         }
 
-        streamButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                streamButtons.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                activeStream = btn.getAttribute('data-stream');
+        streamChips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                streamChips.forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+                activeStream = chip.getAttribute('data-stream');
                 filterCards();
             });
         });
 
-        typeButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                typeButtons.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                activeType = btn.getAttribute('data-type');
+        typeChips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                typeChips.forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+                activeType = chip.getAttribute('data-type');
                 filterCards();
             });
         });
@@ -1163,6 +1417,16 @@
                 filterCards();
             });
         }
+
+        window.resetExpFilters = function() {
+            activeStream = 'all';
+            activeType = 'all';
+            searchQuery = '';
+            if (searchInput) searchInput.value = '';
+            streamChips.forEach(c => c.classList.toggle('active', c.getAttribute('data-stream') === 'all'));
+            typeChips.forEach(c => c.classList.toggle('active', c.getAttribute('data-type') === 'all'));
+            filterCards();
+        };
     });
     </script>
 </body>
