@@ -418,50 +418,7 @@
         border-top: 1px dashed rgba(220, 38, 38, 0.15);
     }
 
-    /* ══ RENAME CALLOUT ══ */
-    .crc-rename {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 1.4rem;
-        flex-wrap: wrap;
-        background: #fff;
-        border: 1.5px solid rgba(220, 38, 38, 0.2);
-        border-radius: 20px;
-        padding: 1.5rem 2rem;
-        margin-bottom: 2.6rem;
-        box-shadow: 0 5px 20px rgba(220, 38, 38, 0.05);
-    }
-    .crc-rename-old, .crc-rename-new {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-family: 'Tajawal', sans-serif;
-        font-weight: 900;
-        font-size: 1.15rem;
-        border-radius: 999px;
-        padding: 0.6rem 1.4rem;
-    }
-    .crc-rename-old {
-        color: #94a3b8;
-        background: #f1f5f9;
-        text-decoration: line-through;
-        text-decoration-thickness: 2px;
-    }
-    .crc-rename-new {
-        color: #fff;
-        background: linear-gradient(135deg, #15803d 0%, #22c55e 100%);
-        box-shadow: 0 8px 20px rgba(34, 197, 94, 0.28);
-    }
-    .crc-rename-arrow { color: #16a34a; font-size: 1.3rem; }
-    .crc-rename-note {
-        flex-basis: 100%;
-        text-align: center;
-        font-size: 0.88rem;
-        color: #64748b;
-        font-weight: 600;
-        margin-top: 0.3rem;
-    }
+
 
     /* ══ JUMP CHIPS ══ */
     .crc-jump {
@@ -1039,8 +996,6 @@
         .crc-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.8rem; }
         .crc-stat { padding: 1.2rem 0.6rem; }
         .crc-stat-num { font-size: 1.9rem; }
-        .crc-rename { padding: 1.3rem 1.3rem; gap: 1rem; }
-        .crc-rename-old, .crc-rename-new { font-size: 0.98rem; padding: 0.5rem 1rem; }
         .crc-stream summary { padding: 0.9rem 0.9rem; gap: 0.6rem; align-items: flex-start; }
         .crc-stream-icon { width: 38px; height: 38px; min-width: 38px; font-size: 0.95rem; border-radius: 12px; margin-top: 1px; }
         .crc-stream-body { padding: 0 0.9rem 1.2rem; }
@@ -1161,13 +1116,7 @@
             </div>
         </section>
 
-        <!-- ══ RENAME CALLOUT ══ -->
-        <div class="crc-rename crc-reveal" style="border-color: rgba(243, 156, 18, 0.25); box-shadow: 0 5px 20px rgba(243, 156, 18, 0.06);">
-            <span class="crc-rename-old">تقني رياضي (تسمية سابقة)</span>
-            <i class="fas fa-arrow-left-long crc-rename-arrow" style="color:#f39c12;"></i>
-            <span class="crc-rename-new" style="background:linear-gradient(135deg, #f39c12 0%, #c87f0a 100%);box-shadow:0 8px 20px rgba(243, 156, 18, 0.28);"><i class="fas fa-drafting-compass"></i> شعبة تقني رياضي</span>
-            <p class="crc-rename-note">التغيير الوحيد المحتفظ به رسمياً هو اعتماد اسم "شعبة تقني رياضي" بدلاً من "تقني رياضي" بجميع الخيارات الأربعة، مع عودة المواد والمعاملات وفق القرار 186.</p>
-        </div>
+
 
         <!-- ══ JUMP CHIPS ══ -->
         <nav class="crc-jump" id="crcJump" aria-label="انتقال سريع للشعب">
@@ -1268,15 +1217,15 @@
                 <summary>
                     <div class="crc-stream-icon" style="background:linear-gradient(135deg, #c87f0a 0%, #f39c12 100%);"><i class="fas fa-drafting-compass"></i></div>
                     <div class="crc-stream-title">
-                        <h3>شعبة تقني رياضي (تقني رياضي سابقاً) <span class="crc-restored-tag">اعتماد التسمية والعودة للنظام الأصلي في المواد</span></h3>
-                        <p class="crc-stream-summary">اعتماد اسم شعبة تقني رياضي · عودة العربية والفرنسية والفلسفة والجغرافيا · التكنولوجيا 7 · الرياضيات 6 · الفيزياء 6</p>
+                        <h3>شعبة تقني رياضي <span class="crc-restored-tag">العودة للنظام الأصلي</span></h3>
+                        <p class="crc-stream-summary">استرجاع العربية والفرنسية والفلسفة والجغرافيا · التكنولوجيا 7 · الرياضيات 6 · الفيزياء 6</p>
                     </div>
                     <div class="crc-stream-total"><b>33</b><span>أو 35 بالأمازيغية</span></div>
                     <div class="crc-stream-chevron"><i class="fas fa-chevron-down"></i></div>
                 </summary>
                 <div class="crc-stream-body">
                     <div class="crc-stream-body-inner">
-                        <div class="crc-note"><i class="fas fa-circle-check"></i> اعتماد اسم "شعبة تقني رياضي" رسمياً لجميع الخيارات الهندسية الأربعة (ميكانيك، كهرباء، مدنية، طرائق) مع عودة المواد والمعاملات للقرار 186.</div>
+                        <div class="crc-note"><i class="fas fa-circle-check"></i> إلغاء كافة التغييرات: عودة المواد والمعاملات للقرار 186 لجميع الخيارات الهندسية الأربعة (ميكانيك، كهرباء، مدنية، طرائق).</div>
                         <div class="crc-table-wrap">
                             <table class="crc-table">
                                 <thead><tr><th>المادة</th><th>المعامل المعتمد (القرار 186)</th><th>الحالة بعد القرار 36</th></tr></thead>
