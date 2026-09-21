@@ -103,11 +103,21 @@
        EXPERIENCES PAGE ARCHITECTURE — exp-*
        Brand: #1a3a8f / #2c5cc5 · Accent: #ff6b35 · Neutral: #0f172a
        ══════════════════════════════════════════════════ */
+    html {
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+        max-width: 100%;
+        width: 100%;
+    }
     body {
         font-family: 'Tajawal', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         background-color: #f8fafc;
         color: #1e293b;
         -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+        max-width: 100%;
+        width: 100%;
+        position: relative;
     }
     body.dark-mode {
         background-color: #0b1120;
@@ -124,6 +134,9 @@
         padding-bottom: 60px;
         min-width: 0;
         width: 100%;
+        max-width: 1200px;
+        box-sizing: border-box;
+        overflow-x: hidden;
     }
 
     /* ══ LEDE (Page Opener - Inspired by bac-2027-curriculum-changes & bac-2026-graduation) ══ */
@@ -650,9 +663,12 @@
     /* ══ EXPERIENCES GRID (Inspired by bac-2026-graduation .prt-winners) ══ */
     .exp-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
         gap: 1.6rem;
         margin-bottom: 3.5rem;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
     }
 
     /* ── Experience Card Base ── */
@@ -670,6 +686,8 @@
         box-shadow: 0 6px 24px color-mix(in srgb, var(--w-c) 8%, transparent);
         overflow: visible;
         transition: box-shadow 0.3s ease, border-color 0.3s ease;
+        max-width: 100%;
+        box-sizing: border-box;
     }
     .dark-mode .exp-card {
         background: #1e293b;
@@ -679,10 +697,12 @@
     .exp-card::after {
         content: '';
         position: absolute;
-        top: -80px; left: -60px;
-        width: 200px; height: 200px;
-        background: radial-gradient(circle, color-mix(in srgb, var(--w-c) 14%, transparent) 0%, transparent 70%);
-        border-radius: 50%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at top left, color-mix(in srgb, var(--w-c) 14%, transparent) 0%, transparent 60%);
+        border-radius: inherit;
         pointer-events: none;
     }
     .exp-card:hover {
@@ -1313,6 +1333,9 @@
             padding: 2rem 1.4rem;
             border-radius: 22px;
             gap: 1.8rem;
+            max-width: 100%;
+            box-sizing: border-box;
+            overflow: hidden;
         }
         .exp-lede-main {
             text-align: center;
@@ -1346,10 +1369,20 @@
         .exp-grid {
             grid-template-columns: 1fr;
             gap: 1.4rem;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+        .exp-card {
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
         }
         .exp-controls {
             padding: 1.1rem 1rem;
             border-radius: 18px;
+            max-width: 100%;
+            box-sizing: border-box;
         }
         .exp-chips-row {
             flex-direction: column;
@@ -1357,6 +1390,12 @@
             padding: 0.75rem 0.85rem;
             gap: 0.5rem;
             border-radius: 12px;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+        .exp-chips-scroller {
+            max-width: 100%;
+            box-sizing: border-box;
         }
         .exp-chips-label {
             margin-bottom: 0.2rem;
@@ -1364,6 +1403,9 @@
         .exp-footer-callout {
             padding: 2.2rem 1.4rem 2rem;
             border-radius: 22px;
+            max-width: 100%;
+            box-sizing: border-box;
+            overflow: hidden;
         }
         .exp-footer-callout h2 {
             font-size: 1.55rem;
