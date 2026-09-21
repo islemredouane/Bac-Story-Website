@@ -5,7 +5,7 @@
 BAC STORY provides comprehensive, free, and accessible study materials for all six Baccalaureate streams:
 1. Mathematics (شعبة رياضيات)
 2. Experimental Sciences (شعبة علوم تجريبية)
-3. Engineering (شعبة هندسة — formerly known as "تقني رياضي" / Technical Mathematics, officially renamed in the 2027 reform)
+3. Technical Mathematics (شعبة تقني رياضي — Technical Mathematics, encompassing Civil, Electrical, Mechanical, and Process Engineering)
 4. Management & Economics (شعبة تسيير واقتصاد)
 5. Literature & Philosophy (شعبة آداب وفلسفة)
 6. Foreign Languages (شعبة لغات أجنبية)
@@ -23,7 +23,7 @@ The platform is founded and operated by Redouane Mohamed Islem and is accessible
 ## 2027 Baccalaureate Reform (إصلاحات وتغييرات منهاج بكالوريا 2027)
 
 - [التغييرات والإصلاحات الرسمية لبكالوريا 2027](https://www.bac-story.com/bac-2027-curriculum-changes): Comprehensive guide to the official Ministry of National Education curriculum reforms, updated subject coefficients, structural hour allocations, and stream renaming for Baccalaureate 2027 candidates.
-- Official Stream Rename: The stream formerly called "تقني رياضي" (Technical Mathematics) is now officially "شعبة هندسة" (Engineering), encompassing Civil, Electrical, Mechanical, and Road Process Engineering.
+- Official Stream Information: The stream "شعبة تقني رياضي" (Technical Mathematics) encompasses Civil, Electrical, Mechanical, and Process Engineering.
 
 ## Interactive Tools (الأدوات الذكية)
 
@@ -39,14 +39,14 @@ The platform is founded and operated by Redouane Mohamed Islem and is accessible
 - [بوابة المصادر الدراسية](https://www.bac-story.com/resources): Central directory for all curriculum study resources.
 - [شعبة علوم تجريبية](https://www.bac-story.com/resources/sci): Curated summaries, books, exercises, and exams for the Experimental Sciences stream.
 - [شعبة رياضيات](https://www.bac-story.com/resources/math): Comprehensive mathematical analysis, algebra, physics, and natural science modules for the Mathematics stream.
-- [شعبة هندسة](https://www.bac-story.com/resources/engineering): Specialized engineering tracks including Civil Engineering (هندسة مدنية), Electrical Engineering (هندسة كهربائية), Mechanical Engineering (هندسة ميكانيكية), and Road/Process Engineering (هندسة الطرائق).
-  - [الهندسة الميكانيكية — البوابة الرئيسية](https://www.bac-story.com/resources/engineering/mechanical-engineering)
-  - [الهندسة الميكانيكية — ملخصات متفوقين](https://www.bac-story.com/resources/engineering/mechanical-engineering/top-students)
-  - [الهندسة الميكانيكية — الأسئلة الشائعة في البكالوريا](https://www.bac-story.com/resources/engineering/mechanical-engineering/common-questions)
-  - [الهندسة الميكانيكية — سلاسل وتمارين](https://www.bac-story.com/resources/engineering/mechanical-engineering/exercises)
-  - [الهندسة الميكانيكية — فروض المادة](https://www.bac-story.com/resources/engineering/mechanical-engineering/foroud)
-  - [الهندسة الميكانيكية — اختبارات الفصول](https://www.bac-story.com/resources/engineering/mechanical-engineering/exams)
-  - [الهندسة الميكانيكية — مواضيع تحضيرية](https://www.bac-story.com/resources/engineering/mechanical-engineering/preparation)
+- [شعبة تقني رياضي](https://www.bac-story.com/resources/tech): Specialized engineering tracks including Civil Engineering (هندسة مدنية), Electrical Engineering (هندسة كهربائية), Mechanical Engineering (هندسة ميكانيكية), and Process Engineering (هندسة الطرائق).
+  - [الهندسة الميكانيكية — البوابة الرئيسية](https://www.bac-story.com/resources/tech/mechanical-engineering)
+  - [الهندسة الميكانيكية — ملخصات متفوقين](https://www.bac-story.com/resources/tech/mechanical-engineering/top-students)
+  - [الهندسة الميكانيكية — الأسئلة الشائعة في البكالوريا](https://www.bac-story.com/resources/tech/mechanical-engineering/common-questions)
+  - [الهندسة الميكانيكية — سلاسل وتمارين](https://www.bac-story.com/resources/tech/mechanical-engineering/exercises)
+  - [الهندسة الميكانيكية — فروض المادة](https://www.bac-story.com/resources/tech/mechanical-engineering/foroud)
+  - [الهندسة الميكانيكية — اختبارات الفصول](https://www.bac-story.com/resources/tech/mechanical-engineering/exams)
+  - [الهندسة الميكانيكية — مواضيع تحضيرية](https://www.bac-story.com/resources/tech/mechanical-engineering/preparation)
 - [شعبة تسيير واقتصاد](https://www.bac-story.com/resources/ge): Accounting, financial management, economics, management, and commercial law resources.
 - [شعبة آداب وفلسفة](https://www.bac-story.com/resources/lp): Philosophy essay methodologies, Arabic literature, history, geography, and languages.
 - [شعبة لغات أجنبية](https://www.bac-story.com/resources/le): French, English, Spanish, German, and Italian learning tracks.
@@ -60,8 +60,8 @@ Essential foundation knowledge booklets designed to bridge middle/secondary scho
 - [كُتيّب المكتسبات القبلية الشامل](https://www.bac-story.com/plans/monthly/prerequisites): The central portal for prerequisite diagnostic guides and revision booklets across all subjects.
 - [المكتسبات القبلية في الرياضيات — شعبة رياضيات](https://www.bac-story.com/resources/math/math/moktasabat)
 - [المكتسبات القبلية في الرياضيات — شعبة علوم تجريبية](https://www.bac-story.com/resources/sci/math/moktasabat)
-- [المكتسبات القبلية في الرياضيات — شعبة هندسة](https://www.bac-story.com/resources/engineering/math/moktasabat)
-- [المكتسبات القبلية في الهندسة المدنية](https://www.bac-story.com/resources/engineering/civil-engineering/moktasabat)
+- [المكتسبات القبلية في الرياضيات — شعبة تقني رياضي](https://www.bac-story.com/resources/tech/math/moktasabat)
+- [المكتسبات القبلية في الهندسة المدنية](https://www.bac-story.com/resources/tech/civil-engineering/moktasabat)
 - [المكتسبات القبلية في التسيير المحاسبي والمالي](https://www.bac-story.com/resources/ge/accounting/moktasabat)
 - [المكتسبات القبلية في اللغة الألمانية](https://www.bac-story.com/resources/le/german/moktasabat)
 - [المكتسبات القبلية في اللغة الإسبانية](https://www.bac-story.com/resources/le/spanish/moktasabat)
@@ -73,7 +73,7 @@ Essential foundation knowledge booklets designed to bridge middle/secondary scho
 Official Ministry of National Education curriculum blueprints for all Baccalaureate subjects:
 - [شعبة علوم تجريبية — جميع المواد](https://www.bac-story.com/resources/sci)
 - [شعبة رياضيات — جميع المواد](https://www.bac-story.com/resources/math)
-- [شعبة هندسة — جميع المواد](https://www.bac-story.com/resources/engineering)
+- [شعبة تقني رياضي — جميع المواد](https://www.bac-story.com/resources/tech)
 - [شعبة تسيير واقتصاد — جميع المواد](https://www.bac-story.com/resources/ge)
 - [شعبة آداب وفلسفة — جميع المواد](https://www.bac-story.com/resources/lp)
 - [شعبة لغات أجنبية — جميع المواد](https://www.bac-story.com/resources/le)
