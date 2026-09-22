@@ -47,6 +47,11 @@ The platform is founded and operated by Redouane Mohamed Islem and is accessible
   - [الهندسة الميكانيكية — فروض المادة](https://www.bac-story.com/resources/tech/mechanical-engineering/foroud)
   - [الهندسة الميكانيكية — اختبارات الفصول](https://www.bac-story.com/resources/tech/mechanical-engineering/exams)
   - [الهندسة الميكانيكية — مواضيع تحضيرية](https://www.bac-story.com/resources/tech/mechanical-engineering/preparation)
+  - [هندسة الطرائق — البوابة الرئيسية](https://www.bac-story.com/resources/tech/road-engineering)
+  - [هندسة الطرائق — ملخصات ومطويات الدروس](https://www.bac-story.com/resources/tech/road-engineering/resumes)
+  - [هندسة الطرائق — تمارين وسلاسل محلولة](https://www.bac-story.com/resources/tech/road-engineering/exercises)
+  - [هندسة الطرائق — بنك الفروض المحلولة](https://www.bac-story.com/resources/tech/road-engineering/foroud)
+  - [هندسة الطرائق — اختبارات ومواضيع التميز](https://www.bac-story.com/resources/tech/road-engineering/preparation)
 - [شعبة تسيير واقتصاد](https://www.bac-story.com/resources/ge): Accounting, financial management, economics, management, and commercial law resources.
 - [شعبة آداب وفلسفة](https://www.bac-story.com/resources/lp): Philosophy essay methodologies, Arabic literature, history, geography, and languages.
 - [شعبة لغات أجنبية](https://www.bac-story.com/resources/le): French, English, Spanish, German, and Italian learning tracks.
