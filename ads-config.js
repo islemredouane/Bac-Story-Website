@@ -38,11 +38,43 @@ window.BAC_ADS = {
 
   rotatingCards: [
     {
+      id:           'card-bacmath-bma',
+      active:       true,
+      priority:     1,
+      type:         'courses',
+      layout:       'rich-bg',       // rich card: background image + HTML overlay
+      bgImage:      '/images/bma-bg.jpg',
+      subline:      'دورة الرياضيات 2027 · ع.تجريبية · رياضيات · ت.رياضي · أولمبياد',
+      chips: [
+        { icon: 'fas fa-layer-group', text: '🥉🥈🥇 نظام المستويات' },
+        { icon: 'fas fa-gift',        text: '🎁 حصة مباشرة مجانية الخميس' }
+      ],
+      dealLabel:    'اشتراك شهر أكتوبر',
+      dealAmount:   '1500',
+      dealUnit:     'دج',
+      dealCode:     '4 حصص مباشرة للشهر',
+      sponsorLabel: 'إعلان مموّل',
+      avatarIcon:   'fas fa-square-root-variable',
+      avatarColor:  '#1a3a8f',
+      logoUrl:      '/images/bma-logo.jpg',
+      name:         'BAC MATH WITH BMA — بكالوريا 2027',
+      subject:      'شعب علمية + مسار أولمبياد',
+      specialty:    '1500 دج/شهر',
+      pitch:        'مسار تدريبي متكامل طوال السنة في الرياضيات (تثبيت، تطبيق، تحدي ومسائل أجنبية). 🔴 حصة مباشرة مجانية للمكتسبات القبلية هذا الخميس!',
+      ctaText:      'سجّل في الدورة الآن',
+      ctaIcon:      'fab fa-telegram-plane',
+      ctaHref:      'https://t.me/math_with_bma',
+      ctaTarget:    '_blank',
+      secondaryIcon: 'fab fa-instagram',
+      secondaryHref: 'https://www.instagram.com/bacmathwithbma?stkn=MTE0amc1NnJlOXR5bg==',
+      secondaryLabel: 'تابعنا على انستغرام'
+    },
+    {
       id:           'card-techfocus-oran',
       active:       false,
-      priority:     1,
+      priority:     2,
       type:         'tech-shop',
-      layout:       'rich-bg',       // rich card: background image + HTML overlay
+      layout:       'rich-bg',
       bgImage:      'https://pub-889477d66bc54c9582bba9a492cf605f.r2.dev/images/pub.png',
       subline:      'جودة عالية · ضمان رسمي · أسعار منافسة',
       chips: [
@@ -71,7 +103,7 @@ window.BAC_ADS = {
     },
     {
       id:           'card-orientation',
-      active:       true,
+      active:       false,
       priority:     2,
       type:         'orientation',
       sponsorLabel: 'محتوى مدعوم',
@@ -87,7 +119,7 @@ window.BAC_ADS = {
     },
     {
       id:           'card-bac2027',
-      active:       true,
+      active:       false,
       priority:     2,
       type:         'courses',
       sponsorLabel: 'محتوى مدعوم',
@@ -103,7 +135,7 @@ window.BAC_ADS = {
     },
     {
       id:           'card-languages',
-      active:       true,
+      active:       false,
       priority:     2,
       type:         'training',
       sponsorLabel: 'محتوى مدعوم',
@@ -119,7 +151,7 @@ window.BAC_ADS = {
     },
     {
       id:           'card-platform',
-      active:       true,
+      active:       false,
       priority:     2,
       type:         'platform',
       sponsorLabel: 'محتوى مدعوم',
