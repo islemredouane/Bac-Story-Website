@@ -8740,8 +8740,8 @@ body.pdf-body-lock [id="footer-placeholder"] {
     position: relative;
     overflow: hidden;
     border-radius: 18px;
-    background: #0f2557;
-    box-shadow: 0 10px 34px rgba(15, 37, 87, 0.22);
+    background: #1a3c8d;
+    box-shadow: 0 10px 34px rgba(26, 60, 141, 0.25);
     isolation: isolate;
     direction: rtl;
 }
@@ -8757,14 +8757,14 @@ body.pdf-body-lock [id="footer-placeholder"] {
     transform: scale(1.02);
 }
 
-/* scrim — keeps white text readable over any photo */
+/* scrim — keeps white text readable over any photo with website royal blue */
 .adx-hybrid-scrim {
     position: absolute;
     inset: 0;
     z-index: 1;
     background:
-        linear-gradient(270deg, rgba(10, 26, 64, 0.97) 0%, rgba(10, 26, 64, 0.88) 42%, rgba(10, 26, 64, 0.45) 72%, rgba(10, 26, 64, 0.25) 100%),
-        linear-gradient(180deg, rgba(10, 26, 64, 0.35) 0%, transparent 40%, rgba(10, 26, 64, 0.5) 100%);
+        linear-gradient(270deg, rgba(20, 48, 120, 0.95) 0%, rgba(20, 48, 120, 0.82) 42%, rgba(20, 48, 120, 0.45) 72%, rgba(20, 48, 120, 0.25) 100%),
+        linear-gradient(180deg, rgba(20, 48, 120, 0.3) 0%, transparent 40%, rgba(20, 48, 120, 0.45) 100%);
 }
 
 .adx-hybrid-inner {
@@ -8806,14 +8806,17 @@ body.pdf-body-lock [id="footer-placeholder"] {
     border-radius: 16px;
     overflow: hidden;
     background: #fff;
-    padding: 5px;
+    padding: 0;
     box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .adx-logo img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     display: block;
 }
 
@@ -8894,10 +8897,11 @@ body.pdf-body-lock [id="footer-placeholder"] {
 
 .adx-code {
     margin-top: 0.3rem;
-    font-size: 0.66rem;
-    font-weight: 900;
-    letter-spacing: 0.6px;
-    padding: 2px 10px;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: normal;
+    padding: 3px 12px;
     border-radius: 999px;
     background: var(--secondary-color);
     color: #fff;
@@ -8915,6 +8919,12 @@ body.pdf-body-lock [id="footer-placeholder"] {
     0%   { box-shadow: 0 6px 18px rgba(37,211,102,.35), 0 0 0 0   rgba(37,211,102,.55); }
     60%  { box-shadow: 0 6px 18px rgba(37,211,102,.35), 0 0 0 10px rgba(37,211,102,0);  }
     100% { box-shadow: 0 6px 18px rgba(37,211,102,.35), 0 0 0 0   rgba(37,211,102,0);  }
+}
+
+@keyframes adxCtaPulseTg {
+    0%   { box-shadow: 0 6px 18px rgba(42,171,238,.4), 0 0 0 0   rgba(42,171,238,.65); }
+    60%  { box-shadow: 0 6px 18px rgba(42,171,238,.4), 0 0 0 10px rgba(42,171,238,0);  }
+    100% { box-shadow: 0 6px 18px rgba(42,171,238,.4), 0 0 0 0   rgba(42,171,238,0);  }
 }
 
 @keyframes adxCtaShine {
@@ -8941,6 +8951,42 @@ body.pdf-body-lock [id="footer-placeholder"] {
     overflow: hidden;
     animation: adxCtaPulse 2s ease-out infinite;
     transition: transform .3s ease, box-shadow .3s ease;
+}
+
+/* Telegram CTA button */
+.adx-cta.adx-cta--telegram,
+.adx-cta[href*="t.me"] {
+    background: linear-gradient(135deg, #2AABEE, #229ED9);
+    animation-name: adxCtaPulseTg;
+}
+
+.adx-cta.adx-cta--telegram:hover,
+.adx-cta[href*="t.me"]:hover {
+    box-shadow: 0 10px 26px rgba(42, 171, 238, 0.6);
+    color: #fff;
+}
+
+/* shine sweep — fully contained, no overflow */
+.adx-cta::before {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 45%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.32), transparent);
+    animation: adxCtaShine 3s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.adx-cta i {
+    font-size: 1.1rem;
+    position: relative;
+}
+
+.adx-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 26px rgba(37,211,102,.5), 0 0 0 0 rgba(37,211,102,0);
+    animation-play-state: paused;
+    color: #fff;
 }
 
 /* shine sweep — fully contained, no overflow */
@@ -13885,6 +13931,338 @@ body.pdf-body-lock [id="footer-placeholder"] {
     100% {
         transform: scale(1);
         opacity: 1;
+    }
+}
+
+/* ── BMA Sponsored Popup Modal (Ultra Responsive) ── */
+.bma-popup-card {
+    background: linear-gradient(145deg, #102a6b 0%, #1a3c8d 55%, #2563eb 100%);
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 25px 60px rgba(16, 42, 107, 0.65);
+    padding: 1.5rem 1.4rem;
+    border-radius: 22px;
+    max-width: 535px;
+    width: 100%;
+    margin: auto;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    max-height: calc(100vh - 32px);
+    overflow-y: auto;
+    direction: rtl;
+    animation: modalScaleUp 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.bma-popup-card::-webkit-scrollbar {
+    width: 4px;
+}
+.bma-popup-card::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+.bma-popup-head {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 0.2rem 0 0.8rem;
+    width: 100%;
+    text-align: right;
+}
+
+.bma-popup-logo {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #fff;
+    border: 2px solid #60a5fa;
+    box-shadow: 0 0 16px rgba(96, 165, 250, 0.35);
+    flex-shrink: 0;
+}
+.bma-popup-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.bma-popup-title {
+    margin: 0;
+    font-size: 1.22rem;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.25;
+    font-family: 'Tajawal', sans-serif;
+}
+
+.bma-popup-sub {
+    font-size: 0.8rem;
+    color: #93c5fd;
+    font-weight: 700;
+    display: block;
+    margin-top: 3px;
+    line-height: 1.35;
+}
+
+.bma-popup-live {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.25), rgba(220, 38, 38, 0.15));
+    border: 1.5px solid rgba(248, 113, 113, 0.4);
+    border-radius: 12px;
+    padding: 8px 12px;
+    margin-bottom: 0.8rem;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: right;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.bma-popup-live-icon {
+    background: #ef4444;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+    animation: pulseGlow 1.5s infinite alternate;
+}
+
+.bma-popup-live-title {
+    color: #fecaca;
+    font-weight: 800;
+    font-size: 0.88rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    width: 100%;
+}
+
+.bma-popup-live-text {
+    white-space: nowrap;
+    font-weight: 800;
+}
+
+.bma-popup-free-badge {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: #ffffff;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-weight: 900;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.4);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.bma-popup-live-sub {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.8rem;
+    margin-top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.bma-popup-tiers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    width: 100%;
+    margin-bottom: 0.8rem;
+    box-sizing: border-box;
+}
+
+.bma-popup-tier {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 6px 4px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.bma-popup-pricebar {
+    background: rgba(0, 0, 0, 0.25);
+    border: 1.5px dashed rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    padding: 8px 14px;
+    margin-bottom: 0.95rem;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.bma-popup-price-desc {
+    color: #e0e7ff;
+    font-weight: 700;
+    font-size: 0.85rem;
+    flex: 1;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.bma-popup-price-tag {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: #ffffff;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 900;
+    padding: 5px 16px;
+    border-radius: 999px;
+    box-shadow: 0 4px 14px rgba(37,99,235,0.45);
+    white-space: nowrap;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bma-popup-btn-tg {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 7px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    font-size: 0.95rem !important;
+    font-weight: 800 !important;
+    padding: 11px 14px !important;
+    background: #2AABEE !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 999px !important;
+    box-shadow: 0 6px 20px rgba(42, 171, 238, 0.45) !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
+    white-space: nowrap !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+.bma-popup-btn-tg:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 26px rgba(42, 171, 238, 0.6) !important;
+}
+.bma-popup-btn-tg span,
+.bma-popup-btn-ig span {
+    white-space: nowrap !important;
+}
+
+.bma-popup-btn-ig {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 7px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    font-size: 0.88rem !important;
+    font-weight: 800 !important;
+    padding: 9px 14px !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+    color: #ffffff !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.3) !important;
+    border-radius: 999px !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
+    backdrop-filter: blur(8px) !important;
+    white-space: nowrap !important;
+    transition: all 0.2s ease !important;
+}
+.bma-popup-btn-ig:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-color: rgba(255, 255, 255, 0.5) !important;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 480px) {
+    .bma-popup-card {
+        padding: 1.15rem 0.85rem;
+        border-radius: 18px;
+        max-width: 96vw;
+    }
+    .bma-popup-logo {
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+    }
+    .bma-popup-title {
+        font-size: 1.02rem;
+    }
+    .bma-popup-sub {
+        font-size: 0.72rem;
+    }
+    .bma-popup-live {
+        padding: 6px 10px;
+        gap: 7px;
+    }
+    .bma-popup-live-title {
+        font-size: clamp(0.70rem, 3.1vw, 0.80rem);
+    }
+    .bma-popup-live-text {
+        white-space: nowrap;
+    }
+    .bma-popup-free-badge {
+        font-size: 0.68rem;
+        padding: 2px 6px;
+    }
+    .bma-popup-live-sub {
+        font-size: 0.74rem;
+        white-space: nowrap;
+    }
+    .bma-popup-tier {
+        padding: 5px 2px;
+    }
+    .bma-popup-tier-name {
+        font-size: 0.75rem;
+    }
+    .bma-popup-tier-desc {
+        font-size: 0.68rem;
+    }
+    .bma-popup-pricebar {
+        padding: 6px 9px;
+    }
+    .bma-popup-price-desc {
+        font-size: 0.72rem;
+    }
+    .bma-popup-price-tag {
+        font-size: 0.8rem;
+        padding: 2px 8px;
+    }
+    .bma-popup-btn-tg {
+        font-size: clamp(0.72rem, 3.2vw, 0.84rem) !important;
+        padding: 9px 8px !important;
+        gap: 6px !important;
+        white-space: nowrap !important;
+    }
+    .bma-popup-btn-tg i {
+        font-size: 1rem !important;
+        flex-shrink: 0;
+    }
+    .bma-popup-btn-ig {
+        font-size: clamp(0.70rem, 3.0vw, 0.80rem) !important;
+        padding: 8px 8px !important;
+        gap: 6px !important;
+        white-space: nowrap !important;
+    }
+    .announcement-modal-close {
+        top: 8px !important;
+        left: 8px !important;
+        width: 30px !important;
+        height: 30px !important;
+        font-size: 1.1rem !important;
     }
 }
 
