@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
 <head>
@@ -108,7 +108,7 @@
     }
     </script>
 
-    <link rel="stylesheet" href="/style.css?v=10.55">
+    <link rel="stylesheet" href="/style.css?v=10.59">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/solid.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/brands.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -200,23 +200,42 @@
     .cnt-what-grid .detail-card h3 { flex-direction: column; gap: 0.6rem; font-size: 0.98rem; }
     .cnt-what-grid .detail-card p { font-size: 0.85rem; text-align: center; }
 
-    /* Why-contribute sticky stack */
-    .cnt-why-stack { max-width: 720px; margin: 1.5rem auto 3rem; }
+    /* Why-contribute sticky stack (ScrollStack) */
+    .cnt-why-stack {
+        max-width: 720px;
+        margin: 2.5rem auto 3rem;
+        padding-bottom: 7rem;
+        position: relative;
+    }
     .adp-scard {
-        position: sticky; top: 140px; background: #fff;
-        border: 1.5px solid rgba(44,92,197,.1); border-radius: 22px;
-        padding: 1.5rem 1.8rem; margin-bottom: 1.3rem;
-        display: flex; align-items: center; gap: 1.3rem;
+        position: sticky;
+        top: 110px;
+        background: #fff;
+        border: 1.5px solid rgba(44,92,197,.12);
+        border-radius: 22px;
+        padding: 1.6rem 1.8rem;
+        margin-bottom: 5rem;
+        display: flex;
+        align-items: center;
+        gap: 1.3rem;
         transform-origin: top center;
         will-change: transform, filter;
-        box-shadow: 0 4px 24px rgba(44,92,197,.08); overflow: hidden;
+        box-shadow: 0 12px 35px rgba(0,0,0,0.06), 0 2px 8px rgba(44,92,197,.06);
+        overflow: hidden;
         transition: border-color .2s ease, box-shadow .2s ease;
+    }
+    .adp-scard:nth-child(1) { top: 150px; }
+    .adp-scard:nth-child(2) { top: 170px; }
+    .adp-scard:nth-child(3) { top: 190px; }
+    .adp-scard:nth-child(4) { top: 210px; }
+    .adp-scard:last-child {
+        margin-bottom: 0;
     }
     .adp-scard:hover { border-color: rgba(44,92,197,.25); box-shadow: 0 12px 40px rgba(44,92,197,.14); }
     .adp-scard::before {
         content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3.5px;
         background: linear-gradient(90deg, transparent, var(--sc-color, #2c5cc5));
-        transform: scaleX(0); transform-origin: right; transition: transform .3s; z-index: 2;
+        transform: scaleX(0); transform-origin: right; transition: transform .3s ease; z-index: 2;
     }
     .adp-scard:hover::before { transform: scaleX(1); }
     .adp-scard::after { content: attr(data-num); position: absolute; bottom: .9rem; left: 1.3rem; font-size: .7rem; font-weight: 900; color: rgba(44,92,197,.15); }
@@ -225,14 +244,25 @@
         background: var(--sc-color, #2c5cc5); color: #fff; font-size: 1.35rem;
         display: flex; align-items: center; justify-content: center;
         box-shadow: 0 10px 26px var(--sc-shadow, rgba(44,92,197,.35)), 0 2px 6px var(--sc-shadow, rgba(44,92,197,.2));
-        transition: transform .25s, box-shadow .25s;
+        transition: transform .25s ease, box-shadow .25s ease;
     }
     .adp-scard:hover .adp-scard-icon { transform: scale(1.1) rotate(-5deg); box-shadow: 0 14px 32px var(--sc-shadow, rgba(44,92,197,.45)); }
     .adp-scard-body { flex: 1; min-width: 0; }
     .adp-scard-title { font-size: 1.05rem; font-weight: 800; color: #0f172a; margin-bottom: .28rem; font-family: 'Tajawal', sans-serif; }
     .adp-scard-desc { font-size: .86rem; color: #64748b; line-height: 1.6; font-family: 'Tajawal', sans-serif; }
     @media (max-width: 600px) {
-        .adp-scard { flex-direction: column; align-items: flex-start; gap: .9rem; padding: 1.2rem 1.1rem 1.5rem; top: 160px; }
+        .cnt-why-stack { margin-top: 1.5rem; padding-bottom: 4.5rem; }
+        .adp-scard {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: .9rem;
+            padding: 1.3rem 1.2rem 1.5rem;
+            margin-bottom: 3.5rem;
+        }
+        .adp-scard:nth-child(1) { top: 120px; }
+        .adp-scard:nth-child(2) { top: 136px; }
+        .adp-scard:nth-child(3) { top: 152px; }
+        .adp-scard:nth-child(4) { top: 168px; }
         .adp-scard::before { height: 3px; }
         .adp-scard-icon { width: 46px; height: 46px; font-size: 1.1rem; }
     }
@@ -577,7 +607,7 @@
                  WHY CONTRIBUTE — sticky stack (adp-scard, from advertise.html)
             ══════════════════════════════════════════ -->
             <div class="modern-section-header cnt-r"><h2>لماذا تساهم؟</h2></div>
-            <div class="adp-why-stack cnt-why-stack cnt-r">
+            <div class="adp-why-stack cnt-why-stack">
 
                 <div class="adp-scard" data-num="01" style="--sc-color:#2c5cc5;--sc-bg:rgba(44,92,197,.08);--sc-shadow:rgba(44,92,197,.35)">
                     <div class="adp-scard-icon"><i class="fas fa-medal"></i></div>
@@ -829,8 +859,8 @@
 
     <div id="global-cta-placeholder"></div>
     <div id="footer-placeholder"></div>
-    <script src="/ads-config.js?v=1.13"></script>
-    <script src="/components/shared.js?v=9.53"></script>
+    <script src="/ads-config.js?v=1.14"></script>
+    <script src="/components/shared.js?v=9.58"></script>
     <script src="/script.js?v=9.5"></script>
     <script>
     (function () {
@@ -883,30 +913,6 @@
                 w.querySelector('.cnt-select-trigger').setAttribute('aria-expanded', 'false');
             });
         });
-
-        /* ── Sticky-stack depth effect for .adp-scard (mirrors advertise.html exactly) ── */
-        var whyCards = [].slice.call(document.querySelectorAll('.cnt-why-stack .adp-scard'));
-        if (whyCards.length) {
-            var STICKY_TOP = window.innerWidth <= 600 ? 90 : 110;
-            var updateWhyStack = function () {
-                whyCards.forEach(function (card, i) {
-                    var above = 0;
-                    for (var j = i + 1; j < whyCards.length; j++) {
-                        if (whyCards[j].getBoundingClientRect().top <= STICKY_TOP + 4) above++;
-                    }
-                    if (above === 0) {
-                        card.style.transform = '';
-                        card.style.filter = '';
-                    } else {
-                        var n = Math.min(above, 5);
-                        card.style.transform = 'scale(' + (1 - n * 0.04).toFixed(4) + ') translateY(' + -(n * 10) + 'px)';
-                        card.style.filter = 'brightness(' + Math.max(1 - n * 0.05, 0.7).toFixed(4) + ')';
-                    }
-                });
-            };
-            window.addEventListener('scroll', updateWhyStack, { passive: true });
-            updateWhyStack();
-        }
     })();
     </script>
 

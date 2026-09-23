@@ -28,7 +28,7 @@
     <meta name="apple-mobile-web-app-title" content="BAC STORY">    <title>أعلن معنا | BAC STORY</title>
     <link rel="canonical" href="https://www.bac-story.com/advertise">
     <meta name="author" content="redouane mohamed islem">
-    <link rel="stylesheet" href="/style.css?v=10.55">
+    <link rel="stylesheet" href="/style.css?v=10.59">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/solid.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/brands.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -182,24 +182,36 @@
         .adp-why-header h2 span,
         .adp-steps-header h2 span { color: #2c5cc5; }
 
-        /* ── Why stack cards ── */
-        .adp-why-stack { max-width: 720px; margin: 3rem auto 0; }
+        /* ── Why stack cards (ScrollStack) ── */
+        .adp-why-stack {
+            max-width: 720px;
+            margin: 3.5rem auto 0;
+            padding-bottom: 7rem;
+            position: relative;
+        }
         .adp-scard {
             position: sticky;
             top: 110px;
             background: #fff;
-            border: 1.5px solid rgba(44,92,197,.1);
+            border: 1.5px solid rgba(44,92,197,.12);
             border-radius: 22px;
-            padding: 1.5rem 1.8rem;
-            margin-bottom: 1.3rem;
+            padding: 1.6rem 1.8rem;
+            margin-bottom: 5rem;
             display: flex;
             align-items: center;
             gap: 1.3rem;
             transform-origin: top center;
             will-change: transform, filter;
-            box-shadow: 0 4px 24px rgba(44,92,197,.08);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.06), 0 2px 8px rgba(44,92,197,.06);
             overflow: hidden;
             transition: border-color .2s ease, box-shadow .2s ease;
+        }
+        .adp-scard:nth-child(1) { top: 150px; }
+        .adp-scard:nth-child(2) { top: 170px; }
+        .adp-scard:nth-child(3) { top: 190px; }
+        .adp-scard:nth-child(4) { top: 210px; }
+        .adp-scard:last-child {
+            margin-bottom: 0;
         }
         .adp-scard:hover { border-color: rgba(44,92,197,.25); box-shadow: 0 12px 40px rgba(44,92,197,.14); }
         .adp-scard::before {
@@ -240,7 +252,18 @@
         .adp-scard-title { font-size: 1.05rem; font-weight: 800; color: #0f172a; margin-bottom: .28rem; font-family: 'Tajawal', sans-serif; }
         .adp-scard-desc { font-size: .86rem; color: #64748b; line-height: 1.6; font-family: 'Tajawal', sans-serif; }
         @media (max-width: 600px) {
-            .adp-scard { flex-direction: column; align-items: flex-start; gap: .9rem; padding: 1.2rem 1.1rem 1.5rem; top: 90px; }
+            .adp-why-stack { margin-top: 2rem; padding-bottom: 4.5rem; }
+            .adp-scard {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: .9rem;
+                padding: 1.3rem 1.2rem 1.5rem;
+                margin-bottom: 3.5rem;
+            }
+            .adp-scard:nth-child(1) { top: 120px; }
+            .adp-scard:nth-child(2) { top: 136px; }
+            .adp-scard:nth-child(3) { top: 152px; }
+            .adp-scard:nth-child(4) { top: 168px; }
             .adp-scard::before { top: 0; right: 0; left: 0; bottom: auto; width: auto; height: 3px; }
             .adp-scard-icon { width: 46px; height: 46px; font-size: 1.1rem; }
         }
@@ -679,7 +702,7 @@
                         <li><i class="fas fa-check"></i> تُعرض تلقائيًا عند دخول المستخدم للموقع</li>
                         <li><i class="fas fa-check"></i> ظهور مضمون لكل زائر يوميًا</li>
                         <li><i class="fas fa-check"></i> لا يمكن تجاهلها — مشاهدة كاملة</li>
-                        <li><i class="fas fa-check"></i> مدة: أسبوع كامل</li>
+                        <li><i class="fas fa-check"></i> المدة: أسبوع كامل</li>
                     </ul>
                     <div class="adp-pkg-ctas">
                         <a href="https://t.me/bacstorycontact" target="_blank" rel="noopener" class="adp-pkg-btn adp-pkg-btn--tg">
@@ -700,7 +723,7 @@
                         <li><i class="fas fa-check"></i> اسم + وصف + زر اتصال</li>
                         <li><i class="fas fa-check"></i> يتدوار في كل الصفحات تلقائيًا</li>
                         <li><i class="fas fa-check"></i> تصميم مدمج — لا يُزعج</li>
-                        <li><i class="fas fa-check"></i> مدة: أسبوعان كاملان</li>
+                        <li><i class="fas fa-check"></i> المدة: أسبوعين كاملين</li>
                     </ul>
                     <div class="adp-pkg-ctas">
                         <a href="https://t.me/bacstorycontact" target="_blank" rel="noopener" class="adp-pkg-btn adp-pkg-btn--tg">
@@ -720,7 +743,7 @@
                         <li><i class="fas fa-check"></i> جميع مزايا الباقتين</li>
                         <li><i class="fas fa-check"></i> أولوية الظهور والترتيب</li>
                         <li><i class="fas fa-check"></i> ذكر على قناة التلغرام (+16 ألف متابع)</li>
-                        <li><i class="fas fa-check"></i> مدة: أسبوعان كاملان</li>
+                        <li><i class="fas fa-check"></i> المدة: أسبوعين كاملين</li>
                     </ul>
                     <div class="adp-pkg-ctas">
                         <a href="https://t.me/bacstorycontact" target="_blank" rel="noopener" class="adp-pkg-btn adp-pkg-btn--tg">
@@ -789,8 +812,8 @@
 
     <div id="footer-placeholder"></div>
 
-    <script src="/ads-config.js?v=1.13"></script>
-    <script src="/components/shared.js?v=9.53"></script>
+    <script src="/ads-config.js?v=1.14"></script>
+    <script src="/components/shared.js?v=9.58"></script>
     <script>
     function adprevMovePill(btn) {
         const pill = document.getElementById('adprev-pill');
@@ -817,30 +840,6 @@
         adprevMovePill(firstBtn);
         requestAnimationFrame(() => { requestAnimationFrame(() => { if (pill) pill.style.transition = ''; }); });
     });
-
-    (function () {
-        const cards = [...document.querySelectorAll('.adp-scard')];
-        if (!cards.length) return;
-        const STICKY_TOP = window.innerWidth <= 600 ? 90 : 110;
-        function update() {
-            cards.forEach(function (card, i) {
-                var above = 0;
-                for (var j = i + 1; j < cards.length; j++) {
-                    if (cards[j].getBoundingClientRect().top <= STICKY_TOP + 4) above++;
-                }
-                if (above === 0) {
-                    card.style.transform = '';
-                    card.style.filter = '';
-                } else {
-                    var n = Math.min(above, 5);
-                    card.style.transform = 'scale(' + (1 - n * 0.04).toFixed(4) + ') translateY(' + -(n * 10) + 'px)';
-                    card.style.filter = 'brightness(' + Math.max(1 - n * 0.05, 0.7).toFixed(4) + ')';
-                }
-            });
-        }
-        window.addEventListener('scroll', update, { passive: true });
-        update();
-    })();
     </script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "6153c3a6dd54435780cd9d84f9f958f8"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
