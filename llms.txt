@@ -59,6 +59,16 @@ The platform is founded and operated by Redouane Mohamed Islem and is accessible
 - [درايفات المتفوقين](https://www.bac-story.com/resources/drives): Top-scoring baccalaureate candidates' curated Google Drive repositories.
 - [تجارب المتفوقين](https://www.bac-story.com/experiences): Real, detailed study experiences, schedules, and tips from top-scoring Algerian Baccalaureate students (regular and free candidates) shared via the official BAC STORY Telegram community.
 - [باقات عقبة بن نافع](https://www.bac-story.com/oqba): Elite exam packages and problem sets selected from top secondary pilot institutions across Algeria.
+- [مادة اللغة العربية وآدابها (الشعب العلمية المشتركة: علوم، رياضيات، تقني، تسيير)](https://www.bac-story.com/resources/sci/arabic): Comprehensive Arabic language curriculum for all scientific and technical branches:
+  - [المحاور الشعرية (الشعر الاجتماعي، التعليمي، السياسي، والمهجري)](https://www.bac-story.com/resources/sci/arabic/chi3r)
+  - [المحاور النثرية (فن المقال والنثر العلمي المتأدب)](https://www.bac-story.com/resources/sci/arabic/nathr)
+  - [دروس القواعد والإعراب والبلاغة](https://www.bac-story.com/resources/sci/arabic/grammar)
+  - [خرائط ذهنية ومخططات بصرية ملونة](https://www.bac-story.com/resources/sci/arabic/mind-maps)
+  - [منهجية الإجابة والتقويم النقدي](https://www.bac-story.com/resources/sci/arabic/methodology)
+  - [أفكار وأسئلة البكالوريا المتكررة](https://www.bac-story.com/resources/sci/arabic/afkar)
+  - [ملخصات ومطويات مفيدة](https://www.bac-story.com/resources/sci/arabic/summaries)
+  - [مواضيع التميز النموذجية المحلولة](https://www.bac-story.com/resources/sci/arabic/tamayoz)
+  - [خطة وتحديات التميز في الأدب العربي](https://www.bac-story.com/resources/sci/arabic/plan)
 
 ## Prerequisites (كُتيّب المكتسبات القبلية)
 
