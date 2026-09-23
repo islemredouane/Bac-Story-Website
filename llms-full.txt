@@ -70,6 +70,19 @@ The Algerian Baccalaureate comprises six distinct academic streams:
 - Target post-bac specialities: Translation and interpretation (معهد الترجمة), foreign languages and literature, international relations, diplomacy, tourism, and higher teacher training colleges.
 - Core URL: https://www.bac-story.com/resources/le
 
+### Common Scientific Arabic Language Portal (مادة اللغة العربية وآدابها للشعب العلمية المشتركة)
+- Target Audience: Mathematics, Experimental Sciences, Technical Mathematics, and Management & Economics candidates.
+- Structure:
+  - Poetry Units (/chi3r): Social poetry (الشعر الاجتماعي), Didactic poetry (الشعر التعليمي), Political poetry (الشعر السياسي), and Diaspora/Mahjar poetry (الشعر المهجري).
+  - Prose Units (/nathr): Article art (فن المقال) and Scientific-literary prose (النثر العلمي المتأدب).
+  - Grammar & Rhetoric (/grammar): Complete grammatical parsing (إعراب), rhetoric, and eloquence lessons.
+  - Mind Maps (/mind-maps): High-retention visual summaries and color-coded mind maps.
+  - Methodology (/methodology): Intellectual & linguistic structure analysis and critical evaluation keys.
+  - Baccalaureate Ideas (/afkar): Recurring exam concepts and high-yield question patterns.
+  - Summaries (/summaries): Curated teacher revision booklets.
+  - Excellence Topics (/tamayoz): Solved high-difficulty practice papers per unit and mock exams.
+  - Excellence Plan (/plan): Comprehensive strategic preparation roadmap and study schedule.
+
 ---
 
 ## 3. Baccalaureate 2027 Curriculum Reform (إصلاحات وتغييرات منهاج بكالوريا 2027)
