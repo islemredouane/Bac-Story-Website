@@ -1550,6 +1550,9 @@ async function bootPage() {
 
         // Setup smooth accordion animations for FAQs across the site
         try { initSmoothDetails(); } catch (e) { console.warn('FAQ anim error', e); }
+
+        // Setup sticky stack cards animation (.adp-scard on advertise & contribute pages)
+        try { initStickyStackCards(); } catch (e) { console.warn('StickyStack error', e); }
     } catch (err) {
         console.error('Error during page boot:', err);
     } finally {
@@ -1579,6 +1582,83 @@ async function bootPage() {
         }
 
     }
+}
+
+/* ── Global Interactive Sticky Stack Cards (.adp-scard) ── */
+function initStickyStackCards() {
+    const stacks = document.querySelectorAll('.adp-why-stack, .cnt-why-stack');
+    if (!stacks.length) return;
+
+    stacks.forEach(stack => {
+        if (stack._stackInit) return;
+        stack._stackInit = true;
+
+        const cards = [...stack.querySelectorAll('.adp-scard')];
+        if (cards.length < 2) return;
+
+        // Ensure proper ascending z-index so next cards always stack cleanly above previous ones
+        cards.forEach((card, idx) => {
+            card.style.zIndex = (idx + 1).toString();
+        });
+
+        let ticking = false;
+
+        function update() {
+            ticking = false;
+            const N = cards.length;
+
+            cards.forEach((card, i) => {
+                const computedTop = parseFloat(window.getComputedStyle(card).top) || 110;
+                const cardH = card.offsetHeight || 160;
+                let depth = 0;
+
+                for (let j = i + 1; j < N; j++) {
+                    const nextRect = cards[j].getBoundingClientRect();
+                    const nextComputedTop = parseFloat(window.getComputedStyle(cards[j]).top) || (computedTop + (j - i) * 20);
+                    const dist = nextRect.top - nextComputedTop;
+                    if (dist <= 0) {
+                        depth += 1;
+                    } else if (dist < cardH) {
+                        depth += (1 - dist / cardH);
+                    }
+                }
+
+                if (depth <= 0.001) {
+                    card.style.transform = 'none';
+                    card.style.filter = 'none';
+                } else {
+                    const scale = (1 - depth * 0.045).toFixed(4);
+                    const translateY = -(depth * 14).toFixed(1);
+                    const brightness = Math.max(1 - depth * 0.07, 0.72).toFixed(4);
+
+                    card.style.transform = `scale(${scale}) translateY(${translateY}px)`;
+                    card.style.filter = `brightness(${brightness})`;
+                }
+            });
+        }
+
+        function requestUpdate() {
+            if (!ticking) {
+                ticking = true;
+                requestAnimationFrame(update);
+            }
+        }
+
+        window.addEventListener('scroll', requestUpdate, { passive: true });
+        window.addEventListener('resize', requestUpdate, { passive: true });
+        // Immediate runs
+        requestAnimationFrame(update);
+        setTimeout(update, 100);
+        setTimeout(update, 400);
+        window.addEventListener('load', update, { once: true });
+    });
+}
+
+// Auto-run immediately when script loads if DOM is ready
+if (document.readyState === 'interactive' || document.readyState === 'complete') {
+    initStickyStackCards();
+} else {
+    document.addEventListener('DOMContentLoaded', initStickyStackCards);
 }
 
 /* ── Global Smooth Details / FAQ Accordion ── */

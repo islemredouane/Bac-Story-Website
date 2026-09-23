@@ -31,12 +31,12 @@
 html {
     scroll-behavior: smooth;
     background-color: #ffffff;
-    overflow-x: hidden;
+    overflow-x: clip;
     max-width: 100%;
 }
 
 body {
-    overflow-x: hidden;
+    overflow-x: clip;
     max-width: 100%;
 }
 
@@ -1686,7 +1686,7 @@ body {
     line-height: 1.7;
     color: var(--text-color);
     background: #ffffff;
-    overflow-x: hidden;
+    overflow-x: clip;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
