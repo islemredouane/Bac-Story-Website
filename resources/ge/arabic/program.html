@@ -60,23 +60,33 @@
     </noscript>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Pattaya&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Pattaya&display=swap"></noscript>
+
     <style>
+        /* ── Premium PDF Switcher Bar ── */
         .pdf-switcher-wrap {
+            text-align: center;
+            margin: 0 0 20px 0;
+            display: flex;
+            justify-content: center;
             width: 100%;
-            max-width: 900px;
-            margin: 0 auto 1.5rem auto;
-            position: relative;
         }
         .pdf-switcher-toggle {
-            display: flex;
+            display: inline-flex !important;
+            align-items: center;
             position: relative;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 50px;
+            vertical-align: top;
+            background: #f1f5f9;
+            border-radius: 999px;
             padding: 4px;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            gap: 0;
+            border: 1px solid rgba(44, 92, 197, 0.1);
+            max-width: 100%;
             overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+            -ms-overflow-style: none;
             scrollbar-width: none;
         }
         .pdf-switcher-toggle::-webkit-scrollbar {
@@ -84,34 +94,24 @@
         }
         .pdf-switcher-pill {
             position: absolute;
-            top: 4px;
-            bottom: 4px;
-            background: linear-gradient(135deg, #1d4ed8, #2563eb);
-            border-radius: 50px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.4);
+            top: 4px; bottom: 4px;
+            background: #2c5cc5;
+            border-radius: 999px;
+            transition: left 0.28s cubic-bezier(0.34,1.56,0.64,1), width 0.28s cubic-bezier(0.34,1.56,0.64,1);
+            box-shadow: 0 2px 8px rgba(44,92,195,0.3);
             pointer-events: none;
+            z-index: 0;
         }
         .pdf-switcher-tab {
-            flex: 1 0 auto;
-            padding: 0.6rem 1.2rem;
-            border: none;
-            background: transparent;
-            color: rgba(255, 255, 255, 0.7);
-            font-family: 'Tajawal', sans-serif;
-            font-size: 0.95rem;
-            font-weight: 600;
-            border-radius: 50px;
-            cursor: pointer;
-            position: relative;
-            z-index: 1;
-            transition: color 0.3s ease;
-            white-space: nowrap;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            text-decoration: none;
+            position: relative; z-index: 1;
+            margin: 0 !important;
+            padding: 0.5rem 1.4rem;
+            border: none; background: transparent; border-radius: 999px;
+            font-family: 'Tajawal', sans-serif; font-size: 0.9rem; font-weight: 700;
+            color: #64748b; cursor: pointer; white-space: nowrap;
+            transition: color 0.22s ease;
+            display: inline-flex; align-items: center; gap: 6px;
+            user-select: none;
             flex-shrink: 0;
             width: auto !important;
             min-width: 0 !important;
@@ -137,16 +137,10 @@
             </div>
             
             <section class="pdf-viewer" style="text-align:center;padding-bottom:40px;">
-                <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-bottom:20px;">
-                    <a href="https://t.me/islembacdz" target="_blank" rel="noopener" class="search-telegram-btn">
-                        <i class="fab fa-telegram-plane"></i>
-                        <span>انضم إلينا على التلغرام</span>
-                    </a>
-                    <a href="https://drive.google.com/drive/folders/19tH6pVcHFXca4_tJs7evKAeAjdCOEFUW?usp=drive_link" target="_blank" rel="noopener" class="search-telegram-btn" style="background:#2563eb;">
-                        <i class="fab fa-google-drive"></i>
-                        <span>فتح المجلد الكامل على Google Drive</span>
-                    </a>
-                </div>
+                <a href="https://t.me/islembacdz" target="_blank" rel="noopener" style="margin-bottom:20px;" class="search-telegram-btn">
+                    <i class="fab fa-telegram-plane"></i>
+                    <span>انضم إلينا على التلغرام</span>
+                </a>
 
                 <div class="pdf-switcher-wrap">
                     <div class="pdf-switcher-toggle" id="pdfTabBar">
@@ -183,60 +177,14 @@
     <script src="/ads-config.js?v=1.13"></script>
     <script src="/components/shared.js?v=9.54"></script>
     <script src="/script.js?v=9.5"></script>
+    
     <script>
-        function updatePill(tab) {
-            const pill = document.getElementById('pdfTabPill');
-            if (!pill || !tab) return;
-            pill.style.left = tab.offsetLeft + 'px';
-            pill.style.width = tab.offsetWidth + 'px';
-            tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-        }
-
-        function switchPdf(tab, fileId) {
-            const buttons = document.querySelectorAll('.pdf-switcher-tab');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            tab.classList.add('active');
-            updatePill(tab);
-            
-            const iframe = document.querySelector('.responsive-pdf');
-            if (iframe) {
-                iframe.src = `https://drive.google.com/file/d/${fileId}/preview`;
+        document.addEventListener('DOMContentLoaded', () => {
+            const activeBtn = document.querySelector('.pdf-switcher-tab.active');
+            if (activeBtn) {
+                setTimeout(() => switchPdf(activeBtn, '1OZbQpTFZS8ulFzyXPBhbQP3UVGmF52pQ', true), 100);
             }
-            
-            const downBtn = document.querySelector('.down-btn');
-            if (downBtn) {
-                downBtn.href = `https://drive.google.com/uc?export=download&id=${fileId}`;
-            }
-        }
-
-        window.addEventListener('load', () => {
-            const activeTab = document.querySelector('.pdf-switcher-tab.active');
-            if (activeTab) updatePill(activeTab);
         });
-        window.addEventListener('resize', () => {
-            const activeTab = document.querySelector('.pdf-switcher-tab.active');
-            if (activeTab) updatePill(activeTab);
-        });
-
-        function toggleFullScreen(event) {
-            const button = event.currentTarget;
-            const pdfWrapper = button.closest('.pdf-wrapper');
-            if (!pdfWrapper) return;
-            
-            if (!document.fullscreenElement) {
-                pdfWrapper.requestFullscreen().then(() => {
-                    button.innerHTML = '<i class="fa-solid fa-compress"></i> تصغير النافذة';
-                }).catch(err => {
-                    console.error('Error attempting to enable full-screen mode:', err.message);
-                });
-            } else {
-                document.exitFullscreen().then(() => {
-                    button.innerHTML = '<i class="fa-solid fa-expand"></i> تكبير النافذة';
-                }).catch(err => {
-                    console.error('Error attempting to exit full-screen mode:', err.message);
-                });
-            }
-        }
     </script>
     <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "6153c3a6dd54435780cd9d84f9f958f8"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
