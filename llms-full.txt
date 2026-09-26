@@ -292,3 +292,27 @@ To prevent cognitive overload during the third-year secondary curriculum, BAC ST
 - Open Graph Banner: https://pub-889477d66bc54c9582bba9a492cf605f.r2.dev/images/og-banner.png
 - Favicon / App Icon: https://www.bac-story.com/apple-touch-icon.png
 - Contact & Academic Inquiries: contact@bac-story.com
+
+### شعبة تسيير واقتصاد - المواد التخصصية:
+- **الاقتصاد والمناجمنت**:
+  - دروس الاقتصاد: https://www.bac-story.com/resources/ge/economics/lessons
+  - ملخصات الاقتصاد: https://www.bac-story.com/resources/ge/economics/summaries
+  - التمارين والفروض: https://www.bac-story.com/resources/ge/economics/exercises
+  - الوضعيات والسندات: https://www.bac-story.com/resources/ge/economics/situations
+  - الاختبارات والمواضيع المقترحة: https://www.bac-story.com/resources/ge/economics/topics
+  - مواضيع التميز: https://www.bac-story.com/resources/ge/economics/tamayoz
+- **القانون**:
+  - دروس القانون: https://www.bac-story.com/resources/ge/law/lessons
+  - ملخصات القانون: https://www.bac-story.com/resources/ge/law/summaries
+  - ملخصات الأولى وطنياً لدورة 2025: https://www.bac-story.com/resources/ge/law/first-rank
+  - فروض القانون: https://www.bac-story.com/resources/ge/law/assignments
+  - الاختبارات والمواضيع التجريبية: https://www.bac-story.com/resources/ge/law/topics
+  - مواضيع التميز: https://www.bac-story.com/resources/ge/law/tamayoz
+- **التسيير المحاسبي والمالي**:
+  - المكتسبات القبلية: https://www.bac-story.com/resources/ge/accounting/moktasabat
+  - دروس المحاسبة: https://www.bac-story.com/resources/ge/accounting/lessons
+  - ملخصات المحاسبة: https://www.bac-story.com/resources/ge/accounting/summaries
+  - التمارين والسلاسل: https://www.bac-story.com/resources/ge/accounting/exercises
+  - فروض المحاسبة: https://www.bac-story.com/resources/ge/accounting/assignments
+  - الاختبارات والمواضيع المقترحة: https://www.bac-story.com/resources/ge/accounting/topics
+  - مواضيع التميز: https://www.bac-story.com/resources/ge/accounting/tamayoz
