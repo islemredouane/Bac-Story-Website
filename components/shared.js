@@ -566,17 +566,17 @@ function showBac2026AnnouncementModal() {
                     </div>
                 </div>
 
-                <!-- Live Session Alert Box (The Hook) -->
+                <!-- Free Content / Live Sessions Alert Box (The Hook) -->
                 <div class="bma-popup-live">
                     <span class="bma-popup-live-icon">
                         <i class="fas fa-gift"></i>
                     </span>
                     <div style="flex: 1; min-width: 0;">
                         <div class="bma-popup-live-title">
-                            <span class="bma-popup-live-text">🔴 حصة مباشرة هذا الخميس</span>
-                            <span class="bma-popup-free-badge">مجانية 100%</span>
+                            <span class="bma-popup-live-text">🎁 ملخصات وحصص مجانية دورية</span>
+                            <span class="bma-popup-free-badge">متاح للجميع</span>
                         </div>
-                        <div class="bma-popup-live-sub">Google Meet · مراجعة شاملة للمكتسبات القبلية</div>
+                        <div class="bma-popup-live-sub">سلاسل تمارين، ملخصات وبثوث مجانية على قناة التلغرام</div>
                     </div>
                 </div>
 
@@ -609,7 +609,7 @@ function showBac2026AnnouncementModal() {
                 <!-- CTA Buttons -->
                 <div style="display: flex; flex-direction: column; gap: 8px; width: 100%;">
                     <a href="https://t.me/math_with_bma" target="_blank" rel="noopener noreferrer" class="bma-popup-btn-tg">
-                        <i class="fab fa-telegram-plane" style="font-size: 1.15rem;"></i> <span>انضم للتيليغرام واحضر الحصة المجانية</span>
+                        <i class="fab fa-telegram-plane" style="font-size: 1.15rem;"></i> <span>انضم للتلغرام و احجز مقعدك</span>
                     </a>
                     <a href="https://www.instagram.com/bacmathwithbma?stkn=MTE0amc1NnJlOXR5bg==" target="_blank" rel="noopener noreferrer" class="bma-popup-btn-ig">
                         <i class="fab fa-instagram" style="color: #fb7185; font-size: 1.05rem;"></i> <span>تواصل عبر الإنستغرام</span>
