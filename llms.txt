@@ -178,3 +178,27 @@ Official Ministry of National Education curriculum blueprints for all Baccalaure
 - Instagram: https://www.instagram.com/bacstory.platform
 - TikTok: https://www.tiktok.com/@bacstory.platform
 - Facebook: https://www.facebook.com/share/1EMz54rJGz/
+
+### شعبة تسيير واقتصاد - المواد التخصصية:
+- **الاقتصاد والمناجمنت**:
+  - دروس الاقتصاد: https://www.bac-story.com/resources/ge/economics/lessons
+  - ملخصات الاقتصاد: https://www.bac-story.com/resources/ge/economics/summaries
+  - التمارين والفروض: https://www.bac-story.com/resources/ge/economics/exercises
+  - الوضعيات والسندات: https://www.bac-story.com/resources/ge/economics/situations
+  - الاختبارات والمواضيع المقترحة: https://www.bac-story.com/resources/ge/economics/topics
+  - مواضيع التميز: https://www.bac-story.com/resources/ge/economics/tamayoz
+- **القانون**:
+  - دروس القانون: https://www.bac-story.com/resources/ge/law/lessons
+  - ملخصات القانون: https://www.bac-story.com/resources/ge/law/summaries
+  - ملخصات الأولى وطنياً لدورة 2025: https://www.bac-story.com/resources/ge/law/first-rank
+  - فروض القانون: https://www.bac-story.com/resources/ge/law/assignments
+  - الاختبارات والمواضيع التجريبية: https://www.bac-story.com/resources/ge/law/topics
+  - مواضيع التميز: https://www.bac-story.com/resources/ge/law/tamayoz
+- **التسيير المحاسبي والمالي**:
+  - المكتسبات القبلية: https://www.bac-story.com/resources/ge/accounting/moktasabat
+  - دروس المحاسبة: https://www.bac-story.com/resources/ge/accounting/lessons
+  - ملخصات المحاسبة: https://www.bac-story.com/resources/ge/accounting/summaries
+  - التمارين والسلاسل: https://www.bac-story.com/resources/ge/accounting/exercises
+  - فروض المحاسبة: https://www.bac-story.com/resources/ge/accounting/assignments
+  - الاختبارات والمواضيع المقترحة: https://www.bac-story.com/resources/ge/accounting/topics
+  - مواضيع التميز: https://www.bac-story.com/resources/ge/accounting/tamayoz
