@@ -121,6 +121,23 @@ The Algerian Baccalaureate comprises six distinct academic streams:
   - Excellence Plan (/plan): Step-by-step preparation plan and study schedule.
   - Excellence Mock Exams (/tamayoz): 21 experimental exam papers with detailed answer keys and grading scale.
 
+### Literary English Language Portal (مادة اللغة الإنجليزية للشعب الأدبية: لغات أجنبية، آداب وفلسفة)
+- Target Audience: Foreign Languages (لغات أجنبية) and Literature & Philosophy (آداب وفلسفة) candidates.
+- Core URLs:
+  - Foreign Languages: https://www.bac-story.com/resources/le/english
+  - Literature & Philosophy: https://www.bac-story.com/resources/lp/english
+- Structure:
+  - Official Program (/program): Official ministerial curriculum for literary streams.
+  - Prerequisites Booklet (/moktasabat): Interactive prerequisite diagnostic guide and video links.
+  - Unit 1: Ancient Civilizations (/ancient-civilizations): Summaries, vocabulary, Islamic/Egyptian/Sumerian civilizations, and model essays.
+  - Unit 2: Ethics in Business (/ethics-in-business): Summaries, vocabulary, and model paragraphs.
+  - Unit 3: Education in the World (/education): Educational systems vocabulary and comparison essays.
+  - Unit 4: Feelings and Emotions (/feelings-and-emotions): Emotional intelligence, psychology vocabulary, and paragraphs.
+  - Grammar Lessons (/grammar): Advanced literary grammar rules and derivations.
+  - Paragraphs & Expressions (/paragraphs): Master paragraph-writing techniques and model compositions.
+  - Excellence Mock Exams (/tamayoz): 20 experimental exam papers with detailed solutions and grading matrices.
+
+
 
 
 ---

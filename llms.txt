@@ -89,8 +89,17 @@ The platform is founded and operated by Redouane Mohamed Islem and is accessible
   - [دروس القواعد Grammar](https://www.bac-story.com/resources/sci/english/grammar)
   - [كتب ومراجع خارجية](https://www.bac-story.com/resources/sci/english/books)
   - [ملفات ثمينة للتميز وكتابة الفقرات](https://www.bac-story.com/resources/sci/english/valuable-files)
-  - [خطة وتحدي التميز في اللغة الإنجليزية](https://www.bac-story.com/resources/sci/english/plan)
-  - [مواضيع التميز التجريبية المحلولة (21 موضوعاً)](https://www.bac-story.com/resources/sci/english/tamayoz)
+- [مادة اللغة الإنجليزية (الشعب الأدبية: لغات أجنبية، آداب وفلسفة)](https://www.bac-story.com/resources/le/english): Dedicated English curriculum for literary branches:
+  - [برنامج مادة اللغة الإنجليزية](https://www.bac-story.com/resources/le/english/program)
+  - [كُتيّب المكتسبات القبلية](https://www.bac-story.com/resources/le/english/moktasabat)
+  - [الوحدة الأولى: Ancient Civilizations](https://www.bac-story.com/resources/le/english/ancient-civilizations)
+  - [الوحدة الثانية: Ethics in Business](https://www.bac-story.com/resources/le/english/ethics-in-business)
+  - [الوحدة الثالثة: Education in the World](https://www.bac-story.com/resources/le/english/education)
+  - [الوحدة الرابعة: Feelings and Emotions](https://www.bac-story.com/resources/le/english/feelings-and-emotions)
+  - [دروس القواعد Grammar](https://www.bac-story.com/resources/le/english/grammar)
+  - [الفقرات المقررة والوضعيات](https://www.bac-story.com/resources/le/english/paragraphs)
+  - [مواضيع التميز التجريبية المحلولة (20 موضوعاً)](https://www.bac-story.com/resources/le/english/tamayoz)
+
 
 
 
