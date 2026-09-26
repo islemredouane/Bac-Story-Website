@@ -155,8 +155,26 @@ The Algerian Baccalaureate comprises six distinct academic streams:
   - Excellence Mock Exams (/tamayoz): 23 experimental exam topics with detailed model answers and grading scale.
   - Tasks & Lesson Exercise Hub (/tasks): Complete practice portal covering all 16 official curriculum lessons (from Lesson 01: العقيدة وأثرها to Lesson 16: أحكام الميراث) with categorized practice exercises, model solutions, and past Baccalaureate exam questions.
 
-
-
+### French Language Unified Portal (مادة اللغة الفرنسية — لجميع الشعب المشتركة)
+- Target Audience: Candidates across all six streams (Mathematics, Experimental Sciences, Technical Mathematics, Management & Economics, Literature & Philosophy, and Foreign Languages).
+- Core URLs:
+  - Experimental Sciences: https://www.bac-story.com/resources/sci/french
+  - Mathematics: https://www.bac-story.com/resources/math/french
+  - Technical Mathematics: https://www.bac-story.com/resources/tech/french
+  - Management & Economics: https://www.bac-story.com/resources/ge/french
+  - Literature & Philosophy: https://www.bac-story.com/resources/lp/french
+  - Foreign Languages: https://www.bac-story.com/resources/le/french
+- Structure:
+  - Official Program (/program): Official ministerial curriculum and pedagogical progression.
+  - Prerequisites Booklet (/moktasabat): Dedicated interactive prerequisite guide for Foreign Languages (شعبة لغات أجنبية).
+  - Sally Summaries (/sally-summaries): Full revision series by Prof. Sally (Le texte d'histoire, Le texte argumentatif, L'appel, La révision finale).
+  - Useful Summaries & Grammar (/summaries): Comprehensive grammar, Cahier de Fr Nafi3, and high-frequency exam questions.
+  - Le Compte Rendu (/compte-rendu): Dedicated model templates and answering methodologies for history, argumentative, and exhortative texts.
+  - External Textbooks (https://www.bac-story.com/resources/books/sci/french): Silver Series (الشعب العلمية والأدبية), Boughdada, Mansouri, and Mounir Cheboua.
+  - Paragraphs & Expressions (/paragraphs): Master compositions and high-yield written expression guides.
+  - Preparatory Topics (/preparatory-topics): Comprehensive preparation packages with model solutions.
+  - Excellence Plan (https://www.bac-story.com/plans/subject-plans/french): Strategic French preparation roadmap.
+  - Excellence Mock Exams (/tamayoz): 14 model experimental exam papers with comprehensive solutions.
 ## 3. Baccalaureate 2027 Curriculum Reform (إصلاحات وتغييرات منهاج بكالوريا 2027)
 
 - Reform Guide URL: https://www.bac-story.com/bac-2027-curriculum-changes
