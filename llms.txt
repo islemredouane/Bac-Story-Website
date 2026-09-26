@@ -69,6 +69,21 @@ The platform is founded and operated by Redouane Mohamed Islem and is accessible
   - [ملخصات ومطويات مفيدة](https://www.bac-story.com/resources/sci/arabic/summaries)
   - [مواضيع التميز النموذجية المحلولة](https://www.bac-story.com/resources/sci/arabic/tamayoz)
   - [خطة وتحديات التميز في الأدب العربي](https://www.bac-story.com/resources/sci/arabic/plan)
+- [مادة اللغة العربية وآدابها — شعبة لغات أجنبية](https://www.bac-story.com/resources/le/arabic): Dedicated curriculum for Foreign Languages candidates (عصر الانحطاط، المنفى، المهجر، الشعر السياسي، فن المقال، النثر العلمي، القصة، المسرحية، القواعد والبلاغة، التقويم النقدي، الأسئلة المتكررة، مواضيع التميز التجريبية).
+  - [المحاور الشعرية](https://www.bac-story.com/resources/le/arabic/chi3r)
+  - [المحاور النثرية](https://www.bac-story.com/resources/le/arabic/nathr)
+  - [دروس القواعد والبلاغة](https://www.bac-story.com/resources/le/arabic/grammar)
+  - [التقويم النقدي](https://www.bac-story.com/resources/le/arabic/critical-assessment)
+  - [الأسئلة الشائعة والمتكررة](https://www.bac-story.com/resources/le/arabic/common-questions)
+  - [مواضيع التميز النموذجية](https://www.bac-story.com/resources/le/arabic/tamayoz)
+- [مادة اللغة العربية وآدابها — شعبة آداب وفلسفة](https://www.bac-story.com/resources/lp/arabic): Dedicated curriculum for Literature & Philosophy candidates (عصر الضعف والانحطاط، مدرسة الإحياء والبعث، الرابطة القلمية، الشعر السياسي التحرري، فن المقال، النثر العلمي المتأدب، فن المسرحية، فن القصة، القواعد، البلاغة، التقويم النقدي، مواضيع التميز).
+  - [المحاور الشعرية](https://www.bac-story.com/resources/lp/arabic/chi3r)
+  - [المحاور النثرية](https://www.bac-story.com/resources/lp/arabic/nathr)
+  - [دروس القواعد والبلاغة](https://www.bac-story.com/resources/lp/arabic/grammar)
+  - [التقويم النقدي](https://www.bac-story.com/resources/lp/arabic/critical-assessment)
+  - [الأسئلة الشائعة والمتكررة](https://www.bac-story.com/resources/lp/arabic/common-questions)
+  - [مواضيع التميز النموذجية](https://www.bac-story.com/resources/lp/arabic/tamayoz)
+
 
 ## Prerequisites (كُتيّب المكتسبات القبلية)
 
