@@ -107,8 +107,16 @@ The platform is founded and operated by Redouane Mohamed Islem and is accessible
   - [تحدي التميز في مواد الحفظ](https://www.bac-story.com/plans/challenges/memorization)
   - [مواضيع التميز التجريبية المحلولة (23 موضوعاً وباقة)](https://www.bac-story.com/resources/sci/islamics/tamayoz)
   - [مهام وسلاسل دروس المادة (16 درساً مع بنك أسئلة البكالوريا والتمارين)](https://www.bac-story.com/resources/sci/islamics/tasks)
-
-
+- [مادة اللغة الفرنسية (لجميع الشعب)](https://www.bac-story.com/resources/sci/french): Comprehensive French Language curriculum unified across all six streams:
+  - [البرنامج والتدرج السنوي الرسمي](https://www.bac-story.com/resources/sci/french/program)
+  - [ملخصات الأستاذة سالي في الفرنسية (Texte d'histoire, Argumentatif, Appel, Révision finale)](https://www.bac-story.com/resources/sci/french/sally-summaries)
+  - [ملخصات مفيدة وقواعد (كراس نافع، الأسئلة المتكررة، القواعد الشاملة، ملخص نوري منير)](https://www.bac-story.com/resources/sci/french/summaries)
+  - [منهجية وتقنيات Le Compte Rendu للأستاذة سالي](https://www.bac-story.com/resources/sci/french/compte-rendu)
+  - [كتب ومراجع خارجية في الفرنسية](https://www.bac-story.com/resources/books/sci/french)
+  - [فقرات ووضعيات إدماجية في الفرنسية](https://www.bac-story.com/resources/sci/french/paragraphs)
+  - [مواضيع تحضيرية وباقة التحضير الشامل](https://www.bac-story.com/resources/sci/french/preparatory-topics)
+  - [خطة التميز في اللغة الفرنسية](https://www.bac-story.com/plans/subject-plans/french)
+  - [سلاسل ومواضيع التميز في الفرنسية (14 موضوعاً نموذجياً)](https://www.bac-story.com/resources/sci/french/tamayoz)
 
 Essential foundation knowledge booklets designed to bridge middle/secondary school prerequisites before starting the 3rd year terminal curriculum:
 - [كُتيّب المكتسبات القبلية الشامل](https://www.bac-story.com/plans/monthly/prerequisites): The central portal for prerequisite diagnostic guides and revision booklets across all subjects.
