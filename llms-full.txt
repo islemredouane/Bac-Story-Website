@@ -83,6 +83,27 @@ The Algerian Baccalaureate comprises six distinct academic streams:
   - Excellence Topics (/tamayoz): Solved high-difficulty practice papers per unit and mock exams.
   - Excellence Plan (/plan): Comprehensive strategic preparation roadmap and study schedule.
 
+### Foreign Languages Arabic Portal (مادة اللغة العربية وآدابها — شعبة لغات أجنبية)
+- Target Audience: Foreign Languages (لغات أجنبية) candidates.
+- Structure:
+  - Poetry Units (https://www.bac-story.com/resources/le/arabic/chi3r): Zohd & Madih (/zohd-madih), Exile (/manfa), Mahjar (/mahjar), and Political poetry (/political).
+  - Prose Units (https://www.bac-story.com/resources/le/arabic/nathr): Makal (/makal), Scientific prose (/scientific-prose), Story (/story), and Theater/Play (/play).
+  - Grammar & Rhetoric (https://www.bac-story.com/resources/le/arabic/grammar): Grammar, linguistics, and rhetoric lessons with exercises.
+  - Critical Assessment (https://www.bac-story.com/resources/le/arabic/critical-assessment): Literary schools, authors, and critical assessment questions.
+  - Common Questions (https://www.bac-story.com/resources/le/arabic/common-questions): High-frequency exam questions with model answers.
+  - Excellence Topics (https://www.bac-story.com/resources/le/arabic/tamayoz): 17 mock exam papers with model grading keys.
+
+### Literature & Philosophy Arabic Portal (مادة اللغة العربية وآدابها — شعبة آداب وفلسفة)
+- Target Audience: Literature & Philosophy (آداب وفلسفة) candidates.
+- Structure:
+  - Poetry Units (https://www.bac-story.com/resources/lp/arabic/chi3r): Zohd & Madih (/zohd-madih), Exile (/manfa), Mahjar (/mahjar), and Political poetry (/political).
+  - Prose Units (https://www.bac-story.com/resources/lp/arabic/nathr): Makal (/makal), Scientific prose (/scientific-prose), Story (/story), and Theater/Play (/play).
+  - Grammar & Rhetoric (https://www.bac-story.com/resources/lp/arabic/grammar): Grammar, linguistics, and rhetoric lessons with exercises.
+  - Critical Assessment (https://www.bac-story.com/resources/lp/arabic/critical-assessment): Literary schools, authors, and critical assessment questions.
+  - Common Questions (https://www.bac-story.com/resources/lp/arabic/common-questions): High-frequency exam questions with model answers.
+  - Excellence Topics (https://www.bac-story.com/resources/lp/arabic/tamayoz): 17 mock exam papers with model grading keys.
+
+
 ---
 
 ## 3. Baccalaureate 2027 Curriculum Reform (إصلاحات وتغييرات منهاج بكالوريا 2027)
