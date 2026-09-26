@@ -150,7 +150,8 @@ The Algerian Baccalaureate comprises six distinct academic streams:
   - Books & References (/books): Al-Anis and Al-Muyassar textbooks by Prof. Boussaadi.
   - Rules & Benefits (/rules-benefits): Methodology for extracting Islamic jurisprudence rulings and moral benefits from verses and hadiths.
   - Methodology (/methodology): Official exam answer techniques and grading criteria.
-  - Excellence Plan & Challenge (/plan): Systematic memorization plan and 30-day challenge schedule.
+  - Excellence Plan (https://www.bac-story.com/plans/subject-plans/islamic): Strategic Islamic Education roadmap and preparation methodology.
+  - Memorization Challenge (https://www.bac-story.com/plans/challenges/memorization): Intensive 30-day challenge and schedule for memorization subjects.
   - Excellence Mock Exams (/tamayoz): 23 experimental exam topics with detailed model answers and grading scale.
   - Tasks & Lesson Exercise Hub (/tasks): Complete practice portal covering all 16 official curriculum lessons (from Lesson 01: العقيدة وأثرها to Lesson 16: أحكام الميراث) with categorized practice exercises, model solutions, and past Baccalaureate exam questions.
 

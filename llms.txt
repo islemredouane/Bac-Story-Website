@@ -103,7 +103,8 @@ The platform is founded and operated by Redouane Mohamed Islem and is accessible
   - [كتب ومراجع خارجية (سلسلة الأنيس وسلسلة الميسر للأستاذ بوسعادي)](https://www.bac-story.com/resources/sci/islamics/books)
   - [الأحكام والفوائد (طريقة استخراجها وملف شامل للأحكام)](https://www.bac-story.com/resources/sci/islamics/rules-benefits)
   - [منهجية الإجابة النموذجية في العلوم الإسلامية](https://www.bac-story.com/resources/sci/islamics/methodology)
-  - [خطة وتحدي التميز في مواد الحفظ](https://www.bac-story.com/resources/sci/islamics/plan)
+  - [خطة التميز في العلوم الإسلامية](https://www.bac-story.com/plans/subject-plans/islamic)
+  - [تحدي التميز في مواد الحفظ](https://www.bac-story.com/plans/challenges/memorization)
   - [مواضيع التميز التجريبية المحلولة (23 موضوعاً وباقة)](https://www.bac-story.com/resources/sci/islamics/tamayoz)
   - [مهام وسلاسل دروس المادة (16 درساً مع بنك أسئلة البكالوريا والتمارين)](https://www.bac-story.com/resources/sci/islamics/tasks)
 
