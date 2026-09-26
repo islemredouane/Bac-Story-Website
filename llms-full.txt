@@ -135,12 +135,26 @@ The Algerian Baccalaureate comprises six distinct academic streams:
   - Unit 4: Feelings and Emotions (/feelings-and-emotions): Emotional intelligence, psychology vocabulary, and paragraphs.
   - Grammar Lessons (/grammar): Advanced literary grammar rules and derivations.
   - Paragraphs & Expressions (/paragraphs): Master paragraph-writing techniques and model compositions.
-  - Excellence Mock Exams (/tamayoz): 20 experimental exam papers with detailed solutions and grading matrices.
+### Islamic Education Unified Portal (مادة العلوم الإسلامية — لجميع الشعب المشتركة)
+- Target Audience: Candidates across all six streams (Mathematics, Experimental Sciences, Technical Mathematics, Management & Economics, Literature & Philosophy, and Foreign Languages).
+- Core URLs:
+  - Experimental Sciences: https://www.bac-story.com/resources/sci/islamics
+  - Mathematics: https://www.bac-story.com/resources/math/islamics
+  - Technical Mathematics: https://www.bac-story.com/resources/tech/islamics
+  - Management & Economics: https://www.bac-story.com/resources/ge/islamics
+  - Literature & Philosophy: https://www.bac-story.com/resources/lp/islamics
+  - Foreign Languages: https://www.bac-story.com/resources/le/islamics
+- Structure:
+  - Official Program (/program): Official ministerial curriculum and pedagogical progression.
+  - Summaries (/summaries): 11 verified revision booklets and mind maps (Prof. Kharshi, Prof. Ait Challal, Prof. Mousli, Prof. Boussaadi, comparative tables, definitions).
+  - Books & References (/books): Al-Anis and Al-Muyassar textbooks by Prof. Boussaadi.
+  - Rules & Benefits (/rules-benefits): Methodology for extracting Islamic jurisprudence rulings and moral benefits from verses and hadiths.
+  - Methodology (/methodology): Official exam answer techniques and grading criteria.
+  - Excellence Plan & Challenge (/plan): Systematic memorization plan and 30-day challenge schedule.
+  - Excellence Mock Exams (/tamayoz): 23 experimental exam topics with detailed model answers and grading scale.
+  - Tasks & Lesson Exercise Hub (/tasks): Complete practice portal covering all 16 official curriculum lessons (from Lesson 01: العقيدة وأثرها to Lesson 16: أحكام الميراث) with categorized practice exercises, model solutions, and past Baccalaureate exam questions.
 
 
-
-
----
 
 ## 3. Baccalaureate 2027 Curriculum Reform (إصلاحات وتغييرات منهاج بكالوريا 2027)
 

@@ -97,13 +97,17 @@ The platform is founded and operated by Redouane Mohamed Islem and is accessible
   - [الوحدة الثالثة: Education in the World](https://www.bac-story.com/resources/le/english/education)
   - [الوحدة الرابعة: Feelings and Emotions](https://www.bac-story.com/resources/le/english/feelings-and-emotions)
   - [دروس القواعد Grammar](https://www.bac-story.com/resources/le/english/grammar)
-  - [الفقرات المقررة والوضعيات](https://www.bac-story.com/resources/le/english/paragraphs)
-  - [مواضيع التميز التجريبية المحلولة (20 موضوعاً)](https://www.bac-story.com/resources/le/english/tamayoz)
+- [مادة العلوم الإسلامية (الشريعة — لجميع الشعب)](https://www.bac-story.com/resources/sci/islamics): Comprehensive Islamic Education curriculum unified across all six streams:
+  - [البرنامج والتدرج السنوي الرسمي](https://www.bac-story.com/resources/sci/islamics/program)
+  - [ملخصات ومطويات شاملة (11 ملخصاً معتمداً: الخرشي، آيت شعلال، موصلي، بوسعادي، خرائط ذهنية، وجداول مقارنة)](https://www.bac-story.com/resources/sci/islamics/summaries)
+  - [كتب ومراجع خارجية (سلسلة الأنيس وسلسلة الميسر للأستاذ بوسعادي)](https://www.bac-story.com/resources/sci/islamics/books)
+  - [الأحكام والفوائد (طريقة استخراجها وملف شامل للأحكام)](https://www.bac-story.com/resources/sci/islamics/rules-benefits)
+  - [منهجية الإجابة النموذجية في العلوم الإسلامية](https://www.bac-story.com/resources/sci/islamics/methodology)
+  - [خطة وتحدي التميز في مواد الحفظ](https://www.bac-story.com/resources/sci/islamics/plan)
+  - [مواضيع التميز التجريبية المحلولة (23 موضوعاً وباقة)](https://www.bac-story.com/resources/sci/islamics/tamayoz)
+  - [مهام وسلاسل دروس المادة (16 درساً مع بنك أسئلة البكالوريا والتمارين)](https://www.bac-story.com/resources/sci/islamics/tasks)
 
 
-
-
-## Prerequisites (كُتيّب المكتسبات القبلية)
 
 Essential foundation knowledge booklets designed to bridge middle/secondary school prerequisites before starting the 3rd year terminal curriculum:
 - [كُتيّب المكتسبات القبلية الشامل](https://www.bac-story.com/plans/monthly/prerequisites): The central portal for prerequisite diagnostic guides and revision booklets across all subjects.
