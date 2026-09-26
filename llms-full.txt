@@ -103,6 +103,25 @@ The Algerian Baccalaureate comprises six distinct academic streams:
   - Common Questions (https://www.bac-story.com/resources/lp/arabic/common-questions): High-frequency exam questions with model answers.
   - Excellence Topics (https://www.bac-story.com/resources/lp/arabic/tamayoz): 17 mock exam papers with model grading keys.
 
+### Common Scientific English Language Portal (مادة اللغة الإنجليزية للشعب العلمية المشتركة)
+- Target Audience: Mathematics, Experimental Sciences, Technical Mathematics, and Management & Economics candidates.
+- Core URLs:
+  - Experimental Sciences: https://www.bac-story.com/resources/sci/english
+  - Mathematics: https://www.bac-story.com/resources/math/english
+  - Technical Mathematics: https://www.bac-story.com/resources/tech/english
+  - Management & Economics: https://www.bac-story.com/resources/ge/english
+- Structure:
+  - Official Program (/program): Official ministerial curriculum and progression.
+  - Unit 1: Ethics in Business (/ethics-in-business): Summaries, vocabulary, linking words, ideas, and model paragraphs.
+  - Unit 2: Safety First (/safety-first): Summaries, advertising and food safety concepts, vocabulary, and model essays.
+  - Unit 3: Astronomy (/astronomy): Astronomy concepts, space vocabulary, and written expression topics.
+  - Grammar Lessons (/grammar): Comprehensive grammar rules (Noun-Verb-Adjective derivations, verb tenses, conditionals).
+  - External Books (/books): Silver Series (عزوز عمار), Final Revision (نافع 2024), An-Nawabigh, and Mansouri.
+  - Valuable Files (/valuable-files): High-yield essay structures, question-answering techniques, and preposition cheat sheets.
+  - Excellence Plan (/plan): Step-by-step preparation plan and study schedule.
+  - Excellence Mock Exams (/tamayoz): 21 experimental exam papers with detailed answer keys and grading scale.
+
+
 
 ---
 

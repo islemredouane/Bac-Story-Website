@@ -81,8 +81,17 @@ The platform is founded and operated by Redouane Mohamed Islem and is accessible
   - [المحاور النثرية](https://www.bac-story.com/resources/lp/arabic/nathr)
   - [دروس القواعد والبلاغة](https://www.bac-story.com/resources/lp/arabic/grammar)
   - [التقويم النقدي](https://www.bac-story.com/resources/lp/arabic/critical-assessment)
-  - [الأسئلة الشائعة والمتكررة](https://www.bac-story.com/resources/lp/arabic/common-questions)
-  - [مواضيع التميز النموذجية](https://www.bac-story.com/resources/lp/arabic/tamayoz)
+- [مادة اللغة الإنجليزية (الشعب العلمية المشتركة: علوم، رياضيات، تقني، تسيير)](https://www.bac-story.com/resources/sci/english): Comprehensive English curriculum for all scientific and technical branches:
+  - [برنامج مادة اللغة الإنجليزية](https://www.bac-story.com/resources/sci/english/program)
+  - [الوحدة الأولى: Ethics in Business](https://www.bac-story.com/resources/sci/english/ethics-in-business)
+  - [الوحدة الثانية: Safety First](https://www.bac-story.com/resources/sci/english/safety-first)
+  - [الوحدة الثالثة: Astronomy](https://www.bac-story.com/resources/sci/english/astronomy)
+  - [دروس القواعد Grammar](https://www.bac-story.com/resources/sci/english/grammar)
+  - [كتب ومراجع خارجية](https://www.bac-story.com/resources/sci/english/books)
+  - [ملفات ثمينة للتميز وكتابة الفقرات](https://www.bac-story.com/resources/sci/english/valuable-files)
+  - [خطة وتحدي التميز في اللغة الإنجليزية](https://www.bac-story.com/resources/sci/english/plan)
+  - [مواضيع التميز التجريبية المحلولة (21 موضوعاً)](https://www.bac-story.com/resources/sci/english/tamayoz)
+
 
 
 ## Prerequisites (كُتيّب المكتسبات القبلية)
