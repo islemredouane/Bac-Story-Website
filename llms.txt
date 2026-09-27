@@ -119,9 +119,8 @@ The platform is founded and operated by Redouane Mohamed Islem and is accessible
   - [سلاسل ومواضيع التميز في الفرنسية (14 موضوعاً نموذجياً)](https://www.bac-story.com/resources/sci/french/tamayoz)
 - [مادة الفلسفة (الشعب العلمية: علوم تجريبية ورياضيات)](https://www.bac-story.com/resources/sci/philo): Comprehensive Philosophy curriculum tailored for scientific streams:
   - [برنامج مادة الفلسفة](https://www.bac-story.com/resources/sci/philo/program)
-  - [مخططات المقالات المقترحة](https://www.bac-story.com/resources/sci/philo/diagrams)
   - [المنهجيات الفلسفية وطرق كتابة المقال](https://www.bac-story.com/resources/sci/philo/methodology)
-  - [مقالات المتفوق إسلام في الفلسفة](https://www.bac-story.com/resources/sci/philo/islam)
+  - [مقالات المتفوق إسلام](https://www.bac-story.com/resources/sci/philo/islam)
   - [بوابة مقالات الأساتذة](https://www.bac-story.com/resources/sci/philo/teachers)
     - [مقالات وملخصات الأستاذ هواري](https://www.bac-story.com/resources/sci/philo/teachers/houari)
     - [مقالات وملخصات الأستاذ بومدين](https://www.bac-story.com/resources/sci/philo/teachers/boumedienne)
@@ -129,7 +128,8 @@ The platform is founded and operated by Redouane Mohamed Islem and is accessible
     - [مقالات فلسفية بكل المنهجيات](https://www.bac-story.com/resources/sci/philo/teachers/methodologies)
   - [بوابة مقالات المتفوقين](https://www.bac-story.com/resources/sci/philo/top-students)
     - [مقالات وملخصات الطالبة غزلان](https://www.bac-story.com/resources/sci/philo/top-students/ghizlane)
-  - [كتب ومراجع الفلسفة الخارجية (الهدى، الجوهرة، مخططات ضيف، كتاب هبة جبارية)](https://www.bac-story.com/resources/sci/philo/books)
+  - [مقالات على شكل مخططات](https://www.bac-story.com/resources/sci/philo/diagrams)
+  - [كتب خارجية (الهدى، الجوهرة، مخططات ضيف، كتاب هبة جبارية)](https://www.bac-story.com/resources/sci/philo/books)
 
 
 Essential foundation knowledge booklets designed to bridge middle/secondary school prerequisites before starting the 3rd year terminal curriculum:
