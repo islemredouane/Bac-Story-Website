@@ -184,14 +184,14 @@ The Algerian Baccalaureate comprises six distinct academic streams:
 - Structure:
   - Official Program (/program): Official ministerial curriculum and pedagogical progression.
   - Philosophical Methodologies (/methodology): Deep step-by-step guides for Comparison (المقارنة), Dialectics (الجدل), Problem-posing Thesis (الاستقصاء بالوضع), and Text Analysis (تحليل نص فلسفي) with ready-to-use introductions.
-  - Islam Top Achiever Dissertations (/islam): Full model philosophical dissertations by top ranker Islem (مقالات المتفوق إسلام) covering mathematical certainty, hypothesis value, scientific empiricism, psychology, history, and science vs philosophy.
-  - Teachers Portal (/teachers): Central directory linking to distinguished philosophy educators:
-    - Prof. Houari (/teachers/houari): Complete 19-essay compilation and unit summaries by Prof. Houari.
-    - Prof. Boumedienne (/teachers/boumedienne): 10 model methodology essays and comprehensive comparison tables.
-    - Prof. Iskander Gharbi (/teachers/iskander): Model philosophical essays by Prof. Iskander Gharbi.
-    - All-Methodology Essays (/teachers/methodologies): 5 model essays written across all standard methodologies.
-  - Top Students Portal (/top-students): Directory of top-scoring student notes:
-    - Top Student Ghizlane (/top-students/ghizlane): Units 1, 2, and 3 comprehensive philosophy essays and summaries.
+  - Islam Top Achiever Dissertations (/islam-articles): Full model philosophical dissertations by top ranker Islem (مقالات المتفوق إسلام) covering mathematical certainty, hypothesis value, scientific empiricism, psychology, history, and science vs philosophy.
+  - Teachers Portal (/teachers-articles): Central directory linking to distinguished philosophy educators:
+    - Prof. Houari (/teachers-articles/houari): Complete 19-essay compilation and unit summaries by Prof. Houari.
+    - Prof. Boumedienne (/teachers-articles/boumedienne): 10 model methodology essays and comprehensive comparison tables.
+    - Prof. Iskander Gharbi (/teachers-articles/iskander): Model philosophical essays by Prof. Iskander Gharbi.
+    - All-Methodology Essays (/teachers-articles/methodologies): 5 model essays written across all standard methodologies.
+  - Top Students Portal (/top-students-articles): Directory of top-scoring student notes:
+    - Top Student Ghizlane (/top-students-articles/ghizlane): Units 1, 2, and 3 comprehensive philosophy essays and summaries.
   - Essays as Diagrams (/diagrams): Visual concept mind-maps and high-retention schematics for proposed exam topics (مقالات على شكل مخططات).
   - External Books (https://www.bac-story.com/resources/books/sci/philosophy): Certified external reference books (كتب خارجية: كتاب الهدى، كتاب الجوهرة للأستاذ عادل مقرود، كتاب مخططات الفلسفة للأستاذة ضيف سلمى، وكتاب هبة جبارية وقادري رياض).
 
