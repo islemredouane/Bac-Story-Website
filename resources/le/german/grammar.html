@@ -91,7 +91,7 @@
             "@type": "LearningResource",
             "@id": "https://www.bac-story.com/resources/le/german/grammar#learningresource",
             "name": "قواعد وتصريف الأفعال في اللغة الألمانية — لغات أجنبية",
-            "description": "شرح مبسط وشامل لقواعد مادة اللغة الألمانية وجداول تصريف جميع الأفعال لـشعبة لغات أجنبية.",
+            "description": "شرح مبسط وشامل لقواعد مادة اللغة الألمانية وجداول تصريف جميع الأفعال لـشعبة لغات أجنبية بكالوريا 2027.",
             "url": "https://www.bac-story.com/resources/le/german/grammar",
             "educationalLevel": "بكالوريا — ثالثة ثانوي",
             "learningResourceType": "ملخصات وتمارين",
@@ -148,16 +148,19 @@
             display: inline-flex !important;
             align-items: center;
             position: relative;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 6px;
-            border-radius: 50px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(0, 0, 0, 0.06);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            z-index: 1;
-            max-width: 95vw;
+            vertical-align: top;
+            background: #f1f5f9;
+            border-radius: 999px;
+            padding: 4px;
+            gap: 0;
+            border: 1px solid rgba(44, 92, 197, 0.1);
+            max-width: 100%;
             overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+            -ms-overflow-style: none;
             scrollbar-width: none;
         }
         .pdf-switcher-toggle::-webkit-scrollbar {
@@ -165,258 +168,126 @@
         }
         .pdf-switcher-pill {
             position: absolute;
-            top: 6px;
-            bottom: 6px;
-            border-radius: 50px;
-            background: linear-gradient(135deg, #1a3a8f, #152c6f);
-            box-shadow: 0 3px 12px rgba(26, 58, 143, 0.35);
-            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: 0;
+            top: 4px; bottom: 4px;
+            background: #2c5cc5;
+            border-radius: 999px;
+            transition: left 0.28s cubic-bezier(0.34,1.56,0.64,1), width 0.28s cubic-bezier(0.34,1.56,0.64,1);
+            box-shadow: 0 2px 8px rgba(44,92,195,0.3);
             pointer-events: none;
+            z-index: 0;
         }
-        .pdf-switcher-btn {
-            position: relative;
-            z-index: 1;
-            padding: 10px 18px;
-            border: none;
-            background: transparent;
-            font-family: 'Tajawal', sans-serif;
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: #555;
-            cursor: pointer;
-            border-radius: 50px;
-            transition: color 0.3s ease;
-            white-space: nowrap;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
+        .pdf-switcher-tab {
+            position: relative; z-index: 1;
+            margin: 0 !important;
+            padding: 0.5rem 1.4rem;
+            border: none; background: transparent; border-radius: 999px;
+            font-family: 'Tajawal', sans-serif; font-size: 0.9rem; font-weight: 700;
+            color: #64748b; cursor: pointer; white-space: nowrap;
+            transition: color 0.22s ease;
+            display: inline-flex; align-items: center; gap: 6px;
+            user-select: none;
+            flex-shrink: 0;
+            width: auto !important;
+            min-width: 0 !important;
+            box-shadow: none !important;
         }
-        .pdf-switcher-btn.active {
-            color: #ffffff !important;
-        }
-        [data-theme="dark"] .pdf-switcher-toggle {
-            background: rgba(30, 41, 59, 0.85);
-            border-color: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        }
-        [data-theme="dark"] .pdf-switcher-btn {
-            color: #cbd5e1;
-        }
-        [data-theme="dark"] .pdf-switcher-btn.active {
-            color: #ffffff !important;
-        }
-        [data-theme="dark"] .pdf-switcher-pill {
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-            box-shadow: 0 3px 12px rgba(59, 130, 246, 0.4);
-        }
-        /* ── PDF Container & Controls ── */
-        .pdf-wrapper {
-            width: 100%;
-            max-width: 1050px;
-            margin: 0 auto;
-            background: #fff;
-            border-radius: 16px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
-            overflow: hidden;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-        [data-theme="dark"] .pdf-wrapper {
-            background: #1e293b;
-            border-color: rgba(255, 255, 255, 0.05);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
-        }
-        .pdf-toolbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 20px;
-            background: #f8fafc;
-            border-bottom: 1px solid #e2e8f0;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        [data-theme="dark"] .pdf-toolbar {
-            background: #0f172a;
-            border-bottom-color: #334155;
-        }
-        .pdf-title {
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: #1e293b;
-            margin: 0;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        [data-theme="dark"] .pdf-title {
-            color: #f1f5f9;
-        }
-        .pdf-actions {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-        .pdf-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 7px 14px;
-            border-radius: 8px;
-            font-size: 0.88rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            cursor: pointer;
-            border: none;
-        }
-        .pdf-btn-primary {
-            background: #1a3a8f;
+        .pdf-switcher-tab.active {
             color: #fff !important;
         }
-        .pdf-btn-primary:hover {
-            background: #152c6f;
-            transform: translateY(-1px);
-        }
-        .pdf-btn-secondary {
-            background: #e2e8f0;
-            color: #334155 !important;
-        }
-        [data-theme="dark"] .pdf-btn-secondary {
-            background: #334155;
-            color: #f1f5f9 !important;
-        }
-        .pdf-btn-secondary:hover {
-            background: #cbd5e1;
-        }
-        [data-theme="dark"] .pdf-btn-secondary:hover {
-            background: #475569;
-        }
-        .pdf-frame-container {
-            position: relative;
-            width: 100%;
-            height: 75vh;
-            min-height: 520px;
-            background: #525659;
-        }
-        .pdf-frame-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        @media (max-width: 768px) {
-            .pdf-frame-container {
-                height: 65vh;
-                min-height: 400px;
-            }
-            .pdf-toolbar {
-                flex-direction: column;
-                align-items: stretch;
-                text-align: center;
-            }
-            .pdf-actions {
-                justify-content: center;
-            }
+        @media (max-width: 600px) {
+            .pdf-switcher-tab { padding: 0.5rem 0.9rem; font-size: 0.8rem; }
         }
     </style>
 </head>
 <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5H3TNJ4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div id="navbar-placeholder"></div>
-
-    <main class="resource-content active" style="padding: 20px 10px 40px;">
+    <div class="resource-content active">
         <div class="container">
             <div class="ad-card-inject"></div>
-
-            <div class="modern-section-header" style="text-align: center; margin-bottom: 25px;">
-                <h1 style="font-size: 1.8rem; font-weight: 800; color: var(--primary-color, #1a3a8f); margin-bottom: 8px;">قواعد وتصريف أفعال اللغة الألمانية</h1>
-                <p style="color: #64748b; font-size: 1rem; margin: 0;">اللغة الألمانية — شعبة لغات أجنبية | بكالوريا الجزائر</p>
+            <h1 class="visually-hidden">قواعد وتصريف الأفعال في اللغة الألمانية — لغات أجنبية</h1>
+            <div class="modern-section-header">
+                <h2>قواعد وتصريف الأفعال في اللغة الألمانية — لغات أجنبية</h2>
             </div>
-
             
-        <div class="pdf-switcher-wrap">
-            <div class="pdf-switcher-toggle">
-                <div class="pdf-switcher-pill"></div>
-                <button class="pdf-switcher-btn active" onclick="switchPdf('1cCzdQ7AllmUyEORKTs1x-mIsHDWjRAOA', 'قواعد هامة في الألمانية', this)"><i class="fas fa-spell-check" style="margin-left: 6px;"></i>قواعد هامة في الألمانية</button><button class="pdf-switcher-btn" onclick="switchPdf('1ZuHbA4p7AavF5feLgMA5e0_AhqO1imy1', 'تصريف جميع أفعال الألمانية', this)"><i class="fas fa-language" style="margin-left: 6px;"></i>تصريف جميع أفعال الألمانية</button>
-            </div>
-        </div>
-        
-
-            <div class="pdf-wrapper">
-                <div class="pdf-toolbar">
-                    <h2 class="pdf-title" id="currentDocTitle">
-                        <i class="fas fa-file-pdf" style="color: #e11d48;"></i>
-                        <span id="docLabel">قواعد هامة في الألمانية</span>
-                    </h2>
-                    <div class="pdf-actions">
-                        <button class="pdf-btn pdf-btn-secondary" onclick="toggleFullScreen()" title="ملء الشاشة">
-                            <i class="fas fa-expand"></i> ملء الشاشة
+            <section class="pdf-viewer" style="text-align:center;padding-bottom:40px;">
+                <a href="https://t.me/islembacdz" target="_blank" rel="noopener" style="margin-bottom:20px;" class="search-telegram-btn">
+                    <i class="fab fa-telegram-plane"></i>
+                    <span>انضم إلينا على التلغرام</span>
+                </a>
+                <div class="pdf-switcher-wrap">
+                    <div class="pdf-switcher-toggle" id="pdfTabBar">
+                        <span class="pdf-switcher-pill" id="pdfTabPill"></span>
+                        <button class="pdf-switcher-tab active" onclick="switchPdf(this, '1cCzdQ7AllmUyEORKTs1x-mIsHDWjRAOA')"><i class="fas fa-file-pdf"></i> قواعد الألمانية - ملخص شامل 1</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1ZuHbA4p7AavF5feLgMA5e0_AhqO1imy1')"><i class="fas fa-file-pdf"></i> قواعد وتصريف الأفعال في الألمانية</button>
+                    </div>
+                </div>
+                <div class="pdf-wrapper">
+                    <div class="pdf-iframe-wrap">
+                    <iframe id="pdfFrame" src="https://drive.google.com/file/d/1cCzdQ7AllmUyEORKTs1x-mIsHDWjRAOA/preview"
+                        class="responsive-pdf" loading="lazy" allowfullscreen title="قواعد وتصريف الأفعال في اللغة الألمانية — لغات أجنبية"></iframe>
+                    </div>
+                    
+                    <div class="pdf-buttons">
+                        <button onclick="toggleFullScreen(event)" class="full-btn" style="flex:1;border:none;font-size:16px;font-weight:500;cursor:pointer;">
+                            <i class="fa-solid fa-expand"></i> تكبير الملف
                         </button>
-                        <a id="driveDownloadBtn" href="https://drive.google.com/file/d/1cCzdQ7AllmUyEORKTs1x-mIsHDWjRAOA/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="pdf-btn pdf-btn-primary">
-                            <i class="fas fa-external-link-alt"></i> فتح في Drive
+                        <a id="downloadPdfBtn" href="https://drive.google.com/uc?export=download&id=1cCzdQ7AllmUyEORKTs1x-mIsHDWjRAOA" download class="down-btn"
+                            style="flex:1;text-decoration:none;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:500;">
+                            <i class="fa-solid fa-download"></i> تحميل الملف
                         </a>
                     </div>
                 </div>
-                <div class="pdf-frame-container" id="pdfFrameWrap">
-                    <iframe id="pdfFrame" src="https://drive.google.com/file/d/1cCzdQ7AllmUyEORKTs1x-mIsHDWjRAOA/preview" allow="autoplay" loading="lazy" title="قواعد هامة في الألمانية"></iframe>
-                </div>
-            </div>
-
-            <div style="text-align: center; margin-top: 30px;">
-                <a href="/resources/le/german" class="modern-cta-btn" style="display: inline-flex; align-items: center; gap: 8px; text-decoration: none;">
-                    <i class="fas fa-arrow-right"></i> العودة لمادة اللغة الألمانية
-                </a>
+            </section>
+            
+            <div style="text-align:center;margin-top:1.5rem;">
+                <a href="https://www.bac-story.com/resources/le/german" class="modern-cta-btn"><i class="fas fa-arrow-right"></i> العودة لـ مادة اللغة الألمانية</a>
             </div>
         </div>
-    </main>
-
+    </div>
     <div id="global-cta-placeholder"></div>
     <div id="footer-placeholder"></div>
-
     <script src="/ads-config.js?v=1.15"></script>
     <script src="/components/shared.js?v=9.60"></script>
     <script src="/script.js?v=9.5"></script>
-    
     <script>
-        function updatePillPosition() {
-            var activeBtn = document.querySelector('.pdf-switcher-btn.active');
-            var pill = document.querySelector('.pdf-switcher-pill');
-            if (activeBtn && pill) {
-                pill.style.left = activeBtn.offsetLeft + 'px';
-                pill.style.width = activeBtn.offsetWidth + 'px';
+        function updatePill(tab, animate) {
+            var bar = document.getElementById('pdfTabBar');
+            var pill = document.getElementById('pdfTabPill');
+            if (!bar || !pill || !tab) return;
+            if (!animate) pill.style.transition = 'none';
+            pill.style.left = tab.offsetLeft + 'px';
+            pill.style.width = tab.offsetWidth + 'px';
+            if (!animate) {
+                pill.offsetHeight;
+                pill.style.transition = '';
             }
         }
-
-        function switchPdf(driveId, title, btnElem) {
-            var frame = document.getElementById('pdfFrame');
-            var docLabel = document.getElementById('docLabel');
-            var driveBtn = document.getElementById('driveDownloadBtn');
-            
-            if (frame) frame.src = 'https://drive.google.com/file/d/' + driveId + '/preview';
-            if (docLabel) docLabel.textContent = title;
-            if (driveBtn) driveBtn.href = 'https://drive.google.com/file/d/' + driveId + '/view?usp=sharing';
-            
-            var btns = document.querySelectorAll('.pdf-switcher-btn');
-            btns.forEach(function(b) { b.classList.remove('active'); });
-            if (btnElem) btnElem.classList.add('active');
-            
-            updatePillPosition();
-        }
-
-        function toggleFullScreen() {
-            var elem = document.getElementById('pdfFrameWrap');
-            if (!elem) return;
-            if (!document.fullscreenElement && !document.webkitFullscreenElement) {
-                if (elem.requestFullscreen) elem.requestFullscreen();
-                else if (elem.webkitRequestFullscreen) elem.webkitRequestFullscreen();
-            } else {
-                if (document.exitFullscreen) document.exitFullscreen();
-                else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+        function switchPdf(tab, fileId) {
+            document.querySelectorAll('.pdf-switcher-tab').forEach(function(t) { t.classList.remove('active'); });
+            tab.classList.add('active');
+            updatePill(tab, true);
+            tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            var iframe = document.getElementById('pdfFrame');
+            if (iframe) {
+                iframe.src = 'https://drive.google.com/file/d/' + fileId + '/preview';
+            }
+            var downBtn = document.getElementById('downloadPdfBtn');
+            if (downBtn) {
+                downBtn.href = 'https://drive.google.com/uc?export=download&id=' + fileId;
             }
         }
-
-        window.addEventListener('DOMContentLoaded', updatePillPosition);
-        window.addEventListener('resize', updatePillPosition);
+        document.addEventListener('DOMContentLoaded', function() {
+            var activeTab = document.querySelector('.pdf-switcher-tab.active');
+            if (activeTab) {
+                setTimeout(function() { updatePill(activeTab, false); }, 50);
+            }
+        });
+        window.addEventListener('resize', function() {
+            var activeTab = document.querySelector('.pdf-switcher-tab.active');
+            if (activeTab) updatePill(activeTab, false);
+        });
     </script>
+    <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "6153c3a6dd54435780cd9d84f9f958f8"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
