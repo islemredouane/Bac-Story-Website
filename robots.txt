@@ -1,6 +1,6 @@
 # BAC STORY — robots.txt
 # Platform URL: https://www.bac-story.com
-# Maintained by BAC STORY Team
+# Maintained by BAC STORY Team (Founder: Redouane Mohamed Islem)
 
 User-agent: *
 Allow: /
@@ -11,13 +11,16 @@ Disallow: /*-backup.html$
 Disallow: /*.mp3$
 
 # -------------------------------------------------------------
-# AI Search & Answer Engine Optimization (AEO) Directives
-# Permitting LLM search crawlers for generative citation & grounding
+# AI Search, Generative Engine & Answer Engine Optimization (AEO / GEO)
+# Permitting leading LLM search crawlers for citations and grounding
 # -------------------------------------------------------------
 User-agent: GPTBot
 Allow: /
 
 User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
 Allow: /
 
 User-agent: PerplexityBot
@@ -38,11 +41,29 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
+User-agent: Amazonbot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
 # -------------------------------------------------------------
-# Sitemaps & LLM Context Files
+# Sitemaps & Machine-Readable Knowledge Bases (llmstxt.org)
 # -------------------------------------------------------------
 Sitemap: https://www.bac-story.com/sitemap.xml
 
-# Machine-readable knowledge base for Large Language Models (llmstxt.org standard)
-# LLM Index: https://www.bac-story.com/llms.txt
+# LLM Context Files:
+# Concise Index: https://www.bac-story.com/llms.txt
 # Full Knowledge Graph: https://www.bac-story.com/llms-full.txt
