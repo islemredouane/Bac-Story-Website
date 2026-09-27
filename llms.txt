@@ -117,6 +117,15 @@ The platform is founded and operated by Redouane Mohamed Islem and is accessible
   - [مواضيع تحضيرية وباقة التحضير الشامل](https://www.bac-story.com/resources/sci/french/preparatory-topics)
   - [خطة التميز في اللغة الفرنسية](https://www.bac-story.com/plans/subject-plans/french)
   - [سلاسل ومواضيع التميز في الفرنسية (14 موضوعاً نموذجياً)](https://www.bac-story.com/resources/sci/french/tamayoz)
+- [مادة الفلسفة (الشعب العلمية: علوم تجريبية ورياضيات)](https://www.bac-story.com/resources/sci/philo): Comprehensive Philosophy curriculum tailored for scientific streams:
+  - [برنامج مادة الفلسفة](https://www.bac-story.com/resources/sci/philo/program)
+  - [مقالات الفلسفة الشخصية للمتفوقين](https://www.bac-story.com/resources/sci/philo/personal-articles)
+  - [مخططات المقالات المقترحة](https://www.bac-story.com/resources/sci/philo/diagrams)
+  - [المنهجيات الفلسفية وطرق كتابة المقال](https://www.bac-story.com/resources/sci/philo/methodology)
+  - [مقالات وملخصات الأستاذ هواري](https://www.bac-story.com/resources/sci/philo/houari)
+  - [مقالات الأساتذة والطلبة المتفوقين (اسكندر غربي، بومدين، غزلان)](https://www.bac-story.com/resources/sci/philo/superior-articles)
+  - [كتب ومراجع الفلسفة الخارجية (الهدى، الجوهرة، مخططات ضيف، كتاب هبة جبارية)](https://www.bac-story.com/resources/sci/philo/books)
+
 
 Essential foundation knowledge booklets designed to bridge middle/secondary school prerequisites before starting the 3rd year terminal curriculum:
 - [كُتيّب المكتسبات القبلية الشامل](https://www.bac-story.com/plans/monthly/prerequisites): The central portal for prerequisite diagnostic guides and revision booklets across all subjects.

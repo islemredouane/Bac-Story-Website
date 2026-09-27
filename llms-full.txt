@@ -175,6 +175,21 @@ The Algerian Baccalaureate comprises six distinct academic streams:
   - Preparatory Topics (/preparatory-topics): Comprehensive preparation packages with model solutions.
   - Excellence Plan (https://www.bac-story.com/plans/subject-plans/french): Strategic French preparation roadmap.
   - Excellence Mock Exams (/tamayoz): 14 model experimental exam papers with comprehensive solutions.
+
+### Scientific Philosophy Portal (مادة الفلسفة للشعب العلمية: علوم تجريبية، رياضيات)
+- Target Audience: Experimental Sciences (علوم تجريبية) and Mathematics (رياضيات) candidates.
+- Core URLs:
+  - Experimental Sciences: https://www.bac-story.com/resources/sci/philo
+  - Mathematics: https://www.bac-story.com/resources/math/philo
+- Structure:
+  - Official Program (/program): Official ministerial curriculum and pedagogical progression.
+  - Personal Articles (/personal-articles): Full model philosophical dissertations by top achievers (اليقين الرياضي، قيمة الفرضية، التجربة معيار العلم، علم النفس، علم التاريخ، المقارنة بين العلم والفلسفة).
+  - Proposed Diagrams (/diagrams): Visual concept mind-maps and high-retention schematics for proposed exam topics.
+  - Philosophical Methodologies (/methodology): Deep step-by-step guides for Comparison (المقارنة), Dialectics (الجدل), Problem-posing Thesis (الاستقصاء بالوضع), and Text Analysis (تحليل نص فلسفي) with ready-to-use introductions.
+  - Prof. Houari Articles (/houari): Complete 19-essay compilation and unit summaries by Prof. Houari.
+  - Top Achievers & Teachers (/superior-articles): Verified model essays and outlines by premier professors and top-scoring students (اسكندر غربي، بومدين، الطالبة غزلان).
+  - External Books & References (/books): Certified external reference books (كتاب الهدى، كتاب الجوهرة للأستاذ عادل مقرود، كتاب مخططات الفلسفة للأستاذة ضيف سلمى، وكتاب هبة جبارية وقادري رياض).
+
 ## 3. Baccalaureate 2027 Curriculum Reform (إصلاحات وتغييرات منهاج بكالوريا 2027)
 
 - Reform Guide URL: https://www.bac-story.com/bac-2027-curriculum-changes
