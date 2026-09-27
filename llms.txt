@@ -129,7 +129,7 @@ The platform is founded and operated by Redouane Mohamed Islem and is accessible
   - [بوابة مقالات المتفوقين](https://www.bac-story.com/resources/sci/philo/top-students)
     - [مقالات وملخصات الطالبة غزلان](https://www.bac-story.com/resources/sci/philo/top-students/ghizlane)
   - [مقالات على شكل مخططات](https://www.bac-story.com/resources/sci/philo/diagrams)
-  - [كتب خارجية (الهدى، الجوهرة، مخططات ضيف، كتاب هبة جبارية)](https://www.bac-story.com/resources/sci/philo/books)
+  - [كتب خارجية (الهدى، الجوهرة، مخططات ضيف، كتاب هبة جبارية)](https://www.bac-story.com/resources/books/sci/philosophy)
 
 
 Essential foundation knowledge booklets designed to bridge middle/secondary school prerequisites before starting the 3rd year terminal curriculum:
