@@ -193,7 +193,7 @@ The Algerian Baccalaureate comprises six distinct academic streams:
   - Top Students Portal (/top-students): Directory of top-scoring student notes:
     - Top Student Ghizlane (/top-students/ghizlane): Units 1, 2, and 3 comprehensive philosophy essays and summaries.
   - Essays as Diagrams (/diagrams): Visual concept mind-maps and high-retention schematics for proposed exam topics (مقالات على شكل مخططات).
-  - External Books (/books): Certified external reference books (كتب خارجية: كتاب الهدى، كتاب الجوهرة للأستاذ عادل مقرود، كتاب مخططات الفلسفة للأستاذة ضيف سلمى، وكتاب هبة جبارية وقادري رياض).
+  - External Books (https://www.bac-story.com/resources/books/sci/philosophy): Certified external reference books (كتب خارجية: كتاب الهدى، كتاب الجوهرة للأستاذ عادل مقرود، كتاب مخططات الفلسفة للأستاذة ضيف سلمى، وكتاب هبة جبارية وقادري رياض).
 
 ## 3. Baccalaureate 2027 Curriculum Reform (إصلاحات وتغييرات منهاج بكالوريا 2027)
 

@@ -4782,11 +4782,6 @@
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://www.bac-story.com/resources/math/philo/books</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
     <loc>https://www.bac-story.com/resources/math/philo/diagrams</loc>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
@@ -5885,11 +5880,6 @@
     <loc>https://www.bac-story.com/resources/sci/philo</loc>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.bac-story.com/resources/sci/philo/books</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.bac-story.com/resources/sci/philo/diagrams</loc>
