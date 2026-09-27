@@ -202,3 +202,33 @@ Official Ministry of National Education curriculum blueprints for all Baccalaure
   - فروض المحاسبة: https://www.bac-story.com/resources/ge/accounting/assignments
   - الاختبارات والمواضيع المقترحة: https://www.bac-story.com/resources/ge/accounting/topics
   - مواضيع التميز: https://www.bac-story.com/resources/ge/accounting/tamayoz
+
+### شعبة لغات أجنبية - اللغات الثالثة (الألمانية، الإسبانية، الإيطالية):
+- **اللغة الألمانية**:
+  - برنامج المادة: https://www.bac-story.com/resources/le/german/program
+  - المكتسبات القبلية: https://www.bac-story.com/resources/le/german/moktasabat
+  - قواعد الألمانية: https://www.bac-story.com/resources/le/german/grammar
+  - مصطلحات الألمانية: https://www.bac-story.com/resources/le/german/vocabulary
+  - تمارين وفروض: https://www.bac-story.com/resources/le/german/exercises
+  - الفقرات والوضعيات: https://www.bac-story.com/resources/le/german/paragraphs
+  - ملخصات الدروس: https://www.bac-story.com/resources/le/german/summaries
+  - مواضيع مقترحة: https://www.bac-story.com/resources/le/german/topics
+  - مواضيع التميز: https://www.bac-story.com/resources/le/german/tamayoz
+- **اللغة الإسبانية**:
+  - برنامج المادة: https://www.bac-story.com/resources/le/spanish/program
+  - المكتسبات القبلية: https://www.bac-story.com/resources/le/spanish/moktasabat
+  - قواعد الإسبانية: https://www.bac-story.com/resources/le/spanish/grammar
+  - مصطلحات الإسبانية: https://www.bac-story.com/resources/le/spanish/vocabulary
+  - دروس وتمارين: https://www.bac-story.com/resources/le/spanish/exercises
+  - الفقرات والوضعيات: https://www.bac-story.com/resources/le/spanish/paragraphs
+  - ملخصات الدروس: https://www.bac-story.com/resources/le/spanish/summaries
+  - مواضيع مقترحة: https://www.bac-story.com/resources/le/spanish/topics
+  - مواضيع التميز: https://www.bac-story.com/resources/le/spanish/tamayoz
+- **اللغة الإيطالية**:
+  - برنامج المادة: https://www.bac-story.com/resources/le/italian/program
+  - قواعد الإيطالية: https://www.bac-story.com/resources/le/italian/grammar
+  - مصطلحات الإيطالية: https://www.bac-story.com/resources/le/italian/vocabulary
+  - الفقرات والوضعيات: https://www.bac-story.com/resources/le/italian/paragraphs
+  - ملخصات الدروس: https://www.bac-story.com/resources/le/italian/summaries
+  - مواضيع مقترحة: https://www.bac-story.com/resources/le/italian/topics
+  - مواضيع التميز: https://www.bac-story.com/resources/le/italian/tamayoz
