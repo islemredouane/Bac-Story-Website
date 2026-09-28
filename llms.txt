@@ -81,6 +81,20 @@ The platform is founded and operated by Redouane Mohamed Islem and is accessible
   - [المحاور النثرية](https://www.bac-story.com/resources/lp/arabic/nathr)
   - [دروس القواعد والبلاغة](https://www.bac-story.com/resources/lp/arabic/grammar)
   - [التقويم النقدي](https://www.bac-story.com/resources/lp/arabic/critical-assessment)
+- [مادة الفلسفة — شعبة آداب وفلسفة](https://www.bac-story.com/resources/lp/philo): Comprehensive Philosophy curriculum for Literature & Philosophy candidates.
+  - [مقالات الأساتذة](https://www.bac-story.com/resources/lp/philo/teachers-articles): Curated philosophy essays and summaries from top educators.
+    - [الأستاذ هواري](https://www.bac-story.com/resources/lp/philo/teachers-articles/houari)
+    - [الأستاذ بومدين](https://www.bac-story.com/resources/lp/philo/teachers-articles/boumedienne)
+  - [ملفات التميز ومقالات المتفوقين](https://www.bac-story.com/resources/lp/philo/top-students-articles)
+- [مادة الفلسفة — شعبة لغات أجنبية](https://www.bac-story.com/resources/le/philo): Comprehensive Philosophy curriculum for Foreign Languages candidates.
+  - [برنامج المادة](https://www.bac-story.com/resources/le/philo/program): Official philosophy curriculum outline.
+  - [المنهجيات الفلسفية](https://www.bac-story.com/resources/le/philo/methodology): Core philosophical essay methodologies (جدلية، استقصاء بالوضع، مقارنة، تحليل نص).
+  - [مقالات على شكل مخططات](https://www.bac-story.com/resources/le/philo/diagrams): Visual diagrams and summary mind maps for philosophy essays.
+  - [مقالات الأساتذة](https://www.bac-story.com/resources/le/philo/teachers-articles): Curated philosophy essays from top educators.
+    - [الأستاذ هواري](https://www.bac-story.com/resources/le/philo/teachers-articles/houari)
+    - [الأستاذ بومدين](https://www.bac-story.com/resources/le/philo/teachers-articles/boumedienne)
+    - [مقالات البرنامج الفلسفي](https://www.bac-story.com/resources/le/philo/teachers-articles/program-articles)
+  - [ملفات التميز ومقالات المتفوقين](https://www.bac-story.com/resources/le/philo/top-students-articles): High-scoring essay connectors and philosophers' quotes.
 - [مادة اللغة الإنجليزية (الشعب العلمية المشتركة: علوم، رياضيات، تقني، تسيير)](https://www.bac-story.com/resources/sci/english): Comprehensive English curriculum for all scientific and technical branches:
   - [برنامج مادة اللغة الإنجليزية](https://www.bac-story.com/resources/sci/english/program)
   - [الوحدة الأولى: Ethics in Business](https://www.bac-story.com/resources/sci/english/ethics-in-business)

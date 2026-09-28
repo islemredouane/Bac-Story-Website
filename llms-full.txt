@@ -103,6 +103,28 @@ The Algerian Baccalaureate comprises six distinct academic streams:
   - Common Questions (https://www.bac-story.com/resources/lp/arabic/common-questions): High-frequency exam questions with model answers.
   - Excellence Topics (https://www.bac-story.com/resources/lp/arabic/tamayoz): 17 mock exam papers with model grading keys.
 
+### Literature & Philosophy Philosophy Portal (مادة الفلسفة — شعبة آداب وفلسفة)
+- Target Audience: Literature & Philosophy (آداب وفلسفة) candidates.
+- Core URL: https://www.bac-story.com/resources/lp/philo
+- Structure:
+  - Teachers' Articles Hub (https://www.bac-story.com/resources/lp/philo/teachers-articles): Central portal for top philosophy teachers' materials.
+    - Prof. Houari (https://www.bac-story.com/resources/lp/philo/teachers-articles/houari): Comprehensive multi-document interactive PDF switcher containing all 14 units & summaries (أصل الرياضيات، اليقين الرياضي، مقارنة بين العلم والفلسفة، قيمة الفلسفة، التجربة معيار العلم، ملخص معيار العلم، قيمة الفرضية، الحتمية واللاحتمية، البيولوجيا، ملخص البيولوجيا، العلوم الإنسانية، علم التاريخ، علم النفس، العنف والتسامح).
+    - Prof. Boumedienne (https://www.bac-story.com/resources/lp/philo/teachers-articles/boumedienne): Comprehensive multi-document interactive PDF switcher containing all 10 essays & summaries (علاقة الإحساس بالإدراك، حجج الإحساس والإدراك، علاقة اللغة بالفكر، ملخص اللغة والفكر، علاقة الدال بالمدلول، ملخص الدال بالمدلول، الشعور واللاشعور، طبيعة الذاكرة، العادة والإرادة، أصل المفاهيم الرياضية).
+  - Excellence & Top Students Files (https://www.bac-story.com/resources/lp/philo/top-students-articles): Interactive PDF switcher for unit mind maps, argumentation tools, philosophical quotes, and comparative frameworks.
+
+### Foreign Languages Philosophy Portal (مادة الفلسفة — شعبة لغات أجنبية)
+- Target Audience: Foreign Languages (لغات أجنبية) candidates.
+- Core URL: https://www.bac-story.com/resources/le/philo
+- Structure:
+  - Official Program (https://www.bac-story.com/resources/le/philo/program): Direct interactive PDF reader of the official ministerial curriculum and topics distribution.
+  - Methodologies (https://www.bac-story.com/resources/le/philo/methodology): Interactive 5-tab switcher covering core philosophical essay methodologies (طريقة المقارنة، الطريقة الجدلية، طريقة الاستقصاء بالوضع، طريقة تحليل نص فلسفي، المنهجيات في ورقة واحدة).
+  - Diagram Essays (https://www.bac-story.com/resources/le/philo/diagrams): 10-tab visual diagram and mind map switcher for key philosophy essays (المشكلة العلمية والإشكالية الفلسفية، انطباق الفكر مع نفسه ومع الواقع، الدال والمدلول، اللغة والفكر، وظائف اللغة، الشعور بالأنا والغير، الحرية والمسؤولية، العنف والتسامح، العولمة والتنوع الثقافي، فلسفة الرياضيات).
+  - Teachers' Articles Hub (https://www.bac-story.com/resources/le/philo/teachers-articles): Central portal for top teachers' essays and program essays.
+    - Prof. Houari (https://www.bac-story.com/resources/le/philo/teachers-articles/houari): 12-document interactive PDF switcher (الشعور بالأنا والغير، الحرية والمسؤولية، العنف والتسامح، علاقة اللغة بالفكر، ملخص اللغة والفكر، الدال والمدلول، ملخص الدال والمدلول، وظائف اللغة، أهمية الفلسفة، مقارنة بين العلم والفلسفة، فلسفة الرياضيات، المادة الحية والجامدة).
+    - Prof. Boumedienne (https://www.bac-story.com/resources/le/philo/teachers-articles/boumedienne): 4-document interactive PDF switcher (علاقة اللغة بالفكر، علاقة الدال بالمدلول، مقارنة بين العلم والفلسفة، العنف والتسامح).
+    - Program Essays (https://www.bac-story.com/resources/le/philo/teachers-articles/program-articles): 9-document interactive PDF switcher for essays across the whole program by top educators (دحمان، عفيف حاجي، إخلاص، شبيلة، صابر).
+  - Excellence & Top Students Files (https://www.bac-story.com/resources/le/philo/top-students-articles): Interactive PDF switcher for unit diagrams, argumentation linking tools, philosophical quotes, and reconciliation/synthesis frameworks.
+
 ### Common Scientific English Language Portal (مادة اللغة الإنجليزية للشعب العلمية المشتركة)
 - Target Audience: Mathematics, Experimental Sciences, Technical Mathematics, and Management & Economics candidates.
 - Core URLs:
