@@ -383,3 +383,6 @@ Official Ministry of National Education curriculum blueprints for all Baccalaure
 - [resources/tech/philo/top-students-articles/ghizlane](https://www.bac-story.com/resources/tech/philo/top-students-articles/ghizlane): مقالات المتفوقين في الفلسفة
 - [resources/tech/philo/top-students-articles/top-student-tech](https://www.bac-story.com/resources/tech/philo/top-students-articles/top-student-tech): مقالات المتفوقين في الفلسفة
 - [resources/tech/philo/top-students-articles/excellence](https://www.bac-story.com/resources/tech/philo/excellence): مقالات المتفوقين في الفلسفة
+
+- [ملفات التميز — علوم تجريبية](https://www.bac-story.com/resources/sci/philo/excellence)
+- [ملفات التميز — رياضيات](https://www.bac-story.com/resources/math/philo/excellence)
