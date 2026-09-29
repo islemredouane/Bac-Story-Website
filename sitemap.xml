@@ -13677,7 +13677,7 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://www.bac-story.com/resources/ge/philo/teachers-articles/ge-tech-special</loc>
+    <loc>https://www.bac-story.com/resources/ge/philo/program-articles</loc>
     <priority>0.80</priority>
     <changefreq>weekly</changefreq>
   </url>
@@ -13727,7 +13727,7 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://www.bac-story.com/resources/tech/philo/teachers-articles/ge-tech-special</loc>
+    <loc>https://www.bac-story.com/resources/tech/philo/program-articles</loc>
     <priority>0.80</priority>
     <changefreq>weekly</changefreq>
   </url>
