@@ -13731,4 +13731,34 @@
     <priority>0.80</priority>
     <changefreq>weekly</changefreq>
   </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/ge/philo/top-students-articles/ghizlane</loc>
+    <priority>0.80</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/ge/philo/top-students-articles/top-student-tech</loc>
+    <priority>0.80</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/ge/philo/top-students-articles/excellence</loc>
+    <priority>0.80</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/tech/philo/top-students-articles/ghizlane</loc>
+    <priority>0.80</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/tech/philo/top-students-articles/top-student-tech</loc>
+    <priority>0.80</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/tech/philo/top-students-articles/excellence</loc>
+    <priority>0.80</priority>
+    <changefreq>weekly</changefreq>
+  </url>
 </urlset>
