@@ -477,3 +477,30 @@ To prevent cognitive overload during the third-year secondary curriculum, BAC ST
 - [2026/science](https://www.bac-story.com/oqba/2026/science): باقات وسلاسل عقبة بن نافع (2026/science)
 - [2026/science/math](https://www.bac-story.com/oqba/2026/science/math): باقات وسلاسل عقبة بن نافع (2026/science/math)
 - [2026/science/science](https://www.bac-story.com/oqba/2026/science/science): باقات وسلاسل عقبة بن نافع (2026/science/science)
+
+
+### الفلسفة — شعبتي تسيير واقتصاد وتقني رياضي
+- [resources/ge/philo](https://www.bac-story.com/resources/ge/philo): مادة الفلسفة ومقالاتها لشعبتي التسيير والتقني
+- [resources/ge/philo/program](https://www.bac-story.com/resources/ge/philo/program): مادة الفلسفة ومقالاتها لشعبتي التسيير والتقني
+- [resources/ge/philo/methodology](https://www.bac-story.com/resources/ge/philo/methodology): مادة الفلسفة ومقالاتها لشعبتي التسيير والتقني
+- [resources/ge/philo/islam-articles](https://www.bac-story.com/resources/ge/philo/islam-articles): مادة الفلسفة ومقالاتها لشعبتي التسيير والتقني
+- [resources/ge/philo/diagrams](https://www.bac-story.com/resources/ge/philo/diagrams): مادة الفلسفة ومقالاتها لشعبتي التسيير والتقني
+- [resources/ge/philo/top-students-articles](https://www.bac-story.com/resources/ge/philo/top-students-articles): مادة الفلسفة ومقالاتها لشعبتي التسيير والتقني
+- [resources/ge/philo/teachers-articles](https://www.bac-story.com/resources/ge/philo/teachers-articles): مادة الفلسفة ومقالاتها لشعبتي التسيير والتقني
+- [resources/ge/philo/teachers-articles/houari](https://www.bac-story.com/resources/ge/philo/teachers-articles/houari): مادة الفلسفة ومقالاتها لشعبتي التسيير والتقني
+- [resources/ge/philo/teachers-articles/boumedienne](https://www.bac-story.com/resources/ge/philo/teachers-articles/boumedienne): مادة الفلسفة ومقالاتها لشعبتي التسيير والتقني
+- [resources/ge/philo/teachers-articles/iskander](https://www.bac-story.com/resources/ge/philo/teachers-articles/iskander): مادة الفلسفة ومقالاتها لشعبتي التسيير والتقني
+- [resources/ge/philo/teachers-articles/methodologies](https://www.bac-story.com/resources/ge/philo/teachers-articles/methodologies): مادة الفلسفة ومقالاتها لشعبتي التسيير والتقني
+- [resources/ge/philo/teachers-articles/ge-tech-special](https://www.bac-story.com/resources/ge/philo/teachers-articles/ge-tech-special): مادة الفلسفة ومقالاتها لشعبتي التسيير والتقني
+- [resources/tech/philo](https://www.bac-story.com/resources/tech/philo): مادة الفلسفة ومقالاتها لشعبتي التسيير والتقني
+- [resources/tech/philo/program](https://www.bac-story.com/resources/tech/philo/program): مادة الفلسفة ومقالاتها لشعبتي التسيير والتقني
+- [resources/tech/philo/methodology](https://www.bac-story.com/resources/tech/philo/methodology): مادة الفلسفة ومقالاتها لشعبتي التسيير والتقني
+- [resources/tech/philo/islam-articles](https://www.bac-story.com/resources/tech/philo/islam-articles): مادة الفلسفة ومقالاتها لشعبتي التسيير والتقني
+- [resources/tech/philo/diagrams](https://www.bac-story.com/resources/tech/philo/diagrams): مادة الفلسفة ومقالاتها لشعبتي التسيير والتقني
+- [resources/tech/philo/top-students-articles](https://www.bac-story.com/resources/tech/philo/top-students-articles): مادة الفلسفة ومقالاتها لشعبتي التسيير والتقني
+- [resources/tech/philo/teachers-articles](https://www.bac-story.com/resources/tech/philo/teachers-articles): مادة الفلسفة ومقالاتها لشعبتي التسيير والتقني
+- [resources/tech/philo/teachers-articles/houari](https://www.bac-story.com/resources/tech/philo/teachers-articles/houari): مادة الفلسفة ومقالاتها لشعبتي التسيير والتقني
+- [resources/tech/philo/teachers-articles/boumedienne](https://www.bac-story.com/resources/tech/philo/teachers-articles/boumedienne): مادة الفلسفة ومقالاتها لشعبتي التسيير والتقني
+- [resources/tech/philo/teachers-articles/iskander](https://www.bac-story.com/resources/tech/philo/teachers-articles/iskander): مادة الفلسفة ومقالاتها لشعبتي التسيير والتقني
+- [resources/tech/philo/teachers-articles/methodologies](https://www.bac-story.com/resources/tech/philo/teachers-articles/methodologies): مادة الفلسفة ومقالاتها لشعبتي التسيير والتقني
+- [resources/tech/philo/teachers-articles/ge-tech-special](https://www.bac-story.com/resources/tech/philo/teachers-articles/ge-tech-special): مادة الفلسفة ومقالاتها لشعبتي التسيير والتقني
