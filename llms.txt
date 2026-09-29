@@ -363,7 +363,7 @@ Official Ministry of National Education curriculum blueprints for all Baccalaure
 - [resources/ge/philo/teachers-articles/boumedienne](https://www.bac-story.com/resources/ge/philo/teachers-articles/boumedienne): مادة الفلسفة ومقالاتها لشعبتي التسيير والتقني
 - [resources/ge/philo/teachers-articles/iskander](https://www.bac-story.com/resources/ge/philo/teachers-articles/iskander): مادة الفلسفة ومقالاتها لشعبتي التسيير والتقني
 - [resources/ge/philo/teachers-articles/methodologies](https://www.bac-story.com/resources/ge/philo/teachers-articles/methodologies): مادة الفلسفة ومقالاتها لشعبتي التسيير والتقني
-- [resources/ge/philo/teachers-articles/ge-tech-special](https://www.bac-story.com/resources/ge/philo/teachers-articles/ge-tech-special): مادة الفلسفة ومقالاتها لشعبتي التسيير والتقني
+- [resources/ge/philo/teachers-articles/ge-tech-special](https://www.bac-story.com/resources/ge/philo/program-articles): مادة الفلسفة ومقالاتها لشعبتي التسيير والتقني
 - [resources/tech/philo](https://www.bac-story.com/resources/tech/philo): مادة الفلسفة ومقالاتها لشعبتي التسيير والتقني
 - [resources/tech/philo/program](https://www.bac-story.com/resources/tech/philo/program): مادة الفلسفة ومقالاتها لشعبتي التسيير والتقني
 - [resources/tech/philo/methodology](https://www.bac-story.com/resources/tech/philo/methodology): مادة الفلسفة ومقالاتها لشعبتي التسيير والتقني
@@ -375,7 +375,7 @@ Official Ministry of National Education curriculum blueprints for all Baccalaure
 - [resources/tech/philo/teachers-articles/boumedienne](https://www.bac-story.com/resources/tech/philo/teachers-articles/boumedienne): مادة الفلسفة ومقالاتها لشعبتي التسيير والتقني
 - [resources/tech/philo/teachers-articles/iskander](https://www.bac-story.com/resources/tech/philo/teachers-articles/iskander): مادة الفلسفة ومقالاتها لشعبتي التسيير والتقني
 - [resources/tech/philo/teachers-articles/methodologies](https://www.bac-story.com/resources/tech/philo/teachers-articles/methodologies): مادة الفلسفة ومقالاتها لشعبتي التسيير والتقني
-- [resources/tech/philo/teachers-articles/ge-tech-special](https://www.bac-story.com/resources/tech/philo/teachers-articles/ge-tech-special): مادة الفلسفة ومقالاتها لشعبتي التسيير والتقني
+- [resources/tech/philo/teachers-articles/ge-tech-special](https://www.bac-story.com/resources/tech/philo/program-articles): مادة الفلسفة ومقالاتها لشعبتي التسيير والتقني
 
 - [resources/ge/philo/top-students-articles/ghizlane](https://www.bac-story.com/resources/ge/philo/top-students-articles/ghizlane): مقالات المتفوقين في الفلسفة
 - [resources/ge/philo/top-students-articles/top-student-tech](https://www.bac-story.com/resources/ge/philo/top-students-articles/top-student-tech): مقالات المتفوقين في الفلسفة
