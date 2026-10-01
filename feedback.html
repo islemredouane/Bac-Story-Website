@@ -1214,7 +1214,7 @@
             if (!allComments.length) {
                 showWallEmptyState({
                     icon: 'fa-comment-dots',
-                    title: 'يم يتم نشر أي رأي لحد الساعة',
+                    title: 'لم يتم نشر أي رأي لحد الساعة',
                     sub: 'كون أول واحد يشارك تقييمو ويطمئن دفعة 2027 حول الموقع',
                     ctaText: 'اكتب رأيك الآن',
                     ctaIcon: 'fa-pen'
@@ -1229,7 +1229,7 @@
             wall.appendChild(buildMarqueeRow(row1Items, false));
             wall.appendChild(buildMarqueeRow(row2Items, true));
             var cta = document.createElement('div');
-            cta.style.css?v=10.59Text = 'text-align:center;margin:2rem 0 0.5rem;';
+            cta.style.cssText = 'text-align:center;margin:2rem 0 0.5rem;';
             cta.innerHTML = '<button type="button" class="cfm-submit fb-cfm-submit" onclick="document.getElementById(\'fbFormCard\').scrollIntoView({behavior:\'smooth\',block:\'center\'})" style="display:inline-flex;align-items:center;gap:8px;"><i class="fas fa-pen"></i> شارك رأيك أنت أيضًا</button>';
             wall.appendChild(cta);
         }
@@ -1423,9 +1423,13 @@
                 
                 // Clear custom selects
                 selectedTrack = '';
-                document.getElementById('fbTrackTrigger').innerHTML = 'اختر شعبتك <i class="fas fa-chevron-down fb-select-arrow"></i>';
-                document.getElementById('fbTrackTrigger').classList.remove('has-value');
-                document.querySelectorAll('#fbTrackList .fb-select-option').forEach(function(el) { el.classList.remove('selected'); });
+                var label = document.getElementById('fbTrackLabel');
+                var trigger = document.getElementById('fbTrackTrigger');
+                if (label) label.textContent = '— اختر شعبتك —';
+                if (trigger) trigger.classList.remove('has-value');
+                document.querySelectorAll('#fbTrackPanel .fb-select-option').forEach(function(el) { 
+                    el.classList.toggle('selected', el.dataset.value === ''); 
+                });
                 
                 document.getElementById('fbStars').scrollIntoView({ behavior: 'smooth', block: 'center' });
             });
