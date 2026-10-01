@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Cloudflare Pages Function — /api/feedback
  * ==========================================
  * Secure proxy → Google Apps Script backend.
@@ -41,7 +41,7 @@ export async function onRequest(context) {
     return new Response(null, { status: 204, headers: CORS });
   }
 
-  const GAS_URL = env.APPS_SCRIPT_URL;
+  const GAS_URL = env.APPS_SCRIPT_URL || 'https://script.google.com/macros/s/AKfycbxIKOKNjEIGwV5TWWUVgK9chUGKCroD9oB0UdCWy5mRmw3iVbVBiatSm9jPFcna9RzM/exec';
 
   if (!GAS_URL || !GAS_URL.startsWith('https://script.google.com')) {
     return jsonResponse({ ok: false, error: 'Backend not configured' }, 503);
