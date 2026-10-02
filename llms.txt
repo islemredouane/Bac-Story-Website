@@ -81,7 +81,22 @@ The platform is founded and operated by Redouane Mohamed Islem and is accessible
   - [المحاور النثرية](https://www.bac-story.com/resources/lp/arabic/nathr)
   - [دروس القواعد والبلاغة](https://www.bac-story.com/resources/lp/arabic/grammar)
   - [التقويم النقدي](https://www.bac-story.com/resources/lp/arabic/critical-assessment)
-- [مادة الفلسفة — شعبة آداب وفلسفة](https://www.bac-story.com/resources/lp/philo): Comprehensive Philosophy curriculum for Literature & Philosophy candidates.
+  - [مقالات البرنامج الفلسفي](https://www.bac-story.com/resources/lp/philo/program-articles): Comprehensive curriculum essays categorized by chapters and lessons:
+    - [الإحساس والإدراك](https://www.bac-story.com/resources/lp/philo/program-articles/ehsas-idrak)
+    - [اللغة والفكر](https://www.bac-story.com/resources/lp/philo/program-articles/logha-fikr)
+    - [الشعور واللاشعور](https://www.bac-story.com/resources/lp/philo/program-articles/choor-lachoor)
+    - [الذاكرة والخيال](https://www.bac-story.com/resources/lp/philo/program-articles/dhakira-khayal)
+    - [العادة والإرادة](https://www.bac-story.com/resources/lp/philo/program-articles/ada-irada)
+    - [الأخلاق](https://www.bac-story.com/resources/lp/philo/program-articles/akhlaq)
+    - [الأخلاق والواجبات والعدل](https://www.bac-story.com/resources/lp/philo/program-articles/akhlaq-wajib)
+    - [العلاقات الأسرية](https://www.bac-story.com/resources/lp/philo/program-articles/ousra)
+    - [الأنظمة الاقتصادية](https://www.bac-story.com/resources/lp/philo/program-articles/iqtissad)
+    - [الأنظمة السياسية](https://www.bac-story.com/resources/lp/philo/program-articles/siyasa)
+    - [الحقيقة العلمية والفلسفية](https://www.bac-story.com/resources/lp/philo/program-articles/haqiqa)
+    - [فلسفة الرياضيات](https://www.bac-story.com/resources/lp/philo/program-articles/math)
+    - [المادة الحية والجامدة](https://www.bac-story.com/resources/lp/philo/program-articles/madda-haya)
+    - [العلوم الإنسانية](https://www.bac-story.com/resources/lp/philo/program-articles/ouloum-insaniya)
+    - [جميع مقالات البرنامج](https://www.bac-story.com/resources/lp/philo/program-articles/all)
   - [مقالات الأساتذة](https://www.bac-story.com/resources/lp/philo/teachers-articles): Curated philosophy essays and summaries from top educators.
     - [الأستاذ هواري](https://www.bac-story.com/resources/lp/philo/teachers-articles/houari)
     - [الأستاذ بومدين](https://www.bac-story.com/resources/lp/philo/teachers-articles/boumedienne)
