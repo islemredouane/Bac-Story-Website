@@ -85,63 +85,6 @@
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Pattaya&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Pattaya&display=swap"></noscript>
     <style>
-        .pdf-switcher-wrap {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 24px;
-            padding: 0 10px;
-        }
-        .pdf-switcher-toggle {
-            display: inline-flex;
-            background: #f1f5f9;
-            border-radius: 999px;
-            padding: 4px;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
-            border: 1px solid #e2e8f0;
-            position: relative;
-            max-width: 100%;
-            overflow-x: auto;
-            overflow-y: hidden;
-            white-space: nowrap;
-            -webkit-overflow-scrolling: touch;
-            scroll-behavior: smooth;
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-        .pdf-switcher-toggle::-webkit-scrollbar {
-            display: none;
-        }
-        .pdf-switcher-pill {
-            position: absolute;
-            top: 4px; bottom: 4px;
-            background: #2c5cc5;
-            border-radius: 999px;
-            transition: left 0.28s cubic-bezier(0.34,1.56,0.64,1), width 0.28s cubic-bezier(0.34,1.56,0.64,1);
-            box-shadow: 0 2px 8px rgba(44,92,195,0.3);
-            pointer-events: none;
-            z-index: 0;
-        }
-        .pdf-switcher-tab {
-            position: relative; z-index: 1;
-            margin: 0 !important;
-            padding: 0.5rem 1.4rem;
-            border: none; background: transparent; border-radius: 999px;
-            font-family: 'Tajawal', sans-serif; font-size: 0.9rem; font-weight: 700;
-            color: #64748b; cursor: pointer; white-space: nowrap;
-            transition: color 0.22s ease;
-            display: inline-flex; align-items: center; gap: 6px;
-            user-select: none;
-            flex-shrink: 0;
-            width: auto !important;
-            min-width: 0 !important;
-            box-shadow: none !important;
-        }
-        .pdf-switcher-tab.active {
-            color: #fff !important;
-        }
-        @media (max-width: 600px) {
-            .pdf-switcher-tab { padding: 0.5rem 0.9rem; font-size: 0.8rem; }
-        }
     </style>
 </head>
 <body>
@@ -160,13 +103,6 @@
                     <i class="fab fa-telegram-plane"></i>
                     <span>انضم إلينا على التلغرام</span>
                 </a>
-
-                <div class="pdf-switcher-wrap">
-                    <div class="pdf-switcher-toggle" id="pdfTabBar">
-                        <span class="pdf-switcher-pill" id="pdfTabPill"></span>
-                        <button class="pdf-switcher-tab active" onclick="switchPdf(this, '1pGf27UDFjlVSIvLEJej2w-E5WMusOu5t')"><i class="fas fa-file-pdf"></i> خرائط ذهنية لجميع الوحدات</button>
-                    </div>
-                </div>
 
                 <div class="pdf-wrapper">
                     <div class="pdf-iframe-wrap">
@@ -196,44 +132,6 @@
     <script src="/ads-config.js?v=1.15"></script>
     <script src="/components/shared.js?v=9.60"></script>
     <script src="/script.js?v=9.5"></script>
-    <script>
-        function updatePill(tab) {
-            const pill = document.getElementById('pdfTabPill');
-            if (!pill || !tab) return;
-            pill.style.left = tab.offsetLeft + 'px';
-            pill.style.width = tab.offsetWidth + 'px';
-            tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-        }
-
-        function switchPdf(btn, fileId) {
-            const tabs = document.querySelectorAll('.pdf-switcher-tab');
-            tabs.forEach(t => t.classList.remove('active'));
-            btn.classList.add('active');
-            updatePill(btn);
-
-            const iframe = document.querySelector('.responsive-pdf');
-            if (iframe) {
-                iframe.src = 'https://drive.google.com/file/d/' + fileId + '/preview';
-            }
-
-            const downBtn = document.querySelector('.down-btn');
-            if (downBtn) {
-                downBtn.href = 'https://drive.google.com/uc?export=download&id=' + fileId;
-            }
-        }
-
-        window.addEventListener('DOMContentLoaded', () => {
-            const activeTab = document.querySelector('.pdf-switcher-tab.active');
-            if (activeTab) {
-                setTimeout(() => updatePill(activeTab), 50);
-            }
-        });
-
-        window.addEventListener('resize', () => {
-            const activeTab = document.querySelector('.pdf-switcher-tab.active');
-            if (activeTab) updatePill(activeTab);
-        });
-    </script>
     <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "6153c3a6dd54435780cd9d84f9f958f8"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
