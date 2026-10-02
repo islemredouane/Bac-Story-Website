@@ -279,11 +279,75 @@ To prevent cognitive overload during the third-year secondary curriculum, BAC ST
 
 ## 6. Official Exam Annals & Past Papers Repository (الأرشيف والحوليات)
 
-- Exam Hub Directory: https://www.bac-story.com/topics
+- Central Exam Hub Directory: https://www.bac-story.com/topics
 - Official Past Papers (2008–2026): https://www.bac-story.com/topics/bac-topics
 - Cadet Schools of the Nation (أشبال الأمة): https://www.bac-story.com/topics/achbal-eloma
 - Excellence Mock Exams (مواضيع التميز): https://www.bac-story.com/topics/excellence-topics
+  - Mathematics Stream (شعبة رياضيات): https://www.bac-story.com/topics/excellence-topics/math
+    - Mathematics: https://www.bac-story.com/topics/excellence-topics/math/math
+    - Physics: https://www.bac-story.com/topics/excellence-topics/math/physics
+    - Natural Sciences: https://www.bac-story.com/topics/excellence-topics/math/biology
+    - Arabic Literature: https://www.bac-story.com/topics/excellence-topics/math/arabic
+    - French: https://www.bac-story.com/topics/excellence-topics/math/french
+    - English: https://www.bac-story.com/topics/excellence-topics/math/english
+    - History & Geography: https://www.bac-story.com/topics/excellence-topics/math/histgeo
+    - Islamic Studies: https://www.bac-story.com/topics/excellence-topics/math/islamic
+  - Experimental Sciences Stream (شعبة علوم تجريبية): https://www.bac-story.com/topics/excellence-topics/sci
+    - Natural Sciences: https://www.bac-story.com/topics/excellence-topics/sci/biology
+    - Physics: https://www.bac-story.com/topics/excellence-topics/sci/physics
+    - Mathematics: https://www.bac-story.com/topics/excellence-topics/sci/math
+    - Arabic Literature: https://www.bac-story.com/topics/excellence-topics/sci/arabic
+    - French: https://www.bac-story.com/topics/excellence-topics/sci/french
+    - English: https://www.bac-story.com/topics/excellence-topics/sci/english
+    - History & Geography: https://www.bac-story.com/topics/excellence-topics/sci/histgeo
+    - Islamic Studies: https://www.bac-story.com/topics/excellence-topics/sci/islamic
+  - Technical Mathematics Stream (شعبة تقني رياضي): https://www.bac-story.com/topics/excellence-topics/tech
+    - Process Engineering: https://www.bac-story.com/topics/excellence-topics/tech/process
+    - Mechanical Engineering: https://www.bac-story.com/topics/excellence-topics/tech/meca
+    - Electrical Engineering: https://www.bac-story.com/topics/excellence-topics/tech/elec
+    - Civil Engineering: https://www.bac-story.com/topics/excellence-topics/tech/gc
+    - Mathematics: https://www.bac-story.com/topics/excellence-topics/tech/math
+    - Physics: https://www.bac-story.com/topics/excellence-topics/tech/physics
+    - Arabic Literature: https://www.bac-story.com/topics/excellence-topics/tech/arabic
+    - French: https://www.bac-story.com/topics/excellence-topics/tech/french
+    - English: https://www.bac-story.com/topics/excellence-topics/tech/english
+    - History & Geography: https://www.bac-story.com/topics/excellence-topics/tech/histgeo
+    - Islamic Studies: https://www.bac-story.com/topics/excellence-topics/tech/islamic
+  - Management & Economics Stream (شعبة تسيير واقتصاد): https://www.bac-story.com/topics/excellence-topics/ge
+    - Accounting & Financial Management: https://www.bac-story.com/topics/excellence-topics/ge/compta
+    - Economics & Management: https://www.bac-story.com/topics/excellence-topics/ge/eco
+    - Law: https://www.bac-story.com/topics/excellence-topics/ge/law
+    - Mathematics: https://www.bac-story.com/topics/excellence-topics/ge/math
+    - Arabic Literature: https://www.bac-story.com/topics/excellence-topics/ge/arabic
+    - French: https://www.bac-story.com/topics/excellence-topics/ge/french
+    - English: https://www.bac-story.com/topics/excellence-topics/ge/english
+    - History & Geography: https://www.bac-story.com/topics/excellence-topics/ge/histgeo
+    - Islamic Studies: https://www.bac-story.com/topics/excellence-topics/ge/islamic
+  - Literature & Philosophy Stream (شعبة آداب وفلسفة): https://www.bac-story.com/topics/excellence-topics/lp
+    - Philosophy: https://www.bac-story.com/topics/excellence-topics/lp/philo
+    - Arabic Literature: https://www.bac-story.com/topics/excellence-topics/lp/arabic
+    - History & Geography: https://www.bac-story.com/topics/excellence-topics/lp/histgeo
+    - Islamic Studies: https://www.bac-story.com/topics/excellence-topics/lp/islamic
+    - French: https://www.bac-story.com/topics/excellence-topics/lp/french
+    - English: https://www.bac-story.com/topics/excellence-topics/lp/english
+  - Foreign Languages Stream (شعبة لغات أجنبية): https://www.bac-story.com/topics/excellence-topics/le
+    - French: https://www.bac-story.com/topics/excellence-topics/le/french
+    - English: https://www.bac-story.com/topics/excellence-topics/le/english
+    - German: https://www.bac-story.com/topics/excellence-topics/le/german
+    - Spanish: https://www.bac-story.com/topics/excellence-topics/le/spanish
+    - Italian: https://www.bac-story.com/topics/excellence-topics/le/italian
+    - Arabic Literature: https://www.bac-story.com/topics/excellence-topics/le/arabic
+    - Philosophy: https://www.bac-story.com/topics/excellence-topics/le/philo
+    - History & Geography: https://www.bac-story.com/topics/excellence-topics/le/histgeo
+    - Islamic Studies: https://www.bac-story.com/topics/excellence-topics/le/islamic
+    - Mathematics: https://www.bac-story.com/topics/excellence-topics/le/math
 - Channel Mock Exams (البكالوريات التجريبية لقناتنا): https://www.bac-story.com/topics/channel-exams
+  - Mathematics: Session 2025 (https://www.bac-story.com/topics/channel-exams/math/2025) | Session 2026 (https://www.bac-story.com/topics/channel-exams/math/2026)
+  - Experimental Sciences: Session 2025 (https://www.bac-story.com/topics/channel-exams/science/2025) | Session 2026 (https://www.bac-story.com/topics/channel-exams/science/2026)
+  - Technical Mathematics: Session 2025 (https://www.bac-story.com/topics/channel-exams/tech/2025) | Session 2026 (https://www.bac-story.com/topics/channel-exams/tech/2026)
+  - Management & Economics: Session 2025 (https://www.bac-story.com/topics/channel-exams/management/2025) | Session 2026 (https://www.bac-story.com/topics/channel-exams/management/2026)
+  - Literature & Philosophy: Session 2025 (https://www.bac-story.com/topics/channel-exams/literature/2025) | Session 2026 (https://www.bac-story.com/topics/channel-exams/literature/2026)
+  - Foreign Languages: Session 2025 (https://www.bac-story.com/topics/channel-exams/languages/2025) | Session 2026 (https://www.bac-story.com/topics/channel-exams/languages/2026)
 - Compiled Historical Annals: https://www.bac-story.com/topics/bac-archives
 - Baccalaureate 2026 Official Solutions: https://www.bac-story.com/bac-2026
 

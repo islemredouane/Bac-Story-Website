@@ -199,9 +199,22 @@ Official Ministry of National Education curriculum blueprints for all Baccalaure
 ## Past Papers & Exam Hub (بوابة المواضيع والامتحانات)
 
 - [البوابة الرئيسية للمواضيع](https://www.bac-story.com/topics): Central directory for official past papers, mock exams, cadet school tests, and excellence topics.
-- [مواضيع وحوليات البكالوريا الرسمية](https://www.bac-story.com/topics/bac-topics): Official Algerian Baccalaureate exam papers with model answers (2008–2026).
+- [مواضيع البكالوريا الرسمية](https://www.bac-story.com/topics/bac-topics): Official Algerian Baccalaureate exam papers with model answers (2008–2026).
 - [مواضيع أشبال الأمة](https://www.bac-story.com/topics/achbal-eloma): National Cadet Schools (Ecoles des Cadets de la Nation) official mock examinations with detailed grading keys.
-- [مواضيع التميز](https://www.bac-story.com/topics/excellence-topics): Advanced challenge problem sets for students targeting grades above 16/20.
+- [مواضيع التميز](https://www.bac-story.com/topics/excellence-topics): Advanced challenge problem sets for students targeting top grades with interactive multi-topic tab viewers:
+  - [شعبة رياضيات](https://www.bac-story.com/topics/excellence-topics/math): (الرياضيات، العلوم الفيزيائية، العلوم الطبيعية، الأدب العربي، الفرنسية، الإنجليزية، التاريخ والجغرافيا، العلوم الإسلامية)
+  - [شعبة علوم تجريبية](https://www.bac-story.com/topics/excellence-topics/sci): (العلوم الطبيعية، العلوم الفيزيائية، الرياضيات، الأدب العربي، الفرنسية، الإنجليزية، التاريخ والجغرافيا، العلوم الإسلامية)
+  - [شعبة تقني رياضي](https://www.bac-story.com/topics/excellence-topics/tech): (هندسة الطرائق، الهندسة الميكانيكية، الهندسة الكهربائية، الهندسة المدنية، الرياضيات، العلوم الفيزيائية، الأدب العربي، الفرنسية، الإنجليزية، التاريخ والجغرافيا، العلوم الإسلامية)
+  - [شعبة تسيير واقتصاد](https://www.bac-story.com/topics/excellence-topics/ge): (التسيير المحاسبي والمالي، الاقتصاد والمناجمنت، القانون، الرياضيات، الأدب العربي، الفرنسية، الإنجليزية، التاريخ والجغرافيا، العلوم الإسلامية)
+  - [شعبة آداب وفلسفة](https://www.bac-story.com/topics/excellence-topics/lp): (الفلسفة، الأدب العربي، التاريخ والجغرافيا، العلوم الإسلامية، اللغة الفرنسية، اللغة الإنجليزية)
+  - [شعبة لغات أجنبية](https://www.bac-story.com/topics/excellence-topics/le): (اللغة الفرنسية، اللغة الإنجليزية، اللغة الألمانية، اللغة الإسبانية، اللغة الإيطالية، الأدب العربي، الفلسفة، التاريخ والجغرافيا، العلوم الإسلامية، الرياضيات)
+- [البكالوريات التجريبية لقناتنا](https://www.bac-story.com/topics/channel-exams): Channel-exclusive mock exams covering 2025 & 2026 sessions for all streams with embedded PDF viewers and full grading keys:
+  - شعبة رياضيات: [دورة 2025](https://www.bac-story.com/topics/channel-exams/math/2025) | [دورة 2026](https://www.bac-story.com/topics/channel-exams/math/2026)
+  - شعبة علوم تجريبية: [دورة 2025](https://www.bac-story.com/topics/channel-exams/science/2025) | [دورة 2026](https://www.bac-story.com/topics/channel-exams/science/2026)
+  - شعبة تقني رياضي: [دورة 2025](https://www.bac-story.com/topics/channel-exams/tech/2025) | [دورة 2026](https://www.bac-story.com/topics/channel-exams/tech/2026)
+  - شعبة تسيير واقتصاد: [دورة 2025](https://www.bac-story.com/topics/channel-exams/management/2025) | [دورة 2026](https://www.bac-story.com/topics/channel-exams/management/2026)
+  - شعبة آداب وفلسفة: [دورة 2025](https://www.bac-story.com/topics/channel-exams/literature/2025) | [دورة 2026](https://www.bac-story.com/topics/channel-exams/literature/2026)
+  - شعبة لغات أجنبية: [دورة 2025](https://www.bac-story.com/topics/channel-exams/languages/2025) | [دورة 2026](https://www.bac-story.com/topics/channel-exams/languages/2026)
 - [محاكاة امتحان البكالوريا](https://www.bac-story.com/simulation): Interactive browser exam simulator featuring timed sessions, PDF papers, and instant model answers.
 - [أرشيف البكالوريا والحوليات المجمعة](https://www.bac-story.com/topics/bac-archives): Multi-year compiled subject annals.
 - [حلول بكالوريا 2026](https://www.bac-story.com/bac-2026): Official solutions and grading rubrics for the 2026 Baccalaureate session.
