@@ -1,3 +1,5 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/flag-icons/7.5.0/css/flag-icons.min.css');
+
 :root {
 
     /* --- Modern UI/UX Architecture Variables --- */
@@ -3035,6 +3037,18 @@ body.search-active .mobile-bottom-bar,
     backdrop-filter: blur(4px);
     margin-bottom: 0;
     flex-shrink: 0;
+}
+
+.main-btn i .fi,
+.specialty-btn i .fi,
+i > .fi {
+    width: 28px !important;
+    height: 28px !important;
+    border-radius: 6px !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    background-size: cover;
+    background-position: center;
 }
 
 .main-btn::before {
