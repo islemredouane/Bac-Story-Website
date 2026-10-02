@@ -3151,6 +3151,8 @@ body.search-active .mobile-bottom-bar,
     margin-top: 2rem;
     margin-bottom: 0.25rem;
     flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
 }
 
 .correct-btn-group .correct-btn.floating {
@@ -3161,22 +3163,27 @@ body.search-active .mobile-bottom-bar,
     animation: none;
     background: linear-gradient(135deg, #1a3a8f 0%, #2c5cc5 55%, #3d6ee0 100%);
     box-shadow: 0 4px 12px rgba(26, 58, 143, 0.15);
+    text-decoration: none !important;
+    text-decoration-line: none !important;
 }
 
 .correct-btn-group .correct-btn.floating:hover {
     filter: brightness(1.1);
     transform: translateY(-2px);
+    text-decoration: none !important;
+    text-decoration-line: none !important;
 }
 
-.view-all-btn {
-    display: inline-flex;
-    width: fit-content;
-    max-width: 100%;
+.view-all-btn,
+a.view-all-btn {
+    display: inline-flex !important;
+    width: fit-content !important;
+    max-width: 100% !important;
     margin: 0 auto;
     padding: 0.85rem 2.25rem;
-    border: 2px solid transparent;
+    border: 2px solid #2c5cc5 !important;
     background: #fff;
-    color: #1a3a8f;
+    color: #1a3a8f !important;
     font-size: 1rem;
     font-weight: 700;
     cursor: pointer;
@@ -3188,13 +3195,50 @@ body.search-active .mobile-bottom-bar,
     white-space: nowrap;
     position: relative;
     transition: color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
-    box-shadow: inset 0 0 0 2px #2c5cc5;
-    text-decoration: none;
+    text-decoration: none !important;
+    text-decoration-line: none !important;
+    flex: 0 0 auto !important;
 }
 
-.view-all-btn:hover {
+.view-all-btn *,
+a.view-all-btn *,
+.main-btn *,
+a.main-btn *,
+.specialty-btn *,
+a.specialty-btn *,
+.correct-btn *,
+a.correct-btn *,
+.telegram-btn * {
+    text-decoration: none !important;
+    text-decoration-line: none !important;
+}
+
+.view-all-btn:hover,
+.view-all-btn:focus,
+.view-all-btn:active,
+.view-all-btn:visited,
+a.view-all-btn:hover,
+a.view-all-btn:focus,
+a.view-all-btn:active,
+a.view-all-btn:visited {
     transform: translateY(-2px);
     box-shadow: inset 0 0 0 2px #2c5cc5, 0 4px 12px rgba(44, 92, 197, 0.09);
+    text-decoration: none !important;
+    text-decoration-line: none !important;
+    color: #1a3a8f !important;
+}
+
+.main-btn:hover,
+.main-btn:focus,
+.main-btn:active,
+.specialty-btn:hover,
+.specialty-btn:focus,
+.specialty-btn:active,
+.telegram-btn:hover,
+.telegram-btn:focus,
+.telegram-btn:active {
+    text-decoration: none !important;
+    text-decoration-line: none !important;
 }
 
 @media (max-width: 600px) {
@@ -3208,10 +3252,11 @@ body.search-active .mobile-bottom-bar,
     }
 
     .correct-btn-group .correct-btn.floating,
-    .view-all-btn {
-        flex: unset;
-        width: fit-content;
-        max-width: 100%;
+    .view-all-btn,
+    a.view-all-btn {
+        flex: unset !important;
+        width: fit-content !important;
+        max-width: 100% !important;
         white-space: nowrap;
         font-size: 0.82rem;
         padding: 0.85rem 1.5rem;
