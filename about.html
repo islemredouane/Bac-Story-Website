@@ -569,6 +569,14 @@
        wins the specificity tie over .about-founder-badge's white text */
     .about-founder-badge.about-founder-role { color: #fff; }
 
+    /* Equalize left brand columns on large screens */
+    .about-founder-card .about-founder-left {
+        flex: 0 0 230px;
+        width: 230px;
+        min-width: 230px;
+        box-sizing: border-box;
+    }
+
     /* ══ TELEGRAM TEAM / CONTRIBUTORS (SPLIT DUAL-COLUMN CARD) ══ */
     .abt-team-split-card {
         margin-top: 1.8rem;
@@ -589,7 +597,10 @@
         align-items: center;
         justify-content: center;
         gap: 1.2rem;
-        min-width: 220px;
+        flex: 0 0 230px;
+        width: 230px;
+        min-width: 230px;
+        box-sizing: border-box;
         position: relative;
         overflow: hidden;
         text-align: center;
@@ -616,10 +627,15 @@
         position: relative;
         z-index: 1;
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-        transition: transform 0.3s ease;
+        transition: transform 0.3s ease, background 0.25s ease, box-shadow 0.25s ease;
+        text-decoration: none;
     }
     .abt-team-split-card:hover .abt-team-avatar {
         transform: scale(1.06) rotate(6deg);
+    }
+    .abt-team-avatar:hover {
+        background: rgba(255, 255, 255, 0.28);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
     }
     .abt-team-side-info {
         position: relative;
@@ -645,22 +661,6 @@
         font-weight: 900;
         color: #fff;
         line-height: 1.25;
-    }
-    .abt-team-social {
-        display: flex;
-        gap: 0.6rem;
-        position: relative;
-        z-index: 1;
-    }
-    .abt-team-tg-btn {
-        background: rgba(255, 255, 255, 0.18) !important;
-        border: 1px solid rgba(255, 255, 255, 0.3) !important;
-        color: #fff !important;
-    }
-    .abt-team-tg-btn:hover {
-        background: #fff !important;
-        color: #0088cc !important;
-        transform: translateY(-2px);
     }
     .abt-team-content {
         padding: 2.4rem 2.6rem;
@@ -737,14 +737,21 @@
     }
 
     @media screen and (max-width: 768px) {
+        .about-founder-card .about-founder-left {
+            flex: none;
+            width: 100%;
+            min-width: unset;
+        }
         .abt-team-split-card {
             flex-direction: column;
         }
         .abt-team-side {
             min-width: unset;
+            width: 100%;
             flex-direction: row;
             padding: 1.5rem;
-            justify-content: space-between;
+            justify-content: flex-start;
+            gap: 1.2rem;
             text-align: right;
         }
         .abt-team-side-info {
@@ -753,6 +760,7 @@
         .abt-team-avatar {
             width: 60px; height: 60px;
             font-size: 1.6rem;
+            flex-shrink: 0;
         }
         .abt-team-content {
             padding: 1.5rem;
@@ -1110,17 +1118,12 @@
 <!-- ── Telegram team / contributors ── -->
 <div class="about-founder-card abt-team-split-card abt-reveal">
     <div class="about-founder-left abt-team-side">
-        <div class="abt-team-avatar">
+        <a aria-label="Telegram Channel" class="abt-team-avatar" href="https://t.me/islembacdz" target="_blank" rel="noopener" title="قناة التلغرام">
             <i class="fab fa-telegram-plane"></i>
-        </div>
+        </a>
         <div class="abt-team-side-info">
             <span class="abt-team-side-badge">فريق التلغرام</span>
             <h3 class="abt-team-side-title">الفريق الداعم</h3>
-        </div>
-        <div class="about-founder-social abt-team-social">
-            <a aria-label="Telegram Channel" class="about-social-btn abt-team-tg-btn" href="https://t.me/islembacdz" target="_blank" rel="noopener" title="قناة التلغرام">
-                <i class="fab fa-telegram-plane"></i>
-            </a>
         </div>
     </div>
     <div class="about-founder-right abt-team-content">
