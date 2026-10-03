@@ -15427,9 +15427,10 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
     border-radius: 20px;
     padding: 1.1rem 1.3rem;
     position: relative;
-    overflow: hidden;
     box-shadow: 0 6px 28px rgba(44, 92, 195, 0.06), 0 2px 6px rgba(0, 0, 0, 0.03);
-    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+    transition: box-shadow 0.32s ease, border-color 0.32s ease, background-color 0.32s ease;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
 }
 .crc-faq details::after {
     content: '';
@@ -15454,12 +15455,24 @@ button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
     font-weight: 800;
     color: #0f172a;
     font-size: 0.98rem;
+    outline: none;
 }
 .crc-faq summary::-webkit-details-marker { display: none; }
-.crc-faq summary i { color: #2c5cc5; transition: transform 0.3s ease; flex: none; }
+.crc-faq summary i {
+    color: #2c5cc5;
+    transition: transform 0.36s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease;
+    flex: none;
+}
 .crc-faq details[open] summary i { transform: rotate(45deg); }
 .crc-faq details.is-closing summary i { transform: rotate(0deg) !important; }
-.crc-faq p { margin: 0.8rem 0 0; font-size: 0.92rem; line-height: 1.85; color: #475569; }
+.crc-faq p {
+    margin: 0.8rem 0 0;
+    font-size: 0.92rem;
+    line-height: 1.85;
+    color: #475569;
+    user-select: text;
+    will-change: opacity, transform;
+}
 .crc-faq-link { color: #2c5cc5; font-weight: 700; text-decoration: none; white-space: nowrap; }
 .crc-faq-link:hover { text-decoration: underline; }
 
