@@ -2251,7 +2251,11 @@ function setupSearch() {
             "Leen",
             "Sara",
             "Hakime",
-            "Khadija"
+            "Khadija",
+            "نور الهدى",
+            "Nour El Houda",
+            "هانيا",
+            "Hania"
         ]
     },
     {
