@@ -317,7 +317,7 @@
     }
     .exp-search-input {
         width: 100%;
-        padding: 0.85rem 3rem 0.85rem 1.2rem;
+        padding: 0.85rem 3rem 0.85rem 2.8rem;
         border: 1.5px solid #e2e8f0;
         border-radius: 14px;
         font-family: inherit;
@@ -340,6 +340,53 @@
     }
     .dark-mode .exp-search-input:focus {
         background: #1e293b;
+    }
+
+    /* Search Clear Button */
+    .exp-search-clear {
+        position: absolute;
+        left: 0.85rem;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        border: none;
+        background: #e2e8f0;
+        color: #64748b;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        padding: 0;
+        z-index: 2;
+    }
+    .exp-search-clear.visible { display: flex; }
+    .exp-search-clear:hover {
+        background: #cbd5e1;
+        color: #0f172a;
+        transform: translateY(-50%) scale(1.1);
+    }
+    .dark-mode .exp-search-clear {
+        background: #334155;
+        color: #cbd5e1;
+    }
+    .dark-mode .exp-search-clear:hover {
+        background: #475569;
+        color: #ffffff;
+    }
+
+    /* Target card highlight effect (for deep linking) */
+    @keyframes expCardPulse {
+        0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(44, 92, 197, 0.5); }
+        50% { transform: scale(1.02); box-shadow: 0 0 0 12px rgba(44, 92, 197, 0); }
+        100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(44, 92, 197, 0); }
+    }
+    .exp-card--target-highlight {
+        animation: expCardPulse 1.8s ease-out 2;
+        border-color: #2c5cc5 !important;
     }
 
     /* Filter rows (Styled like specialities selector) */
@@ -1536,6 +1583,7 @@
             <div class="exp-search-wrap">
                 <i class="fas fa-search" aria-hidden="true"></i>
                 <input type="text" id="expSearch" class="exp-search-input" placeholder="ابحث باسم الطالب، المعدل، الشعبة، الدفعة، أو المدرسة العليا...">
+                <button type="button" class="exp-search-clear" id="expSearchClear" aria-label="مسح البحث"><i class="fas fa-times"></i></button>
             </div>
 
             <div class="exp-filter-group">
@@ -2345,6 +2393,9 @@
                 <i class="fas fa-search-minus" aria-hidden="true"></i>
                 <h3>لم نجد تجارب تطابق خيارات البحث</h3>
                 <p>جرّب اختيار شعبة أو دفعة أخرى أو مسح كلمات البحث في الأعلى.</p>
+                <button type="button" class="exp-reset-btn" onclick="resetExpFilters()" style="margin-top: 14px; font-size: 0.92rem; display: inline-flex; align-items: center; gap: 7px; padding: 7px 18px; border-radius: 999px; background: rgba(255, 107, 53, 0.12); color: #ff6b35; border: 1px solid rgba(255, 107, 53, 0.25); cursor: pointer; font-weight: 800;">
+                    <i class="fas fa-rotate-left"></i> عرض جميع التجارب
+                </button>
             </div>
         </section>
 
@@ -2378,7 +2429,8 @@
         const typeChips = document.querySelectorAll('.exp-chip[data-type]');
         const yearChips = document.querySelectorAll('.exp-chip[data-year]');
         const searchInput = document.getElementById('expSearch');
-        const cards = document.querySelectorAll('.exp-card');
+        const clearBtn = document.getElementById('expSearchClear');
+        const cards = Array.from(document.querySelectorAll('.exp-card'));
         const yearDividers = document.querySelectorAll('.exp-year-divider');
         const emptyState = document.getElementById('expEmpty');
         const countSpan = document.getElementById('expVisibleCount');
@@ -2388,31 +2440,125 @@
         let activeType = 'all';
         let activeYear = 'all';
         let searchQuery = '';
+        let debounceTimer = null;
+
+        // ── SENIOR ARABIC NLP ENGINE & MORPHOLOGICAL NORMALIZER ────────
+        const normalizeArabic = (text) => {
+            if (!text) return '';
+            return text.toString()
+                .toLowerCase()
+                .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+                .replace(/[\u064B-\u065F\u0670\u0640]/g, '')
+                .replace(/[أإآٱ]/g, 'ا')
+                .replace(/ة/g, 'ه')
+                .replace(/[ىئ]/g, 'ي')
+                .replace(/ؤ/g, 'و')
+                .replace(/[^\w\s\u0600-\u06FF]/g, ' ')
+                .replace(/\s+/g, ' ')
+                .trim();
+        };
+
+        const ARABIC_SYNONYMS = {
+            'تجربه': ['تجارب', 'قصه', 'قصص', 'تجريبيه', 'خبره'],
+            'تجارب': ['تجربه', 'قصص', 'قصه', 'خبرات'],
+            'متفوق': ['متفوقين', 'متفوقه', 'متفوقات', 'اوائل', 'تفوق', 'ناجح', 'امتياز', 'ممتاز'],
+            'متفوقين': ['متفوق', 'متفوقه', 'اوائل', 'تفوق', 'ناجحين', 'امتياز'],
+            'متفوقه': ['متفوق', 'متفوقين', 'اوائل', 'تفوق'],
+            'اوائل': ['اول', 'اولي', 'متفوقين', 'متفوق', 'مرتبه'],
+            'رياضيات': ['رياضي', 'رياضيه', 'ماط', 'math'],
+            'رياضي': ['رياضيات', 'رياضيه', 'ماط', 'math'],
+            'علوم': ['علمي', 'علميه', 'علوم تجريبيه', 'علوم طبيعيه', 'sciences', 'طبيعيه'],
+            'علمي': ['علوم', 'علوم تجريبيه', 'sciences'],
+            'تقني': ['تقني رياضي', 'تكنو', 'هندسه', 'كهربائيه', 'ميكانيكيه', 'طرائق', 'مدنيه'],
+            'تسيير': ['اقتصاد', 'تسيير واقتصاد', 'gestion', 'management', 'محاسبه'],
+            'اقتصاد': ['تسيير', 'تسيير واقتصاد', 'gestion'],
+            'لغات': ['لغات اجنبيه', 'لغه', 'اسبانيه', 'ايطاليه', 'المانيه', 'langues'],
+            'اداب': ['فلسفه', 'اداب وفلسفه', 'ادبي', 'philo', 'lettres'],
+            'فلسفه': ['اداب', 'اداب وفلسفه', 'philo'],
+            'حر': ['احرار', 'طالب حر', 'طالبه حره', 'اعاده', 'كونديدا'],
+            'احرار': ['حر', 'طالب حر', 'طالبه حره', 'اعاده'],
+            'نظامي': ['نظاميون', 'نظاميين', 'تلميذ نظامي', 'تلميذه نظاميه', 'متمدرس'],
+            'نظاميين': ['نظامي', 'متمدرسين', 'تلاميذ'],
+            'اعلام': ['اعلام الي', 'esi', 'برمجه', 'كمبيوتر'],
+            'ذكاء': ['ذكاء اصطناعي', 'ensia', 'ai'],
+            'سيبراني': ['امن سيبراني', 'cyber', 'الامن'],
+            'بوليتكنيك': ['enp', 'متعدده التقنيات', 'الحراش']
+        };
+
+        const getStems = (word) => {
+            const stems = new Set([word]);
+            if (word.startsWith('ال') && word.length > 3) {
+                stems.add(word.slice(2));
+            }
+            for (const w of Array.from(stems)) {
+                if (w.length > 3) {
+                    if (w.endsWith('ات')) stems.add(w.slice(0, -2));
+                    if (w.endsWith('ون')) stems.add(w.slice(0, -2));
+                    if (w.endsWith('ين')) stems.add(w.slice(0, -2));
+                    if (w.endsWith('ان')) stems.add(w.slice(0, -2));
+                    if (w.endsWith('يه')) stems.add(w.slice(0, -2));
+                    if (w.endsWith('ية')) stems.add(w.slice(0, -2));
+                    if (w.endsWith('ه'))  stems.add(w.slice(0, -1));
+                    if (w.endsWith('ة'))  stems.add(w.slice(0, -1));
+                }
+                if (ARABIC_SYNONYMS[w]) {
+                    ARABIC_SYNONYMS[w].forEach(s => stems.add(s));
+                }
+            }
+            return Array.from(stems);
+        };
+
+        // Precompute normalized searchable corpus for every card for 60fps instant sub-millisecond filtering
+        const cardDataList = cards.map(card => {
+            const stream = card.getAttribute('data-stream') || '';
+            const type = card.getAttribute('data-type') || '';
+            const year = card.getAttribute('data-year') || '';
+            const rawKw = card.getAttribute('data-keywords') || '';
+            const rawText = card.textContent || '';
+            const normCorpus = normalizeArabic(`${rawKw} ${rawText} ${stream} ${type} ${year}`);
+
+            return {
+                element: card,
+                stream,
+                type,
+                year,
+                normCorpus
+            };
+        });
 
         function filterCards() {
             let visibleCount = 0;
             const yearCounts = { '2026': 0, '2025': 0, '2024': 0 };
 
-            cards.forEach(card => {
-                const cardStream = card.getAttribute('data-stream');
-                const cardType = card.getAttribute('data-type');
-                const cardYear = card.getAttribute('data-year');
-                const cardKeywords = (card.getAttribute('data-keywords') || '').toLowerCase();
-                const cardText = card.textContent.toLowerCase();
+            const normQuery = normalizeArabic(searchQuery);
+            const queryTokens = normQuery.split(/\s+/).filter(t => t.length > 0);
 
-                const streamMatch = (activeStream === 'all' || cardStream === activeStream);
-                const typeMatch = (activeType === 'all' || cardType === activeType);
-                const yearMatch = (activeYear === 'all' || cardYear === activeYear);
-                const searchMatch = !searchQuery || cardKeywords.includes(searchQuery) || cardText.includes(searchQuery);
+            cardDataList.forEach(data => {
+                const streamMatch = (activeStream === 'all' || data.stream === activeStream);
+                const typeMatch = (activeType === 'all' || data.type === activeType);
+                const yearMatch = (activeYear === 'all' || data.year === activeYear);
+
+                let searchMatch = true;
+
+                if (queryTokens.length > 0) {
+                    for (const token of queryTokens) {
+                        const stems = getStems(token);
+                        const tokenFound = stems.some(st => data.normCorpus.includes(st));
+                        if (!tokenFound) {
+                            searchMatch = false;
+                            break;
+                        }
+                    }
+                }
 
                 if (streamMatch && typeMatch && yearMatch && searchMatch) {
-                    card.style.display = 'flex';
+                    data.element.style.display = 'flex';
                     visibleCount++;
-                    if (yearCounts[cardYear] !== undefined) {
-                        yearCounts[cardYear]++;
+                    if (yearCounts[data.year] !== undefined) {
+                        yearCounts[data.year]++;
                     }
                 } else {
-                    card.style.display = 'none';
+                    data.element.style.display = 'none';
                 }
             });
 
@@ -2424,8 +2570,16 @@
             if (countSpan) countSpan.textContent = visibleCount;
             if (emptyState) emptyState.style.display = (visibleCount === 0) ? 'block' : 'none';
             if (resetBtn) {
-                resetBtn.style.display = (activeStream !== 'all' || activeType !== 'all' || activeYear !== 'all' || searchQuery !== '') ? 'inline-flex' : 'none';
+                resetBtn.style.display = (activeStream !== 'all' || activeType !== 'all' || activeYear !== 'all' || normQuery !== '') ? 'inline-flex' : 'none';
             }
+            if (clearBtn) {
+                clearBtn.classList.toggle('visible', normQuery !== '');
+            }
+        }
+
+        function triggerFilter() {
+            if (debounceTimer) clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(filterCards, 20);
         }
 
         streamChips.forEach(chip => {
@@ -2457,7 +2611,25 @@
 
         if (searchInput) {
             searchInput.addEventListener('input', (e) => {
-                searchQuery = e.target.value.trim().toLowerCase();
+                searchQuery = e.target.value;
+                triggerFilter();
+            });
+            searchInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    searchInput.value = '';
+                    searchQuery = '';
+                    filterCards();
+                }
+            });
+        }
+
+        if (clearBtn) {
+            clearBtn.addEventListener('click', () => {
+                if (searchInput) {
+                    searchInput.value = '';
+                    searchInput.focus();
+                }
+                searchQuery = '';
                 filterCards();
             });
         }
@@ -2474,7 +2646,27 @@
             filterCards();
         };
 
+        // ── DEEP LINKING / HASH TARGET SCROLL & HIGHLIGHT ───────────────
+        function handleHash() {
+            const hash = window.location.hash;
+            if (hash && hash.startsWith('#exp-')) {
+                const targetCard = document.querySelector(hash);
+                if (targetCard) {
+                    window.resetExpFilters();
+                    setTimeout(() => {
+                        targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        targetCard.classList.add('exp-card--target-highlight');
+                        setTimeout(() => {
+                            targetCard.classList.remove('exp-card--target-highlight');
+                        }, 2500);
+                    }, 150);
+                }
+            }
+        }
+
         filterCards();
+        handleHash();
+        window.addEventListener('hashchange', handleHash);
     });
     </script>
 </body>
