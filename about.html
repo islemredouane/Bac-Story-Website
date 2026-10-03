@@ -569,86 +569,136 @@
        wins the specificity tie over .about-founder-badge's white text */
     .about-founder-badge.about-founder-role { color: #fff; }
 
-    /* ══ TELEGRAM TEAM / CONTRIBUTORS ══
-       Sits below the founder card in the same "فريق العمل" section — glass
-       card + corner glow (same recipe as .abt-offer-card), themed in
-       Telegram blue to visually tie it to the platform these volunteers
-       help run, distinct from the founder's brand-blue card. */
-    .abt-team-card {
+    /* ══ TELEGRAM TEAM / CONTRIBUTORS (SPLIT DUAL-COLUMN CARD) ══ */
+    .abt-team-split-card {
+        margin-top: 1.8rem;
+        border-color: rgba(36, 161, 222, 0.18);
+        box-shadow: 0 10px 40px rgba(36, 161, 222, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .abt-team-split-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 18px 48px rgba(36, 161, 222, 0.14);
+        border-color: rgba(36, 161, 222, 0.35);
+    }
+    .abt-team-side {
+        background: linear-gradient(160deg, #0b689c 0%, #0088cc 50%, #24a1de 100%) !important;
+        padding: 2.5rem 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.2rem;
+        min-width: 220px;
         position: relative;
-        margin-top: 1.6rem;
-        background: rgba(255, 255, 255, 0.7);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        border: 1.5px solid rgba(255, 255, 255, 0.55);
-        border-radius: 24px;
-        padding: 2rem 2rem 1.9rem;
-        box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 6px 28px rgba(36, 161, 222, 0.07);
         overflow: hidden;
-        transition: box-shadow 0.35s ease, border-color 0.35s ease;
+        text-align: center;
     }
-    .abt-team-card::before {
+    .abt-team-side::before {
         content: '';
         position: absolute;
-        top: 0; right: 0; left: 0;
-        height: 3.5px;
-        background: linear-gradient(90deg, transparent, #24A1DE);
-    }
-    .abt-team-card::after {
-        content: '';
-        position: absolute;
-        top: -90px; left: -70px;
-        width: 220px; height: 220px;
-        background: radial-gradient(circle, rgba(36, 161, 222, 0.16) 0%, transparent 70%);
+        top: -60px; left: -60px;
+        width: 180px; height: 180px;
+        background: rgba(255, 255, 255, 0.08);
         border-radius: 50%;
         pointer-events: none;
     }
-    .abt-team-head {
-        position: relative;
-        z-index: 1;
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        margin-bottom: 1.15rem;
-    }
-    .abt-team-icon {
-        flex: none;
-        width: 54px; height: 54px;
-        border-radius: 16px;
-        background: linear-gradient(135deg, #0d8ecf 0%, #24A1DE 100%);
-        color: #fff;
+    .abt-team-avatar {
+        width: 84px; height: 84px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.18);
+        border: 3px solid rgba(255, 255, 255, 0.35);
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.3rem;
-        box-shadow: 0 8px 20px rgba(36, 161, 222, 0.32);
-    }
-    .abt-team-badge {
-        display: inline-block;
-        font-size: 0.7rem;
-        font-weight: 800;
-        color: #0088cc;
-        background: rgba(36, 161, 222, 0.13);
-        padding: 3px 11px;
-        border-radius: 999px;
-        margin-bottom: 5px;
-    }
-    .abt-team-head h3 { margin: 0; font-size: 1.1rem; font-weight: 900; color: #0f172a; }
-    .abt-team-text {
+        font-size: 2.3rem;
+        color: #fff;
         position: relative;
         z-index: 1;
-        margin: 0 0 1.3rem;
-        font-size: 0.93rem;
-        line-height: 1.9;
-        color: #475569;
-        max-width: 68ch;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        transition: transform 0.3s ease;
     }
-    .abt-team-chips {
+    .abt-team-split-card:hover .abt-team-avatar {
+        transform: scale(1.06) rotate(6deg);
+    }
+    .abt-team-side-info {
         position: relative;
         z-index: 1;
         display: flex;
-        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+    }
+    .abt-team-side-badge {
+        display: inline-block;
+        font-size: 0.72rem;
+        font-weight: 800;
+        color: #fff;
+        background: rgba(255, 255, 255, 0.22);
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        padding: 3px 12px;
+        border-radius: 999px;
+    }
+    .abt-team-side-title {
+        margin: 0;
+        font-size: 1.3rem;
+        font-weight: 900;
+        color: #fff;
+        line-height: 1.25;
+    }
+    .abt-team-social {
+        display: flex;
         gap: 0.6rem;
+        position: relative;
+        z-index: 1;
+    }
+    .abt-team-tg-btn {
+        background: rgba(255, 255, 255, 0.18) !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        color: #fff !important;
+    }
+    .abt-team-tg-btn:hover {
+        background: #fff !important;
+        color: #0088cc !important;
+        transform: translateY(-2px);
+    }
+    .abt-team-content {
+        padding: 2.4rem 2.6rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.8rem;
+    }
+    .abt-team-header-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+    }
+    .abt-team-role-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.76rem;
+        font-weight: 800;
+        color: #0088cc;
+        background: rgba(36, 161, 222, 0.12);
+        border: 1px solid rgba(36, 161, 222, 0.25);
+        padding: 4px 14px;
+        border-radius: 999px;
+    }
+    .abt-team-text {
+        margin: 0 0 0.5rem;
+        font-size: 0.94rem;
+        line-height: 1.85;
+        color: #475569;
+    }
+    .abt-team-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.55rem;
+        margin-top: 0.3rem;
     }
     .abt-team-chip {
         display: inline-flex;
@@ -657,27 +707,56 @@
         font-weight: 700;
         color: #0f172a;
         background: #f8fafc;
-        border: 1.5px solid rgba(44, 92, 195, 0.12);
+        border: 1.5px solid rgba(36, 161, 222, 0.16);
         border-radius: 999px;
-        padding: 0.45rem 1.05rem;
-        transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+        padding: 0.42rem 1.05rem;
+        transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease, color 0.2s ease;
     }
-    .abt-team-chip:hover { background: #eef3fc; border-color: #24A1DE; transform: translateY(-2px); }
+    .abt-team-chip:hover {
+        background: rgba(36, 161, 222, 0.1);
+        border-color: #24a1de;
+        color: #0088cc;
+        transform: translateY(-2px);
+    }
     .abt-team-chip--brand {
         display: inline-flex;
         align-items: center;
         gap: 6px;
-        background: linear-gradient(135deg, #1a3a8f 0%, #2c5cc5 100%);
+        background: linear-gradient(135deg, #0088cc 0%, #24a1de 100%);
         color: #fff;
         border-color: transparent;
         font-weight: 800;
-        box-shadow: 0 4px 12px rgba(44, 92, 195, 0.28);
+        box-shadow: 0 4px 14px rgba(36, 161, 222, 0.3);
     }
     .abt-team-chip--brand:hover {
-        background: linear-gradient(135deg, #14306e 0%, #2450a8 100%);
+        background: linear-gradient(135deg, #006699 0%, #1d80b0 100%);
+        color: #fff;
         border-color: transparent;
         transform: translateY(-2px);
-        box-shadow: 0 8px 18px rgba(44, 92, 195, 0.4);
+        box-shadow: 0 8px 20px rgba(36, 161, 222, 0.45);
+    }
+
+    @media screen and (max-width: 768px) {
+        .abt-team-split-card {
+            flex-direction: column;
+        }
+        .abt-team-side {
+            min-width: unset;
+            flex-direction: row;
+            padding: 1.5rem;
+            justify-content: space-between;
+            text-align: right;
+        }
+        .abt-team-side-info {
+            align-items: flex-start;
+        }
+        .abt-team-avatar {
+            width: 60px; height: 60px;
+            font-size: 1.6rem;
+        }
+        .abt-team-content {
+            padding: 1.5rem;
+        }
     }
 
     /* ══ CLOSING CTA ══ */
@@ -1000,29 +1079,42 @@
 </div>
 </div>
 <!-- ── Telegram team / contributors ── -->
-<div class="abt-team-card abt-reveal">
-<div class="abt-team-head">
-<div class="abt-team-icon"><i class="fab fa-telegram-plane"></i></div>
-<div>
-<span class="abt-team-badge">فريق التلغرام</span>
-<h3>الفريق الداعم</h3>
-</div>
-</div>
-<p class="abt-team-text">
-                        بالإضافة إلى المؤسس، يقف خلف نجاح BAC STORY فريق من المشرفين على قناة التلغرام، حرصوا على مشاركة مصادرهم الخاصة ليستفيد منها زملاؤهم، وساهموا أيضاً بأفكار طوّرت الموقع باستمرار. كل الشكر والتقدير لهم:
-                    </p>
-<div class="abt-team-chips">
-<span class="abt-team-chip">يسرى</span>
-<span class="abt-team-chip">فراس</span>
-<span class="abt-team-chip">فرح</span>
-<span class="abt-team-chip">يونس</span>
-<span class="abt-team-chip">فاطمة</span>
-<span class="abt-team-chip">ريان</span>
-<span class="abt-team-chip">رحمة</span>
-<span class="abt-team-chip">شهيناز</span>
-<span class="abt-team-chip">منار</span>
-<span class="abt-team-chip abt-team-chip--brand"><i class="fab fa-telegram-plane"></i> فريق BAC STORY</span>
-</div>
+<div class="about-founder-card abt-team-split-card abt-reveal">
+    <div class="about-founder-left abt-team-side">
+        <div class="abt-team-avatar">
+            <i class="fab fa-telegram-plane"></i>
+        </div>
+        <div class="abt-team-side-info">
+            <span class="abt-team-side-badge">فريق التلغرام</span>
+            <h3 class="abt-team-side-title">الفريق الداعم</h3>
+        </div>
+        <div class="about-founder-social abt-team-social">
+            <a aria-label="Telegram Channel" class="about-social-btn abt-team-tg-btn" href="https://t.me/islembacdz" target="_blank" rel="noopener" title="قناة التلغرام">
+                <i class="fab fa-telegram-plane"></i>
+            </a>
+        </div>
+    </div>
+    <div class="about-founder-right abt-team-content">
+        <div class="abt-team-header-row">
+            <h3 class="about-founder-name">مشرفو ومساهمو مجتمع BAC STORY</h3>
+            <span class="about-founder-badge abt-team-role-badge">شركاء النجاح والتطوير</span>
+        </div>
+        <p class="abt-team-text">
+            بالإضافة إلى المؤسس، يقف خلف نجاح BAC STORY فريق من المشرفين على قناة التلغرام، حرصوا على مشاركة مصادرهم الخاصة ليستفيد منها زملاؤهم، وساهموا أيضاً بأفكار طوّرت الموقع باستمرار. كل الشكر والتقدير لهم:
+        </p>
+        <div class="abt-team-chips">
+            <span class="abt-team-chip">يسرى</span>
+            <span class="abt-team-chip">فراس</span>
+            <span class="abt-team-chip">فرح</span>
+            <span class="abt-team-chip">يونس</span>
+            <span class="abt-team-chip">فاطمة</span>
+            <span class="abt-team-chip">ريان</span>
+            <span class="abt-team-chip">رحمة</span>
+            <span class="abt-team-chip">شهيناز</span>
+            <span class="abt-team-chip">منار</span>
+            <span class="abt-team-chip abt-team-chip--brand"><i class="fab fa-telegram-plane"></i> فريق BAC STORY</span>
+        </div>
+    </div>
 </div>
 </div>
 <!-- ══ CLOSING CTA ══ -->
