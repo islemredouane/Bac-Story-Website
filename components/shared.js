@@ -51431,6 +51431,9 @@ async function bootPage() {
 
         // Setup sticky stack cards animation (.adp-scard on advertise & contribute pages)
         try { initStickyStackCards(); } catch (e) { console.warn('StickyStack error', e); }
+
+        // Setup network-aware smart speculative prefetching (0% data waste, instant clicks on good networks)
+        try { setupSmartPrefetch(); } catch (e) { console.warn('SmartPrefetch error', e); }
     } catch (err) {
         console.error('Error during page boot:', err);
     } finally {
@@ -51680,6 +51683,71 @@ function initSmoothDetails() {
     }
 
     document.querySelectorAll('.crc-faq details, .faq-accordion details, details.smooth-details, .accordion-item details').forEach(setupSmoothDetails);
+}
+
+
+// ─── NETWORK-AWARE SMART SPECULATIVE PREFETCHER ───────────────────────────────
+// Smooth, zero-data-waste speculative prefetching for instant page transitions
+function setupSmartPrefetch() {
+    // 1. Connection check: Don't prefetch if user has Save-Data or is on 2G/3G
+    var conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    if (conn) {
+        if (conn.saveData) return; // User requested data saver
+        if (conn.effectiveType === 'slow-2g' || conn.effectiveType === '2g' || conn.effectiveType === '3g') {
+            return; // Slow network -> preserve bandwidth
+        }
+    }
+
+    var prefetched = new Set();
+    var isInternal = function(url) {
+        try {
+            var u = new URL(url, location.href);
+            return u.origin === location.origin &&
+                   !u.pathname.match(/\.(pdf|zip|png|jpg|jpeg|webp|svg|ico)$/i) &&
+                   u.pathname !== location.pathname;
+        } catch (e) {
+            return false;
+        }
+    };
+
+    var prefetchUrl = function(url) {
+        if (!url || prefetched.has(url) || !isInternal(url)) return;
+        prefetched.add(url);
+
+        var link = document.createElement('link');
+        link.rel = 'prefetch';
+        link.href = url;
+        link.as = 'document';
+        document.head.appendChild(link);
+    };
+
+    var hoverTimer = null;
+
+    document.addEventListener('mouseover', function(e) {
+        var anchor = e.target.closest('a[href]');
+        if (!anchor) return;
+        var href = anchor.getAttribute('href');
+        if (!href || href.startsWith('#') || href.startsWith('javascript:')) return;
+
+        hoverTimer = setTimeout(function() {
+            prefetchUrl(anchor.href);
+        }, 65);
+    }, { passive: true });
+
+    document.addEventListener('mouseout', function(e) {
+        if (hoverTimer) {
+            clearTimeout(hoverTimer);
+            hoverTimer = null;
+        }
+    }, { passive: true });
+
+    document.addEventListener('touchstart', function(e) {
+        var anchor = e.target.closest('a[href]');
+        if (!anchor) return;
+        var href = anchor.getAttribute('href');
+        if (!href || href.startsWith('#') || href.startsWith('javascript:')) return;
+        prefetchUrl(anchor.href);
+    }, { passive: true });
 }
 
 if (document.readyState === 'loading') {
