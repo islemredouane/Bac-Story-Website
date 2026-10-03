@@ -46,6 +46,19 @@
     color: rgba(255,255,255,.8) !important;
 }
 
+/* ── Search Highlight ───────────────────────────────────── */
+mark.search-highlight {
+    background: rgba(255, 193, 7, 0.28);
+    color: inherit;
+    font-weight: 700;
+    padding: 0.05em 0.2em;
+    border-radius: 3px;
+}
+.search-result-item.is-focused mark.search-highlight {
+    background: rgba(255, 255, 255, 0.35);
+    color: #fff;
+}
+
 /* ── Shortcut hint in footer ───────────────────────────── */
 .search-shortcut-hint {
     display: inline-flex;
