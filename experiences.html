@@ -1073,6 +1073,72 @@
     }
     .dark-mode .exp-card-role { color: #94a3b8; }
 
+    /* ── Memorial Notice Element (رحمها الله) ── */
+    .exp-card-memorial {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        background: linear-gradient(135deg, rgba(16, 185, 129, 0.09) 0%, rgba(5, 150, 105, 0.15) 100%);
+        border: 1.5px solid rgba(16, 185, 129, 0.32);
+        border-radius: 14px;
+        padding: 0.7rem 0.95rem;
+        margin: 0 0 1.15rem;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 3px 12px rgba(16, 185, 129, 0.08);
+        text-align: right;
+    }
+    .dark-mode .exp-card-memorial {
+        background: linear-gradient(135deg, rgba(16, 185, 129, 0.14) 0%, rgba(6, 78, 59, 0.28) 100%);
+        border-color: rgba(52, 211, 153, 0.4);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    }
+    .exp-card-memorial-icon {
+        width: 32px;
+        height: 32px;
+        min-width: 32px;
+        border-radius: 50%;
+        background: rgba(16, 185, 129, 0.2);
+        color: #059669;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.92rem;
+        flex-shrink: 0;
+    }
+    .dark-mode .exp-card-memorial-icon {
+        background: rgba(52, 211, 153, 0.22);
+        color: #6ee7b7;
+    }
+    .exp-card-memorial-text {
+        font-size: 0.86rem;
+        font-weight: 700;
+        color: #047857;
+        line-height: 1.55;
+    }
+    .dark-mode .exp-card-memorial-text {
+        color: #a7f3d0;
+    }
+    .exp-card-tribute-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 0.74rem;
+        font-weight: 800;
+        color: #059669;
+        background: rgba(16, 185, 129, 0.12);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        padding: 3px 9px;
+        border-radius: 999px;
+        margin-right: 8px;
+        vertical-align: middle;
+    }
+    .dark-mode .exp-card-tribute-badge {
+        background: rgba(52, 211, 153, 0.18);
+        border-color: rgba(52, 211, 153, 0.35);
+        color: #6ee7b7;
+    }
+
     /* Average & University Destination */
     .exp-card-avg-block {
         display: flex;
@@ -1793,7 +1859,7 @@
             </article>
 
             <!-- 5. Ons (Experimental Science - Free Student - 18.81 - 2026) -->
-            <article class="exp-card exp-card--sci" id="exp-ouns" data-year="2026" data-stream="sci" data-type="free" data-keywords="أنس أنس علوم تجريبية حرة طالبة حرة 18.81 18,81 ESI اعلام الي مدرسة الاعلام الالي العاصمة اعادة بكالوريا 2026">
+            <article class="exp-card exp-card--sci" id="exp-ouns" data-year="2026" data-stream="sci" data-type="free" data-keywords="أنس أنس علوم تجريبية حرة طالبة حرة 18.81 18,81 ESI اعلام الي مدرسة الاعلام الالي العاصمة اعادة بكالوريا 2026 رحمها الله الدعاء">
                 <span class="exp-card-year-badge exp-card-year-badge--2026">بكالوريا 2026 ✦</span>
                 <div class="exp-card-top">
                     <div class="exp-card-stream-wrap">
@@ -1803,7 +1869,7 @@
                     <span class="exp-card-candidacy exp-card-candidacy--free">🦅 طالبة حرة</span>
                 </div>
 
-                <h3>أُنس</h3>
+                <h3>أُنس <span class="exp-card-tribute-badge"><i class="fas fa-dove"></i> رحمهَا الله</span></h3>
                 <p class="exp-card-role">طالبة حرة متفوقة — بكالوريا 2026</p>
 
                 <div class="exp-card-avg-block">
@@ -1813,6 +1879,15 @@
                     </div>
                     <div class="exp-card-univ">
                         <i class="fas fa-laptop-code"></i> مدرسة الإعلام الآلي
+                    </div>
+                </div>
+
+                <div class="exp-card-memorial">
+                    <div class="exp-card-memorial-icon">
+                        <i class="fas fa-dove"></i>
+                    </div>
+                    <div class="exp-card-memorial-text">
+                        لا تنسى الدعاء لصاحبة هذه التجربة فقد انتقلت إلى رحمة ربها🤍
                     </div>
                 </div>
 
@@ -2424,7 +2499,7 @@
 
     <!-- Scripts -->
     <script src="/ads-config.js?v=1.15"></script>
-    <script src="/components/shared.js?v=9.60"></script>
+    <script src="/components/shared.js?v=9.61"></script>
     <script>
     document.addEventListener('DOMContentLoaded', () => {
         const streamChips = document.querySelectorAll('.exp-chip[data-stream]');
