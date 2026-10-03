@@ -43,6 +43,58 @@ body {
 }
 
 /* ============================================
+   ZERO-CLS ICON STABILITY & BOUNDING BOX
+   Prevents layout shifts, text jumping, and pop-in lag
+   ============================================ */
+.fa, .fas, .far, .fab, .fa-solid, .fa-regular, .fa-brands {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.15em;
+    min-width: 1.15em;
+    height: 1.15em;
+    line-height: 1;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-style: normal;
+    font-variant: normal;
+    flex-shrink: 0;
+}
+
+button i, a i, .btn i, .card-link i, .specialty-link i, .topic-card-btn i {
+    flex-shrink: 0;
+}
+
+/* ============================================
+   SMOOTH GPU-ACCELERATED PAGE ENTRANCE TRANSITIONS
+   Fast 220ms curve, 0% CPU paint, 100% GPU compositing
+   ============================================ */
+@keyframes bsPageEntrance {
+    0% {
+        opacity: 0;
+        transform: translateY(7px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .main-container,
+    .page-container,
+    .resources-container,
+    .exp-page,
+    .about-page-container,
+    .calculator-container,
+    .topics-container,
+    .archive-container,
+    .speciality-page-container {
+        animation: bsPageEntrance 0.24s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+}
+
+/* ============================================
    PAGE LOADER — BAC STORY
    ============================================ */
 .page-loader {
