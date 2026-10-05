@@ -99,37 +99,10 @@ function showSection(id, push = true) {
         id = 'calculator';
     }
 
-    // MAPPING FOR CROSS-PAGE NAVIGATION
-    // If a section doesn't exist on the current page, we need to redirect to the page that has it
-    const pageMapping = {
-        'math': 'resources.html',
-        'science': 'resources.html',
-        'tech': 'resources.html',
-        'management': 'resources.html',
-        'resumes-exercises': 'resources.html',
-        'books': 'resources.html',
-        'Drives': 'resources.html',
-        'bac-topics': 'bac-topics.html',
-        'monthly-plans': 'plans.html',
-        'subject-plans': 'plans.html',
-        'challenges': 'plans.html',
-        'timer': 'tools.html',
-        'calculator': 'tools.html',
-        'exam-sheet': 'tools.html',
-        'weighted-calc': 'tools.html',
-        'university-system': 'university.html',
-        'university-section': 'university.html',
-        'averages-of-acceptance': 'university.html',
-        'oqba': 'oqba.html'
-    };
-
+    // Sections now live on their own pages. A #hash for a section that is not on
+    // this page is simply ignored (the page shows normally); no cross-page redirect,
+    // which previously caused an endless reload loop on clean URLs.
     const section = document.getElementById(id);
-
-    // If section doesn't exist on this page, but exists in our map, redirect there!
-    if (!section && pageMapping[id] && !window.location.pathname.includes(pageMapping[id])) {
-        window.location.href = `/${pageMapping[id]}#${id}`;
-        return;
-    }
 
     if (section) {
         document.querySelectorAll('.resource-content')
