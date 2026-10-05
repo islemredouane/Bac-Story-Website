@@ -33,3 +33,10 @@
 
 /*.gif
   Cache-Control: public, max-age=31536000, immutable
+
+/components/*
+  X-Robots-Tag: noindex
+
+/search-index.json
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+  X-Robots-Tag: noindex

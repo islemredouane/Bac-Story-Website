@@ -1,13 +1,12 @@
-const CACHE_NAME = 'bac-story-v15';
+const CACHE_NAME = 'bac-story-v16';
 const ASSETS_TO_CACHE = [
   '/',
-  '/index.html',
   '/style.css',
   '/script.js',
   '/components/shared.js',
-  '/components/navbar.html',
-  '/components/footer.html',
-  '/components/search.html',
+  '/components/navbar',
+  '/components/footer',
+  '/components/search',
   '/ads-config.js',
   '/favicon.png'
 ];

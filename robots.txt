@@ -4,7 +4,6 @@
 
 User-agent: *
 Allow: /
-Disallow: /components/
 Disallow: /apps-script/
 Disallow: /scratch/
 Disallow: /*-backup.html$

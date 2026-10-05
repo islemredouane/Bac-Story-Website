@@ -69,13 +69,6 @@
     "خطط مراجعة",
     "التوجيه الجامعي"
   ],
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.2",
-    "bestRating": "5",
-    "worstRating": "1",
-    "ratingCount": "879"
-  },
   "contactPoint": {
     "@type": "ContactPoint",
     "contactType": "customer support",
@@ -906,8 +899,8 @@
 <div id="global-cta-placeholder" style="margin-top:2.5rem;"></div>
 <div id="footer-placeholder"></div>
 <script src="/ads-config.js?v=1.15"></script>
-<script src="/components/shared.js?v=9.60"></script>
-<script src="/script.js?v=9.5"></script>
+<script src="/components/shared.js?v=9.61"></script>
+<script src="/script.js?v=9.6"></script>
 <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
 <script>window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };</script>
 <script>
@@ -980,6 +973,39 @@
         return row;
     }
 
+    /* Structured data for Google: the same live rating the card shows.
+       Mirrors feedback.html (SoftwareApplication = eligible for review stars). */
+    function injectRatingSchema(avg, count) {
+        try {
+            avg = parseFloat(avg);
+            count = parseInt(count, 10);
+            if (!(avg > 0) || !(count > 0)) return;
+            var schema = {
+                '@context': 'https://schema.org',
+                '@type': 'SoftwareApplication',
+                'name': 'BAC STORY',
+                'url': 'https://www.bac-story.com',
+                'applicationCategory': 'EducationalApplication',
+                'operatingSystem': 'Web',
+                'offers': { '@type': 'Offer', 'price': '0', 'priceCurrency': 'DZD' },
+                'aggregateRating': {
+                    '@type': 'AggregateRating',
+                    'ratingValue': avg.toFixed(1),
+                    'bestRating': '5',
+                    'worstRating': '1',
+                    'ratingCount': String(count)
+                }
+            };
+            var old = document.getElementById('hp-rating-schema');
+            if (old) old.remove();
+            var el = document.createElement('script');
+            el.type = 'application/ld+json';
+            el.id = 'hp-rating-schema';
+            el.textContent = JSON.stringify(schema);
+            document.head.appendChild(el);
+        } catch (e) {}
+    }
+
     function renderWall(data) {
         var skel = document.getElementById('hpWallSkel');
         if (skel) skel.remove();
@@ -1016,6 +1042,7 @@
             starsEl.innerHTML = html;
             document.getElementById('hpRatingCount').textContent = 'من ' + data.count + ' تقييم من تلاميذ دفعة 2026';
             pill.style.display = 'flex';
+            injectRatingSchema(avg, data.count);
         }
 
         var comments = (data.comments || []).filter(function (c) { return c.o || c.a; }).slice(0, WALL_CAP);

@@ -17,3 +17,6 @@
 # Computer Science Moktasabat Clean Redirects
 /computer-science/moktasabat /resources/math/computer-science/moktasabat 301
 /computer-science/moktasabat/* /resources/math/computer-science/moktasabat/:splat 301
+
+# Sci stream has no "numbers & calculus" axis: old book link goes to the sci math books hub
+/resources/books/sci/math/numbers-calculus-alif-ya /resources/books/sci/math 301

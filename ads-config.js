@@ -22,7 +22,7 @@ window.BAC_ADS = {
       headline:     'هل تريد الإعلان على المنصة؟',
       subline:      'الموسم الدراسي لبكالوريا 2027 انطلق — اعرض خدماتك ودوراتك أمام آلاف الطلاب يومياً',
       ctaText:      'أعلن معنا',
-      ctaHref:      '/advertise.html',
+      ctaHref:      '/advertise',
       ctaTarget:    '_self',
       badge:        null
     }
@@ -82,7 +82,7 @@ window.BAC_ADS = {
       specialty:    null,
       pitch:        'الموسم الدراسي انطلق! آلاف طلاب بكالوريا 2027 يبحثون عن أساتذة متميزين ودورات دعم. اعرض خدماتك الآن.',
       ctaText:      'احجز إعلانك',
-      ctaHref:      '/advertise.html',
+      ctaHref:      '/advertise',
       ctaTarget:    '_self'
     },
     {
@@ -98,7 +98,7 @@ window.BAC_ADS = {
       specialty:    null,
       pitch:        'الطلاب في ذروة البحث عن المصادر والدورات والملخصات. استهدفهم مباشرة عبر المنصة وقناة التلغرام.',
       ctaText:      'أعلن معنا',
-      ctaHref:      '/advertise.html',
+      ctaHref:      '/advertise',
       ctaTarget:    '_self'
     },
     {
@@ -114,7 +114,7 @@ window.BAC_ADS = {
       specialty:    null,
       pitch:        'استهدف طلاب البكالوريا والجامعيين ببرامجك لتعلم اللغات، الدورات التطبيقية، والتطوير الأكاديمي.',
       ctaText:      'تعرف على الباقات',
-      ctaHref:      '/advertise.html',
+      ctaHref:      '/advertise',
       ctaTarget:    '_self'
     },
     {
@@ -130,7 +130,7 @@ window.BAC_ADS = {
       specialty:    null,
       pitch:        'اعرض تطبيقك، منصتك أو محتواك الرقمي أمام أكثر من 60,000 طالب نشط يستعدون للباك.',
       ctaText:      'تعرف على الباقات',
-      ctaHref:      '/advertise.html',
+      ctaHref:      '/advertise',
       ctaTarget:    '_self'
     }
   ],
