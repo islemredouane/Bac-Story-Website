@@ -6605,17 +6605,31 @@ body.pdf-body-lock [id="footer-placeholder"] {
     height: 45px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     font-size: 1.2rem;
     transition: var(--transition-smooth);
     color: var(--secondary-color);
     text-decoration: none;
+    line-height: 1;
+    direction: ltr;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 .social-link i {
     color: var(--secondary-color);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1em;
+    height: 1em;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+    text-align: center;
 }
 
 .social-link:hover {
@@ -8814,6 +8828,16 @@ body.pdf-body-lock [id="footer-placeholder"] {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1em;
+    height: 1em;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    direction: ltr;
 }
 
 .ad-card-cta-secondary:hover {
@@ -9148,6 +9172,16 @@ body.pdf-body-lock [id="footer-placeholder"] {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1em;
+    height: 1em;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    direction: ltr;
 }
 
 .adx-ig:hover {
