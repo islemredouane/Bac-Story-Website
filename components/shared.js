@@ -523,7 +523,9 @@ function showBac2026AnnouncementModal() {
     let isBmaActive = true;
     if (window.BAC_ADS && Array.isArray(window.BAC_ADS.rotatingCards)) {
         const bmaAd = window.BAC_ADS.rotatingCards.find(c => c.id === 'card-bacmath-bma');
-        if (bmaAd && bmaAd.active === false) isBmaActive = false;
+        if (!bmaAd || bmaAd.active === false) isBmaActive = false;
+    } else {
+        isBmaActive = false;
     }
 
     // 4. Check if BMA ad is ready (Priority 1)
