@@ -815,6 +815,7 @@
                             <i class="fas fa-spinner cnt-btn-spinner"></i>
                             <span class="cnt-btn-label">إرسال المساهمة</span>
                         </button>
+                    <p class="form-privacy-note" style="text-align:center;font-size:.85rem;color:#64748b;margin:.9rem auto 0;line-height:1.8;max-width:520px;">بإرسالك هذا النموذج توافق على <a href="/privacy" style="color:#2c5cc5;font-weight:700;">سياسة الخصوصية</a>. إذا كان عمرك أقل من 18 سنة، اطلب إذن وليّك أولاً.</p>
                     </form>
                 </div>
 
@@ -1101,6 +1102,7 @@
         }
 
         function showSuccess() {
+            try { (window.dataLayer = window.dataLayer || []).push({ event: 'contribution_sent' }); } catch (e) {}
             progressContainer.style.display = 'none';
             setBtnLoading(false);
             successMsg.style.display = 'flex';
