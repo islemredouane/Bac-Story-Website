@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "include": [
+    "/api/*",
+    "/README.md",
+    "/package.json",
+    "/package-lock.json",
+    "/.gitignore",
+    "/.vercelignore",
+    "/.env",
+    "/Code.gs",
+    "/feedback-apps-script.gs",
+    "/backup-old-popup-modal.js",
+    "/bac-2027-curriculum-changes-old-backup",
+    "/bac-2027-curriculum-changes-old-backup.html",
+    "/apps-script",
+    "/apps-script/*",
+    "/scripts",
+    "/scripts/*",
+    "/functions",
+    "/functions/*",
+    "/.git/*",
+    "/.claude/*",
+    "/.vscode/*",
+    "/node_modules/*"
+  ],
+  "exclude": []
+}

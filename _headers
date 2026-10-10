@@ -40,3 +40,10 @@
 /search-index.json
   Cache-Control: public, max-age=86400, stale-while-revalidate=604800
   X-Robots-Tag: noindex
+
+# Keep the pages.dev copies of the site out of search results (the canonical site is www.bac-story.com)
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
+
+https://:version.:project.pages.dev/*
+  X-Robots-Tag: noindex
