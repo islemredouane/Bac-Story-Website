@@ -1,62 +1,38 @@
 # BAC STORY — robots.txt
 # Platform URL: https://www.bac-story.com
 # Maintained by BAC STORY Team (Founder: Redouane Mohamed Islem)
+#
+# AI policy — "answers yes, training no" (matches Cloudflare AI Crawl Control):
+#   - Search engines, AI search and AI assistants are welcome, so BAC STORY can be
+#     found and cited in Google, Bing, ChatGPT, Perplexity, Claude, DuckDuckGo,
+#     Apple and Gemini answers. They follow the "*" rules below.
+#   - Crawlers that collect content only to TRAIN AI models are not allowed.
+#   - Google-Extended stays allowed on purpose: it also controls whether Gemini
+#     can use the site to answer questions (grounding), not only training.
 
 User-agent: *
-Allow: /
 Disallow: /apps-script/
 Disallow: /scratch/
 Disallow: /*-backup.html$
 Disallow: /*.mp3$
 
 # -------------------------------------------------------------
-# AI Search, Generative Engine & Answer Engine Optimization (AEO / GEO)
-# Permitting leading LLM search crawlers for citations and grounding
+# AI training crawlers: not allowed
 # -------------------------------------------------------------
 User-agent: GPTBot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: OAI-SearchBot
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
 User-agent: ClaudeBot
-Allow: /
-
 User-agent: anthropic-ai
-Allow: /
-
-User-agent: Google-Extended
-Allow: /
-
-User-agent: Applebot-Extended
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Amazonbot
-Allow: /
-
 User-agent: CCBot
-Allow: /
-
-User-agent: Meta-ExternalAgent
-Allow: /
-
-User-agent: FacebookBot
-Allow: /
-
-User-agent: DuckAssistBot
-Allow: /
-
 User-agent: Bytespider
-Allow: /
+User-agent: TikTokSpider
+User-agent: Meta-ExternalAgent
+User-agent: FacebookBot
+User-agent: Amazonbot
+User-agent: Applebot-Extended
+User-agent: PetalBot
+User-agent: Google-CloudVertexBot
+User-agent: Timpibot
+Disallow: /
 
 # -------------------------------------------------------------
 # Sitemaps & Machine-Readable Knowledge Bases (llmstxt.org)

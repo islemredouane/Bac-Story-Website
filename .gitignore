@@ -24,3 +24,9 @@ resources/*/computer-science/*
 bac-2027-curriculum-changes-old-backup.html
 backup-old-popup-modal.js
 
+
+# Apps Script backends (copied into Google Apps Script by hand, not part of the website)
+apps-script/
+
+# Local preview launcher (not part of the website)
+preview-site.bat
