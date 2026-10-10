@@ -568,7 +568,9 @@
 <p>سنراجع رسالتك ونتواصل معك في أقرب وقت، عادة خلال 24 ساعة.</p>
 </div>
 <div class="notification error cus-notify-error" id="errorMessage">حدث خطأ أثناء إرسال الرسالة. يرجى المحاولة مرة أخرى.</div>
-<form action="api/form.js" id="contactForm" method="POST">
+<form action="https://script.google.com/macros/s/AKfycbxgOz6zU1gNqVZgc1mMqkI8Joz7SviMlN1rpxsgqDS8ajVVtMZX1DtxraypyOlIotNR9w/exec" id="contactForm" method="POST">
+<!-- Anti-spam honeypot: hidden from people, bots fill it and get silently dropped -->
+<div aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;"><label for="cfWebsite">Website</label><input autocomplete="off" id="cfWebsite" name="website" tabindex="-1" type="text"/></div>
 <div class="cfm-row">
 <div class="cfm-group">
 <div class="cus-field-label"><span class="cus-field-icon"><i class="fas fa-user"></i></span> الاسم الكامل</div>
@@ -607,6 +609,7 @@
 <button class="cfm-submit cus-cfm-submit" type="submit">
 <i class="fas fa-paper-plane"></i> إرسال الرسالة
                     </button>
+<p class="form-privacy-note" style="text-align:center;font-size:.85rem;color:#64748b;margin:.9rem auto 0;line-height:1.8;max-width:520px;">بإرسالك هذا النموذج توافق على <a href="/privacy" style="color:#2c5cc5;font-weight:700;">سياسة الخصوصية</a>. إذا كان عمرك أقل من 18 سنة، اطلب إذن وليّك أولاً.</p>
 </form>
 </div>
 <!-- ── FAQ ── -->
@@ -651,7 +654,7 @@
 <div id="footer-placeholder"></div>
 <script src="/ads-config.js?v=1.16"></script>
 <script src="/components/shared.js?v=9.62"></script>
-<script src="/script.js?v=9.6"></script>
+<script src="/script.js?v=9.7"></script>
 <script>
     (function () {
         /* ── Scroll reveal ── */

@@ -366,16 +366,28 @@ if (contactForm) {
         submitButton.disabled = true;
         submitButton.textContent = 'جاري الإرسال...';
 
-        fetch(this.action, {
-            method: this.method,
-            headers: {
-                "Content-Type": "application/json"
-            },
+        // Messages go to a Google Apps Script web app (apps-script/contact-form/Code.gs),
+        // which saves them to a Sheet and emails them. No Content-Type header on purpose:
+        // that keeps it a "simple" request, so the browser skips the CORS preflight
+        // that Apps Script cannot answer (same approach as feedback.html).
+        const endpoint = this.getAttribute('action') || '';
+        if (endpoint.indexOf('https://script.google.com/') !== 0) {
+            errorMessage.textContent = 'خدمة المراسلة غير متاحة حالياً. راسلنا مباشرة على contact@bac-story.com';
+            errorMessage.style.display = 'block';
+            submitButton.disabled = false;
+            submitButton.textContent = 'إرسال الرسالة';
+            return;
+        }
+        const honeypot = this.querySelector('[name="website"]');
+
+        fetch(endpoint, {
+            method: 'POST',
             body: JSON.stringify({
                 name: this.querySelector('[name="name"]').value,
                 email: this.querySelector('[name="email"]').value,
                 subject: this.querySelector('[name="subject"]').value,
-                message: this.querySelector('[name="message"]').value
+                message: this.querySelector('[name="message"]').value,
+                website: honeypot ? honeypot.value : ''
             })
         })
             .then(response => response.json())
