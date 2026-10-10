@@ -234,6 +234,9 @@ function calculateAverage(field) {
 
     showReveal();
 
+    // Analytics key event (via Google Tag Manager). Stream only, no personal data.
+    try { (window.dataLayer = window.dataLayer || []).push({ event: 'calculator_result', bac_stream: field }); } catch (e) {}
+
     localStorage.setItem('calculatorState', field + 'Subjects');
 }
 
