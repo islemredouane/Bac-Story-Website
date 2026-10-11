@@ -1328,7 +1328,7 @@ async function bootPage() {
         // Inject components concurrently with safe timeouts
         await Promise.all([
             injectComponent('#navbar-placeholder', '/components/navbar?v=1.7'),
-            injectComponent('#footer-placeholder', '/components/footer?v=1.5')
+            injectComponent('#footer-placeholder', '/components/footer?v=1.6')
         ]);
 
         // Ensure search placeholder is at body level for max z-index
