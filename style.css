@@ -11321,6 +11321,14 @@ body.pdf-body-lock [id="footer-placeholder"] {
     box-shadow: none;
 }
 
+/* "التفاصيل" is a real link since Oct 2026 (it was a <button>); keep the
+   metrics browsers give buttons by default so it looks exactly the same. */
+a.spec-detail-btn {
+    line-height: normal;
+    text-align: center;
+    text-decoration: none;
+}
+
 .spec-detail-btn i {
     font-size: 0.75rem;
     transition: transform 0.28s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -14579,7 +14587,7 @@ body.pdf-body-lock [id="footer-placeholder"] {
 }
 
 /* Base button and card interaction standardization */
-button, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
+button, a.main-btn, a.spec-detail-btn, .modern-cta-btn, .spec-nav-btn, .gcta-btn {
     cursor: pointer;
     /* Ensure no text selection on UI elements */
     user-select: none;
