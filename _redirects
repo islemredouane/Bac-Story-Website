@@ -1,5 +1,12 @@
 # Cloudflare Pages handles clean URLs automatically (no .html needed)
 # No redirects required — domain redirects handled at Cloudflare DNS level
+# Telegram links: post bac-story.com/tg/<page> instead of bac-story.com/<page>.
+# The visitor lands on the same page with UTM tags, so GA4 counts the visit as
+# telegram / social instead of Direct (the Telegram app sends no referrer).
+# 302 (not 301) so the tags can be changed later without stale browser caches.
+/tg /?utm_source=telegram&utm_medium=social&utm_campaign=channel 302
+/tg/* /:splat?utm_source=telegram&utm_medium=social&utm_campaign=channel 302
+
 # Cloudflare Pages 301 Redirects for BAC 2025
 /bac-2025 /topics/bac-2025 301
 /bac-2025/* /topics/bac-2025/:splat 301
