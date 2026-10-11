@@ -61,6 +61,14 @@ body {
     flex-shrink: 0;
 }
 
+/* Font Awesome's CSS loads after this file and resets .fab/.fas to
+   display:inline-block, which left every glyph stuck to the top-right of
+   its 1.15em box. This slightly more specific selector keeps the
+   centring above; only display is raised, sizes keep their old priority. */
+:is(i, span):is(.fa, .fas, .far, .fab, .fa-solid, .fa-regular, .fa-brands) {
+    display: inline-flex;
+}
+
 button i, a i, .btn i, .card-link i, .specialty-link i, .topic-card-btn i {
     flex-shrink: 0;
 }
