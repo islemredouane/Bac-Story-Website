@@ -1,0 +1,56 @@
+<!doctype html>
+<!-- README preview: desktop + phone mockup. Rendered to ../preview.webp (1280x720 at 2x, then 1760 wide).
+     shots/desktop.png = homepage at 1440x900, shots/mobile.png = homepage at 390x844 (both 2x).
+     The shots folder is not committed. See README.md, "Maintaining this README" -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700;800&display=swap">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1280px; height: 720px; background: transparent; }
+  .stage { position: relative; width: 1280px; height: 720px; border-radius: 28px; overflow: hidden;
+    background: radial-gradient(1200px 500px at 20% -10%, #dfe8fb 0%, rgba(223,232,251,0) 60%),
+                linear-gradient(160deg, #eef3fd 0%, #f8faff 45%, #e9f0fd 100%);
+    border: 1px solid #e3e9f6; font-family: 'Tajawal', sans-serif; }
+  .glow { position: absolute; width: 520px; height: 520px; right: 40px; bottom: -260px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(44,92,195,.22), rgba(44,92,195,0) 70%); }
+  .glow.o { left: -160px; top: -200px; right: auto; bottom: auto; background: radial-gradient(circle, rgba(255,107,53,.12), rgba(255,107,53,0) 70%); }
+
+  .browser { position: absolute; left: 64px; top: 40px; width: 920px; border-radius: 16px; overflow: hidden; background: #fff;
+    box-shadow: 0 40px 80px rgba(20,44,110,.22), 0 6px 18px rgba(20,44,110,.10); border: 1px solid #dfe5f2; }
+  .bar { height: 42px; display: flex; align-items: center; gap: 14px; padding: 0 16px; background: #f4f6fb; border-bottom: 1px solid #e3e8f3; }
+  .dots { display: flex; gap: 7px; } .dots i { width: 11px; height: 11px; border-radius: 50%; display: block; }
+  .dots i:nth-child(1){background:#ff5f57}.dots i:nth-child(2){background:#febc2e}.dots i:nth-child(3){background:#28c840}
+  .url { flex: 1; height: 26px; border-radius: 8px; background: #fff; border: 1px solid #e3e8f3; display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700; color: #4b5563; gap: 6px; }
+  .url .lock { width: 11px; height: 11px; }
+  .shot { display: block; width: 920px; height: 560px; object-fit: cover; object-position: top; }
+
+  .phone { position: absolute; right: 70px; top: 84px; width: 262px; height: 576px; border-radius: 42px; background: #0f172a; padding: 10px;
+    box-shadow: 0 40px 80px rgba(20,44,110,.30), 0 8px 20px rgba(20,44,110,.15), inset 0 0 0 2px #334155; }
+  .phone .screen { width: 100%; height: 100%; border-radius: 33px; overflow: hidden; position: relative; background: #2b52b9; padding-top: 30px; }
+  .phone .screen::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 31px; background: #2448ad; }
+  .phone .screen img { width: 100%; display: block; }
+  .phone .notch { position: absolute; top: 9px; left: 50%; transform: translateX(-50%); width: 84px; height: 22px; border-radius: 14px; background: #0f172a; z-index: 2; }
+
+  .tag { position: absolute; left: 64px; bottom: 22px; display: flex; gap: 10px; }
+  .tag span { padding: 8px 14px 7px; border-radius: 999px; background: #fff; border: 1px solid #dfe5f2; color: #1a3a8f; font-size: 14px; font-weight: 800;
+    box-shadow: 0 6px 16px rgba(20,44,110,.08); }
+  .tag span.o { color: #ff6b35; }
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="glow o"></div><div class="glow"></div>
+  <div class="browser">
+    <div class="bar"><div class="dots"><i></i><i></i><i></i></div>
+      <div class="url"><svg class="lock" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>www.bac-story.com</div>
+      <div style="width:47px"></div></div>
+    <img class="shot" src="shots/desktop.png" alt="">
+  </div>
+  <div class="phone"><div class="notch"></div><div class="screen"><img src="shots/mobile.png" alt=""></div></div>
+  <div class="tag"><span>Arabic-first · RTL</span><span>Mobile-first</span><span class="o">Works offline</span></div>
+</div>
+</body>
+</html>

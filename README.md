@@ -1,193 +1,353 @@
-# BAC STORY 🎓
-### منصة التميز في البكالوريا
+<div align="center">
 
-**The ultimate preparation platform for Algerian Baccalaureate students.**
+<a href="https://www.bac-story.com">
+  <img src=".github/assets/banner.webp" alt="BAC STORY — منصة التميز في البكالوريا. The free, all-in-one preparation platform for the Algerian Baccalaureate." width="100%">
+</a>
 
-![BAC STORY Logo](favicon.png)
+<br>
 
-[![Views](https://img.shields.io/badge/Weekly%20Views-59K-blue)](#-analytics)
-[![Users](https://img.shields.io/badge/Active%20Users-8.8K%2Fweek-green)](#-analytics)
-[![Growth](https://img.shields.io/badge/Growth-↑98.6%25-brightgreen)](#-analytics)
-[![Audience](https://img.shields.io/badge/Audience-Algeria%20%F0%9F%87%A9%F0%9F%87%BF-orange)](#-analytics)
+[![Website](https://img.shields.io/badge/www.bac--story.com-live-2C5CC3?style=for-the-badge&logo=googlechrome&logoColor=white)](https://www.bac-story.com)
+[![Cloudflare Pages](https://img.shields.io/badge/Cloudflare-Pages-F38020?style=for-the-badge&logo=cloudflarepages&logoColor=white)](https://pages.cloudflare.com)
+[![PWA](https://img.shields.io/badge/PWA-installable-5A0FC8?style=for-the-badge&logo=pwa&logoColor=white)](#-performance--offline)
+[![Telegram](https://img.shields.io/badge/Telegram-@islembacdz-26A5E4?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/islembacdz)
 
----
+**Summaries · past exams with solutions · books · revision plans · BAC simulation · grade calculators · university guide**<br>
+for all six streams of the Algerian Baccalaureate, in Arabic, free, on any phone.
 
-## 🌟 Overview
+[**Visit the site**](https://www.bac-story.com) &nbsp;·&nbsp;
+[Features](#-features) &nbsp;·&nbsp;
+[Architecture](#-architecture) &nbsp;·&nbsp;
+[SEO](#-seo--ai-discoverability) &nbsp;·&nbsp;
+[Analytics](#-analytics--monitoring) &nbsp;·&nbsp;
+[Develop](#-development)
 
-**BAC STORY** is a production-grade Arabic-first educational platform for Algerian BAC students. Built entirely with vanilla HTML/CSS/JS — no frameworks, no bundlers — and deployed on Vercel with clean URLs, aggressive caching, and PWA support. It covers everything a student needs from first-day revision to the morning of the exam.
+</div>
 
----
+<br>
 
-## 📄 Pages
+<img src=".github/assets/stats.png" alt="By the numbers, October 2026: 2,678 HTML pages (2,552 indexable URLs in the sitemap), 7,300+ PDF documents, 260 university guides, 2,694 search entries. Last 28 days: 42.6K Google clicks (up 41%), 850K impressions, 32.6K visitors, 82% on mobile, 96% of searches from Algeria, 2,570 pages on Google and 3,268 on Bing." width="100%">
 
-| Page | Route | Description |
-|---|---|---|
-| `index.html` | `/` | Landing page |
-| `simulation.html` | `/simulation` | Live BAC exam simulation |
-| `bac-topics.html` | `/bac-topics` | Subjects & topics browser |
-| `resources.html` | `/resources` | Academic resources library |
-| `tools.html` | `/tools` | Study tools (timer, GPA calc) |
-| `university.html` | `/university` | University guide 2026 |
-| `plans.html` | `/plans` | Study packages & plans |
-| `oqba.html` | `/oqba` | عقبة revision content |
-| `about.html` | `/about` | About the platform |
-| `contact.html` | `/contact` | Contact |
-| `advertise.html` | `/advertise` | Media kit & advertising |
+<br>
 
----
+## ✦ Overview
 
-## 🚀 Features
+**BAC STORY** (باك ستوري) is an Arabic-first study platform for students preparing the Algerian
+Baccalaureate. It puts everything a student needs in one place, organised by stream
+(شعبة) and subject, and it costs nothing to use.
 
-### 🧪 BAC Simulation Engine
-Full exam simulation built across `simulation.html` + `simulation.js`:
+It is a **hand-built static site**: plain HTML, CSS and JavaScript, no framework and no build step.
+It is served from **Cloudflare's edge**, the study documents are streamed from **Google Drive**,
+the images come from **Cloudflare R2**, and a few **Pages Functions** handle the forms.
+The result is fast on a cheap phone and a mobile connection, and it keeps working offline.
 
-- **Real countdown timer** — matches official BAC durations per subject per specialty
-- **All 11 specialties**: Math, Sciences, Tech-Elec, Tech-Civil, Tech-Mech, Tech-Process, Management, Literature, German, Spanish, Italian
-- **Multi-source exam pool** with source badges per card:
-  | Badge | Source | Coverage |
-  |---|---|---|
-  | 🟠 **قناتي** | Channel's own trial exams | 2025 + 2026 |
-  | 🔵 **نافع** | Nafi exam series | Math, Sciences |
-  | 🟣 **مواضيع التميز** | Tamayoz curated papers | All subjects |
-- **Exam strategy guide** — built-in 30-minute selection rule section
-- **Solution viewer** — compare answers with the correction after submission
-- **Focus mode** — distraction-free exam environment
-- **Session persistence** — back/forward navigation via `history.pushState`
-- **Announcement modal** — bottom-sheet on mobile, centered card on desktop, shown once via `localStorage`
+<div align="center">
+  <img src=".github/assets/preview.webp" alt="The BAC STORY homepage on a desktop browser and on a phone" width="100%">
+</div>
 
-### 🔍 Smart Arabic Search Engine
-- 200+ indexed keywords across all pages
-- Full Arabic normalization: "ال-", hamzas, taa marbutas, dialectal variants
-- Instant overlay results via `components/shared.js`
+<br>
 
-### 📚 Academic Resources
-- Content for all BAC subjects across all specialties
-- Summaries, exercises, past papers, corrections
-- Channel video links per topic
+## ✦ Features
 
-### 🏛️ University Guide 2026
-- Directory of Algerian universities and grandes écoles (USTHB, ESC, ENSSEA, EPAU, ENSTP…)
-- Admission cutoffs and major details per specialty
-- Filterable, card-based layout
+<table>
+<tr>
+<td width="50%" valign="top">
 
-### 🛠️ Study Tools
-- **BAC GPA Calculator** — simulate final grade from subject marks
-- **Study Timer** — focus sessions with alarm
-- **Study Packages** — structured revision plans with progress tracking
+### 📚 Study resources
+Summaries, exercises, mind maps and revision packs for every subject of every stream,
+with a built-in PDF viewer and one-tap download.<br>
+<sub>`/resources/{math,sci,tech,ge,le,lp}` · 1,240+ pages</sub>
 
-### 📱 PWA — Installable App
-- `manifest.json` → Android home screen, splash screen
-- `sw.js` → offline caching via Service Worker
-- `apple-touch-icon.png` → iPhone/iPad home screen
+### 📝 BAC exams archive
+Official BAC 2024, 2025 and 2026 papers with solutions, the channel's own trial exams,
+older archives and monthly *excellence topics* (مواضيع التميز) with a file switcher.<br>
+<sub>`/topics` · `/bac-2026` · 700+ pages</sub>
 
-### 🖼️ Favicon System
-| File | Size | Used By |
-|---|---|---|
-| `favicon.ico` | 16+32+48px | Legacy browsers |
-| `favicon-16.png` | 16×16 | Browser tab (small) |
-| `favicon-32.png` | 32×32 | Browser tab (standard) |
-| `apple-touch-icon.png` | 180×180 | iOS home screen |
-| `icon-192.png` | 192×192 | Android home screen |
-| `icon-512.png` | 512×512 | Android splash screen |
+### 📖 Books
+External books (Bournane, Oqba Ibn Nafi and others) per stream and subject.<br>
+<sub>`/resources/books` · `/oqba` · 390 pages</sub>
 
----
+### 🧭 University guide
+260 speciality and school guides (*grandes écoles*, ENS, medicine, paramedical…),
+admission averages and the orientation process.<br>
+<sub>`/university` · `/orientation`</sub>
 
-## 🛠️ Technology Stack
+</td>
+<td width="50%" valign="top">
 
-| Layer | Details |
-|---|---|
-| **Core** | HTML5, Vanilla CSS3, JavaScript ES6+ |
-| **Architecture** | Modular component injection — `components/shared.js` |
-| **Icons** | Font Awesome 6 |
-| **Fonts** | Google Fonts — Tajawal (Arabic UI), Pattaya (display) |
-| **Deployment** | Vercel with clean URLs + cache headers |
-| **Analytics** | Google Analytics 4 |
-| **PWA** | Web App Manifest + Service Worker |
-| **Ads** | `ads-config.js`|
+### 🧪 BAC simulation
+A timed exam room with the official duration for each subject and stream,
+a pool of real and trial papers, focus mode and a solution viewer.<br>
+<sub>`/simulation`</sub>
 
----
+### 🧮 Tools
+- **Grade calculator** for every stream, with the official coefficients and a shareable result
+- **Weighted average calculator** for 6 university fields
+- **Countdown** to the BAC exam
+- **Official answer sheets** to practise on<br>
+<sub>`/tools`</sub>
 
-## 📂 Project Structure
+### 🗓️ Plans and challenges
+Monthly excellence plans, per-subject plans and revision challenges.<br>
+<sub>`/plans`</sub>
 
+### 🤝 Community
+Stories from top students (تجارب المتفوقين), the graduation honours page,
+resource sharing (files upload straight to Drive) and a feedback form.<br>
+<sub>`/experiences` · `/contribute` · `/feedback`</sub>
+
+</td>
+</tr>
+</table>
+
+> [!NOTE]
+> Every stream is covered: **Mathematics, Experimental Sciences, Technical Mathematics, Management & Economics,
+> Foreign Languages, and Literature & Philosophy** (in the code: `math`, `sci`, `tech`, `ge`, `le`, `lp`).
+
+<br>
+
+## ✦ Architecture
+
+```mermaid
+flowchart LR
+    U(["📱 Student<br>browser + service worker"])
+
+    subgraph CF["☁️ Cloudflare"]
+        direction TB
+        P["<b>Pages</b><br>static HTML · CSS · JS<br>_headers · _redirects"]
+        F["<b>Pages Functions</b><br>_middleware.js<br>/api/feedback · /api/upload"]
+        R2[("R2<br>images")]
+    end
+
+    subgraph G["Google"]
+        direction TB
+        D[("Drive<br>PDF documents")]
+        AS["Apps Script<br>form backends"]
+        GTM["Tag Manager → GA4"]
+    end
+
+    U -- "pages" --> P
+    U -- "forms" --> F
+    U -- "images" --> R2
+    U -- "PDF viewer" --> D
+    U -- "events" --> GTM
+    F --> AS
+    AS --> D
 ```
-bac-story/
-│
-├── index.html                  # Landing page
-├── simulation.html             # Exam simulation
-├── bac-topics.html             # Topics & subjects browser
-├── resources.html              # Resources library
-├── tools.html                  # Study tools
-├── university.html             # University guide 2026
-├── plans.html                  # Study packages
-├── oqba.html                   # عقبة content
-├── about.html                  # About
-├── contact.html                # Contact
-├── advertise.html              # Advertising / media kit
-│
-├── style.css                   # Central design system & all animations
-├── script.js                   # General app logic
-├── simulation.js               # Simulation engine — examData, pools, timer, UI
-├── bac-topics.js               # BAC topics page logic
-├── ads-config.js               # Ads slot configuration
+
+| Layer | What it does |
+|---|---|
+| **Static pages** | Every page is a real `.html` file. Cloudflare Pages serves `page.html` as the clean URL `/page`. |
+| **Shared components** | `components/shared.js` injects the navbar, footer and search box into each page, runs the search engine, the page loader, the popups and the share button. |
+| **Documents** | PDFs live in Google Drive and open in an embedded viewer, with a direct download button. Pages with several files use a switcher instead of one page per file. |
+| **Images** | Served from a Cloudflare R2 bucket. |
+| **Forms** | `functions/api/feedback.js` and `functions/api/upload.js` proxy to Google Apps Script. Uploads go to Drive in resumable chunks, through the function, to avoid CORS limits. |
+| **Edge rules** | `functions/_middleware.js` sends the old `pages.dev` address to `www`, hides internal files, and answers `410 Gone` for removed sections. |
+
+> [!IMPORTANT]
+> Pages Functions only run for the paths listed in **`_routes.json`** (the API, guarded files, removed URLs).
+> Everything else is served as a static file. This keeps the site inside the free plan's daily
+> Functions quota. Add a path there only if code must run for it.
+
+<br>
+
+## ✦ Project structure
+
+```text
+.
+├── index.html, about.html, …          21 top-level pages
+├── resources/                         study resources per stream, plus books/
+├── topics/                            BAC 2024–2025, excellence topics, channel exams, archives
+├── bac-2026/                          BAC 2026 papers and solutions per stream
+├── university/                        university guide, speciality/ pages (260)
+├── tools/                             calculator/, weighted-calc/, countdown, exam-sheet/
+├── plans/  oqba/                      revision plans · Oqba Ibn Nafi packs
 │
 ├── components/
-│   ├── shared.js               # Search engine + component injector + announcement
-│   ├── navbar.html             # Navbar
-│   ├── footer.html             # Footer
-│   ├── loader.html             # Page loader
-│   └── search.html             # Search overlay
+│   ├── shared.js                      component loader, search engine, popups, share, loader
+│   ├── navbar.html  footer.html  search.html
+│   └── calculator.js                  grade calculator logic
+├── style.css                          design system (colours, radii, shadows, components)
+├── script.js  simulation.js  bac-2026.js  bac-topics.js  ads-config.js
 │
-├── manifest.json               # PWA manifest (icons, theme, display)
-├── sw.js                       # Service worker (offline cache)
-├── vercel.json                 # Routing + cache headers
+├── functions/
+│   ├── _middleware.js                 redirects, blocked files, 410 Gone
+│   └── api/  feedback.js  upload.js   form backends (proxy to Apps Script)
+├── _headers                           cache and security headers
+├── _redirects                         330+ redirects (old URLs, /tg/ links)
+├── _routes.json                       which paths run Functions
 │
-├── favicon.ico                 # Multi-size browser favicon
-├── favicon-16.png              # 16×16
-├── favicon-32.png              # 32×32
-├── apple-touch-icon.png        # 180×180 — iOS
-├── icon-192.png                # 192×192 — Android
-├── icon-512.png                # 512×512 — Android splash
-└── images/                     # All visual assets
+├── sitemap.xml  robots.txt            search engines
+├── llms.txt  llms-full.txt            AI assistants (llmstxt.org)
+├── search-index.json                  data for the site search
+├── manifest.json  sw.js               installable app and offline cache
+└── scripts/generate-sitemap.py        rebuilds sitemap.xml from the real pages
 ```
 
----
+<br>
 
-## 🌐 Deployment
+## ✦ Design system
 
-Hosted on **Vercel**. `vercel.json` handles:
-- **Clean URL routing** — `/simulation` instead of `/simulation.html`
-- **Cache headers** — long-lived cache for static assets, no-cache for HTML
-- **Arabic locale** — `dir="rtl"` enforced globally
+| Element | Choice |
+|---|---|
+| **Colours** | Primary blue `#2C5CC3` (deep `#1A3A8F`) · accent orange `#FF6B35` · success `#28A745` · text `#212529` |
+| **Type** | **Tajawal** for all Arabic UI · **Pattaya** for the *BAC STORY* wordmark · Font Awesome 6 icons |
+| **Shape** | Rounded cards and pills (radius 8–18 px, pills 999 px), soft blue shadows, gradient hero blocks |
+| **Layout** | Right-to-left, mobile first, with a bottom tab bar on phones |
 
-```
-bacstory.vercel.app/             →  index.html
-bacstory.vercel.app/simulation   →  simulation.html
-bacstory.vercel.app/university   →  university.html
-bacstory.vercel.app/tools        →  tools.html
-bacstory.vercel.app/advertise    →  advertise.html
-```
+All tokens are CSS variables at the top of `style.css` (`--primary-color`, `--secondary-color`, `--radius-*`, `--shadow-*`).
 
----
+<br>
 
-## 📊 Analytics — Last 7 Days
+## ✦ SEO & AI discoverability
 
-| Metric | Value | vs. Previous Period |
+<details open>
+<summary><b>What is in place</b></summary>
+<br>
+
+| Area | How it works |
+|---|---|
+| **Sitemap** | `scripts/generate-sitemap.py` lists only real, indexable pages whose canonical points to themselves; `lastmod` comes from git. |
+| **Canonical URLs** | Identical files published under several streams point to one canonical copy (the one Google already chose), so search engines don't see duplicates. |
+| **Structured data** | JSON-LD on every page: `EducationalOrganization`, `BreadcrumbList`, `FAQPage`, `LearningResource`, `Book`, `CollectionPage`… validated against the schema.org vocabulary. |
+| **Real links** | Navigation uses real `<a href>` links styled as buttons, so crawlers can follow them (the speciality grid is next, see the roadmap). |
+| **robots.txt** | *Answers yes, training no*: search engines and AI assistants are welcome; crawlers that only collect AI training data are blocked. `/api/` is not crawled. |
+| **llms.txt** | `llms.txt` (short index) and `llms-full.txt` (full guide) describe the site for AI assistants. |
+| **Redirects** | Renamed pages keep their traffic through `301` redirects; removed sections answer `410 Gone`. |
+| **Telegram links** | Share `bac-story.com/tg/<page>`: it redirects to `<page>` with UTM tags, so Telegram visits show up in Analytics. |
+
+</details>
+
+> [!WARNING]
+> **Rules for `_redirects`**: exact paths go **first**, rules with `*` or `:placeholders` go in the section at the end.
+> Cloudflare counts every rule after the first wildcard as dynamic, allows **100** of them, and silently
+> skips the rest.
+
+<br>
+
+## ✦ Analytics & monitoring
+
+| Tool | Used for |
+|---|---|
+| **Google Search Console** | Domain property `bac-story.com`: clicks, queries, indexing, duplicates, 404s |
+| **Google Analytics 4** | Through Google Tag Manager (`GTM-T5H3TNJ4`): visitors, pages, sources, events |
+| **Bing Webmaster Tools** | Bing indexing, sitemap, and *AI Performance* (citations in Copilot answers) |
+| **Cloudflare** | Requests, cache, security events, Functions usage |
+| **Ahrefs** (free) | Site audit and backlink checks |
+
+**Custom events** sent to the `dataLayer`:
+
+| Event | Fired when | Source |
 |---|---|---|
-| Page Views | **61,000** | ↑ 98.6% |
-| Active Users | **9,900** | ↑ 57.7% |
-| Total Events | **147,000** | ↑ 90.8% |
+| `page_view` | a section opens inside a multi-section page | `script.js`, `shared.js` |
+| `calculator_result` | the grade calculator shows a result (with `bac_stream`) | `components/calculator.js` |
+| `exam_completed` | a BAC simulation is finished (subject, stream, time spent) | `simulation.js` |
+| `feedback_sent` | the feedback form is sent | `feedback.html` |
+| `telegram_click` | a Telegram link is clicked | GTM trigger |
 
-**Top country:** Algeria 🇩🇿 — 96%+ of all traffic  
+<br>
 
----
+## ✦ Performance & offline
 
-## 👨‍💻 Developer
+| Asset | Browser cache |
+|---|---|
+| Site images (`png`, `jpg`, `webp`, `svg`…) | 1 year, `immutable` |
+| CSS and JS | 1 day, then refreshed in the background (up to 7 days) |
+| Navbar, footer, search box | 1 hour, then refreshed in the background (up to 1 day) |
+| HTML pages | always revalidated, so new content shows at once |
+| `sw.js` | never cached |
 
-**Redouane Mohamed Islem**
-- Telegram Channel: [@BacStoryWithIslem](https://t.me/islembacdz)
-- Telegram Contact: [@bacstorycontact](https://t.me/bacstorycontact)
-- Platform: [BAC STORY](https://www.bac-story.com)
+The **service worker** (`sw.js`) never touches page navigations. It serves CSS, JS, images and
+components from its cache and refreshes them in the background. That makes repeat visits instant
+and lets the site keep working on a weak connection.
 
----
+> [!TIP]
+> After editing `navbar.html`, `footer.html` or `search.html`, bump its `?v=` number in
+> `components/shared.js` so every visitor gets the new version immediately.
+> Do the same for `style.css` / `script.js` in the pages that load them.
 
-*© 2026 BAC STORY — Your Gateway to Baccalaureate Excellence.*
+<br>
+
+## ✦ Development
+
+**Run locally** (the same engine as production, with `_headers`, `_redirects` and Functions):
+
+```bash
+npx wrangler pages dev .
+# → http://localhost:8788
+```
+
+**Deploy:** push to the production branch **`(root)`**. Cloudflare Pages builds and publishes it automatically.
+
+**Rebuild the sitemap** after adding or removing pages:
+
+```bash
+python scripts/generate-sitemap.py
+```
+
+<details>
+<summary><b>Checklist for a new page</b></summary>
+<br>
+
+1. Copy a sibling page so the `<head>` (fonts, GTM, `shared.js`, styles) stays identical.
+2. Give it its own `<title>`, `<meta name="description">`, `<link rel="canonical">`, `og:url` and JSON-LD.
+3. Link to it from its parent page with a real `<a href>` (not `onclick`).
+4. Add it to `search-index.json` so the site search finds it.
+5. Run `scripts/generate-sitemap.py`, and add it to `llms.txt` if it is a main page.
+6. If it replaces an old URL, add a `301` in `_redirects` (exact rules above the wildcard section).
+
+</details>
+
+<details>
+<summary><b>Maintaining this README</b></summary>
+<br>
+
+The banner, the numbers card and the preview are HTML files in `.github/assets/src/`, rendered with the
+site's real fonts:
+
+1. Edit `banner.html`, `stats.html` or `preview.html` (refresh the numbers from Search Console and Analytics).
+2. For `preview.html`, take two screenshots of the homepage at 2× into `src/shots/`: `desktop.png` (1440×900) and `mobile.png` (390×844).
+3. Render the `.banner`, `.card` or `.stage` element at 2× (for example with Playwright), resize to 1760 px wide, and save it as
+   `banner.webp`, `stats.png` and `preview.webp` in `.github/assets/`.
+
+</details>
+
+<br>
+
+## ✦ Roadmap
+
+- [ ] Unique titles and descriptions for the 260 speciality pages, plus real links from the speciality grid
+- [ ] Sharper titles and snippets for the calculator and the countdown, which get many impressions but few clicks
+- [ ] Turn on IndexNow (Cloudflare *Crawler Hints*) so Bing and others see changes at once
+- [ ] Check `page_view` counting on multi-section pages (`/university` shows about 37 views per visitor)
+- [ ] Earn real backlinks from education sites and partners
+- [ ] Compress the heaviest university photos
+
+<br>
+
+## ✦ Contact
+
+<table>
+<tr>
+<td>
+
+**Redouane Mohamed Islem** — founder and developer
+
+📢 Telegram channel: [@islembacdz](https://t.me/islembacdz) &nbsp;·&nbsp;
+💬 Contact: [@bacstorycontact](https://t.me/bacstorycontact) &nbsp;·&nbsp;
+✉️ [contact@bac-story.com](mailto:contact@bac-story.com)<br>
+📸 [Instagram](https://www.instagram.com/bacstory.platform) &nbsp;·&nbsp;
+🎵 [TikTok](https://www.tiktok.com/@bacstory.platform) &nbsp;·&nbsp;
+📘 [Facebook](https://www.facebook.com/share/1EMz54rJGz/)
+
+</td>
+</tr>
+</table>
+
+<div align="center">
+<br>
+<img src="favicon.png" width="56" alt="BAC STORY logo">
+<br>
+<sub><b>BAC STORY</b> · © 2026 · Study documents remain the property of their authors.</sub>
+<br>
+<sub dir="rtl">منصة التميز في البكالوريا</sub>
+</div>
