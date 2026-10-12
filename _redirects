@@ -365,3 +365,7 @@
 # %C9%A3 is the letter ɣ, URL-encoded.
 /resources/:stream/tamazight /resources/:stream/Tamazi%C9%A3t 301
 /resources/:stream/tamazight/* /resources/:stream/Tamazi%C9%A3t/:splat 301
+
+# Any other old /resources/engineering/... page -> same path under /tech/ (rename of 21 Sep 2026).
+# Keep this last: the specific engineering rules above must win.
+/resources/engineering/* /resources/tech/:splat 301

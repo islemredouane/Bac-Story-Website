@@ -13,6 +13,7 @@
 User-agent: *
 Disallow: /apps-script/
 Disallow: /scratch/
+Disallow: /api/
 Disallow: /*-backup.html$
 Disallow: /*.mp3$
 
