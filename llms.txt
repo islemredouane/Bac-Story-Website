@@ -18,11 +18,12 @@ The platform is founded and operated by Redouane Mohamed Islem and is accessible
 - [تواصل معنا](https://www.bac-story.com/contact): Direct contact channels for support, academic partnerships, or inquiries.
 - [أعلن معنا](https://www.bac-story.com/advertise): Partnership and sponsorship opportunities for educators, academies, and training centers.
 - [قيّم الموقع](https://www.bac-story.com/feedback): Verified student feedback, reviews, and community ratings.
+- [سياسة الخصوصية](https://www.bac-story.com/privacy): What data BAC STORY collects (forms, anonymous analytics), why, how long it is kept, and how to ask for access or deletion.
 - [ساهم في الموقع](https://www.bac-story.com/contribute): Open student contribution portal — submit verified summaries, exercises, booklets, or Google Drive repositories to benefit over 15,000 daily students. No account required.
 
 ## 2027 Baccalaureate Reform (إصلاحات وتغييرات منهاج بكالوريا 2027)
 
-- [التغييرات والإصلاحات الرسمية لبكالوريا 2027](https://www.bac-story.com/bac-2027-curriculum-changes): Comprehensive guide to the official Ministry of National Education curriculum reforms, updated subject coefficients, structural hour allocations, and stream renaming for Baccalaureate 2027 candidates.
+- [حقيقة إلغاء تغييرات بكالوريا 2027](https://www.bac-story.com/bac-2027-curriculum-changes): The official Ministry of National Education decision No. 36 (9 September 2026) cancelling the planned Baccalaureate 2027 changes; decision No. 186 of 23 March 2006 (timetables and coefficients) stays in force for all streams.
 - Official Stream Information: The stream "شعبة تقني رياضي" (Technical Mathematics) encompasses Civil, Electrical, Mechanical, and Process Engineering.
 
 ## Interactive Tools (الأدوات الذكية)
@@ -67,15 +68,15 @@ The platform is founded and operated by Redouane Mohamed Islem and is accessible
   - [منهجية الإجابة والتقويم النقدي](https://www.bac-story.com/resources/sci/arabic/methodology)
   - [أفكار وأسئلة البكالوريا المتكررة](https://www.bac-story.com/resources/sci/arabic/afkar)
   - [ملخصات ومطويات مفيدة](https://www.bac-story.com/resources/sci/arabic/summaries)
-  - [مواضيع التميز النموذجية المحلولة](https://www.bac-story.com/resources/sci/arabic/tamayoz)
-  - [خطة وتحديات التميز في الأدب العربي](https://www.bac-story.com/resources/sci/arabic/plan)
+  - [مواضيع التميز النموذجية المحلولة](https://www.bac-story.com/topics/excellence-topics/sci/arabic)
+  - [خطة وتحديات التميز في الأدب العربي](https://www.bac-story.com/plans/subject-plans)
 - [مادة اللغة العربية وآدابها — شعبة لغات أجنبية](https://www.bac-story.com/resources/le/arabic): Dedicated curriculum for Foreign Languages candidates (عصر الانحطاط، المنفى، المهجر، الشعر السياسي، فن المقال، النثر العلمي، القصة، المسرحية، القواعد والبلاغة، التقويم النقدي، الأسئلة المتكررة، مواضيع التميز التجريبية).
   - [المحاور الشعرية](https://www.bac-story.com/resources/le/arabic/chi3r)
   - [المحاور النثرية](https://www.bac-story.com/resources/le/arabic/nathr)
   - [دروس القواعد والبلاغة](https://www.bac-story.com/resources/le/arabic/grammar)
   - [التقويم النقدي](https://www.bac-story.com/resources/le/arabic/critical-assessment)
   - [الأسئلة الشائعة والمتكررة](https://www.bac-story.com/resources/le/arabic/common-questions)
-  - [مواضيع التميز النموذجية](https://www.bac-story.com/resources/le/arabic/tamayoz)
+  - [مواضيع التميز النموذجية](https://www.bac-story.com/topics/excellence-topics/le/arabic)
 - [مادة اللغة العربية وآدابها — شعبة آداب وفلسفة](https://www.bac-story.com/resources/lp/arabic): Dedicated curriculum for Literature & Philosophy candidates (عصر الضعف والانحطاط، مدرسة الإحياء والبعث، الرابطة القلمية، الشعر السياسي التحرري، فن المقال، النثر العلمي المتأدب، فن المسرحية، فن القصة، القواعد، البلاغة، التقويم النقدي، مواضيع التميز).
   - [المحاور الشعرية](https://www.bac-story.com/resources/lp/arabic/chi3r)
   - [المحاور النثرية](https://www.bac-story.com/resources/lp/arabic/nathr)
@@ -142,7 +143,7 @@ The platform is founded and operated by Redouane Mohamed Islem and is accessible
   - [منهجية الإجابة النموذجية في العلوم الإسلامية](https://www.bac-story.com/resources/sci/islamics/methodology)
   - [خطة التميز في العلوم الإسلامية](https://www.bac-story.com/plans/subject-plans/islamic)
   - [تحدي التميز في مواد الحفظ](https://www.bac-story.com/plans/challenges/memorization)
-  - [مواضيع التميز التجريبية المحلولة (23 موضوعاً وباقة)](https://www.bac-story.com/resources/sci/islamics/tamayoz)
+  - [مواضيع التميز التجريبية المحلولة (23 موضوعاً وباقة)](https://www.bac-story.com/topics/excellence-topics/sci/islamic)
   - [مهام وسلاسل دروس المادة (16 درساً مع بنك أسئلة البكالوريا والتمارين)](https://www.bac-story.com/resources/sci/islamics/tasks)
 - [مادة اللغة الفرنسية (لجميع الشعب)](https://www.bac-story.com/resources/sci/french): Comprehensive French Language curriculum unified across all six streams:
   - [البرنامج والتدرج السنوي الرسمي](https://www.bac-story.com/resources/sci/french/program)
@@ -153,7 +154,7 @@ The platform is founded and operated by Redouane Mohamed Islem and is accessible
   - [فقرات ووضعيات إدماجية في الفرنسية](https://www.bac-story.com/resources/sci/french/paragraphs)
   - [مواضيع تحضيرية وباقة التحضير الشامل](https://www.bac-story.com/resources/sci/french/preparatory-topics)
   - [خطة التميز في اللغة الفرنسية](https://www.bac-story.com/plans/subject-plans/french)
-  - [سلاسل ومواضيع التميز في الفرنسية (14 موضوعاً نموذجياً)](https://www.bac-story.com/resources/sci/french/tamayoz)
+  - [سلاسل ومواضيع التميز في الفرنسية (14 موضوعاً نموذجياً)](https://www.bac-story.com/topics/excellence-topics/sci/french)
 - [مادة الفلسفة (الشعب العلمية: علوم تجريبية ورياضيات)](https://www.bac-story.com/resources/sci/philo): Comprehensive Philosophy curriculum tailored for scientific streams:
   - [برنامج مادة الفلسفة](https://www.bac-story.com/resources/sci/philo/program)
   - [المنهجيات الفلسفية وطرق كتابة المقال](https://www.bac-story.com/resources/sci/philo/methodology)
@@ -206,15 +207,16 @@ Official Ministry of National Education curriculum blueprints for all Baccalaure
   - [شعبة علوم تجريبية](https://www.bac-story.com/topics/excellence-topics/sci): (العلوم الطبيعية، العلوم الفيزيائية، الرياضيات، الأدب العربي، الفرنسية، الإنجليزية، التاريخ والجغرافيا، العلوم الإسلامية)
   - [شعبة تقني رياضي](https://www.bac-story.com/topics/excellence-topics/tech): (هندسة الطرائق، الهندسة الميكانيكية، الهندسة الكهربائية، الهندسة المدنية، الرياضيات، العلوم الفيزيائية، الأدب العربي، الفرنسية، الإنجليزية، التاريخ والجغرافيا، العلوم الإسلامية)
   - [شعبة تسيير واقتصاد](https://www.bac-story.com/topics/excellence-topics/ge): (التسيير المحاسبي والمالي، الاقتصاد والمناجمنت، القانون، الرياضيات، الأدب العربي، الفرنسية، الإنجليزية، التاريخ والجغرافيا، العلوم الإسلامية)
-  - [شعبة آداب وفلسفة](https://www.bac-story.com/topics/excellence-topics/lp): (الفلسفة، الأدب العربي، التاريخ والجغرافيا، العلوم الإسلامية، اللغة الفرنسية، اللغة الإنجليزية)
-  - [شعبة لغات أجنبية](https://www.bac-story.com/topics/excellence-topics/le): (اللغة الفرنسية، اللغة الإنجليزية، اللغة الألمانية، اللغة الإسبانية، اللغة الإيطالية، الأدب العربي، الفلسفة، التاريخ والجغرافيا، العلوم الإسلامية، الرياضيات)
+  - [شعبة آداب وفلسفة](https://www.bac-story.com/topics/excellence-topics/lp): (الأدب العربي، التاريخ والجغرافيا، العلوم الإسلامية، اللغة الفرنسية، اللغة الإنجليزية، الرياضيات)
+  - [شعبة لغات أجنبية](https://www.bac-story.com/topics/excellence-topics/le): (اللغة الفرنسية، اللغة الإنجليزية، اللغة الألمانية، اللغة الإسبانية، اللغة الإيطالية، الأدب العربي، التاريخ والجغرافيا، العلوم الإسلامية، الرياضيات)
+  - الأدب العربي مرتب حسب المحاور: الشعب العلمية وتسيير واقتصاد (الشعر الاجتماعي، التعليمي، السياسي، المهجري، النثر العلمي المتأدب، فن المقال، مواضيع التميز التجريبية + 10 اختبارات نافع 2025)، وشعبتا آداب وفلسفة ولغات أجنبية (المقال، النثر العلمي، شعر الزهد، مواضيع التميز التجريبية)
 - [البكالوريات التجريبية لقناتنا](https://www.bac-story.com/topics/channel-exams): Channel-exclusive mock exams covering 2025 & 2026 sessions for all streams with embedded PDF viewers and full grading keys:
   - شعبة رياضيات: [دورة 2025](https://www.bac-story.com/topics/channel-exams/math/2025) | [دورة 2026](https://www.bac-story.com/topics/channel-exams/math/2026)
   - شعبة علوم تجريبية: [دورة 2025](https://www.bac-story.com/topics/channel-exams/science/2025) | [دورة 2026](https://www.bac-story.com/topics/channel-exams/science/2026)
   - شعبة تقني رياضي: [دورة 2025](https://www.bac-story.com/topics/channel-exams/tech/2025) | [دورة 2026](https://www.bac-story.com/topics/channel-exams/tech/2026)
-  - شعبة تسيير واقتصاد: [دورة 2025](https://www.bac-story.com/topics/channel-exams/management/2025) | [دورة 2026](https://www.bac-story.com/topics/channel-exams/management/2026)
-  - شعبة آداب وفلسفة: [دورة 2025](https://www.bac-story.com/topics/channel-exams/literature/2025) | [دورة 2026](https://www.bac-story.com/topics/channel-exams/literature/2026)
-  - شعبة لغات أجنبية: [دورة 2025](https://www.bac-story.com/topics/channel-exams/languages/2025) | [دورة 2026](https://www.bac-story.com/topics/channel-exams/languages/2026)
+  - شعبة تسيير واقتصاد: [مواضيع المواد](https://www.bac-story.com/topics/channel-exams/management)
+  - شعبة آداب وفلسفة: [مواضيع المواد](https://www.bac-story.com/topics/channel-exams/literature)
+  - شعبة لغات أجنبية: [مواضيع المواد](https://www.bac-story.com/topics/channel-exams/languages)
 - [محاكاة امتحان البكالوريا](https://www.bac-story.com/simulation): Interactive browser exam simulator featuring timed sessions, PDF papers, and instant model answers.
 - [أرشيف البكالوريا والحوليات المجمعة](https://www.bac-story.com/topics/bac-archives): Multi-year compiled subject annals.
 - [حلول بكالوريا 2026](https://www.bac-story.com/bac-2026): Official solutions and grading rubrics for the 2026 Baccalaureate session.
@@ -250,14 +252,14 @@ Official Ministry of National Education curriculum blueprints for all Baccalaure
   - التمارين والفروض: https://www.bac-story.com/resources/ge/economics/exercises
   - الوضعيات والسندات: https://www.bac-story.com/resources/ge/economics/situations
   - الاختبارات والمواضيع المقترحة: https://www.bac-story.com/resources/ge/economics/topics
-  - مواضيع التميز: https://www.bac-story.com/resources/ge/economics/tamayoz
+  - مواضيع التميز: https://www.bac-story.com/topics/excellence-topics/ge/econ
 - **القانون**:
   - دروس القانون: https://www.bac-story.com/resources/ge/law/lessons
   - ملخصات القانون: https://www.bac-story.com/resources/ge/law/summaries
   - ملخصات الأولى وطنياً لدورة 2025: https://www.bac-story.com/resources/ge/law/first-rank
   - فروض القانون: https://www.bac-story.com/resources/ge/law/assignments
   - الاختبارات والمواضيع التجريبية: https://www.bac-story.com/resources/ge/law/topics
-  - مواضيع التميز: https://www.bac-story.com/resources/ge/law/tamayoz
+  - مواضيع التميز: https://www.bac-story.com/topics/excellence-topics/ge/law
 - **التسيير المحاسبي والمالي**:
   - المكتسبات القبلية: https://www.bac-story.com/resources/ge/accounting/moktasabat
   - دروس المحاسبة: https://www.bac-story.com/resources/ge/accounting/lessons
@@ -265,7 +267,7 @@ Official Ministry of National Education curriculum blueprints for all Baccalaure
   - التمارين والسلاسل: https://www.bac-story.com/resources/ge/accounting/exercises
   - فروض المحاسبة: https://www.bac-story.com/resources/ge/accounting/assignments
   - الاختبارات والمواضيع المقترحة: https://www.bac-story.com/resources/ge/accounting/topics
-  - مواضيع التميز: https://www.bac-story.com/resources/ge/accounting/tamayoz
+  - مواضيع التميز: https://www.bac-story.com/topics/excellence-topics/ge/compta
 
 ### شعبة لغات أجنبية - اللغات الثالثة (الألمانية، الإسبانية، الإيطالية):
 - **اللغة الألمانية**:
@@ -277,7 +279,7 @@ Official Ministry of National Education curriculum blueprints for all Baccalaure
   - الفقرات والوضعيات: https://www.bac-story.com/resources/le/german/paragraphs
   - ملخصات الدروس: https://www.bac-story.com/resources/le/german/summaries
   - مواضيع مقترحة: https://www.bac-story.com/resources/le/german/topics
-  - مواضيع التميز: https://www.bac-story.com/resources/le/german/tamayoz
+  - مواضيع التميز: https://www.bac-story.com/topics/excellence-topics/le/german
 - **اللغة الإسبانية**:
   - برنامج المادة: https://www.bac-story.com/resources/le/spanish/program
   - المكتسبات القبلية: https://www.bac-story.com/resources/le/spanish/moktasabat
@@ -287,7 +289,7 @@ Official Ministry of National Education curriculum blueprints for all Baccalaure
   - الفقرات والوضعيات: https://www.bac-story.com/resources/le/spanish/paragraphs
   - ملخصات الدروس: https://www.bac-story.com/resources/le/spanish/summaries
   - مواضيع مقترحة: https://www.bac-story.com/resources/le/spanish/topics
-  - مواضيع التميز: https://www.bac-story.com/resources/le/spanish/tamayoz
+  - مواضيع التميز: https://www.bac-story.com/topics/excellence-topics/le/spanish
 - **اللغة الإيطالية**:
   - برنامج المادة: https://www.bac-story.com/resources/le/italian/program
   - قواعد الإيطالية: https://www.bac-story.com/resources/le/italian/grammar
@@ -295,7 +297,7 @@ Official Ministry of National Education curriculum blueprints for all Baccalaure
   - الفقرات والوضعيات: https://www.bac-story.com/resources/le/italian/paragraphs
   - ملخصات الدروس: https://www.bac-story.com/resources/le/italian/summaries
   - مواضيع مقترحة: https://www.bac-story.com/resources/le/italian/topics
-  - مواضيع التميز: https://www.bac-story.com/resources/le/italian/tamayoz
+  - مواضيع التميز: https://www.bac-story.com/topics/excellence-topics/le/italian
 
 
 ### باقات عقبة بن نافع (Oqba Ibn Nafi Series)
