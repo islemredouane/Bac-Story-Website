@@ -11,7 +11,6 @@ const BLOCKED_FILES = new Set([
   '/package.json',
   '/package-lock.json',
   '/.gitignore',
-  '/.vercelignore',
   '/api/form.js',
   '/code.gs',
   '/feedback-apps-script.gs',
