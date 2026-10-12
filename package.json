@@ -1,7 +1,7 @@
 {
-  "name": "bac-website",
+  "name": "bac-story-website",
   "version": "1.0.0",
-  "description": "",
+  "description": "BAC STORY (bac-story.com): free study platform for the Algerian Baccalaureate",
   "type": "module",
   "main": "script.js",
   "scripts": {
@@ -9,13 +9,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/islemredouane/islemredouane.github.io.git"
+    "url": "git+https://github.com/islemredouane/Bac-Story-Website.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Redouane Mohamed Islem",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/islemredouane/islemredouane.github.io/issues"
+    "url": "https://github.com/islemredouane/Bac-Story-Website/issues"
   },
-  "homepage": "https://github.com/islemredouane/islemredouane.github.io#readme"
+  "homepage": "https://www.bac-story.com"
 }
