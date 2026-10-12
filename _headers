@@ -37,6 +37,20 @@
 /components/*
   X-Robots-Tag: noindex
 
+# Header, footer and search box: loaded by shared.js on every page.
+# Browsers keep them 1 hour, then show the saved copy instantly while fetching
+# a fresh one in the background (up to 1 day). To publish a change at once,
+# bump the ?v= number for that file in components/shared.js.
+# (Listed by name, not /components/*, so the .js files there keep their own rule.)
+/components/navbar
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+/components/footer
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+/components/search
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
 /search-index.json
   Cache-Control: public, max-age=86400, stale-while-revalidate=604800
   X-Robots-Tag: noindex

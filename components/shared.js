@@ -1325,7 +1325,8 @@ async function bootPage() {
         // Share button runs immediately — before any async ops that could fail
         try { buildBac2026ShareBtn(); } catch (e) { console.warn(e); }
 
-        // Inject components concurrently with safe timeouts
+        // Inject components concurrently with safe timeouts.
+        // Browsers cache these for 1 hour (see _headers): bump ?v= after editing a component.
         await Promise.all([
             injectComponent('#navbar-placeholder', '/components/navbar?v=1.7'),
             injectComponent('#footer-placeholder', '/components/footer?v=1.7')
@@ -1337,7 +1338,7 @@ async function bootPage() {
             sp.id = 'search-placeholder';
             (document.body || document.documentElement).appendChild(sp);
         }
-        await injectComponent('#search-placeholder', '/components/search');
+        await injectComponent('#search-placeholder', '/components/search?v=1.0');
 
         // Setup after injection - isolate each step so one failure cannot kill boot
         try { setupMobileMenu(); } catch (e) { console.warn('MobileMenu error', e); }

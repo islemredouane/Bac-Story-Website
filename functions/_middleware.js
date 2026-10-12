@@ -31,6 +31,36 @@ const BLOCKED_FOLDERS = [
   '/node_modules',
 ];
 
+// 3) Old addresses that were removed for good. They answer "410 Gone" so search
+//    engines drop them faster than with a plain 404. Each entry also needs a line
+//    in _routes.json, otherwise this code never sees the request.
+//    Folders (the folder itself and everything inside it):
+const GONE_FOLDERS = [
+  // old stream names of the excellence topics (now ge, le, math, lp)
+  '/topics/excellence-topics/gestion',
+  '/topics/excellence-topics/langues',
+  '/topics/excellence-topics/matheleme',
+  '/topics/excellence-topics/litphilo',
+  // computer science pages, removed from the site
+  '/computer-science',
+  '/resources/math/computer-science',
+  '/resources/tech/computer-science',
+];
+//    Single pages:
+const GONE_FILES = new Set([
+  '/university/speciality/ens-francais',
+  '/university/speciality/ens-sport',
+  '/university/speciality/ens-tamazight',
+  '/resources/ge/math/salasil-al-mizan/sequences',
+  '/preview',
+]);
+
+function isGone(pathname) {
+  const p = normalizePath(pathname).replace(/\.html$/, '');
+  if (GONE_FILES.has(p)) return true;
+  return GONE_FOLDERS.some((dir) => p === dir || p.startsWith(dir + '/'));
+}
+
 // Any file with these extensions (source notes, Apps Script, Python tools).
 const BLOCKED_EXTENSIONS = /\.(md|gs|py)$/;
 
@@ -50,7 +80,7 @@ function isBlocked(pathname) {
   return BLOCKED_FOLDERS.some((dir) => p === dir || p.startsWith(dir + '/'));
 }
 
-async function notFound(context) {
+async function notFound(context, status = 404) {
   const headers = {
     'Content-Type': 'text/html; charset=utf-8',
     'Cache-Control': 'public, max-age=300',
@@ -61,10 +91,10 @@ async function notFound(context) {
     if (context.env && context.env.ASSETS) {
       const page = await context.env.ASSETS.fetch(new URL('/404', context.request.url));
       const type = page.headers.get('content-type') || '';
-      if (type.includes('text/html')) return new Response(page.body, { status: 404, headers });
+      if (type.includes('text/html')) return new Response(page.body, { status, headers });
     }
   } catch (e) { /* fall through to the plain response */ }
-  return new Response('Not Found', { status: 404, headers: { ...headers, 'Content-Type': 'text/plain; charset=utf-8' } });
+  return new Response(status === 410 ? 'Gone' : 'Not Found', { status, headers: { ...headers, 'Content-Type': 'text/plain; charset=utf-8' } });
 }
 
 export async function onRequest(context) {
@@ -77,6 +107,10 @@ export async function onRequest(context) {
 
   if (isBlocked(url.pathname)) {
     return notFound(context);
+  }
+
+  if (isGone(url.pathname)) {
+    return notFound(context, 410);
   }
 
   return context.next();
