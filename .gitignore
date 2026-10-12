@@ -33,3 +33,6 @@ preview-site.bat
 
 # Local Cloudflare dev server cache (wrangler pages dev)
 .wrangler/
+
+# README asset screenshots (re-captured when needed, see README "Maintaining this README")
+.github/assets/src/shots/

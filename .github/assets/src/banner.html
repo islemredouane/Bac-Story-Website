@@ -1,0 +1,89 @@
+<!doctype html>
+<!-- README banner. Rendered to ../banner.webp (1280x440 at 2x, then 1760 wide). See README.md, "Maintaining this README" -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Pattaya&display=swap">
+<style>
+  :root {
+    --blue-900: #142c6e; --blue-800: #1a3a8f; --blue-600: #2c5cc3; --blue-500: #3b6fd8;
+    --orange: #ff6b35; --orange-2: #ff9a3c; --white: #ffffff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1280px; height: 440px; background: transparent; }
+  .banner {
+    position: relative; width: 1280px; height: 440px; overflow: hidden; border-radius: 28px;
+    background: linear-gradient(125deg, var(--blue-900) 0%, var(--blue-800) 30%, var(--blue-600) 68%, var(--blue-500) 100%);
+    font-family: 'Tajawal', sans-serif; color: var(--white);
+  }
+  /* soft corner orbs, like the site's navbar */
+  .orb { position: absolute; border-radius: 50%; background: rgba(255,255,255,.07); }
+  .orb.a { width: 420px; height: 420px; right: -120px; top: -170px; }
+  .orb.b { width: 300px; height: 300px; left: -110px; bottom: -150px; background: rgba(255,255,255,.05); }
+  .orb.c { width: 160px; height: 160px; right: 330px; bottom: -90px; background: rgba(255,107,53,.12); }
+  /* dot grid */
+  .dots { position: absolute; inset: 0;
+    background-image: radial-gradient(rgba(255,255,255,.13) 1.2px, transparent 1.3px);
+    background-size: 22px 22px;
+    -webkit-mask-image: linear-gradient(100deg, transparent 0%, #000 45%, transparent 85%);
+            mask-image: linear-gradient(100deg, transparent 0%, #000 45%, transparent 85%); }
+
+  .content { position: absolute; left: 76px; top: 0; bottom: 0; width: 720px;
+    display: flex; flex-direction: column; justify-content: center; }
+  .eyebrow { display: inline-flex; align-self: flex-start; align-items: center; gap: 10px;
+    padding: 8px 16px 7px; border-radius: 999px; background: rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.22); font-size: 15px; font-weight: 700; letter-spacing: .3px; }
+  .eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: #3ddc84; box-shadow: 0 0 0 4px rgba(61,220,132,.22); }
+  h1 { font-family: 'Pattaya', cursive; font-weight: 400; font-size: 96px; line-height: 1.05;
+    margin-top: 18px; letter-spacing: 1px; text-shadow: 0 6px 24px rgba(10,25,70,.35); }
+  h1 .accent { background: linear-gradient(90deg, var(--orange) 0%, var(--orange-2) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .ar { font-size: 34px; font-weight: 800; direction: rtl; text-align: left; margin-top: 6px; opacity: .97; }
+  .en { font-size: 19px; font-weight: 500; margin-top: 10px; color: rgba(255,255,255,.82); }
+  .chips { display: flex; gap: 10px; margin-top: 26px; }
+  .chip { padding: 9px 16px 8px; border-radius: 999px; background: var(--white); color: var(--blue-800);
+    font-size: 15px; font-weight: 800; box-shadow: 0 8px 22px rgba(10,25,70,.22); }
+  .chip.ghost { background: rgba(255,255,255,.12); color: var(--white); border: 1px solid rgba(255,255,255,.28); box-shadow: none; }
+
+  /* logo seal */
+  .seal-wrap { position: absolute; right: 120px; top: 50%; transform: translateY(-50%); width: 290px; height: 290px; }
+  .ring { position: absolute; inset: -26px; border-radius: 50%; border: 1.5px dashed rgba(255,255,255,.25); }
+  .seal { position: absolute; inset: 0; border-radius: 50%;
+    background: radial-gradient(circle at 30% 25%, rgba(255,255,255,.26), rgba(255,255,255,.08) 60%);
+    border: 1px solid rgba(255,255,255,.3); box-shadow: 0 30px 60px rgba(8,20,60,.35), inset 0 1px 0 rgba(255,255,255,.35);
+    display: grid; place-items: center; }
+  .seal img { width: 200px; height: 200px; filter: brightness(0) invert(1) drop-shadow(0 8px 18px rgba(8,20,60,.35)); }
+  .badge { position: absolute; padding: 9px 14px 8px; border-radius: 14px; background: var(--white); color: var(--blue-800);
+    font-size: 14px; font-weight: 800; box-shadow: 0 12px 28px rgba(8,20,60,.28); display: flex; align-items: center; gap: 8px; }
+  .badge b { color: var(--orange); font-size: 17px; }
+  .badge.t { right: -36px; top: 18px; }
+  .badge.b { left: -56px; bottom: 22px; direction: rtl; }
+</style>
+</head>
+<body>
+  <div class="banner">
+    <div class="orb a"></div><div class="orb b"></div><div class="orb c"></div>
+    <div class="dots"></div>
+
+    <div class="content">
+      <span class="eyebrow"><span class="dot"></span> bac-story.com &nbsp;·&nbsp; Live for BAC 2027</span>
+      <h1>BAC <span class="accent">STORY</span></h1>
+      <div class="ar">منصة التميز في البكالوريا</div>
+      <div class="en">The free, all-in-one preparation platform for the Algerian Baccalaureate.</div>
+      <div class="chips">
+        <span class="chip">6 streams</span>
+        <span class="chip">2,600+ pages</span>
+        <span class="chip">7,000+ PDFs</span>
+        <span class="chip ghost">Installable PWA</span>
+      </div>
+    </div>
+
+    <div class="seal-wrap">
+      <div class="ring"></div>
+      <div class="seal"><img src="../../../logo-seal.png" alt=""></div>
+      <div class="badge t"><b>100%</b> free</div>
+      <div class="badge b">لجميع الشعب <b>✓</b></div>
+    </div>
+  </div>
+</body>
+</html>
