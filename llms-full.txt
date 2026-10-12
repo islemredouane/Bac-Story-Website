@@ -91,7 +91,7 @@ The Algerian Baccalaureate comprises six distinct academic streams:
   - Grammar & Rhetoric (https://www.bac-story.com/resources/le/arabic/grammar): Grammar, linguistics, and rhetoric lessons with exercises.
   - Critical Assessment (https://www.bac-story.com/resources/le/arabic/critical-assessment): Literary schools, authors, and critical assessment questions.
   - Common Questions (https://www.bac-story.com/resources/le/arabic/common-questions): High-frequency exam questions with model answers.
-  - Excellence Topics (https://www.bac-story.com/resources/le/arabic/tamayoz): 17 mock exam papers with model grading keys.
+  - Excellence Topics (https://www.bac-story.com/topics/excellence-topics/le/arabic): organised by axis — Makal, Scientific prose, Zuhd poetry and 17 experimental mock exams.
 
 ### Literature & Philosophy Arabic Portal (مادة اللغة العربية وآدابها — شعبة آداب وفلسفة)
 - Target Audience: Literature & Philosophy (آداب وفلسفة) candidates.
@@ -101,7 +101,7 @@ The Algerian Baccalaureate comprises six distinct academic streams:
   - Grammar & Rhetoric (https://www.bac-story.com/resources/lp/arabic/grammar): Grammar, linguistics, and rhetoric lessons with exercises.
   - Critical Assessment (https://www.bac-story.com/resources/lp/arabic/critical-assessment): Literary schools, authors, and critical assessment questions.
   - Common Questions (https://www.bac-story.com/resources/lp/arabic/common-questions): High-frequency exam questions with model answers.
-  - Excellence Topics (https://www.bac-story.com/resources/lp/arabic/tamayoz): 17 mock exam papers with model grading keys.
+  - Excellence Topics (https://www.bac-story.com/topics/excellence-topics/lp/arabic): organised by axis — Makal, Scientific prose, Zuhd poetry and 17 experimental mock exams.
 
 ### Literature & Philosophy Philosophy Portal (مادة الفلسفة — شعبة آداب وفلسفة)
 - Target Audience: Literature & Philosophy (آداب وفلسفة) candidates.
@@ -287,7 +287,7 @@ To prevent cognitive overload during the third-year secondary curriculum, BAC ST
     - Mathematics: https://www.bac-story.com/topics/excellence-topics/math/math
     - Physics: https://www.bac-story.com/topics/excellence-topics/math/physics
     - Natural Sciences: https://www.bac-story.com/topics/excellence-topics/math/biology
-    - Arabic Literature: https://www.bac-story.com/topics/excellence-topics/math/arabic
+    - Arabic Literature (by axis: social, educational, political and Mahjar poetry, scientific prose, essay, experimental topics): https://www.bac-story.com/topics/excellence-topics/math/arabic
     - French: https://www.bac-story.com/topics/excellence-topics/math/french
     - English: https://www.bac-story.com/topics/excellence-topics/math/english
     - History & Geography: https://www.bac-story.com/topics/excellence-topics/math/histgeo
@@ -305,7 +305,7 @@ To prevent cognitive overload during the third-year secondary curriculum, BAC ST
     - Process Engineering: https://www.bac-story.com/topics/excellence-topics/tech/process
     - Mechanical Engineering: https://www.bac-story.com/topics/excellence-topics/tech/meca
     - Electrical Engineering: https://www.bac-story.com/topics/excellence-topics/tech/elec
-    - Civil Engineering: https://www.bac-story.com/topics/excellence-topics/tech/gc
+    - Civil Engineering: https://www.bac-story.com/topics/excellence-topics/tech/civil
     - Mathematics: https://www.bac-story.com/topics/excellence-topics/tech/math
     - Physics: https://www.bac-story.com/topics/excellence-topics/tech/physics
     - Arabic Literature: https://www.bac-story.com/topics/excellence-topics/tech/arabic
@@ -315,7 +315,7 @@ To prevent cognitive overload during the third-year secondary curriculum, BAC ST
     - Islamic Studies: https://www.bac-story.com/topics/excellence-topics/tech/islamic
   - Management & Economics Stream (شعبة تسيير واقتصاد): https://www.bac-story.com/topics/excellence-topics/ge
     - Accounting & Financial Management: https://www.bac-story.com/topics/excellence-topics/ge/compta
-    - Economics & Management: https://www.bac-story.com/topics/excellence-topics/ge/eco
+    - Economics & Management: https://www.bac-story.com/topics/excellence-topics/ge/econ
     - Law: https://www.bac-story.com/topics/excellence-topics/ge/law
     - Mathematics: https://www.bac-story.com/topics/excellence-topics/ge/math
     - Arabic Literature: https://www.bac-story.com/topics/excellence-topics/ge/arabic
@@ -324,12 +324,12 @@ To prevent cognitive overload during the third-year secondary curriculum, BAC ST
     - History & Geography: https://www.bac-story.com/topics/excellence-topics/ge/histgeo
     - Islamic Studies: https://www.bac-story.com/topics/excellence-topics/ge/islamic
   - Literature & Philosophy Stream (شعبة آداب وفلسفة): https://www.bac-story.com/topics/excellence-topics/lp
-    - Philosophy: https://www.bac-story.com/topics/excellence-topics/lp/philo
     - Arabic Literature: https://www.bac-story.com/topics/excellence-topics/lp/arabic
     - History & Geography: https://www.bac-story.com/topics/excellence-topics/lp/histgeo
     - Islamic Studies: https://www.bac-story.com/topics/excellence-topics/lp/islamic
     - French: https://www.bac-story.com/topics/excellence-topics/lp/french
     - English: https://www.bac-story.com/topics/excellence-topics/lp/english
+    - Mathematics: https://www.bac-story.com/topics/excellence-topics/lp/math
   - Foreign Languages Stream (شعبة لغات أجنبية): https://www.bac-story.com/topics/excellence-topics/le
     - French: https://www.bac-story.com/topics/excellence-topics/le/french
     - English: https://www.bac-story.com/topics/excellence-topics/le/english
@@ -337,7 +337,6 @@ To prevent cognitive overload during the third-year secondary curriculum, BAC ST
     - Spanish: https://www.bac-story.com/topics/excellence-topics/le/spanish
     - Italian: https://www.bac-story.com/topics/excellence-topics/le/italian
     - Arabic Literature: https://www.bac-story.com/topics/excellence-topics/le/arabic
-    - Philosophy: https://www.bac-story.com/topics/excellence-topics/le/philo
     - History & Geography: https://www.bac-story.com/topics/excellence-topics/le/histgeo
     - Islamic Studies: https://www.bac-story.com/topics/excellence-topics/le/islamic
     - Mathematics: https://www.bac-story.com/topics/excellence-topics/le/math
@@ -345,9 +344,9 @@ To prevent cognitive overload during the third-year secondary curriculum, BAC ST
   - Mathematics: Session 2025 (https://www.bac-story.com/topics/channel-exams/math/2025) | Session 2026 (https://www.bac-story.com/topics/channel-exams/math/2026)
   - Experimental Sciences: Session 2025 (https://www.bac-story.com/topics/channel-exams/science/2025) | Session 2026 (https://www.bac-story.com/topics/channel-exams/science/2026)
   - Technical Mathematics: Session 2025 (https://www.bac-story.com/topics/channel-exams/tech/2025) | Session 2026 (https://www.bac-story.com/topics/channel-exams/tech/2026)
-  - Management & Economics: Session 2025 (https://www.bac-story.com/topics/channel-exams/management/2025) | Session 2026 (https://www.bac-story.com/topics/channel-exams/management/2026)
-  - Literature & Philosophy: Session 2025 (https://www.bac-story.com/topics/channel-exams/literature/2025) | Session 2026 (https://www.bac-story.com/topics/channel-exams/literature/2026)
-  - Foreign Languages: Session 2025 (https://www.bac-story.com/topics/channel-exams/languages/2025) | Session 2026 (https://www.bac-story.com/topics/channel-exams/languages/2026)
+  - Management & Economics: https://www.bac-story.com/topics/channel-exams/management
+  - Literature & Philosophy: https://www.bac-story.com/topics/channel-exams/literature
+  - Foreign Languages: https://www.bac-story.com/topics/channel-exams/languages
 - Compiled Historical Annals: https://www.bac-story.com/topics/bac-archives
 - Baccalaureate 2026 Official Solutions: https://www.bac-story.com/bac-2026
 
@@ -398,6 +397,7 @@ To prevent cognitive overload during the third-year secondary curriculum, BAC ST
 - Open Graph Banner: https://pub-889477d66bc54c9582bba9a492cf605f.r2.dev/images/og-banner.png
 - Favicon / App Icon: https://www.bac-story.com/apple-touch-icon.png
 - Contact & Academic Inquiries: contact@bac-story.com
+- Privacy Policy: https://www.bac-story.com/privacy
 
 ### شعبة تسيير واقتصاد - المواد التخصصية:
 - **الاقتصاد والمناجمنت**:
@@ -406,14 +406,14 @@ To prevent cognitive overload during the third-year secondary curriculum, BAC ST
   - التمارين والفروض: https://www.bac-story.com/resources/ge/economics/exercises
   - الوضعيات والسندات: https://www.bac-story.com/resources/ge/economics/situations
   - الاختبارات والمواضيع المقترحة: https://www.bac-story.com/resources/ge/economics/topics
-  - مواضيع التميز: https://www.bac-story.com/resources/ge/economics/tamayoz
+  - مواضيع التميز: https://www.bac-story.com/topics/excellence-topics/ge/econ
 - **القانون**:
   - دروس القانون: https://www.bac-story.com/resources/ge/law/lessons
   - ملخصات القانون: https://www.bac-story.com/resources/ge/law/summaries
   - ملخصات الأولى وطنياً لدورة 2025: https://www.bac-story.com/resources/ge/law/first-rank
   - فروض القانون: https://www.bac-story.com/resources/ge/law/assignments
   - الاختبارات والمواضيع التجريبية: https://www.bac-story.com/resources/ge/law/topics
-  - مواضيع التميز: https://www.bac-story.com/resources/ge/law/tamayoz
+  - مواضيع التميز: https://www.bac-story.com/topics/excellence-topics/ge/law
 - **التسيير المحاسبي والمالي**:
   - المكتسبات القبلية: https://www.bac-story.com/resources/ge/accounting/moktasabat
   - دروس المحاسبة: https://www.bac-story.com/resources/ge/accounting/lessons
@@ -421,7 +421,7 @@ To prevent cognitive overload during the third-year secondary curriculum, BAC ST
   - التمارين والسلاسل: https://www.bac-story.com/resources/ge/accounting/exercises
   - فروض المحاسبة: https://www.bac-story.com/resources/ge/accounting/assignments
   - الاختبارات والمواضيع المقترحة: https://www.bac-story.com/resources/ge/accounting/topics
-  - مواضيع التميز: https://www.bac-story.com/resources/ge/accounting/tamayoz
+  - مواضيع التميز: https://www.bac-story.com/topics/excellence-topics/ge/compta
 
 ### شعبة لغات أجنبية - اللغات الثالثة (الألمانية، الإسبانية، الإيطالية):
 - **اللغة الألمانية**:
@@ -433,7 +433,7 @@ To prevent cognitive overload during the third-year secondary curriculum, BAC ST
   - الفقرات والوضعيات: https://www.bac-story.com/resources/le/german/paragraphs
   - ملخصات الدروس: https://www.bac-story.com/resources/le/german/summaries
   - مواضيع مقترحة: https://www.bac-story.com/resources/le/german/topics
-  - مواضيع التميز: https://www.bac-story.com/resources/le/german/tamayoz
+  - مواضيع التميز: https://www.bac-story.com/topics/excellence-topics/le/german
 - **اللغة الإسبانية**:
   - برنامج المادة: https://www.bac-story.com/resources/le/spanish/program
   - المكتسبات القبلية: https://www.bac-story.com/resources/le/spanish/moktasabat
@@ -443,7 +443,7 @@ To prevent cognitive overload during the third-year secondary curriculum, BAC ST
   - الفقرات والوضعيات: https://www.bac-story.com/resources/le/spanish/paragraphs
   - ملخصات الدروس: https://www.bac-story.com/resources/le/spanish/summaries
   - مواضيع مقترحة: https://www.bac-story.com/resources/le/spanish/topics
-  - مواضيع التميز: https://www.bac-story.com/resources/le/spanish/tamayoz
+  - مواضيع التميز: https://www.bac-story.com/topics/excellence-topics/le/spanish
 - **اللغة الإيطالية**:
   - برنامج المادة: https://www.bac-story.com/resources/le/italian/program
   - قواعد الإيطالية: https://www.bac-story.com/resources/le/italian/grammar
@@ -451,7 +451,7 @@ To prevent cognitive overload during the third-year secondary curriculum, BAC ST
   - الفقرات والوضعيات: https://www.bac-story.com/resources/le/italian/paragraphs
   - ملخصات الدروس: https://www.bac-story.com/resources/le/italian/summaries
   - مواضيع مقترحة: https://www.bac-story.com/resources/le/italian/topics
-  - مواضيع التميز: https://www.bac-story.com/resources/le/italian/tamayoz
+  - مواضيع التميز: https://www.bac-story.com/topics/excellence-topics/le/italian
 
 
 ### باقات عقبة بن نافع (Oqba Ibn Nafi Series)
