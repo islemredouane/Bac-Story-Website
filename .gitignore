@@ -30,3 +30,6 @@ apps-script/
 
 # Local preview launcher (not part of the website)
 preview-site.bat
+
+# Local Cloudflare dev server cache (wrangler pages dev)
+.wrangler/
