@@ -301,6 +301,53 @@
 /topics/excellence-topics/tech/process/nafie-2023 /topics/excellence-topics/tech/process 301
 /topics/excellence-topics/tech/process/nafie-2024 /topics/excellence-topics/tech/process 301
 
+# Resources "tamayoz" pages removed on 2026-10-12: their files are on the excellence-topics
+# subject pages (checked file by file), so send visitors there.
+/resources/ge/accounting/tamayoz /topics/excellence-topics/ge/compta 301
+/resources/ge/arabic/tamayoz /topics/excellence-topics/ge/arabic 301
+/resources/ge/economics/tamayoz /topics/excellence-topics/ge/econ 301
+/resources/ge/english/tamayoz /topics/excellence-topics/ge/english 301
+/resources/ge/french/tamayoz /topics/excellence-topics/ge/french 301
+/resources/ge/hist-geo/tamayoz /topics/excellence-topics/ge/histgeo 301
+/resources/ge/islamics/tamayoz /topics/excellence-topics/ge/islamic 301
+/resources/ge/law/tamayoz /topics/excellence-topics/ge/law 301
+/resources/le/arabic/tamayoz /topics/excellence-topics/le/arabic 301
+/resources/le/english/tamayoz /topics/excellence-topics/le/english 301
+/resources/le/french/tamayoz /topics/excellence-topics/le/french 301
+/resources/le/german/tamayoz /topics/excellence-topics/le/german 301
+/resources/le/hist-geo/tamayoz /topics/excellence-topics/le/histgeo 301
+/resources/le/islamics/tamayoz /topics/excellence-topics/le/islamic 301
+/resources/le/italian/tamayoz /topics/excellence-topics/le/italian 301
+/resources/le/spanish/tamayoz /topics/excellence-topics/le/spanish 301
+/resources/lp/arabic/tamayoz /topics/excellence-topics/lp/arabic 301
+/resources/lp/english/tamayoz /topics/excellence-topics/lp/english 301
+/resources/lp/french/tamayoz /topics/excellence-topics/lp/french 301
+/resources/lp/hist-geo/tamayoz /topics/excellence-topics/lp/histgeo 301
+/resources/lp/islamics/tamayoz /topics/excellence-topics/lp/islamic 301
+/resources/math/arabic/tamayoz /topics/excellence-topics/math/arabic 301
+/resources/math/english/tamayoz /topics/excellence-topics/math/english 301
+/resources/math/french/tamayoz /topics/excellence-topics/math/french 301
+/resources/math/hist-geo/tamayoz /topics/excellence-topics/math/histgeo 301
+/resources/math/islamics/tamayoz /topics/excellence-topics/math/islamic 301
+/resources/math/physics/tamayoz /topics/excellence-topics/math/physics 301
+/resources/math/science/tamayoz /topics/excellence-topics/math/biology 301
+/resources/sci/arabic/tamayoz /topics/excellence-topics/sci/arabic 301
+/resources/sci/english/tamayoz /topics/excellence-topics/sci/english 301
+/resources/sci/french/tamayoz /topics/excellence-topics/sci/french 301
+/resources/sci/hist-geo/tamayoz /topics/excellence-topics/sci/histgeo 301
+/resources/sci/islamics/tamayoz /topics/excellence-topics/sci/islamic 301
+/resources/sci/physics/tamayoz /topics/excellence-topics/sci/physics 301
+/resources/sci/science/tamayoz /topics/excellence-topics/sci/biology 301
+/resources/tech/arabic/tamayoz /topics/excellence-topics/tech/arabic 301
+/resources/tech/english/tamayoz /topics/excellence-topics/tech/english 301
+/resources/tech/french/tamayoz /topics/excellence-topics/tech/french 301
+/resources/tech/hist-geo/tamayoz /topics/excellence-topics/tech/histgeo 301
+/resources/tech/islamics/tamayoz /topics/excellence-topics/tech/islamic 301
+/resources/tech/physics/tamayoz /topics/excellence-topics/tech/physics 301
+/topics/excellence-topics/math/histgeo/all /topics/excellence-topics/math/histgeo 301
+/topics/excellence-topics/sci/histgeo/all /topics/excellence-topics/sci/histgeo 301
+/topics/excellence-topics/tech/histgeo/all /topics/excellence-topics/tech/histgeo 301
+
 # ---- Rules with wildcards/placeholders (must stay after all exact-path rules:
 # Cloudflare counts every rule after the first wildcard as dynamic, max 100) ----
 /tg/* /:splat?utm_source=telegram&utm_medium=social&utm_campaign=channel 302
