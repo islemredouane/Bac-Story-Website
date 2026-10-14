@@ -101,15 +101,10 @@
 .cd-action--featured:hover { border-color: transparent; box-shadow: 0 16px 36px rgba(38,96,216,.36); }
 .cd-action__badge { position: absolute; top: 14px; left: 14px; background: var(--secondary-color); color: #fff; font-size: .75rem; font-weight: 800; padding: .3rem .65rem .25rem; border-radius: 999px; box-shadow: 0 4px 12px rgba(255,107,53,.35); }
 
-.cd-faq { display: flex; flex-direction: column; gap: .8rem; }
-.cd-faq__item { background: #fff; border: 1px solid #e6ebf5; border-radius: 16px; box-shadow: 0 6px 18px rgba(44,92,195,.06); overflow: hidden; transition: border-color .2s ease, box-shadow .2s ease; }
-.cd-faq__item[open] { border-color: rgba(44,92,195,.3); box-shadow: 0 10px 26px rgba(44,92,195,.12); }
-.cd-faq__item summary { list-style: none; cursor: pointer; padding: 1.1rem 1.25rem; font-weight: 800; font-size: 1.05rem; color: #1a3a8f; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
-.cd-faq__item summary::-webkit-details-marker { display: none; }
-.cd-faq__item summary i { color: var(--secondary-color); font-size: .9rem; transition: transform .25s ease; flex-shrink: 0; }
-.cd-faq__item[open] summary i { transform: rotate(180deg); }
-.cd-faq__item p { margin: 0; padding: 0 1.25rem 1.2rem; color: #374151; line-height: 1.85; font-size: .98rem; }
-.cd-faq__item p a { color: var(--primary-color); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+
+/* FAQ heading: copied from the landing page (index.html) */
+.hp-social-header { display: flex; flex-direction: column; align-items: center; gap: 1.25rem; margin-bottom: 2.5rem; text-align: center; }
+.hp-social-header h2 { font-size: clamp(1.4rem, 3.5vw, 2rem); font-weight: 900; color: #1e293b; margin: 0; text-wrap: balance; }
 
 @media (max-width: 900px) { .cd-actions { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) {
@@ -126,8 +121,6 @@
     .cd-share__btn { justify-content: center; padding: .6rem .5rem; font-size: .88rem; gap: .4rem; white-space: nowrap; }
     .cd-share__btn i { font-size: 1.05rem; }
     .cd-progress__date { font-size: .85rem; }
-    .cd-faq__item summary { font-size: .98rem; padding: 1rem 1.05rem; }
-    .cd-faq__item p { padding: 0 1.05rem 1.1rem; font-size: .94rem; }
 }
 </style>
 </head>
@@ -203,29 +196,30 @@
             </div>
         </section>
 
-        <section class="cd-section" aria-labelledby="cd-faq-title">
-            <div class="modern-section-header">
-                <h2 id="cd-faq-title">أسئلة شائعة</h2>
+        <!-- FAQ: same design as the landing page (.crc-faq, style.css + shared.js) -->
+        <div class="cd-section">
+            <div class="hp-social-header">
+                <h2 style="background:linear-gradient(120deg,#1a3a8f 0%,#2c5cc5 50%,#3d6ee0 100%);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;color:#2c5cc5;display:flex;align-items:center;justify-content:center;gap:0.45em;"><i class="fas fa-circle-question"></i> أسئلة شائعة</h2>
             </div>
-            <div class="cd-faq">
-                <details class="cd-faq__item">
-                    <summary>متى تُجرى امتحانات بكالوريا 2027 في الجزائر؟<i class="fas fa-chevron-down"></i></summary>
+            <div class="crc-faq">
+                <details>
+                    <summary>متى تُجرى امتحانات بكالوريا 2027 في الجزائر؟ <i class="fas fa-plus"></i></summary>
                     <p>تحدّد وزارة التربية الوطنية الموعد الرسمي في رزنامة الامتحانات. يعتمد العداد حالياً على موعد تقديري هو 7 جوان 2027 على الساعة 08:30، وسنحدّثه فور صدور الرزنامة الرسمية.</p>
                 </details>
-                <details class="cd-faq__item">
-                    <summary>كم تبقى على بكالوريا 2027؟<i class="fas fa-chevron-down"></i></summary>
+                <details>
+                    <summary>كم تبقى على بكالوريا 2027؟ <i class="fas fa-plus"></i></summary>
                     <p>العداد في أعلى الصفحة يحسب الأيام والساعات والدقائق والثواني المتبقية ويتحدّث تلقائياً كل ثانية، مع عدد الأسابيع المتبقية ونسبة ما مضى من العام الدراسي.</p>
                 </details>
-                <details class="cd-faq__item">
-                    <summary>كيف أنظّم مراجعتي في الوقت المتبقي؟<i class="fas fa-chevron-down"></i></summary>
-                    <p>قسّم الوقت المتبقي على الأشهر وابدأ بالمواد ذات المعامل الأكبر في شعبتك. تجد في BAC STORY <a href="/plans/monthly">خططاً شهرية جاهزة</a> و<a href="/plans/subject-plans">خطط تميز لكل مادة</a>.</p>
+                <details>
+                    <summary>كيف أنظّم مراجعتي في الوقت المتبقي؟ <i class="fas fa-plus"></i></summary>
+                    <p>قسّم الوقت المتبقي على الأشهر وابدأ بالمواد ذات المعامل الأكبر في شعبتك. تجد في BAC STORY <a class="crc-faq-link" href="/plans/monthly">خططاً شهرية جاهزة</a> و<a class="crc-faq-link" href="/plans/subject-plans">خطط تميز لكل مادة</a>.</p>
                 </details>
-                <details class="cd-faq__item">
-                    <summary>كيف أحسب معدلي المتوقع في البكالوريا؟<i class="fas fa-chevron-down"></i></summary>
-                    <p>استعمل <a href="/tools/calculator">حاسبة معدل البكالوريا</a>: اختر شعبتك وأدخل علاماتك المتوقعة في كل مادة، فتحصل على معدلك فوراً بالمعاملات الرسمية.</p>
+                <details>
+                    <summary>كيف أحسب معدلي المتوقع في البكالوريا؟ <i class="fas fa-plus"></i></summary>
+                    <p>استعمل <a class="crc-faq-link" href="/tools/calculator">حاسبة معدل البكالوريا</a>: اختر شعبتك وأدخل علاماتك المتوقعة في كل مادة، فتحصل على معدلك فوراً بالمعاملات الرسمية.</p>
                 </details>
             </div>
-        </section>
+        </div>
 
         <div style="text-align:center; margin-top: 2.5rem;">
             <a href="/tools" class="modern-cta-btn" style="display:inline-flex;">
