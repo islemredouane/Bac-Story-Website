@@ -71,18 +71,8 @@
 .cd-progress__date { margin-top: .85rem; font-size: .9rem; font-weight: 500; color: rgba(255,255,255,.72); text-align: center; }
 .cd-progress__date i { margin-left: .3rem; }
 
-.cd-share { display: flex; flex-direction: column; align-items: center; gap: .9rem; margin: -0.5rem auto 3rem; }
-.cd-share__label { font-weight: 700; color: #6b7280; font-size: .98rem; }
-.cd-share__btns { display: flex; gap: .7rem; flex-wrap: wrap; justify-content: center; }
-.cd-share__btn { display: inline-flex; align-items: center; gap: .55rem; padding: .7rem 1.35rem; border-radius: 999px; background: #fff; border: 1px solid #e6ebf5; color: #1f2937 !important; font-family: 'Tajawal', sans-serif; font-weight: 800; font-size: .98rem; text-decoration: none !important; cursor: pointer; box-shadow: 0 6px 18px rgba(44,92,195,.08); transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; min-height: 46px; }
-.cd-share__btn i { font-size: 1.2rem; }
-.cd-share__btn--wa i { color: #25d366; }
-.cd-share__btn--tg i { color: #229ed9; }
-.cd-share__btn--copy i { color: var(--primary-color); }
-.cd-share__btn:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(44,92,195,.14); border-color: rgba(44,92,195,.3); }
-.cd-share__btn.is-done { border-color: #16a34a; }
-.cd-share__btn.is-done i { color: #16a34a; }
 
+.cd-share { text-align: center; margin: -0.5rem auto 3rem; }
 .cd-section { margin: 1rem auto 3rem; max-width: 1000px; }
 .cd-actions { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem; }
 .cd-action { position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: .45rem; padding: 1.4rem 1.25rem 1.2rem; border-radius: 20px; background: linear-gradient(180deg, #ffffff, #f7f9fe); border: 1px solid #e6ebf5; box-shadow: 0 8px 24px rgba(44,92,195,.08); text-decoration: none !important; color: inherit; transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease; }
@@ -117,9 +107,6 @@
     .cd-action__desc { font-size: .82rem; }
     .cd-action__go { font-size: .82rem; }
     .cd-action__badge { top: 10px; left: 10px; font-size: .68rem; }
-    .cd-share__btns { display: grid; grid-template-columns: repeat(3, 1fr); gap: .5rem; width: 100%; max-width: 400px; }
-    .cd-share__btn { justify-content: center; padding: .6rem .5rem; font-size: .88rem; gap: .4rem; white-space: nowrap; }
-    .cd-share__btn i { font-size: 1.05rem; }
     .cd-progress__date { font-size: .85rem; }
 }
 </style>
@@ -154,13 +141,9 @@
             </div>
         </div>
 
+        <!-- Share: opens the site's existing share card (script.js, window._openShareCard) -->
         <div class="cd-share">
-            <span class="cd-share__label">شارك العداد مع أصدقائك</span>
-            <div class="cd-share__btns">
-                <a class="cd-share__btn cd-share__btn--wa" id="cd-share-wa" href="https://wa.me/?text=https%3A%2F%2Fwww.bac-story.com%2Ftools%2Fcountdown" target="_blank" rel="noopener" data-cd-track="share_whatsapp"><i class="fab fa-whatsapp"></i> واتساب</a>
-                <a class="cd-share__btn cd-share__btn--tg" id="cd-share-tg" href="https://t.me/share/url?url=https%3A%2F%2Fwww.bac-story.com%2Ftools%2Fcountdown" target="_blank" rel="noopener" data-cd-track="share_telegram"><i class="fab fa-telegram"></i> تيليغرام</a>
-                <button type="button" class="cd-share__btn cd-share__btn--copy" id="cd-share-copy" data-cd-track="share_copy"><i class="fas fa-link"></i> <span>نسخ الرابط</span></button>
-            </div>
+            <button type="button" class="modern-cta-btn" id="cd-share" data-cd-track="share"><i class="fas fa-share-nodes"></i> شارك العداد مع أصدقائك</button>
         </div>
 
         <section class="cd-section" aria-labelledby="cd-start-title">
@@ -269,28 +252,20 @@
         $('cd-pct').textContent = pct + '%';
         $('cd-fill').style.width = pct + '%';
         $('cd-bar').setAttribute('aria-valuenow', pct);
-        var share = (diff > 0 ? 'باقي ' + count(days, 'يوم', 'يومان', 'أيام', 'يوماً') + ' على بكالوريا 2027 ⏳' : 'بكالوريا 2027') + ' تابع العد التنازلي على BAC STORY:';
-        $('cd-share-wa').href = 'https://wa.me/?text=' + encodeURIComponent(share + ' ' + PAGE);
-        $('cd-share-tg').href = 'https://t.me/share/url?url=' + encodeURIComponent(PAGE) + '&text=' + encodeURIComponent(share);
     }
     render();
     setInterval(render, 60000);
 
-    var copyBtn = $('cd-share-copy');
-    copyBtn.addEventListener('click', function () {
-        function done() {
-            var label = copyBtn.querySelector('span'), icon = copyBtn.querySelector('i');
-            copyBtn.classList.add('is-done'); label.textContent = 'تم النسخ'; icon.className = 'fas fa-check';
-            setTimeout(function () { copyBtn.classList.remove('is-done'); label.textContent = 'نسخ الرابط'; icon.className = 'fas fa-link'; }, 2000);
+    $('cd-share').addEventListener('click', function () {
+        var days = Math.max(0, Math.ceil((target - new Date()) / 86400000));
+        var title = days > 0 ? 'باقي ' + count(days, 'يوم', 'يومان', 'أيام', 'يوماً') + ' على بكالوريا 2027 ⏳' : 'بكالوريا 2027';
+        if (typeof window._openShareCard === 'function') {
+            window._openShareCard(title, PAGE);
+            var head = document.querySelector('.share-card__hero-text strong');
+            if (head) head.textContent = 'شارك العداد';
+        } else if (navigator.share) {
+            navigator.share({ title: title, url: PAGE }).catch(function () {});
         }
-        function fallback() {
-            var t = document.createElement('textarea'); t.value = PAGE; t.setAttribute('readonly', ''); t.style.position = 'fixed'; t.style.opacity = '0';
-            document.body.appendChild(t); t.select();
-            try { document.execCommand('copy'); done(); } catch (e) {}
-            document.body.removeChild(t);
-        }
-        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(PAGE).then(done, fallback);
-        else fallback();
     });
 
     // Analytics: one event per click on the new buttons (GA4 via GTM: event "countdown_click").
