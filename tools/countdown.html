@@ -57,6 +57,79 @@
 <noscript>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Pattaya&display=swap">
 </noscript>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"متى تُجرى امتحانات بكالوريا 2027 في الجزائر؟","acceptedAnswer":{"@type":"Answer","text":"تحدّد وزارة التربية الوطنية الموعد الرسمي في رزنامة الامتحانات. يعتمد العداد حالياً على موعد تقديري هو 7 جوان 2027 على الساعة 08:30، وسنحدّثه فور صدور الرزنامة الرسمية."}},{"@type":"Question","name":"كم تبقى على بكالوريا 2027؟","acceptedAnswer":{"@type":"Answer","text":"العداد في أعلى الصفحة يحسب الأيام والساعات والدقائق والثواني المتبقية ويتحدّث تلقائياً كل ثانية، مع عدد الأسابيع المتبقية ونسبة ما مضى من العام الدراسي."}},{"@type":"Question","name":"كيف أنظّم مراجعتي في الوقت المتبقي؟","acceptedAnswer":{"@type":"Answer","text":"قسّم الوقت المتبقي على الأشهر وابدأ بالمواد ذات المعامل الأكبر في شعبتك. تجد في BAC STORY خططاً شهرية جاهزة وخطط تميز لكل مادة."}},{"@type":"Question","name":"كيف أحسب معدلي المتوقع في البكالوريا؟","acceptedAnswer":{"@type":"Answer","text":"استعمل حاسبة معدل البكالوريا: اختر شعبتك وأدخل علاماتك المتوقعة في كل مادة، فتحصل على معدلك فوراً بالمعاملات الرسمية."}}]}</script>
+<style>
+/* Countdown page additions: progress, share, next steps, FAQ (page-scoped) */
+.cd-progress { position: relative; z-index: 1; max-width: 520px; margin: 2rem auto 0; text-align: right; }
+.cd-progress__row { display: flex; justify-content: space-between; align-items: center; gap: .75rem; flex-wrap: wrap; margin-bottom: .7rem; color: #fff; }
+.cd-progress__weeks { font-weight: 800; font-size: 1.05rem; display: inline-flex; align-items: center; gap: .5rem; }
+.cd-progress__weeks i { color: var(--secondary-color); }
+.cd-progress__pct { font-size: .92rem; font-weight: 500; color: rgba(255,255,255,.8); }
+.cd-progress__pct b { color: #fff; font-weight: 800; unicode-bidi: isolate; }
+.cd-progress__track { height: 10px; border-radius: 999px; background: rgba(255,255,255,.18); box-shadow: inset 0 1px 2px rgba(0,0,0,.12); overflow: hidden; }
+.cd-progress__fill { height: 100%; width: 0; border-radius: inherit; background: linear-gradient(90deg, #ff9a6b, var(--secondary-color)); box-shadow: 0 0 12px rgba(255,107,53,.55); transition: width 1.2s cubic-bezier(.25,.8,.25,1); margin-right: 0; }
+.cd-progress__date { margin-top: .85rem; font-size: .9rem; font-weight: 500; color: rgba(255,255,255,.72); text-align: center; }
+.cd-progress__date i { margin-left: .3rem; }
+
+.cd-share { display: flex; flex-direction: column; align-items: center; gap: .9rem; margin: -0.5rem auto 3rem; }
+.cd-share__label { font-weight: 700; color: #6b7280; font-size: .98rem; }
+.cd-share__btns { display: flex; gap: .7rem; flex-wrap: wrap; justify-content: center; }
+.cd-share__btn { display: inline-flex; align-items: center; gap: .55rem; padding: .7rem 1.35rem; border-radius: 999px; background: #fff; border: 1px solid #e6ebf5; color: #1f2937 !important; font-family: 'Tajawal', sans-serif; font-weight: 800; font-size: .98rem; text-decoration: none !important; cursor: pointer; box-shadow: 0 6px 18px rgba(44,92,195,.08); transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; min-height: 46px; }
+.cd-share__btn i { font-size: 1.2rem; }
+.cd-share__btn--wa i { color: #25d366; }
+.cd-share__btn--tg i { color: #229ed9; }
+.cd-share__btn--copy i { color: var(--primary-color); }
+.cd-share__btn:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(44,92,195,.14); border-color: rgba(44,92,195,.3); }
+.cd-share__btn.is-done { border-color: #16a34a; }
+.cd-share__btn.is-done i { color: #16a34a; }
+
+.cd-section { margin: 1rem auto 3rem; max-width: 1000px; }
+.cd-actions { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem; }
+.cd-action { position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: .45rem; padding: 1.4rem 1.25rem 1.2rem; border-radius: 20px; background: linear-gradient(180deg, #ffffff, #f7f9fe); border: 1px solid #e6ebf5; box-shadow: 0 8px 24px rgba(44,92,195,.08); text-decoration: none !important; color: inherit; transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease; }
+.cd-action:hover { transform: translateY(-4px); border-color: rgba(44,92,195,.35); box-shadow: 0 14px 32px rgba(44,92,195,.16); }
+.cd-action__icon { width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center; background: rgba(44,92,195,.10); color: var(--primary-color); font-size: 1.3rem; margin-bottom: .35rem; }
+.cd-action__title { font-size: 1.12rem; font-weight: 800; color: #1a3a8f; line-height: 1.3; }
+.cd-action__desc { font-size: .9rem; font-weight: 500; color: #6b7280; line-height: 1.55; flex: 1; }
+.cd-action__go { margin-top: .4rem; font-size: .9rem; font-weight: 800; color: var(--primary-color); display: inline-flex; align-items: center; gap: .4rem; }
+.cd-action__go i { font-size: .8rem; transition: transform .22s ease; }
+.cd-action:hover .cd-action__go i { transform: translateX(-4px); }
+.cd-action--featured { background: linear-gradient(135deg, #1a3a8f 0%, #2660d8 60%, #4a82f5 100%); border-color: transparent; box-shadow: 0 12px 30px rgba(38,96,216,.28); }
+.cd-action--featured .cd-action__icon { background: rgba(255,255,255,.16); color: #fff; }
+.cd-action--featured .cd-action__title { color: #fff; }
+.cd-action--featured .cd-action__desc { color: rgba(255,255,255,.8); }
+.cd-action--featured .cd-action__go { color: #fff; }
+.cd-action--featured:hover { border-color: transparent; box-shadow: 0 16px 36px rgba(38,96,216,.36); }
+.cd-action__badge { position: absolute; top: 14px; left: 14px; background: var(--secondary-color); color: #fff; font-size: .75rem; font-weight: 800; padding: .3rem .65rem .25rem; border-radius: 999px; box-shadow: 0 4px 12px rgba(255,107,53,.35); }
+
+.cd-faq { display: flex; flex-direction: column; gap: .8rem; }
+.cd-faq__item { background: #fff; border: 1px solid #e6ebf5; border-radius: 16px; box-shadow: 0 6px 18px rgba(44,92,195,.06); overflow: hidden; transition: border-color .2s ease, box-shadow .2s ease; }
+.cd-faq__item[open] { border-color: rgba(44,92,195,.3); box-shadow: 0 10px 26px rgba(44,92,195,.12); }
+.cd-faq__item summary { list-style: none; cursor: pointer; padding: 1.1rem 1.25rem; font-weight: 800; font-size: 1.05rem; color: #1a3a8f; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.cd-faq__item summary::-webkit-details-marker { display: none; }
+.cd-faq__item summary i { color: var(--secondary-color); font-size: .9rem; transition: transform .25s ease; flex-shrink: 0; }
+.cd-faq__item[open] summary i { transform: rotate(180deg); }
+.cd-faq__item p { margin: 0; padding: 0 1.25rem 1.2rem; color: #374151; line-height: 1.85; font-size: .98rem; }
+.cd-faq__item p a { color: var(--primary-color); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+
+@media (max-width: 900px) { .cd-actions { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) {
+    .cd-progress { margin-top: 1.5rem; }
+    .cd-progress__row { justify-content: center; text-align: center; }
+    .cd-actions { gap: .75rem; }
+    .cd-action { padding: 1.15rem .95rem 1rem; border-radius: 18px; }
+    .cd-action__icon { width: 42px; height: 42px; font-size: 1.1rem; border-radius: 12px; }
+    .cd-action__title { font-size: 1rem; }
+    .cd-action__desc { font-size: .82rem; }
+    .cd-action__go { font-size: .82rem; }
+    .cd-action__badge { top: 10px; left: 10px; font-size: .68rem; }
+    .cd-share__btns { display: grid; grid-template-columns: repeat(3, 1fr); gap: .5rem; width: 100%; max-width: 400px; }
+    .cd-share__btn { justify-content: center; padding: .6rem .5rem; font-size: .88rem; gap: .4rem; white-space: nowrap; }
+    .cd-share__btn i { font-size: 1.05rem; }
+    .cd-progress__date { font-size: .85rem; }
+    .cd-faq__item summary { font-size: .98rem; padding: 1rem 1.05rem; }
+    .cd-faq__item p { padding: 0 1.05rem 1.1rem; font-size: .94rem; }
+}
+</style>
 </head>
 <body>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5H3TNJ4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -78,7 +151,82 @@
                 <div class="time-block"><div class="timer-number" id="t-sec-3">--</div><div class="timer-label">ثانية</div></div>
             </div>
             <div class="timer-done" id="timer-done-3" style="display:none;">🎓 موعد بكالوريا 2027</div>
+            <div class="cd-progress" id="cd-progress">
+                <div class="cd-progress__row">
+                    <span class="cd-progress__weeks"><i class="fas fa-hourglass-half"></i> <span id="cd-weeks">باقي أسابيع قليلة</span></span>
+                    <span class="cd-progress__pct">مضى <b id="cd-pct" dir="ltr">--</b> من العام الدراسي</span>
+                </div>
+                <div class="cd-progress__track" role="progressbar" aria-label="ما مضى من العام الدراسي" aria-valuemin="0" aria-valuemax="100" id="cd-bar"><div class="cd-progress__fill" id="cd-fill"></div></div>
+                <div class="cd-progress__date"><i class="fas fa-calendar-days"></i> الموعد التقديري: <span id="cd-date">7 جوان 2027 · 08:30</span></div>
+            </div>
         </div>
+
+        <div class="cd-share">
+            <span class="cd-share__label">شارك العداد مع أصدقائك</span>
+            <div class="cd-share__btns">
+                <a class="cd-share__btn cd-share__btn--wa" id="cd-share-wa" href="https://wa.me/?text=https%3A%2F%2Fwww.bac-story.com%2Ftools%2Fcountdown" target="_blank" rel="noopener" data-cd-track="share_whatsapp"><i class="fab fa-whatsapp"></i> واتساب</a>
+                <a class="cd-share__btn cd-share__btn--tg" id="cd-share-tg" href="https://t.me/share/url?url=https%3A%2F%2Fwww.bac-story.com%2Ftools%2Fcountdown" target="_blank" rel="noopener" data-cd-track="share_telegram"><i class="fab fa-telegram"></i> تيليغرام</a>
+                <button type="button" class="cd-share__btn cd-share__btn--copy" id="cd-share-copy" data-cd-track="share_copy"><i class="fas fa-link"></i> <span>نسخ الرابط</span></button>
+            </div>
+        </div>
+
+        <section class="cd-section" aria-labelledby="cd-start-title">
+            <div class="modern-section-header">
+                <h2 id="cd-start-title">ابدأ الآن، كل يوم يحسب</h2>
+            </div>
+            <div class="cd-actions">
+                <a class="cd-action cd-action--featured" href="/plans/monthly" data-cd-track="plans_monthly">
+                    <span class="cd-action__badge">ابدأ من هنا</span>
+                    <span class="cd-action__icon"><i class="fas fa-calendar-check"></i></span>
+                    <span class="cd-action__title">الخطط الشهرية</span>
+                    <span class="cd-action__desc">خطة مراجعة لكل شهر حتى يوم الامتحان</span>
+                    <span class="cd-action__go">ابدأ الخطة <i class="fas fa-arrow-left"></i></span>
+                </a>
+                <a class="cd-action" href="/simulation" data-cd-track="simulation">
+                    <span class="cd-action__icon"><i class="fas fa-stopwatch"></i></span>
+                    <span class="cd-action__title">محاكاة البكالوريا</span>
+                    <span class="cd-action__desc">جرّب أجواء الامتحان الحقيقي قبل يومه</span>
+                    <span class="cd-action__go">جرّب الآن <i class="fas fa-arrow-left"></i></span>
+                </a>
+                <a class="cd-action" href="/resources/resumes-exercises" data-cd-track="resumes_exercises">
+                    <span class="cd-action__icon"><i class="fas fa-book-open"></i></span>
+                    <span class="cd-action__title">ملخصات وتمارين</span>
+                    <span class="cd-action__desc">ملخصات كل المواد حسب شعبتك</span>
+                    <span class="cd-action__go">تصفّح المواد <i class="fas fa-arrow-left"></i></span>
+                </a>
+                <a class="cd-action" href="/tools/calculator" data-cd-track="calculator">
+                    <span class="cd-action__icon"><i class="fas fa-calculator"></i></span>
+                    <span class="cd-action__title">حساب المعدل</span>
+                    <span class="cd-action__desc">احسب معدلك المتوقع في البكالوريا</span>
+                    <span class="cd-action__go">احسب معدلك <i class="fas fa-arrow-left"></i></span>
+                </a>
+            </div>
+        </section>
+
+        <section class="cd-section" aria-labelledby="cd-faq-title">
+            <div class="modern-section-header">
+                <h2 id="cd-faq-title">أسئلة شائعة</h2>
+            </div>
+            <div class="cd-faq">
+                <details class="cd-faq__item">
+                    <summary>متى تُجرى امتحانات بكالوريا 2027 في الجزائر؟<i class="fas fa-chevron-down"></i></summary>
+                    <p>تحدّد وزارة التربية الوطنية الموعد الرسمي في رزنامة الامتحانات. يعتمد العداد حالياً على موعد تقديري هو 7 جوان 2027 على الساعة 08:30، وسنحدّثه فور صدور الرزنامة الرسمية.</p>
+                </details>
+                <details class="cd-faq__item">
+                    <summary>كم تبقى على بكالوريا 2027؟<i class="fas fa-chevron-down"></i></summary>
+                    <p>العداد في أعلى الصفحة يحسب الأيام والساعات والدقائق والثواني المتبقية ويتحدّث تلقائياً كل ثانية، مع عدد الأسابيع المتبقية ونسبة ما مضى من العام الدراسي.</p>
+                </details>
+                <details class="cd-faq__item">
+                    <summary>كيف أنظّم مراجعتي في الوقت المتبقي؟<i class="fas fa-chevron-down"></i></summary>
+                    <p>قسّم الوقت المتبقي على الأشهر وابدأ بالمواد ذات المعامل الأكبر في شعبتك. تجد في BAC STORY <a href="/plans/monthly">خططاً شهرية جاهزة</a> و<a href="/plans/subject-plans">خطط تميز لكل مادة</a>.</p>
+                </details>
+                <details class="cd-faq__item">
+                    <summary>كيف أحسب معدلي المتوقع في البكالوريا؟<i class="fas fa-chevron-down"></i></summary>
+                    <p>استعمل <a href="/tools/calculator">حاسبة معدل البكالوريا</a>: اختر شعبتك وأدخل علاماتك المتوقعة في كل مادة، فتحصل على معدلك فوراً بالمعاملات الرسمية.</p>
+                </details>
+            </div>
+        </section>
+
         <div style="text-align:center; margin-top: 2.5rem;">
             <a href="/tools" class="modern-cta-btn" style="display:inline-flex;">
                 <i class="fas fa-tools"></i> كل أدوات البكالوريا
@@ -92,6 +240,73 @@
 <script src="/ads-config.js?v=1.16"></script>
 <script src="/components/shared.js?v=9.62"></script>
 <script src="/script.js?v=9.6"></script>
+<script>
+(function () {
+    // Exam date comes from script.js (TIMERS_CONFIG) so it is set in one place only.
+    var target = new Date(2027, 5, 7, 8, 30, 0);
+    try { var c = TIMERS_CONFIG.filter(function (t) { return t.suffix === '3'; })[0]; if (c) target = c.target; } catch (e) {}
+    var schoolStart = new Date(2026, 8, 21); // first school day 2026-2027 (21 September 2026)
+    var PAGE = 'https://www.bac-story.com/tools/countdown';
+    var DAYS = ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
+    var MONTHS = ['جانفي', 'فيفري', 'مارس', 'أفريل', 'ماي', 'جوان', 'جويلية', 'أوت', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'];
+    function $(id) { return document.getElementById(id); }
+    // Arabic number agreement: 1 أسبوع، 2 أسبوعان، 3-10 أسابيع، 11-99 أسبوعاً
+    function count(n, one, two, few, many) {
+        var r = n % 100;
+        if (n === 1) return one + ' واحد';
+        if (n === 2) return two;
+        if (r >= 3 && r <= 10) return n + ' ' + few;
+        if (r >= 11) return n + ' ' + many;
+        return n + ' ' + one;
+    }
+    var hh = String(target.getHours()).padStart(2, '0') + ':' + String(target.getMinutes()).padStart(2, '0');
+    $('cd-date').textContent = DAYS[target.getDay()] + ' ' + target.getDate() + ' ' + MONTHS[target.getMonth()] + ' ' + target.getFullYear() + ' · ' + hh;
+
+    function render() {
+        var now = new Date(), diff = target - now;
+        var days = Math.max(0, Math.ceil(diff / 86400000));
+        var weeks = Math.floor(days / 7), rest = days % 7;
+        var txt;
+        if (diff <= 0) txt = 'حان موعد البكالوريا، بالتوفيق!';
+        else if (weeks === 0) txt = 'باقي ' + count(days, 'يوم', 'يومان', 'أيام', 'يوماً');
+        else txt = 'باقي ' + count(weeks, 'أسبوع', 'أسبوعان', 'أسابيع', 'أسبوعاً') + (rest ? ' و' + count(rest, 'يوم', 'يومان', 'أيام', 'يوماً') : '');
+        $('cd-weeks').textContent = txt;
+        var pct = Math.round(Math.min(1, Math.max(0, (now - schoolStart) / (target - schoolStart))) * 100);
+        $('cd-pct').textContent = pct + '%';
+        $('cd-fill').style.width = pct + '%';
+        $('cd-bar').setAttribute('aria-valuenow', pct);
+        var share = (diff > 0 ? 'باقي ' + count(days, 'يوم', 'يومان', 'أيام', 'يوماً') + ' على بكالوريا 2027 ⏳' : 'بكالوريا 2027') + ' تابع العد التنازلي على BAC STORY:';
+        $('cd-share-wa').href = 'https://wa.me/?text=' + encodeURIComponent(share + ' ' + PAGE);
+        $('cd-share-tg').href = 'https://t.me/share/url?url=' + encodeURIComponent(PAGE) + '&text=' + encodeURIComponent(share);
+    }
+    render();
+    setInterval(render, 60000);
+
+    var copyBtn = $('cd-share-copy');
+    copyBtn.addEventListener('click', function () {
+        function done() {
+            var label = copyBtn.querySelector('span'), icon = copyBtn.querySelector('i');
+            copyBtn.classList.add('is-done'); label.textContent = 'تم النسخ'; icon.className = 'fas fa-check';
+            setTimeout(function () { copyBtn.classList.remove('is-done'); label.textContent = 'نسخ الرابط'; icon.className = 'fas fa-link'; }, 2000);
+        }
+        function fallback() {
+            var t = document.createElement('textarea'); t.value = PAGE; t.setAttribute('readonly', ''); t.style.position = 'fixed'; t.style.opacity = '0';
+            document.body.appendChild(t); t.select();
+            try { document.execCommand('copy'); done(); } catch (e) {}
+            document.body.removeChild(t);
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(PAGE).then(done, fallback);
+        else fallback();
+    });
+
+    // Analytics: one event per click on the new buttons (GA4 via GTM: event "countdown_click").
+    document.addEventListener('click', function (e) {
+        var el = e.target.closest && e.target.closest('[data-cd-track]');
+        if (!el) return;
+        try { (window.dataLayer = window.dataLayer || []).push({ event: 'countdown_click', link_name: el.getAttribute('data-cd-track') }); } catch (err) {}
+    });
+})();
+</script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "6153c3a6dd54435780cd9d84f9f958f8"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
