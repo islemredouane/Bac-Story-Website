@@ -1040,15 +1040,32 @@
                 hint.innerHTML = h ? '<i class="fas ' + h.icon + '"></i> ' + h.text : '';
                 hint.classList.add('flash');
 
-                // Option B: fire-and-forget POST on first click
-                if (!localStorage.getItem(STAR_KEY) && !localStorage.getItem(SUBMIT_KEY)) {
-                    try { localStorage.setItem(STAR_KEY, String(stars)); } catch (e) {}
-                    if (API.indexOf('http') === 0) {
-                        fetch(API, { method: 'POST', body: JSON.stringify({ stars: stars }) }).catch(function () {});
-                    }
-                }
+                // Quick rating: nothing is sent on tap. The final choice is sent once
+                // when the visitor leaves without sending the form (see sendQuickRating).
+                // Sending on the first tap recorded accidental low stars and counted
+                // everyone who then sent the form twice.
             });
         });
+
+        // Visitor picked stars but left without sending the form: save their final
+        // choice once. Never sent if the form was sent, or if this browser already rated.
+        var quickSent = false;
+        function sendQuickRating() {
+            if (quickSent || !stars || stars < 1 || stars > 5) return;
+            try {
+                if (localStorage.getItem(STAR_KEY) || localStorage.getItem(SUBMIT_KEY)) return;
+            } catch (e) { return; }
+            if (API.indexOf('http') !== 0) return;
+            quickSent = true;
+            var body = JSON.stringify({ stars: stars });
+            var ok = false;
+            try { ok = !!(navigator.sendBeacon && navigator.sendBeacon(API, body)); } catch (e) {}
+            if (!ok) {
+                try { fetch(API, { method: 'POST', body: body, keepalive: true }).catch(function () {}); } catch (e) {}
+            }
+            try { localStorage.setItem(STAR_KEY, String(stars)); } catch (e) {}
+        }
+        window.addEventListener('pagehide', sendQuickRating);
 
         // Pre-fill stars if already quick-rated
         (function () {
@@ -1377,9 +1394,9 @@
             btn.disabled = true;
             btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...';
 
-            // Always send the actual star value — Apps Script rejects stars:0
-            // (the doGet() aggregation already skips rows where stars < 1, so
-            //  any slight double-count is far better than losing the submission)
+            // The full form is the only row for this visitor: block the leave-time
+            // quick rating (sendQuickRating) from adding a second one.
+            quickSent = true;
             var payload = {
                 stars: stars,
                 name: document.getElementById('fbName').value.trim().slice(0, 40),
@@ -1403,6 +1420,7 @@
                     } else { throw new Error('bad response'); }
                 })
                 .catch(function () {
+                    quickSent = false;   // not saved: their stars can still count if they leave
                     btn.disabled = false;
                     btn.innerHTML = '<i class="fas fa-paper-plane"></i> أرسل تقييمك';
                     alert('صرات مشكلة في الإرسال، عاود جرب');
