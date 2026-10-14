@@ -257,14 +257,23 @@
     setInterval(render, 60000);
 
     $('cd-share').addEventListener('click', function () {
-        var days = Math.max(0, Math.ceil((target - new Date()) / 86400000));
-        var title = days > 0 ? 'باقي ' + count(days, 'يوم', 'يومان', 'أيام', 'يوماً') + ' على بكالوريا 2027 ⏳' : 'بكالوريا 2027';
+        var now = new Date(), days = Math.max(0, Math.ceil((target - now) / 86400000));
+        var pct = Math.round(Math.min(1, Math.max(0, (now - schoolStart) / (target - schoolStart))) * 100);
+        var left = 'باقي ' + count(days, 'يوم', 'يومان', 'أيام', 'يوماً') + ' على بكالوريا 2027';
+        // Full message sent to WhatsApp / Telegram (the link is added after it by the share card)
+        var msg = days > 0
+            ? '⏳ ' + left + '\n' +
+              'مضى ' + pct + '% من العام الدراسي… والوقت كالسيف إن لم تقطعه قطعك ⚔️\n\n' +
+              'تابع العد التنازلي وابدأ مراجعتك مع الخطط الشهرية والملخصات لكل الشعب على BAC STORY 👇'
+            : '🎓 حان موعد بكالوريا 2027، بالتوفيق للجميع!\nتابع كل جديد البكالوريا على BAC STORY 👇';
         if (typeof window._openShareCard === 'function') {
-            window._openShareCard(title, PAGE);
+            window._openShareCard(msg, PAGE);
             var head = document.querySelector('.share-card__hero-text strong');
+            var sub = document.getElementById('sc-subject');
             if (head) head.textContent = 'شارك العداد';
+            if (sub) sub.textContent = days > 0 ? left + ' ⏳' : 'بكالوريا 2027'; // short line in the card, full message on send
         } else if (navigator.share) {
-            navigator.share({ title: title, url: PAGE }).catch(function () {});
+            navigator.share({ title: 'BAC STORY', text: msg, url: PAGE }).catch(function () {});
         }
     });
 
