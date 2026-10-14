@@ -143,7 +143,7 @@ window.addEventListener('popstate', (event) => {
 
 const TIMERS_CONFIG = [
     { suffix: '2', target: new Date(2026, 6, 12, 10, 0, 0) }, // July 12 - النتائج
-    { suffix: '3', target: new Date(2027, 5, 7, 8, 30, 0) }, // June 7 2027 - بكالوريا 2027
+    { suffix: '3', target: new Date(2027, 5, 13, 8, 30, 0) }, // June 13 2027 - بكالوريا 2027
 ];
 
 function updateAllTimers() {
