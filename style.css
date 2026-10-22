@@ -1760,14 +1760,22 @@ button i, a i, .btn i, .card-link i, .specialty-link i, .topic-card-btn i {
     }
 }
 
-/* Page fade-in after loader */
+/* Page reveal. The body stays hidden only until the loader covers the screen (shared.js adds
+   html.loader-up right after injecting it). The content then paints behind the loader at once
+   instead of waiting for the whole boot sequence. Failsafe: it shows by itself after 3s even if
+   the scripts fail, so the page can never stay blank. */
 body {
     opacity: 0;
-    transition: opacity 0.4s ease;
+    animation: bs-failsafe-show 0s 3s forwards;
 }
 
+html.loader-up body,
 body.page-ready {
     opacity: 1;
+}
+
+@keyframes bs-failsafe-show {
+    to { opacity: 1; }
 }
 
 /* ============================================
