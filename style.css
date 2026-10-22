@@ -1418,6 +1418,43 @@ button i, a i, .btn i, .card-link i, .specialty-link i, .topic-card-btn i {
 .gcta-card--moktasabat:hover .gcta-btn i.fa-arrow-left {
     transform: translateX(-4px);
 }
+.gcta-card--references {
+    background: linear-gradient(135deg, #1a3a8f 0%, #2c5cc5 55%, #3d6ee0 100%);
+    box-shadow: 0 8px 28px rgba(44, 92, 197, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+}
+.gcta-card--references:hover {
+    box-shadow: 0 18px 44px rgba(44, 92, 197, 0.4) !important;
+}
+.gcta-card--references .gcta-icon-circle {
+    background: #ffffff;
+    box-shadow: 0 4px 14px rgba(26, 58, 143, 0.2);
+}
+.gcta-card--references .gcta-icon-circle i {
+    color: #2c5cc5;
+}
+.gcta-card--references .gcta-text strong {
+    color: #ffffff;
+}
+.gcta-card--references .gcta-text span {
+    color: rgba(255, 255, 255, 0.88);
+}
+.gcta-card--references .gcta-btn {
+    background: linear-gradient(135deg, #ffffff 0%, #f4f7ff 100%);
+    color: #2c5cc5;
+    font-weight: 800;
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    box-shadow: 0 10px 24px rgba(26, 58, 143, 0.2), 0 2px 6px rgba(15, 23, 42, 0.05);
+}
+.gcta-card--references:hover .gcta-btn {
+    background: #ffffff;
+    color: #1a3a8f;
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 12px 28px rgba(26, 58, 143, 0.3);
+}
+.gcta-card--references:hover .gcta-btn i.fa-arrow-left {
+    transform: translateX(-4px);
+}
 .gcta-card--experiences {
     background: linear-gradient(135deg, #065f46 0%, #059669 45%, #10b981 100%);
     box-shadow: 0 8px 28px rgba(5, 150, 105, 0.22);
