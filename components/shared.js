@@ -59,7 +59,7 @@ setTimeout(function () {
 // ─── COMPONENT INJECTOR ───────────────────────────────────────────────────────
 // Component URLs (bump ?v= after editing a component). They are requested as soon as this
 // script runs, in parallel, so the navbar/footer/search are usually ready by DOMContentLoaded.
-const _NAVBAR_URL = '/components/navbar?v=1.7';
+const _NAVBAR_URL = '/components/navbar?v=1.8';
 const _FOOTER_URL = '/components/footer?v=1.7';
 const _SEARCH_URL = '/components/search?v=1.0';
 const _componentFetches = {};
@@ -323,6 +323,17 @@ function injectGlobalCTA() {
 
 // ─── MOBILE MENU SETUP ───────────────────────────────────────────────────────
 function setupMobileMenu() {
+    // Highlight the bottom-bar tab for the current page
+    try {
+        const norm = (x) => (x || '/').replace(/\.html$/, '').replace(/\/+$/, '') || '/';
+        const here = norm(location.pathname);
+        document.querySelectorAll('.mobile-bottom-bar a.bottom-nav-item').forEach((a) => {
+            const h = norm(a.getAttribute('href'));
+            const on = h === '/' ? here === '/' : (here === h || here.indexOf(h + '/') === 0);
+            a.classList.toggle('active', on);
+            if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
+        });
+    } catch (e) {}
     const hamburger = document.getElementById('hamburger');
     const bottomMenuBtn = document.getElementById('bottomMenuBtn');
     const menuClose = document.getElementById('menuClose');
