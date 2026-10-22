@@ -46,10 +46,15 @@ let _loaderDismissed = false;
     document.documentElement.classList.add('loader-up');
 })();
 
-// Safety Watchdog: Under NO circumstances should the loader block the screen longer than 2.5s
+// Safety Watchdog: the loader normally leaves when the page has finished booting (bootPage ->
+// hideLoader). If boot is very slow or stuck, it still never blocks the screen for more than 6 s.
+// (It used to be 2.5 s, which on slow connections removed the loader while the navbar, footer and
+// the sections injected by JS were not there yet, so visitors saw a half-built page.)
 setTimeout(function () {
+    // <main> (one page) is hidden until boot finishes: show it instead of leaving a blank page
+    try { const m = document.querySelector('main'); if (m) m.classList.add('fade-in'); } catch (e) {}
     hideLoader();
-}, 2500);
+}, 6000);
 
 // ─── COMPONENT INJECTOR ───────────────────────────────────────────────────────
 // Component URLs (bump ?v= after editing a component). They are requested as soon as this
@@ -59,14 +64,18 @@ const _FOOTER_URL = '/components/footer?v=1.7';
 const _SEARCH_URL = '/components/search?v=1.0';
 const _componentFetches = {};
 
+// Resolves to the component's HTML text. The body is read right away (inside this chain) so the
+// 2.2 s guard only covers the network wait and can never cut a download that already arrived
+// while the page was still parsing. Rejects on a network error, a timeout or a non-OK status.
 function _fetchComponent(url) {
-    if (typeof AbortSignal !== 'undefined' && typeof AbortSignal.timeout === 'function') {
-        return fetch(url, { signal: AbortSignal.timeout(2200) });
-    }
     const controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
     const timer = controller ? setTimeout(() => controller.abort(), 2200) : null;
     return fetch(url, controller ? { signal: controller.signal } : {})
-        .finally(() => { if (timer) clearTimeout(timer); });
+        .then(function (res) {
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+            return res.text();
+        })
+        .finally(function () { if (timer) clearTimeout(timer); });
 }
 
 if (document.getElementById('navbar-placeholder')) {
@@ -80,18 +89,20 @@ if (document.getElementById('navbar-placeholder')) {
 }
 
 async function injectComponent(selector, url) {
+    let html = null;
+    const early = _componentFetches[url];
+    delete _componentFetches[url];
     try {
-        const res = await (_componentFetches[url] || _fetchComponent(url));
-        if (!res.ok) {
-            console.warn(`Failed to fetch component: ${url} (Status: ${res.status})`);
-            return;
-        }
-        const html = await res.clone().text();
-        const el = document.querySelector(selector);
-        if (el) el.innerHTML = html;
+        html = await (early || _fetchComponent(url));
     } catch (e) {
-        console.warn(`Could not load component: ${url}`, e);
+        if (early) {
+            // The early download failed (slow network): try once more now, like before.
+            try { html = await _fetchComponent(url); } catch (e2) { e = e2; }
+        }
+        if (html === null) { console.warn(`Could not load component: ${url}`, e); return; }
     }
+    const el = document.querySelector(selector);
+    if (el) el.innerHTML = html;
 }
 
 // ─── HIDE LOADER ─────────────────────────────────────────────────────────────
