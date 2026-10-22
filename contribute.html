@@ -525,6 +525,12 @@
         .cnt-what-grid.details { grid-template-columns: repeat(2, 1fr); }
     }
     </style>
+<style id="touch-no-scroll-reveal">
+/* Phones/tablets: show reveal-on-scroll content immediately. Safari on iPhone delays the scroll observers, which left whole sections blank while scrolling. Desktop keeps the animation. */
+@media (hover: none) and (pointer: coarse) {
+  .cnt-r { opacity: 1 !important; transform: none !important; transition: none !important; animation: none !important; }
+}
+</style>
 </head>
 
 <body>

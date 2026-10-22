@@ -569,6 +569,12 @@
     .hp-cta-section h2 { font-size: 1.5rem; }
 }
 </style>
+<style id="touch-no-scroll-reveal">
+/* Phones/tablets: show reveal-on-scroll content immediately. Safari on iPhone delays the scroll observers, which left whole sections blank while scrolling. Desktop keeps the animation. */
+@media (hover: none) and (pointer: coarse) {
+  .hp-reveal { opacity: 1 !important; transform: none !important; transition: none !important; animation: none !important; }
+}
+</style>
 </head>
 <body>
 <noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-T5H3TNJ4" style="display:none;visibility:hidden" width="0"></iframe></noscript>
