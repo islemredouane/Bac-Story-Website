@@ -1414,7 +1414,11 @@ async function bootPage() {
 
     // Show BMA Sponsored Announcement modal (900ms after loader) - appears once every 24 hours
     try {
-        setTimeout(showBac2026AnnouncementModal, 900);
+        setTimeout(function () {
+            // Build the popup when the browser is idle so a tap right after load is never blocked by it
+            if ('requestIdleCallback' in window) window.requestIdleCallback(showBac2026AnnouncementModal, { timeout: 1500 });
+            else showBac2026AnnouncementModal();
+        }, 900);
     } catch (e) {}
 
     // Register Service Worker for PWA / Shortcut functionality
