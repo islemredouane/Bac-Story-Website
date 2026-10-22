@@ -1985,16 +1985,19 @@ main.fade-in {
 .mobile-bottom-bar {
     display: none;
     position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 70px;
+    bottom: calc(10px + env(safe-area-inset-bottom));
+    left: 12px;
+    right: 12px;
+    max-width: 520px;
+    margin: 0 auto;
+    height: 68px;
     background: linear-gradient(135deg, #1a3a8f 0%, #2c5cc5 55%, #3d6ee0 100%);
-    box-shadow: 0 -4px 20px rgba(26, 58, 143, 0.21);
+    border-radius: 22px;
+    box-shadow: 0 10px 28px rgba(26, 58, 143, 0.38), 0 2px 6px rgba(26, 58, 143, 0.25);
     z-index: 1000;
     overflow: hidden;
-    padding: 0.5rem 1rem;
-    padding-bottom: calc(0.5rem + env(safe-area-inset-bottom));
+    padding: 0.35rem;
+    gap: 2px;
 }
 
 .mobile-bottom-bar::before {
@@ -2038,30 +2041,45 @@ body.search-active .mobile-bottom-bar,
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    color: rgba(255, 255, 255, 0.7);
+    justify-content: flex-start;
+    color: rgba(255, 255, 255, 0.72);
     text-decoration: none;
-    font-size: 0.7rem;
+    font-size: 0.64rem;
+    line-height: 1.15;
+    text-align: center;
     font-family: 'Tajawal', sans-serif;
     gap: 2px;
     background: transparent;
     border: none;
+    border-radius: 16px;
     cursor: pointer;
     transition: var(--transition);
-    padding: 0.8rem 0.2rem;
-    /* Increased vertical padding for better hit area */
+    padding: 0.4rem 0.1rem 0.25rem;
     flex: 1;
     min-width: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.bottom-nav-item span {
+    max-width: 100%;
+    white-space: normal;
+    text-wrap: balance;
+}
+
+.bottom-nav-item.active {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
+    font-weight: 500;
 }
 
 .bottom-nav-item i {
-    font-size: 1.25rem;
-    margin-bottom: 2px;
+    font-size: 1.1rem;
+    line-height: 1;
+    margin-bottom: 1px;
 }
 
 .bottom-nav-item:hover {
     background: rgba(255, 255, 255, 0.15);
-    border-radius: 12px;
 }
 
 .dropdown {
@@ -2244,8 +2262,8 @@ body.search-active .mobile-bottom-bar,
 
 @media screen and (max-width: 1100px) {
     body {
-        padding-bottom: 70px;
-        /* Space for the bottom navbar */
+        padding-bottom: calc(92px + env(safe-area-inset-bottom));
+        /* Space for the floating bottom navbar */
     }
 
     .nav-container {
@@ -11760,15 +11778,15 @@ a.spec-detail-btn {
 
 @media screen and (max-width: 1100px) {
     .scroll-top-btn {
-        bottom: 80px;
+        bottom: calc(98px + env(safe-area-inset-bottom));
     }
 
     .uni-share-btn {
-        bottom: 134px;
+        bottom: calc(152px + env(safe-area-inset-bottom));
     }
 
     .uni-share-toast {
-        bottom: 134px;
+        bottom: calc(152px + env(safe-area-inset-bottom));
     }
 }
 
