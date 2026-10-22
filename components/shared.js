@@ -40,35 +40,69 @@ let _loaderDismissed = false;
     } catch (e) {
         console.warn('Loader inject error', e);
     }
+    // The loader now covers the screen, so the page behind it can be painted right away
+    // (style.css keeps the body hidden until this class exists). The visitor still sees the
+    // loader first; the page just no longer waits for the whole boot sequence to start painting.
+    document.documentElement.classList.add('loader-up');
 })();
 
-// Safety Watchdog: Under NO circumstances should the loader block the screen longer than 2.5s
+// Safety Watchdog: the loader normally leaves when the page has finished booting (bootPage ->
+// hideLoader). If boot is very slow or stuck, it still never blocks the screen for more than 6 s.
+// (It used to be 2.5 s, which on slow connections removed the loader while the navbar, footer and
+// the sections injected by JS were not there yet, so visitors saw a half-built page.)
 setTimeout(function () {
+    // <main> (one page) is hidden until boot finishes: show it instead of leaving a blank page
+    try { const m = document.querySelector('main'); if (m) m.classList.add('fade-in'); } catch (e) {}
     hideLoader();
-}, 2500);
+}, 6000);
 
 // ─── COMPONENT INJECTOR ───────────────────────────────────────────────────────
+// Component URLs (bump ?v= after editing a component). They are requested as soon as this
+// script runs, in parallel, so the navbar/footer/search are usually ready by DOMContentLoaded.
+const _NAVBAR_URL = '/components/navbar?v=1.7';
+const _FOOTER_URL = '/components/footer?v=1.7';
+const _SEARCH_URL = '/components/search?v=1.0';
+const _componentFetches = {};
+
+// Resolves to the component's HTML text. The body is read right away (inside this chain) so the
+// 2.2 s guard only covers the network wait and can never cut a download that already arrived
+// while the page was still parsing. Rejects on a network error, a timeout or a non-OK status.
+function _fetchComponent(url) {
+    const controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+    const timer = controller ? setTimeout(() => controller.abort(), 2200) : null;
+    return fetch(url, controller ? { signal: controller.signal } : {})
+        .then(function (res) {
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+            return res.text();
+        })
+        .finally(function () { if (timer) clearTimeout(timer); });
+}
+
+if (document.getElementById('navbar-placeholder')) {
+    [_NAVBAR_URL, _FOOTER_URL, _SEARCH_URL].forEach(function (u) {
+        try {
+            const p = _fetchComponent(u);
+            p.catch(function () {});               // errors are handled where the result is used
+            _componentFetches[u] = p;
+        } catch (e) {}
+    });
+}
+
 async function injectComponent(selector, url) {
+    let html = null;
+    const early = _componentFetches[url];
+    delete _componentFetches[url];
     try {
-        let res;
-        if (typeof AbortSignal !== 'undefined' && typeof AbortSignal.timeout === 'function') {
-            res = await fetch(url, { signal: AbortSignal.timeout(2200) });
-        } else {
-            const controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
-            const timer = controller ? setTimeout(() => controller.abort(), 2200) : null;
-            res = await fetch(url, controller ? { signal: controller.signal } : {});
-            if (timer) clearTimeout(timer);
-        }
-        if (!res.ok) {
-            console.warn(`Failed to fetch component: ${url} (Status: ${res.status})`);
-            return;
-        }
-        const html = await res.text();
-        const el = document.querySelector(selector);
-        if (el) el.innerHTML = html;
+        html = await (early || _fetchComponent(url));
     } catch (e) {
-        console.warn(`Could not load component: ${url}`, e);
+        if (early) {
+            // The early download failed (slow network): try once more now, like before.
+            try { html = await _fetchComponent(url); } catch (e2) { e = e2; }
+        }
+        if (html === null) { console.warn(`Could not load component: ${url}`, e); return; }
     }
+    const el = document.querySelector(selector);
+    if (el) el.innerHTML = html;
 }
 
 // ─── HIDE LOADER ─────────────────────────────────────────────────────────────
@@ -1338,8 +1372,8 @@ async function bootPage() {
         // Inject components concurrently with safe timeouts.
         // Browsers cache these for 1 hour (see _headers): bump ?v= after editing a component.
         await Promise.all([
-            injectComponent('#navbar-placeholder', '/components/navbar?v=1.7'),
-            injectComponent('#footer-placeholder', '/components/footer?v=1.7')
+            injectComponent('#navbar-placeholder', _NAVBAR_URL),
+            injectComponent('#footer-placeholder', _FOOTER_URL)
         ]);
 
         // Ensure search placeholder is at body level for max z-index
@@ -1348,7 +1382,7 @@ async function bootPage() {
             sp.id = 'search-placeholder';
             (document.body || document.documentElement).appendChild(sp);
         }
-        await injectComponent('#search-placeholder', '/components/search?v=1.0');
+        await injectComponent('#search-placeholder', _SEARCH_URL);
 
         // Setup after injection - isolate each step so one failure cannot kill boot
         try { setupMobileMenu(); } catch (e) { console.warn('MobileMenu error', e); }
@@ -1391,7 +1425,11 @@ async function bootPage() {
 
     // Show BMA Sponsored Announcement modal (900ms after loader) - appears once every 24 hours
     try {
-        setTimeout(showBac2026AnnouncementModal, 900);
+        setTimeout(function () {
+            // Build the popup when the browser is idle so a tap right after load is never blocked by it
+            if ('requestIdleCallback' in window) window.requestIdleCallback(showBac2026AnnouncementModal, { timeout: 1500 });
+            else showBac2026AnnouncementModal();
+        }, 900);
     } catch (e) {}
 
     // Register Service Worker for PWA / Shortcut functionality
