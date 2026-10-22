@@ -2054,8 +2054,8 @@ body.search-active .mobile-bottom-bar,
     border-radius: 28px;
     cursor: pointer;
     transition: var(--transition);
-    padding: 0.3rem 0.65rem;
-    flex: 1 1 auto;
+    padding: 0.3rem 0.05rem;
+    flex: 1;
     min-width: 0;
     -webkit-tap-highlight-color: transparent;
 }
