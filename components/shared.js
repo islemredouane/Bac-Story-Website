@@ -178,7 +178,7 @@ function injectGlobalCTA() {
             <div class="gcta-icon-circle"><i class="fas fa-star"></i></div>
             <div class="gcta-text">
                 <strong>قيّم تجربتك مع BAC STORY</strong>
-                <span>سواء كنت من دفعة 2026 أو بدأت مشوار 2027 — رأيك يساعدنا نطوّر المنصة</span>
+                <span>سواء كنت من دفعة 2026 أو بدأت مشوار 2027 — رأيك يساعدنا في تطوير المنصة</span>
             </div>
             <div class="gcta-btn">اكتب رأيك <i class="fas fa-arrow-left"></i></div>
         </a>
