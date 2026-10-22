@@ -110,7 +110,16 @@ function injectGlobalCTA() {
             </div>
             <div class="gcta-btn">تصفح الكُتيّب <i class="fas fa-arrow-left"></i></div>
         </a>
-        <!-- 2. Experiences of Top Rankers -->
+        <!-- 2. Approved References Booklet (same family as the prerequisites booklet, brand blue) -->
+        <a href="/plans/subject-plans/references" class="gcta-card gcta-card--references">
+            <div class="gcta-icon-circle"><i class="fas fa-book-bookmark"></i></div>
+            <div class="gcta-text">
+                <strong>كُتيّب المراجع المعتمدة 2027</strong>
+                <span>أفضل أساتذة اليوتيوب لكل مادة وكل شعبة، وكيفاش تختار مصادرك</span>
+            </div>
+            <div class="gcta-btn">تصفح الكُتيّب <i class="fas fa-arrow-left"></i></div>
+        </a>
+        <!-- 3. Experiences of Top Rankers -->
         <a href="/experiences" class="gcta-card gcta-card--experiences">
             <div class="gcta-icon-circle"><i class="fas fa-medal"></i></div>
             <div class="gcta-text">
@@ -119,7 +128,7 @@ function injectGlobalCTA() {
             </div>
             <div class="gcta-btn">تصفح التجارب <i class="fas fa-arrow-left"></i></div>
         </a>
-        <!-- 3. Essential Bag & Resources -->
+        <!-- 4. Essential Bag & Resources -->
         <a href="/resources" class="gcta-card gcta-card--resources">
             <div class="gcta-icon-circle"><i class="fas fa-briefcase"></i></div>
             <div class="gcta-text">
@@ -128,7 +137,7 @@ function injectGlobalCTA() {
             </div>
             <div class="gcta-btn">تصفح المصادر <i class="fas fa-arrow-left"></i></div>
         </a>
-        <!-- 4. Monthly Study Plans -->
+        <!-- 5. Monthly Study Plans -->
         <a href="/plans/monthly" class="gcta-card gcta-card--plans">
             <div class="gcta-icon-circle"><i class="fas fa-rocket"></i></div>
             <div class="gcta-text">
@@ -137,7 +146,7 @@ function injectGlobalCTA() {
             </div>
             <div class="gcta-btn">تصفح الخطط <i class="fas fa-arrow-left"></i></div>
         </a>
-        <!-- 5. Oqba Roadmaps -->
+        <!-- 6. Oqba Roadmaps -->
         <a href="/oqba" class="gcta-card gcta-card--oqba">
             <div class="gcta-icon-circle"><i class="fas fa-map-signs"></i></div>
             <div class="gcta-text">
@@ -146,7 +155,7 @@ function injectGlobalCTA() {
             </div>
             <div class="gcta-btn">اكتشف الباقات <i class="fas fa-arrow-left"></i></div>
         </a>
-        <!-- 6. Telegram Community & News -->
+        <!-- 7. Telegram Community & News -->
         <a href="https://t.me/islembacdz" target="_blank" rel="noopener noreferrer" class="gcta-card gcta-card--news">
             <div class="gcta-icon-circle"><i class="fas fa-newspaper"></i></div>
             <div class="gcta-text">
@@ -155,7 +164,7 @@ function injectGlobalCTA() {
             </div>
             <div class="gcta-btn">تابع الأخبار <i class="fas fa-arrow-left"></i></div>
         </a>
-        <!-- 7. Contribute Resources -->
+        <!-- 8. Contribute Resources -->
         <a href="/contribute" class="gcta-card gcta-card--contribute">
             <div class="gcta-icon-circle"><i class="fas fa-upload"></i></div>
             <div class="gcta-text">
@@ -164,7 +173,7 @@ function injectGlobalCTA() {
             </div>
             <div class="gcta-btn">شارك الآن <i class="fas fa-arrow-left"></i></div>
         </a>
-        <!-- 8. Platform Feedback & Rating -->
+        <!-- 9. Platform Feedback & Rating -->
         <a href="/feedback" class="gcta-card gcta-card--feedback">
             <div class="gcta-icon-circle"><i class="fas fa-star"></i></div>
             <div class="gcta-text">
@@ -177,6 +186,7 @@ function injectGlobalCTA() {
     <!-- Mobile-only rotation dots (count = active gcta-card count) -->
     <div class="gcta-dots" id="gcta-dots">
         <span class="gcta-dot gcta-dot--active"></span>
+        <span class="gcta-dot"></span>
         <span class="gcta-dot"></span>
         <span class="gcta-dot"></span>
         <span class="gcta-dot"></span>
