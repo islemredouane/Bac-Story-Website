@@ -1993,6 +1993,7 @@ main.fade-in {
     height: 64px;
     background: linear-gradient(135deg, #1a3a8f 0%, #2c5cc5 55%, #3d6ee0 100%);
     border-radius: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
     box-shadow: 0 10px 28px rgba(26, 58, 143, 0.38), 0 2px 6px rgba(26, 58, 143, 0.25);
     z-index: 1000;
     overflow: hidden;
@@ -2269,9 +2270,10 @@ body.search-active .mobile-bottom-bar,
 /* Mobile Navigation below 1100px kicks in */
 
 @media screen and (max-width: 1100px) {
-    body {
+    /* Floating bottom navbar: the footer itself reserves the space under it
+       (no blank strip below the footer). Pages without a footer keep it on body. */
+    body:not(:has(.footer-arabic)) {
         padding-bottom: calc(88px + env(safe-area-inset-bottom));
-        /* Space for the floating bottom navbar */
     }
 
     .nav-container {
@@ -6602,6 +6604,12 @@ body.pdf-body-lock [id="footer-placeholder"] {
     margin-top: 2rem;
     border-top: 3px solid rgba(255, 255, 255, 0.15);
     overflow: hidden;
+}
+
+@media screen and (max-width: 1100px) {
+    .footer-arabic {
+        padding-bottom: calc(0.5rem + 84px + env(safe-area-inset-bottom));
+    }
 }
 
 .footer-arabic::before {
