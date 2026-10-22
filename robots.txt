@@ -33,6 +33,8 @@ User-agent: Applebot-Extended
 User-agent: PetalBot
 User-agent: Google-CloudVertexBot
 User-agent: Timpibot
+User-agent: DeepseekBot
+User-agent: xAI-Bot
 Disallow: /
 
 # -------------------------------------------------------------
