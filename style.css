@@ -2071,6 +2071,15 @@ body.search-active .mobile-bottom-bar,
     font-weight: 500;
 }
 
+/* The site has generic ".active" rules (display/width/margin) that would
+   otherwise shift the selected tab; pin its layout so it matches the rest. */
+.mobile-bottom-bar .bottom-nav-item.active {
+    display: flex !important;
+    flex-direction: column !important;
+    width: auto !important;
+    margin: 0 !important;
+}
+
 .bottom-nav-item i {
     font-size: 1.1rem;
     line-height: 1;
