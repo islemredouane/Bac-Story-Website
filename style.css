@@ -1985,16 +1985,20 @@ main.fade-in {
 .mobile-bottom-bar {
     display: none;
     position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 70px;
+    bottom: calc(10px + env(safe-area-inset-bottom));
+    left: 12px;
+    right: 12px;
+    max-width: 520px;
+    margin: 0 auto;
+    height: 64px;
     background: linear-gradient(135deg, #1a3a8f 0%, #2c5cc5 55%, #3d6ee0 100%);
-    box-shadow: 0 -4px 20px rgba(26, 58, 143, 0.21);
+    border-radius: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 10px 28px rgba(26, 58, 143, 0.38), 0 2px 6px rgba(26, 58, 143, 0.25);
     z-index: 1000;
     overflow: hidden;
-    padding: 0.5rem 1rem;
-    padding-bottom: calc(0.5rem + env(safe-area-inset-bottom));
+    padding: 0.3rem;
+    gap: 0;
 }
 
 .mobile-bottom-bar::before {
@@ -2039,29 +2043,52 @@ body.search-active .mobile-bottom-bar,
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.72);
     text-decoration: none;
-    font-size: 0.7rem;
+    font-size: clamp(0.56rem, 3vw, 0.7rem);
+    line-height: 1.15;
+    text-align: center;
     font-family: 'Tajawal', sans-serif;
     gap: 2px;
     background: transparent;
     border: none;
+    border-radius: 28px;
     cursor: pointer;
     transition: var(--transition);
-    padding: 0.8rem 0.2rem;
-    /* Increased vertical padding for better hit area */
+    padding: 0.3rem 0.05rem;
     flex: 1;
     min-width: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.bottom-nav-item span {
+    max-width: 100%;
+    white-space: nowrap;
+}
+
+.bottom-nav-item.active {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
+    font-weight: 500;
+}
+
+/* The site has generic ".active" rules (display/width/margin) that would
+   otherwise shift the selected tab; pin its layout so it matches the rest. */
+.mobile-bottom-bar .bottom-nav-item.active {
+    display: flex !important;
+    flex-direction: column !important;
+    width: auto !important;
+    margin: 0 !important;
 }
 
 .bottom-nav-item i {
-    font-size: 1.25rem;
-    margin-bottom: 2px;
+    font-size: 1.1rem;
+    line-height: 1;
+    margin-bottom: 1px;
 }
 
 .bottom-nav-item:hover {
     background: rgba(255, 255, 255, 0.15);
-    border-radius: 12px;
 }
 
 .dropdown {
@@ -2243,9 +2270,10 @@ body.search-active .mobile-bottom-bar,
 /* Mobile Navigation below 1100px kicks in */
 
 @media screen and (max-width: 1100px) {
-    body {
-        padding-bottom: 70px;
-        /* Space for the bottom navbar */
+    /* Floating bottom navbar: the footer itself reserves the space under it
+       (no blank strip below the footer). Pages without a footer keep it on body. */
+    body:not(:has(.footer-arabic)) {
+        padding-bottom: calc(88px + env(safe-area-inset-bottom));
     }
 
     .nav-container {
@@ -6576,6 +6604,12 @@ body.pdf-body-lock [id="footer-placeholder"] {
     margin-top: 2rem;
     border-top: 3px solid rgba(255, 255, 255, 0.15);
     overflow: hidden;
+}
+
+@media screen and (max-width: 1100px) {
+    .footer-arabic {
+        padding-bottom: calc(0.5rem + 84px + env(safe-area-inset-bottom));
+    }
 }
 
 .footer-arabic::before {
@@ -11760,15 +11794,15 @@ a.spec-detail-btn {
 
 @media screen and (max-width: 1100px) {
     .scroll-top-btn {
-        bottom: 80px;
+        bottom: calc(94px + env(safe-area-inset-bottom));
     }
 
     .uni-share-btn {
-        bottom: 134px;
+        bottom: calc(148px + env(safe-area-inset-bottom));
     }
 
     .uni-share-toast {
-        bottom: 134px;
+        bottom: calc(148px + env(safe-area-inset-bottom));
     }
 }
 
