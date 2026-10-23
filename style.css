@@ -11728,6 +11728,32 @@ a.spec-detail-btn {
     transform: translateY(-50%) translateX(0);
 }
 
+/* The + sits in the bottom bar, so its tooltip opens ABOVE it (colours/shape come from the shared rules above) */
+.mobile-bottom-bar .bottom-nav-add::after {
+    left: 50%;
+    top: auto;
+    bottom: calc(100% + 14px);
+    transform: translateX(-50%) translateY(6px);
+}
+
+.mobile-bottom-bar .bottom-nav-add::before {
+    left: 50%;
+    top: auto;
+    bottom: calc(100% + 8px);
+    transform: translateX(-50%) translateY(6px);
+    border-top: 6px solid var(--primary-color);
+    border-bottom: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+}
+
+.mobile-bottom-bar .bottom-nav-add:hover::after,
+.mobile-bottom-bar .bottom-nav-add:hover::before,
+.mobile-bottom-bar .bottom-nav-add:focus-visible::after,
+.mobile-bottom-bar .bottom-nav-add:focus-visible::before {
+    transform: translateX(-50%) translateY(0);
+}
+
 .uni-share-btn {
     position: fixed;
     bottom: 144px;
