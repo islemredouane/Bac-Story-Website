@@ -2072,6 +2072,38 @@ body.search-active .mobile-bottom-bar,
     font-weight: 500;
 }
 
+/* Centre "+" button (leads to the contribute page): icon only, accent colour */
+.bottom-nav-add .bottom-add-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff6b1a, #e8420e);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(232, 66, 14, 0.45);
+    transition: var(--transition);
+}
+
+.bottom-nav-add .bottom-add-circle i {
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+.bottom-nav-add:active .bottom-add-circle {
+    transform: scale(0.94);
+}
+
+.mobile-bottom-bar .bottom-nav-add:hover,
+.mobile-bottom-bar .bottom-nav-add.active {
+    background: transparent;
+}
+
+.mobile-bottom-bar .bottom-nav-add.active .bottom-add-circle {
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.4), 0 4px 12px rgba(232, 66, 14, 0.45);
+}
+
 /* The site has generic ".active" rules (display/width/margin) that would
    otherwise shift the selected tab; pin its layout so it matches the rest. */
 .mobile-bottom-bar .bottom-nav-item.active {
