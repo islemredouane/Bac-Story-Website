@@ -2072,7 +2072,7 @@ body.search-active .mobile-bottom-bar,
     font-weight: 500;
 }
 
-/* Centre "+" button (leads to the contribute page): icon only, accent colour */
+/* Centre "+" button (leads to the contribute page): icon only, white circle */
 .bottom-nav-add .bottom-add-circle {
     display: flex;
     align-items: center;
@@ -2080,9 +2080,9 @@ body.search-active .mobile-bottom-bar,
     width: 46px;
     height: 46px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #ff6b1a, #e8420e);
-    color: #fff;
-    box-shadow: 0 4px 12px rgba(232, 66, 14, 0.45);
+    background: #fff;
+    color: #2c5cc5;
+    box-shadow: 0 4px 12px rgba(10, 30, 90, 0.35);
     transition: var(--transition);
 }
 
@@ -2101,7 +2101,7 @@ body.search-active .mobile-bottom-bar,
 }
 
 .mobile-bottom-bar .bottom-nav-add.active .bottom-add-circle {
-    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.4), 0 4px 12px rgba(232, 66, 14, 0.45);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.4), 0 4px 12px rgba(10, 30, 90, 0.35);
 }
 
 /* The site has generic ".active" rules (display/width/margin) that would
