@@ -11734,6 +11734,13 @@ a.spec-detail-btn {
     top: auto;
     bottom: calc(100% + 14px);
     transform: translateX(-50%) translateY(6px);
+    /* centre the label in the bubble (the bar's inherited line-height and Tajawal's metrics push it up) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1;
+    padding: 9px 13px 5px;
 }
 
 .mobile-bottom-bar .bottom-nav-add::before {
