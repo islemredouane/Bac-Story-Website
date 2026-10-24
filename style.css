@@ -16440,8 +16440,10 @@ button, a.main-btn, a.spec-detail-btn, .modern-cta-btn, .spec-nav-btn, .gcta-btn
 }
 .bs-install-close {
     flex-shrink: 0;
-    width: 30px;
-    height: 30px;
+    align-self: flex-start;
+    margin: -6px 0 0 -6px;
+    width: 28px;
+    height: 28px;
     display: flex;
     align-items: center;
     justify-content: center;
