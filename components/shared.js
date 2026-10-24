@@ -1752,3 +1752,117 @@ if (document.readyState === 'loading') {
 } else {
     bootPage();
 }
+
+/* ── Install-app card ("ثبّت BAC STORY على جهازك") ──
+   Chrome / Edge / Samsung Internet / Android: shown only when the browser itself
+   says the site can be installed (beforeinstallprompt), with a one-tap install button.
+   iPhone / iPad Safari: iOS has no install prompt, so a short how-to is shown instead.
+   Nothing is shown inside the installed app, in in-app browsers (Telegram, Instagram,
+   Facebook…), on a visitor's first page, or for 30 days after the visitor closes it. */
+(function () {
+    var DISMISS_KEY = 'bs_install_dismissed_ts_v1';
+    var DISMISS_DAYS = 30;
+    try {
+        if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) return;
+    } catch (e) {}
+
+    function dismissedRecently() {
+        try {
+            var t = Number(localStorage.getItem(DISMISS_KEY));
+            return !!t && Date.now() - t < DISMISS_DAYS * 864e5;
+        } catch (e) { return false; }
+    }
+    if (dismissedRecently()) return;
+
+    // Not for brand-new visitors: wait until they have opened at least 2 pages
+    var VIEWS_KEY = 'bs_install_views_v1';
+    var views = 0;
+    try {
+        views = Number(localStorage.getItem(VIEWS_KEY) || 0) + 1;
+        localStorage.setItem(VIEWS_KEY, String(views));
+    } catch (e) {}
+    if (views < 2) return;
+
+    var card = null;
+
+    function showCard(opts) {
+        if (card || dismissedRecently()) return null;
+        // Never on top of the announcement popups: wait until they are closed
+        if (document.querySelector('.bac2026-overlay')) {
+            setTimeout(function () { showCard(opts); }, 2000);
+            return null;
+        }
+        card = document.createElement('div');
+        card.className = 'bs-install-card' + (opts.ios ? ' bs-install-card--ios' : '');
+        card.setAttribute('role', 'dialog');
+        card.setAttribute('aria-label', 'ثبّت BAC STORY على جهازك');
+        var touch = window.matchMedia('(pointer: coarse)').matches;
+        card.innerHTML =
+            '<div class="bs-install-head">' +
+                '<img class="bs-install-icon" src="/icon-192.png" alt="" width="40" height="40">' +
+                '<p class="bs-install-title">ثبّت BAC STORY على جهازك</p>' +
+                '<button type="button" class="bs-install-close" aria-label="إغلاق"><i class="fas fa-xmark" aria-hidden="true"></i></button>' +
+            '</div>' +
+            (opts.ios
+                ? '<p class="bs-install-sub">أضفه إلى الشاشة الرئيسية في خطوتين:</p>' +
+                  '<ol class="bs-install-steps">' +
+                    '<li><span class="bs-install-num">1</span>اضغط زر المشاركة <i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i></li>' +
+                    '<li><span class="bs-install-num">2</span>اختر «إضافة إلى الشاشة الرئيسية» <i class="far fa-square-plus" aria-hidden="true"></i></li>' +
+                  '</ol>'
+                : '<div class="bs-install-row">' +
+                    '<p class="bs-install-sub">' + (touch ? 'وصول أسرع بلمسة من شاشة هاتفك' : 'افتح الموقع مباشرة من سطح مكتبك') + '</p>' +
+                    '<button type="button" class="bs-install-btn"><i class="fas fa-download" aria-hidden="true"></i><span>تثبيت</span></button>' +
+                  '</div>');
+        document.body.appendChild(card);
+        requestAnimationFrame(function () { requestAnimationFrame(function () { card && card.classList.add('visible'); }); });
+        card.querySelector('.bs-install-close').addEventListener('click', function () {
+            try { localStorage.setItem(DISMISS_KEY, String(Date.now())); } catch (e) {}
+            hideCard();
+        });
+        return card;
+    }
+
+    function hideCard() {
+        if (!card) return;
+        var el = card;
+        card = null;
+        el.classList.remove('visible');
+        setTimeout(function () { if (el.parentNode) el.remove(); }, 400);
+    }
+
+    // Chrome, Edge, Samsung Internet, Android
+    var deferredPrompt = null;
+    window.addEventListener('beforeinstallprompt', function (e) {
+        e.preventDefault();
+        deferredPrompt = e;
+        setTimeout(function () {
+            var el = showCard({ ios: false });
+            if (!el) return;
+            el.querySelector('.bs-install-btn').addEventListener('click', function () {
+                hideCard();
+                if (!deferredPrompt) return;
+                deferredPrompt.prompt();
+                Promise.resolve(deferredPrompt.userChoice).then(function (choice) {
+                    if (choice && choice.outcome === 'dismissed') {
+                        try { localStorage.setItem(DISMISS_KEY, String(Date.now())); } catch (e) {}
+                    }
+                }).catch(function () {});
+                deferredPrompt = null;
+            });
+        }, 3000);
+    });
+    window.addEventListener('appinstalled', function () {
+        deferredPrompt = null;
+        hideCard();
+    });
+
+    // iPhone / iPad: only real Safari can "Add to Home Screen"
+    var ua = navigator.userAgent || '';
+    var isIOS = /iphone|ipad|ipod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    var isSafari = /safari/i.test(ua) && !/crios|fxios|edgios|opios|gsa\/|fban|fbav|instagram|telegram|line\/|twitter|snapchat|tiktok|musical_ly/i.test(ua);
+    if (isIOS && isSafari) {
+        var iosShow = function () { setTimeout(function () { showCard({ ios: true }); }, 3500); };
+        if (document.readyState === 'complete') iosShow();
+        else window.addEventListener('load', iosShow, { once: true });
+    }
+})();
