@@ -7,8 +7,7 @@
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/fa/fa-solid-900.woff2?v=71ddfa5479" as="font" type="font/woff2" crossorigin="anonymous">
 
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -54,8 +53,8 @@
     <link rel="preload" href="/components/navbar?v=2.2" as="fetch" crossorigin/>
 <link rel="preload" href="/components/footer?v=1.8" as="fetch" crossorigin/>
 <link rel="preload" href="/components/search?v=1.0" as="fetch" crossorigin/>
-<link rel="stylesheet" href="/style.css?v=10.73">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="/style.css?v=10.74">
+    <link href="/fonts/fa/fa.css?v=ebfba998e8" rel="stylesheet"/>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Pattaya&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Pattaya&display=swap"></noscript>
 
@@ -1602,6 +1601,7 @@
 </head>
 
 <body>
+<script>/* BAC STORY loader, drawn first so the screen is never blank while the page loads. Same markup as the fallback in components/shared.js: keep both in sync. If shared.js has not arrived after 6 s (bad network), it removes itself so the page still shows. */(function(d){try{if(d.getElementById('page-loader'))return;var l=d.createElement('div');l.id='page-loader';l.className='page-loader';l.innerHTML='<div class="loader-orb"></div><div class="loader-orb loader-orb--2"></div><div class="loader-content"><div class="loader-letters"><span class="ll">B</span><span class="ll">A</span><span class="ll">C</span><span class="loader-gap"></span><span class="ll">S</span><span class="ll">T</span><span class="ll">O</span><span class="ll">R</span><span class="ll">Y</span></div><div class="loader-divider"><span></span></div><div class="loader-tagline">منصة التميز في البكالوريا</div><div class="loader-bar"><div class="loader-bar-fill"></div><div class="loader-bar-glow"></div></div></div>';d.body.insertBefore(l,d.body.firstChild);window.__bsLoaderAt=Date.now();d.documentElement.classList.add('loader-up');setTimeout(function(){if(typeof hideLoader!=='function'&&l.parentNode){l.classList.add('loader-hiding');l.style.pointerEvents='none';setTimeout(function(){l.remove()},700)}},6000)}catch(e){}})(document)</script>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5H3TNJ4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- Navbar Component -->
@@ -1711,7 +1711,7 @@
             <div class="exp-year-divider" data-year-divider="2026">
                 <div class="exp-year-divider-inner">
                     <span class="exp-year-divider-badge exp-year-divider-badge--2026">
-                        <i class="fas fa-sparkles"></i> تجارب بكالوريا 2026
+                        <i class="fas fa-wand-magic-sparkles"></i> تجارب بكالوريا 2026
                     </span>
                     <div class="exp-year-divider-line"></div>
                 </div>
@@ -2505,7 +2505,7 @@
 
     <!-- Scripts -->
     <script src="/ads-config.js?v=1.16"></script>
-    <script src="/components/shared.js?v=9.77"></script>
+    <script src="/components/shared.js?v=9.78"></script>
     <script>
     document.addEventListener('DOMContentLoaded', () => {
         const streamChips = document.querySelectorAll('.exp-chip[data-stream]');

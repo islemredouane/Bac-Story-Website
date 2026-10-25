@@ -180,7 +180,10 @@ flowchart LR
 ├── llms.txt  llms-full.txt            AI assistants (llmstxt.org)
 ├── search-index.json                  data for the site search
 ├── manifest.json  sw.js               installable app and offline cache
+├── fonts/fa/                          the site's own Font Awesome (only the icons it uses)
+├── images/flags/                     the country flags used on the language pages
 └── scripts/generate-sitemap.py        rebuilds sitemap.xml from the real pages
+    scripts/build-fa-subset.py         rebuilds fonts/fa/ from the icons the pages use
 ```
 
 <br>
@@ -251,6 +254,7 @@ All tokens are CSS variables at the top of `style.css` (`--primary-color`, `--se
 | Asset | Browser cache |
 |---|---|
 | Site images (`png`, `jpg`, `webp`, `svg`…) | 1 year, `immutable` |
+| Font Awesome (`fonts/fa/`, versioned by content hash) | 1 year, `immutable` |
 | CSS and JS | 1 day, then refreshed in the background (up to 7 days) |
 | Navbar, footer, search box | 1 hour, then refreshed in the background (up to 1 day) |
 | HTML pages | always revalidated, so new content shows at once |
@@ -282,6 +286,15 @@ npx wrangler pages dev .
 
 ```bash
 python scripts/generate-sitemap.py
+```
+
+**Rebuild the icons** after using a Font Awesome icon the site never used before (a new `fa-…` class).
+The site serves only the icons it uses (~40 KB instead of ~300 KB from cdnjs). If you forget, the
+new icon still shows (the page loads the full Font Awesome and names the icon in the console), it is just slower there.
+
+```bash
+pip install fonttools brotli
+python scripts/build-fa-subset.py
 ```
 
 <details>

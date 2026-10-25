@@ -4,12 +4,18 @@
  */
 
 // ─── PAGE LOADER ─────────────────────────────────────────────────────────────
-const _loaderShownAt = Date.now();
+// Every page draws the loader itself, with a tiny inline <script> right after <body>, so it is on
+// screen as soon as style.css arrives instead of after this file has downloaded (on a slow phone
+// that was a blank white screen for seconds). That inline copy sets window.__bsLoaderAt.
+// The code below is the fallback for a page without it: same markup, so keep the two in sync.
+const _loaderShownAt = window.__bsLoaderAt || Date.now();
 const _LOADER_MIN_MS = 1000; // visible for at least 1.0 s for animation
 let _loaderDismissed = false;
 
 (function injectLoader() {
-    try {
+    // The page's inline loader already drew it (or already removed it because this file came
+    // too late, see its 6 s failsafe): never draw a second one over a page that is showing.
+    if (!window.__bsLoaderAt && !document.getElementById('page-loader')) try {
         const loader = document.createElement('div');
         loader.id = 'page-loader';
         loader.className = 'page-loader';
@@ -387,13 +393,24 @@ function setupMobileMenu() {
     });
 }
 
+// Run fn once the browser has drawn the next frame (layout already computed, so reading
+// scroll/size values there costs nothing). Falls back to a plain timeout where rAF is missing.
+function _afterNextPaint(fn) {
+    if (typeof requestAnimationFrame === 'function') requestAnimationFrame(() => setTimeout(fn, 0));
+    else setTimeout(fn, 16);
+}
+
 // ─── SCROLL HIDE/SHOW NAVBAR ─────────────────────────────────────────────────
 function setupNavbarScroll() {
     const navbar = document.querySelector('.navbar');
     const navBrand = document.querySelector('.nav-brand');
     if (!navbar) return;
 
-    let lastScrollY = window.scrollY;
+    // Read the start position right after the next frame is drawn: reading scrollY here, just after
+    // the navbar/footer HTML was injected, forced a full-page layout in the middle of boot (~90 ms
+    // on a slow phone). After the frame the layout is already done, so the read is free.
+    let lastScrollY = 0;
+    _afterNextPaint(() => { lastScrollY = window.scrollY; });
     window.addEventListener('scroll', () => {
         if (window.innerWidth > 768) {
             navbar.classList.remove('hidden');
@@ -440,8 +457,8 @@ function setupScrollToTop() {
         }
     }
 
-    // Run once on load
-    updateProgress();
+    // Run once on load, after the next frame (same reason as in setupNavbarScroll)
+    _afterNextPaint(updateProgress);
 
     window.addEventListener('scroll', updateProgress, { passive: true });
 }
@@ -1903,4 +1920,58 @@ if (document.readyState === 'loading') {
         if (document.readyState === 'complete') showGuide();
         else window.addEventListener('load', showGuide, { once: true });
     }
+})();
+
+/* ── Font Awesome safety net ──
+   The site serves its own small copy of Font Awesome (fonts/fa/), built by
+   scripts/build-fa-subset.py with only the icons the site uses: ~40 KB instead of ~300 KB
+   from cdnjs. If a page uses an icon added after the last build, that icon would stay blank.
+   This notices it in the visitor's browser and loads the full Font Awesome for that page,
+   so an icon is never missing (that page is just slower). The console names the icon: run
+   the script once and it is fixed for everyone. */
+(function faSafetyNet() {
+    var UTIL = /^fa-(solid|regular|brands|classic|sharp|fw|spin|spin-pulse|spin-reverse|pulse|beat|beat-fade|bounce|fade|flip|flip-both|flip-horizontal|flip-vertical|shake|stack|stack-1x|stack-2x|inverse|border|pull-left|pull-right|li|ul|2xs|xs|sm|lg|xl|2xl|\d+x|rotate-\d+|rotate-by|sr-only|sr-only-focusable)$/;
+    var tries = 0;
+
+    function loadFull(reason) {
+        if (document.getElementById('fa-full')) return;
+        console.warn('[BAC STORY] ' + reason + ' → loading the full Font Awesome. Fix: run scripts/build-fa-subset.py');
+        var l = document.createElement('link');
+        l.id = 'fa-full';
+        l.rel = 'stylesheet';
+        l.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';
+        document.head.appendChild(l);
+    }
+
+    function check() {
+        var link = document.querySelector('link[href*="/fonts/fa/fa.css"]');
+        if (!link) return;                         // page does not use our Font Awesome
+        if (!link.sheet) {                         // not applied yet, or failed to download
+            if (++tries < 3) setTimeout(check, 3000);
+            else loadFull('fonts/fa/fa.css did not load');
+            return;
+        }
+        var seen = {}, missing = [];
+        var els = document.querySelectorAll('[class*="fa-"]');
+        for (var i = 0; i < els.length; i++) {
+            var cl = els[i].classList, name = null;
+            for (var j = 0; j < cl.length; j++) {
+                if (cl[j].lastIndexOf('fa-', 0) === 0 && !UTIL.test(cl[j])) { name = cl[j]; break; }
+            }
+            if (!name || seen[name]) continue;
+            seen[name] = 1;
+            var c = getComputedStyle(els[i], '::before').content;
+            if (!c || c === 'none' || c === 'normal') missing.push(name);
+        }
+        if (missing.length) loadFull('Icons not in fonts/fa: ' + missing.join(', '));
+    }
+
+    function schedule() {
+        setTimeout(function () {
+            if ('requestIdleCallback' in window) window.requestIdleCallback(check, { timeout: 3000 });
+            else check();
+        }, 2000);
+    }
+    if (document.readyState === 'complete') schedule();
+    else window.addEventListener('load', schedule, { once: true });
 })();
