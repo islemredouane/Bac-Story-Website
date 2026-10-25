@@ -134,6 +134,7 @@
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Pattaya&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Pattaya&display=swap"></noscript>
     <style>
+        /* ── Premium PDF Switcher Bar ── */
         .pdf-switcher-wrap {
             text-align: center;
             margin: 0 0 20px 0;
@@ -216,14 +217,34 @@
                 <div class="pdf-switcher-wrap">
                     <div class="pdf-switcher-toggle" id="pdfTabBar">
                         <span class="pdf-switcher-pill" id="pdfTabPill"></span>
-                        <button class="pdf-switcher-tab active" onclick="switchDriveFolder(this, '1pdcQq1d0Zp_up3_DSIlfOGbtgH0wICvu')"><i class="fas fa-file-contract"></i> إختبارات وفروض الفصل الأول</button>
-                        <button class="pdf-switcher-tab" onclick="switchDriveFolder(this, '1-Fva0hKhmshCf7HvSdS1cePg22v3di7O')"><i class="fas fa-edit"></i> إختبارات وفروض الفصل الثاني</button>
-                        <button class="pdf-switcher-tab" onclick="switchDriveFolder(this, '1eLKJYPk7hLhf5eny0pEGo_Dz5im8YgJ3')"><i class="fas fa-pen-alt"></i> مواضيع وبكالوريات تجريبية</button>
+                        <button class="pdf-switcher-tab active" onclick="switchPdf(this, '19sr95ozLUJ7q-hJCvhHtCgaUy9eEfJ_2')"><i class="fas fa-file-pdf"></i> الفصل الأول — 01</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1eJ4kJ5AfmHe9pHLjPDaIQiBzio1T_0Pm')"><i class="fas fa-file-pdf"></i> الفصل الأول — 02</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1IIP5RggX2dl21WHLwnSPQSjeXdEXnxl-')"><i class="fas fa-file-pdf"></i> الفصل الأول — 03</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1r75VMiT7zhlaKXDSrnnZ4Dbi0vzt4EJQ')"><i class="fas fa-file-pdf"></i> الفصل الأول — 04</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1UjBcuho_2OJHaAzNFlTlw9A750TXqEZA')"><i class="fas fa-file-pdf"></i> الفصل الأول — 05</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1sYMlNRvwR9hV-KJs7pi9nsbrU3PrJ9WR')"><i class="fas fa-file-pdf"></i> الفصل الأول — 06</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1cILPvSs2u1pShMMq-HnFXxco3dR5BH2C')"><i class="fas fa-file-pdf"></i> الفصل الثاني — 01</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1G6t_TbVjl6yBpfncGIi5uNhk0R0gZ79V')"><i class="fas fa-file-pdf"></i> الفصل الثاني — 02</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1VbJpWqW0jONbGW8o5kwVYiSUlYcYjRds')"><i class="fas fa-file-pdf"></i> الفصل الثاني — 03</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1WrhYj5wVf_wfhAA8xuqQnXz65ZRaTijm')"><i class="fas fa-file-pdf"></i> الفصل الثاني — 04</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '15zIQeRgR-ENHuH74dqua9zIjSIR_N9Lh')"><i class="fas fa-file-pdf"></i> الفصل الثاني — 05</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '17TD6WW63CurVu4pWcrJF04Eby_pA_X9U')"><i class="fas fa-file-pdf"></i> الفصل الثاني — 06</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1LemUZjiPIzQEeb6u4X2YTIP_nYhfBnlZ')"><i class="fas fa-file-pdf"></i> الفصل الثاني — 07</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '179jvlOx8onJ_Wx7W8KiYrwvwu4KNbz68')"><i class="fas fa-file-pdf"></i> الفصل الثاني — 08</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1-aseCJYJtAkfxOkhKp23FVVaBEMt0P8p')"><i class="fas fa-file-pdf"></i> الفصل الثاني — 09</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1MzyJXR_izCbyN4_7cL7hvtfRTmUBufRi')"><i class="fas fa-file-pdf"></i> الفصل الثاني — 10</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1z3_AwuZiGeLLK-2mpMNesedIFs9u_7-6')"><i class="fas fa-file-pdf"></i> مواضيع تجريبية — 01</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1LK0NxYKMjvC-9kxJlBNyCt-BMyhByo6k')"><i class="fas fa-file-pdf"></i> مواضيع تجريبية — 02</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '17dHJrbaWXVOMPVmvXBVYTvI0-4D91S3X')"><i class="fas fa-file-pdf"></i> مواضيع تجريبية — 03</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1dc45HYPpy86Cb8ZBXoOdH96_ng-O6zQ4')"><i class="fas fa-file-pdf"></i> مواضيع تجريبية — 04</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1VY_Rm1Of-0wsstUPaXioHGK46IDLFu9l')"><i class="fas fa-file-pdf"></i> مواضيع تجريبية — 05</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1gxaUWhDl0-jYtWuBosjEOBbn7EfinUVq')"><i class="fas fa-file-pdf"></i> مواضيع تجريبية — 06</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1hdHVIBnYLHH_8BHTo4bsk1GiDc-6rKCy')"><i class="fas fa-file-pdf"></i> مواضيع تجريبية — 07</button>
                     </div>
                 </div>
                 <div class="pdf-wrapper">
                     <div class="pdf-iframe-wrap">
-                    <iframe id="pdfFrame" src="https://drive.google.com/embeddedfolderview?id=1pdcQq1d0Zp_up3_DSIlfOGbtgH0wICvu#grid"
+                    <iframe id="pdfFrame" src="https://drive.google.com/file/d/19sr95ozLUJ7q-hJCvhHtCgaUy9eEfJ_2/preview"
                         class="responsive-pdf" loading="lazy" allowfullscreen title="إختبارات وفروض التاريخ والجغرافيا — تسيير واقتصاد"></iframe>
                     </div>
                     
@@ -231,9 +252,9 @@
                         <button onclick="toggleFullScreen(event)" class="full-btn" style="flex:1;border:none;font-size:16px;font-weight:500;cursor:pointer;">
                             <i class="fa-solid fa-expand"></i> تكبير الملف
                         </button>
-                        <a id="downloadPdfBtn" href="https://drive.google.com/drive/folders/1pdcQq1d0Zp_up3_DSIlfOGbtgH0wICvu" target='_blank' class="down-btn"
+                        <a id="downloadPdfBtn" href="https://drive.google.com/uc?export=download&id=19sr95ozLUJ7q-hJCvhHtCgaUy9eEfJ_2" download class="down-btn"
                             style="flex:1;text-decoration:none;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:500;">
-                            <i class="fa-solid fa-download"></i> فتح المجلد
+                            <i class="fa-solid fa-download"></i> تحميل الملف
                         </a>
                     </div>
                 </div>
@@ -274,24 +295,6 @@
             var downBtn = document.getElementById('downloadPdfBtn');
             if (downBtn) {
                 downBtn.href = 'https://drive.google.com/uc?export=download&id=' + fileId;
-                downBtn.removeAttribute('target');
-                downBtn.innerHTML = '<i class="fa-solid fa-download"></i> تحميل الملف';
-            }
-        }
-        function switchDriveFolder(tab, folderId) {
-            document.querySelectorAll('.pdf-switcher-tab').forEach(function(t) { t.classList.remove('active'); });
-            tab.classList.add('active');
-            updatePill(tab, true);
-            tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-            var iframe = document.getElementById('pdfFrame');
-            if (iframe) {
-                iframe.src = 'https://drive.google.com/embeddedfolderview?id=' + folderId + '#grid';
-            }
-            var downBtn = document.getElementById('downloadPdfBtn');
-            if (downBtn) {
-                downBtn.href = 'https://drive.google.com/drive/folders/' + folderId;
-                downBtn.setAttribute('target', '_blank');
-                downBtn.innerHTML = '<i class="fa-solid fa-folder-open"></i> فتح المجلد في Drive';
             }
         }
         document.addEventListener('DOMContentLoaded', function() {
