@@ -57,7 +57,7 @@
 <link rel="preload" href="/components/navbar?v=2.2" as="fetch" crossorigin/>
 <link rel="preload" href="/components/footer?v=1.8" as="fetch" crossorigin/>
 <link rel="preload" href="/components/search?v=1.0" as="fetch" crossorigin/>
-<link href="/style.css?v=10.75" rel="stylesheet"/>
+<link href="/style.css?v=10.76" rel="stylesheet"/>
 <link as="style" href="/fonts/fa/fa.css?v=ebfba998e8" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
 <noscript><link href="/fonts/fa/fa.css?v=ebfba998e8" rel="stylesheet"/>
 </noscript>
@@ -66,7 +66,7 @@
 <noscript><link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&amp;family=Pattaya&amp;display=swap" rel="stylesheet"/></noscript>
 </head>
 <body>
-<script>/* BAC STORY loader, drawn first so the screen is never blank while the page loads. Same markup as the fallback in components/shared.js: keep both in sync. If shared.js has not arrived after 6 s (bad network), it removes itself so the page still shows. */(function(d){try{if(d.getElementById('page-loader'))return;var l=d.createElement('div');l.id='page-loader';l.className='page-loader';l.innerHTML='<div class="loader-orb"></div><div class="loader-orb loader-orb--2"></div><div class="loader-content"><div class="loader-letters"><span class="ll">B</span><span class="ll">A</span><span class="ll">C</span><span class="loader-gap"></span><span class="ll">S</span><span class="ll">T</span><span class="ll">O</span><span class="ll">R</span><span class="ll">Y</span></div><div class="loader-divider"><span></span></div><div class="loader-tagline">منصة التميز في البكالوريا</div><div class="loader-bar"><div class="loader-bar-fill"></div><div class="loader-bar-glow"></div></div></div>';d.body.insertBefore(l,d.body.firstChild);window.__bsLoaderAt=Date.now();d.documentElement.classList.add('loader-up');setTimeout(function(){if(typeof hideLoader!=='function'&&l.parentNode){l.classList.add('loader-hiding');l.style.pointerEvents='none';setTimeout(function(){l.remove()},700)}},6000)}catch(e){}})(document)</script>
+<script>/* BAC STORY loader, drawn first so the screen is never blank while the page loads. Same markup as the fallback in components/shared.js: keep both in sync. If shared.js has not arrived after 6 s (bad network), it removes itself so the page still shows. If the visitor closed the ad strip (same key and 24 h as ads-config.js), it gives back the room style.css reserves for it. */(function(d){try{if(d.getElementById('page-loader'))return;var l=d.createElement('div');l.id='page-loader';l.className='page-loader';l.innerHTML='<div class="loader-orb"></div><div class="loader-orb loader-orb--2"></div><div class="loader-content"><div class="loader-letters"><span class="ll">B</span><span class="ll">A</span><span class="ll">C</span><span class="loader-gap"></span><span class="ll">S</span><span class="ll">T</span><span class="ll">O</span><span class="ll">R</span><span class="ll">Y</span></div><div class="loader-divider"><span></span></div><div class="loader-tagline">منصة التميز في البكالوريا</div><div class="loader-bar"><div class="loader-bar-fill"></div><div class="loader-bar-glow"></div></div></div>';d.body.insertBefore(l,d.body.firstChild);window.__bsLoaderAt=Date.now();try{var s=localStorage.getItem('bs_adstrip_v1');if(s&&Date.now()-JSON.parse(s).ts<864e5)d.documentElement.classList.add('ad-strip-off')}catch(e){}d.documentElement.classList.add('loader-up');setTimeout(function(){if(typeof hideLoader!=='function'&&l.parentNode){l.classList.add('loader-hiding');l.style.pointerEvents='none';setTimeout(function(){l.remove()},700)}},6000)}catch(e){}})(document)</script>
 <noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-T5H3TNJ4" style="display:none;visibility:hidden" width="0"></iframe></noscript>
 <div id="navbar-placeholder"></div>
 <div class="resource-content active" id="algebra">
@@ -103,7 +103,7 @@
 <div id="global-cta-placeholder"></div>
 <div id="footer-placeholder"></div>
 <script defer src="/ads-config.js?v=1.16"></script>
-<script defer src="/components/shared.js?v=9.79"></script>
+<script defer src="/components/shared.js?v=9.80"></script>
 <script defer src="/script.js?v=9.9"></script>
 <!-- Cloudflare Web Analytics --><script data-cf-beacon='{"token": "6153c3a6dd54435780cd9d84f9f958f8"}' src="https://static.cloudflareinsights.com/beacon.min.js" type="module"></script><!-- End Cloudflare Web Analytics -->
 </body>
