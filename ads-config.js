@@ -2,6 +2,8 @@
    BAC STORY — Ads Config
    Edit ONLY this file to add / remove / pause advertisers.
    Bump stripDismissKey suffix (v1 → v2) to re-show strip in testing.
+   If you rename stripDismissKey or change stripHideDurationMs, update the same values in the inline
+   loader snippet at the top of every page's <body> (it reads them before the first paint).
    ============================================================ */
 
 window.BAC_ADS = {

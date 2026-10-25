@@ -933,6 +933,13 @@ body {
     /* Height of the fixed navbar */
 }
 
+/* Room for the ad strip (52px, AD_H in shared.js injectAdStrip) is reserved from the first paint,
+   so the page doesn't jump down when the strip is added (that jump scored CLS 0.39 on desktop).
+   shared.js adds html.ad-strip-off when no strip is shown, which gives the room back. */
+html:not(.ad-strip-off) body {
+    padding-top: 127px;
+}
+
 /* Page Transition */
 /* <main> is revealed as soon as the loader covers the screen (html.loader-up), so the browser
    renders it behind the loader and it is ready the moment the loader fades out. It used to wait

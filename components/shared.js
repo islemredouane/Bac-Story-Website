@@ -1173,11 +1173,14 @@ function _setNavbarHeightVar() {
 }
 
 function injectAdStrip() {
-    if (typeof window.BAC_ADS === 'undefined') return;
-    if (BAC_ADS.isStripDismissed()) return;
+    // style.css reserves the strip's room from the first paint (so the page doesn't jump down
+    // when the strip arrives); give it back when no strip is shown.
+    const noStrip = () => document.documentElement.classList.add('ad-strip-off');
+    if (typeof window.BAC_ADS === 'undefined') return noStrip();
+    if (BAC_ADS.isStripDismissed()) return noStrip();
 
     const ads = BAC_ADS.getActiveStripAds();
-    if (!ads.length) return;
+    if (!ads.length) return noStrip();
 
     requestAnimationFrame(_setNavbarHeightVar);
     document.fonts.ready.then(_setNavbarHeightVar);
