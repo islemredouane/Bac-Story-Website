@@ -34,6 +34,13 @@
 /*.gif
   Cache-Control: public, max-age=31536000, immutable
 
+# The site's own Font Awesome (built by scripts/build-fa-subset.py). Every link to these files
+# carries ?v=<content hash>, rewritten by the script whenever they change, so they can be kept
+# for a year. "! Cache-Control" drops the 1-day rule that /*.css would otherwise add.
+/fonts/*
+  ! Cache-Control
+  Cache-Control: public, max-age=31536000, immutable
+
 /components/*
   X-Robots-Tag: noindex
 
