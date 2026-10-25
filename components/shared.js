@@ -60,7 +60,7 @@ setTimeout(function () {
 // Component URLs (bump ?v= after editing a component). They are requested as soon as this
 // script runs, in parallel, so the navbar/footer/search are usually ready by DOMContentLoaded.
 const _NAVBAR_URL = '/components/navbar?v=2.2';
-const _FOOTER_URL = '/components/footer?v=1.7';
+const _FOOTER_URL = '/components/footer?v=1.8';
 const _SEARCH_URL = '/components/search?v=1.0';
 const _componentFetches = {};
 
