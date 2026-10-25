@@ -1,4 +1,4 @@
-const CACHE_NAME = 'bac-story-v28';
+const CACHE_NAME = 'bac-story-v29';
 const ASSETS_TO_CACHE = [
   '/',
   '/style.css',
