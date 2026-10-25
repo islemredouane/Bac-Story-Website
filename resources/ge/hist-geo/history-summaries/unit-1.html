@@ -108,52 +108,58 @@
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Pattaya&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Pattaya&display=swap"></noscript>
     <style>
+        /* ── Premium PDF Switcher Bar ── */
         .pdf-switcher-wrap {
-            position: relative;
-            margin: 0 auto 24px auto;
-            max-width: 100%;
+            text-align: center;
+            margin: 0 0 20px 0;
+            display: flex;
+            justify-content: center;
+            width: 100%;
         }
         .pdf-switcher-toggle {
+            display: inline-flex !important;
+            align-items: center;
             position: relative;
-            display: inline-flex;
-            gap: 6px;
-            padding: 5px;
+            vertical-align: top;
             background: #f1f5f9;
-            border-radius: 50px;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
-            overflow-x: auto;
+            border-radius: 999px;
+            padding: 4px;
+            gap: 0;
+            border: 1px solid rgba(44, 92, 197, 0.1);
             max-width: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
             -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+            -ms-overflow-style: none;
             scrollbar-width: none;
         }
-        .pdf-switcher-toggle::-webkit-scrollbar { display: none; }
+        .pdf-switcher-toggle::-webkit-scrollbar {
+            display: none;
+        }
         .pdf-switcher-pill {
             position: absolute;
-            top: 5px;
-            bottom: 5px;
-            background: linear-gradient(135deg, #1a3a8f, #0d1b3e);
-            border-radius: 50px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            top: 4px; bottom: 4px;
+            background: #2c5cc5;
+            border-radius: 999px;
+            transition: left 0.28s cubic-bezier(0.34,1.56,0.64,1), width 0.28s cubic-bezier(0.34,1.56,0.64,1);
+            box-shadow: 0 2px 8px rgba(44,92,195,0.3);
             pointer-events: none;
-            box-shadow: 0 4px 12px rgba(26,58,143,0.35);
+            z-index: 0;
         }
         .pdf-switcher-tab {
-            position: relative;
-            z-index: 1;
-            padding: 0.65rem 1.4rem;
-            font-size: 0.88rem;
-            font-weight: 600;
-            font-family: inherit;
-            color: #64748b;
-            background: transparent;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            white-space: nowrap;
-            transition: color 0.25s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 7px;
+            position: relative; z-index: 1;
+            margin: 0 !important;
+            padding: 0.5rem 1.4rem;
+            border: none; background: transparent; border-radius: 999px;
+            font-family: 'Tajawal', sans-serif; font-size: 0.9rem; font-weight: 700;
+            color: #64748b; cursor: pointer; white-space: nowrap;
+            transition: color 0.22s ease;
+            display: inline-flex; align-items: center; gap: 6px;
+            user-select: none;
+            flex-shrink: 0;
+            width: auto !important;
             min-width: 0 !important;
             box-shadow: none !important;
         }
@@ -185,18 +191,29 @@
                 <div class="pdf-switcher-wrap">
                     <div class="pdf-switcher-toggle" id="pdfTabBar">
                         <span class="pdf-switcher-pill" id="pdfTabPill"></span>
-                        <button class="pdf-switcher-tab active" onclick="switchPdf(this, '1BNeqT8v4D2Yy_IEVNhROtHcZEvzGxeHV')"><i class="fas fa-book-open"></i> الحرب الباردة — الدروس</button>
-                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '13Fv5tBumH-h6LR722TWxrTwcju97zgeu')"><i class="fas fa-users"></i> الحرب الباردة — الشخصيات</button>
-                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1eOa4r6nEctlPbAhykQlZTl5g68q4atqO')"><i class="fas fa-font"></i> الحرب الباردة — المصطلحات</button>
-                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1JKrpEvMkSk9YBqS4eiloI-l4f77lxjf9')"><i class="fas fa-calendar-alt"></i> الحرب الباردة — التواريخ</button>
-                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '13S0nDyFixHqpY5bbX29KnuUUsMaPGnQz')"><i class="fas fa-map-marked-alt"></i> الحرب الباردة — الخرائط</button>
-                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1LK6g_WV9353B97mdkM-mEf-VoEVLwUJ7')"><i class="fas fa-question-circle"></i> الحرب الباردة — الأسئلة الاستنتاجية</button>
-                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '17aWnr7EIwt78S_fPKBmm-3UByIMHFAHS')"><i class="fas fa-file-alt"></i> الحرب الباردة — مقدمات وخواتيم</button>
+                        <button class="pdf-switcher-tab active" onclick="switchPdf(this, '1p_LeiLIdY5oPuXnk3BoHro3FdUmYrocY')"><i class="fas fa-file-pdf"></i> المراجعة الذكية للحرب الباردة شعبة علوم + اللغات لعروق</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '125oMr4MD8fFrimM0edeKAFxhNbLEhct9')"><i class="fas fa-file-pdf"></i> مجلة المجتهد رقم 01 في التاريخ</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1yHM-eCChvtwEYkFlsf661UYbnKIP76UH')"><i class="fas fa-file-pdf"></i> Islem شخصيات الحرب الباردة + الثورة من إعدادي</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1rG54Wx3KGsncESwrxPQpCL1faKCpRHZh')"><i class="fas fa-file-pdf"></i> الاستاذ لعروق الشخصيات الحرب الباردة</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1h3wK6QL5qMB4Knp1Lk7XCMJUxI31Xc8p')"><i class="fas fa-file-pdf"></i> شخصيات الحرب الباردة</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1i6P3IZZZL4I5wLZsE4sesFSF3VRxTFVd')"><i class="fas fa-file-pdf"></i> شخصيات الحرب الباردة بورنان</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1XMzOIOS89qJhg3GfAvbAq-85pDafr7PT')"><i class="fas fa-file-pdf"></i> شخصيات الحرب الباردة من إعداد المتفوقة منار</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1HmvhS9gagey7CKTBTRgKeD65NodjxcM8')"><i class="fas fa-file-pdf"></i> اهم المصطلحات وتواريخ و شخصيات الحرب الباردة</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1a4cvOcc1eyAdmJYKOmGRSHCtb2xr3G3g')"><i class="fas fa-file-pdf"></i> مصطلحات الحرب الباردة عبدالنور</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1BPCymHPHQX804FaFejQd_OK-D8pMwNkc')"><i class="fas fa-file-pdf"></i> مصطلحات الفهم الحرب الباردة</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '18QZQHXUbFQOETyxucPdk2sWjHqhSIXEQ')"><i class="fas fa-file-pdf"></i> مصطلحات الوحدة الاولى ملخصة الحرب الباردة 2 2</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1CW_5nAaT73RJKOO7_BBfvUpl5c78uFov')"><i class="fas fa-file-pdf"></i> مصطلحات الوحدة الاولى ملخصة الحرب الباردة لعروق مشتركة</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1w1pjWms_01JaRntAu1ItjqzuPlD9cWNF')"><i class="fas fa-file-pdf"></i> تواريخ الحرب الباردة. نعيمة 65</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1lDScAjTvN9G2xTRntWfpitpVjK_dlldm')"><i class="fas fa-file-pdf"></i> تواريخ الحرب الباردة من كتاب بورنان 51</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1fulSfqUtzyqI0OuJDk6PUw-ijQvn_XN5')"><i class="fas fa-file-pdf"></i> خرائط الحرب الباردة بورنان</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1MgFaFdbiuTxGOhG8hLkeLvvpaWeVeYY0')"><i class="fas fa-file-pdf"></i> خرائط الحرب الباردة</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1LK6g_WV9353B97mdkM-mEf-VoEVLwUJ7')"><i class="fas fa-file-pdf"></i> الاسئلة الاستنتاجية الحرب الباردة</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '17aWnr7EIwt78S_fPKBmm-3UByIMHFAHS')"><i class="fas fa-file-pdf"></i> مقدمات و خواتيم الوحدة الاولى الحرب الباردة</button>
                     </div>
                 </div>
                 <div class="pdf-wrapper">
                     <div class="pdf-iframe-wrap">
-                    <iframe id="pdfFrame" src="https://drive.google.com/file/d/1BNeqT8v4D2Yy_IEVNhROtHcZEvzGxeHV/preview"
+                    <iframe id="pdfFrame" src="https://drive.google.com/file/d/1p_LeiLIdY5oPuXnk3BoHro3FdUmYrocY/preview"
                         class="responsive-pdf" loading="lazy" allowfullscreen title="الوحدة الأولى: تطور العالم في ظل القطبية الثنائية (الحرب الباردة) — تسيير واقتصاد"></iframe>
                     </div>
                     
@@ -204,7 +221,7 @@
                         <button onclick="toggleFullScreen(event)" class="full-btn" style="flex:1;border:none;font-size:16px;font-weight:500;cursor:pointer;">
                             <i class="fa-solid fa-expand"></i> تكبير الملف
                         </button>
-                        <a id="downloadPdfBtn" href="https://drive.google.com/uc?export=download&id=1BNeqT8v4D2Yy_IEVNhROtHcZEvzGxeHV" download class="down-btn"
+                        <a id="downloadPdfBtn" href="https://drive.google.com/uc?export=download&id=1p_LeiLIdY5oPuXnk3BoHro3FdUmYrocY" download class="down-btn"
                             style="flex:1;text-decoration:none;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:500;">
                             <i class="fa-solid fa-download"></i> تحميل الملف
                         </a>
