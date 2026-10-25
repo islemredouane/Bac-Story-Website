@@ -1451,13 +1451,25 @@ async function bootPage() {
         hideLoader();
     }
 
-    // Show BMA Sponsored Announcement modal (900ms after loader) - appears once every 24 hours
+    // Show the BMA / experiences announcement popup (once every 24 hours) when the visitor starts
+    // scrolling, or after 10 s if they never scroll. It used to open 0.9 s after the loader: it
+    // covered the page the visitor came for, and as the biggest thing on screen it became the
+    // page's "Largest Contentful Paint" for Google (~6 s on mobile), which hurt the speed score.
     try {
-        setTimeout(function () {
-            // Build the popup when the browser is idle so a tap right after load is never blocked by it
-            if ('requestIdleCallback' in window) window.requestIdleCallback(showBac2026AnnouncementModal, { timeout: 1500 });
-            else showBac2026AnnouncementModal();
-        }, 900);
+        let popupQueued = false;
+        const queuePopup = function () {
+            if (popupQueued) return;
+            popupQueued = true;
+            window.removeEventListener('scroll', queuePopup);
+            clearTimeout(popupTimer);
+            setTimeout(function () {
+                // Build the popup when the browser is idle so a tap is never blocked by it
+                if ('requestIdleCallback' in window) window.requestIdleCallback(showBac2026AnnouncementModal, { timeout: 1500 });
+                else showBac2026AnnouncementModal();
+            }, 700);
+        };
+        const popupTimer = setTimeout(queuePopup, 10000);
+        window.addEventListener('scroll', queuePopup, { passive: true });
     } catch (e) {}
 
     // Register Service Worker for PWA / Shortcut functionality
