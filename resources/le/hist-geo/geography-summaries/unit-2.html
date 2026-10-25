@@ -108,52 +108,58 @@
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Pattaya&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Pattaya&display=swap"></noscript>
     <style>
+        /* ── Premium PDF Switcher Bar ── */
         .pdf-switcher-wrap {
-            position: relative;
-            margin: 0 auto 24px auto;
-            max-width: 100%;
+            text-align: center;
+            margin: 0 0 20px 0;
+            display: flex;
+            justify-content: center;
+            width: 100%;
         }
         .pdf-switcher-toggle {
+            display: inline-flex !important;
+            align-items: center;
             position: relative;
-            display: inline-flex;
-            gap: 6px;
-            padding: 5px;
+            vertical-align: top;
             background: #f1f5f9;
-            border-radius: 50px;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
-            overflow-x: auto;
+            border-radius: 999px;
+            padding: 4px;
+            gap: 0;
+            border: 1px solid rgba(44, 92, 197, 0.1);
             max-width: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
             -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+            -ms-overflow-style: none;
             scrollbar-width: none;
         }
-        .pdf-switcher-toggle::-webkit-scrollbar { display: none; }
+        .pdf-switcher-toggle::-webkit-scrollbar {
+            display: none;
+        }
         .pdf-switcher-pill {
             position: absolute;
-            top: 5px;
-            bottom: 5px;
-            background: linear-gradient(135deg, #1a3a8f, #0d1b3e);
-            border-radius: 50px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            top: 4px; bottom: 4px;
+            background: #2c5cc5;
+            border-radius: 999px;
+            transition: left 0.28s cubic-bezier(0.34,1.56,0.64,1), width 0.28s cubic-bezier(0.34,1.56,0.64,1);
+            box-shadow: 0 2px 8px rgba(44,92,195,0.3);
             pointer-events: none;
-            box-shadow: 0 4px 12px rgba(26,58,143,0.35);
+            z-index: 0;
         }
         .pdf-switcher-tab {
-            position: relative;
-            z-index: 1;
-            padding: 0.65rem 1.4rem;
-            font-size: 0.88rem;
-            font-weight: 600;
-            font-family: inherit;
-            color: #64748b;
-            background: transparent;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            white-space: nowrap;
-            transition: color 0.25s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 7px;
+            position: relative; z-index: 1;
+            margin: 0 !important;
+            padding: 0.5rem 1.4rem;
+            border: none; background: transparent; border-radius: 999px;
+            font-family: 'Tajawal', sans-serif; font-size: 0.9rem; font-weight: 700;
+            color: #64748b; cursor: pointer; white-space: nowrap;
+            transition: color 0.22s ease;
+            display: inline-flex; align-items: center; gap: 6px;
+            user-select: none;
+            flex-shrink: 0;
+            width: auto !important;
             min-width: 0 !important;
             box-shadow: none !important;
         }
@@ -185,10 +191,10 @@
                 <div class="pdf-switcher-wrap">
                     <div class="pdf-switcher-toggle" id="pdfTabBar">
                         <span class="pdf-switcher-pill" id="pdfTabPill"></span>
-                        <button class="pdf-switcher-tab active" onclick="switchPdf(this, '1mFVl6IeMXPSYtPP1AsYz-aKvhT6TRKcA')"><i class="fas fa-industry"></i> الوحدة 02 — شاملة الجغرافيا</button>
-                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1avgTXxAu_wNu1LSinovYrvS9DEFEHuTg')"><i class="fas fa-book-open"></i> الوحدة 02 — مجلة المجتهد</button>
-                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1TAm-hv6AEk51Q6KxUc8HBSvnyKiGgHB7')"><i class="fas fa-info-circle"></i> الوحدة 02 — المفاهيم الأساسية</button>
-                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1Mon9N_q_CKCAnHhW-kTv4-6v1YY18zdX')"><i class="fas fa-lightbulb"></i> الوحدة 02 — المصطلحات الذكية</button>
+                        <button class="pdf-switcher-tab active" onclick="switchPdf(this, '1mFVl6IeMXPSYtPP1AsYz-aKvhT6TRKcA')"><i class="fas fa-file-pdf"></i> شاملة 2023 الجغرافيا الوحدة الثانية</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1avgTXxAu_wNu1LSinovYrvS9DEFEHuTg')"><i class="fas fa-file-pdf"></i> مجلة المجتهد رقم 02 في الجغرافيا</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1Mon9N_q_CKCAnHhW-kTv4-6v1YY18zdX')"><i class="fas fa-file-pdf"></i> مصطلحات الوحدة الثانية الذكية مادة الجغرافيا</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1TAm-hv6AEk51Q6KxUc8HBSvnyKiGgHB7')"><i class="fas fa-file-pdf"></i> مفاهيم الوحدة الثانية مادة الجغرافيا</button>
                     </div>
                 </div>
                 <div class="pdf-wrapper">
