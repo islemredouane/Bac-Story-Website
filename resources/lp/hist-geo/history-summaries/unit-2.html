@@ -108,52 +108,58 @@
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Pattaya&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Pattaya&display=swap"></noscript>
     <style>
+        /* ── Premium PDF Switcher Bar ── */
         .pdf-switcher-wrap {
-            position: relative;
-            margin: 0 auto 24px auto;
-            max-width: 100%;
+            text-align: center;
+            margin: 0 0 20px 0;
+            display: flex;
+            justify-content: center;
+            width: 100%;
         }
         .pdf-switcher-toggle {
+            display: inline-flex !important;
+            align-items: center;
             position: relative;
-            display: inline-flex;
-            gap: 6px;
-            padding: 5px;
+            vertical-align: top;
             background: #f1f5f9;
-            border-radius: 50px;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
-            overflow-x: auto;
+            border-radius: 999px;
+            padding: 4px;
+            gap: 0;
+            border: 1px solid rgba(44, 92, 197, 0.1);
             max-width: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
             -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+            -ms-overflow-style: none;
             scrollbar-width: none;
         }
-        .pdf-switcher-toggle::-webkit-scrollbar { display: none; }
+        .pdf-switcher-toggle::-webkit-scrollbar {
+            display: none;
+        }
         .pdf-switcher-pill {
             position: absolute;
-            top: 5px;
-            bottom: 5px;
-            background: linear-gradient(135deg, #1a3a8f, #0d1b3e);
-            border-radius: 50px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            top: 4px; bottom: 4px;
+            background: #2c5cc5;
+            border-radius: 999px;
+            transition: left 0.28s cubic-bezier(0.34,1.56,0.64,1), width 0.28s cubic-bezier(0.34,1.56,0.64,1);
+            box-shadow: 0 2px 8px rgba(44,92,195,0.3);
             pointer-events: none;
-            box-shadow: 0 4px 12px rgba(26,58,143,0.35);
+            z-index: 0;
         }
         .pdf-switcher-tab {
-            position: relative;
-            z-index: 1;
-            padding: 0.65rem 1.4rem;
-            font-size: 0.88rem;
-            font-weight: 600;
-            font-family: inherit;
-            color: #64748b;
-            background: transparent;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            white-space: nowrap;
-            transition: color 0.25s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 7px;
+            position: relative; z-index: 1;
+            margin: 0 !important;
+            padding: 0.5rem 1.4rem;
+            border: none; background: transparent; border-radius: 999px;
+            font-family: 'Tajawal', sans-serif; font-size: 0.9rem; font-weight: 700;
+            color: #64748b; cursor: pointer; white-space: nowrap;
+            transition: color 0.22s ease;
+            display: inline-flex; align-items: center; gap: 6px;
+            user-select: none;
+            flex-shrink: 0;
+            width: auto !important;
             min-width: 0 !important;
             box-shadow: none !important;
         }
@@ -185,17 +191,24 @@
                 <div class="pdf-switcher-wrap">
                     <div class="pdf-switcher-toggle" id="pdfTabBar">
                         <span class="pdf-switcher-pill" id="pdfTabPill"></span>
-                        <button class="pdf-switcher-tab active" onclick="switchPdf(this, '1GjJOXzKB_0l75V5EefHcImd-Bce07dUt')"><i class="fas fa-book"></i> الثورة الجزائرية — الدروس</button>
-                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1uso48u4Pdd1b2x-h1ZU0VPL57Xaz2ITs')"><i class="fas fa-user-shield"></i> الثورة الجزائرية — الشخصيات</button>
-                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1VExWE_skTGfyBJPBoqyMfAcRaWN0XUQo')"><i class="fas fa-spell-check"></i> الثورة الجزائرية — المصطلحات</button>
-                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1oiTZISE6F1zmKlivosnMZs8V9TiKMjvY')"><i class="fas fa-history"></i> الثورة الجزائرية — التواريخ</button>
-                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1OmIOX4Fh6dVXHs331OdOwQqxd2ye6IfD')"><i class="fas fa-globe-africa"></i> الثورة الجزائرية — الخرائط</button>
-                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1CkYvYzsVkEMa3uGF2fWDI4cVDmD6IknJ')"><i class="fas fa-lightbulb"></i> الثورة — الأسئلة غير المباشرة</button>
+                        <button class="pdf-switcher-tab active" onclick="switchPdf(this, '1A6sJbD_uUP-R3GJXZGt-yoKfY35zh6Q0')"><i class="fas fa-file-pdf"></i> الثورة الوحدة الثانية جميع الشعب 2024 لعروق</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1CQ8khoIGP-9vLCJqGW6zIRXz5E4y19-z')"><i class="fas fa-file-pdf"></i> الوحدة الثانية مادة التاريخ المراجعة السريعة</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1d-1nFfGKZehxCruTIZrWcNIX3sf7LRKw')"><i class="fas fa-file-pdf"></i> درس الثورة بورنان</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1PTdGOLO-sEfNk2ZXtsMWDTGZM-vSADnY')"><i class="fas fa-file-pdf"></i> ملخص الثورة الجزائرية بورنان</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1qSSSVNOZ3sepjgZ51YJL4Ew4D1YbeGtQ')"><i class="fas fa-file-pdf"></i> شخصيات الثورة من إعداد المتفوقة منار</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1WfVUJzmYr1lZFuOVXVaIzubehnPpoMx0')"><i class="fas fa-file-pdf"></i> شخصيات الحرب الباردة + الثورة من إعدادي Islem</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '10WbZ-q8Tl8SF-TSYrqyh66Y68qqU4Jty')"><i class="fas fa-file-pdf"></i> الاستاذ لعروق- أهم مصطلحات الجزائر</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1o5FiVgILc99sv4_HEWSg4wg-UVU7mfx9')"><i class="fas fa-file-pdf"></i> مصطلحات الثورة بورنان</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1qo6RN3O_aodxjj4nlqH5YkqFfGhLcQq_')"><i class="fas fa-file-pdf"></i> مصطلحات الوحدة الثانية التاريخ</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '19BQOMvwNqI8ZIEIL26c1hiHOXtWh1K8C')"><i class="fas fa-file-pdf"></i> مفاهيم الوحدة الثانية مادة التاريخ الجزائر</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1ZaBWcdVC-G_KzNPYXIlSTPyf2XxivgKF')"><i class="fas fa-file-pdf"></i> سلم زمني للاحداث تاريخية الثورة الجزائرية</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1E5qCqdpbjPXmQ5NjKAlXSmD6z9dEjiJ5')"><i class="fas fa-file-pdf"></i> كل تواريخ الثورة الجزائرية سهلة الحفظ والتذكر جاهزة للطباعة</button>
+                        <button class="pdf-switcher-tab" onclick="switchPdf(this, '1OhVh2FWSYviC3goJmsbugaVxccpX1F7S')"><i class="fas fa-file-pdf"></i> خرائط الثورة</button>
                     </div>
                 </div>
                 <div class="pdf-wrapper">
                     <div class="pdf-iframe-wrap">
-                    <iframe id="pdfFrame" src="https://drive.google.com/file/d/1GjJOXzKB_0l75V5EefHcImd-Bce07dUt/preview"
+                    <iframe id="pdfFrame" src="https://drive.google.com/file/d/1A6sJbD_uUP-R3GJXZGt-yoKfY35zh6Q0/preview"
                         class="responsive-pdf" loading="lazy" allowfullscreen title="الوحدة الثانية: الثورة التحريرية الكبرى (الثورة الجزائرية) — آداب وفلسفة"></iframe>
                     </div>
                     
@@ -203,7 +216,7 @@
                         <button onclick="toggleFullScreen(event)" class="full-btn" style="flex:1;border:none;font-size:16px;font-weight:500;cursor:pointer;">
                             <i class="fa-solid fa-expand"></i> تكبير الملف
                         </button>
-                        <a id="downloadPdfBtn" href="https://drive.google.com/uc?export=download&id=1GjJOXzKB_0l75V5EefHcImd-Bce07dUt" download class="down-btn"
+                        <a id="downloadPdfBtn" href="https://drive.google.com/uc?export=download&id=1A6sJbD_uUP-R3GJXZGt-yoKfY35zh6Q0" download class="down-btn"
                             style="flex:1;text-decoration:none;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:500;">
                             <i class="fa-solid fa-download"></i> تحميل الملف
                         </a>
