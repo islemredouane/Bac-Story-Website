@@ -1295,7 +1295,24 @@ function initSchoolTabs(sectionId) {
 /* ==========================================================================
    Premium PDF Switcher (for individual pages with multiple files)
    ========================================================================== */
-window.switchPdf = function(button, fileId, isInit = false) {
+// Many pages define their own switchPdf(). Rule (unchanged since before this file was loaded with
+// `defer`): a page's own version written AFTER this file's <script> tag wins; one written before
+// it is replaced by this one. With `defer` this file runs after the whole page, so the position is
+// checked explicitly instead of relying on run order.
+var _pageOwnsSwitchPdf = (function () {
+    try {
+        var me = document.currentScript || document.querySelector('script[src*="/script.js"]');
+        if (!me || typeof window.switchPdf !== 'function') return false;
+        var scripts = document.getElementsByTagName('script');
+        for (var i = 0; i < scripts.length; i++) {
+            var s = scripts[i];
+            if (!s.src && /function\s+switchPdf\b|window\.switchPdf\s*=/.test(s.textContent) &&
+                (me.compareDocumentPosition(s) & Node.DOCUMENT_POSITION_FOLLOWING)) return true;
+        }
+    } catch (e) {}
+    return false;
+})();
+if (!_pageOwnsSwitchPdf) window.switchPdf = function(button, fileId, isInit = false) {
     const iframe = document.querySelector('.responsive-pdf');
     const downloadBtn = document.querySelector('.down-btn');
     
