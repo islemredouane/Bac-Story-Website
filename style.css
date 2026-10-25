@@ -1212,9 +1212,12 @@ body.search-active .mobile-bottom-bar,
     animation: fadeInCentered 0.4s ease-out forwards;
 }
 
+/* Entrance fades start at 0.1, not 0: browsers ignore anything painted at opacity 0 when they
+   measure Largest Contentful Paint, so a fade from 0 made the homepage hero count as painted only
+   seconds later (it is drawn behind the loader anyway). Visually the same animation. */
 @keyframes fadeIn {
     from {
-        opacity: 0;
+        opacity: 0.1;
         transform: translateY(20px);
     }
 
@@ -1236,7 +1239,7 @@ body.search-active .mobile-bottom-bar,
 
 @keyframes heroReveal {
     0% {
-        opacity: 0;
+        opacity: 0.1;
         transform: translateY(30px) scale(0.98);
     }
 
