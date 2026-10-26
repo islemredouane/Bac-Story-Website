@@ -382,16 +382,32 @@ button i, a i, .btn i {
 
 .loader-bar-fill {
     height: 100%;
-    width: 0;
+    width: 100%;
     border-radius: 2px;
     background: linear-gradient(90deg, #2c5cc5 0%, #4a7be8 100%);
+    /* scaleX instead of width: drawn by the GPU, no repaint every frame. It grows from the right,
+       as the old width animation did on this right-to-left page. */
+    transform: scaleX(0);
+    transform-origin: right center;
     animation: loaderBarFill 2.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.45s forwards;
 }
 
-/* glowing dot tracking the fill edge */
+/* glowing dot moving along the bar. The element spans the bar and is moved with translateX
+   (a percentage of the bar's width, like the old "left"), so the GPU moves it without a repaint
+   every frame; the dot itself is ::before, centred on the element's left edge. */
 .loader-bar-glow {
     position: absolute;
     top: 50%;
+    left: 0;
+    width: 100%;
+    height: 0;
+    animation: loaderDotTrack 2.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.45s forwards;
+}
+
+.loader-bar-glow::before {
+    content: '';
+    position: absolute;
+    top: 0;
     left: 0;
     transform: translate(-50%, -50%);
     width: 7px;
@@ -399,7 +415,6 @@ button i, a i, .btn i {
     border-radius: 50%;
     background: #2c5cc5;
     box-shadow: 0 0 8px 2px rgba(44, 92, 197, 0.33);
-    animation: loaderDotTrack 2.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.45s forwards;
 }
 
 /* ── Keyframes ──────────────────────────────────────────────────── */
@@ -424,37 +439,37 @@ button i, a i, .btn i {
 
 @keyframes loaderBarFill {
     0% {
-        width: 0%;
+        transform: scaleX(0);
     }
 
     50% {
-        width: 65%;
+        transform: scaleX(0.65);
     }
 
     80% {
-        width: 88%;
+        transform: scaleX(0.88);
     }
 
     100% {
-        width: 100%;
+        transform: scaleX(1);
     }
 }
 
 @keyframes loaderDotTrack {
     0% {
-        left: 0%;
+        transform: translateX(0%);
     }
 
     50% {
-        left: 65%;
+        transform: translateX(65%);
     }
 
     80% {
-        left: 88%;
+        transform: translateX(88%);
     }
 
     100% {
-        left: 100%;
+        transform: translateX(100%);
     }
 }
 
@@ -1881,6 +1896,15 @@ body.search-active .mobile-bottom-bar,
     -webkit-text-fill-color: transparent;
     animation: shiny 3s ease-in-out infinite;
     display: inline-block;
+}
+
+/* Endless effects that can't run on the GPU (they move a background, so the browser repaints
+   them every frame) wait until the page is shown: while the loader covers the screen they would
+   only slow the page down. Nothing visible changes: they are hidden behind the loader then. */
+body:not(.page-ready) .shiny-text,
+body:not(.page-ready) .crc-stat-num,
+body:not(.page-ready) .hp-wall-skel-card {
+    animation-play-state: paused;
 }
 
 /* Modern Section Header */
@@ -13122,10 +13146,12 @@ button, a.main-btn, a.spec-detail-btn, .modern-cta-btn, .spec-nav-btn, .gcta-btn
     background: linear-gradient(105deg, transparent 40%, rgba(44, 92, 197, 0.05) 50%, transparent 60%);
     animation: crc-stat-shimmer 3s ease-in-out infinite;
 }
+/* The stripe is 40% of the card wide; moving it from right:-60% to right:110% of the card is a
+   translateX of -425% of its own width, done by the GPU instead of a repaint every frame. */
 @keyframes crc-stat-shimmer {
-    0%   { right: -60%; }
-    50%  { right: 110%; }
-    100% { right: 110%; }
+    0%   { transform: translateX(0); }
+    50%  { transform: translateX(-425%); }
+    100% { transform: translateX(-425%); }
 }
 .crc-stat::after {
     content: '';
