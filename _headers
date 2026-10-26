@@ -7,13 +7,19 @@
 /*.html
   Cache-Control: public, max-age=0, must-revalidate
 
+# CSS and JS are kept for a week. Every link to them carries ?v=<content hash>, set by
+# scripts/stamp-versions.py, so a changed file gets a new address and is downloaded at once.
+# A week (not a year, not "immutable") means a forgotten stamp heals by itself within 7 days.
+# Move to "max-age=31536000, immutable" only once a failed --check blocks deploys (see README).
 /*.css
-  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=604800
 
 /*.js
-  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=604800
 
+# The service worker must always be fresh. "! Cache-Control" drops the /*.js rule above.
 /sw.js
+  ! Cache-Control
   Cache-Control: no-cache, no-store, must-revalidate
 
 /*.jpg
@@ -34,9 +40,8 @@
 /*.gif
   Cache-Control: public, max-age=31536000, immutable
 
-# The site's own Font Awesome (built by scripts/build-fa-subset.py). Every link to these files
-# carries ?v=<content hash>, rewritten by the script whenever they change, so they can be kept
-# for a year. "! Cache-Control" drops the 1-day rule that /*.css would otherwise add.
+# The icon font files and fa.css (rebuilt and versioned by scripts/build-fa-subset.py; they
+# change only when that script runs). "! Cache-Control" removes the /*.css rule from fa.css.
 /fonts/*
   ! Cache-Control
   Cache-Control: public, max-age=31536000, immutable
@@ -44,22 +49,20 @@
 /components/*
   X-Robots-Tag: noindex
 
-# Header, footer and search box: loaded by shared.js on every page.
-# Browsers keep them 1 hour, then show the saved copy instantly while fetching
-# a fresh one in the background (up to 1 day). To publish a change at once,
-# bump the ?v= number for that file in components/shared.js.
-# (Listed by name, not /components/*, so the .js files there keep their own rule.)
+# Header, footer, search box and search data, fetched by shared.js with ?v=<content hash>.
+# A week, like CSS/JS above. (Listed by name, not /components/*, so the .js files there keep
+# the /*.js rule.)
 /components/navbar
-  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+  Cache-Control: public, max-age=604800
 
 /components/footer
-  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+  Cache-Control: public, max-age=604800
 
 /components/search
-  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+  Cache-Control: public, max-age=604800
 
 /search-index.json
-  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=604800
   X-Robots-Tag: noindex
 
 # Keep the pages.dev copies of the site out of search results (the canonical site is www.bac-story.com)

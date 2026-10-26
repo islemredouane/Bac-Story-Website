@@ -1,31 +1,10 @@
-const CACHE_NAME = 'bac-story-v33';
-const ASSETS_TO_CACHE = [
-  '/',
-  '/style.css',
-  '/script.js',
-  '/components/shared.js',
-  '/components/navbar',
-  '/components/footer',
-  '/components/search',
-  '/ads-config.js',
-  '/favicon.png'
-];
+const CACHE_NAME = 'bac-story-v34';
 
-// Install Event
-self.addEventListener('install', (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return Promise.allSettled(
-        ASSETS_TO_CACHE.map((url) =>
-          fetch(url)
-            .then((res) => {
-              if (res.ok) return cache.put(url, res);
-            })
-            .catch((err) => console.warn('SW pre-cache skip:', url, err))
-        )
-      );
-    })
-  );
+// Install: nothing is pre-downloaded. Pages link CSS/JS/components with ?v=<content hash>, and
+// a cached file only matches the exact address a page asks for, so the old fixed list ('/style.css',
+// '/script.js', ...) was downloaded on every new version and never used. Files are cached as they
+// are first requested, by the fetch handler below.
+self.addEventListener('install', () => {
   self.skipWaiting();
 });
 
@@ -60,10 +39,10 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // 3. Never intercept dynamic API endpoints
-  try {
-    if (new URL(req.url).pathname.startsWith('/api/')) return;
-  } catch (e) {}
+  // 3. Never intercept dynamic API endpoints, nor the 1.8 MB search data: it is downloaded
+  //    only when someone searches, and the browser's own cache keeps it already.
+  const path = new URL(req.url).pathname;
+  if (path.startsWith('/api/') || path === '/search-index.json') return;
 
   // 4. Stale-While-Revalidate for sub-resources (CSS, JS, images, component HTML)
   event.respondWith(
@@ -72,7 +51,7 @@ self.addEventListener('fetch', (event) => {
         .then((networkResponse) => {
           if (networkResponse && networkResponse.ok) {
             const resClone = networkResponse.clone();
-            caches.open(CACHE_NAME).then((cache) => cache.put(req, resClone));
+            caches.open(CACHE_NAME).then((cache) => cache.put(req, resClone).then(() => dropOtherVersions(cache, req.url)));
           }
           return networkResponse;
         })
@@ -82,3 +61,14 @@ self.addEventListener('fetch', (event) => {
     })
   );
 });
+
+// CSS/JS/components are linked as /file?v=<content hash>. When a new version is cached, delete
+// the older ones of the same file, so the cache holds one copy per file instead of growing with
+// every update.
+function dropOtherVersions(cache, url) {
+  const u = new URL(url);
+  if (!u.searchParams.has('v')) return;
+  return cache.keys().then((keys) => Promise.all(keys
+    .filter((k) => { const o = new URL(k.url); return o.pathname === u.pathname && o.search !== u.search; })
+    .map((k) => cache.delete(k))));
+}
