@@ -167,7 +167,7 @@ flowchart LR
 │   ├── navbar.html  footer.html  search.html
 │   └── calculator.js                  grade calculator logic
 ├── style.css                          design system (colours, radii, shadows, components)
-├── script.js  simulation.js  bac-2026.js  bac-topics.js  ads-config.js
+├── script.js  simulation.js  bac-2026.js  ads-config.js
 │
 ├── functions/
 │   ├── _middleware.js                 redirects, blocked files, 410 Gone
