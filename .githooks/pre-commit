@@ -1,8 +1,23 @@
 #!/bin/sh
-# Refuses a commit whose ?v= links are out of date (see scripts/stamp-versions.py).
-# Enable once per clone:  git config core.hooksPath .githooks
-python3 scripts/stamp-versions.py --check >/dev/null 2>&1 && exit 0
-python3 scripts/stamp-versions.py --check
-echo
-echo "Commit stopped: run  python3 scripts/stamp-versions.py  then  git add -A  and commit again."
-exit 1
+# Checks run before every commit. Enable once per clone:  git config core.hooksPath .githooks
+
+# 1. ?v= links must match the files they point to (see scripts/stamp-versions.py).
+if ! python3 scripts/stamp-versions.py --check >/dev/null 2>&1; then
+    python3 scripts/stamp-versions.py --check
+    echo
+    echo "Commit stopped: run  python3 scripts/stamp-versions.py  then  git add -A  and commit again."
+    exit 1
+fi
+
+# 2. Tajawal and Pattaya are served from /fonts (style.css). A page copied from an old template
+#    can bring the Google Fonts link back; only the calculator pages (Amiri/Cairo) may use it.
+bad=$(grep -rl --include='*.html' 'fonts.googleapis.com/css2?family=Tajawal\|fonts.googleapis.com/css2?family=Pattaya' . \
+      | grep -v -e '^./.git/' -e '^./node_modules/' -e '^./.github/' 2>/dev/null)
+if [ -n "$bad" ]; then
+    echo "$bad"
+    echo
+    echo "Commit stopped: these pages load Tajawal/Pattaya from Google Fonts. Remove that <link>"
+    echo "(and its <noscript>): style.css already provides the fonts."
+    exit 1
+fi
+exit 0

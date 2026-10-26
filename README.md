@@ -181,6 +181,7 @@ flowchart LR
 ├── search-index.json                  data for the site search
 ├── manifest.json  sw.js               installable app and offline cache
 ├── fonts/fa/                          the site's own Font Awesome (only the icons it uses)
+├── fonts/tajawal/  fonts/pattaya/     the text fonts (Google Fonts v12 files, OFL licences inside)
 ├── images/flags/                     the country flags used on the language pages
 └── scripts/generate-sitemap.py        rebuilds sitemap.xml from the real pages
     scripts/build-fa-subset.py         rebuilds fonts/fa/ from the icons the pages use
@@ -195,7 +196,7 @@ flowchart LR
 | Element | Choice |
 |---|---|
 | **Colours** | Primary blue `#2C5CC3` (deep `#1A3A8F`) · accent orange `#FF6B35` · success `#28A745` · text `#212529` |
-| **Type** | **Tajawal** for all Arabic UI · **Pattaya** for the *BAC STORY* wordmark · Font Awesome 6 icons |
+| **Type** | **Tajawal** for all Arabic UI · **Pattaya** for the *BAC STORY* wordmark · Font Awesome 6 icons. All served from `fonts/` (declared at the top of `style.css`), not Google Fonts. Tajawal comes in 400/500/700/900: `font-weight: 800` is drawn with the 900 face on purpose (as it always was); only `simulation.html` and `experiences.html` load a real 800. |
 | **Shape** | Rounded cards and pills (radius 8–18 px, pills 999 px), soft blue shadows, gradient hero blocks |
 | **Layout** | Right-to-left, mobile first, with a bottom tab bar on phones |
 

@@ -2,8 +2,9 @@
 """
 Give every versioned asset link the content hash of the file it points to.
 
-The site's CSS, JS, fonts and components are cached by browsers for a year (see _headers).
-That is only safe because every link to them carries ?v=<version>: a browser keeps one copy per
+Browsers keep the site's CSS, JS, fonts, components and search data for a long time (see
+_headers: a week for CSS/JS/components, a year for fonts). That is only safe because every link
+to them carries ?v=<version>: a browser keeps one copy per
 full address, so a new ?v= is a new file and it is downloaded at once. This script makes that
 automatic. It finds every local link written as  /path/to/file?v=<anything>  in the site's
 .html, .js and .css files and sets <anything> to the first 10 hex digits of the SHA-1 of that
@@ -34,7 +35,9 @@ them), so every page's shared.js link changes too: a diff touching all pages is 
 Enforced by .githooks/pre-commit (enable with: git config core.hooksPath .githooks) and by the
 GitHub workflow .github/workflows/check-versions.yml on every push.
 """
-import argparse, hashlib, os, re, sys
+import argparse, hashlib, os, re, signal, sys
+
+signal.signal(signal.SIGPIPE, signal.SIG_DFL)   # quiet when piped into head
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SKIP_DIRS = {'.git', 'node_modules', '.wrangler', 'scripts', 'functions', '.github'}
