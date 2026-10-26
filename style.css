@@ -8,7 +8,7 @@
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: url(/fonts/tajawal/tajawal-arabic-400.woff2?v=86dcc0150b) format('woff2');
+    src: url(/fonts/tajawal/tajawal-arabic-400.woff2?v=86dcc0150b) format('woff2'), url(/fonts/tajawal/tajawal-arabic-400.woff?v=bc5a17c14d) format('woff');
     unicode-range: U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0897-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC,U+102E0-102FB,U+10E60-10E7E,U+10EC2-10EC4,U+10EFC-10EFF,U+1EE00-1EE03,U+1EE05-1EE1F,U+1EE21-1EE22,U+1EE24,U+1EE27,U+1EE29-1EE32,U+1EE34-1EE37,U+1EE39,U+1EE3B,U+1EE42,U+1EE47,U+1EE49,U+1EE4B,U+1EE4D-1EE4F,U+1EE51-1EE52,U+1EE54,U+1EE57,U+1EE59,U+1EE5B,U+1EE5D,U+1EE5F,U+1EE61-1EE62,U+1EE64,U+1EE67-1EE6A,U+1EE6C-1EE72,U+1EE74-1EE77,U+1EE79-1EE7C,U+1EE7E,U+1EE80-1EE89,U+1EE8B-1EE9B,U+1EEA1-1EEA3,U+1EEA5-1EEA9,U+1EEAB-1EEBB,U+1EEF0-1EEF1;
 }
 
@@ -17,7 +17,7 @@
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: url(/fonts/tajawal/tajawal-latin-400.woff2?v=a9e8e937c5) format('woff2');
+    src: url(/fonts/tajawal/tajawal-latin-400.woff2?v=a9e8e937c5) format('woff2'), url(/fonts/tajawal/tajawal-latin-400.woff?v=886a5080a3) format('woff');
     unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
 }
 
@@ -26,7 +26,7 @@
     font-style: normal;
     font-weight: 500;
     font-display: swap;
-    src: url(/fonts/tajawal/tajawal-arabic-500.woff2?v=bd45ba01ba) format('woff2');
+    src: url(/fonts/tajawal/tajawal-arabic-500.woff2?v=bd45ba01ba) format('woff2'), url(/fonts/tajawal/tajawal-arabic-500.woff?v=34418b237e) format('woff');
     unicode-range: U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0897-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC,U+102E0-102FB,U+10E60-10E7E,U+10EC2-10EC4,U+10EFC-10EFF,U+1EE00-1EE03,U+1EE05-1EE1F,U+1EE21-1EE22,U+1EE24,U+1EE27,U+1EE29-1EE32,U+1EE34-1EE37,U+1EE39,U+1EE3B,U+1EE42,U+1EE47,U+1EE49,U+1EE4B,U+1EE4D-1EE4F,U+1EE51-1EE52,U+1EE54,U+1EE57,U+1EE59,U+1EE5B,U+1EE5D,U+1EE5F,U+1EE61-1EE62,U+1EE64,U+1EE67-1EE6A,U+1EE6C-1EE72,U+1EE74-1EE77,U+1EE79-1EE7C,U+1EE7E,U+1EE80-1EE89,U+1EE8B-1EE9B,U+1EEA1-1EEA3,U+1EEA5-1EEA9,U+1EEAB-1EEBB,U+1EEF0-1EEF1;
 }
 
@@ -35,7 +35,7 @@
     font-style: normal;
     font-weight: 500;
     font-display: swap;
-    src: url(/fonts/tajawal/tajawal-latin-500.woff2?v=abeac1b789) format('woff2');
+    src: url(/fonts/tajawal/tajawal-latin-500.woff2?v=abeac1b789) format('woff2'), url(/fonts/tajawal/tajawal-latin-500.woff?v=ddc93174c8) format('woff');
     unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
 }
 
@@ -44,7 +44,7 @@
     font-style: normal;
     font-weight: 700;
     font-display: swap;
-    src: url(/fonts/tajawal/tajawal-arabic-700.woff2?v=18fca0c18f) format('woff2');
+    src: url(/fonts/tajawal/tajawal-arabic-700.woff2?v=18fca0c18f) format('woff2'), url(/fonts/tajawal/tajawal-arabic-700.woff?v=e1159fdc22) format('woff');
     unicode-range: U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0897-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC,U+102E0-102FB,U+10E60-10E7E,U+10EC2-10EC4,U+10EFC-10EFF,U+1EE00-1EE03,U+1EE05-1EE1F,U+1EE21-1EE22,U+1EE24,U+1EE27,U+1EE29-1EE32,U+1EE34-1EE37,U+1EE39,U+1EE3B,U+1EE42,U+1EE47,U+1EE49,U+1EE4B,U+1EE4D-1EE4F,U+1EE51-1EE52,U+1EE54,U+1EE57,U+1EE59,U+1EE5B,U+1EE5D,U+1EE5F,U+1EE61-1EE62,U+1EE64,U+1EE67-1EE6A,U+1EE6C-1EE72,U+1EE74-1EE77,U+1EE79-1EE7C,U+1EE7E,U+1EE80-1EE89,U+1EE8B-1EE9B,U+1EEA1-1EEA3,U+1EEA5-1EEA9,U+1EEAB-1EEBB,U+1EEF0-1EEF1;
 }
 
@@ -53,7 +53,7 @@
     font-style: normal;
     font-weight: 700;
     font-display: swap;
-    src: url(/fonts/tajawal/tajawal-latin-700.woff2?v=aba40d14b5) format('woff2');
+    src: url(/fonts/tajawal/tajawal-latin-700.woff2?v=aba40d14b5) format('woff2'), url(/fonts/tajawal/tajawal-latin-700.woff?v=e21099b920) format('woff');
     unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
 }
 
@@ -62,7 +62,7 @@
     font-style: normal;
     font-weight: 900;
     font-display: swap;
-    src: url(/fonts/tajawal/tajawal-arabic-900.woff2?v=bbd2c696f4) format('woff2');
+    src: url(/fonts/tajawal/tajawal-arabic-900.woff2?v=bbd2c696f4) format('woff2'), url(/fonts/tajawal/tajawal-arabic-900.woff?v=eeabad13ef) format('woff');
     unicode-range: U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0897-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC,U+102E0-102FB,U+10E60-10E7E,U+10EC2-10EC4,U+10EFC-10EFF,U+1EE00-1EE03,U+1EE05-1EE1F,U+1EE21-1EE22,U+1EE24,U+1EE27,U+1EE29-1EE32,U+1EE34-1EE37,U+1EE39,U+1EE3B,U+1EE42,U+1EE47,U+1EE49,U+1EE4B,U+1EE4D-1EE4F,U+1EE51-1EE52,U+1EE54,U+1EE57,U+1EE59,U+1EE5B,U+1EE5D,U+1EE5F,U+1EE61-1EE62,U+1EE64,U+1EE67-1EE6A,U+1EE6C-1EE72,U+1EE74-1EE77,U+1EE79-1EE7C,U+1EE7E,U+1EE80-1EE89,U+1EE8B-1EE9B,U+1EEA1-1EEA3,U+1EEA5-1EEA9,U+1EEAB-1EEBB,U+1EEF0-1EEF1;
 }
 
@@ -71,7 +71,7 @@
     font-style: normal;
     font-weight: 900;
     font-display: swap;
-    src: url(/fonts/tajawal/tajawal-latin-900.woff2?v=fef9253ae3) format('woff2');
+    src: url(/fonts/tajawal/tajawal-latin-900.woff2?v=fef9253ae3) format('woff2'), url(/fonts/tajawal/tajawal-latin-900.woff?v=40a34864a8) format('woff');
     unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
 }
 
@@ -80,7 +80,7 @@
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: url(/fonts/pattaya/pattaya-latin-ext-400.woff2?v=9022df9e55) format('woff2');
+    src: url(/fonts/pattaya/pattaya-latin-ext-400.woff2?v=9022df9e55) format('woff2'), url(/fonts/pattaya/pattaya-latin-ext-400.woff?v=9c71bd49d3) format('woff');
     unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
 }
 
@@ -89,7 +89,7 @@
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: url(/fonts/pattaya/pattaya-latin-400.woff2?v=bc8c8a6ec6) format('woff2');
+    src: url(/fonts/pattaya/pattaya-latin-400.woff2?v=bc8c8a6ec6) format('woff2'), url(/fonts/pattaya/pattaya-latin-400.woff?v=696b2b3ee8) format('woff');
     unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
 }
 
@@ -1899,11 +1899,13 @@ body.search-active .mobile-bottom-bar,
 }
 
 /* Endless effects that can't run on the GPU (they move a background, so the browser repaints
-   them every frame) wait until the page is shown: while the loader covers the screen they would
-   only slow the page down. Nothing visible changes: they are hidden behind the loader then. */
-body:not(.page-ready) .shiny-text,
-body:not(.page-ready) .crc-stat-num,
-body:not(.page-ready) .hp-wall-skel-card {
+   them every frame) wait while the loader covers the screen: they would only slow the page down
+   and nobody sees them. The rule follows the loader itself, so they start as soon as it begins to
+   fade, however it goes away (normal boot, a failed boot, or a failsafe), and simply run in a
+   browser without :has(). */
+body:has(> #page-loader:not(.loader-hiding)) .shiny-text,
+body:has(> #page-loader:not(.loader-hiding)) .crc-stat-num,
+body:has(> #page-loader:not(.loader-hiding)) .hp-wall-skel-card {
     animation-play-state: paused;
 }
 
@@ -13146,8 +13148,9 @@ button, a.main-btn, a.spec-detail-btn, .modern-cta-btn, .spec-nav-btn, .gcta-btn
     background: linear-gradient(105deg, transparent 40%, rgba(44, 92, 197, 0.05) 50%, transparent 60%);
     animation: crc-stat-shimmer 3s ease-in-out infinite;
 }
-/* The stripe is 40% of the card wide; moving it from right:-60% to right:110% of the card is a
-   translateX of -425% of its own width, done by the GPU instead of a repaint every frame. */
+/* Moves the stripe from right:-60% to right:110% of the card with the GPU instead of a repaint
+   every frame: -(110 + 60) / 40 = -425% of its own width. If you change "width: 40%" or
+   "right: -60%" above, recompute this number. */
 @keyframes crc-stat-shimmer {
     0%   { transform: translateX(0); }
     50%  { transform: translateX(-425%); }
