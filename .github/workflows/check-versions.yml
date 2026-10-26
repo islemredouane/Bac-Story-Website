@@ -1,0 +1,12 @@
+# Fails (and GitHub emails the owner) when a pushed CSS/JS/component/search-index change was not
+# stamped. Fix: run  python3 scripts/stamp-versions.py  and push again.
+name: Check ?v= links
+on:
+  push:
+  pull_request:
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/stamp-versions.py --check

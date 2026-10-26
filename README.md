@@ -184,6 +184,8 @@ flowchart LR
 ├── images/flags/                     the country flags used on the language pages
 └── scripts/generate-sitemap.py        rebuilds sitemap.xml from the real pages
     scripts/build-fa-subset.py         rebuilds fonts/fa/ from the icons the pages use
+    scripts/stamp-versions.py          sets every ?v= to the linked file's content hash
+    .githooks/pre-commit               refuses a commit with stale ?v= links
 ```
 
 <br>
@@ -254,20 +256,30 @@ All tokens are CSS variables at the top of `style.css` (`--primary-color`, `--se
 | Asset | Browser cache |
 |---|---|
 | Site images (`png`, `jpg`, `webp`, `svg`…) | 1 year, `immutable` |
-| Font Awesome (`fonts/fa/`, versioned by content hash) | 1 year, `immutable` |
-| CSS and JS | 1 day, then refreshed in the background (up to 7 days) |
-| Navbar, footer, search box | 1 hour, then refreshed in the background (up to 1 day) |
+| Font Awesome (`fonts/fa/`) | 1 year, `immutable` (versioned by `build-fa-subset.py`) |
+| CSS, JS, navbar/footer/search, `search-index.json` | 1 week (every link carries `?v=<content hash>`) |
 | HTML pages | always revalidated, so new content shows at once |
 | `sw.js` | never cached |
 
-The **service worker** (`sw.js`) never touches page navigations. It serves CSS, JS, images and
-components from its cache and refreshes them in the background. That makes repeat visits instant
-and lets the site keep working on a weak connection.
+The **service worker** (`sw.js`) never touches page navigations. It caches CSS, JS, images and
+components the first time a page uses them, serves them from that cache afterwards and refreshes
+them in the background. That makes repeat visits instant and helps on a weak connection.
 
-> [!TIP]
-> After editing `navbar.html`, `footer.html` or `search.html`, bump its `?v=` number in
-> `components/shared.js` so every visitor gets the new version immediately.
-> Do the same for `style.css` / `script.js` in the pages that load them.
+> [!IMPORTANT]
+> After editing any CSS, JS, `navbar.html` / `footer.html` / `search.html` or `search-index.json`,
+> run **`python3 scripts/stamp-versions.py`** before committing. It sets every `?v=` to the file's
+> content hash, so visitors get the new version at once even though browsers keep these files for
+> a week. Editing a component or the search data rewrites the `shared.js` link on every page: a
+> diff that touches all pages is normal then.
+>
+> - **Safety net:** run `git config core.hooksPath .githooks` once in your clone and a commit with
+>   stale links is refused. Every push is also checked by GitHub (*Actions → Check ?v= links*;
+>   GitHub emails you if it fails).
+> - **If an old file is stuck in visitors' browsers:** re-stamp and push (a new hash is a new
+>   address). Changing `_headers` back does not remove copies browsers already keep.
+> - **Going to 1-year caching later:** set the Cloudflare Pages build command to
+>   `python3 scripts/stamp-versions.py --check` (a stale link then fails the deploy), then change
+>   the 1-week rules in `_headers` to `public, max-age=31536000, immutable`.
 
 <br>
 

@@ -63,11 +63,11 @@ setTimeout(function () {
 }, 6000);
 
 // ─── COMPONENT INJECTOR ───────────────────────────────────────────────────────
-// Component URLs (bump ?v= after editing a component). They are requested as soon as this
+// Component URLs (?v= is set by scripts/stamp-versions.py). They are requested as soon as this
 // script runs, in parallel, so the navbar/footer/search are usually ready by DOMContentLoaded.
-const _NAVBAR_URL = '/components/navbar?v=2.2';
-const _FOOTER_URL = '/components/footer?v=1.8';
-const _SEARCH_URL = '/components/search?v=1.0';
+const _NAVBAR_URL = '/components/navbar?v=76ef928307';
+const _FOOTER_URL = '/components/footer?v=be99c2ba81';
+const _SEARCH_URL = '/components/search?v=307da03145';
 const _componentFetches = {};
 
 // Resolves to the component's HTML text. The body is read right away (inside this chain) so the
@@ -930,9 +930,9 @@ function setupSearch() {
     // ── SEARCH DATA (lazy-loaded) ─────────────────────────────────────────────
     // The search index lives in /search-index.json (~1.6 MB). It is downloaded
     // only when a visitor opens or hovers the search button, so ordinary page
-    // loads stay light. To add or edit entries, edit /search-index.json and
-    // change the ?v= value below so browsers fetch the new copy.
-    const SEARCH_INDEX_URL = '/search-index.json?v=fa12153083';
+    // loads stay light. After editing /search-index.json, run scripts/stamp-versions.py
+    // so the ?v= below changes and browsers fetch the new copy.
+    const SEARCH_INDEX_URL = '/search-index.json?v=b33c362868';
     let navSearchData = null;
     let searchIndexPromise = null;
     const loadSearchIndex = () => {
