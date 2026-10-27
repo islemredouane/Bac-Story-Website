@@ -27,7 +27,7 @@
 <link rel="preload" href="/components/navbar?v=76ef928307" as="fetch" crossorigin/>
 <link rel="preload" href="/components/footer?v=be99c2ba81" as="fetch" crossorigin/>
 <link rel="preload" href="/components/search?v=307da03145" as="fetch" crossorigin/>
-<link href="/style.css?v=aacd75d5f3" rel="stylesheet"/>
+<link href="/style.css?v=94c9a14c3f" rel="stylesheet"/>
 <link as="style" href="/fonts/fa/fa.css?v=ebfba998e8" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
 <noscript><link href="/fonts/fa/fa.css?v=ebfba998e8" rel="stylesheet"/>
 </noscript>
@@ -149,6 +149,10 @@
         }
         .adp-stat-val {
             font-size: 2.8rem;
+            /* Room for the Arabic glyph tops/bottoms, which the clipped gradient would cut;
+               the negative margins keep the card size unchanged. */
+            padding: 0.3em 0 0.15em;
+            margin: -0.3em 0 -0.15em;
             background: linear-gradient(90deg, #1a3a8f, #2c5cc5, #3d6ee0, #2c5cc5, #1a3a8f);
             background-size: 200% 100%;
             -webkit-background-clip: text;
