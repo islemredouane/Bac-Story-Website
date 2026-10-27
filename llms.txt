@@ -1,6 +1,6 @@
 # BAC STORY
 
-> BAC STORY (بك ستوري) is Algeria's leading free educational platform dedicated to helping students prepare for the Algerian Baccalaureate exam (البكالوريا الجزائرية). The platform serves over 15,000 daily visitors across all 69 wilayas of Algeria and has a Telegram community of 17,000+ subscribers.
+> BAC STORY (بك ستوري) is Algeria's leading free educational platform dedicated to helping students prepare for the Algerian Baccalaureate exam (البكالوريا الجزائرية). The platform serves over 2,000 daily visitors across all 69 wilayas of Algeria and has a Telegram community of 17,000+ subscribers.
 
 BAC STORY provides comprehensive, free, and accessible study materials for all six Baccalaureate streams:
 1. Mathematics (شعبة رياضيات)
@@ -19,7 +19,7 @@ The platform is founded and operated by Redouane Mohamed Islem and is accessible
 - [أعلن معنا](https://www.bac-story.com/advertise): Partnership and sponsorship opportunities for educators, academies, and training centers.
 - [قيّم الموقع](https://www.bac-story.com/feedback): Verified student feedback, reviews, and community ratings.
 - [سياسة الخصوصية](https://www.bac-story.com/privacy): What data BAC STORY collects (forms, anonymous analytics), why, how long it is kept, and how to ask for access or deletion.
-- [ساهم في الموقع](https://www.bac-story.com/contribute): Open student contribution portal — submit verified summaries, exercises, booklets, or Google Drive repositories to benefit over 15,000 daily students. No account required.
+- [ساهم في الموقع](https://www.bac-story.com/contribute): Open student contribution portal — submit verified summaries, exercises, booklets, or Google Drive repositories to benefit over 2,000 daily students. No account required.
 
 ## 2027 Baccalaureate Reform (إصلاحات وتغييرات منهاج بكالوريا 2027)
 
