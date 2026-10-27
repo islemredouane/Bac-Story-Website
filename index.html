@@ -131,6 +131,11 @@
     mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%);
 }
 .hp-feat-row + .hp-feat-row { margin-top: 14px; }
+/* The cards wait for the Tajawal font before they show: when it arrives, every card's width changes,
+   and the cards on screen (far along the scrolling row) would jump sideways (Lighthouse measured a
+   layout shift of 0.26 on phones). They are hidden behind the loader at that moment anyway.
+   The script at the end of the page adds .fonts-ok (after 3 s at the latest). */
+.hp-features:not(.fonts-ok) .hp-feat-row { visibility: hidden; }
 
 .hp-feat-track {
     display: flex;
@@ -967,6 +972,15 @@
 <script>
 (function () {
     'use strict';
+
+    /* ── Feature cards: show once the fonts are ready (see the CSS above .hp-feat-track) ── */
+    (function () {
+        var f = document.querySelector('.hp-features');
+        if (!f) return;
+        var show = function () { f.classList.add('fonts-ok'); };
+        setTimeout(show, 3000);
+        try { document.fonts.ready.then(show); } catch (e) { show(); }
+    })();
 
     /* ── Scroll reveal ── */
     var revealEls = document.querySelectorAll('.hp-reveal');
