@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1BWT5DE65Q"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1BWT5DE65Q');
+    </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BAC STORY — برنامج المكافآت والسفراء</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Pattaya&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="/css/auth.css" />
+  <link rel="stylesheet" href="/css/dashboard.css" />
+  <style>
+    /* Specific Referral Page Styles */
+    .ref-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .ref-stat-card {
+      background: #fff;
+      border-radius: 24px;
+      padding: 1.8rem;
+      border: 1.5px solid rgba(44, 92, 197, 0.1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Removed radial glow */
+
+    .ref-stat-card.blue::before {
+      background: #2c5cc5;
+    }
+
+    .ref-stat-card.cyan::before {
+      background: #06b6d4;
+    }
+
+    .ref-stat-card.purple::before {
+      background: #8b5cf6;
+    }
+
+    .ref-stat-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .ref-stat-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .ref-stat-card.blue .ref-stat-icon {
+      background: rgba(44, 92, 197, 0.1);
+      color: #2c5cc5;
+    }
+
+    .ref-stat-card.cyan .ref-stat-icon {
+      background: rgba(6, 182, 212, 0.1);
+      color: #06b6d4;
+    }
+
+    .ref-stat-card.purple .ref-stat-icon {
+      background: rgba(139, 92, 246, 0.1);
+      color: #8b5cf6;
+    }
+
+    .ref-stat-val {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: #0f172a;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+
+    .ref-stat-label {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #64748b;
+    }
+
+    .ref-progress {
+      width: 100%;
+      height: 8px;
+      background: #f1f5f9;
+      border-radius: 50px;
+      overflow: hidden;
+      margin-top: 1rem;
+    }
+
+    .ref-progress-fill {
+      height: 100%;
+      border-radius: 50px;
+      transition: 1s ease-out;
+    }
+
+    .ref-stat-card.blue .ref-progress-fill {
+      background: linear-gradient(90deg, #2c5cc5, #60a5fa);
+    }
+
+    .ref-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .ref-step {
+      background: #f8fbff;
+      border: 1px dashed rgba(44, 92, 197, 0.3);
+      padding: 1.5rem;
+      border-radius: 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .ref-step-num {
+      position: absolute;
+      top: -12px;
+      right: -12px;
+      width: 32px;
+      height: 32px;
+      background: #2c5cc5;
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 1rem;
+      box-shadow: 0 4px 10px rgba(44, 92, 197, 0.3);
+    }
+
+    .ref-step i {
+      font-size: 2rem;
+      color: #2c5cc5;
+      margin-bottom: 1rem;
+    }
+
+    .ref-step h4 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 0.4rem;
+    }
+
+    .ref-step p {
+      font-size: 0.85rem;
+      color: #64748b;
+      line-height: 1.5;
+    }
+
+    .ref-link-box {
+      background: #fff;
+      border: 2px solid rgba(44, 92, 197, 0.15);
+      border-radius: 16px;
+      padding: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .ref-link-input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      font-family: monospace;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #0f172a;
+      padding: 0.5rem 1rem;
+      outline: none;
+      text-align: left;
+      direction: ltr;
+    }
+
+    .ref-link-btn {
+      padding: 0.8rem 1.5rem;
+      border-radius: 12px;
+      font-weight: 800;
+    }
+
+    .social-task {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 1.5rem;
+      background: #fff;
+      border: 1.5px solid rgba(44, 92, 197, 0.1);
+      border-radius: 20px;
+      margin-bottom: 1rem;
+      transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    }
+
+    .social-task:hover {
+      border-color: rgba(44, 92, 197, 0.25);
+      box-shadow: 0 8px 25px rgba(44, 92, 197, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .social-task.done {
+      opacity: 0.6;
+      pointer-events: none;
+      background: #f8fafc;
+      border-color: transparent;
+      box-shadow: none;
+    }
+
+    .social-task-info {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    .social-task-icon {
+      font-size: 1.8rem;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
+
+    .social-task-icon.insta {
+      background: #fdf2f8;
+      color: #ec4899;
+    }
+
+    .social-task-icon.tele {
+      background: #eff6ff;
+      color: #3b82f6;
+    }
+
+    .social-task-icon.tiktok {
+      background: #f1f5f9;
+      color: #0f172a;
+    }
+
+    .social-task-icon.fb {
+      background: #eff6ff;
+      color: #1d4ed8;
+    }
+
+    .social-btn {
+      background: #fff;
+      border: 1.5px solid rgba(44, 92, 197, 0.25);
+      color: #2c5cc5;
+      font-family: 'Tajawal', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      border-radius: 12px;
+      padding: 0.7rem 0;
+      width: 160px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .social-btn:hover {
+      background: rgba(44, 92, 197, 0.05);
+      border-color: #2c5cc5;
+    }
+
+    .elite-challenge {
+      background: linear-gradient(135deg, #fffbeb, #fef3c7);
+      border: 2px solid #fde68a;
+      border-radius: 24px;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .elite-challenge::after {
+      content: '👑';
+      position: absolute;
+      left: -20px;
+      bottom: -30px;
+      font-size: 10rem;
+      opacity: 0.1;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .elite-circle {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: rgba(217, 119, 6, 0.1);
+      border: 1px solid rgba(217, 119, 6, 0.3);
+      color: rgba(217, 119, 6, 0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.8rem;
+      transition: all 0.4s;
+    }
+    .elite-circle.checked {
+      background: #f59e0b;
+      border-color: #f59e0b;
+      color: #fff;
+      box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+    }
+  </style>
+</head>
+
+<body class="db-body page-ready">
+
+  <div id="navbar-placeholder"></div>
+
+  <!-- ── HERO ── -->
+  <section class="db-hero" style="padding-bottom: 4rem;">
+    <div class="db-hero-inner">
+      <div
+        style="background:rgba(255,255,255,0.15); width:80px; height:80px; border-radius:20px; display:flex; align-items:center; justify-content:center; font-size:2.5rem; margin-bottom:1rem; box-shadow:0 10px 30px rgba(0,0,0,0.1)">
+        🎁</div>
+      <h1 class="db-welcome-name">برنامج المكافآت والسفراء</h1>
+      <p style="color:rgba(255,255,255,0.9); font-size:1.1rem; max-width:600px; text-align:center;">
+        انضم لبرنامج السفراء، شارك المنصة مع زملائك، واجمع النقاط لفتح اشتراكات Premium ومزايا حصرية!
+      </p>
+    </div>
+  </section>
+
+  <!-- ── CONTAINER ── -->
+  <main class="db-container" style="margin-top: -3rem;">
+
+    <div style="display:flex; flex-direction:column; gap:2.5rem; grid-column: 1 / -1;">
+
+      <!-- Stats Row -->
+      <div class="db-stats">
+
+        <!-- Points Card -->
+        <div class="db-card" style="padding:1.5rem; margin-bottom:0">
+          <div class="db-stat-item">
+            <div class="db-stat-icon"><i class="fas fa-coins"></i></div>
+            <div class="db-stat-info">
+              <div class="db-stat-val" id="ptsBalance">0</div>
+              <div class="db-stat-lbl">رصيد النقاط الحالي</div>
+            </div>
+          </div>
+          <div class="ref-progress">
+            <div class="ref-progress-fill" id="ptsProgress"
+              style="width:0%; background: linear-gradient(90deg, #2c5cc5, #60a5fa);"></div>
+          </div>
+          <p style="font-size:0.75rem; color:#64748b; margin-top:0.5rem">تبقى <span id="ptsRemaining">500</span> للوصول
+            للمستوى التالي</p>
+        </div>
+
+        <!-- Friends Joined Card -->
+        <div class="db-card" style="padding:1.5rem; margin-bottom:0">
+          <div class="db-stat-item">
+            <div class="db-stat-icon" style="background: rgba(6, 182, 212, 0.1); color: #06b6d4;"><i
+                class="fas fa-user-friends"></i></div>
+            <div class="db-stat-info">
+              <div class="db-stat-val" id="refCount">0</div>
+              <div class="db-stat-lbl">الأصدقاء المنضمين</div>
+            </div>
+          </div>
+          <p style="font-size:0.85rem; color:#64748b; margin-top:1rem">حصلت على <strong style="color:#06b6d4"
+              id="refPtsEarned">0</strong> نقطة من الدعوات</p>
+        </div>
+
+        <!-- Rewards Unlocked Card -->
+        <div class="db-card" style="padding:1.5rem; margin-bottom:0">
+          <div class="db-stat-item">
+            <div class="db-stat-icon" style="background: rgba(139, 92, 246, 0.1); color: #8b5cf6;"><i
+                class="fas fa-gift"></i></div>
+            <div class="db-stat-info">
+              <div class="db-stat-val">3 <span style="font-size:1rem; color:#64748b">/ 8</span></div>
+              <div class="db-stat-lbl">المكافآت المفتوحة</div>
+            </div>
+          </div>
+          <p style="font-size:0.85rem; color:#64748b; margin-top:1rem">استمر في جمع النقاط لفتح المزيد!</p>
+        </div>
+
+        <!-- Streak Card -->
+        <div class="db-card" style="padding:1.5rem; margin-bottom:0">
+          <div class="db-stat-item">
+            <div class="db-stat-icon" style="background: rgba(249, 115, 22, 0.1); color: #f97316;"><i
+                class="fas fa-fire"></i></div>
+            <div class="db-stat-info">
+              <div class="db-stat-val" id="statStreak">0</div>
+              <div class="db-stat-lbl">أيام المذاكرة المتتالية</div>
+            </div>
+          </div>
+          <p style="font-size:0.85rem; color:#64748b; margin-top:1rem">حافظ على استمراريتك لزيادة نقاطك!</p>
+        </div>
+
+      </div>
+
+      <!-- How it Works -->
+      <div>
+        <h2
+          style="font-size:1.4rem; font-weight:900; color:#0f172a; margin-bottom:1.5rem; display:flex; align-items:center; gap:0.5rem">
+          <i class="fas fa-question-circle" style="color:var(--db-accent)"></i> كيف يعمل البرنامج؟
+        </h2>
+        <div class="ref-steps">
+          <div class="ref-step">
+            <div class="ref-step-num">1</div>
+            <i class="fas fa-share-alt"></i>
+            <h4>شارك الرابط</h4>
+            <p>أرسل الرابط الخاص بك لأصدقائك أو شاركه في مجموعات الدراسة.</p>
+          </div>
+          <div class="ref-step">
+            <div class="ref-step-num">2</div>
+            <i class="fas fa-user-plus"></i>
+            <h4>التسجيل (+50)</h4>
+            <p>احصل على 50 نقطة فور تسجيل صديقك مجاناً في المنصة.</p>
+          </div>
+          <div class="ref-step">
+            <div class="ref-step-num">3</div>
+            <i class="fas fa-crown"></i>
+            <h4>الاشتراك (+150)</h4>
+            <p>احصل على 150 نقطة إضافية عند ترقية صديقك لباقة Premium.</p>
+          </div>
+          <div class="ref-step"
+            style="background:rgba(44,92,197,0.05); border-style:solid; border-color:var(--db-accent)">
+            <div class="ref-step-num" style="background:#ff6b35">4</div>
+            <i class="fas fa-star" style="color:#ff6b35"></i>
+            <h4>مكافآت مجانية</h4>
+            <p>استبدل نقاطك باشتراكات مجانية في المنصة وخصائص حصرية.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Action Layout -->
+      <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 2.5rem;" class="mobile-stack">
+
+        <!-- Copy Link Section -->
+        <div class="db-card" style="margin:0; display:flex; flex-direction:column; justify-content:center;">
+          <div class="db-card-title"><i class="fas fa-link"></i> رابط الدعوة الخاص بك</div>
+          <p style="font-size:0.95rem; color:#64748b; margin-bottom:1.5rem; line-height:1.6">
+            بمجرد دخول صديقك عبر هذا الرابط، سيحصل على <strong style="color:var(--db-accent)">أسبوع مجاني</strong>،
+            وستحصل أنت على النقاط في رصيدك مباشرة!
+          </p>
+          <div class="ref-link-box">
+            <input type="text" class="ref-link-input" id="refLinkInput" readonly
+              value="https://bacstory.com/join/REF-XXXXX" />
+            <button class="db-btn ref-link-btn" id="copyBtn">
+              <i class="far fa-copy"></i> نسخ
+            </button>
+          </div>
+          <button class="db-btn orange" style="margin-top:1rem; width:100%"
+            onclick="window.open('https://api.whatsapp.com/send?text=انضم لمنصة BAC STORY عبر رابطي واحصل على أسبوع مجاني! ' + document.getElementById('refLinkInput').value)">
+            <i class="fab fa-whatsapp"></i> مشاركة عبر واتساب
+          </button>
+        </div>
+
+        <!-- Social Media Missions -->
+        <div class="db-card" style="margin:0">
+          <div class="db-card-title"><i class="fas fa-tasks"></i> مهمات سريعة</div>
+          <p style="font-size:0.85rem; color:#64748b; margin-bottom:1.5rem">تابعنا على المنصات للحصول على نقاط فورية.
+          </p>
+
+          <div class="social-task" id="taskInsta">
+            <div class="social-task-info">
+              <div class="social-task-icon insta"><i class="fab fa-instagram"></i></div>
+              <div>
+                <strong style="display:block; font-size:1.05rem; font-weight:800; color:#0f172a; margin-bottom:0.2rem;">تابعنا على إنستغرام</strong>
+                <span style="font-size:0.8rem; color:#ec4899; font-weight:800">+20 نقطة</span>
+              </div>
+            </div>
+            <button class="social-btn" onclick="claimTask('taskInsta')">متابعة</button>
+          </div>
+
+          <div class="social-task" id="taskTele">
+            <div class="social-task-info">
+              <div class="social-task-icon tele"><i class="fab fa-telegram-plane"></i></div>
+              <div>
+                <strong style="display:block; font-size:1.05rem; font-weight:800; color:#0f172a; margin-bottom:0.2rem;">انضم لقناة التيليغرام</strong>
+                <span style="font-size:0.8rem; color:#3b82f6; font-weight:800">+20 نقطة</span>
+              </div>
+            </div>
+            <button class="social-btn" onclick="claimTask('taskTele')">انضمام</button>
+          </div>
+
+          <div class="social-task" id="taskTiktok">
+            <div class="social-task-info">
+              <div class="social-task-icon tiktok"><i class="fab fa-tiktok"></i></div>
+              <div>
+                <strong style="display:block; font-size:1.05rem; font-weight:800; color:#0f172a; margin-bottom:0.2rem;">تابعنا على تيك توك</strong>
+                <span style="font-size:0.8rem; color:#0f172a; font-weight:800">+20 نقطة</span>
+              </div>
+            </div>
+            <button class="social-btn" onclick="claimTask('taskTiktok')">متابعة</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Elite Gamified Challenge -->
+      <div class="elite-challenge">
+        <div
+          style="position:relative; z-index:1; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:2rem;">
+          <div style="flex:1; min-width:300px;">
+            <div
+              style="display:inline-block; background:#fff; color:#d97706; padding:0.4rem 1rem; border-radius:50px; font-size:0.8rem; font-weight:800; border:1px solid #fde68a; margin-bottom:1rem;">
+              المهمة الكبرى: العشرة الأوائل 🎖️
+            </div>
+            <h3 style="font-size:1.8rem; font-weight:900; color:#92400e; margin-bottom:0.5rem">تحدي السفير الذهبي 👑
+            </h3>
+            <p style="font-size:1rem; color:#b45309; line-height:1.6; font-weight:600">
+              أثبت أنك قائد حقيقي! أحضر <strong style="color:#78350f">10 أصدقاء يشتركون في Premium</strong> واحصل فوراً
+              على اشتراك شهر مجاني كامل + وسام "السفير الذهبي" في ملفك.
+            </p>
+          </div>
+
+          <div style="flex-shrink:0; width:100%; max-width:350px;">
+            <div
+              style="display:flex; justify-content:space-between; font-size:0.9rem; font-weight:800; color:#92400e; margin-bottom:0.5rem">
+              <span>التقدم الحالي</span>
+              <span><span id="eliteCount">0</span> / 10</span>
+            </div>
+            <div style="display:flex; justify-content:center; gap:0.4rem; flex-wrap:wrap; margin-top:0.8rem" id="eliteCirclesWrap">
+              <div class="elite-circle" id="ec-1"><i class="fas fa-check"></i></div>
+              <div class="elite-circle" id="ec-2"><i class="fas fa-check"></i></div>
+              <div class="elite-circle" id="ec-3"><i class="fas fa-check"></i></div>
+              <div class="elite-circle" id="ec-4"><i class="fas fa-check"></i></div>
+              <div class="elite-circle" id="ec-5"><i class="fas fa-check"></i></div>
+              <div class="elite-circle" id="ec-6"><i class="fas fa-check"></i></div>
+              <div class="elite-circle" id="ec-7"><i class="fas fa-check"></i></div>
+              <div class="elite-circle" id="ec-8"><i class="fas fa-check"></i></div>
+              <div class="elite-circle" id="ec-9"><i class="fas fa-check"></i></div>
+              <div class="elite-circle" id="ec-10"><i class="fas fa-check"></i></div>
+            </div>
+            <p style="font-size:0.8rem; color:#b45309; margin-top:0.8rem; text-align:center; font-weight:700">متبقي
+              <span id="eliteRem">10</span> مشتركين للوصول لرتبة الأساطير!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Redeem Store -->
+      <div>
+        <h2
+          style="font-size:1.4rem; font-weight:900; color:#0f172a; margin-bottom:1.5rem; display:flex; align-items:center; gap:0.5rem">
+          <i class="fas fa-store" style="color:var(--db-accent)"></i> متجر المكافآت
+        </h2>
+        <div class="redeem-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:1.5rem;">
+
+          <!-- Reward 1 -->
+          <div class="db-card redeem-card" style="margin:0; display:flex; align-items:center; gap:1.5rem;">
+            <div class="redeem-icon"
+              style="width:70px; height:70px; background:rgba(44,92,197,0.1); color:var(--db-accent); border-radius:20px; display:flex; align-items:center; justify-content:center; font-size:2rem; flex-shrink:0">
+              <i class="fas fa-calendar-alt"></i>
+            </div>
+            <div style="flex:1; width:100%">
+              <div class="redeem-header" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem">
+                <h4 style="font-size:1.1rem; font-weight:800; color:#0f172a">اشتراك Premium (شهر)</h4>
+                <span style="font-size:0.9rem; font-weight:900; color:var(--db-accent)">1,500 نقطة</span>
+              </div>
+              <div style="height:6px; background:#f1f5f9; border-radius:50px; overflow:hidden; margin-bottom:0.8rem">
+                <div style="height:100%; width:0%; background:var(--db-accent); transition:1s;" id="rew1Prog"></div>
+              </div>
+              <button class="db-btn" style="width:100%; padding:0.6rem; font-size:0.9rem; transition:0.3s;" id="btnRew1">النقاط غير كافية</button>
+            </div>
+          </div>
+
+          <!-- Reward 2 -->
+          <div class="db-card redeem-card" style="margin:0; display:flex; align-items:center; gap:1.5rem;">
+            <div class="redeem-icon"
+              style="width:70px; height:70px; background:rgba(255,107,53,0.1); color:#ff6b35; border-radius:20px; display:flex; align-items:center; justify-content:center; font-size:2rem; flex-shrink:0">
+              <i class="fas fa-crown"></i>
+            </div>
+            <div style="flex:1; width:100%">
+              <div class="redeem-header" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem">
+                <h4 style="font-size:1.1rem; font-weight:800; color:#0f172a">اشتراك Premium (شهرين)</h4>
+                <span style="font-size:0.9rem; font-weight:900; color:#ff6b35">2,800 نقطة</span>
+              </div>
+              <div style="height:6px; background:#f1f5f9; border-radius:50px; overflow:hidden; margin-bottom:0.8rem">
+                <div style="height:100%; width:0%; background:#ff6b35; transition:1s;" id="rew2Prog"></div>
+              </div>
+              <button class="db-btn orange" style="width:100%; padding:0.6rem; font-size:0.9rem; transition:0.3s;" id="btnRew2">النقاط غير كافية</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+
+  <!-- Celebration Modal -->
+  <div id="rewardModal" class="reward-modal-overlay">
+    <div class="reward-modal-card">
+      <button class="reward-modal-close" onclick="closeRewardModal()"><i class="fas fa-times"></i></button>
+      <div class="reward-modal-icon">
+        <i class="fas fa-gift"></i>
+      </div>
+      <h3 style="font-size: 1.8rem; font-weight: 900; color: #0f172a; margin-bottom: 0.5rem;">تهانينا! 🎉</h3>
+      <p style="font-size: 1.05rem; color: #64748b; line-height: 1.6; margin-bottom: 1.5rem;" id="rewardModalText">
+        لقد نجحت في استبدال نقاطك!
+      </p>
+      <button class="db-btn" style="width: 100%;" onclick="closeRewardModal()">شكراً، رائع!</button>
+    </div>
+  </div>
+
+  <style>
+    @media (max-width: 900px) {
+      .mobile-stack { grid-template-columns: 1fr !important; }
+      .elite-challenge > div { flex-direction: column; align-items: stretch !important; text-align: center; }
+      .elite-challenge h3 { font-size: 1.5rem !important; }
+    }
+    @media (max-width: 650px) {
+      .ref-steps { gap: 1.5rem; padding: 0 12px; }
+      .social-task { flex-direction: column; text-align: center; gap: 1rem; padding: 1.2rem 1rem; }
+      .social-task-info { flex-direction: column; gap: 0.5rem; }
+      .social-btn { width: 100%; }
+      .redeem-grid { grid-template-columns: 1fr !important; }
+      .elite-circle { width: 24px; height: 24px; font-size: 0.65rem; }
+      .db-hero-inner h1 { font-size: 1.8rem; }
+    }
+    @media (max-width: 400px) {
+      .ref-steps { grid-template-columns: 1fr !important; }
+      .db-card { padding: 1.2rem !important; }
+      
+      /* Elite Challenge Tweaks for tiny screens */
+      .elite-challenge { padding: 1.5rem 1.2rem !important; }
+      .elite-challenge h3 { font-size: 1.3rem !important; }
+      .elite-circle { width: 22px; height: 22px; font-size: 0.6rem; }
+      
+      /* Copy Link Box Stack */
+      .ref-link-box { flex-direction: column; padding: 0.6rem; gap: 0.5rem; }
+      .ref-link-input { width: 100%; text-align: center; font-size: 0.85rem; padding: 0.5rem; }
+      .ref-link-btn { width: 100%; padding: 0.8rem; }
+      
+      /* Redeem Store Stack */
+      .redeem-card { flex-direction: column; text-align: center; gap: 1rem !important; }
+      .redeem-icon { width: 60px !important; height: 60px !important; margin: 0 auto; font-size: 1.5rem !important; }
+      .redeem-header { flex-direction: column; gap: 0.4rem; justify-content: center !important; }
+    }
+
+    /* Celebration Modal */
+    .reward-modal-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(8px);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 9999; opacity: 0; pointer-events: none; transition: 0.4s;
+    }
+    .reward-modal-overlay.active { opacity: 1; pointer-events: auto; }
+    .reward-modal-card {
+      background: #fff; border-radius: 24px; padding: 2.5rem;
+      width: 90%; max-width: 400px; text-align: center;
+      transform: translateY(30px) scale(0.9); transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+    .reward-modal-overlay.active .reward-modal-card { transform: translateY(0) scale(1); }
+    .reward-modal-close {
+      position: absolute; top: 1.2rem; right: 1.2rem;
+      background: rgba(0,0,0,0.05); border: none; width: 32px; height: 32px;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      cursor: pointer; color: #64748b; transition: 0.3s;
+    }
+    .reward-modal-close:hover { background: #ef4444; color: #fff; }
+    .reward-modal-icon {
+      width: 80px; height: 80px; background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 2.5rem; margin: 0 auto 1.5rem; box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+    }
+  </style>
+
+  <div id="footer-placeholder"></div>
+  <div id="search-placeholder"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="/ads-config.js"></script>
+  <script type="module" src="/components/shared.js"></script>
+  <script type="module">
+    import { Auth } from '/js/auth.js';
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      await Auth.init();
+      const session = Auth.getSessionSync();
+      if (!session) { window.location.href = '/index.html?login=true'; return; }
+
+      // Mock/Saved User Data
+      const pts = parseInt(localStorage.getItem('bs_mock_pts')) || 320;
+      const refCount = 4;
+      const refPts = 200;
+      const eliteCount = 1;
+      const refCode = `REF-${session.user.id.substring(0, 6).toUpperCase()}`;
+
+      // Streak Data
+      const userId = session.user.id;
+      const streakData = JSON.parse(localStorage.getItem(`bs_streak_${userId}`)) || { count: 1 };
+      document.getElementById('statStreak').textContent = streakData.count;
+
+      // Populate UI
+      document.getElementById('ptsBalance').textContent = pts;
+      document.getElementById('ptsRemaining').textContent = 500 - (pts % 500);
+      document.getElementById('ptsProgress').style.width = `${(pts % 500) / 500 * 100}%`;
+
+      document.getElementById('refCount').textContent = refCount;
+      document.getElementById('refPtsEarned').textContent = refPts;
+
+      document.getElementById('refLinkInput').value = `https://bacstory.com/join/${refCode}`;
+
+      document.getElementById('eliteCount').textContent = eliteCount;
+      document.getElementById('eliteRem').textContent = 10 - eliteCount;
+      
+      // Update the circles instead of progress bar
+      for(let i = 1; i <= 10; i++) {
+        if(i <= eliteCount) {
+          document.getElementById('ec-' + i).classList.add('checked');
+        }
+      }
+
+      // Rewards UI Logic
+      function updateRewardsUI(currentPts) {
+        const rew1Pts = 1500;
+        const rew2Pts = 2800;
+        
+        document.getElementById('rew1Prog').style.width = `${Math.min((currentPts / rew1Pts) * 100, 100)}%`;
+        document.getElementById('rew2Prog').style.width = `${Math.min((currentPts / rew2Pts) * 100, 100)}%`;
+
+        const btn1 = document.getElementById('btnRew1');
+        if (currentPts >= rew1Pts) {
+          btn1.removeAttribute('disabled');
+          btn1.textContent = 'استبدال الآن';
+          btn1.style.opacity = '1';
+          btn1.style.cursor = 'pointer';
+          btn1.onclick = () => claimReward('اشتراك Premium (شهر)');
+        } else {
+          btn1.setAttribute('disabled', 'true');
+          btn1.textContent = 'النقاط غير كافية';
+          btn1.style.opacity = '0.4';
+          btn1.style.cursor = 'not-allowed';
+          btn1.onclick = null;
+        }
+
+        const btn2 = document.getElementById('btnRew2');
+        if (currentPts >= rew2Pts) {
+          btn2.removeAttribute('disabled');
+          btn2.textContent = 'استبدال الآن';
+          btn2.style.opacity = '1';
+          btn2.style.cursor = 'pointer';
+          btn2.onclick = () => claimReward('اشتراك Premium (شهرين)');
+        } else {
+          btn2.setAttribute('disabled', 'true');
+          btn2.textContent = 'النقاط غير كافية';
+          btn2.style.opacity = '0.4';
+          btn2.style.cursor = 'not-allowed';
+          btn2.onclick = null;
+        }
+      }
+      
+      // Initial render
+      updateRewardsUI(pts);
+
+      // Toast Notification Function
+      function showToast(msg) {
+        const toast = document.createElement('div');
+        toast.textContent = msg;
+        toast.style.position = 'fixed';
+        toast.style.bottom = '30px';
+        toast.style.left = '50%';
+        toast.style.transform = 'translateX(-50%) translateY(100px)';
+        toast.style.background = '#10b981';
+        toast.style.color = '#fff';
+        toast.style.padding = '0.8rem 1.5rem';
+        toast.style.borderRadius = '50px';
+        toast.style.fontFamily = "'Tajawal', sans-serif";
+        toast.style.fontWeight = '800';
+        toast.style.boxShadow = '0 10px 25px rgba(16, 185, 129, 0.4)';
+        toast.style.transition = 'all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+        toast.style.zIndex = '10000';
+        document.body.appendChild(toast);
+        
+        requestAnimationFrame(() => {
+          toast.style.transform = 'translateX(-50%) translateY(0)';
+        });
+        
+        setTimeout(() => {
+          toast.style.transform = 'translateX(-50%) translateY(100px)';
+          setTimeout(() => toast.remove(), 500);
+        }, 2500);
+      }
+
+      // Copy logic
+      const copyBtn = document.getElementById('copyBtn');
+      copyBtn.addEventListener('click', async () => {
+        const input = document.getElementById('refLinkInput');
+        
+        try {
+          if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(input.value);
+          } else {
+            // Fallback
+            input.select();
+            document.execCommand('copy');
+            window.getSelection().removeAllRanges();
+          }
+        } catch (err) {
+          console.error('Failed to copy: ', err);
+        }
+
+        // UI Update
+        copyBtn.innerHTML = '<i class="fas fa-check"></i> تم النسخ';
+        copyBtn.style.background = '#10b981';
+        copyBtn.style.color = '#fff';
+        copyBtn.style.borderColor = '#10b981';
+        
+        showToast('تم نسخ الرابط بنجاح! 📋');
+        
+        setTimeout(() => {
+          copyBtn.innerHTML = '<i class="far fa-copy"></i> نسخ';
+          copyBtn.style.background = '';
+          copyBtn.style.color = '';
+          copyBtn.style.borderColor = '';
+        }, 2500);
+      });
+
+      // Social Tasks mock
+      window.claimTask = function (id) {
+        const el = document.getElementById(id);
+        el.classList.add('done');
+        el.querySelector('button').innerHTML = '<i class="fas fa-check"></i> تمت';
+        const newPts = parseInt(document.getElementById('ptsBalance').textContent) + 20;
+        document.getElementById('ptsBalance').textContent = newPts;
+        document.getElementById('ptsProgress').style.width = `${(newPts % 500) / 500 * 100}%`;
+        updateRewardsUI(newPts);
+      };
+
+      // Claim Reward Action
+      window.claimReward = function(name) {
+        // Confetti Burst
+        confetti({
+          particleCount: 150,
+          spread: 70,
+          origin: { y: 0.6 },
+          colors: ['#2c5cc5', '#ff6b35', '#f59e0b', '#06b6d4'],
+          zIndex: 10000
+        });
+        
+        // Update and show modal
+        document.getElementById('rewardModalText').innerHTML = `لقد نجحت في استبدال نقاطك والحصول على <br><strong style="color:#0f172a; font-size:1.1rem">${name}</strong><br>بنجاح! سيتم تفعيل الاشتراك فوراً.`;
+        document.getElementById('rewardModal').classList.add('active');
+      };
+
+      window.closeRewardModal = function() {
+        document.getElementById('rewardModal').classList.remove('active');
+      };
+    });
+  </script>
+</body>
+
+</html>

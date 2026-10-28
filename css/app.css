@@ -1,0 +1,303 @@
+/* ═══════════════════════════════════════════════════════════════
+   BAC STORY — Authenticated App Shared Styles  |  Premium v4
+   Glassmorphism • Micro-animations • Dark-hero + Light-body
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Scroll reveal animations ──────────────────────────────── */
+@keyframes app-fade-up {
+  from { opacity: 0; transform: translateY(28px) scale(0.97); filter: blur(3px); }
+  to   { opacity: 1; transform: translateY(0)   scale(1);    filter: blur(0); }
+}
+@keyframes app-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes app-shimmer {
+  from { background-position: 200% 0; }
+  to   { background-position: -200% 0; }
+}
+@keyframes app-pulse-ring {
+  0%   { transform: scale(1);    opacity: .7; }
+  50%  { transform: scale(1.06); opacity: 1;  }
+  100% { transform: scale(1);    opacity: .7; }
+}
+@keyframes app-glow-drift {
+  0%, 100% { opacity: .6; transform: scale(1)    translateY(0); }
+  50%       { opacity: 1;  transform: scale(1.1)  translateY(-12px); }
+}
+@keyframes app-spin-slow {
+  to { transform: rotate(360deg); }
+}
+@keyframes app-bounce-in {
+  0%   { transform: scale(0.5); opacity: 0; }
+  70%  { transform: scale(1.08); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.app-reveal {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+.app-reveal.in-view {
+  animation: app-fade-up .55s cubic-bezier(.22,1,.36,1) both;
+}
+.app-reveal[data-s="1"].in-view { animation-delay: .06s; }
+.app-reveal[data-s="2"].in-view { animation-delay: .12s; }
+.app-reveal[data-s="3"].in-view { animation-delay: .18s; }
+.app-reveal[data-s="4"].in-view { animation-delay: .24s; }
+.app-reveal[data-s="5"].in-view { animation-delay: .30s; }
+.app-reveal[data-s="6"].in-view { animation-delay: .36s; }
+
+/* ── Premium card base ────────────────────────────────────── */
+.app-card {
+  background: #fff;
+  border-radius: 22px;
+  border: 1.5px solid #e4e8f2;
+  padding: 1.6rem;
+  box-shadow: 0 2px 18px rgba(44,92,197,.05), 0 1px 4px rgba(0,0,0,.03);
+  transition: box-shadow .25s ease, border-color .25s ease, transform .25s ease;
+}
+.app-card:hover {
+  box-shadow: 0 6px 30px rgba(44,92,197,.1);
+  border-color: rgba(44,92,197,.15);
+}
+
+/* ── Glass card ────────────────────────────────────────────── */
+.app-card-glass {
+  background: rgba(255,255,255,.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1.5px solid rgba(255,255,255,.16);
+  border-radius: 20px;
+  transition: background .2s, border-color .2s;
+}
+.app-card-glass:hover {
+  background: rgba(255,255,255,.14);
+  border-color: rgba(255,255,255,.26);
+}
+
+/* ── Section heading ────────────────────────────────────────── */
+.app-section-head {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 1.1rem;
+}
+.app-section-head i {
+  width: 34px; height: 34px;
+  border-radius: 10px;
+  background: rgba(44,92,197,.1);
+  color: #2c5cc5;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .9rem;
+  flex-shrink: 0;
+}
+
+/* ── Pill badge ─────────────────────────────────────────────── */
+.app-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  padding: .28rem .75rem;
+  border-radius: 50px;
+  font-size: .74rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.app-pill--blue    { background: rgba(44,92,197,.1);  color: #2c5cc5; }
+.app-pill--green   { background: rgba(16,185,129,.1); color: #10b981; }
+.app-pill--orange  { background: rgba(255,107,53,.12);color: #ff6b35; }
+.app-pill--purple  { background: rgba(139,92,246,.1); color: #8b5cf6; }
+.app-pill--amber   { background: rgba(245,158,11,.1); color: #f59e0b; }
+
+/* ── Progress bar ──────────────────────────────────────────── */
+.app-progress-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+}
+.app-progress-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: .78rem;
+  font-weight: 700;
+  color: #64748b;
+}
+.app-progress-bar {
+  height: 8px;
+  background: #f1f5f9;
+  border-radius: 50px;
+  overflow: hidden;
+}
+.app-progress-fill {
+  height: 100%;
+  border-radius: 50px;
+  transition: width .7s cubic-bezier(.25,.8,.25,1);
+}
+.app-progress-fill--blue   { background: linear-gradient(90deg, #2c5cc5, #4f7de8); }
+.app-progress-fill--green  { background: linear-gradient(90deg, #10b981, #34d399); }
+.app-progress-fill--orange { background: linear-gradient(90deg, #ff6b35, #ffb36a); }
+.app-progress-fill--purple { background: linear-gradient(90deg, #8b5cf6, #c4b5fd); }
+
+/* ── Skeleton loader ───────────────────────────────────────── */
+.app-skel {
+  background: linear-gradient(90deg, #f1f5f9 25%, #e8edf5 50%, #f1f5f9 75%);
+  background-size: 200% 100%;
+  animation: app-shimmer 1.5s infinite;
+  border-radius: 10px;
+}
+
+/* ── Stat chip ─────────────────────────────────────────────── */
+.app-stat-chip {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  padding: 1rem 1.2rem;
+  background: rgba(255,255,255,.07);
+  border: 1.5px solid rgba(255,255,255,.12);
+  border-radius: 18px;
+  backdrop-filter: blur(10px);
+  transition: background .2s, border-color .2s, transform .2s;
+  cursor: default;
+}
+.app-stat-chip:hover {
+  background: rgba(255,255,255,.13);
+  border-color: rgba(255,255,255,.22);
+  transform: translateY(-2px);
+}
+.app-stat-chip-icon {
+  width: 44px; height: 44px;
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.app-stat-chip-val {
+  font-size: 1.65rem;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.1;
+}
+.app-stat-chip-lbl {
+  font-size: .73rem;
+  color: rgba(255,255,255,.55);
+  font-weight: 600;
+  margin-top: .08rem;
+}
+
+/* ── CTA button variants ───────────────────────────────────── */
+.app-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .55rem;
+  padding: .82rem 1.8rem;
+  border: none;
+  border-radius: 14px;
+  font-family: 'Tajawal', sans-serif;
+  font-size: .95rem;
+  font-weight: 800;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform .22s ease, box-shadow .22s ease;
+  white-space: nowrap;
+}
+.app-btn--primary {
+  background: linear-gradient(135deg, #2c5cc5, #1a3fa3);
+  color: #fff;
+  box-shadow: 0 4px 18px rgba(44,92,197,.3);
+}
+.app-btn--primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(44,92,197,.4); color:#fff; }
+.app-btn--orange {
+  background: linear-gradient(135deg, #ff6b35, #e55a25);
+  color: #fff;
+  box-shadow: 0 4px 18px rgba(255,107,53,.35);
+}
+.app-btn--orange:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(255,107,53,.45); color:#fff; }
+.app-btn--ghost {
+  background: transparent;
+  border: 1.5px solid rgba(44,92,197,.22);
+  color: #2c5cc5;
+}
+.app-btn--ghost:hover { background: rgba(44,92,197,.06); transform: translateY(-1px); }
+.app-btn--danger {
+  background: rgba(239,68,68,.07);
+  border: 1.5px solid rgba(239,68,68,.2);
+  color: #ef4444;
+}
+.app-btn--danger:hover { background: #ef4444; color: #fff; border-color: #ef4444; transform: translateY(-1px); }
+
+/* ── Form inputs ───────────────────────────────────────────── */
+.app-form-group { margin-bottom: 1.1rem; }
+.app-form-label {
+  display: block;
+  font-size: .82rem;
+  font-weight: 700;
+  color: #374151;
+  margin-bottom: .4rem;
+}
+.app-form-input, .app-form-select {
+  width: 100%;
+  padding: .78rem 1rem;
+  border: 1.5px solid #e4e8f2;
+  border-radius: 12px;
+  font-family: 'Tajawal', sans-serif;
+  font-size: .92rem;
+  color: #0f172a;
+  background: #fafbff;
+  direction: rtl;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s, background .2s;
+}
+.app-form-input:focus, .app-form-select:focus {
+  border-color: #2c5cc5;
+  box-shadow: 0 0 0 3px rgba(44,92,197,.1);
+  background: #fff;
+}
+
+/* ── Empty state ───────────────────────────────────────────── */
+.app-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .75rem;
+  padding: 2.5rem 1rem;
+  color: #94a3b8;
+  text-align: center;
+}
+.app-empty i { font-size: 2.4rem; color: #cbd5e1; }
+.app-empty p { font-size: .88rem; font-weight: 600; margin: 0; }
+
+/* ── Toast notification ────────────────────────────────────── */
+.app-toast-wrap {
+  position: fixed;
+  bottom: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  align-items: center;
+}
+.app-toast {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  padding: .75rem 1.4rem;
+  border-radius: 50px;
+  font-size: .88rem;
+  font-weight: 700;
+  font-family: 'Tajawal', sans-serif;
+  box-shadow: 0 8px 30px rgba(0,0,0,.15);
+  animation: app-bounce-in .35s cubic-bezier(.22,1,.36,1) both;
+  pointer-events: auto;
+}
+.app-toast--success { background: #10b981; color: #fff; }
+.app-toast--error   { background: #ef4444; color: #fff; }
+.app-toast--info    { background: #2c5cc5; color: #fff; }

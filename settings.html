@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1BWT5DE65Q"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1BWT5DE65Q');
+    </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BAC STORY — إعدادات الحساب</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Pattaya&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/auth.css" />
+  <link rel="stylesheet" href="/css/dashboard.css" />
+</head>
+<body class="db-body page-ready">
+
+  <div id="navbar-placeholder"></div>
+
+  <!-- ── HERO ── -->
+  <section class="db-hero" style="padding: 6rem 0 4rem; text-align: right;">
+    <div class="db-hero-inner" style="align-items: flex-start; max-width: 800px;">
+      <h1 style="font-size: 2.5rem; font-weight: 900; color: #fff; margin-bottom: 0.5rem;"><i class="fas fa-cog" style="color:rgba(255,255,255,0.5)"></i> إعدادات الحساب</h1>
+      <p style="color: rgba(255,255,255,0.8); font-size: 1.1rem;">قم بتعديل بياناتك الشخصية، أو إدارة اشتراكك بكل سهولة.</p>
+    </div>
+  </section>
+
+  <!-- ── CONTAINER ── -->
+  <main class="db-container" style="max-width: 800px; display: block; margin-top: -3rem;">
+
+    <!-- Edit Profile Data -->
+    <div class="db-card" style="margin-bottom: 2rem;">
+      <div class="db-card-title"><i class="fas fa-user-edit"></i> تعديل بياناتي</div>
+      
+      <div style="display:flex; align-items:center; gap:1.5rem; margin-bottom:2rem; padding-bottom:1.5rem; border-bottom:1px solid rgba(44,92,197,0.1)">
+        <div id="settingsAvatar" style="width:70px; height:70px; background:#2c5cc5; color:#fff; font-size:2rem; font-weight:900; display:flex; align-items:center; justify-content:center; border-radius:20px;">م</div>
+        <div>
+          <h3 id="settingsEmail" style="font-size:1.1rem; font-weight:800; color:#0f172a; margin-bottom:0.2rem">user@example.com</h3>
+          <p style="font-size:0.85rem; color:#64748b">البريد الإلكتروني الخاص بك مسجل لدينا</p>
+        </div>
+      </div>
+
+      <div class="db-form-group">
+        <label>الاسم الكامل</label>
+        <input class="db-form-input" id="pfEditName" type="text" placeholder="اسمك الكامل" maxlength="80" />
+      </div>
+      <div class="db-form-group">
+        <label>الشعبة الدراسية</label>
+        <select class="db-form-select" id="pfEditSpecialty">
+          <option value="">— اختر شعبتك —</option>
+          <option value="math">رياضيات</option>
+          <option value="science">علوم تجريبية</option>
+          <option value="tech">تقني رياضي</option>
+          <option value="management">تسيير وإقتصاد</option>
+          <option value="literature">آداب وفلسفة</option>
+          <option value="languages">لغات أجنبية</option>
+        </select>
+      </div>
+      <div style="margin-top: 1.5rem; text-align: left;">
+        <button class="db-btn" id="pfSaveBtn" style="width: auto; padding: 0.8rem 2.5rem;"><i class="fas fa-save"></i> حفظ التغييرات</button>
+      </div>
+    </div>
+
+    <!-- Activation Code -->
+    <div class="db-card" id="pfCodeCard" style="margin-bottom: 2rem;">
+      <div class="db-card-title"><i class="fas fa-key"></i> كود تفعيل الاشتراك</div>
+      <p style="font-size:0.95rem; color:#64748b; margin-bottom:1.5rem; line-height:1.6;">
+        هل لديك كود تفعيل لاشتراك Premium؟ أدخله هنا لتفعيل حسابك فوراً والاستفادة من جميع المزايا.
+      </p>
+      <div class="db-code-wrap">
+        <input class="db-form-input db-code-input" id="pfCodeInput" type="text" placeholder="BACS-XXXX-XXXX" maxlength="16" />
+        <button class="db-btn db-code-btn" id="pfCodeBtn">تفعيل</button>
+      </div>
+      <div class="db-code-msg" id="pfCodeMsg"></div>
+    </div>
+
+    <!-- Danger Zone -->
+    <div class="db-card" style="margin-bottom: 2rem; border-color: rgba(239, 68, 68, 0.2);">
+      <div class="db-card-title" style="color: #ef4444;"><i class="fas fa-exclamation-triangle"></i> منطقة الخطر</div>
+      <p style="font-size:0.95rem; color:#64748b; margin-bottom:1.5rem; line-height:1.6;">
+        بإمكانك تسجيل الخروج من هذا الجهاز، أو طلب حذف حسابك نهائياً من قاعدة بيانات المنصة.
+      </p>
+      <div style="display:flex; gap:1rem;">
+        <button class="db-btn outline" id="pfLogoutBtn" style="border-color:#e2e8f0; color:#475569"><i class="fas fa-sign-out-alt"></i> تسجيل الخروج</button>
+        <button class="db-btn red" id="pfDeleteBtn"><i class="fas fa-trash"></i> حذف الحساب</button>
+      </div>
+    </div>
+
+  </main>
+
+  
+  <script src="/ads-config.js"></script>
+    <script type="module" src="/components/shared.js"></script>
+  <script type="module">
+    import { Auth } from '/js/auth.js';
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      await Auth.init();
+      const session = Auth.getSessionSync();
+      
+      if (!session) {
+        window.location.href = '/index.html?login=true';
+        return;
+      }
+
+      // Populate form
+      if (session.user.name) {
+        document.getElementById('pfEditName').value = session.user.name;
+        document.getElementById('settingsAvatar').textContent = session.user.name.charAt(0).toUpperCase();
+      }
+      if (session.user.specialty) document.getElementById('pfEditSpecialty').value = session.user.specialty;
+      if (session.user.email) document.getElementById('settingsEmail').textContent = session.user.email;
+
+      // Hide activation if premium
+      if (session.user.tier === 'premium') {
+        const codeCard = document.getElementById('pfCodeCard');
+        if(codeCard) codeCard.style.display = 'none';
+      }
+
+      // Save Data
+      const btnSave = document.getElementById('pfSaveBtn');
+      if (btnSave) {
+        btnSave.addEventListener('click', async () => {
+          btnSave.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الحفظ...';
+          btnSave.style.pointerEvents = 'none';
+          
+          const name = document.getElementById('pfEditName').value.trim();
+          const spec = document.getElementById('pfEditSpecialty').value;
+
+          if (!name || !spec) {
+            alert('الرجاء إدخال الاسم واختيار الشعبة على الأقل.');
+            btnSave.innerHTML = '<i class="fas fa-save"></i> حفظ التغييرات';
+            btnSave.style.pointerEvents = 'auto';
+            return;
+          }
+
+          await new Promise(r => setTimeout(r, 600));
+          session.user.name = name;
+          session.user.specialty = spec;
+          localStorage.setItem('bs_session', JSON.stringify(session));
+          
+          btnSave.innerHTML = '<i class="fas fa-check"></i> تم الحفظ';
+          btnSave.style.background = '#10b981';
+          setTimeout(() => {
+            btnSave.innerHTML = '<i class="fas fa-save"></i> حفظ التغييرات';
+            btnSave.style.background = '';
+            btnSave.style.pointerEvents = 'auto';
+          }, 2000);
+        });
+      }
+
+      // Code Activation
+      const codeBtn = document.getElementById('pfCodeBtn');
+      if (codeBtn) {
+        codeBtn.addEventListener('click', () => {
+          const code = document.getElementById('pfCodeInput').value.trim().toUpperCase();
+          const msg = document.getElementById('pfCodeMsg');
+          
+          if (!code || code.length < 5) {
+            msg.className = 'db-code-msg error';
+            msg.textContent = 'كود غير صالح';
+            return;
+          }
+
+          codeBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+          codeBtn.style.pointerEvents = 'none';
+
+          setTimeout(() => {
+            if (code.startsWith('BACS-')) {
+              msg.className = 'db-code-msg success';
+              msg.textContent = 'تم التفعيل بنجاح! سيتم تحديث حسابك...';
+              session.user.tier = 'premium';
+              localStorage.setItem('bs_session', JSON.stringify(session));
+              setTimeout(() => window.location.href = '/dashboard.html', 1500);
+            } else {
+              msg.className = 'db-code-msg error';
+              msg.textContent = 'كود غير صحيح';
+              codeBtn.textContent = 'تفعيل';
+              codeBtn.style.pointerEvents = 'auto';
+            }
+          }, 1000);
+        });
+      }
+
+      // Logout & Delete
+      document.getElementById('pfLogoutBtn').addEventListener('click', () => {
+        Auth.logout();
+        window.location.href = '/index.html';
+      });
+
+      document.getElementById('pfDeleteBtn').addEventListener('click', () => {
+        if (confirm('هل أنت متأكد من رغبتك في حذف الحساب نهائياً؟ هذا الإجراء لا يمكن التراجع عنه وسيتم مسح جميع بياناتك ونقاطك.')) {
+          Auth.logout();
+          window.location.href = '/index.html';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

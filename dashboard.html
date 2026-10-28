@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1BWT5DE65Q"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1BWT5DE65Q');
+    </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BAC STORY — الفضاء الخاص</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Pattaya&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/auth.css" />
+  <link rel="stylesheet" href="/css/dashboard.css" />
+</head>
+
+<body class="db-body page-ready">
+
+  <div id="navbar-placeholder"></div>
+
+  <!-- ── HERO ── -->
+  <section class="db-hero">
+    <div class="db-hero-inner">
+      <div class="db-avatar" id="dbAvatar">م</div>
+      <h1 class="db-welcome-name">مرحباً، <span id="userName">...</span> 👋</h1>
+      <p id="welcomeSub">جاهز لتبدأ رحلتك نحو التميز في البكالوريا؟</p>
+    </div>
+  </section>
+
+  <!-- ── CONTAINER ── -->
+  <main class="db-container">
+
+    <!-- Stats Row (Spans full width) -->
+    <div class="db-stats">
+      <!-- 1. Countdown -->
+      <div class="db-card" style="padding:1.5rem; margin-bottom:0">
+        <div class="db-stat-item">
+          <div class="db-stat-icon"><i class="fas fa-calendar-alt"></i></div>
+          <div class="db-stat-info">
+            <div class="db-stat-val" id="statDaysLeft">---</div>
+            <div class="db-stat-lbl">يوم للباك 2026</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Subscription -->
+      <div class="db-card" style="padding:1.5rem; margin-bottom:0">
+        <div class="db-stat-item">
+          <div class="db-stat-icon" style="background: rgba(139, 92, 246, 0.1); color: #8b5cf6;"><i
+              class="fas fa-star"></i></div>
+          <div class="db-stat-info">
+            <div class="db-stat-val" id="statSubscription" style="font-size:1.4rem;">مجاني</div>
+            <div class="db-stat-lbl">اشتراكي الحالي</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Referral / Rewards -->
+      <a href="/referral.html" class="db-card stat-link-card"
+        style="padding:1.5rem; margin-bottom:0; text-decoration:none; display:block">
+        <div class="db-stat-item">
+          <div class="db-stat-icon" style="background: rgba(16, 185, 129, 0.1); color: #10b981;"><i
+              class="fas fa-gift"></i></div>
+          <div class="db-stat-info">
+            <div class="db-stat-val" id="statPoints" style="font-size:1.4rem;">320 <span
+                style="font-size:0.9rem; color:#64748b; font-weight:700">نقطة</span></div>
+            <div class="db-stat-lbl">برنامج المكافآت</div>
+          </div>
+          <div style="margin-inline-start:auto; color:var(--primary-color); font-size:1.2rem; opacity: 0.8;"><i class="fas fa-chevron-left"></i>
+          </div>
+        </div>
+      </a>
+
+      <!-- 4. Settings -->
+      <a href="/settings.html" class="db-card stat-link-card"
+        style="padding:1.5rem; margin-bottom:0; text-decoration:none; display:block">
+        <div class="db-stat-item">
+          <div class="db-stat-icon" style="background: rgba(100, 116, 139, 0.1); color: #64748b;"><i
+              class="fas fa-cog"></i></div>
+          <div class="db-stat-info">
+            <div class="db-stat-val" style="font-size:1.3rem;" id="statName">إعدادات</div>
+            <div class="db-stat-lbl">تعديل الملف الشخصي</div>
+          </div>
+          <div style="margin-inline-start:auto; color:var(--primary-color); font-size:1.2rem; opacity: 0.8;"><i class="fas fa-chevron-left"></i>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- ── LEFT COLUMN (Main Hub) ── -->
+    <div class="db-main-col" style="display: flex; flex-direction: column; gap: 2rem;">
+
+      <!-- Top Row: AI + Plans -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+
+        <!-- AI Chat card -->
+        <div class="db-card" style="margin-bottom: 0;">
+          <div class="db-card-header">
+            <div class="db-card-title-wrap">
+              <h3 class="db-card-title">إسلام AI</h3>
+              <p class="db-card-subtitle">مرافقك الذكي لشرح الدروس، حل التمارين، والمراجعة بسهولة.</p>
+            </div>
+            <div class="db-card-icon-main" style="background:rgba(44,92,197,0.12)"><i class="fas fa-robot"></i></div>
+          </div>
+
+          <div id="usageFree" style="margin-bottom:1.5rem">
+            <div class="ai-usage-bar">
+              <div class="ai-usage-fill" id="usageFill"></div>
+            </div>
+            <div class="ai-usage-text">
+              <span>الرسائل المتبقية اليوم</span>
+              <span id="usageText">0 / 5</span>
+            </div>
+          </div>
+
+          <div id="usagePremium" style="display:none; margin-bottom:1.5rem">
+            <div
+              style="background:rgba(16,185,129,0.1); color:#10b981; padding:0.8rem; border-radius:12px; font-weight:800; text-align:center; font-size:0.9rem; border:1px solid rgba(16,185,129,0.2)">
+              <i class="fas fa-infinity"></i> رسائل لا محدودة — Premium
+            </div>
+          </div>
+
+          <a href="/ai.html" class="db-btn">
+            <i class="fas fa-comments"></i> ابدأ محادثة جديدة
+          </a>
+        </div>
+
+
+        <!-- Simulation Card -->
+        <div class="db-card" style="margin-bottom: 0;">
+          <div class="db-card-header">
+            <div class="db-card-title-wrap">
+              <h3 class="db-card-title">محاكاة البكالوريا</h3>
+              <p class="db-card-subtitle">اختبر نفسك في بيئة تحاكي امتحان البكالوريا الحقيقي، تدرب على المواضيع السابقة بدقة.</p>
+            </div>
+            <div class="db-card-icon-main"><i class="fas fa-desktop"></i></div>
+          </div>
+
+          <div class="db-list" style="margin-bottom:1.5rem">
+            <div class="db-list-item">
+              <div class="db-list-content">
+                <span class="db-list-title">امتحانات مؤقتة</span>
+                <span class="db-list-subtitle">نفس التوقيت الرسمي لكل مادة</span>
+              </div>
+              <div class="db-list-action" style="color:#10b981; background:rgba(16,185,129,0.1)"><i class="fas fa-stopwatch"></i></div>
+            </div>
+            <div class="db-list-item">
+              <div class="db-list-content">
+                <span class="db-list-title">تصحيح مفصل</span>
+                <span class="db-list-subtitle">مقارنة إجابتك بالنموذجية والوزارية</span>
+              </div>
+              <div class="db-list-action" style="color:#ec4899; background:rgba(236,72,153,0.1)"><i class="fas fa-file-alt"></i></div>
+            </div>
+          </div>
+
+          <a href="/simulation.html" class="db-btn outline"
+            style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+            ادخل لغرفة المحاكاة <i class="fas fa-arrow-left" style="font-size:0.8rem;"></i>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Streak Widget -->
+      <div class="db-card"
+        style="margin-bottom: 2rem; background: linear-gradient(to left, #fff1e6, #f8fafc); border: 1px solid rgba(249, 115, 22, 0.15); box-shadow: 0 4px 20px rgba(249, 115, 22, 0.05);">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.2rem;">
+          <div style="display:flex; align-items:center; gap:0.8rem;">
+            <div style="width:40px;height:40px;border-radius:12px;background:#fed7aa;color:#ea580c;display:flex;align-items:center;justify-content:center;font-size:1.2rem;">
+              <i class="fas fa-fire"></i>
+            </div>
+            <h3 style="font-size:1.3rem; font-weight:900; color:#ea580c; margin:0;">سلسلة الحماس</h3>
+          </div>
+          <div
+            style="background:#fed7aa; color:#ea580c; padding:0.4rem 1rem; border-radius:20px; font-weight:800; font-size:0.95rem;">
+            <span id="streakCountText">0</span> أيام متتالية
+          </div>
+        </div>
+
+        <p style="color:#64748b; font-size:0.95rem; margin-bottom:1.5rem; line-height:1.6;">
+          ادرس 7 أيام متتالية لتحصل على <strong style="color:#10b981">20 نقطة</strong> هدية في برنامج المكافآت!
+        </p>
+
+        <!-- 7 Days Tracker -->
+        <div style="display:flex; justify-content:space-between; gap:0.5rem;" id="streakDaysContainer">
+          <!-- JS generates this -->
+        </div>
+      </div>
+
+      <!-- Achievements -->
+      <div class="db-card" style="margin-bottom: 0;">
+        <div class="db-card-header">
+          <div class="db-card-title-wrap">
+            <h3 class="db-card-title">الإنجازات</h3>
+            <p class="db-card-subtitle">تتبع تقدمك وافتح مكافآت جديدة كلما درست أكثر.</p>
+          </div>
+          <div class="db-card-icon-main" style="background:rgba(234,179,8,0.1); color:#ca8a04"><i class="fas fa-trophy"></i></div>
+        </div>
+        <div class="db-achievements-grid" id="achievementsGrid">
+          <div class="db-achievement-card" id="ach-join">
+            <div class="db-achievement-icon">🎓</div>
+            <div class="db-achievement-name">عضو جديد</div>
+            <div class="db-achievement-desc">انضممت للمنصة</div>
+          </div>
+          <div class="db-achievement-card locked" id="ach-chat5">
+            <div class="db-achievement-icon">💬</div>
+            <div class="db-achievement-name">5 محادثات</div>
+            <div class="db-achievement-desc">أجرِ 5 محادثات مع AI</div>
+          </div>
+          <div class="db-achievement-card locked" id="ach-premium">
+            <div class="db-achievement-icon">👑</div>
+            <div class="db-achievement-name">Premium</div>
+            <div class="db-achievement-desc">اشترك في الخطة المميزة</div>
+          </div>
+          <div class="db-achievement-card locked" id="ach-streak">
+            <div class="db-achievement-icon">🔥</div>
+            <div class="db-achievement-name">7 أيام</div>
+            <div class="db-achievement-desc">ادرس 7 أيام متتالية</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Resources & Topics (Grid) -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+        <!-- Specialty Resources -->
+        <div class="db-card" style="margin-bottom: 0;">
+          <div class="db-card-header">
+            <div class="db-card-title-wrap">
+              <h3 class="db-card-title">مصادري المخصصة</h3>
+              <p class="db-card-subtitle">محتوى مصمم خصيصاً لشعبتك الدراسية لضمان التفوق.</p>
+            </div>
+            <div class="db-card-icon-main"><i class="fas fa-folder-open"></i></div>
+          </div>
+          <div class="db-list" id="resourcesGrid">
+            <div class="db-skel" style="height:70px;border-radius:16px"></div>
+            <div class="db-skel" style="height:70px;border-radius:16px"></div>
+          </div>
+        </div>
+
+        <!-- Baccalaureate Topics -->
+        <div class="db-card" style="margin-bottom: 0;">
+          <div class="db-card-header">
+            <div class="db-card-title-wrap">
+              <h3 class="db-card-title">مواضيع البكالوريا</h3>
+              <p class="db-card-subtitle">حمّل مواضيع السنوات السابقة مع الحلول النموذجية لشعبتك.</p>
+            </div>
+            <div class="db-card-icon-main"><i class="fas fa-file-alt"></i></div>
+          </div>
+          <div class="db-list">
+            <a href="/bac-topics.html?year=2024" class="db-list-item">
+              <div class="db-list-content">
+                <span class="db-list-title">بكالوريا 2024</span>
+                <span class="db-list-subtitle">المواضيع والحلول الرسمية</span>
+              </div>
+              <div class="db-list-action"><i class="fas fa-download"></i></div>
+            </a>
+            <a href="/bac-topics.html?year=2023" class="db-list-item">
+              <div class="db-list-content">
+                <span class="db-list-title">بكالوريا 2023</span>
+                <span class="db-list-subtitle">المواضيع والحلول الرسمية</span>
+              </div>
+              <div class="db-list-action"><i class="fas fa-download"></i></div>
+            </a>
+          </div>
+
+          <a href="/bac-topics.html" class="db-btn outline"
+            style="margin-top:1.5rem; border-color: rgba(44, 92, 197, 0.15); color: #2c5cc5;">
+            المزيد من المواضيع <i class="fas fa-arrow-left" style="margin-right:8px; font-size:0.8rem"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── RIGHT COLUMN ── -->
+    <div class="db-sidebar-col" style="display: flex; flex-direction: column; gap: 2rem;">
+
+      <!-- Premium upsell / Subscription Status -->
+      <div class="db-card" style="margin-bottom: 0;">
+        <div class="db-card-header" style="margin-bottom:1.5rem">
+          <div class="db-card-title-wrap">
+            <h3 class="db-card-title">خطة الاشتراك</h3>
+          </div>
+          <div class="db-card-icon-main" style="background:rgba(234,179,8,0.1); color:#ca8a04"><i class="fas fa-crown"></i></div>
+        </div>
+
+        <div class="db-list-item" style="margin-bottom:1.5rem; border: 1.5px solid rgba(44,92,197,0.1);">
+          <div id="pfSubIcon" style="width:44px; height:44px; border-radius:12px; background:rgba(44,92,197,0.08); color:var(--db-accent); display:flex; align-items:center; justify-content:center; font-size:1.4rem; flex-shrink:0">💎</div>
+          <div class="db-list-content" style="flex:1; margin-right:1rem">
+            <span id="pfSubTitle" class="db-list-title">الخطة المجانية</span>
+            <span id="pfSubDesc" class="db-list-subtitle">5 رسائل يومياً مع AI</span>
+          </div>
+        </div>
+
+        <ul id="premiumFeatures" style="list-style:none; padding:0; margin:0 0 1.5rem; display:flex; flex-direction:column; gap:0.8rem">
+          <li style="display:flex; align-items:center; gap:0.7rem; font-weight:700; color:#334155; font-size:0.9rem"><i class="fas fa-check-circle" style="color:#10b981"></i> رسائل AI غير محدودة</li>
+          <li style="display:flex; align-items:center; gap:0.7rem; font-weight:700; color:#334155; font-size:0.9rem"><i class="fas fa-check-circle" style="color:#10b981"></i> وضع المخطط الدراسي</li>
+          <li style="display:flex; align-items:center; gap:0.7rem; font-weight:700; color:#334155; font-size:0.9rem"><i class="fas fa-check-circle" style="color:#10b981"></i> مرفقات الصور والملفات</li>
+        </ul>
+
+        <a href="https://t.me/islembacdz" target="_blank" rel="noopener" class="db-btn orange" id="pfUpgradeBtn">
+          <i class="fab fa-telegram-plane"></i> الترقية لـ Premium
+        </a>
+      </div>
+
+      <!-- Quick tools -->
+      <div class="db-card" style="margin-bottom: 0;">
+        <div class="db-card-header" style="margin-bottom:1.5rem">
+          <div class="db-card-title-wrap">
+            <h3 class="db-card-title">أدوات سريعة</h3>
+          </div>
+          <div class="db-card-icon-main" style="background:rgba(139, 92, 246, 0.1); color:#8b5cf6"><i class="fas fa-tools"></i></div>
+        </div>
+        <div class="db-list">
+          <a href="/tools.html#calculator" class="db-list-item">
+            <div class="db-list-content">
+              <span class="db-list-title">حساب المعدل</span>
+              <span class="db-list-subtitle">احسب معدلك المتوقع للبكالوريا</span>
+            </div>
+            <div class="db-list-action"><i class="fas fa-calculator"></i></div>
+          </a>
+          <a href="/tools.html#exam-sheet" class="db-list-item">
+            <div class="db-list-content">
+              <span class="db-list-title">ورقة الإجابة</span>
+              <span class="db-list-subtitle">تدرب على منهجية الكتابة الرسمية</span>
+            </div>
+            <div class="db-list-action"><i class="fas fa-file-invoice"></i></div>
+          </a>
+          <a href="/university.html" class="db-list-item">
+            <div class="db-list-content">
+              <span class="db-list-title">دليل الجامعة</span>
+              <span class="db-list-subtitle">المعدلات والتخصصات المتاحة</span>
+            </div>
+            <div class="db-list-action"><i class="fas fa-university"></i></div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Daily Advice Widget -->
+      <div class="db-card"
+        style="margin-bottom: 0; background: linear-gradient(135deg, #f8fafc, #f1f5f9); border: 1px solid rgba(139, 92, 246, 0.2);">
+        <div class="db-card-title" style="margin-bottom:0.8rem; color:#8b5cf6;">
+          <i class="fas fa-lightbulb" style="color:#8b5cf6; background:rgba(139, 92, 246, 0.1)"></i> جرعة تحفيز
+        </div>
+        <p id="dailyAdviceText"
+          style="color:#334155; font-size:0.95rem; line-height:1.7; font-weight:700; font-style:italic; margin-bottom:0; text-align:center;">
+          "النجاح هو حصيلة مجهودات صغيرة نكررها كل يوم."
+        </p>
+      </div>
+
+    </div>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <div id="search-placeholder"></div>
+
+  <script src="/ads-config.js"></script>
+  <script type="module" src="/components/shared.js"></script>
+  <script type="module">
+    import { Auth } from '/js/auth.js';
+    import { AIHistory } from '/api/ai-history.js';
+
+    // Specialty Mapping
+    const SPECIALTY_META = {
+      math: { name: 'رياضيات', color: '#3b82f6', icon: 'fa-calculator' },
+      science: { name: 'علوم تجريبية', color: '#10b981', icon: 'fa-microscope' },
+      tech: { name: 'تقني رياضي', color: '#f59e0b', icon: 'fa-tools' },
+      management: { name: 'تسيير واقتصاد', color: '#8b5cf6', icon: 'fa-chart-line' },
+      literature: { name: 'آداب وفلسفة', color: '#ec4899', icon: 'fa-book' },
+      languages: { name: 'لغات أجنبية', color: '#14b8a6', icon: 'fa-language' }
+    };
+
+    const SPECIALTY_RESOURCES = {
+      math: [
+        { title: 'ملخصات الرياضيات', sub: 'جميع الوحدات والتمارين', icon: 'fa-square-root-alt', link: '/resources.html#math' },
+        { title: 'الفيزياء والكيمياء', sub: 'الميكانيك والكهرباء', icon: 'fa-atom', link: '/resources.html#science' }
+      ],
+      science: [
+        { title: 'العلوم الطبيعية', sub: 'المناعة، التركيب الضوئي', icon: 'fa-dna', link: '/resources.html#science' },
+        { title: 'الفيزياء والكيمياء', sub: 'ملخصات وتمارين', icon: 'fa-atom', link: '/resources.html#science' }
+      ],
+      tech: [
+        { title: 'الهندسة (المدنية/الطّرائق)', sub: 'دروس وتمارين', icon: 'fa-cogs', link: '/resources.html#tech' },
+        { title: 'الرياضيات والفيزياء', sub: 'مراجع أساسية', icon: 'fa-square-root-alt', link: '/resources.html#tech' }
+      ],
+      management: [
+        { title: 'المحاسبة والتسيير', sub: 'تمارين وحوليات', icon: 'fa-chart-bar', link: '/resources.html#management' },
+        { title: 'الاقتصاد والمناجمنت', sub: 'دروس مفصلة', icon: 'fa-briefcase', link: '/resources.html#management' }
+      ],
+      literature: [
+        { title: 'الفلسفة', sub: 'مقالات ومنهجية', icon: 'fa-book-open', link: '/resources.html#literature' },
+        { title: 'الأدب العربي', sub: 'نصوص وشعر', icon: 'fa-pen-nib', link: '/resources.html#literature' }
+      ],
+      languages: [
+        { title: 'اللغات الأجنبية', sub: 'إسبانية، ألمانية...', icon: 'fa-globe', link: '/resources.html#languages' },
+        { title: 'الفلسفة والأدب', sub: 'مقالات لغات', icon: 'fa-book-open', link: '/resources.html#literature' }
+      ]
+    };
+
+    const DAYS_TO_BAC = 247;
+    document.getElementById('statDaysLeft').textContent = DAYS_TO_BAC;
+
+    // Daily Advice Logic
+    const dailyQuotes = [
+      "النجاح هو حصيلة مجهودات صغيرة نكررها كل يوم.",
+      "لا تتوقف عندما تتعب، توقف عندما تنتهي.",
+      "الطريق إلى النجاح دائماً قيد الإنشاء.",
+      "المستقبل ينتمي إلى هؤلاء الذين يؤمنون بجمال أحلامهم.",
+      "من جد وجد، ومن زرع حصد.. البكالوريا مجرد محطة لتأكيد جدارتك.",
+      "الجهد الذي تبذله اليوم هو القوة التي ستمتلكها غداً.",
+      "لا يوجد طريق مختصر لمكان يستحق الذهاب إليه.",
+      "كلما زادت صعوبة المعركة، زاد طعم النصر حلاوة."
+    ];
+    const dayOfYear = Math.floor((new Date() - new Date(new Date().getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24);
+    const quoteIndex = dayOfYear % dailyQuotes.length;
+    const adviceEl = document.getElementById('dailyAdviceText');
+    if (adviceEl) adviceEl.textContent = `"${dailyQuotes[quoteIndex]}"`;
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      await Auth.init();
+      const session = Auth.getSessionSync();
+
+      if (!session) {
+        window.location.href = '/index.html?login=true';
+        return;
+      }
+
+      if (!session.user.name || !session.user.specialty) {
+        window.location.href = '/index.html?onboard=true';
+        return;
+      }
+
+      // Populate Hero & Stats
+      const nameEl = document.getElementById('userName');
+      const firstName = session.user.name.split(' ')[0];
+      if (nameEl) nameEl.textContent = firstName;
+
+      const statNameEl = document.getElementById('statName');
+      if (statNameEl) statNameEl.textContent = firstName;
+
+      const avatar = document.getElementById('dbAvatar');
+      if (avatar) avatar.textContent = session.user.name.charAt(0).toUpperCase();
+
+      // Badges
+      if (session.user.specialty) {
+        const specMeta = SPECIALTY_META[session.user.specialty];
+        const sBadge = document.getElementById('specialtyBadge');
+        if (sBadge && specMeta) {
+          sBadge.style.display = 'inline-flex';
+          sBadge.querySelector('i').className = `fas ${specMeta.icon}`;
+          document.getElementById('specialtyName').textContent = specMeta.name;
+        }
+      }
+
+
+      const tierBadge = document.getElementById('tierBadge');
+      const usageFree = document.getElementById('usageFree');
+      const usagePremium = document.getElementById('usagePremium');
+
+      if (session.user.tier === 'premium') {
+        if (tierBadge) {
+          tierBadge.classList.add('premium');
+          tierBadge.innerHTML = `<i class="fas fa-crown"></i> <span>Premium</span>`;
+        }
+
+        const statSub = document.getElementById('statSubscription');
+        if (statSub) {
+          statSub.textContent = 'Premium';
+          statSub.style.color = '#8b5cf6';
+        }
+
+        if (usageFree) usageFree.style.display = 'none';
+        if (usagePremium) usagePremium.style.display = 'block';
+
+        // Sidebar Sub
+        document.getElementById('pfSubTitle').textContent = 'الخطة المميزة';
+        document.getElementById('pfSubDesc').textContent = 'استمتع بكافة الميزات بلا حدود';
+        const subIcon = document.getElementById('pfSubIcon');
+        subIcon.style.background = 'rgba(255,107,53,0.15)';
+        subIcon.style.color = '#ff6b35';
+        subIcon.innerHTML = '<i class="fas fa-crown"></i>';
+
+        document.getElementById('premiumFeatures').style.display = 'none';
+        document.getElementById('pfUpgradeBtn').style.display = 'none';
+        document.getElementById('pfCodeCard').style.display = 'none';
+
+        const achP = document.getElementById('ach-premium');
+        if (achP) achP.classList.remove('locked');
+
+      } else {
+        // Usage Free Logic
+        try {
+          const stats = await AIHistory.getUsageStats(session.user.id);
+          const limit = 5;
+          const used = Math.min(stats.today, limit);
+          const usageTxt = document.getElementById('usageText');
+          if (usageTxt) usageTxt.textContent = `${used} / ${limit}`;
+          const pct = (used / limit) * 100;
+          const bar = document.getElementById('usageFill');
+          if (bar) bar.style.width = `${pct}%`;
+        } catch (e) { }
+      }
+
+      // Check 5 chats achievement
+      try {
+        const hList = await AIHistory.getUserHistory(session.user.id);
+        if (hList.length >= 5) {
+          const ach5 = document.getElementById('ach-chat5');
+          if (ach5) ach5.classList.remove('locked');
+        }
+      } catch (e) { }
+
+      // ─────────────────────────────────────────────
+      // STREAK LOGIC
+      // ─────────────────────────────────────────────
+      try {
+        const userId = session.user.id;
+        const todayDate = new Date().toISOString().split('T')[0];
+        let streakData = JSON.parse(localStorage.getItem(`bs_streak_${userId}`) || '{"count": 0, "lastLogin": ""}');
+
+        if (streakData.lastLogin !== todayDate) {
+          const yesterday = new Date();
+          yesterday.setDate(yesterday.getDate() - 1);
+          const yesterdayDate = yesterday.toISOString().split('T')[0];
+
+          if (streakData.lastLogin === yesterdayDate) {
+            streakData.count++;
+          } else {
+            streakData.count = 1;
+          }
+          streakData.lastLogin = todayDate;
+
+          // Hit 7 days today?
+          if (streakData.count === 7) {
+            let pts = parseInt(localStorage.getItem('bs_mock_pts')) || 320;
+            pts += 20;
+            localStorage.setItem('bs_mock_pts', pts);
+            // Quick alert for the reward
+            setTimeout(() => {
+              alert('🎉 مبروك! أكملت 7 أيام متتالية وحصلت على 20 نقطة إضافية!');
+            }, 1000);
+          } else if (streakData.count > 7) {
+            streakData.count = 1; // Restart cycle
+          }
+
+          localStorage.setItem(`bs_streak_${userId}`, JSON.stringify(streakData));
+        }
+
+        const count = streakData.count;
+        document.getElementById('streakCountText').textContent = count;
+
+        const container = document.getElementById('streakDaysContainer');
+        if (container) {
+          container.innerHTML = '';
+          for (let i = 1; i <= 7; i++) {
+            const isActive = i <= count;
+            const bg = isActive ? 'linear-gradient(135deg, #f97316, #ea580c)' : '#f1f5f9';
+            const color = isActive ? '#fff' : '#94a3b8';
+            const icon = isActive ? '<i class="fas fa-check"></i>' : i;
+            const shadow = isActive ? 'box-shadow: 0 4px 10px rgba(249, 115, 22, 0.3);' : '';
+
+            container.innerHTML += `
+              <div style="flex:1; height:45px; border-radius:12px; background:${bg}; color:${color}; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:1.1rem; transition:0.3s; ${shadow}">
+                ${icon}
+              </div>
+            `;
+          }
+        }
+
+        // Update Header Points
+        let currentPts = parseInt(localStorage.getItem('bs_mock_pts')) || 320;
+        const ptsEl = document.getElementById('statPoints');
+        if (ptsEl) ptsEl.innerHTML = `${currentPts} <span style="font-size:0.9rem; color:#64748b; font-weight:700">نقطة</span>`;
+
+        // Unlock achievement
+        if (count >= 7) {
+          const achStreak = document.getElementById('ach-streak');
+          if (achStreak) achStreak.classList.remove('locked');
+        }
+      } catch (e) { }
+
+      // Inject Resources (Updated with new list item structure)
+      const rGrid = document.getElementById('resourcesGrid');
+      if (rGrid && session.user.specialty) {
+        const myRes = SPECIALTY_RESOURCES[session.user.specialty] || [];
+        if (myRes.length > 0) {
+          let html = '';
+          myRes.forEach(r => {
+            html += `
+              <a href="${r.link}" class="db-list-item">
+                <div class="db-list-content">
+                  <span class="db-list-title">${r.title}</span>
+                  <span class="db-list-subtitle">${r.sub}</span>
+                </div>
+                <div class="db-list-action"><i class="fas ${r.icon}"></i></div>
+              </a>
+            `;
+          });
+          html += `
+            <a href="/resources.html" class="db-list-item" style="justify-content:center; background:rgba(44,92,197,0.03)">
+              <div class="db-list-content" style="text-align:center">
+                <span class="db-list-title" style="color:var(--db-accent)">عرض كل المصادر</span>
+              </div>
+            </a>
+          `;
+          rGrid.innerHTML = html;
+        }
+      }
+
+      // ── AI USAGE VISUALIZATION ──
+      const isPremium = session.user.is_premium || session.user.tier === 'premium';
+      const usageFree = document.getElementById('usageFree');
+      const usagePremium = document.getElementById('usagePremium');
+
+      if (isPremium) {
+        if (usageFree) usageFree.style.display = 'none';
+        if (usagePremium) usagePremium.style.display = 'block';
+      } else {
+        if (usageFree) usageFree.style.display = 'block';
+        if (usagePremium) usagePremium.style.display = 'none';
+
+        const usageText = document.getElementById('usageText');
+        const usageFill = document.getElementById('usageFill');
+        if (usageText && usageFill) {
+          // Fetch actual count or use mock
+          const limit = 5;
+          const used = session.user.today_messages || 0;
+          const left = Math.max(0, limit - used);
+          const perc = (used / limit) * 100;
+          
+          usageText.textContent = `${used} / ${limit}`;
+          usageFill.style.width = `${perc}%`;
+          
+          if (perc > 80) usageFill.style.background = 'linear-gradient(90deg, #ef4444, #dc2626)';
+          else if (perc > 50) usageFill.style.background = 'linear-gradient(90deg, #f59e0b, #d97706)';
+        }
+      }
+
+      // Actions
+      const btnSave = document.getElementById('pfSaveBtn');
+      if (btnSave) {
+        btnSave.addEventListener('click', async () => {
+          btnSave.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الحفظ...';
+          btnSave.style.pointerEvents = 'none';
+
+          const name = document.getElementById('pfEditName').value.trim();
+          const spec = document.getElementById('pfEditSpecialty').value;
+
+          if (!name || !spec) {
+            alert('الرجاء إدخال الاسم واختيار الشعبة على الأقل.');
+            btnSave.textContent = 'حفظ التغييرات';
+            btnSave.style.pointerEvents = 'auto';
+            return;
+          }
+
+          await new Promise(r => setTimeout(r, 600));
+          session.user.name = name;
+          session.user.specialty = spec;
+          localStorage.setItem('bs_session', JSON.stringify(session));
+          window.location.reload();
+        });
+      }
+
+      const codeBtn = document.getElementById('pfCodeBtn');
+      if (codeBtn) {
+        codeBtn.addEventListener('click', () => {
+          const code = document.getElementById('pfCodeInput').value.trim().toUpperCase();
+          const msg = document.getElementById('pfCodeMsg');
+
+          if (!code || code.length < 5) {
+            msg.className = 'db-code-msg error';
+            msg.textContent = 'كود غير صالح';
+            return;
+          }
+
+          codeBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+          codeBtn.style.pointerEvents = 'none';
+
+          setTimeout(() => {
+            if (code.startsWith('BACS-')) {
+              msg.className = 'db-code-msg success';
+              msg.textContent = 'تم التفعيل! جاري التحديث...';
+              session.user.tier = 'premium';
+              localStorage.setItem('bs_session', JSON.stringify(session));
+              setTimeout(() => window.location.reload(), 1500);
+            } else {
+              msg.className = 'db-code-msg error';
+              msg.textContent = 'كود غير صحيح';
+              codeBtn.textContent = 'تفعيل';
+              codeBtn.style.pointerEvents = 'auto';
+            }
+          }, 1000);
+        });
+      }
+
+      const btnLogout = document.getElementById('pfLogoutBtn');
+      if (btnLogout) {
+        btnLogout.addEventListener('click', () => {
+          Auth.logout();
+          window.location.href = '/index.html';
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -135,15 +135,6 @@ if (typeof window.showSection === 'undefined') {
         document.querySelectorAll('.resource-content').forEach(s => s.classList.remove('active'));
         const el = document.getElementById(id);
         if (el) el.classList.add('active');
-
-        // --- GOOGLE ANALYTICS VIRTUAL PAGEVIEW (FALLBACK) ---
-        if (window.dataLayer) {
-            window.dataLayer.push({
-                event: 'page_view',
-                page_path: window.location.pathname + (id ? '#' + id : ''),
-                page_title: document.title + ' - ' + id
-            });
-        }
     };
 }
 
@@ -679,8 +670,12 @@ function injectAdCards() {
 // ─── PAGE BOOT ───────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', async () => {
     // Inject components concurrently using absolute paths
+    const navPlaceholder = document.getElementById('navbar-placeholder');
+    const isLandingNav = navPlaceholder && navPlaceholder.getAttribute('data-nav') === 'landing';
+    const navbarPath = isLandingNav ? '/components/landing-navbar.html' : '/components/navbar.html';
+
     await Promise.all([
-        injectComponent('#navbar-placeholder', '/components/navbar.html'),
+        injectComponent('#navbar-placeholder', navbarPath),
         injectComponent('#footer-placeholder', '/components/footer.html')
     ]);
 

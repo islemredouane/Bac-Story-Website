@@ -1,0 +1,56 @@
+# ─────────────────────────────────────────────────────────────────
+# BAC STORY — .gitignore
+# ─────────────────────────────────────────────────────────────────
+
+# Environment / secrets — NEVER commit these
+.env
+.env.*
+!.env.example
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Vercel
+.vercel/
+.vercel.json.bak
+
+# Build / cache
+dist/
+build/
+.cache/
+.parcel-cache/
+.next/
+
+# IDE / editor
+.vscode/
+.idea/
+*.swp
+*.swo
+.cursor/
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Local agent / AI tooling
+.claude/
+.gemini/
+
+# Logs
+*.log
+logs/
+
+# Temp / scratch
+tmp/
+temp/
+*.tmp
+*.bak
+
+.vercel
+
+stitch-skills-main/

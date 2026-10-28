@@ -1,0 +1,226 @@
+<!DOCTYPE html><html lang="ar" dir="rtl"><head>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1BWT5DE65Q"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1BWT5DE65Q');
+    </script>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Dashboard Mockup</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Tajawal',sans-serif;background:#f0f2f8;direction:rtl}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#0f172a 0%,#1e3a8a 55%,#2c5cc5 100%);padding:2rem 1.5rem 2.5rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03)1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03)1px,transparent 1px);background-size:44px 44px}
+.hero::after{content:'';position:absolute;top:-80px;right:10%;width:400px;height:280px;background:radial-gradient(ellipse,rgba(79,125,232,.45)0%,transparent 65%);animation:glow 5s ease-in-out infinite}
+@keyframes glow{0%,100%{opacity:.6;transform:scale(1)}50%{opacity:1;transform:scale(1.1)}}
+.hero-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1}
+
+.hero-top{display:flex;align-items:center;gap:1.2rem;margin-bottom:1.8rem}
+.avatar{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,#ff6b35,#e55a25);color:#fff;font-size:1.8rem;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 3px rgba(255,255,255,.18),0 8px 24px rgba(0,0,0,.3);flex-shrink:0}
+.hero-info{flex:1}
+.hero-name{font-size:1.9rem;font-weight:900;color:#fff;margin-bottom:.25rem}
+.hero-name span{background:linear-gradient(135deg,#ffd080,#ff6b35);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:.88rem;color:rgba(255,255,255,.55);margin-bottom:.6rem}
+.badges{display:flex;gap:.5rem;flex-wrap:wrap}
+.badge{display:inline-flex;align-items:center;gap:.35rem;padding:.32rem .85rem;border-radius:50px;font-size:.76rem;font-weight:700;backdrop-filter:blur(6px)}
+.badge-spec{background:rgba(255,255,255,.12);color:rgba(255,255,255,.95);border:1.5px solid rgba(255,255,255,.2)}
+.badge-free{background:rgba(255,255,255,.07);color:rgba(255,255,255,.6);border:1.5px solid rgba(255,255,255,.1)}
+.badge-prem{background:rgba(255,107,53,.2);color:#ffa87a;border:1.5px solid rgba(255,107,53,.35)}
+
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;margin-bottom:1.1rem}
+.stat{background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.12);border-radius:18px;padding:1rem 1.1rem;display:flex;align-items:center;gap:.85rem;backdrop-filter:blur(10px);transition:.2s}
+.stat:hover{background:rgba(255,255,255,.13);transform:translateY(-2px)}
+.stat-icon{width:44px;height:44px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.stat-icon.blue{background:rgba(126,184,255,.15);color:#7eb8ff}
+.stat-icon.orange{background:rgba(255,107,53,.18);color:#ffaa7a}
+.stat-icon.green{background:rgba(16,185,129,.18);color:#6ee7b7}
+.stat-val{font-size:1.65rem;font-weight:900;color:#fff;line-height:1.1}
+.stat-lbl{font-size:.73rem;color:rgba(255,255,255,.5);font-weight:600}
+
+.countdown{background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.1);border-radius:16px;padding:.9rem 1.3rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.countdown-txt{color:rgba(255,255,255,.6);font-size:.87rem;flex:1}
+.countdown-days{font-size:2rem;font-weight:900;color:#fff}
+.countdown-lbl{font-size:.82rem;color:rgba(255,255,255,.5)}
+.countdown-btn{background:#ff6b35;color:#fff;border:none;border-radius:50px;padding:.5rem 1.2rem;font-family:'Tajawal',sans-serif;font-size:.85rem;font-weight:700;cursor:pointer;transition:.2s;display:flex;align-items:center;gap:.4rem}
+.countdown-btn:hover{background:#e55a25;transform:translateY(-1px)}
+
+/* PAGE */
+.page{max-width:1100px;margin:0 auto;padding:1.8rem 1.5rem 5rem}
+.page-grid{display:grid;grid-template-columns:1fr 300px;gap:1.4rem;align-items:start}
+.sec-label{font-size:1rem;font-weight:800;color:#0f172a;margin:0 0 .85rem;display:flex;align-items:center;gap:.5rem}
+.sec-label i{color:#2c5cc5;font-size:.92rem}
+
+/* CARD */
+.card{background:#fff;border-radius:22px;border:1.5px solid #e4e8f2;padding:1.4rem;box-shadow:0 2px 16px rgba(44,92,197,.05);transition:.25s}
+.card:hover{box-shadow:0 6px 28px rgba(44,92,197,.09);border-color:rgba(44,92,197,.14)}
+.mb{margin-bottom:1.25rem}
+
+/* AI CARD */
+.ai-card{background:linear-gradient(145deg,#0f172a 0%,#1e3a8a 60%,#2c5cc5 100%);border:none;position:relative;overflow:hidden}
+.ai-card::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.04)1px,transparent 1px);background-size:22px 22px}
+.ai-card::after{content:'';position:absolute;bottom:-30px;left:-20px;width:200px;height:180px;background:radial-gradient(ellipse,rgba(44,92,197,.5)0%,transparent 70%)}
+.ai-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1.1rem;position:relative;z-index:1}
+.ai-title{font-size:1.05rem;font-weight:800;color:#fff;margin-bottom:.2rem}
+.ai-desc{font-size:.8rem;color:rgba(255,255,255,.5);line-height:1.5}
+.ai-robot{font-size:2.6rem;line-height:1;filter:drop-shadow(0 0 14px rgba(100,160,255,.5));animation:float 4s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.usage-row{display:flex;justify-content:space-between;font-size:.8rem;font-weight:700;color:rgba(255,255,255,.6);margin-bottom:.35rem;position:relative;z-index:1}
+.usage-row span:last-child{color:#fff}
+.bar-bg{height:7px;background:rgba(255,255,255,.1);border-radius:50px;margin-bottom:1.1rem;overflow:hidden;position:relative;z-index:1}
+.bar-fill{height:100%;background:linear-gradient(90deg,#ff6b35,#ffb36a);border-radius:50px;width:60%}
+.modes{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.45rem;margin-bottom:1.1rem;position:relative;z-index:1}
+.mode{display:flex;align-items:center;gap:.4rem;padding:.5rem .75rem;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.1);border-radius:10px;font-size:.78rem;color:rgba(255,255,255,.75);cursor:pointer;transition:.15s}
+.mode:hover{background:rgba(255,255,255,.13)}
+.mode i{font-size:.82rem;color:rgba(255,255,255,.4)}
+.mode.premium{border-color:rgba(255,107,53,.3);color:#ffaa7a}
+.mode.premium i{color:#ff6b35}
+.ai-btn{display:flex;align-items:center;justify-content:center;gap:.5rem;width:100%;padding:.88rem;background:linear-gradient(135deg,#ff6b35,#e55a25);color:#fff;border:none;border-radius:14px;font-family:'Tajawal',sans-serif;font-size:.98rem;font-weight:800;cursor:pointer;transition:.2s;box-shadow:0 6px 18px rgba(255,107,53,.4);position:relative;z-index:1}
+.ai-btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(255,107,53,.5)}
+
+/* RESOURCES */
+.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+.res-item{display:flex;align-items:center;gap:.7rem;padding:.85rem 1rem;border:1.5px solid #e4e8f2;border-radius:16px;text-decoration:none;transition:.2s;background:#fafbff;cursor:pointer}
+.res-item:hover{border-color:#2c5cc5;background:rgba(44,92,197,.04);transform:translateY(-2px);box-shadow:0 6px 18px rgba(44,92,197,.1)}
+.res-icon{width:40px;height:40px;border-radius:12px;background:rgba(44,92,197,.09);display:flex;align-items:center;justify-content:center;font-size:1rem;color:#2c5cc5;flex-shrink:0}
+.res-name{font-size:.86rem;font-weight:700;color:#0f172a}
+.res-sub{font-size:.72rem;color:#94a3b8}
+
+/* SESSIONS */
+.sessions{display:flex;flex-direction:column;gap:.5rem}
+.session{display:flex;align-items:center;gap:.7rem;padding:.82rem 1rem;border:1.5px solid #e8edf5;border-radius:14px;transition:.2s;cursor:pointer;background:#fafbff}
+.session:hover{border-color:rgba(44,92,197,.25);transform:translateX(-2px);box-shadow:0 3px 12px rgba(44,92,197,.07)}
+.sess-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.88rem;flex-shrink:0}
+.sess-icon.adv{background:rgba(44,92,197,.1);color:#2c5cc5}
+.sess-icon.sol{background:rgba(16,185,129,.1);color:#10b981}
+.sess-icon.cor{background:rgba(245,158,11,.1);color:#f59e0b}
+.sess-title{font-size:.86rem;font-weight:700;color:#0f172a;margin-bottom:.06rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:220px}
+.sess-meta{font-size:.73rem;color:#94a3b8}
+.sess-arr{color:#cbd5e1;font-size:.78rem;margin-right:auto}
+
+/* SIDEBAR */
+.prem-card{background:linear-gradient(145deg,#fff7ed,#fff3e6);border:1.5px solid rgba(255,107,53,.18);position:relative;overflow:hidden}
+.prem-card::before{content:'';position:absolute;top:-20px;left:-20px;width:130px;height:130px;background:radial-gradient(circle,rgba(255,107,53,.15)0%,transparent 70%)}
+.prem-top{display:flex;align-items:center;gap:.75rem;margin-bottom:.85rem;position:relative}
+.prem-icon{width:46px;height:46px;border-radius:14px;background:linear-gradient(135deg,#ff6b35,#e55a25);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;box-shadow:0 4px 14px rgba(255,107,53,.35)}
+.prem-title{font-size:.98rem;font-weight:800;color:#0f172a}
+.prem-price{font-size:.8rem;color:#ff6b35;font-weight:700}
+.prem-feats{list-style:none;display:flex;flex-direction:column;gap:.4rem;margin-bottom:.9rem;position:relative}
+.prem-feats li{display:flex;align-items:center;gap:.45rem;font-size:.82rem;color:#475569;font-weight:600}
+.prem-feats li i{color:#10b981;font-size:.76rem}
+.prem-btn{display:flex;align-items:center;justify-content:center;gap:.5rem;width:100%;padding:.8rem;background:linear-gradient(135deg,#ff6b35,#e55a25);color:#fff;border:none;border-radius:14px;font-family:'Tajawal',sans-serif;font-size:.92rem;font-weight:800;cursor:pointer;box-shadow:0 5px 16px rgba(255,107,53,.35);transition:.2s}
+.prem-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,107,53,.45)}
+
+.tool-list{display:flex;flex-direction:column;gap:.5rem}
+.tool-item{display:flex;align-items:center;gap:.7rem;padding:.82rem 1rem;border:1.5px solid #e4e8f2;border-radius:14px;text-decoration:none;transition:.2s;background:#fafbff;cursor:pointer}
+.tool-item:hover{border-color:rgba(44,92,197,.22);transform:translateX(-2px);box-shadow:0 3px 12px rgba(44,92,197,.07)}
+.tool-icon{width:36px;height:36px;border-radius:10px;background:rgba(44,92,197,.09);display:flex;align-items:center;justify-content:center;font-size:.88rem;color:#2c5cc5;flex-shrink:0}
+.tool-name{font-size:.86rem;font-weight:700;color:#0f172a}
+.tool-sub{font-size:.72rem;color:#94a3b8}
+</style></head><body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-top">
+      <div class="avatar">إ</div>
+      <div class="hero-info">
+        <div class="hero-name">مرحباً، <span>إسلام</span> 👋</div>
+        <div class="hero-sub">جاهز تبدأ جلسة دراسية اليوم؟</div>
+        <div class="badges">
+          <span class="badge badge-spec"><i class="fas fa-graduation-cap"></i> رياضيات</span>
+          <span class="badge badge-free"><i class="fas fa-circle"></i> مجاني</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="stat-icon blue"><i class="fas fa-calendar-alt"></i></div><div><div class="stat-val">247</div><div class="stat-lbl">يوم للباك</div></div></div>
+      <div class="stat"><div class="stat-icon orange"><i class="fas fa-comments"></i></div><div><div class="stat-val">3</div><div class="stat-lbl">رسائل اليوم</div></div></div>
+      <div class="stat"><div class="stat-icon green"><i class="fas fa-history"></i></div><div><div class="stat-val">12</div><div class="stat-lbl">محادثة</div></div></div>
+    </div>
+
+    <div class="countdown">
+      <div class="countdown-txt">⏳ الوقت المتبقي للبكالوريا 2026</div>
+      <div><span class="countdown-days">247</span> <span class="countdown-lbl">يوم</span></div>
+      <button class="countdown-btn"><i class="fas fa-clock"></i> العد التنازلي</button>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+  <div class="page-grid">
+    <div>
+      <!-- AI Card -->
+      <div class="sec-label"><i class="fas fa-robot"></i> إسلام AI</div>
+      <div class="card ai-card mb">
+        <div class="ai-header">
+          <div><div class="ai-title">إسلام AI — مرافقك الذكي</div><div class="ai-desc">اشرح، حل، راجع، خطط</div></div>
+          <div class="ai-robot">🤖</div>
+        </div>
+        <div class="usage-row"><span>رسائل اليوم</span><span>3 / 5</span></div>
+        <div class="bar-bg"><div class="bar-fill"></div></div>
+        <div class="modes">
+          <div class="mode"><i class="fas fa-hands"></i> المستشار</div>
+          <div class="mode"><i class="fas fa-calculator"></i> حل التمارين</div>
+          <div class="mode"><i class="fas fa-circle-check"></i> التصحيح</div>
+          <div class="mode"><i class="fas fa-file-lines"></i> الملخصات</div>
+          <div class="mode"><i class="fas fa-circle-question"></i> الكويز</div>
+          <div class="mode premium"><i class="fas fa-crown"></i> المخطط 👑</div>
+        </div>
+        <button class="ai-btn"><i class="fas fa-comments"></i> ابدأ محادثة مع إسلام</button>
+      </div>
+
+      <!-- Resources -->
+      <div class="sec-label" style="margin-top:1.6rem"><i class="fas fa-folder-open"></i> مصادر شعبتك — رياضيات</div>
+      <div class="card mb">
+        <div class="res-grid">
+          <div class="res-item"><div class="res-icon"><i class="fas fa-calculator"></i></div><div><div class="res-name">ملخصات رياضيات</div><div class="res-sub">وحدات + تمارين</div></div></div>
+          <div class="res-item"><div class="res-icon"><i class="fas fa-atom"></i></div><div><div class="res-name">فيزياء وكيمياء</div><div class="res-sub">مراجع مشتركة</div></div></div>
+          <div class="res-item"><div class="res-icon"><i class="fas fa-file-alt"></i></div><div><div class="res-name">مواضيع الباك</div><div class="res-sub">2024 + 2025</div></div></div>
+          <div class="res-item"><div class="res-icon"><i class="fas fa-trophy"></i></div><div><div class="res-name">تحديات التميز</div><div class="res-sub">اختبر نفسك</div></div></div>
+        </div>
+      </div>
+
+      <!-- Sessions -->
+      <div class="sec-label" style="margin-top:1.6rem"><i class="fas fa-history"></i> آخر المحادثات</div>
+      <div class="card">
+        <div class="sessions">
+          <div class="session"><div class="sess-icon adv"><i class="fas fa-hands"></i></div><div style="flex:1;min-width:0"><div class="sess-title">شرح قاعدة التكامل بالأجزاء</div><div class="sess-meta">منذ 2 ساعة</div></div><i class="fas fa-arrow-left sess-arr"></i></div>
+          <div class="session"><div class="sess-icon sol"><i class="fas fa-calculator"></i></div><div style="flex:1;min-width:0"><div class="sess-title">حل تمرين الاحتمالات</div><div class="sess-meta">منذ يوم</div></div><i class="fas fa-arrow-left sess-arr"></i></div>
+          <div class="session"><div class="sess-icon cor"><i class="fas fa-circle-check"></i></div><div style="flex:1;min-width:0"><div class="sess-title">تصحيح فقرة الفيزياء</div><div class="sess-meta">منذ 3 أيام</div></div><i class="fas fa-arrow-left sess-arr"></i></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div>
+      <div class="card prem-card mb">
+        <div class="prem-top"><div class="prem-icon"><i class="fas fa-crown"></i></div><div><div class="prem-title">BAC STORY Premium</div><div class="prem-price">890 دج / شهر</div></div></div>
+        <ul class="prem-feats">
+          <li><i class="fas fa-check"></i> رسائل AI غير محدودة</li>
+          <li><i class="fas fa-check"></i> وضع المخطط الدراسي</li>
+          <li><i class="fas fa-check"></i> مرفقات PDF وصور</li>
+          <li><i class="fas fa-check"></i> بطاقات الحفظ</li>
+        </ul>
+        <button class="prem-btn"><i class="fab fa-telegram-plane"></i> اشترك عبر التلغرام</button>
+      </div>
+
+      <div class="sec-label"><i class="fas fa-tools"></i> أدوات سريعة</div>
+      <div class="card">
+        <div class="tool-list">
+          <div class="tool-item"><div class="tool-icon"><i class="fas fa-calculator"></i></div><div><div class="tool-name">حساب المعدل</div><div class="tool-sub">احسب معدلك المتوقع</div></div></div>
+          <div class="tool-item"><div class="tool-icon"><i class="fas fa-clock"></i></div><div><div class="tool-name">العد التنازلي</div><div class="tool-sub">أيام متبقية للباك</div></div></div>
+          <div class="tool-item"><div class="tool-icon"><i class="fas fa-file-invoice"></i></div><div><div class="tool-name">ورقة الإجابة</div><div class="tool-sub">تدرب على الكتابة</div></div></div>
+          <div class="tool-item"><div class="tool-icon"><i class="fas fa-university"></i></div><div><div class="tool-name">دليل الجامعة</div><div class="tool-sub">تخصصات ومعدلات</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body></html>

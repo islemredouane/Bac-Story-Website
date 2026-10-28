@@ -1,0 +1,245 @@
+<footer class="app-footer">
+  <div class="app-inner">
+    <div class="app-footer-grid">
+
+      <!-- Brand Column -->
+      <div class="app-footer-brand">
+        <a href="/dashboard.html" class="app-footer-logo">
+          BAC <span>STORY</span>
+        </a>
+        <p class="app-footer-desc">
+          المنصة الجزائرية الأولى لتحضير البكالوريا. منصتك المتكاملة للمصادر المخصصة، أدوات المراجعة، والذكاء الاصطناعي.
+        </p>
+        <div class="app-footer-socials">
+          <a href="https://www.instagram.com/islembacdz" target="_blank" class="app-social-btn">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://t.me/islembacdz" target="_blank" class="app-social-btn">
+            <i class="fab fa-telegram-plane"></i>
+          </a>
+          <a href="mailto:islem06rd@gmail.com" class="app-social-btn">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Links Columns -->
+      <div class="app-footer-nav">
+        <h4 class="app-footer-h4">فضائي</h4>
+        <ul class="app-footer-links">
+          <li><a href="/dashboard.html">الرئيسية</a></li>
+          <li><a href="/ai.html">إسلام AI</a></li>
+        </ul>
+      </div>
+
+      <div class="app-footer-nav">
+        <h4 class="app-footer-h4">مصادري</h4>
+        <ul class="app-footer-links" id="appFooterResLinks">
+          <li><a href="/resources.html">جميع المصادر</a></li>
+          <li><a href="/bac-topics.html">مواضيع البكالوريا</a></li>
+          <li><a href="/university.html">دليل الجامعة</a></li>
+          <li><a href="/plans.html">خطط التميز</a></li>
+        </ul>
+      </div>
+
+      <div class="app-footer-nav">
+        <h4 class="app-footer-h4">الأدوات</h4>
+        <ul class="app-footer-links">
+          <li><a href="/tools.html#calculator">حساب المعدل</a></li>
+          <li><a href="/tools.html#timer">العد التنازلي</a></li>
+          <li><a href="/tools.html#exam-sheet">ورقة الإجابة</a></li>
+          <li><a href="/faq.html">الأسئلة الشائعة</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="app-footer-bottom">
+      <p>© 2026 BAC STORY. جميع الحقوق محفوظة.</p>
+      <div class="app-footer-bottom-links">
+        <a href="/privacy.html">الخصوصية</a>
+        <a href="/terms.html">الشروط</a>
+        <a href="/contact.html">تواصل معنا</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+/* Exact replication of the landing page footer colors and styles */
+.app-footer {
+  padding: 3.5rem 0 2.5rem;
+  color: #0f172a;
+  position: relative;
+  border-top: 1px solid rgba(44, 92, 197, 0.08);
+  overflow: hidden;
+  background: transparent; /* Allows page bg to show */
+  font-family: 'Tajawal', sans-serif;
+  margin-top: 4rem;
+}
+
+.app-footer::before,
+.app-footer::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: -1;
+  opacity: 0.18;
+  pointer-events: none;
+  display: block;
+}
+
+.app-footer::before {
+  top: -80px; left: -80px;
+  width: 350px; height: 350px;
+  background: #2c5cc5;
+}
+
+.app-footer::after {
+  bottom: -80px; right: -80px;
+  width: 300px; height: 300px;
+  background: #3b82f6;
+}
+
+.app-inner {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.app-footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 4rem;
+}
+
+.app-footer-logo {
+  font-family: 'Pattaya', sans-serif;
+  font-size: 1.8rem;
+  color: #2c5cc5;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+}
+.app-footer-logo span { color: #2c5cc5; }
+
+.app-footer-desc {
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  max-width: 320px;
+  margin-bottom: 2rem;
+}
+
+.app-footer-socials {
+  display: flex; gap: 0.8rem;
+}
+
+.app-social-btn {
+  width: 44px; height: 44px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(44, 92, 197, 0.12);
+  color: #2c5cc5;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.15rem;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(44, 92, 197, 0.06);
+}
+
+.app-social-btn:hover {
+  transform: translateY(-5px) rotate(8deg);
+  background: linear-gradient(135deg, #2c5cc5, #1e4bb8);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 12px 24px rgba(44, 92, 197, 0.25);
+}
+
+.app-footer-h4 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  margin-bottom: 1.8rem;
+  color: #0f172a;
+}
+
+.app-footer-links {
+  list-style: none; padding: 0; margin: 0;
+  display: flex; flex-direction: column; gap: 1rem;
+}
+
+.app-footer-links a {
+  color: #64748b;
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.app-footer-links a:hover {
+  color: #2c5cc5;
+  transform: translateX(-5px);
+}
+
+.app-footer-bottom {
+  padding-top: 2.5rem;
+  border-top: 1px solid rgba(44, 92, 197, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.app-footer-bottom-links {
+  display: flex; gap: 1.5rem;
+}
+.app-footer-bottom-links a {
+  color: #64748b; text-decoration: none; transition: 0.2s; font-weight: 600;
+}
+.app-footer-bottom-links a:hover { color: #2c5cc5; }
+
+@media (max-width: 900px) {
+  .app-footer-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+}
+@media (max-width: 600px) {
+  .app-footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .app-footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+}
+</style>
+
+<script>
+/* Personalise the "مصادري" column based on stored specialty */
+(function(){
+  const SPECIALTY_HREF = {
+    math:       '/resources.html#math',
+    science:    '/resources.html#science',
+    tech:       '/resources.html#tech',
+    management: '/resources.html#management',
+    literature: '/resources.html#literature',
+    languages:  '/resources.html#languages',
+  };
+  const SPECIALTY_LABEL = {
+    math:'رياضيات', science:'علوم تجريبية', tech:'تقني رياضي',
+    management:'تسيير وإقتصاد', literature:'آداب وفلسفة', languages:'لغات أجنبية',
+  };
+  try {
+    const s = JSON.parse(localStorage.getItem('bs_session') || '{}');
+    const sp = s?.user?.specialty;
+    if (sp && SPECIALTY_HREF[sp]) {
+      const ul = document.getElementById('appFooterResLinks');
+      if (ul) {
+        const li = document.createElement('li');
+        li.innerHTML = `<a href="${SPECIALTY_HREF[sp]}" style="color:#2c5cc5">مصادر ${SPECIALTY_LABEL[sp]}</a>`;
+        ul.insertBefore(li, ul.firstChild);
+      }
+    }
+  } catch(e){}
+})();
+</script>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1BWT5DE65Q"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1BWT5DE65Q');
+    </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>إسلام AI — BAC STORY</title>
+  <meta name="description" content="مساعد BAC STORY الذكي لمساعدتك في دراسة البكالوريا" />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Pattaya&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/auth.css" />
+  <link rel="stylesheet" href="/css/ai-chat.css" />
+  <link rel="stylesheet" href="/css/quiz.css" />
+  <link rel="stylesheet" href="/css/flashcards.css" />
+  <link rel="stylesheet" href="/css/mindmap.css" />
+</head>
+<body class="ai-body page-ready">
+
+<!-- ══ AUTH LOADING SPLASH (shown while auth is checked) ══ -->
+<div class="ai-splash" id="aiSplash">
+  <div class="ai-splash-inner">
+    <div class="ai-splash-logo">إسلام <span>AI</span></div>
+    <div class="ai-splash-dots">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="ai-splash-text">جارٍ التحميل...</div>
+  </div>
+</div>
+
+<!-- ══ MAIN APP (hidden until authenticated) ══ -->
+<div class="ai-app" id="aiApp" style="display:none">
+
+  <!-- ══ SIDEBAR ════════════════════════════════════════════ -->
+  <aside class="ai-sidebar" id="sourcesPanel">
+
+    <!-- Logo -->
+    <div class="ai-sidebar-logo">
+      إسلام <span>AI</span>
+    </div>
+
+    <!-- Nav -->
+    <nav class="ai-sidebar-nav">
+      <a href="/dashboard" class="ai-sidebar-navitem">
+        <i class="fas fa-home"></i>
+        <span>العودة للرئيسية</span>
+      </a>
+      <button class="ai-sidebar-navitem" id="historyToggle">
+        <i class="fas fa-clock-rotate-left"></i>
+        <span>سجل المحادثات</span>
+      </button>
+      <button class="ai-sidebar-navitem ai-sidebar-navitem--new" id="newChatBtn">
+        <i class="fas fa-plus"></i>
+        <span>محادثة جديدة</span>
+      </button>
+    </nav>
+
+    <!-- Sidebar Body -->
+    <div class="ai-sidebar-body">
+
+      <!-- HISTORY VIEW -->
+      <div class="ai-sidebar-view" id="historyPanel">
+        <div class="ai-sidebar-section-label">
+          <span>المحادثات السابقة</span>
+          <button class="ai-sidebar-close-btn" id="historyClose">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="ai-history-list" id="historyList">
+          <div class="ai-sidebar-empty">لا توجد محادثات سابقة</div>
+        </div>
+        <div id="toolsHistoryList" style="display:none"></div>
+      </div>
+
+      <!-- SOURCES VIEW -->
+      <div class="ai-sidebar-view" id="sourcesView">
+        <div class="ai-sidebar-section-label">
+          <span>الملفات والمصادر</span>
+        </div>
+        <button class="ai-sidebar-upload-btn" id="uploadBtn">
+          <i class="fas fa-cloud-upload-alt"></i>
+          إضافة ملف
+        </button>
+        <input type="file" id="fileInput" accept=".pdf,.txt,.png,.jpg,.jpeg,.webp" multiple />
+        <div class="ai-sources-list" id="sourcesList">
+          <div class="ai-sidebar-empty" id="sourcesEmpty">لم يتم رفع أي ملفات بعد</div>
+        </div>
+        <div class="ai-sources-limit" id="sourcesLimit">0 / 10 ملفات</div>
+      </div>
+
+    </div><!-- /ai-sidebar-body -->
+
+    <!-- Footer -->
+    <div class="ai-sidebar-footer">
+      <div class="ai-sidebar-user">
+        <div class="ai-sidebar-avatar" id="topbarAvatar">م</div>
+        <div class="ai-sidebar-user-text">
+          <div class="ai-sidebar-user-name" id="footerName">...</div>
+          <div class="ai-sidebar-user-tier" id="footerTier">مجاني</div>
+        </div>
+      </div>
+      <button class="ai-sidebar-logout-btn" onclick="Auth.logout()" title="تسجيل الخروج">
+        <i class="fas fa-sign-out-alt"></i>
+      </button>
+    </div>
+
+  </aside><!-- /ai-sidebar -->
+
+  <!-- ══ MAIN CHAT ══════════════════════════════════════════ -->
+  <main class="ai-chat">
+
+    <!-- Top Bar -->
+    <div class="ai-chat-topbar">
+      <div class="ai-chat-title" id="chatTitle">محادثة جديدة</div>
+
+      <div class="ai-topbar-left">
+        <div class="ai-subject-pill">
+          <i class="fas fa-chevron-down"></i>
+          <span id="currentSubject">رياضيات</span>
+        </div>
+      </div>
+
+      <button class="ai-topbar-icon-btn ai-mobile-only" id="toggleSources">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+
+    <!-- Messages Area -->
+    <div class="ai-messages" id="messages">
+      <div class="ai-messages-inner">
+        <div class="ai-welcome" id="welcomeState">
+          <div class="ai-welcome-glow"></div>
+          <div class="ai-welcome-logo">إسلام <span>AI</span></div>
+          <h1 class="ai-welcome-title">مرحباً! كيفاش نقدر نساعدك اليوم؟</h1>
+          <div class="ai-welcome-sub" id="welcomeSub">اختر الوضع المناسب وابدأ المحادثة</div>
+          <div class="ai-welcome-starters" id="starters"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Input Bar -->
+    <div class="ai-input-bar">
+
+      <!-- Tool chips -->
+      <div class="ai-tool-chips-row">
+        <button class="ai-tool-card" data-tool="mindmap">
+          <span class="ai-tool-card-emoji">🧠</span>
+          خريطة ذهنية
+        </button>
+        <button class="ai-tool-card" data-tool="quiz">
+          <span class="ai-tool-card-emoji">🎯</span>
+          كويز
+        </button>
+        <button class="ai-tool-card" data-tool="flashcards">
+          <span class="ai-tool-card-emoji">🃏</span>
+          بطاقات ذاكرة
+        </button>
+      </div>
+
+      <!-- Limit banner -->
+      <div class="ai-limit-banner hidden" id="limitBanner">
+        <span><i class="fas fa-exclamation-circle"></i> وصلت للحد اليومي (5 رسائل)</span>
+        <a href="https://t.me/islembacdz" target="_blank">اشترك في Premium →</a>
+      </div>
+
+      <!-- Input row -->
+      <div class="ai-input-row" id="inputRow">
+        <div style="position:relative;flex-shrink:0">
+          <button class="ai-mode-chip ai-add-btn" id="modeChip" title="تغيير الوضع">
+            <i class="fas fa-plus"></i>
+          </button>
+          <div class="ai-mode-dropdown" id="modeDropdown"></div>
+        </div>
+
+        <textarea
+          class="ai-textarea"
+          id="userInput"
+          placeholder="اكتب رسالتك هنا..."
+          rows="1"
+          maxlength="4000"
+        ></textarea>
+
+        <button class="ai-send-btn" id="sendBtn" disabled>
+          <i class="fas fa-paper-plane"></i>
+          <div class="ai-send-spin"></div>
+        </button>
+      </div>
+
+      <div class="ai-input-hint">إسلام AI قد يخطئ — تحقق دائماً من المعلومات المهمة</div>
+    </div>
+
+  </main><!-- /ai-chat -->
+
+  <!-- Mobile overlay -->
+  <div class="ai-mobile-overlay" id="mobileOverlay"></div>
+
+  <!-- Hidden compat elements -->
+  <div id="toolsPanel" style="display:none"></div>
+
+</div><!-- /ai-app -->
+
+<script>window.BS_GOOGLE_CLIENT_ID = '371649548339-nlare05trsgdiuptn32n1n4omvdkqasi.apps.googleusercontent.com';</script>
+<script src="/js/auth.js"></script>
+<script src="/js/quiz.js" defer></script>
+<script src="/js/flashcards.js" defer></script>
+<script src="/js/mindmap.js" defer></script>
+<script src="/js/ai-chat.js" defer></script>
+</body>
+</html>

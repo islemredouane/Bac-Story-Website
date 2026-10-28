@@ -1,0 +1,78 @@
+<nav class="navbar">
+    <div class="nav-container">
+        
+        <!-- Right Side: Auth & Search (First element in RTL goes Right) -->
+        <div class="nav-auth-buttons" style="display: flex; align-items: center; gap: 0.8rem;">
+            <a href="/auth.html" class="nav-btn-ghost" style="padding: 0.6rem 1.25rem; font-size: 0.95rem; border: 1.5px solid rgba(255, 255, 255, 0.4); background: transparent; color: white; border-radius: 12px; font-weight: 600; text-decoration: none; transition: all 0.3s;">تسجيل الدخول</a>
+            <a href="/onboarding.html" class="nav-btn-solid" style="padding: 0.65rem 1.4rem; font-size: 0.95rem; background: white; color: #2c5cc5; border: none; border-radius: 12px; font-weight: 700; text-decoration: none; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); transition: all 0.3s;">ابدأ مجاناً</a>
+            <button id="searchBtnDesktop" class="nav-icon-btn" style="background: transparent; border: none; color: white; font-size: 1.25rem; cursor: pointer; padding: 8px; display: flex; align-items: center; justify-content: center;">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+
+        <!-- Center: Links (Absolutely positioned, doesn't affect flex layout) -->
+        <div id="navLinks" class="nav-links">
+            <button id="menuClose" class="menu-close" aria-label="Close menu">&times;</button>
+            <a href="/index.html#platform">المنصة</a>
+            <a href="/index.html#features">المزايا</a>
+            <a href="/index.html#pricing">الأسعار</a>
+            <a href="/index.html#reviews">آراء الطلاب</a>
+            
+            <div class="mobile-menu-footer">
+                <div class="menu-footer-logo">BAC STORY</div>
+                <a href="/onboarding.html" class="search-telegram-btn" style="background: linear-gradient(135deg, #ff6b35, #e55a25); color: white; border: none; box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3); margin-bottom: 1rem;">
+                    <i class="fas fa-rocket"></i>
+                    <span>ابدأ مجاناً</span>
+                </a>
+                <a href="/auth.html" class="search-telegram-btn" style="background: transparent; color: white; border: 1.5px solid rgba(255,255,255,0.4); margin-bottom: 1rem;">
+                    <i class="fas fa-sign-in-alt"></i>
+                    <span>تسجيل الدخول</span>
+                </a>
+                <a href="https://t.me/islembacdz" target="_blank" rel="noopener" class="search-telegram-btn">
+                    <i class="fab fa-telegram-plane"></i>
+                    <span>انضم إلينا على التلغرام</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Left Side: Logo (Second flex element in RTL goes Left) -->
+        <div class="nav-brand">
+            <a href="/index.html" style="color: white; font-family: 'Pattaya'; letter-spacing: 3px; text-decoration: none; font-size: 1.8rem; font-weight: 200;">BAC STORY</a>
+        </div>
+
+        <!-- Mobile Hamburger & Search (hidden on desktop) -->
+        <div class="nav-right-mobile">
+            <button id="searchBtnMobile" class="nav-icon-btn" aria-label="Search" style="background: transparent; border: none; color: white; font-size: 1.25rem; cursor: pointer; padding: 8px;">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+        <button id="hamburger" class="hamburger" aria-label="Open menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+
+    <!-- Mobile Overlay -->
+    <div class="nav-overlay"> </div>
+</nav>
+
+<!-- Mobile Bottom Navbar -->
+<div class="mobile-bottom-bar">
+    <a href="/index.html" class="bottom-nav-item">
+        <i class="fas fa-home"></i>
+        <span>الرئيسية</span>
+    </a>
+    <a href="/index.html#pricing" class="bottom-nav-item">
+        <i class="fas fa-tag"></i>
+        <span>الأسعار</span>
+    </a>
+    <button class="bottom-nav-item bottom-menu-btn" id="bottomMenuBtn">
+        <i class="fas fa-bars"></i>
+        <span>القائمة</span>
+    </button>
+    <a href="/onboarding.html" class="bottom-nav-item" style="color: #ff6b35;">
+        <i class="fas fa-rocket"></i>
+        <span>ابدأ مجاناً</span>
+    </a>
+</div>

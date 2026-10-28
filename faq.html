@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1BWT5DE65Q"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1BWT5DE65Q');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأسئلة الشائعة | BAC STORY</title>
+    <meta name="description" content="إجابات على أكثر الأسئلة شيوعاً حول منصة BAC STORY وكيفية الاستفادة من ميزات الذاء الاصطناعي.">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Pattaya&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/landing.css">
+    <style>
+        :root {
+            --faq-accent: #2c5cc5;
+            --faq-bg: #f8fbff;
+        }
+        body {
+            background-color: var(--faq-bg);
+            font-family: 'Tajawal', sans-serif;
+        }
+        .faq-hero {
+            padding: 8rem 0 5rem;
+            background: linear-gradient(135deg, #2c5cc5 0%, #1e40af 100%);
+            color: white;
+            text-align: center;
+            border-bottom-left-radius: 60px;
+            border-bottom-right-radius: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        .faq-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -100px; left: -100px;
+            width: 300px; height: 300px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .faq-hero h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+        .faq-hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .faq-container {
+            max-width: 850px;
+            margin: -4rem auto 5rem;
+            padding: 0 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        /* Islem AI Style Card with Glass Effect */
+        .faq-card {
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(44, 92, 197, 0.06) 0%, transparent 50%),
+                rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1.5px solid rgba(44, 92, 197, .1);
+            border-radius: 28px;
+            padding: 0;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.34, 1.45, 0.64, 1);
+            box-shadow: 0 6px 30px rgba(44, 92, 197, .06);
+            cursor: pointer;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .faq-card::before, .faq-card::after {
+            content: '';
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            filter: blur(50px);
+            z-index: -1;
+            opacity: 0.12;
+            pointer-events: none;
+            transition: all 0.5s ease;
+        }
+        .faq-card::before { top: -60px; left: -60px; background: #2c5cc5; }
+        .faq-card::after { bottom: -60px; right: -60px; background: #3b82f6; }
+
+        .faq-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(44, 92, 197, 0.12);
+            border-color: rgba(44, 92, 197, 0.3);
+        }
+        .faq-card:hover::before { transform: translate(10px, 10px) scale(1.1); opacity: 0.18; }
+
+        .faq-card.active {
+            border-color: var(--faq-accent);
+            box-shadow: 0 22px 60px rgba(44, 92, 197, 0.18);
+            background: rgba(255, 255, 255, 0.92); /* Slightly more opaque but still glassy */
+        }
+        .faq-card.active::before { opacity: 0.15; transform: scale(1.2); }
+        .faq-card.active::after { opacity: 0.12; }
+
+        .faq-header {
+            padding: 2rem 2.2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .faq-icon {
+            width: 54px;
+            height: 54px;
+            border-radius: 18px;
+            background: rgba(44, 92, 197, 0.08);
+            color: var(--faq-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+        .faq-card.active .faq-icon {
+            background: var(--faq-accent);
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        .faq-question {
+            flex: 1;
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #0f172a;
+            line-height: 1.4;
+        }
+
+        .faq-toggle {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            transition: all 0.3s ease;
+        }
+        .faq-card.active .faq-toggle {
+            background: rgba(44, 92, 197, 0.1);
+            color: var(--faq-accent);
+            transform: rotate(180deg);
+        }
+
+        .faq-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 0 2.2rem 0 2.2rem;
+            margin-right: 4.5rem; /* Align with text after icon */
+        }
+        .faq-card.active .faq-body {
+            max-height: 500px;
+            padding-bottom: 2.5rem;
+        }
+        .faq-answer {
+            color: #64748b;
+            line-height: 1.8;
+            font-size: 1rem;
+            border-top: 1px solid #f1f5f9;
+            padding-top: 1.5rem;
+        }
+
+        .back-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2.5rem;
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            background: rgba(255,255,255,0.15);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        .back-home:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateX(-5px);
+        }
+
+        @media (max-width: 640px) {
+            .faq-header { padding: 1.5rem; gap: 1rem; }
+            .faq-icon { width: 44px; height: 44px; font-size: 1.1rem; border-radius: 14px; }
+            .faq-question { font-size: 1.05rem; }
+            .faq-body { margin-right: 0; padding: 0 1.5rem; }
+            .faq-hero h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar-placeholder" data-nav="landing"></div>
+
+    <header class="faq-hero">
+        <div class="lp-inner">
+            <a href="/" class="back-home"><i class="fas fa-arrow-right"></i> العودة للرئيسية</a>
+            <h1 class="reveal">الأسئلة الشائعة</h1>
+            <p class="reveal" data-d="1">كل ما تحتاج معرفته حول منصة BAC STORY وكيف يساعدك إسلام AI في التميز.</p>
+        </div>
+    </header>
+
+    <main class="faq-container">
+        
+        <!-- FAQ Item 1 -->
+        <article class="faq-card reveal" data-d="2">
+            <div class="faq-header">
+                <div class="faq-icon"><i class="fas fa-rocket"></i></div>
+                <div class="faq-question">ما هي منصة BAC STORY؟</div>
+                <div class="faq-toggle"><i class="fas fa-chevron-down"></i></div>
+            </div>
+            <div class="faq-body">
+                <div class="faq-answer">
+                    BAC STORY هي المنصة التعليمية الأولى في الجزائر التي تستخدم الذكاء الاصطناعي لمرافقة طلاب البكالوريا في رحلتهم الدراسية، من خلال توفير مصادر شاملة، أدوات تنظيم الوقت، ودليل جامعي متكامل.
+                </div>
+            </div>
+        </article>
+
+        <!-- FAQ Item 2 -->
+        <article class="faq-card reveal" data-d="3">
+            <div class="faq-header">
+                <div class="faq-icon"><i class="fas fa-gem"></i></div>
+                <div class="faq-question">هل المنصة مجانية أم مدفوعة؟</div>
+                <div class="faq-toggle"><i class="fas fa-chevron-down"></i></div>
+            </div>
+            <div class="faq-body">
+                <div class="faq-answer">
+                    نحن نؤمن بتكافؤ الفرص، لذا توفر المنصة حساباً مجانياً يتيح لك الوصول إلى معظم المصادر التعليمية واستخدام إسلام AI بحدود يومية. كما توجد باقة <strong>Premium</strong> للطلاب الذين يبحثون عن تجربة بدون قيود مع ميزات حصرية مثل خطط المراجعة الشخصية PDF.
+                </div>
+            </div>
+        </article>
+
+        <!-- FAQ Item 3 -->
+        <article class="faq-card reveal" data-d="4">
+            <div class="faq-header">
+                <div class="faq-icon"><i class="fas fa-robot"></i></div>
+                <div class="faq-question">كيف يمكنني الاستفادة من "إسلام AI"؟</div>
+                <div class="faq-toggle"><i class="fas fa-chevron-down"></i></div>
+            </div>
+            <div class="faq-body">
+                <div class="faq-answer">
+                    إسلام AI ليس مجرد chatbot عادي. يمكنك استخدامه لشرح القوانين الصعبة، حل تمارين الرياضيات والفيزياء خطوة بخطوة، تصحيح فقراتك في اللغات، أو حتى بناء جدول مراجعة ذكي يتناسب مع مستواك والوقت المتبقي للبكالوريا.
+                </div>
+            </div>
+        </article>
+
+        <!-- FAQ Item 4 -->
+        <article class="faq-card reveal" data-d="5">
+            <div class="faq-header">
+                <div class="faq-icon"><i class="fas fa-shield-halved"></i></div>
+                <div class="faq-question">هل بياناتي الشخصية آمنة؟</div>
+                <div class="faq-toggle"><i class="fas fa-chevron-down"></i></div>
+            </div>
+            <div class="faq-body">
+                <div class="faq-answer">
+                    بالتأكيد. خصوصيتك هي أولويتنا. جميع البيانات والمحادثات مشفرة تماماً ولا يتم مشاركتها مع أي طرف ثالث. نستخدم تقنيات حماية متقدمة لضمان بقاء معلوماتك الدراسية والشخصية في أمان.
+                </div>
+            </div>
+        </article>
+
+        <!-- FAQ Item 5 -->
+        <article class="faq-card reveal" data-d="6">
+            <div class="faq-header">
+                <div class="faq-icon"><i class="fas fa-credit-card"></i></div>
+                <div class="faq-question">كيف يمكنني تفعيل حساب Premium؟</div>
+                <div class="faq-toggle"><i class="fas fa-chevron-down"></i></div>
+            </div>
+            <div class="faq-body">
+                <div class="faq-answer">
+                    يمكنك ترقية حسابك بسهولة من صفحة الملف الشخصي. حالياً ندعم الدفع عبر أكواد التفعيل (Voucher) التي يمكنك طلبها من صفحة "تواصل معنا" أو عبر وكلائنا المعتمدين.
+                </div>
+            </div>
+        </article>
+
+        <!-- FAQ Item 6 -->
+        <article class="faq-card reveal" data-d="7">
+            <div class="faq-header">
+                <div class="faq-icon"><i class="fas fa-mobile-screen"></i></div>
+                <div class="faq-question">هل تعمل المنصة على الهاتف؟</div>
+                <div class="faq-toggle"><i class="fas fa-chevron-down"></i></div>
+            </div>
+            <div class="faq-body">
+                <div class="faq-answer">
+                    نعم، المنصة مصممة لتكون "Responsive" بالكامل، مما يعني أنها تعمل بسلاسة على الهواتف الذكية، الأجهزة اللوحية، وأجهزة الكمبيوتر. يمكنك المراجعة في أي وقت ومن أي مكان.
+                </div>
+            </div>
+        </article>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="/ads-config.js"></script>
+    <script src="/components/shared.js"></script>
+    <script>
+        // Accordion Logic
+        document.querySelectorAll('.faq-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const isActive = card.classList.contains('active');
+                
+                // Close other cards (optional, depends on preference)
+                document.querySelectorAll('.faq-card').forEach(c => c.classList.remove('active'));
+                
+                if (!isActive) {
+                    card.classList.add('active');
+                }
+            });
+        });
+
+        // Intersection Observer for Reveal animations
+        const revealCallback = (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        };
+        const observer = new IntersectionObserver(revealCallback, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
