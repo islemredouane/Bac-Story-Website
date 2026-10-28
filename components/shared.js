@@ -1843,7 +1843,7 @@ if (document.readyState === 'loading') {
         var touch = window.matchMedia('(pointer: coarse)').matches;
         var html =
             '<div class="bs-install-head">' +
-                '<img class="bs-install-icon" src="/icon-192.png" alt="" width="40" height="40">' +
+                '<img class="bs-install-icon" src="/app-icon-192.png" alt="" width="40" height="40">' +
                 '<p class="bs-install-title">ثبّت BAC STORY على جهازك</p>' +
                 '<button type="button" class="bs-install-close" aria-label="إغلاق"><i class="fas fa-xmark" aria-hidden="true"></i></button>' +
             '</div>';

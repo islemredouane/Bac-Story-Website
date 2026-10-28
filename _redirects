@@ -6,6 +6,9 @@
 # 302 (not 301) so the tags can be changed later without stale browser caches.
 /tg /?utm_source=telegram&utm_medium=social&utm_campaign=channel 302
 # (the /tg/* wildcard rule is in the wildcard section at the end)
+# Old app icons (renamed so installed apps and browsers fetch the new rounded ones)
+/icon-192.png /app-icon-192.png 301
+/icon-512.png /app-icon-512.png 301
 
 # Cloudflare Pages 301 Redirects for BAC 2025
 /bac-2025 /topics/bac-2025 301
