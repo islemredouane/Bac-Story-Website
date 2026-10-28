@@ -1,70 +1,73 @@
 <!doctype html>
-<!-- README "by the numbers" card. Rendered to ../stats.png (1280 wide at 2x, then 1760 wide). See README.md, "Maintaining this README"
-     Update the numbers here, then re-render. Sources: Search Console, GA4, Bing Webmaster Tools, repo. -->
+<!-- README "by the numbers" card. Rendered to ../stats.webp (1280 wide at 2x, then 1760 wide). See README.md, "Maintaining this README"
+     The tiles copy the site's own stats cards (.crc-stat in style.css: white card, light blue border,
+     gradient number, grey label, pulse dot). Update the numbers here, then re-render.
+     Sources: Search Console, GA4, Bing Webmaster Tools, repo. -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Pattaya&display=swap">
+<link rel="stylesheet" href="fonts.css">
 <style>
-  :root { --blue-900:#142c6e; --blue-800:#1a3a8f; --blue-600:#2c5cc3; --blue-500:#3b6fd8; --orange:#ff6b35;
-          --ink:#1f2937; --muted:#6b7280; --line:#e6ebf5; --green:#16a34a; }
+  :root { --muted:#64748b; --line:rgba(44,92,197,.1); --green:#16a34a; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body { width: 1280px; background: transparent; }
-  .card { width: 1280px; padding: 44px 48px 40px; border-radius: 28px; background: #ffffff;
-    border: 1px solid var(--line); font-family: 'Tajawal', sans-serif; color: var(--ink); position: relative; overflow: hidden; }
-  .card::before { content: ''; position: absolute; right: -90px; top: -120px; width: 300px; height: 300px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(44,92,195,.10), rgba(44,92,195,0) 70%); }
-  .head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 26px; }
-  .head h2 { font-size: 30px; font-weight: 900; color: var(--blue-800); letter-spacing: .2px; }
-  .head h2 .ar { font-weight: 800; color: var(--blue-600); margin-left: 12px; font-size: 26px; }
-  .head .date { font-size: 15px; font-weight: 700; color: var(--muted); padding: 7px 14px 6px; border-radius: 999px; background: #f3f6fc; border: 1px solid var(--line); }
-  .label { font-size: 13px; font-weight: 800; letter-spacing: 1.6px; text-transform: uppercase; color: var(--muted); margin: 6px 0 12px; display: flex; align-items: center; gap: 10px; }
-  .label::after { content: ''; flex: 1; height: 1px; background: var(--line); }
-  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 22px; }
-  .grid:last-child { margin-bottom: 4px; }
-  .tile { position: relative; padding: 22px 22px 20px; border-radius: 20px; background: linear-gradient(180deg, #ffffff, #f7f9fe);
-    border: 1px solid var(--line); box-shadow: 0 8px 24px rgba(44,92,195,.08); }
-  .tile .icon { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; margin-bottom: 14px;
-    background: rgba(44,92,195,.10); color: var(--blue-600); }
-  .tile .icon svg { width: 22px; height: 22px; }
-  .tile.o .icon { background: rgba(255,107,53,.12); color: var(--orange); }
-  .num { font-size: 40px; font-weight: 900; color: var(--blue-800); line-height: 1; letter-spacing: -.5px; }
-  .tile.o .num { color: var(--orange); }
-  .txt { font-size: 16px; font-weight: 700; color: var(--ink); margin-top: 8px; }
-  .sub { font-size: 13.5px; font-weight: 500; color: var(--muted); margin-top: 3px; }
-  .up { position: absolute; top: 20px; right: 18px; font-size: 13px; font-weight: 800; color: var(--green);
-    background: rgba(22,163,74,.10); padding: 5px 9px 4px; border-radius: 999px; }
+  .card { width: 1280px; padding: 44px 48px 44px; border-radius: 28px; background: #f8faff;
+    border: 1px solid #e6ebf5; font-family: 'Tajawal', sans-serif; color: #1e293b; position: relative; overflow: hidden; }
+
+  /* section title, like the site's "المنصة بالأرقام" heading */
+  .head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 30px; }
+  .title { display: flex; align-items: center; gap: 14px; }
+  .title svg { width: 34px; height: 34px; color: #2c5cc5; }
+  .title h2 { font-size: 34px; font-weight: 900; line-height: 1.25; padding-top: 4px;
+    background: linear-gradient(120deg, #1a3a8f 0%, #2c5cc5 50%, #3d6ee0 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .title .ar { margin-left: 12px; }
+  .date { font-size: 15px; font-weight: 700; color: var(--muted); padding: 7px 14px 6px; border-radius: 999px; background: #fff; border: 1.5px solid var(--line); }
+
+  .label { font-size: 13px; font-weight: 800; letter-spacing: 1.6px; text-transform: uppercase; color: var(--muted); margin: 4px 0 14px; display: flex; align-items: center; gap: 10px; }
+  .label::after { content: ''; flex: 1; height: 1px; background: #e2e8f4; }
+  .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; margin-bottom: 26px; }
+  .grid:last-child { margin-bottom: 0; }
+
+  /* the site's .crc-stat card */
+  .stat { position: relative; overflow: hidden; text-align: center; padding: 34px 18px 28px; background: #fff;
+    border: 1.5px solid var(--line); border-radius: 20px; }
+  .stat::before { content: ''; position: absolute; top: 0; right: 8%; width: 40%; height: 100%;
+    background: linear-gradient(105deg, transparent 40%, rgba(44,92,197,.05) 50%, transparent 60%); }
+  .stat::after { content: ''; position: absolute; top: 14px; right: 14px; width: 8px; height: 8px; border-radius: 50%;
+    background: rgba(44,92,197,.18); }
+  .num { font-size: 45px; font-weight: 900; line-height: 1; padding: .15em 0; margin: -.15em 0 calc(8px - .15em);
+    background: linear-gradient(90deg, #1a3a8f, #2c5cc5, #3d6ee0, #2c5cc5, #1a3a8f); background-size: 200% 100%;
+    -webkit-background-clip: text; background-clip: text; color: transparent; font-variant-numeric: tabular-nums; }
+  .lbl { display: block; font-size: 15.5px; font-weight: 700; color: var(--muted); line-height: 1.4; }
+  .sub { display: block; font-size: 13px; font-weight: 500; color: #94a3b8; line-height: 1.4; margin-top: 4px; }
+  .up { color: var(--green); font-weight: 800; }
 </style>
 </head>
 <body>
 <div class="card">
   <div class="head">
-    <h2>By the numbers <span class="ar">المنصة بالأرقام</span></h2>
+    <div class="title">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 4v16h16"/><path d="M8 15v-3M12 15V8M16 15v-5"/></svg>
+      <h2>By the numbers <span class="ar">المنصة بالأرقام</span></h2>
+    </div>
     <span class="date">October 2026</span>
   </div>
 
   <div class="label">The platform</div>
   <div class="grid">
-    <div class="tile"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg></div>
-      <div class="num">2,678</div><div class="txt">HTML pages</div><div class="sub">2,552 indexable URLs in the sitemap</div></div>
-    <div class="tile o"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5V5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-1.5z"/><path d="M8 7h6M8 11h6"/></svg></div>
-      <div class="num">7,300+</div><div class="txt">PDF documents</div><div class="sub">summaries, exams, books, solutions</div></div>
-    <div class="tile"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></div>
-      <div class="num">260</div><div class="txt">University guides</div><div class="sub">one page per speciality / school</div></div>
-    <div class="tile"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
-      <div class="num">2,694</div><div class="txt">Search entries</div><div class="sub">instant Arabic-aware site search</div></div>
+    <div class="stat"><div class="num">2,681</div><span class="lbl">HTML pages</span><span class="sub">2,553 indexable URLs in the sitemap</span></div>
+    <div class="stat"><div class="num">7,300+</div><span class="lbl">PDF documents</span><span class="sub">summaries, exams, books, solutions</span></div>
+    <div class="stat"><div class="num">260</div><span class="lbl">University guides</span><span class="sub">one page per speciality / school</span></div>
+    <div class="stat"><div class="num">2,695</div><span class="lbl">Search entries</span><span class="sub">instant Arabic-aware site search</span></div>
   </div>
 
   <div class="label">Audience · last 28 days</div>
   <div class="grid">
-    <div class="tile"><span class="up">▲ 41%</span><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></div>
-      <div class="num">42.6K</div><div class="txt">Google clicks</div><div class="sub">850K impressions · avg. position 5.5</div></div>
-    <div class="tile o"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-4 3-6 7-6s7 2 7 6"/><path d="M16 4a4 4 0 0 1 0 8M22 21c0-3-2-5-4-5.6"/></svg></div>
-      <div class="num">32.6K</div><div class="txt">Visitors</div><div class="sub">62.5K sessions · 2m 29s each</div></div>
-    <div class="tile"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></div>
-      <div class="num">82%</div><div class="txt">On mobile</div><div class="sub">96% of searches from Algeria</div></div>
-    <div class="tile"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg></div>
-      <div class="num">2,570</div><div class="txt">Pages on Google</div><div class="sub">+ 3,268 on Bing · cited by Copilot</div></div>
+    <div class="stat"><div class="num">42.6K</div><span class="lbl">Google clicks</span><span class="sub"><span class="up">▲ 41%</span> · 850K impressions · position 5.5</span></div>
+    <div class="stat"><div class="num">32.6K</div><span class="lbl">Visitors</span><span class="sub">62.5K sessions · 2m 29s each</span></div>
+    <div class="stat"><div class="num">82%</div><span class="lbl">On mobile</span><span class="sub">96% of searches from Algeria</span></div>
+    <div class="stat"><div class="num">2,570</div><span class="lbl">Pages on Google</span><span class="sub">+ 3,268 on Bing · cited by Copilot</span></div>
   </div>
 </div>
 </body>
