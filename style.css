@@ -13773,3 +13773,78 @@ button, a.main-btn, a.spec-detail-btn, .modern-cta-btn, .spec-nav-btn, .gcta-btn
 @media (prefers-reduced-motion: reduce) {
     .bs-install-card { transition: opacity 0.2s ease; transform: none; }
 }
+
+/* ══════════════════════════════════════════════════════════════
+   COMPACT FOOTER (phones and tablets)
+   Below 768px the four desktop columns used to stack into one centred column: 1,279px on a
+   390px phone, 1.5 screens. Here "About" and "Resources" sit side by side, the long-titled
+   "Latest updates" and the social icons stay full width, and every link is a 44px touch row
+   (861px in total). The copyright line keeps its original style. Tablets get 3 columns with
+   the social icons on one row under them (613px → 513px). Desktop is unchanged. Every rule is scoped to .footer-arabic, so the
+   social icons of the mobile menu and the search panel keep their own styles.
+══════════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+    .footer-arabic .footer-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.25rem 1rem;
+        text-align: right;
+    }
+    .footer-arabic .footer-section:nth-child(n+3) {
+        grid-column: 1 / -1;
+    }
+    .footer-arabic .footer-section h4 {
+        font-size: 0.95rem;
+        margin-bottom: 0.35rem;
+        padding-bottom: 0.45rem;
+        color: rgba(255, 255, 255, 0.75);
+    }
+    .footer-arabic .footer-section:nth-child(4) h4 {
+        text-align: center;
+    }
+    .footer-arabic .footer-links li {
+        margin: 0;
+    }
+    .footer-arabic .footer-links a {
+        display: flex;
+        align-items: center;
+        min-height: 44px;
+        padding: 0;
+        font-size: 0.95rem;
+        line-height: 1.35;
+    }
+    .footer-arabic .footer-links a:hover {
+        transform: none;
+    }
+    .footer-arabic .social-links {
+        margin-top: 0.6rem;
+        gap: 1rem;
+    }
+    .footer-arabic .social-link {
+        width: 44px;
+        height: 44px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1100px) {
+    .footer-arabic .footer-content {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .footer-arabic .footer-section:nth-child(4) {
+        grid-column: 1 / -1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+    .footer-arabic .footer-section:nth-child(4) h4 {
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+    .footer-arabic .footer-section:nth-child(4) .social-links {
+        margin: 0;
+    }
+    .footer-arabic .footer-links li {
+        margin-bottom: 0.35rem;
+    }
+}
