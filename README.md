@@ -8,7 +8,7 @@
 
 [![Website](https://img.shields.io/badge/www.bac--story.com-live-2C5CC3?style=for-the-badge&logo=googlechrome&logoColor=white)](https://www.bac-story.com)
 [![Cloudflare Pages](https://img.shields.io/badge/Cloudflare-Pages-F38020?style=for-the-badge&logo=cloudflarepages&logoColor=white)](https://pages.cloudflare.com)
-[![PWA](https://img.shields.io/badge/PWA-installable-5A0FC8?style=for-the-badge&logo=pwa&logoColor=white)](#-performance--offline)
+[![PWA](https://img.shields.io/badge/PWA-installable-5A0FC8?style=for-the-badge&logo=pwa&logoColor=white)](#-performance--caching)
 [![Telegram](https://img.shields.io/badge/Telegram-@islembacdz-26A5E4?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/islembacdz)
 
 **Summaries · past exams with solutions · books · revision plans · BAC simulation · grade calculators · university guide**<br>
@@ -25,7 +25,7 @@ for all six streams of the Algerian Baccalaureate, in Arabic, free, on any phone
 
 <br>
 
-<img src=".github/assets/stats.png" alt="By the numbers, October 2026: 2,678 HTML pages (2,552 indexable URLs in the sitemap), 7,300+ PDF documents, 260 university guides, 2,694 search entries. Last 28 days: 42.6K Google clicks (up 41%), 850K impressions, 32.6K visitors, 82% on mobile, 96% of searches from Algeria, 2,570 pages on Google and 3,268 on Bing." width="100%">
+<img src=".github/assets/stats.webp" alt="By the numbers, October 2026: 2,681 HTML pages (2,553 indexable URLs in the sitemap), 7,300+ PDF documents, 260 university guides, 2,695 search entries. Last 28 days: 42.6K Google clicks (up 41%), 850K impressions, 32.6K visitors, 82% on mobile, 96% of searches from Algeria, 2,570 pages on Google and 3,268 on Bing." width="100%">
 
 <br>
 
@@ -35,10 +35,12 @@ for all six streams of the Algerian Baccalaureate, in Arabic, free, on any phone
 Baccalaureate. It puts everything a student needs in one place, organised by stream
 (شعبة) and subject, and it costs nothing to use.
 
-It is a **hand-built static site**: plain HTML, CSS and JavaScript, no framework and no build step.
+It is a **hand-built static site**: plain HTML, CSS and JavaScript, no framework and no bundler (one small script stamps
+cache versions before each commit).
 It is served from **Cloudflare's edge**, the study documents are streamed from **Google Drive**,
 the images come from **Cloudflare R2**, and a few **Pages Functions** handle the forms.
-The result is fast on a cheap phone and a mobile connection, and it keeps working offline.
+The result is fast on a cheap phone and a mobile connection, and it installs as an app.
+Repeat visits load styles, scripts and images from the device cache.
 
 <div align="center">
   <img src=".github/assets/preview.webp" alt="The BAC STORY homepage on a desktop browser and on a phone" width="100%">
@@ -55,7 +57,7 @@ The result is fast on a cheap phone and a mobile connection, and it keeps workin
 ### 📚 Study resources
 Summaries, exercises, mind maps and revision packs for every subject of every stream,
 with a built-in PDF viewer and one-tap download.<br>
-<sub>`/resources/{math,sci,tech,ge,le,lp}` · 1,240+ pages</sub>
+<sub>`/resources/{math,sci,tech,ge,le,lp}` · 1,500+ pages</sub>
 
 ### 📝 BAC exams archive
 Official BAC 2024, 2025 and 2026 papers with solutions, the channel's own trial exams,
@@ -64,7 +66,7 @@ older archives and monthly *excellence topics* (مواضيع التميز) with 
 
 ### 📖 Books
 External books (Bournane, Oqba Ibn Nafi and others) per stream and subject.<br>
-<sub>`/resources/books` · `/oqba` · 390 pages</sub>
+<sub>`/resources/books` · `/oqba` · 390+ pages</sub>
 
 ### 🧭 University guide
 260 speciality and school guides (*grandes écoles*, ENS, medicine, paramedical…),
@@ -179,7 +181,7 @@ flowchart LR
 ├── sitemap.xml  robots.txt            search engines
 ├── llms.txt  llms-full.txt            AI assistants (llmstxt.org)
 ├── search-index.json                  data for the site search
-├── manifest.json  sw.js               installable app and offline cache
+├── manifest.json  sw.js               installable app and asset cache
 ├── app-icon-*.png                     installed-app icons: rounded corners (any) + full-bleed Android versions (maskable)
 ├── fonts/fa/                          the site's own Font Awesome (only the icons it uses)
 ├── fonts/tajawal/  fonts/pattaya/     the text fonts (Google Fonts v12 files, OFL licences inside)
@@ -188,7 +190,9 @@ flowchart LR
 └── scripts/generate-sitemap.py        rebuilds sitemap.xml from the real pages
     scripts/build-fa-subset.py         rebuilds fonts/fa/ from the icons the pages use
     scripts/stamp-versions.py          sets every ?v= to the linked file's content hash
-    .githooks/pre-commit               refuses a commit with stale ?v= links
+    .githooks/pre-commit               refuses a commit with stale ?v= links or a Google Fonts link
+    .github/workflows/check-versions.yml  the same ?v= check on every push
+    .github/assets/src/                the README images (HTML sources)
 ```
 
 <br>
@@ -201,6 +205,7 @@ flowchart LR
 | **Type** | **Tajawal** for all Arabic UI · **Pattaya** for the *BAC STORY* wordmark · Font Awesome 6 icons. All served from `fonts/` (declared at the top of `style.css`), not Google Fonts; the calculator pages also use **Amiri** and **Cairo** from `fonts/amiri-cairo.css`. Tajawal comes in 400/500/700/900: `font-weight: 800` is drawn with the 900 face on purpose (as it always was); only `simulation.html` and `experiences.html` load a real 800. |
 | **Shape** | Rounded cards and pills (radius 8–18 px, pills 999 px), soft blue shadows, gradient hero blocks |
 | **Layout** | Right-to-left, mobile first, with a bottom tab bar on phones |
+| **App icon** | `app-icon-*.png`: rounded corners at 22.37 % of the width (the iOS app-icon shape) on a transparent background, so it looks the same on computers and phones; `app-icon-maskable-*.png` are full-bleed (logo at 80 %) for Android, which cuts its own shape |
 
 All tokens are CSS variables at the top of `style.css` (`--primary-color`, `--secondary-color`, `--radius-*`, `--shadow-*`).
 
@@ -254,12 +259,12 @@ All tokens are CSS variables at the top of `style.css` (`--primary-color`, `--se
 
 <br>
 
-## ✦ Performance & offline
+## ✦ Performance & caching
 
 | Asset | Browser cache |
 |---|---|
 | Site images (`png`, `jpg`, `webp`, `svg`…) | 1 year, `immutable` |
-| Font Awesome (`fonts/fa/`) | 1 year, `immutable` (versioned by `build-fa-subset.py`) |
+| Fonts (`fonts/`: Font Awesome, Tajawal, Pattaya, Amiri, Cairo) | 1 year, `immutable` (a changed font gets a new file name or `?v=`) |
 | CSS, JS, navbar/footer/search, `search-index.json` | 1 week (every link carries `?v=<content hash>`) |
 | HTML pages | always revalidated, so new content shows at once |
 | `sw.js` | never cached |
@@ -267,6 +272,41 @@ All tokens are CSS variables at the top of `style.css` (`--primary-color`, `--se
 The **service worker** (`sw.js`) never touches page navigations. It caches CSS, JS, images and
 components the first time a page uses them, serves them from that cache afterwards and refreshes
 them in the background. That makes repeat visits instant and helps on a weak connection.
+
+- Nothing is downloaded in advance (no precache list): files are cached when a page first asks for them.
+- When a new `?v=` version of a file is cached, the older versions of that file are deleted, so the
+  cache keeps one copy per file.
+- `/api/` and `search-index.json` (1.8 MB, only fetched when someone searches) are left to the browser.
+- After changing `sw.js` itself, raise `CACHE_NAME` (`bac-story-v34` → `v35`): the old cache is then deleted.
+
+> [!CAUTION]
+> **Images and fonts are cached for a year and never re-checked.** To change one, give the new file
+> a **new name** (as the app icons did: `icon-192.png` → `app-icon-192.png`) and add a `301` from the
+> old name in `_redirects`. Overwriting a file under the same name leaves visitors with the old one.
+
+### Layout stability and animations
+
+These rules took the desktop homepage from CLS 0.39 to 0.04 and the mobile one from 0.26 to 0.001.
+Keep them when changing the shared parts:
+
+| Rule | Where |
+|---|---|
+| The ad strip's height (52 px) is reserved from the first paint (`body` padding 127 px = navbar 75 + strip 52). When no strip is shown, `html.ad-strip-off` gives the room back. Change `AD_H` in `shared.js` and the padding together. | `style.css`, `shared.js` `injectAdStrip`, the inline loader script |
+| The homepage feature cards stay hidden until the fonts are ready (`.fonts-ok`, 3 s at the latest), so the ticker doesn't jump when Tajawal arrives. | `index.html` |
+| Gradient text (`background-clip: text`) gets `padding: .15em 0; margin: -.15em 0 …` so the tops of the digits and Arabic letters aren't cut off on iPhone. | `.crc-stat-num` and similar in `style.css` |
+| Animations move with `transform` (`translateX`, `scaleX`) and `opacity` only, never `width`/`left`/`right`, so they run on the GPU. | `style.css` |
+| Endless background effects (title shine, stats gradient, skeleton cards) are paused while the loader covers the screen. | `body:has(> #page-loader:not(.loader-hiding))` in `style.css` |
+
+<details>
+<summary><b>Tried and dropped</b> (measured, made things worse)</summary>
+<br>
+
+- **Preloading the font files**: they competed with `style.css` and delayed the first paint on mobile.
+- **Inlined critical CSS with `style.css` loaded later** (branch `perf-a`): faster first paint, but the
+  navbar and section headers then appeared after the content and moved it (CLS 0.24–0.31 on PDF pages).
+- **Delaying Google Tag Manager**: not done, Analytics must see every visit.
+
+</details>
 
 > [!IMPORTANT]
 > After editing any CSS, JS, `navbar.html` / `footer.html` / `search.html` or `search-index.json`,
@@ -321,7 +361,9 @@ python scripts/build-fa-subset.py
 3. Link to it from its parent page with a real `<a href>` (not `onclick`).
 4. Add it to `search-index.json` so the site search finds it.
 5. Run `scripts/generate-sitemap.py`, and add it to `llms.txt` if it is a main page.
+   Don't add a Google Fonts link: the fonts come from `style.css` (the pre-commit hook refuses it).
 6. If it replaces an old URL, add a `301` in `_redirects` (exact rules above the wildcard section).
+7. Run `python3 scripts/stamp-versions.py` before committing (the pre-commit hook checks it).
 
 </details>
 
@@ -329,13 +371,15 @@ python scripts/build-fa-subset.py
 <summary><b>Maintaining this README</b></summary>
 <br>
 
-The banner, the numbers card and the preview are HTML files in `.github/assets/src/`, rendered with the
-site's real fonts:
+The banner, the numbers card and the preview are HTML files in `.github/assets/src/`. They load the
+site's own font files through `src/fonts.css` (no Google Fonts), and the numbers card reuses the
+site's stats-card style (`.crc-stat`):
 
 1. Edit `banner.html`, `stats.html` or `preview.html` (refresh the numbers from Search Console and Analytics).
-2. For `preview.html`, take two screenshots of the homepage at 2× into `src/shots/`: `desktop.png` (1440×900) and `mobile.png` (390×844).
+2. For `preview.html`, take two screenshots of the homepage at 2× into `src/shots/`: `desktop.png` (1440×900) and `mobile.png` (390×844),
+   with the loader gone, popups closed and the title's looping shine (`.shiny-text`) stopped, so the whole title shows. `src/shots/` is in `.gitignore`: only the rendered images are committed.
 3. Render the `.banner`, `.card` or `.stage` element at 2× (for example with Playwright), resize to 1760 px wide, and save it as
-   `banner.webp`, `stats.png` and `preview.webp` in `.github/assets/`.
+   `banner.webp`, `stats.webp` and `preview.webp` in `.github/assets/`.
 
 </details>
 
@@ -349,6 +393,8 @@ site's real fonts:
 - [ ] Check `page_view` counting on multi-section pages (`/university` shows about 37 views per visitor)
 - [ ] Earn real backlinks from education sites and partners
 - [ ] Compress the heaviest university photos
+- [ ] Split `style.css` (330 KB) per page type, so a page downloads only the styles it uses
+- [ ] Load the Google Drive viewer after the page has loaded, to speed up the PDF pages on phones
 
 <br>
 
