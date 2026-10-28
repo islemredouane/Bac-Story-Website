@@ -180,6 +180,7 @@ flowchart LR
 ├── llms.txt  llms-full.txt            AI assistants (llmstxt.org)
 ├── search-index.json                  data for the site search
 ├── manifest.json  sw.js               installable app and offline cache
+├── app-icon-*.png                     installed-app icons: rounded corners (any) + full-bleed Android versions (maskable)
 ├── fonts/fa/                          the site's own Font Awesome (only the icons it uses)
 ├── fonts/tajawal/  fonts/pattaya/     the text fonts (Google Fonts v12 files, OFL licences inside)
 ├── fonts/amiri/  fonts/cairo/        calculator fonts (+ fonts/amiri-cairo.css), OFL licences inside
