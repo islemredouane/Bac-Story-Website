@@ -37,10 +37,11 @@ GitHub workflow .github/workflows/check-versions.yml on every push.
 """
 import argparse, hashlib, os, re, signal, sys
 
-signal.signal(signal.SIGPIPE, signal.SIG_DFL)   # quiet when piped into head
+if hasattr(signal, 'SIGPIPE'):
+    signal.signal(signal.SIGPIPE, signal.SIG_DFL)   # quiet when piped into head
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SKIP_DIRS = {'.git', 'node_modules', '.wrangler', 'scripts', 'functions', '.github'}
+SKIP_DIRS = {'.git', 'node_modules', '.wrangler', 'scripts', 'functions', '.github', '.claude', 'computer-science'}
 SCAN_EXT = ('.html', '.js', '.css')
 
 # /path?v=version, inside quotes or url(...). The path is site-absolute.
@@ -95,6 +96,8 @@ class Stamper:
         else:
             data = read(asset)
         self.visiting.discard(asset)
+        if asset.endswith(SCAN_EXT) or asset.endswith(('.html', '.json', '.svg', '.txt')):
+            data = data.replace(b'\r\n', b'\n')
         self.versions[asset] = hashlib.sha1(data).hexdigest()[:10]
         return self.versions[asset]
 
