@@ -25,6 +25,9 @@
 # Sci stream has no "numbers & calculus" axis: old book link goes to the sci math books hub
 /resources/books/sci/math/numbers-calculus-alif-ya /resources/books/sci/math 301
 
+# GE books: redirect nonexistent al-moujtahid to law books hub
+/resources/books/ge/law/al-moujtahid /resources/books/ge/law 301
+
 # Technical Mathematics stream: /engineering/ was renamed to /tech/ on 21 Sep 2026.
 # Specific moves (exact paths); the folder-wide rules are in the wildcard section below.
 /resources/engineering/electrical-engineering/preparation/foroud-term-1 /resources/tech/electrical-engineering/foroud/term-1 301
