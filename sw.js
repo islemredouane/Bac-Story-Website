@@ -1,4 +1,4 @@
-const CACHE_NAME = 'bac-story-v34';
+const CACHE_NAME = 'bac-story-v35';
 
 // Install: nothing is pre-downloaded. Pages link CSS/JS/components with ?v=<content hash>, and
 // a cached file only matches the exact address a page asks for, so the old fixed list ('/style.css',
