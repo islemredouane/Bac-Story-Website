@@ -932,7 +932,7 @@ function setupSearch() {
     // only when a visitor opens or hovers the search button, so ordinary page
     // loads stay light. After editing /search-index.json, run scripts/stamp-versions.py
     // so the ?v= below changes and browsers fetch the new copy.
-    const SEARCH_INDEX_URL = '/search-index.json?v=4182379687';
+    const SEARCH_INDEX_URL = '/search-index.json?v=f3c593d0dc';
     let navSearchData = null;
     let searchIndexPromise = null;
     const loadSearchIndex = () => {
