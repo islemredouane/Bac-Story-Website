@@ -409,7 +409,7 @@ site's stats-card style (`.crc-stat`):
 📢 Telegram channel: [@islembacdz](https://t.me/islembacdz) &nbsp;·&nbsp;
 💬 Contact: [@bacstorycontact](https://t.me/bacstorycontact) &nbsp;·&nbsp;
 ✉️ [contact@bac-story.com](mailto:contact@bac-story.com)<br>
-📸 [Instagram](https://www.instagram.com/bacstory.platform) &nbsp;·&nbsp;
+📸 [Instagram](https://www.instagram.com/bacstory.co?xtok=OWF2OTN6bHVqdnl5&utm_source=qr) &nbsp;·&nbsp;
 🎵 [TikTok](https://www.tiktok.com/@bacstory.platform) &nbsp;·&nbsp;
 📘 [Facebook](https://www.facebook.com/share/1EMz54rJGz/)
 
