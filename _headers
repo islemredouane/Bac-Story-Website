@@ -71,3 +71,7 @@ https://:project.pages.dev/*
 
 https://:version.:project.pages.dev/*
   X-Robots-Tag: noindex
+
+# README image sources and CI files: published by Pages but never meant for search
+/.github/*
+  X-Robots-Tag: noindex, nofollow

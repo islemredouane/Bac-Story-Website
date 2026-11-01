@@ -14,6 +14,7 @@ User-agent: *
 Disallow: /apps-script/
 Disallow: /scratch/
 Disallow: /api/
+Disallow: /.github/
 Disallow: /*-backup.html$
 Disallow: /*.mp3$
 

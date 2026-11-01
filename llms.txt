@@ -1,6 +1,6 @@
 # BAC STORY
 
-> BAC STORY (بك ستوري) is Algeria's leading free educational platform dedicated to helping students prepare for the Algerian Baccalaureate exam (البكالوريا الجزائرية). The platform serves over 2,000 daily visitors across all 69 wilayas of Algeria and has a Telegram community of 17,000+ subscribers.
+> BAC STORY (بك ستوري) is Algeria's leading free educational platform dedicated to helping students prepare for the Algerian Baccalaureate exam (البكالوريا الجزائرية). The platform serves over 3,000 daily visits across all 69 wilayas of Algeria and has a Telegram community of 17,000+ subscribers.
 
 BAC STORY provides comprehensive, free, and accessible study materials for all six Baccalaureate streams:
 1. Mathematics (شعبة رياضيات)
@@ -19,7 +19,7 @@ The platform is founded and operated by Redouane Mohamed Islem and is accessible
 - [أعلن معنا](https://www.bac-story.com/advertise): Partnership and sponsorship opportunities for educators, academies, and training centers.
 - [قيّم الموقع](https://www.bac-story.com/feedback): Verified student feedback, reviews, and community ratings.
 - [سياسة الخصوصية](https://www.bac-story.com/privacy): What data BAC STORY collects (forms, anonymous analytics), why, how long it is kept, and how to ask for access or deletion.
-- [ساهم في الموقع](https://www.bac-story.com/contribute): Open student contribution portal — submit verified summaries, exercises, booklets, or Google Drive repositories to benefit over 2,000 daily students. No account required.
+- [ساهم في الموقع](https://www.bac-story.com/contribute): Open student contribution portal — submit verified summaries, exercises, booklets, or Google Drive repositories to benefit over 3,000 daily students. No account required.
 
 ## 2027 Baccalaureate Reform (إصلاحات وتغييرات منهاج بكالوريا 2027)
 
@@ -195,6 +195,9 @@ Official Ministry of National Education curriculum blueprints for all Baccalaure
 ## Exclusive Study Series & Teacher Magazines
 
 - [مجلات الأستاذ مرنيز في الرياضيات](https://www.bac-story.com/resources/math/math/merniz): Renowned unit-by-unit mathematics booklets for Mathematics, Sciences, and Engineering (Exponential, Logarithmic, Primitive Functions, Sequences, Probability, Complex Numbers, Arithmetics).
+- [مجلات الأستاذة وهيبة في الرياضيات](https://www.bac-story.com/resources/math/math/wahiba): Professor Wahiba's mathematics magazines by unit (Numbers & Arithmetic, Functions, Sequences, Probability, Complex Numbers); separate pages for Mathematics, Experimental Sciences and Technical Mathematics streams.
+- [ملخص شامل للغة العربية — الأستاذة بلحسين صابرين](https://www.bac-story.com/resources/math/arabic/belhocine): Comprehensive Arabic language and literature summary (PDF) by Professor Belhocine Sabrine; one page per stream (Mathematics, Sciences, Technical Mathematics, Management & Economics, Literature & Philosophy, Foreign Languages).
+- [مقالات المتفوقة لينا — آداب وفلسفة](https://www.bac-story.com/resources/lp/philo/lina-articles): Philosophy essays and summaries by top student Lina for the Literature & Philosophy stream.
 - [مجلات الأستاذ الخليل في الرياضيات](https://www.bac-story.com/resources/math/math/elkhalil): Comprehensive mathematics problem sets and graphical discussion guides.
 
 ## Past Papers & Exam Hub (بوابة المواضيع والامتحانات)
