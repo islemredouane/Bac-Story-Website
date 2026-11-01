@@ -1,5 +1,4 @@
-﻿<!DOCTYPE html>
-
+<!DOCTYPE html>
 <html dir="rtl" lang="ar" class="ad-strip-off">
 <head>
 <meta charset="utf-8"/>
@@ -10,10 +9,10 @@
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-T5H3TNJ4');</script>
+})(window,document,'script','dataLayer','GTM-T5H3TNJ4');</script>
 <!-- End Google Tag Manager -->
 <title>404 — الصفحة غير موجودة | BAC STORY</title>
-<meta content="الصفحة التي تبحث عنها غير موجودة. عُد إلى الرئيسية أو تصفح مصادر البكالوريا على BAC STORY." name="description"/>
+<meta content="الصفحة التي تبحث عنها غير موجودة. عُد إلى الرئيسية أو تصفح مصادر وملخصات البكالوريا على BAC STORY." name="description"/>
 <meta content="noindex, nofollow" name="robots"/>
 <link href="/favicon.ico" rel="icon"/>
 <link href="/favicon-16.png" rel="icon" sizes="16x16" type="image/png"/>
@@ -33,102 +32,430 @@
 </noscript>
 
 <style>
+/* ============================================================
+   BAC STORY 404 — PREMIUM BRAND-AUTHENTIC REDESIGN
+   ============================================================ */
+
+/* Seamless Footer Connection */
+.footer-arabic {
+    margin-top: 0 !important;
+}
+
 .page-404-wrapper {
-    min-height: 70vh;
+    position: relative;
+    min-height: calc(100vh - 120px);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 3rem 1.5rem 4rem;
+    padding: 3.5rem 1.25rem 4rem;
     text-align: center;
+    overflow: hidden;
+    margin-bottom: 0 !important;
+    background: radial-gradient(circle at 50% 10%, rgba(44, 92, 195, 0.07) 0%, rgba(255, 255, 255, 0) 65%),
+                radial-gradient(circle at 10% 85%, rgba(255, 107, 53, 0.05) 0%, rgba(255, 255, 255, 0) 50%);
 }
 
+/* Ambient floating orbs (BAC STORY Atmosphere) */
+.adp-hero-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: 0;
+    animation: adpOrbFloat 11s ease-in-out infinite;
+}
+
+.adp-hero-orb.o1 {
+    width: 440px;
+    height: 440px;
+    top: -120px;
+    right: 5%;
+    background: radial-gradient(circle, rgba(44, 92, 197, 0.12) 0%, rgba(44, 92, 197, 0) 70%);
+}
+
+.adp-hero-orb.o2 {
+    width: 340px;
+    height: 340px;
+    bottom: -60px;
+    left: 4%;
+    background: radial-gradient(circle, rgba(255, 107, 53, 0.08) 0%, rgba(255, 107, 53, 0) 70%);
+    animation-delay: -5s;
+}
+
+@keyframes adpOrbFloat {
+    0%, 100% { transform: translateY(0) translateX(0); }
+    50% { transform: translateY(-16px) translateX(12px); }
+}
+
+.page-404-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Iconic Pattaya 404 */
 .error-code {
     font-family: 'Pattaya', sans-serif;
-    font-size: clamp(7rem, 22vw, 14rem);
-    line-height: 1;
-    background: linear-gradient(135deg, var(--primary-color, #1a3a8f) 0%, #2c5cc5 50%, #4f7fff 100%);
+    font-size: clamp(7.5rem, 22vw, 13.5rem);
+    line-height: 0.95;
+    background: linear-gradient(135deg, #1a3a8f 0%, #2c5cc5 50%, #4f7fff 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    letter-spacing: -4px;
+    letter-spacing: -3px;
     position: relative;
-    animation: heroReveal 1s cubic-bezier(0.2,0.8,0.2,1) both;
-    filter: drop-shadow(0 8px 32px rgba(44,92,197,0.18));
+    display: inline-block;
+    animation: heroReveal 1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    filter: drop-shadow(0 12px 32px rgba(44, 92, 197, 0.22));
+    user-select: none;
+    margin: 0.5rem 0 1.25rem;
 }
 
-.error-code::after {
-    content: '';
-    display: block;
-    width: 80px;
-    height: 4px;
-    background: linear-gradient(90deg, var(--primary-color, #1a3a8f), #4f7fff);
-    border-radius: 2px;
-    margin: 0.75rem auto 0;
-    -webkit-text-fill-color: initial;
-}
-
+/* Headings */
 .error-title {
-    font-size: clamp(1.5rem, 4vw, 2.4rem);
+    font-family: 'Tajawal', sans-serif;
+    font-size: clamp(1.65rem, 4.2vw, 2.35rem);
     font-weight: 900;
-    color: var(--text-color, #1a1a2e);
-    margin: 1.5rem 0 0.75rem;
-    animation: fadeIn 1.1s ease-out both;
+    color: #1e293b;
+    margin: 0.5rem 0 0.65rem;
+    line-height: 1.35;
 }
 
 .error-subtitle {
-    font-size: 1.1rem;
-    color: #666;
-    max-width: 500px;
-    line-height: 1.7;
-    margin-bottom: 2.5rem;
-    animation: fadeIn 1.3s ease-out both;
+    font-family: 'Tajawal', sans-serif;
+    font-size: clamp(1rem, 2.2vw, 1.15rem);
+    color: #475569;
+    max-width: 620px;
+    margin: 0 auto 2.2rem;
+    line-height: 1.8;
 }
 
-.error-btn-wrap {
-    max-width: 860px;
+/* ── Section Title (Centered like Landing Page) ── */
+.hp-social-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.hp-social-header h2 {
+    font-size: clamp(1.4rem, 3.5vw, 2rem);
+    font-weight: 900;
+    color: #1e293b;
+    margin: 0;
+    text-wrap: balance;
+}
+
+/* ── Destination Action Cards (Premium UI/UX Architecture) ── */
+.destinations-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
     width: 100%;
-    margin-bottom: 2.5rem;
-    animation: fadeIn 1.5s ease-out both;
 }
 
-.error-back-btn {
+.destination-action-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.45rem;
+    padding: 1.45rem 1.25rem 1.25rem;
+    border-radius: 20px;
+    background: linear-gradient(180deg, #ffffff 0%, #f7f9fe 100%);
+    border: 1px solid #e6ebf5;
+    box-shadow: 0 8px 24px rgba(44, 92, 195, 0.08);
+    text-decoration: none !important;
+    color: inherit;
+    transition: transform 0.24s cubic-bezier(0.2, 0.8, 0.2, 1), 
+                box-shadow 0.24s cubic-bezier(0.2, 0.8, 0.2, 1), 
+                border-color 0.24s ease;
+    text-align: right;
+    min-height: 180px;
+}
+
+.destination-action-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(44, 92, 195, 0.35);
+    box-shadow: 0 16px 36px rgba(44, 92, 195, 0.16);
+}
+
+.destination-card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    background: rgba(44, 92, 195, 0.10);
+    color: var(--primary-color, #1a3a8f);
+    font-size: 1.3rem;
+    margin-bottom: 0.35rem;
+    transition: transform 0.22s ease;
+    flex-shrink: 0;
+}
+
+.destination-action-card:hover .destination-card-icon {
+    transform: scale(1.08);
+}
+
+.destination-card-title {
+    font-size: 1.12rem;
+    font-weight: 800;
+    color: #1a3a8f;
+    line-height: 1.35;
+}
+
+.destination-card-desc {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: #64748b;
+    line-height: 1.5;
+    flex: 1;
+    margin-top: 0.1rem;
+}
+
+.destination-card-go {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: var(--primary-color, #1a3a8f);
     display: inline-flex;
     align-items: center;
-    gap: 0.6rem;
-    background: linear-gradient(135deg, var(--primary-color, #1a3a8f), #2c5cc5);
-    color: #fff;
-    border-radius: 50px;
-    padding: 0.85rem 2.2rem;
-    font-weight: 700;
+    gap: 0.4rem;
+}
+
+.destination-card-go i {
+    font-size: 0.82rem;
+    transition: transform 0.22s ease;
+}
+
+.destination-action-card:hover .destination-card-go i {
+    transform: translateX(-5px);
+}
+
+/* Featured Card Variant (High Visual Priority) */
+.destination-action-card.card--featured {
+    background: linear-gradient(135deg, #1a3a8f 0%, #2660d8 60%, #4a82f5 100%);
+    border-color: transparent;
+    box-shadow: 0 14px 34px rgba(38, 96, 216, 0.3);
+}
+
+.destination-action-card.card--featured .destination-card-icon {
+    background: rgba(255, 255, 255, 0.18);
+    color: #ffffff;
+}
+
+.destination-action-card.card--featured .destination-card-title {
+    color: #ffffff;
+}
+
+.destination-action-card.card--featured .destination-card-desc {
+    color: rgba(255, 255, 255, 0.86);
+}
+
+.destination-action-card.card--featured .destination-card-go {
+    color: #ffffff;
+}
+
+.destination-action-card.card--featured:hover {
+    border-color: transparent;
+    box-shadow: 0 18px 42px rgba(38, 96, 216, 0.4);
+}
+
+.destination-card-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: linear-gradient(135deg, #ff6b35, #e8420e);
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 0.3rem 0.75rem 0.25rem;
+    border-radius: 999px;
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.38);
+    letter-spacing: 0.2px;
+}
+
+@media (max-width: 900px) {
+    .destinations-cards-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .destinations-cards-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.75rem;
+    }
+    .destination-action-card {
+        padding: 1.15rem 0.95rem 1rem;
+        border-radius: 18px;
+        min-height: 165px;
+        gap: 0.35rem;
+    }
+    .destination-card-icon {
+        width: 42px;
+        height: 42px;
+        font-size: 1.1rem;
+        border-radius: 12px;
+        margin-bottom: 0.25rem;
+    }
+    .destination-card-title {
+        font-size: 0.98rem;
+    }
+    .destination-card-desc {
+        font-size: 0.82rem;
+        line-height: 1.45;
+    }
+    .destination-card-go {
+        font-size: 0.82rem;
+        margin-top: 0.35rem;
+    }
+    .destination-card-badge {
+        top: 10px;
+        left: 10px;
+        font-size: 0.68rem;
+        padding: 0.25rem 0.55rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .destinations-cards-grid {
+        gap: 0.55rem;
+    }
+    .destination-action-card {
+        padding: 0.95rem 0.75rem 0.85rem;
+        border-radius: 16px;
+        min-height: 155px;
+    }
+    .destination-card-title {
+        font-size: 0.92rem;
+    }
+    .destination-card-desc {
+        font-size: 0.76rem;
+    }
+    .destination-card-go {
+        font-size: 0.76rem;
+    }
+}
+
+/* Action CTAs - Unified Dimensions Matching Middle Back Button */
+.error-actions-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin: 3rem 0 1.5rem;
+}
+
+.error-action-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.85rem;
+    height: 56px;
+    min-height: 56px;
+    padding: 0 2.2rem;
+    border-radius: 999px;
+    font-family: 'Tajawal', sans-serif;
     font-size: 1.05rem;
-    text-decoration: none;
-    box-shadow: 0 8px 24px rgba(44,92,197,0.25);
-    transition: all 0.25s ease;
-    animation: fadeIn 1.7s ease-out both;
+    font-weight: 800;
+    line-height: 1;
+    text-decoration: none !important;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: transform 0.22s ease, box-shadow 0.22s ease, background-color 0.22s ease;
 }
 
-.error-back-btn:hover {
+.error-action-btn i {
+    font-size: 1.15rem;
+    flex-shrink: 0;
+    transition: transform 0.22s ease;
+}
+
+/* Home button (Top on mobile) */
+.error-btn-home {
+    background: linear-gradient(135deg, #1a3a8f 0%, #2c5cc5 100%) !important;
+    color: #ffffff !important;
+    border: 2px solid transparent;
+    box-shadow: 0 8px 24px rgba(26, 58, 143, 0.28);
+}
+
+.error-btn-home:hover {
     transform: translateY(-2px);
-    box-shadow: 0 14px 32px rgba(44,92,197,0.35);
-    color: #fff;
-    text-decoration: none;
+    box-shadow: 0 12px 32px rgba(26, 58, 143, 0.38);
+    color: #ffffff !important;
 }
 
-.error-back-btn i {
-    transition: transform 0.2s ease;
+.error-btn-home:hover i {
+    transform: scale(1.12);
 }
 
-.error-back-btn:hover i {
+/* Back button (Middle - The reference style) */
+.error-btn-back {
+    background: #ffffff !important;
+    color: #1a3a8f !important;
+    border: 2px solid #1a3a8f;
+    box-shadow: 0 4px 14px rgba(26, 58, 143, 0.08);
+}
+
+.error-btn-back:hover {
+    background: #f1f5f9 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(26, 58, 143, 0.16);
+    color: #1a3a8f !important;
+}
+
+.error-btn-back:hover i {
     transform: translateX(4px);
 }
 
-@media (max-width: 480px) {
-    .error-nav-grid {
-        grid-template-columns: repeat(2, 1fr);
+/* Telegram button (Bottom on mobile) */
+.error-btn-telegram {
+    background: #24A1DE !important;
+    color: #ffffff !important;
+    border: 2px solid transparent;
+    box-shadow: 0 6px 20px rgba(36, 161, 222, 0.28);
+}
+
+.error-btn-telegram:hover {
+    background: #2095cf !important;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 26px rgba(36, 161, 222, 0.42);
+    color: #ffffff !important;
+}
+
+.error-btn-telegram:hover i {
+    transform: rotate(-10deg) scale(1.15);
+}
+
+@media (max-width: 600px) {
+    .page-404-wrapper {
+        padding: 2.25rem 1rem 3.5rem;
     }
-    .error-code {
-        letter-spacing: -2px;
+    .error-actions-group {
+        flex-direction: column;
+        width: 100%;
+        max-width: 380px;
+        margin: 2.5rem auto 1.5rem;
+        gap: 12px;
+    }
+    .error-action-btn {
+        width: 100% !important;
+        height: 56px !important;
+        min-height: 56px !important;
+        padding: 0 1.5rem !important;
+        justify-content: center !important;
     }
 }
 </style>
@@ -139,7 +466,7 @@
             "@type": "WebPage",
             "@id": "https://www.bac-story.com/404#webpage",
             "name": "404 — الصفحة غير موجودة",
-            "description": "الصفحة التي تبحث عنها غير موجودة. عُد إلى الرئيسية أو تصفح مصادر البكالوريا على BAC STORY.",
+            "description": "الصفحة التي تبحث عنها غير موجودة. عُد إلى الرئيسية أو تصفح مصادر وملخصات البكالوريا على BAC STORY.",
             "url": "https://www.bac-story.com/404",
             "inLanguage": "ar",
             "isPartOf": {
@@ -177,47 +504,120 @@
 <script>/* BAC STORY loader, drawn first so the screen is never blank while the page loads. Same markup as the fallback in components/shared.js: keep both in sync. If shared.js has not arrived after 6 s (bad network), it removes itself so the page still shows. If the visitor closed the ad strip (same key and 24 h as ads-config.js), it gives back the room style.css reserves for it. */(function(d){try{if(d.getElementById('page-loader'))return;var l=d.createElement('div');l.id='page-loader';l.className='page-loader';l.innerHTML='<div class="loader-orb"></div><div class="loader-orb loader-orb--2"></div><div class="loader-content"><div class="loader-letters"><span class="ll">B</span><span class="ll">A</span><span class="ll">C</span><span class="loader-gap"></span><span class="ll">S</span><span class="ll">T</span><span class="ll">O</span><span class="ll">R</span><span class="ll">Y</span></div><div class="loader-divider"><span></span></div><div class="loader-tagline">منصة التميز في البكالوريا</div><div class="loader-bar"><div class="loader-bar-fill"></div><div class="loader-bar-glow"></div></div></div>';d.body.insertBefore(l,d.body.firstChild);window.__bsLoaderAt=Date.now();try{var s=localStorage.getItem('bs_adstrip_v1');if(s&&Date.now()-JSON.parse(s).ts<864e5)d.documentElement.classList.add('ad-strip-off')}catch(e){}d.documentElement.classList.add('loader-up');setTimeout(function(){if(typeof hideLoader!=='function'&&l.parentNode){l.classList.add('loader-hiding');l.style.pointerEvents='none';setTimeout(function(){l.remove()},700)}},6000)}catch(e){}})(document)</script>
 <noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-T5H3TNJ4" style="display:none;visibility:hidden" width="0"></iframe></noscript>
 <div id="navbar-placeholder"></div>
-<div class="page-404-wrapper">
-<div class="error-code">404</div>
-<h1 class="error-title">عذراً، هذه الصفحة غير موجودة</h1>
-<p class="error-subtitle">
-        ربما تم نقل هذه الصفحة أو حذفها، أو أن الرابط كُتب بشكل خاطئ.
-        لا تقلق — كل محتوى BAC STORY في متناول يدك.
-    </p>
-<div class="error-btn-wrap">
-<div class="btn-container">
-<a class="main-btn" href="/resources">
-<i class="fas fa-book-open"></i>
-                المصادر الدراسية
+
+<main class="page-404-wrapper">
+    <!-- Ambient Floating Background Orbs (BAC STORY Atmosphere) -->
+    <div class="adp-hero-orb o1"></div>
+    <div class="adp-hero-orb o2"></div>
+
+    <div class="page-404-content">
+        <!-- Brand Badge Pill -->
+        <div class="social-proof-badge">
+            <i class="fas fa-triangle-exclamation"></i>
+            <span>خطأ 404 • الصفحة غير موجودة</span>
+        </div>
+
+        <!-- The Iconic Pattaya 404 -->
+        <div class="error-code" aria-label="404">404</div>
+
+        <!-- Typography & Microcopy -->
+        <h1 class="error-title">عذراً، هذه الصفحة غير موجودة</h1>
+        <p class="error-subtitle">
+            الصفحة التي تبحث عنها قد تم نقلها أو حذفها، أو ربما هناك خطأ في كتابة الرابط.<br/>
+            لا تقلق — كل ما تحتاجه للتحضير والتفوق في البكالوريا في متناول يدك.
+        </p>
+
+        <!-- Navigation Hub with Landing Page Centered Title & Strategic 6-Card Architecture -->
+        <div style="width: 100%; margin-top: 1rem;">
+            <div class="hp-social-header">
+                <h2 style="background:linear-gradient(120deg,#1a3a8f 0%,#2c5cc5 50%,#3d6ee0 100%);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;color:#2c5cc5;display:flex;align-items:center;justify-content:center;gap:0.45em;">
+                    <i class="fas fa-compass"></i> وجهات مقترحة لبدء التصفح
+                </h2>
+            </div>
+
+            <div class="destinations-cards-grid">
+                <!-- 1. Primary Pillar: Study Resources (Featured - Most Important for Lost Students) -->
+                <a class="destination-action-card card--featured" href="/resources">
+                    <span class="destination-card-badge">الأكثر طلباً</span>
+                    <span class="destination-card-icon"><i class="fas fa-book-open"></i></span>
+                    <span class="destination-card-title">المصادر الدراسية</span>
+                    <span class="destination-card-desc">ملخصات وتمارين كل المواد</span>
+                    <span class="destination-card-go">تصفّح المواد <i class="fas fa-arrow-left"></i></span>
+                </a>
+
+                <!-- 2. Second Pillar: Official Bac Topics & Exam Archive -->
+                <a class="destination-action-card" href="/bac-topics">
+                    <span class="destination-card-icon"><i class="fas fa-file-contract"></i></span>
+                    <span class="destination-card-title">مواضيع البكالوريا</span>
+                    <span class="destination-card-desc">امتحانات سابقة مع الحلول</span>
+                    <span class="destination-card-go">استعراض المواضيع <i class="fas fa-arrow-left"></i></span>
+                </a>
+
+                <!-- 3. Third Pillar: Study Schedules & Monthly Plans -->
+                <a class="destination-action-card" href="/plans">
+                    <span class="destination-card-icon"><i class="fas fa-calendar-check"></i></span>
+                    <span class="destination-card-title">الخطط والتحديات</span>
+                    <span class="destination-card-desc">جداول مراجعة وخطط تفوق</span>
+                    <span class="destination-card-go">ابدأ الخطة <i class="fas fa-arrow-left"></i></span>
+                </a>
+
+                <!-- 4. Fourth Pillar: Bac Calculators & Tools -->
+                <a class="destination-action-card" href="/tools">
+                    <span class="destination-card-icon"><i class="fas fa-calculator"></i></span>
+                    <span class="destination-card-title">ملحقات البكالوريا</span>
+                    <span class="destination-card-desc">حاسبة المعدل والعد التنازلي</span>
+                    <span class="destination-card-go">استكشف الأدوات <i class="fas fa-arrow-left"></i></span>
+                </a>
+
+                <!-- 5. Fifth Pillar: Exam Simulation -->
+                <a class="destination-action-card" href="/simulation">
+                    <span class="destination-card-icon"><i class="fas fa-stopwatch"></i></span>
+                    <span class="destination-card-title">محاكاة البكالوريا</span>
+                    <span class="destination-card-desc">جرّب أجواء الامتحان الحقيقي</span>
+                    <span class="destination-card-go">جرّب الآن <i class="fas fa-arrow-left"></i></span>
+                </a>
+
+                <!-- 6. Sixth Pillar: University & Career Guidance -->
+                <a class="destination-action-card" href="/university">
+                    <span class="destination-card-icon"><i class="fas fa-graduation-cap"></i></span>
+                    <span class="destination-card-title">دليل الجامعة</span>
+                    <span class="destination-card-desc">معدلات القبول والتخصصات</span>
+                    <span class="destination-card-go">دليل التخصصات <i class="fas fa-arrow-left"></i></span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Platform Action CTAs (Standardized to Middle Button Dimensions) -->
+        <div class="error-actions-group">
+            <a class="error-action-btn error-btn-home" href="/">
+                <i class="fas fa-home"></i>
+                <span>العودة إلى الرئيسية</span>
             </a>
-<a class="main-btn" href="/bac-topics">
-<i class="fas fa-file-alt"></i>
-                مواضيع الباك
+            <button class="error-action-btn error-btn-back" onclick="goBackSafely()" type="button">
+                <i class="fas fa-arrow-right"></i>
+                <span>الرجوع للصفحة السابقة</span>
+            </button>
+            <a class="error-action-btn error-btn-telegram" href="https://t.me/bacstorycontact" rel="noopener" target="_blank">
+                <i class="fab fa-telegram-plane"></i>
+                <span>الإبلاغ عن رابط معطل</span>
             </a>
-<a class="main-btn" href="/plans">
-<i class="fas fa-calendar-check"></i>
-                الخطط والتحديات
-            </a>
-<a class="main-btn" href="/tools">
-<i class="fas fa-calculator"></i>
-                ملحقات البكالوريا
-            </a>
-<a class="main-btn" href="/university">
-<i class="fas fa-university"></i>
-                دليل الجامعة
-            </a>
-<a class="main-btn" href="/simulation">
-<i class="fas fa-graduation-cap"></i>
-                محاكاة البكالوريا
-            </a>
-</div>
-</div>
-<a class="error-back-btn" href="/">
-<i class="fas fa-home"></i>
-        العودة إلى الرئيسية
-    </a>
-</div>
+        </div>
+    </div>
+</main>
+
 <div id="footer-placeholder"></div>
+
+<script>
+    // Smart safe back navigation
+    function goBackSafely() {
+        if (window.history.length > 1 && document.referrer && document.referrer.indexOf(window.location.host) !== -1) {
+            window.history.back();
+        } else {
+            window.location.href = '/';
+        }
+    }
+</script>
+
 <script defer src="/components/shared.js?v=46535c7b4c"></script>
 <!-- Cloudflare Web Analytics --><script data-cf-beacon='{"token": "6153c3a6dd54435780cd9d84f9f958f8"}' src="https://static.cloudflareinsights.com/beacon.min.js" type="module"></script><!-- End Cloudflare Web Analytics -->
 </body>
