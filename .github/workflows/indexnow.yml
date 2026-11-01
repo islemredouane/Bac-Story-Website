@@ -6,6 +6,11 @@ name: IndexNow
 on:
   push:
     branches: ['(root)']
+  workflow_dispatch:
+    inputs:
+      before:
+        description: 'Commit to compare against (re-send pages changed since then)'
+        required: true
 permissions:
   contents: read
 concurrency:
@@ -22,5 +27,5 @@ jobs:
           fetch-depth: 0
       - run: python3 scripts/indexnow.py "$BEFORE" "$AFTER"
         env:
-          BEFORE: ${{ github.event.before }}
+          BEFORE: ${{ github.event.before || inputs.before }}
           AFTER: ${{ github.sha }}
