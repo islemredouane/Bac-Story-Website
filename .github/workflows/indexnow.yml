@@ -1,0 +1,26 @@
+# After a push to the production branch, tell Bing (IndexNow) which pages changed, so new and
+# updated pages are crawled in hours instead of days. Only real content changes are sent and the
+# script waits until the new version is live: see scripts/indexnow.py.
+# A failure here never blocks the site (continue-on-error).
+name: IndexNow
+on:
+  push:
+    branches: ['(root)']
+permissions:
+  contents: read
+concurrency:
+  group: indexnow
+  cancel-in-progress: false
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: python3 scripts/indexnow.py "$BEFORE" "$AFTER"
+        env:
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.sha }}
