@@ -11,6 +11,7 @@
 #     can use the site to answer questions (grounding), not only training.
 
 User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=no
 Disallow: /apps-script/
 Disallow: /scratch/
 Disallow: /api/
@@ -36,6 +37,16 @@ User-agent: Google-CloudVertexBot
 User-agent: Timpibot
 User-agent: DeepseekBot
 User-agent: xAI-Bot
+User-agent: Diffbot
+User-agent: omgili
+User-agent: Claude-Web
+User-agent: cohere-ai
+User-agent: MistralAI-Training
+User-agent: GoogleOther
+User-agent: ICC-Crawler
+User-agent: Cotoyogi
+User-agent: magpie-crawler
+User-agent: KimiBot
 Disallow: /
 
 # -------------------------------------------------------------
