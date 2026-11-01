@@ -7,8 +7,8 @@
 #     found and cited in Google, Bing, ChatGPT, Perplexity, Claude, DuckDuckGo,
 #     Apple and Gemini answers. They follow the "*" rules below.
 #   - Crawlers that collect content only to TRAIN AI models are not allowed.
-#   - Google-Extended stays allowed on purpose: it also controls whether Gemini
-#     can use the site to answer questions (grounding), not only training.
+#   - Google-Extended is blocked: it only controls Gemini training and grounding,
+#     not Google Search or AI Overviews (those follow Googlebot).
 
 User-agent: *
 Content-Signal: search=yes, ai-input=yes, ai-train=no
@@ -47,6 +47,9 @@ User-agent: ICC-Crawler
 User-agent: Cotoyogi
 User-agent: magpie-crawler
 User-agent: KimiBot
+User-agent: Google-Extended
+User-agent: Baiduspider
+User-agent: SemrushBot-SWA
 Disallow: /
 
 # -------------------------------------------------------------
