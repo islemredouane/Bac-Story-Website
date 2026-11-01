@@ -20,7 +20,7 @@ HOST = 'www.bac-story.com'
 MAX_URLS = 2000            # IndexNow allows 10,000 per request; stay polite
 WAIT_MINUTES = 8           # how long to wait for the deploy before sending anyway
 STAMP = re.compile(r'\?v=[0-9a-f]{10}')
-DESC = re.compile(r'<meta[^>]*name="description"[^>]*content="([^"]*)"')
+DESC = re.compile(r'<meta[^>]*name="description"[^>]*content="([^"]*)"|<meta[^>]*content="([^"]*)"[^>]*name="description"')
 
 def git(*a):
     r = subprocess.run(['git', '-c', 'core.quotepath=false', *a], capture_output=True,
@@ -41,7 +41,14 @@ def is_live(url, path):
             live = r.read().decode('utf-8', 'ignore')
     except Exception:
         return False
-    return (m.group(1) in live) if m else True
+    return ((m.group(1) or m.group(2)) in live) if m else False
+
+def key_live(key):
+    try:
+        with urllib.request.urlopen(urllib.request.Request(f'https://{HOST}/{key}.txt?t=%d' % time.time(), headers={'User-Agent': 'indexnow-check'}), timeout=20) as r:
+            return r.read().decode().strip() == key
+    except Exception:
+        return False
 
 def main():
     args = [a for a in sys.argv[1:] if not a.startswith('--')]
@@ -72,9 +79,9 @@ def main():
     if dry:
         print('dry run, would send', len(chosen), 'URLs, e.g.', chosen[:3]); return
 
-    probe = chosen[0]                                  # wait until the deploy is live
+    probe = chosen[0]                                  # wait until the deploy is live (page updated AND key file served)
     deadline = time.time() + WAIT_MINUTES * 60
-    while time.time() < deadline and not is_live(probe, urls[probe]):
+    while time.time() < deadline and not (is_live(probe, urls[probe]) and key_live(key)):
         print('waiting for the deploy...'); time.sleep(20)
 
     body = json.dumps({'host': HOST, 'key': key, 'keyLocation': f'https://{HOST}/{key}.txt',
