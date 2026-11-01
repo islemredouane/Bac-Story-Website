@@ -18,7 +18,7 @@ import os, re, subprocess, sys
 from urllib.parse import quote
 
 BASE = 'https://www.bac-story.com'
-SKIP_DIRS = {'.git', '.claude', 'node_modules', 'components', 'apps-script', 'scratch', 'scripts'}
+SKIP_DIRS = {'.git', '.github', '.claude', 'node_modules', 'components', 'apps-script', 'scratch', 'scripts'}
 SKIP_FILE = re.compile(r'(^|/)(404\.html|google[0-9a-f]+\.html|[^/]*backup[^/]*)$', re.I)
 CANON = re.compile(r'<link[^>]*rel=["\']canonical["\'][^>]*>', re.I)
 HREF = re.compile(r'href=["\']([^"\']+)["\']', re.I)
