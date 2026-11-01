@@ -220,6 +220,8 @@ The Algerian Baccalaureate comprises six distinct academic streams:
 ### Teacher magazines and top-student pages added in October 2026
 - Professor Wahiba mathematics magazines (/resources/math/math/wahiba, also /resources/sci/math/wahiba and /resources/tech/math/wahiba): Numbers & Arithmetic, Functions (numerical, exponential/logarithmic, primitive), Sequences, Probability, Complex Numbers.
 - Belhocine Sabrine comprehensive Arabic summary (PDF), one page per stream: /resources/math/arabic/belhocine, /resources/sci/arabic/belhocine, /resources/tech/arabic/belhocine, /resources/ge/arabic/belhocine, /resources/lp/arabic/belhocine, /resources/le/arabic/belhocine.
+- German unit summaries (PDF, Foreign Languages stream): /resources/le/german/unit-1, unit-2, unit-3, unit-4.
+- External economics books for Management & Economics: /resources/books/ge/economics.
 - Top student Lina philosophy essays (Literature & Philosophy): /resources/lp/philo/lina-articles.
 
 ## 3. Baccalaureate 2027 Curriculum Reform (إصلاحات وتغييرات منهاج بكالوريا 2027)
