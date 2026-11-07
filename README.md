@@ -256,6 +256,13 @@ All tokens are CSS variables at the top of `style.css` (`--primary-color`, `--se
 | `exam_completed` | a BAC simulation is finished (subject, stream, time spent) | `simulation.js` |
 | `feedback_sent` | the feedback form is sent | `feedback.html` |
 | `telegram_click` | a Telegram link is clicked | GTM trigger |
+| `file_download` | a download button or PDF/Drive download link is clicked (file URL, link text, page, stream) | `components/shared.js` |
+| `advertise_click` | an ad strip, ad card or "advertise with us" link is clicked (where, target) | `components/shared.js` |
+| `search` | a visitor stops typing in the site search (term, number of results, stream) | `components/shared.js` |
+| `page_not_found` | the 404 page is shown (the wrong address, where the visitor came from) | `components/shared.js` |
+| `bac_stream_detected` | a page that belongs to one stream opens (`bac_stream`: science, math, tech, management, literature, languages) | `components/shared.js` |
+
+Each event needs a trigger and a GA4 event tag in Tag Manager. `bac_stream` is also saved as a user property, so reports can be split by stream.
 
 <br>
 
