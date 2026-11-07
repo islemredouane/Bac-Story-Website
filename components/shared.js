@@ -1990,3 +1990,83 @@ if (document.readyState === 'loading') {
     if (document.readyState === 'complete') schedule();
     else window.addEventListener('load', schedule, { once: true });
 })();
+
+// ─── ANALYTICS EVENTS (dataLayer → Google Tag Manager → GA4) ────────────────
+// One small block for the events that no other file sends: file downloads, ad clicks,
+// searches, 404 pages and the visitor's stream. Everything is wrapped in try/catch so a
+// tracking problem can never break a page. GTM needs one trigger per event name below.
+(function () {
+    function push(obj) {
+        try { (window.dataLayer = window.dataLayer || []).push(obj); } catch (e) {}
+    }
+
+    // Same stream names the grade calculator already sends as bac_stream.
+    var STREAMS = { sci: 'science', math: 'math', matheleme: 'math', tech: 'tech', ge: 'management', lp: 'literature', le: 'languages' };
+    function streamFromPath() {
+        var m = location.pathname.match(/^\/(?:resources|bac-2026)\/([a-z]+)(?:\/|$)/);
+        return (m && STREAMS[m[1]]) || '';
+    }
+    var stream = streamFromPath();
+
+    // bac_stream: once per page, only on pages that belong to a stream. GTM stores it as a user property.
+    if (stream) push({ event: 'bac_stream_detected', bac_stream: stream });
+
+    // page_not_found: the 404 page keeps the wrong address in the URL, so this tells us which links are broken.
+    try {
+        var can = document.querySelector('link[rel="canonical"]');
+        if (can && /\/404\/?$/.test(can.getAttribute('href') || '')) {
+            push({ event: 'page_not_found', page_path: location.pathname, page_referrer: document.referrer || '(direct)' });
+        }
+    } catch (e) {}
+
+    // file_download and advertise_click: one listener on the document, so it also covers buttons built later.
+    document.addEventListener('click', function (e) {
+        try {
+            var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+            if (!a) return;
+            var href = a.getAttribute('href') || '';
+            var text = (a.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 80);
+
+            if (a.classList.contains('ad-strip-cta') || a.classList.contains('ad-card-cta') || /^\/advertise(\/|\?|#|$)/.test(href)) {
+                push({
+                    event: 'advertise_click',
+                    ad_location: a.classList.contains('ad-strip-cta') ? 'strip' : (a.classList.contains('ad-card-cta') ? 'card' : 'link'),
+                    ad_target: href.slice(0, 200),
+                    link_text: text,
+                    page_path: location.pathname
+                });
+            }
+
+            if (a.classList.contains('down-btn') || a.hasAttribute('download') || /[?&]export=download/.test(href) || /\.(pdf|docx?|pptx?|xlsx?|zip|rar)(\?|#|$)/i.test(href)) {
+                push({
+                    event: 'file_download',
+                    file_url: href.slice(0, 200),
+                    link_text: text,
+                    page_path: location.pathname,
+                    bac_stream: stream || undefined
+                });
+            }
+        } catch (err) {}
+    }, true);
+
+    // search: sent once the visitor stops typing, with how many results they saw.
+    var searchTimer = null, lastTerm = '';
+    document.addEventListener('input', function (e) {
+        try {
+            if (!e.target || e.target.id !== 'searchInput') return;
+            clearTimeout(searchTimer);
+            searchTimer = setTimeout(function () {
+                var term = (e.target.value || '').trim().toLowerCase();
+                if (term.length < 2 || term === lastTerm) return;
+                lastTerm = term;
+                var box = document.getElementById('searchResults');
+                push({
+                    event: 'search',
+                    search_term: term.slice(0, 100),
+                    results_count: box ? box.querySelectorAll('.search-result-item').length : 0,
+                    bac_stream: stream || undefined
+                });
+            }, 1500);
+        } catch (err) {}
+    }, true);
+})();
