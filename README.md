@@ -25,7 +25,7 @@ for all six streams of the Algerian Baccalaureate, in Arabic, free, on any phone
 
 <br>
 
-<img src=".github/assets/stats.webp" alt="By the numbers, October 2026: 2,681 HTML pages (2,553 indexable URLs in the sitemap), 7,300+ PDF documents, 260 university guides, 2,695 search entries. Last 28 days: 42.6K Google clicks (up 41%), 850K impressions, 32.6K visitors, 82% on mobile, 96% of searches from Algeria, 2,570 pages on Google and 3,268 on Bing." width="100%">
+<img src=".github/assets/stats.webp" alt="By the numbers, November 2026: 2,718 HTML pages (2,591 indexable URLs in the sitemap), 7,300+ PDF documents, 260 university guides, 2,732 search entries. Last 28 days: 54.4K Google clicks (up 30%), 1.01M impressions, 41.5K visitors, 68% on mobile, 97% of Google clicks from Algeria, 2,490 pages on Google and 4.4K Bing clicks." width="100%">
 
 <br>
 
