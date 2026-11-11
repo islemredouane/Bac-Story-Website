@@ -18,6 +18,9 @@
 
 # 404 → nearest relevant page
 /resultats-bac-2026 /bac-2026 301
+# Mistyped or cut-off links seen in GA4 (page_not_found, Nov 2026)
+/resources/sci/maths /resources/sci/math 301
+/topics/bac /topics 301
 /resultats-bac-2026.html /bac-2026 301
 /university/speciality/ensee /university/specialities 301
 /university/speciality/ens-anglais /university/specialities 301
