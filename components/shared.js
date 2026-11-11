@@ -794,6 +794,15 @@ function setupSearch() {
         if (focusIdx >= 0 && items[focusIdx]) items[focusIdx].scrollIntoView({ block: 'nearest' });
     }
 
+    // Stream-aware ranking: a visitor browsing one stream (/resources/math/..., /bac-2026/sci/...) sees that
+    // stream's results first for generic searches like "ملخص" or "تمارين". Other streams still show, just lower.
+    const STREAM_KEY = { sci: 'sci', math: 'math', matheleme: 'math', tech: 'tech', ge: 'ge', lp: 'lp', le: 'le' };
+    const streamKeyOf = (path) => {
+        const m = (path || '').match(/^\/(?:resources|bac-2026)\/(?:books\/)?(sci|math|matheleme|tech|ge|lp|le)(?:\/|$)/);
+        return m ? STREAM_KEY[m[1]] : '';
+    };
+    const currentStreamKey = streamKeyOf(location.pathname);
+
     // ── SENIOR-GRADE NORMALIZATION & ARABIC STEMMING ENGINE ────────────────────
     const normalizeSearch = (text) => {
         if (!text) return '';
@@ -1129,6 +1138,8 @@ function setupSearch() {
                 } else {
                     totalScore *= (matchedWordsCount / queryWords.length) * 0.6;
                 }
+
+                if (currentStreamKey && streamKeyOf(item.url) === currentStreamKey) totalScore *= 1.3;
 
                 return { item, score: Math.round(totalScore), matched: totalScore > 0 };
             })
@@ -2049,23 +2060,35 @@ if (document.readyState === 'loading') {
         } catch (err) {}
     }, true);
 
-    // search: sent once the visitor stops typing, with how many results they saw.
+    // search: sent once the visitor stops typing, with how many results they saw. If the search index is still
+    // downloading (slow phone), the box shows the loader, so we wait for the real result before counting it:
+    // otherwise those searches would be wrongly reported as "0 results".
     var searchTimer = null, lastTerm = '';
+    function reportSearch(term, tries) {
+        try {
+            if (term === lastTerm) return;
+            var box = document.getElementById('searchResults');
+            if (box && box.querySelector('.fa-spinner')) {
+                if (tries < 12) setTimeout(function () { reportSearch(term, tries + 1); }, 1000);
+                return;
+            }
+            lastTerm = term;
+            push({
+                event: 'search',
+                search_term: term.slice(0, 100),
+                results_count: box ? box.querySelectorAll('.search-result-item').length : 0,
+                bac_stream: stream || undefined
+            });
+        } catch (err) {}
+    }
     document.addEventListener('input', function (e) {
         try {
             if (!e.target || e.target.id !== 'searchInput') return;
             clearTimeout(searchTimer);
             searchTimer = setTimeout(function () {
                 var term = (e.target.value || '').trim().toLowerCase();
-                if (term.length < 2 || term === lastTerm) return;
-                lastTerm = term;
-                var box = document.getElementById('searchResults');
-                push({
-                    event: 'search',
-                    search_term: term.slice(0, 100),
-                    results_count: box ? box.querySelectorAll('.search-result-item').length : 0,
-                    bac_stream: stream || undefined
-                });
+                if (term.length < 2) return;
+                reportSearch(term, 0);
             }, 1500);
         } catch (err) {}
     }, true);
