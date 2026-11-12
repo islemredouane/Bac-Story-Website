@@ -45,6 +45,66 @@
     <noscript><link href="/fonts/fa/fa.css?v=ebfba998e8" rel="stylesheet"/>
     </noscript>
     <style>
+        .pdf-switcher-wrap {
+            display: flex;
+            justify-content: center;
+            margin: 0 0 20px 0;
+            padding: 0 10px;
+            width: 100%;
+        }
+        .pdf-switcher-toggle {
+            display: inline-flex !important;
+            align-items: center;
+            background: #f1f5f9;
+            border-radius: 999px;
+            padding: 4px;
+            gap: 0;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
+            border: 1px solid #e2e8f0;
+            position: relative;
+            max-width: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .pdf-switcher-toggle::-webkit-scrollbar {
+            display: none;
+        }
+        .pdf-switcher-pill {
+            position: absolute;
+            top: 4px; bottom: 4px;
+            background: #2c5cc5;
+            border-radius: 999px;
+            transition: left 0.28s cubic-bezier(0.34,1.56,0.64,1), width 0.28s cubic-bezier(0.34,1.56,0.64,1);
+            box-shadow: 0 2px 8px rgba(44,92,195,0.3);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .pdf-switcher-tab {
+            position: relative; z-index: 1;
+            margin: 0 !important;
+            padding: 0.5rem 1.4rem;
+            border: none; background: transparent; border-radius: 999px;
+            font-family: 'Tajawal', sans-serif; font-size: 0.9rem; font-weight: 700;
+            color: #64748b; cursor: pointer; white-space: nowrap;
+            transition: color 0.22s ease;
+            display: inline-flex; align-items: center; gap: 6px;
+            user-select: none;
+            flex-shrink: 0;
+            width: auto !important;
+            min-width: 0 !important;
+            box-shadow: none !important;
+        }
+        .pdf-switcher-tab.active {
+            color: #fff !important;
+        }
+        @media (max-width: 600px) {
+            .pdf-switcher-tab { padding: 0.5rem 0.9rem; font-size: 0.8rem; }
+        }
     </style>
 </head>
 <body>
@@ -60,30 +120,52 @@
             </div>
             
             <section class="pdf-viewer" style="text-align:center;padding-bottom:40px;">
-                <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-bottom:20px;">
-                    <a href="https://t.me/islembacdz" target="_blank" rel="noopener" class="search-telegram-btn">
-                        <i class="fab fa-telegram-plane"></i>
-                        <span>انضم إلينا على التلغرام</span>
-                    </a>
-                    <a href="https://drive.google.com/drive/folders/181_FXuniCnOaW_ha9u0-z3rFR-33LAQ5?usp=drive_link" target="_blank" rel="noopener" class="search-telegram-btn" style="background:#2563eb;">
-                        <i class="fab fa-google-drive"></i>
-                        <span>فتح مجلد التمارين الكامل على Google Drive</span>
-                    </a>
+                <a href="https://t.me/islembacdz" target="_blank" rel="noopener" style="margin-bottom:20px;" class="search-telegram-btn">
+                    <i class="fab fa-telegram-plane"></i>
+                    <span>انضم إلينا على التلغرام</span>
+                </a>
+
+                <div class="pdf-switcher-wrap">
+                    <div class="pdf-switcher-toggle" id="pdfTabBar">
+                        <span class="pdf-switcher-pill" id="pdfTabPill"></span>
+                        <button type="button" class="pdf-switcher-tab active" onclick="switchPdf(this, '1_8twb0jXEzNrg4toWWHdZGbWI3oxOeJe')"><i class="fas fa-file-pdf"></i> الديناميكا الحرارية - سلسلة غميض</button>
+                        <button type="button" class="pdf-switcher-tab" onclick="switchPdf(this, '18IT95IeVlL1V8ocAcC9CE36ldB2jX1QS')"><i class="fas fa-file-pdf"></i> حلول مجال الديناميكا الحرارية</button>
+                        <button type="button" class="pdf-switcher-tab" onclick="switchPdf(this, '14yj9BSgO3bg0GfonZ7xhx8cQnFA1NX9z')"><i class="fas fa-file-pdf"></i> تمارين محلولة في الديناميكا الحرارية</button>
+                        <button type="button" class="pdf-switcher-tab" onclick="switchPdf(this, '1hHnz6LOUszF44PZECQf_Hqa7WfavNQdF')"><i class="fas fa-file-pdf"></i> تمارين المسعر الحراري</button>
+                        <button type="button" class="pdf-switcher-tab" onclick="switchPdf(this, '1tiKo7v5mwQzHUPB1j4UTM58MUV6hjPG_')"><i class="fas fa-file-pdf"></i> الفحوم الهيدروجينية</button>
+                        <button type="button" class="pdf-switcher-tab" onclick="switchPdf(this, '1MxlDkf0bKd0g-TCZxnSIlljLkdLxJcqd')"><i class="fas fa-file-pdf"></i> أسئلة المركبات الأكسجينية</button>
+                        <button type="button" class="pdf-switcher-tab" onclick="switchPdf(this, '10nMjz5_H9kSjWNcd-5K-6yQessi8uzja')"><i class="fas fa-file-pdf"></i> الوظائف الأكسجينية</button>
+                        <button type="button" class="pdf-switcher-tab" onclick="switchPdf(this, '1lmb56OGBnWpDkfA57s9sqgR5uGGZPn5k')"><i class="fas fa-file-pdf"></i> مراجعة الكيمياء العضوية</button>
+                        <button type="button" class="pdf-switcher-tab" onclick="switchPdf(this, '1ZvkP4ncSpDE0ktK_nAp9bhFhGJdyrBPk')"><i class="fas fa-file-pdf"></i> سلسلة البروتينات (مصححة)</button>
+                        <button type="button" class="pdf-switcher-tab" onclick="switchPdf(this, '1BFt1iEVkmDm93gUQ0z_XVT8B6DDxeAC4')"><i class="fas fa-file-pdf"></i> أعمال تطبيقية: الببتيدات والبروتينات</button>
+                        <button type="button" class="pdf-switcher-tab" onclick="switchPdf(this, '102BN-IfyywZGyBtXG2sjG6Vj88k9tYzS')"><i class="fas fa-file-pdf"></i> الرائد في هندسة الطرائق</button>
+                        <button type="button" class="pdf-switcher-tab" onclick="switchPdf(this, '1dCJL39zLbmuO7WOXJ80HcEXDr4VjDG-x')"><i class="fas fa-file-pdf"></i> سلسلة الرائد في هندسة الطرائق</button>
+                        <button type="button" class="pdf-switcher-tab" onclick="switchPdf(this, '1-p4gq3GjXmn63SNGGrHdxmgeZB7A9jcW')"><i class="fas fa-file-pdf"></i> سلسلة الهباج</button>
+                        <button type="button" class="pdf-switcher-tab" onclick="switchPdf(this, '1fpuhxJjypHaHCCRI6161DOzLVW_ZY9Wo')"><i class="fas fa-file-pdf"></i> سلسلة التحضير الجيد (بالحل)</button>
+                        <button type="button" class="pdf-switcher-tab" onclick="switchPdf(this, '1Y4_A7tbAz3guK7Z2G_oEBiIZxTB7R4sQ')"><i class="fas fa-file-pdf"></i> تمارين مراجعة محلولة</button>
+                        <button type="button" class="pdf-switcher-tab" onclick="switchPdf(this, '1RoQ9AC8ZQcjXWjaWnexLTTCh1h5WAP_d')"><i class="fas fa-file-pdf"></i> سلسلة مراجعة 01</button>
+                        <button type="button" class="pdf-switcher-tab" onclick="switchPdf(this, '1GuFoa7oMsCXodDcmzxRoT0jBefZ_f-RW')"><i class="fas fa-file-pdf"></i> بكالوريات الديناميكا الحرارية</button>
+                        <button type="button" class="pdf-switcher-tab" onclick="switchPdf(this, '1_bzcxqtJsNBGp5k9ULVs2uKb23lvdhH7')"><i class="fas fa-file-pdf"></i> بكالوريات الكيمياء الحيوية</button>
+                        <button type="button" class="pdf-switcher-tab" onclick="switchPdf(this, '1Cq4XJK9RbavbJAUigEQJbNhPOKMApRsH')"><i class="fas fa-file-pdf"></i> بكالوريات الكيمياء العضوية</button>
+                        <button type="button" class="pdf-switcher-tab" onclick="switchPdf(this, '1YOAy_Ra4i3wrI7CnhcmakIBHRHoD9Wr_')"><i class="fas fa-file-pdf"></i> موضوع مراجعة</button>
+                        <button type="button" class="pdf-switcher-tab" onclick="switchPdf(this, '1VNYIdU2Z12aS0KBqYOJ0DK16Y7Fnylx7')"><i class="fas fa-file-pdf"></i> موضوع بكالوريا تجريبي</button>
+                        <button type="button" class="pdf-switcher-tab" onclick="switchPdf(this, '1F6u9rrKxopKPbERBellcA0Pt40cXzeW2')"><i class="fas fa-file-pdf"></i> حلول الكتاب المدرسي (ج1)</button>
+                        <button type="button" class="pdf-switcher-tab" onclick="switchPdf(this, '17Ze3aitO99z3qZ1E063sdedaQXAri6nz')"><i class="fas fa-file-pdf"></i> حلول الكتاب المدرسي (ج2)</button>
+                    </div>
                 </div>
 
                 <div class="pdf-wrapper">
                     <div class="pdf-iframe-wrap">
-                    <iframe src="https://drive.google.com/embeddedfolderview?id=181_FXuniCnOaW_ha9u0-z3rFR-33LAQ5#grid"
+                    <iframe src="https://drive.google.com/file/d/1_8twb0jXEzNrg4toWWHdZGbWI3oxOeJe/preview"
                         class="responsive-pdf" loading="lazy" allowfullscreen title="سلاسل وتمارين هندسة الطرائق — تقني رياضي"></iframe>
                     </div>
-                    
                     <div class="pdf-buttons">
-                        <button onclick="toggleFullScreen(event)" class="full-btn" style="flex:1;border:none;font-size:16px;font-weight:500;cursor:pointer;">
-                            <i class="fa-solid fa-expand"></i> تكبير النافذة
+                        <button type="button" onclick="toggleFullScreen(event)" class="full-btn" style="flex:1;border:none;font-size:16px;font-weight:500;cursor:pointer;">
+                            <i class="fa-solid fa-expand"></i> تكبير الملف
                         </button>
-                        <a href="https://drive.google.com/drive/folders/181_FXuniCnOaW_ha9u0-z3rFR-33LAQ5?usp=drive_link" target="_blank" rel="noopener" class="down-btn"
+                        <a href="https://drive.google.com/uc?export=download&id=1_8twb0jXEzNrg4toWWHdZGbWI3oxOeJe" download class="down-btn"
                             style="flex:1;text-decoration:none;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:500;">
-                            <i class="fa-solid fa-download"></i> تحميل وقراءة السلاسل
+                            <i class="fa-solid fa-download"></i> تحميل الملف
                         </a>
                     </div>
                 </div>
@@ -99,6 +181,49 @@
     <script defer src="/ads-config.js?v=69b0e4d2c3"></script>
     <script defer src="/components/shared.js?v=b55cab41cb"></script>
     <script defer src="/script.js?v=0e57ca42fe"></script>
+    <script>
+        function updatePill(tab, skipScroll) {
+            const pill = document.getElementById('pdfTabPill');
+            if (!pill || !tab) return;
+            pill.style.left = tab.offsetLeft + 'px';
+            pill.style.width = tab.offsetWidth + 'px';
+            if (!skipScroll) {
+                tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            }
+        }
+
+        function switchPdf(btn, fileId) {
+            const tabs = document.querySelectorAll('.pdf-switcher-tab');
+            tabs.forEach(t => t.classList.remove('active'));
+            btn.classList.add('active');
+            updatePill(btn, false);
+
+            const iframe = document.querySelector('.responsive-pdf');
+            if (iframe) {
+                iframe.src = 'https://drive.google.com/file/d/' + fileId + '/preview';
+            }
+
+            const downBtn = document.querySelector('.down-btn');
+            if (downBtn) {
+                downBtn.href = 'https://drive.google.com/uc?export=download&id=' + fileId;
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const activeTab = document.querySelector('.pdf-switcher-tab.active');
+            if (activeTab) {
+                setTimeout(() => updatePill(activeTab, true), 50);
+                if (document.fonts && document.fonts.ready) {
+                    document.fonts.ready.then(() => updatePill(activeTab, true));
+                }
+            }
+        });
+
+        window.addEventListener('resize', () => {
+            const activeTab = document.querySelector('.pdf-switcher-tab.active');
+            if (activeTab) updatePill(activeTab, true);
+        });
+    </script>
     <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "6153c3a6dd54435780cd9d84f9f958f8"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
