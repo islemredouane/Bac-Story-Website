@@ -229,7 +229,7 @@ The Algerian Baccalaureate comprises six distinct academic streams:
 - News hub (أخبار البكالوريا 2027): https://www.bac-story.com/news
 - BAC 2027 registrations (تسجيلات بكالوريا 2027): https://www.bac-story.com/news/bac-2027-registration
   - Not announced by the Ministry of National Education yet; expected to open Tuesday 17 November 2026. The 2026 session ran 18 November to 17 December 2025, with a data review from 26 January to 9 February 2026.
-  - Schooled students are registered by their school principal (1,500 DZD); free candidates register on bac.onec.dz and pay 3,000 to 20,000 DZD by attempt number, online only with the Algérie Poste Edahabia card.
+  - Schooled students are registered by their school principal; free candidates register on bac.onec.dz and pay online only with the Algérie Poste Edahabia card. Fees depend on status and attempt number: see the fee calculator https://www.bac-story.com/tools/free-candidate-fees
 
 - Reform Guide URL: https://www.bac-story.com/bac-2027-curriculum-changes
 - Official Ministry Decision (Decision No. 36, 9 September 2026):
