@@ -22,64 +22,84 @@
         <!-- Menu on the right -->
         <div id="navLinks" class="nav-links">
             <button id="menuClose" class="menu-close" aria-label="Close menu">&times;</button>
-            <div class="dropdown">
-                <a class="dropdown-btn" href="/resources/math">الشعبة</a>
+            <div class="dropdown dropdown--mega">
+                <a class="dropdown-btn" href="/resources">الدروس والملخصات</a>
                 <div class="dropdown-content">
-                    <a href="/resources/math">شعبة رياضيات</a>
-                    <a href="/resources/sci">شعبة علوم تجريبية</a>
-                    <a href="/resources/tech">شعبة تقني رياضي</a>
-                    <a href="/resources/ge">شعبة تسيير و اقتصاد</a>
-                    <a href="/resources/lp">شعبة آداب و فلسفة</a>
-                    <a href="/resources/le">شعبة لغات أجنبية</a>
+                    <div class="mega-col mega-col--grid">
+                        <p class="mega-title">اختر شعبتك</p>
+                        <a href="/resources/math"><i class="fas fa-square-root-variable" aria-hidden="true"></i><span>رياضيات</span></a>
+                        <a href="/resources/sci"><i class="fas fa-flask" aria-hidden="true"></i><span>علوم تجريبية</span></a>
+                        <a href="/resources/tech"><i class="fas fa-gears" aria-hidden="true"></i><span>تقني رياضي</span></a>
+                        <a href="/resources/ge"><i class="fas fa-chart-line" aria-hidden="true"></i><span>تسيير واقتصاد</span></a>
+                        <a href="/resources/lp"><i class="fas fa-feather" aria-hidden="true"></i><span>آداب وفلسفة</span></a>
+                        <a href="/resources/le"><i class="fas fa-language" aria-hidden="true"></i><span>لغات أجنبية</span></a>
+                    </div>
+                    <div class="mega-col">
+                        <p class="mega-title">حسب النوع</p>
+                        <a href="/resources/resumes-exercises"><i class="fas fa-file-lines" aria-hidden="true"></i><span>ملخصات وتمارين</span></a>
+                        <a href="/resources/books"><i class="fas fa-book" aria-hidden="true"></i><span>كتب خارجية</span></a>
+                        <a href="/resources/drives"><i class="fas fa-folder-open" aria-hidden="true"></i><span>درايفات المتفوقين</span></a>
+                    </div>
+                    <a class="dropdown-all" href="/resources"><span>كل المصادر الدراسية</span><i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+                </div>
+            </div>
+            <div class="dropdown dropdown--mega">
+                <a class="dropdown-btn" href="/topics">البكالوريات و المواضيع</a>
+                <div class="dropdown-content">
+                    <div class="mega-col">
+                        <p class="mega-title">البكالوريا الرسمية</p>
+                        <a href="/bac-2026"><i class="fas fa-star" aria-hidden="true"></i><span>مواضيع و حلول بكالوريا 2026</span></a>
+                        <a href="/topics/bac-2025"><i class="fas fa-file-lines" aria-hidden="true"></i><span>مواضيع و حلول بكالوريا 2025</span></a>
+                        <a href="/topics/bac-2024"><i class="fas fa-file-lines" aria-hidden="true"></i><span>مواضيع و حلول بكالوريا 2024</span></a>
+                        <a href="/topics/bac-archives"><i class="fas fa-box-archive" aria-hidden="true"></i><span>بكالوريات 2008 – 2023</span></a>
+                    </div>
+                    <div class="mega-col">
+                        <p class="mega-title">تدرّب أكثر</p>
+                        <a href="/topics/excellence-topics"><i class="fas fa-trophy" aria-hidden="true"></i><span>مواضيع التميز</span></a>
+                        <a href="/topics/channel-exams"><i class="fas fa-pen-to-square" aria-hidden="true"></i><span>البكالوريات التجريبية</span></a>
+                        <a href="/topics/achbal-eloma"><i class="fas fa-shield-halved" aria-hidden="true"></i><span>مواضيع أشبال الأمة</span></a>
+                        <a href="/oqba"><i class="fas fa-layer-group" aria-hidden="true"></i><span>باقات عقبة بن نافع</span></a>
+                        <a href="/simulation"><i class="fas fa-stopwatch" aria-hidden="true"></i><span>محاكاة البكالوريا</span></a>
+                    </div>
+                    <a class="dropdown-all" href="/topics"><span>كل المواضيع</span><i class="fas fa-arrow-left" aria-hidden="true"></i></a>
                 </div>
             </div>
             <div class="dropdown">
-                <a class="dropdown-btn" href="/resources">المصادر الدراسية</a>
+                <a class="dropdown-btn" href="/plans">الخطط والتجارب</a>
                 <div class="dropdown-content">
-                    <a href="/news">أخبار البكالوريا</a>
-                    <a href="/experiences">تجارب المتفوقين</a>
-                    <a href="/resources/resumes-exercises">ملخصات و تمارين</a>
-                    <a href="/resources/books">كتب خارجية</a>
-                    <a href="/topics">إختبارات و مواضيع</a>
-                    <a href="/simulation">محاكاة البكالوريا</a>
-                    <a href="/resources/drives">درايفات المتفوقين</a>
-                    <a href="/oqba">باقات عقبة بن نافع</a>
+                    <a href="/plans/monthly"><i class="fas fa-calendar-days" aria-hidden="true"></i><span>الخطط الشهرية</span></a>
+                    <a href="/plans/subject-plans"><i class="fas fa-bullseye" aria-hidden="true"></i><span>خطط التميز للمواد</span></a>
+                    <a href="/plans/challenges"><i class="fas fa-fire" aria-hidden="true"></i><span>تحديات التميز</span></a>
+                    <a href="/experiences"><i class="fas fa-user-graduate" aria-hidden="true"></i><span>تجارب المتفوقين</span></a>
+                    <a class="dropdown-all" href="/plans"><span>كل الخطط</span><i class="fas fa-arrow-left" aria-hidden="true"></i></a>
                 </div>
             </div>
             <div class="dropdown">
-                <a class="dropdown-btn" href="/plans">الخطط و التحديات</a>
+                <a class="dropdown-btn" href="/tools">الأدوات</a>
                 <div class="dropdown-content">
-                    <a href="/plans/monthly">الخطط الشهرية</a>
-                    <a href="/plans/subject-plans">خطط التميز للمواد</a>
-                    <a href="/plans/challenges">تحديات التميز</a>
+                    <a href="/tools/countdown"><i class="fas fa-hourglass-half" aria-hidden="true"></i><span>الوقت المتبقي للبكالوريا</span></a>
+                    <a href="/tools/calculator"><i class="fas fa-calculator" aria-hidden="true"></i><span>حساب معدل البكالوريا</span></a>
+                    <a href="/tools/weighted-calc"><i class="fas fa-percent" aria-hidden="true"></i><span>حساب المعدل الموزون</span></a>
+                    <a href="/tools/free-candidate-fees"><i class="fas fa-receipt" aria-hidden="true"></i><span>حقوق تسجيل الأحرار</span></a>
+                    <a href="/tools/exam-sheet"><i class="fas fa-file-pen" aria-hidden="true"></i><span>ورقة الإجابة في البكالوريا</span></a>
+                    <a class="dropdown-all" href="/tools"><span>كل الأدوات</span><i class="fas fa-arrow-left" aria-hidden="true"></i></a>
                 </div>
             </div>
-             <div class="dropdown">
-                <a class="dropdown-btn" href="/contribute">ساهم معنا</a>
+            <div class="dropdown dropdown--end">
+                <a class="dropdown-btn" href="/university">الجامعة</a>
                 <div class="dropdown-content">
-                    <a href="/feedback">قيِّم الموقع</a>
-                    <a href="/contribute">ساهم في الموقع</a>
+                    <a href="/university"><i class="fas fa-landmark" aria-hidden="true"></i><span>النظام الجامعي</span></a>
+                    <a href="/university/ministry-guide"><i class="fas fa-book-open" aria-hidden="true"></i><span>الدليل الوزاري للتخصصات</span></a>
+                    <a href="/university/military-guide"><i class="fas fa-shield-halved" aria-hidden="true"></i><span>دليل التجنيد العسكري</span></a>
+                    <a href="/university/specialities"><i class="fas fa-compass" aria-hidden="true"></i><span>تعريف التخصصات</span></a>
+                    <a href="/university/averages-of-acceptance"><i class="fas fa-chart-line" aria-hidden="true"></i><span>معدلات القبول 2026</span></a>
                 </div>
             </div>
-            <div class="dropdown">
-                <a class="dropdown-btn" href="/tools">ملحقات البكالوريا</a>
-                <div class="dropdown-content">
-                    <a href="/tools/countdown">الوقت المتبقي للبكالوريا</a>
-                    <a href="/tools/calculator">حساب معدل البكالوريا</a>
-                    <a href="/tools/weighted-calc">حساب المعدل الموزون</a>
-                    <a href="/tools/exam-sheet">ورقة الإجابة في البكالوريا</a>
-                    <a href="/tools/free-candidate-fees">حقوق تسجيل الأحرار</a>
-                </div>
-            </div>
-            <div class="dropdown">
-                <a class="dropdown-btn" href="/university">دليل الجامعة</a>
-                <div class="dropdown-content">
-                    <a href="/university">النظام الجامعي</a>
-                    <a href="/university/ministry-guide">الدليل الوزاري للتخصصات</a>
-                    <a href="/university/military-guide">دليل التجنيد العسكري</a>
-                    <a href="/university/specialities">تعريف التخصصات</a>
-                    <a href="/university/averages-of-acceptance">معدلات القبول 2026</a>
-                </div>
+            <a class="nav-direct" href="/news"><i class="fas fa-newspaper" aria-hidden="true"></i><span>الأخبار</span></a>
+
+            <div class="nav-utility">
+                <a href="/contribute"><i class="fas fa-hand-holding-heart" aria-hidden="true"></i><span>ساهم معنا</span></a>
+                <a href="/feedback"><i class="fas fa-comment-dots" aria-hidden="true"></i><span>قيِّم الموقع</span></a>
             </div>
 
             <!-- Mobile Menu Footer -->

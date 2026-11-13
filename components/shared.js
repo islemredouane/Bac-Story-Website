@@ -65,8 +65,8 @@ setTimeout(function () {
 // ─── COMPONENT INJECTOR ───────────────────────────────────────────────────────
 // Component URLs (?v= is set by scripts/stamp-versions.py). They are requested as soon as this
 // script runs, in parallel, so the navbar/footer/search are usually ready by DOMContentLoaded.
-const _NAVBAR_URL = '/components/navbar?v=86cd9bf666';
-const _FOOTER_URL = '/components/footer?v=2143fc87f1';
+const _NAVBAR_URL = '/components/navbar?v=d651014d58';
+const _FOOTER_URL = '/components/footer?v=6cdd7a19f0';
 const _SEARCH_URL = '/components/search?v=307da03145';
 const _componentFetches = {};
 
@@ -339,6 +339,16 @@ function setupMobileMenu() {
             a.classList.toggle('active', on);
             if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
         });
+        // Highlight the top menu that holds the current page (longest matching link wins)
+        let best = null, bestLen = 0;
+        document.querySelectorAll('#navLinks > .dropdown, #navLinks > a.nav-direct').forEach((item) => {
+            const links = item.matches('a') ? [item] : item.querySelectorAll('a');
+            links.forEach((a) => {
+                const h = norm(a.getAttribute('href'));
+                if (h !== '/' && (here === h || here.indexOf(h + '/') === 0) && h.length > bestLen) { best = item; bestLen = h.length; }
+            });
+        });
+        if (best) best.classList.add('is-current');
     } catch (e) {}
     const hamburger = document.getElementById('hamburger');
     const bottomMenuBtn = document.getElementById('bottomMenuBtn');
@@ -519,11 +529,8 @@ if (typeof window.showSection === 'undefined') {
     };
 }
 
-// ─── POPUP MODAL SYSTEM (Sponsored Ad & Experiences Handshake) ─────────────
-const BMA_POPUP_KEY = 'bs_seen_bma_popup_ts_v1';
-const BMA_POPUP_HIDE_MS = 24 * 60 * 60 * 1000; // 24 hours (86400000 ms)
-
-const EXP_POPUP_KEY = 'bs_seen_experiences_announce_2026_v13';
+// ─── POPUP MODAL SYSTEM (Experiences / Telegram announcement) ─────────────
+const EXP_POPUP_KEY = 'bs_seen_study_advice_announce_2026_v14';
 const EXP_POPUP_HIDE_MS = 24 * 60 * 60 * 1000; // 24 hours (86400000 ms)
 
 function mountAnnouncementModal(htmlContent, storageKey) {
@@ -564,7 +571,7 @@ function mountAnnouncementModal(htmlContent, storageKey) {
     const closeBtn = overlay.querySelector('.announcement-modal-close');
     if (closeBtn) closeBtn.addEventListener('click', dismissModal);
 
-    overlay.querySelectorAll('.bma-popup-btn-tg, .bma-popup-btn-ig, .card-cta-web, .card-cta-telegram').forEach(btn => {
+    overlay.querySelectorAll('.card-cta-web, .card-cta-telegram').forEach(btn => {
         btn.addEventListener('click', dismissModal);
     });
 
@@ -591,109 +598,8 @@ function showBac2026AnnouncementModal() {
     // 2. Blacklisted routes check
     if (location.pathname.replace(/\/$/, '').endsWith('/feedback')) return;
 
-    // 3. Sync with ads-config.js — check if BMA Sponsored Ad is enabled
-    let isBmaActive = true;
-    if (window.BAC_ADS && Array.isArray(window.BAC_ADS.rotatingCards)) {
-        const bmaAd = window.BAC_ADS.rotatingCards.find(c => c.id === 'card-bacmath-bma');
-        if (!bmaAd || bmaAd.active === false) isBmaActive = false;
-    } else {
-        isBmaActive = false;
-    }
-
-    // 4. Check if BMA ad is ready (Priority 1)
-    let shouldShowBma = false;
-    if (isBmaActive) {
-        try {
-            const raw = localStorage.getItem(BMA_POPUP_KEY);
-            if (!raw) {
-                shouldShowBma = true;
-            } else {
-                const lastSeen = parseInt(raw, 10);
-                if (isNaN(lastSeen) || (Date.now() - lastSeen) >= BMA_POPUP_HIDE_MS) {
-                    shouldShowBma = true;
-                }
-            }
-        } catch (e) {
-            shouldShowBma = false;
-        }
-    }
-
-    if (shouldShowBma) {
-        // Priority 1: Render BMA Math Sponsored Modal
-        const bmaHtml = `
-            <div class="bma-popup-card">
-                <button class="announcement-modal-close" aria-label="إغلاق">&times;</button>
-                
-                <!-- Sponsored Header Pill -->
-                <div class="welcome-badge-pill" style="background: linear-gradient(135deg, #ff6b1a, #e8420e); color: #fff; box-shadow: 0 4px 16px rgba(232,66,14,0.45); border: none; font-size: 0.78rem; padding: 4px 14px; margin-bottom: 0.6rem;">
-                    <i class="fas fa-bolt" style="color: #ffd700;"></i> إعلان مموّل · بكالوريا 2027
-                </div>
-
-                <!-- Brand Header -->
-                <div class="bma-popup-head">
-                    <div class="bma-popup-logo">
-                        <img src="/images/bma-logo.jpg" alt="BAC MATH WITH BMA">
-                    </div>
-                    <div style="flex: 1; min-width: 0;">
-                        <h3 class="bma-popup-title">دورة الرياضيات — BAC MATH WITH BMA</h3>
-                        <span class="bma-popup-sub">مسار تدريبي شامل للشعب العلمية + مسار الأولمبياد</span>
-                    </div>
-                </div>
-
-                <!-- Free Content / Live Sessions Alert Box (The Hook) -->
-                <div class="bma-popup-live">
-                    <span class="bma-popup-live-icon">
-                        <i class="fas fa-gift"></i>
-                    </span>
-                    <div style="flex: 1; min-width: 0;">
-                        <div class="bma-popup-live-title">
-                            <span class="bma-popup-live-text">🎁 ملخصات وحصص مجانية دورية</span>
-                            <span class="bma-popup-free-badge">متاح للجميع</span>
-                        </div>
-                        <div class="bma-popup-live-sub">سلاسل تمارين، ملخصات وبثوث مجانية على قناة التلغرام</div>
-                    </div>
-                </div>
-
-                <!-- 3-Tier System Mini Cards -->
-                <div class="bma-popup-tiers">
-                    <div class="bma-popup-tier" style="border-color: rgba(205, 127, 50, 0.4);">
-                        <div class="bma-popup-tier-name" style="color: #ffedd5; font-weight: 800;">🥉 Bronze</div>
-                        <div class="bma-popup-tier-desc" style="color: #fed7aa; font-weight: 700;">تثبيت الأساسيات</div>
-                    </div>
-                    <div class="bma-popup-tier" style="border-color: rgba(192, 192, 192, 0.4);">
-                        <div class="bma-popup-tier-name" style="color: #f8fafc; font-weight: 800;">🥈 Silver</div>
-                        <div class="bma-popup-tier-desc" style="color: #e2e8f0; font-weight: 700;">تطبيق نمط الباك</div>
-                    </div>
-                    <div class="bma-popup-tier" style="border-color: rgba(255, 215, 0, 0.4);">
-                        <div class="bma-popup-tier-name" style="color: #fef9c3; font-weight: 800;">🥇 Gold</div>
-                        <div class="bma-popup-tier-desc" style="color: #fef08a; font-weight: 700;">تحدي وتمارين أجنبية</div>
-                    </div>
-                </div>
-
-                <!-- Price & Specs Bar -->
-                <div class="bma-popup-pricebar">
-                    <span class="bma-popup-price-desc" style="color: #e0e7ff; font-weight: 700;">
-                        <i class="fas fa-check-circle" style="color: #4ade80;"></i> 4 حصص + تسجيلات + تصحيحات
-                    </span>
-                    <span class="bma-popup-price-tag" style="background: linear-gradient(135deg, #2563eb, #1d4ed8); color: #ffffff; font-weight: 900; border-radius: 20px; box-shadow: 0 4px 12px rgba(37,99,235,0.4); white-space: nowrap;">
-                        1500 دج / شهر
-                    </span>
-                </div>
-
-                <!-- CTA Buttons -->
-                <div style="display: flex; flex-direction: column; gap: 8px; width: 100%;">
-                    <a href="https://t.me/math_with_bma" target="_blank" rel="noopener noreferrer" class="bma-popup-btn-tg">
-                        <i class="fab fa-telegram-plane" style="font-size: 1.15rem;"></i> <span>انضم للتلغرام و احجز مقعدك</span>
-                    </a>
-                    <a href="https://www.instagram.com/bacmathwithbma?stkn=MTE0amc1NnJlOXR5bg==" target="_blank" rel="noopener noreferrer" class="bma-popup-btn-ig">
-                        <i class="fab fa-instagram" style="color: #fb7185; font-size: 1.05rem;"></i> <span>تواصل عبر الإنستغرام</span>
-                    </a>
-                </div>
-            </div>
-        `;
-        mountAnnouncementModal(bmaHtml, BMA_POPUP_KEY);
-    } else {
-        // Priority 2: During BMA 24h cooldown, show Experiences Announcement Modal
+    {
+        // Experiences / Telegram announcement, once every 24 hours
         let shouldShowExp = false;
         try {
             const rawExp = localStorage.getItem(EXP_POPUP_KEY);
@@ -714,16 +620,16 @@ function showBac2026AnnouncementModal() {
                 <div class="welcome-announcement-card modal-version">
                     <button class="announcement-modal-close" aria-label="إغلاق">&times;</button>
                     <div class="welcome-badge-pill" style="background: linear-gradient(135deg, #ff6b1a, #e8420e); color: #fff; box-shadow: 0 4px 14px rgba(232,66,14,0.35); border: none;">
-                        <i class="fas fa-star"></i> جديد القناة و المنصة
+                        <i class="fas fa-star"></i> جديد على قناتنا
                     </div>
-                    <h3>سلسلة تجارب المتفوقين</h3>
-                    <p style="margin-bottom: 1.2rem; line-height: 1.65; color: rgba(255, 255, 255, 0.95);">أطلقنا سلسلة جديدة وحصرية على قناتنا تحت عنوان «تجارب المتفوقين»، حيث نستضيف نخبة من الطلبة الحاصلين على تقدير امتياز (بمعدلات تفوق 18) من مختلف الشعب الدراسية.<br><br>هؤلاء المتفوقون سيشاركونك رحلتهم نحو النجاح ويقدمون لك نصائح ذهبية لتستفيد منها. تصفح التجارب الآن عبر الموقع أو تابعها عبر قناتنا على التلغرام!</p>
+                    <h3>كيف تدرس كل مادة؟<br>نصائح المتفوقين</h3>
+                    <p style="margin-bottom: 1.2rem; line-height: 1.65; color: rgba(255, 255, 255, 0.95);">طلبة متفوقون يشرحون لك مادةً بمادة كيف راجعوا للبكالوريا، الطريقة خطوة بخطوة والمصادر التي اعتمدوا عليها والأخطاء التي تُضيّع النقاط. انضم إلينا ولا تضيّع التوجيهات الثمينة.</p>
                     <div class="card-cta-group" style="display: flex; flex-direction: column; gap: 10px; width: 100%;">
-                        <a href="/experiences" class="card-cta-btn card-cta-web" style="display: inline-flex !important; align-items: center !important; justify-content: center !important; gap: 8px !important; width: 100% !important; font-size: 1.05rem !important; font-weight: 800 !important; padding: 13px 24px !important; background-color: #ffffff !important; background: #ffffff !important; color: #1a3c8d !important; border: 2px solid #ffffff !important; border-radius: 999px !important; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18) !important; text-decoration: none !important; cursor: pointer !important; box-sizing: border-box !important; transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease !important;" onmouseenter="this.style.setProperty('transform', 'translateY(-3px)', 'important'); this.style.setProperty('box-shadow', '0 12px 24px rgba(0,0,0,0.25)', 'important'); this.style.setProperty('background', '#f8fafc', 'important'); this.style.setProperty('background-color', '#f8fafc', 'important');" onmouseleave="this.style.setProperty('transform', 'translateY(0)', 'important'); this.style.setProperty('box-shadow', '0 6px 20px rgba(0,0,0,0.18)', 'important'); this.style.setProperty('background', '#ffffff', 'important'); this.style.setProperty('background-color', '#ffffff', 'important');">
-                            <i class="fas fa-medal" style="color: #ff6b35 !important; font-size: 1.1rem !important;"></i> <span style="color: #1a3c8d !important; font-weight: 800 !important;">تصفح التجارب على الموقع</span>
-                        </a>
                         <a href="https://t.me/islembacdz" target="_blank" rel="noopener noreferrer" class="card-cta-btn card-cta-telegram" style="display: inline-flex !important; align-items: center !important; justify-content: center !important; gap: 8px !important; width: 100% !important; font-size: 1.05rem !important; font-weight: 800 !important; padding: 13px 24px !important; background-color: #2AABEE !important; background: #2AABEE !important; color: #ffffff !important; border: none !important; border-radius: 999px !important; box-shadow: 0 6px 20px rgba(42, 171, 238, 0.4) !important; text-decoration: none !important; cursor: pointer !important; box-sizing: border-box !important; transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease !important;" onmouseenter="this.style.setProperty('transform', 'translateY(-3px)', 'important'); this.style.setProperty('box-shadow', '0 12px 24px rgba(42,171,238,0.55)', 'important'); this.style.setProperty('background', '#1a9adc', 'important'); this.style.setProperty('background-color', '#1a9adc', 'important');" onmouseleave="this.style.setProperty('transform', 'translateY(0)', 'important'); this.style.setProperty('box-shadow', '0 6px 20px rgba(42,171,238,0.4)', 'important'); this.style.setProperty('background', '#2AABEE', 'important'); this.style.setProperty('background-color', '#2AABEE', 'important');">
-                            <i class="fab fa-telegram-plane"></i> <span style="color: #ffffff !important; font-weight: 800 !important;">انضم إلينا على التلغرام</span>
+                            <i class="fab fa-telegram-plane"></i> <span style="color: #ffffff !important; font-weight: 800 !important;">تابع السلسلة على التلغرام</span>
+                        </a>
+                        <a href="/experiences" class="card-cta-btn card-cta-web" style="display: inline-flex !important; align-items: center !important; justify-content: center !important; gap: 8px !important; width: 100% !important; font-size: 1.05rem !important; font-weight: 800 !important; padding: 13px 24px !important; background-color: #ffffff !important; background: #ffffff !important; color: #1a3c8d !important; border: 2px solid #ffffff !important; border-radius: 999px !important; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18) !important; text-decoration: none !important; cursor: pointer !important; box-sizing: border-box !important; transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease !important;" onmouseenter="this.style.setProperty('transform', 'translateY(-3px)', 'important'); this.style.setProperty('box-shadow', '0 12px 24px rgba(0,0,0,0.25)', 'important'); this.style.setProperty('background', '#f8fafc', 'important'); this.style.setProperty('background-color', '#f8fafc', 'important');" onmouseleave="this.style.setProperty('transform', 'translateY(0)', 'important'); this.style.setProperty('box-shadow', '0 6px 20px rgba(0,0,0,0.18)', 'important'); this.style.setProperty('background', '#ffffff', 'important'); this.style.setProperty('background-color', '#ffffff', 'important');">
+                            <i class="fas fa-medal" style="color: #ff6b35 !important; font-size: 1.1rem !important;"></i> <span style="color: #1a3c8d !important; font-weight: 800 !important;">تصفّح تجارب المتفوقين</span>
                         </a>
                     </div>
                 </div>
@@ -1465,7 +1371,7 @@ async function bootPage() {
         hideLoader();
     }
 
-    // Show the BMA / experiences announcement popup (once every 24 hours) when the visitor starts
+    // Show the experiences announcement popup (once every 24 hours) when the visitor starts
     // scrolling, or after 10 s if they never scroll. It used to open 0.9 s after the loader: it
     // covered the page the visitor came for, and as the biggest thing on screen it became the
     // page's "Largest Contentful Paint" for Google (~6 s on mobile), which hurt the speed score.
