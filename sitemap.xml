@@ -1234,6 +1234,7 @@
   </url>
   <url>
     <loc>https://www.bac-story.com/resources/books/ge/philosophy/al-sami</loc>
+    <lastmod>2026-11-13</lastmod>
   </url>
   <url>
     <loc>https://www.bac-story.com/resources/books/ge/philosophy/hiba-djebabria</loc>
@@ -1409,6 +1410,7 @@
   </url>
   <url>
     <loc>https://www.bac-story.com/resources/books/le/philosophy/al-sami</loc>
+    <lastmod>2026-11-13</lastmod>
   </url>
   <url>
     <loc>https://www.bac-story.com/resources/books/le/philosophy/khalil-saidani</loc>
@@ -1556,6 +1558,7 @@
   </url>
   <url>
     <loc>https://www.bac-story.com/resources/books/lp/philosophy/al-sami</loc>
+    <lastmod>2026-11-13</lastmod>
   </url>
   <url>
     <loc>https://www.bac-story.com/resources/books/lp/philosophy/khalil-saidani</loc>
@@ -1707,6 +1710,7 @@
   </url>
   <url>
     <loc>https://www.bac-story.com/resources/books/math/philosophy/al-sami</loc>
+    <lastmod>2026-11-13</lastmod>
   </url>
   <url>
     <loc>https://www.bac-story.com/resources/books/math/philosophy/hiba-djebabria</loc>
@@ -1950,6 +1954,7 @@
   </url>
   <url>
     <loc>https://www.bac-story.com/resources/books/sci/philosophy/al-sami</loc>
+    <lastmod>2026-11-13</lastmod>
   </url>
   <url>
     <loc>https://www.bac-story.com/resources/books/sci/philosophy/hiba-djebabria</loc>
@@ -2181,6 +2186,7 @@
   </url>
   <url>
     <loc>https://www.bac-story.com/resources/books/tech/philosophy/al-sami</loc>
+    <lastmod>2026-11-13</lastmod>
   </url>
   <url>
     <loc>https://www.bac-story.com/resources/books/tech/philosophy/hiba-djebabria</loc>
@@ -2241,6 +2247,9 @@
   <url>
     <loc>https://www.bac-story.com/resources/books/tech/road</loc>
     <lastmod>2026-11-13</lastmod>
+  </url>
+  <url>
+    <loc>https://www.bac-story.com/resources/books/tech/road/al-wadih</loc>
   </url>
   <url>
     <loc>https://www.bac-story.com/resources/books/tech/road/book-15odr8j5</loc>
