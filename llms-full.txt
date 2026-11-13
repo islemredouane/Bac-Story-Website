@@ -261,6 +261,8 @@ The Algerian Baccalaureate comprises six distinct academic streams:
      - Organization Guide: https://www.bac-story.com/tools/exam-sheet/exam-sheet-organization
      - Green Edition Template: https://www.bac-story.com/tools/exam-sheet/exam-sheet-green-version
      - Semester Edition Template: https://www.bac-story.com/tools/exam-sheet/trimestrial-exam-sheet
+   - Free-Candidate Registration Fees Calculator (حاسبة حقوق تسجيل المترشحين الأحرار): https://www.bac-story.com/tools/free-candidate-fees
+     - Functionality: Shows the BAC registration fee a free candidate pays under the grid in force since the 2026 session: candidates without the BAC pay 3,000 DZD for the 1st or 2nd attempt, 5,000 for the 3rd, 10,000 for the 4th and 20,000 from the 5th; BAC holders retaking it pay 5,000 for the 2nd attempt, 10,000 for the 3rd and 20,000 from the 4th. Payment is online only with the Algérie Poste Edahabia card on bac.onec.dz.
 
 6. **Interactive Exam Simulation (محاكاة امتحان البكالوريا)**
    - URL: https://www.bac-story.com/simulation
