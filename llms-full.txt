@@ -232,10 +232,11 @@ The Algerian Baccalaureate comprises six distinct academic streams:
   - Schooled students are registered by their school principal (1,500 DZD); free candidates register on bac.onec.dz and pay 3,000 to 20,000 DZD by attempt number, online only with the Algérie Poste Edahabia card.
 
 - Reform Guide URL: https://www.bac-story.com/bac-2027-curriculum-changes
-- Official Ministry Framework:
-  - Re-alignment of subject coefficients to emphasize stream specializations.
-  - Introduction of specialized pedagogical progressions across all streams.
-  - Updates to examination assessment matrices and question styling.
+- Official Ministry Decision (Decision No. 36, 9 September 2026):
+  - The Ministry of National Education **cancelled all previously announced Baccalaureate 2027 curriculum changes**.
+  - The planned modifications (new coefficients, subject removals, stream rename from "تقني رياضي" to "هندسة") were revoked.
+  - Decision No. 186 of 23 March 2006 (timetables and coefficients) remains fully in force for all streams.
+  - The 2027 Baccalaureate proceeds under the same programmes and coefficients as 2026.
 
 ---
 
