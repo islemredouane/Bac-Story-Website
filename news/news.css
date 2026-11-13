@@ -139,8 +139,8 @@
 .nw-btn--light:hover { transform: translateY(-2px); color: #1a3a8f; }
 .nw-btn--primary { background: linear-gradient(135deg, #1a3a8f, #2c5cc5); color: #fff; box-shadow: 0 8px 20px rgba(44,92,197,0.25); }
 .nw-btn--primary:hover { transform: translateY(-2px); color: #fff; }
-.nw-btn--ghost { background: rgba(44,92,197,0.07); color: #1a3a8f; border: 1px solid rgba(44,92,197,0.18); }
-.nw-btn--ghost:hover { background: rgba(44,92,197,0.12); color: #1a3a8f; }
+.nw-btn--ghost { background: transparent; color: #1a3a8f; border: 2px solid #2c5cc5; }
+.nw-btn--ghost:hover { background: rgba(44,92,197,0.07); color: #1a3a8f; transform: translateY(-2px); }
 .nw-btn:focus-visible, .nw-item:focus-visible, .nw-feature:focus-visible { outline: 3px solid #ff6b35; outline-offset: 3px; }
 
 /* ── Timeline (2026 session, in order) ── */
