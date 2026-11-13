@@ -56,6 +56,7 @@ The platform is founded and operated by Redouane Mohamed Islem and is accessible
   - [هندسة الطرائق — تمارين وسلاسل محلولة](https://www.bac-story.com/resources/tech/road-engineering/exercises)
   - [هندسة الطرائق — بنك الفروض المحلولة](https://www.bac-story.com/resources/tech/road-engineering/foroud)
   - [هندسة الطرائق — اختبارات ومواضيع التميز](https://www.bac-story.com/resources/tech/road-engineering/preparation)
+  - [هندسة الطرائق — الكتب الخارجية: الآلاء، ملخص هندسة الطرائق، المغني، سلسلة الواضح](https://www.bac-story.com/resources/books/tech/road)
 - [شعبة تسيير واقتصاد](https://www.bac-story.com/resources/ge): Accounting, financial management, economics, management, and commercial law resources.
 - [شعبة آداب وفلسفة](https://www.bac-story.com/resources/lp): Philosophy essay methodologies, Arabic literature, history, geography, and languages.
 - [شعبة لغات أجنبية](https://www.bac-story.com/resources/le): French, English, Spanish, German, and Italian learning tracks.

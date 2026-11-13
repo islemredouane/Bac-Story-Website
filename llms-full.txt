@@ -50,6 +50,7 @@ The Algerian Baccalaureate comprises six distinct academic streams:
      - Solved Exercises: https://www.bac-story.com/resources/tech/road-engineering/exercises
      - Term Tests (Foroud): https://www.bac-story.com/resources/tech/road-engineering/foroud (Term 1: /foroud/term-1, Term 2: /foroud/term-2, Term 3: /foroud/term-3)
      - Preparation & Term Exams: https://www.bac-story.com/resources/tech/road-engineering/preparation (Term 1: /preparation/term-1, Term 2: /preparation/term-2, Experimental: /preparation/experimental)
+     - External Books (PDF, free): https://www.bac-story.com/resources/books/tech/road (الآلاء في هندسة الطرائق, ملخص هندسة الطرائق, المغني في هندسة الطرائق: /resources/books/tech/road/book-1xlo7voa, سلسلة الواضح في هندسة الطرائق: /resources/books/tech/road/al-wadih)
 - Core URL: https://www.bac-story.com/resources/tech
 
 ### 4. Management & Economics Stream (شعبة تسيير واقتصاد)
