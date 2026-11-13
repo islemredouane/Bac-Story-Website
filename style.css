@@ -12003,329 +12003,8 @@ a.spec-detail-btn {
     }
 }
 
-/* ── BMA Sponsored Popup Modal (Ultra Responsive) ── */
-.bma-popup-card {
-    background: linear-gradient(145deg, #102a6b 0%, #1a3c8d 55%, #2563eb 100%);
-    border: 1.5px solid rgba(255, 255, 255, 0.25);
-    box-shadow: 0 25px 60px rgba(16, 42, 107, 0.65);
-    padding: 1.5rem 1.4rem;
-    border-radius: 22px;
-    max-width: 535px;
-    width: 100%;
-    margin: auto;
-    position: relative;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    color: #fff;
-    max-height: calc(100vh - 32px);
-    overflow-y: auto;
-    direction: rtl;
-    animation: modalScaleUp 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
-}
-
-.bma-popup-card::-webkit-scrollbar {
-    width: 4px;
-}
-.bma-popup-card::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 4px;
-}
-
-.bma-popup-head {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    margin: 0.2rem 0 0.8rem;
-    width: 100%;
-    text-align: right;
-}
-
-.bma-popup-logo {
-    width: 52px;
-    height: 52px;
-    border-radius: 14px;
-    overflow: hidden;
-    background: #fff;
-    border: 2px solid #60a5fa;
-    box-shadow: 0 0 16px rgba(96, 165, 250, 0.35);
-    flex-shrink: 0;
-}
-.bma-popup-logo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-.bma-popup-title {
-    margin: 0;
-    font-size: 1.22rem;
-    font-weight: 900;
-    color: #fff;
-    line-height: 1.25;
-    font-family: 'Tajawal', sans-serif;
-}
-
-.bma-popup-sub {
-    font-size: 0.8rem;
-    color: #93c5fd;
-    font-weight: 700;
-    display: block;
-    margin-top: 3px;
-    line-height: 1.35;
-}
-
-.bma-popup-live {
-    background: linear-gradient(135deg, rgba(239, 68, 68, 0.25), rgba(220, 38, 38, 0.15));
-    border: 1.5px solid rgba(248, 113, 113, 0.4);
-    border-radius: 12px;
-    padding: 8px 12px;
-    margin-bottom: 0.8rem;
-    width: 100%;
-    box-sizing: border-box;
-    text-align: right;
-    display: flex;
-    align-items: center;
-    gap: 9px;
-}
-
-.bma-popup-live-icon {
-    background: #ef4444;
-    color: #fff;
-    width: 30px;
-    height: 30px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.85rem;
-    flex-shrink: 0;
-    animation: pulseGlow 1.5s infinite alternate;
-}
-
-.bma-popup-live-title {
-    color: #fecaca;
-    font-weight: 800;
-    font-size: 0.88rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 6px;
-    width: 100%;
-}
-
-.bma-popup-live-text {
-    white-space: nowrap;
-    font-weight: 800;
-}
-
-.bma-popup-free-badge {
-    background: linear-gradient(135deg, #10b981, #059669);
-    color: #ffffff;
-    font-size: 0.72rem;
-    padding: 2px 8px;
-    border-radius: 999px;
-    font-weight: 900;
-    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.4);
-    white-space: nowrap;
-    flex-shrink: 0;
-}
-
-.bma-popup-live-sub {
-    color: #ffffff;
-    font-weight: 700;
-    font-size: 0.8rem;
-    margin-top: 2px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.bma-popup-tiers {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 6px;
-    width: 100%;
-    margin-bottom: 0.8rem;
-    box-sizing: border-box;
-}
-
-.bma-popup-tier {
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 10px;
-    padding: 6px 4px;
-    text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.bma-popup-pricebar {
-    background: rgba(0, 0, 0, 0.25);
-    border: 1.5px dashed rgba(255, 255, 255, 0.3);
-    border-radius: 12px;
-    padding: 8px 14px;
-    margin-bottom: 0.95rem;
-    width: 100%;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
-}
-
-.bma-popup-price-desc {
-    color: #e0e7ff;
-    font-weight: 700;
-    font-size: 0.85rem;
-    flex: 1;
-    text-align: right;
-    white-space: nowrap;
-}
-
-.bma-popup-price-tag {
-    background: linear-gradient(135deg, #2563eb, #1d4ed8);
-    color: #ffffff;
-    font-family: 'Tajawal', sans-serif;
-    font-size: 0.92rem;
-    font-weight: 900;
-    padding: 5px 16px;
-    border-radius: 999px;
-    box-shadow: 0 4px 14px rgba(37,99,235,0.45);
-    white-space: nowrap;
-    flex-shrink: 0;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.bma-popup-btn-tg {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 7px !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-    font-size: 0.95rem !important;
-    font-weight: 800 !important;
-    padding: 11px 14px !important;
-    background: #2AABEE !important;
-    color: #ffffff !important;
-    border: none !important;
-    border-radius: 999px !important;
-    box-shadow: 0 6px 20px rgba(42, 171, 238, 0.45) !important;
-    text-decoration: none !important;
-    cursor: pointer !important;
-    white-space: nowrap !important;
-    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
-}
-.bma-popup-btn-tg:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 26px rgba(42, 171, 238, 0.6) !important;
-}
-.bma-popup-btn-tg span,
-.bma-popup-btn-ig span {
-    white-space: nowrap !important;
-}
-
-.bma-popup-btn-ig {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 7px !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-    font-size: 0.88rem !important;
-    font-weight: 800 !important;
-    padding: 9px 14px !important;
-    background: rgba(255, 255, 255, 0.12) !important;
-    color: #ffffff !important;
-    border: 1.5px solid rgba(255, 255, 255, 0.3) !important;
-    border-radius: 999px !important;
-    text-decoration: none !important;
-    cursor: pointer !important;
-    backdrop-filter: blur(8px) !important;
-    white-space: nowrap !important;
-    transition: all 0.2s ease !important;
-}
-.bma-popup-btn-ig:hover {
-    background: rgba(255, 255, 255, 0.2) !important;
-    border-color: rgba(255, 255, 255, 0.5) !important;
-    transform: translateY(-2px);
-}
-
+/* Popup close button on small phones */
 @media (max-width: 480px) {
-    .bma-popup-card {
-        padding: 1.15rem 0.85rem;
-        border-radius: 18px;
-        max-width: 96vw;
-    }
-    .bma-popup-logo {
-        width: 44px;
-        height: 44px;
-        border-radius: 10px;
-    }
-    .bma-popup-title {
-        font-size: 1.02rem;
-    }
-    .bma-popup-sub {
-        font-size: 0.72rem;
-    }
-    .bma-popup-live {
-        padding: 6px 10px;
-        gap: 7px;
-    }
-    .bma-popup-live-title {
-        font-size: clamp(0.70rem, 3.1vw, 0.80rem);
-    }
-    .bma-popup-live-text {
-        white-space: nowrap;
-    }
-    .bma-popup-free-badge {
-        font-size: 0.68rem;
-        padding: 2px 6px;
-    }
-    .bma-popup-live-sub {
-        font-size: 0.74rem;
-        white-space: nowrap;
-    }
-    .bma-popup-tier {
-        padding: 5px 2px;
-    }
-    .bma-popup-tier-name {
-        font-size: 0.75rem;
-    }
-    .bma-popup-tier-desc {
-        font-size: 0.68rem;
-    }
-    .bma-popup-pricebar {
-        padding: 6px 9px;
-    }
-    .bma-popup-price-desc {
-        font-size: 0.72rem;
-    }
-    .bma-popup-price-tag {
-        font-size: 0.8rem;
-        padding: 2px 8px;
-    }
-    .bma-popup-btn-tg {
-        font-size: clamp(0.72rem, 3.2vw, 0.84rem) !important;
-        padding: 9px 8px !important;
-        gap: 6px !important;
-        white-space: nowrap !important;
-    }
-    .bma-popup-btn-tg i {
-        font-size: 1rem !important;
-        flex-shrink: 0;
-    }
-    .bma-popup-btn-ig {
-        font-size: clamp(0.70rem, 3.0vw, 0.80rem) !important;
-        padding: 8px 8px !important;
-        gap: 6px !important;
-        white-space: nowrap !important;
-    }
     .announcement-modal-close {
         top: 8px !important;
         left: 8px !important;
@@ -13863,4 +13542,124 @@ button, a.main-btn, a.spec-detail-btn, .modern-cta-btn, .spec-nav-btn, .gcta-btn
     .footer-arabic .footer-links li {
         margin-bottom: 0.35rem;
     }
+}
+
+/* ============================================================
+   NAVBAR v2: menus grouped by what the student wants to do.
+   Icon rows, two-column panels (.dropdown--mega), a direct News
+   link (.nav-direct) and utility links at the end of the mobile menu.
+   ============================================================ */
+.nav-direct i,
+.nav-utility { display: none; }
+
+.dropdown-content a { display: flex; align-items: center; gap: 10px; height: auto; min-height: 44px; }
+.dropdown-content a i {
+    width: 32px; height: 32px; flex: 0 0 auto; display: grid; place-items: center;
+    border-radius: 10px; background: rgba(44, 92, 197, 0.08); color: #2c5cc5; font-size: 0.85rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+.dropdown-content a:hover i { background: rgba(255, 255, 255, 0.2); color: #fff; }
+.mega-title { margin: 0; font-size: 0.76rem; font-weight: 800; color: #64748b; letter-spacing: 0; }
+.dropdown-content a.dropdown-all { justify-content: space-between; color: #2c5cc5; font-weight: 800; }
+.dropdown-content a.dropdown-all i { background: none; width: auto; height: auto; color: inherit; }
+.dropdown.is-current > .dropdown-btn,
+.nav-links > a.nav-direct.is-current { background-color: rgba(255, 255, 255, 0.16); }
+.dropdown-content a.dropdown-all:hover,
+.dropdown-content a.dropdown-all:active { color: #fff; }
+.dropdown-content a.dropdown-all:hover i,
+.dropdown-content a.dropdown-all:active i { color: #fff; }
+
+@media (min-width: 1101px) {
+    .dropdown-content {
+        min-width: 260px; padding: 8px; border-radius: 18px;
+        border: 1px solid rgba(44, 92, 197, 0.1); box-shadow: 0 18px 44px rgba(15, 23, 42, 0.16);
+    }
+    .dropdown:hover .dropdown-content,
+    .dropdown:focus-within .dropdown-content { display: block; }
+    .dropdown-content a { padding: 0.5rem 0.7rem; font-size: 0.95rem; font-weight: 600; border-radius: 10px; }
+    .dropdown-content a.dropdown-all { margin-top: 6px; padding-top: 0.7rem; padding-bottom: 0.7rem; border-top: 1px solid rgba(44, 92, 197, 0.1); border-radius: 0 0 10px 10px; }
+    .dropdown--mega:hover .dropdown-content,
+    .dropdown--mega:focus-within .dropdown-content {
+        display: grid; width: max-content; grid-template-columns: repeat(2, minmax(230px, max-content)); gap: 0 14px; padding: 14px 14px 8px;
+    }
+    .mega-title { padding: 0.2rem 0.7rem 0.5rem; }
+    .nav-brand a { white-space: nowrap; }
+    .dropdown--end .dropdown-content { right: auto; left: 0; }
+    .dropdown--mega .dropdown-all { grid-column: 1 / -1; }
+    .dropdown.is-current > .dropdown-btn:hover,
+    .nav-links > a.nav-direct.is-current:hover { background-color: #fff; }
+}
+
+@media (max-width: 1100px) {
+    .dropdown-content { width: 100%; }
+    .mega-col--grid a { min-width: 0; }
+    .nav-links > a.nav-direct { justify-content: flex-start; gap: 0.7rem; }
+    .nav-direct i { display: inline-block; width: 22px; text-align: center; opacity: 0.85; }
+    .dropdown-content a { justify-content: flex-start; padding: 0.55rem 0.6rem; font-size: 0.98rem; white-space: normal; text-align: right; }
+    .dropdown-content a:hover i,
+    .dropdown-content a:active i { background: rgba(255, 255, 255, 0.2); color: #fff; }
+    .mega-title { padding: 0.5rem 0.6rem 0.35rem; }
+    .mega-col + .mega-col { margin-top: 0.3rem; padding-top: 0.3rem; border-top: 1px solid rgba(44, 92, 197, 0.1); }
+    .mega-col--grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 6px; }
+    .mega-col--grid .mega-title { grid-column: 1 / -1; }
+    .dropdown-content a.dropdown-all { margin: 0.3rem 0 0; padding: 0.75rem 0.6rem; border-top: 1px solid rgba(44, 92, 197, 0.1); border-radius: 0 0 8px 8px; }
+    .nav-utility {
+        display: flex; gap: 0.6rem; width: 100%; margin-top: 0.6rem; padding-top: 0.9rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.16); position: relative; z-index: 1;
+    }
+    .nav-utility a {
+        flex: 1 1 0; display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 46px;
+        padding: 0.6rem; border-radius: 12px; background: rgba(255, 255, 255, 0.1); font-size: 0.92rem; font-weight: 700;
+    }
+    .nav-utility a:hover, .nav-utility a:active { background: rgba(255, 255, 255, 0.18); }
+    .nav-utility ~ .mobile-menu-footer { border-top: 0; }
+}
+
+/* Phone menu top-level items: no clipped side bar, hover only where hover exists, arrow flips up when open */
+@media (max-width: 1100px) {
+    .nav-links > a:hover,
+    .nav-links > a:active,
+    .dropdown-btn:hover,
+    .dropdown-btn:active {
+        border-right: 0;
+        padding-right: 1rem;
+        background: transparent;
+    }
+    .nav-links > a:active,
+    .dropdown-btn:active { background: rgba(255, 255, 255, 0.1); }
+    @media (hover: hover) {
+        .nav-links > a:hover,
+        .dropdown-btn:hover { background: rgba(255, 255, 255, 0.1); }
+    }
+    .dropdown.active > .dropdown-btn { background: rgba(255, 255, 255, 0.16); }
+    .dropdown.active > .dropdown-btn::after { transform: rotate(180deg); color: #fff; }
+    .dropdown.is-current > .dropdown-btn,
+    .nav-links > a.nav-direct.is-current { box-shadow: inset -3px 0 0 #ff8f5e; }
+}
+
+/* Full-page phone menu. The global ".active { width: 90%; margin: 2rem auto }"
+   (meant for .resource-content) also matched the open menu and its open group:
+   it shrank the menu to a 90% panel on tablets and pushed it down from the top. */
+@media (max-width: 1100px) {
+    .nav-links,
+    .nav-links.active {
+        width: 100% !important;
+        max-width: none !important;
+        margin: 0 !important;
+        inset: 0 0 auto 0;
+        height: 100vh;
+        height: 100dvh;
+        padding: calc(4.5rem + env(safe-area-inset-top, 0px)) max(1.25rem, calc((100% - 680px) / 2), env(safe-area-inset-right, 0px)) calc(2rem + env(safe-area-inset-bottom, 0px)) max(1.25rem, calc((100% - 680px) / 2), env(safe-area-inset-left, 0px));
+    }
+    .nav-links .dropdown.active {
+        width: 100% !important;
+        margin: 0 !important;
+    }
+    .menu-close {
+        top: calc(1rem + env(safe-area-inset-top, 0px));
+        left: max(1rem, calc((100% - 680px) / 2 - 0.25rem));
+    }
+}
+@media (max-width: 420px) {
+    .mega-col--grid { grid-template-columns: 1fr; }
 }
