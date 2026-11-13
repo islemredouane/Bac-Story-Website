@@ -105,20 +105,19 @@
 .fcf-hero-points span { display: block; font-size: 0.88rem; line-height: 1.7; color: rgba(255,255,255,0.78); }
 
 /* ── Calculator layout ── */
-.fcf-calc { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 1.6rem; align-items: start; margin-bottom: 2.6rem; }
-.fcf-card {
-    background: #fff; border: 1.5px solid rgba(44,92,197,0.1); border-radius: 24px;
-    box-shadow: 0 10px 34px rgba(26,58,143,0.07); padding: 2rem;
-}
+.fcf-calc { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.6rem; align-items: stretch; margin-bottom: 3rem; }
+.fcf-card { background: radial-gradient(circle at 10% 15%, rgba(44,92,195,0.05) 0%, transparent 55%), rgba(255,255,255,0.92); -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); border: 1.5px solid rgba(44,92,195,0.09); border-radius: 22px; box-shadow: 0 6px 28px rgba(44,92,195,0.07), 0 2px 6px rgba(0,0,0,0.03); padding: 1.9rem 1.8rem 1.7rem; display: flex; flex-direction: column; }
+.fcf-card-note { margin-top: auto; padding-top: 1.4rem; display: flex; gap: 10px; align-items: flex-start; font-size: 0.86rem; line-height: 1.8; color: #64748b; }
+.fcf-card-note i { color: #2c5cc5; margin-top: 4px; }
 .fcf-step { border: 0; margin: 0; padding: 0; min-width: 0; }
-.fcf-step + .fcf-step { margin-top: 1.9rem; padding-top: 1.7rem; border-top: 1px dashed rgba(44,92,197,0.18); }
+.fcf-step + .fcf-step { margin-top: 1.9rem; padding-top: 1.7rem; border-top: 1px dashed rgba(44,92,195,0.18); }
 .fcf-step legend { display: flex; align-items: center; gap: 11px; padding: 0; margin-bottom: 1rem; float: right; width: 100%; font-size: 1.12rem; font-weight: 900; color: #1a3a8f; }
 .fcf-step-num {
     width: 32px; height: 32px; flex: none; display: grid; place-items: center; border-radius: 10px;
     background: linear-gradient(135deg, #1a3a8f, #2c5cc5); color: #fff; font-size: 0.95rem; font-weight: 900;
 }
 .fcf-step legend + * { clear: both; }
-.fcf-hint { margin: -0.45rem 0 1rem; font-size: 0.9rem; line-height: 1.8; color: #5b6478; }
+.fcf-hint { margin: -0.45rem 0 1rem; font-size: 0.9rem; line-height: 1.8; color: #64748b; }
 
 /* status cards */
 .fcf-status { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
@@ -126,18 +125,18 @@
 .fcf-opt input { position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none; }
 .fcf-opt-box {
     height: 100%; display: flex; align-items: flex-start; gap: 13px; padding: 1.1rem 1.1rem 1.15rem;
-    border: 1.5px solid rgba(44,92,197,0.16); border-radius: 18px; background: #f8faff;
+    border: 1.5px solid rgba(44,92,195,0.12); border-radius: 18px; background: rgba(255,255,255,0.75);
     transition: border-color .25s ease, background .25s ease, box-shadow .25s ease, transform .25s ease;
 }
 .fcf-opt-box i {
     flex: none; width: 42px; height: 42px; display: grid; place-items: center; border-radius: 13px;
-    background: rgba(44,92,197,0.1); color: #2c5cc5; font-size: 1.05rem; transition: inherit;
+    background: rgba(44,92,195,0.1); color: #2c5cc5; font-size: 1.05rem; transition: inherit;
 }
-.fcf-opt-box b { display: block; font-size: 1rem; font-weight: 800; color: #1c2541; margin-bottom: 3px; line-height: 1.5; }
-.fcf-opt-box span { display: block; font-size: 0.84rem; line-height: 1.65; color: #6b7280; }
-.fcf-opt:hover .fcf-opt-box { border-color: rgba(44,92,197,0.38); transform: translateY(-2px); }
+.fcf-opt-box b { display: block; font-size: 1rem; font-weight: 800; color: #0f172a; margin-bottom: 3px; line-height: 1.5; }
+.fcf-opt-box span { display: block; font-size: 0.84rem; line-height: 1.65; color: #64748b; }
+.fcf-opt:hover .fcf-opt-box { border-color: rgba(44,92,195,0.38); transform: translateY(-2px); }
 .fcf-opt input:checked + .fcf-opt-box {
-    border-color: #2c5cc5; background: #fff; box-shadow: 0 0 0 4px rgba(44,92,197,0.12), 0 10px 26px rgba(44,92,197,0.14);
+    border-color: #2c5cc5; background: #fff; box-shadow: 0 0 0 4px rgba(44,92,195,0.12), 0 10px 26px rgba(44,92,195,0.14);
 }
 .fcf-opt input:checked + .fcf-opt-box i { background: linear-gradient(135deg, #1a3a8f, #2c5cc5); color: #fff; }
 .fcf-opt input:focus-visible + .fcf-opt-box { outline: 3px solid #ff6b35; outline-offset: 2px; }
@@ -149,20 +148,20 @@
 .fcf-chip input { position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none; }
 .fcf-chip span {
     display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; text-align: center;
-    min-height: 68px; padding: 0.65rem 0.5rem; border-radius: 15px; border: 1.5px solid rgba(44,92,197,0.16); background: #f8faff;
-    font-size: 0.95rem; font-weight: 800; color: #1c2541; line-height: 1.35;
+    min-height: 68px; padding: 0.65rem 0.5rem; border-radius: 15px; border: 1.5px solid rgba(44,92,195,0.12); background: rgba(255,255,255,0.75);
+    font-size: 0.95rem; font-weight: 800; color: #0f172a; line-height: 1.35;
     transition: border-color .2s ease, background .2s ease, color .2s ease, box-shadow .2s ease;
 }
-.fcf-chip small { font-size: 0.76rem; font-weight: 600; color: #6b7280; transition: color .2s ease; }
-.fcf-chip:hover span { border-color: rgba(44,92,197,0.4); }
-.fcf-chip input:checked + span { background: linear-gradient(135deg, #1a3a8f, #2c5cc5); border-color: transparent; color: #fff; box-shadow: 0 8px 20px rgba(44,92,197,0.28); }
+.fcf-chip small { font-size: 0.76rem; font-weight: 600; color: #64748b; transition: color .2s ease; }
+.fcf-chip:hover span { border-color: rgba(44,92,195,0.4); }
+.fcf-chip input:checked + span { background: linear-gradient(135deg, #1a3a8f, #2c5cc5); border-color: transparent; color: #fff; box-shadow: 0 8px 20px rgba(44,92,195,0.28); }
 .fcf-chip input:checked + span small { color: rgba(255,255,255,0.82); }
 .fcf-chip input:focus-visible + span { outline: 3px solid #ff6b35; outline-offset: 2px; }
 
 /* ── Result ── */
 .fcf-result {
-    position: sticky; top: calc(var(--navbar-height, 84px) + var(--ad-strip-height, 0px) + 16px);
-    overflow: hidden; color: #fff; border-radius: 24px; padding: 1.9rem 1.8rem 1.7rem;
+    display: flex; flex-direction: column;
+    overflow: hidden; color: #fff; border-radius: 22px; padding: 1.9rem 1.8rem 1.7rem;
     background: radial-gradient(120% 90% at 100% 0%, #3d6ee0 0%, #2c5cc5 38%, #1a3a8f 100%);
     box-shadow: 0 18px 44px rgba(26,58,143,0.3);
 }
@@ -196,7 +195,7 @@
 .fcf-next { display: flex; gap: 11px; align-items: flex-start; margin: 0 0 1.3rem; font-size: 0.9rem; line-height: 1.75; color: rgba(255,255,255,0.88); }
 .fcf-next i { margin-top: 4px; color: #ffb08a; }
 .fcf-next b { color: #fff; }
-.fcf-actions { display: flex; gap: 0.7rem; flex-wrap: wrap; }
+.fcf-actions { display: flex; gap: 0.7rem; flex-wrap: wrap; margin-top: auto; }
 .fcf-btn {
     flex: 1 1 auto; display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 48px;
     padding: 0.7rem 1.1rem; border-radius: 14px; font: inherit; font-size: 0.95rem; font-weight: 800; text-decoration: none; cursor: pointer;
@@ -209,51 +208,47 @@
 .fcf-btn:focus-visible { outline: 3px solid #ff6b35; outline-offset: 2px; }
 
 /* ── Section headings ── */
-.fcf-h2 { display: flex; align-items: center; gap: 12px; margin: 0 0 1.2rem; font-size: clamp(1.3rem, 3.4vw, 1.65rem); font-weight: 900; color: #1a3a8f; }
-.fcf-h2 i { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 12px; background: rgba(44,92,197,0.1); color: #2c5cc5; font-size: 1rem; flex: none; }
+.fcf-head { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; margin-bottom: 1.8rem; text-align: center; }
+.fcf-head h2 {
+    margin: 0; display: flex; align-items: center; justify-content: center; gap: 0.45em;
+    font-size: clamp(1.4rem, 3.5vw, 2rem); font-weight: 900; text-wrap: balance;
+    background: linear-gradient(120deg, #1a3a8f 0%, #2c5cc5 50%, #3d6ee0 100%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; color: #2c5cc5;
+}
+.fcf-head p { margin: 0; font-size: 0.95rem; color: #64748b; }
 .fcf-section { margin-bottom: 2.6rem; }
 
 /* ── Fee tables ── */
 .fcf-tables { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
-.fcf-table-card { background: #fff; border: 1.5px solid rgba(44,92,197,0.1); border-radius: 22px; overflow: hidden; box-shadow: 0 8px 26px rgba(26,58,143,0.05); }
-.fcf-table-head { display: flex; align-items: center; gap: 12px; padding: 1.1rem 1.4rem; background: linear-gradient(135deg, rgba(44,92,197,0.09), rgba(44,92,197,0.03)); border-bottom: 1px solid rgba(44,92,197,0.1); }
+.fcf-table-card { background: radial-gradient(circle at 10% 15%, rgba(44,92,195,0.05) 0%, transparent 55%), rgba(255,255,255,0.92); -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); border: 1.5px solid rgba(44,92,195,0.09); border-radius: 22px; box-shadow: 0 6px 28px rgba(44,92,195,0.07), 0 2px 6px rgba(0,0,0,0.03); overflow: hidden; }
+.fcf-table-head { display: flex; align-items: center; gap: 12px; padding: 1.1rem 1.4rem; background: linear-gradient(135deg, rgba(44,92,195,0.09), rgba(44,92,195,0.03)); border-bottom: 1px solid rgba(44,92,195,0.1); }
 .fcf-table-head i { color: #2c5cc5; }
-.fcf-table-head h3 { margin: 0; font-size: 1.04rem; font-weight: 900; color: #1c2541; }
+.fcf-table-head h3 { margin: 0; font-size: 1.04rem; font-weight: 900; color: #0f172a; }
 .fcf-table { width: 100%; border-collapse: collapse; }
 .fcf-table th, .fcf-table td { padding: 0.95rem 1.4rem; text-align: right; font-size: 0.97rem; }
-.fcf-table thead th { font-size: 0.8rem; font-weight: 800; color: #6b7280; letter-spacing: 0.3px; background: #fafbff; }
-.fcf-table tbody tr + tr td { border-top: 1px solid rgba(44,92,197,0.08); }
-.fcf-table td:first-child { font-weight: 700; color: #1c2541; }
+.fcf-table thead th { font-size: 0.8rem; font-weight: 800; color: #64748b; letter-spacing: 0.3px; background: rgba(44,92,195,0.03); }
+.fcf-table tbody tr + tr td { border-top: 1px solid rgba(44,92,195,0.08); }
+.fcf-table td:first-child { font-weight: 700; color: #0f172a; }
 .fcf-table th:last-child { text-align: left; }
 .fcf-table td:last-child { text-align: left; font-weight: 900; color: #1a3a8f; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .fcf-table tr.is-peak td:last-child { color: #e2551f; }
 
 /* ── Info cards ── */
 .fcf-info { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem; }
-.fcf-info-card { display: flex; gap: 15px; align-items: flex-start; padding: 1.4rem 1.4rem 1.35rem; background: #fff; border: 1.5px solid rgba(44,92,197,0.1); border-radius: 20px; }
-.fcf-info-card > i { flex: none; width: 46px; height: 46px; display: grid; place-items: center; border-radius: 14px; font-size: 1.1rem; background: rgba(44,92,197,0.1); color: #2c5cc5; }
+.fcf-info-card { display: flex; gap: 15px; align-items: flex-start; padding: 1.4rem 1.4rem 1.35rem; background: radial-gradient(circle at 10% 15%, rgba(44,92,195,0.05) 0%, transparent 55%), rgba(255,255,255,0.92); -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); border: 1.5px solid rgba(44,92,195,0.09); border-radius: 22px; box-shadow: 0 6px 28px rgba(44,92,195,0.07), 0 2px 6px rgba(0,0,0,0.03); transition: box-shadow 0.32s ease, border-color 0.32s ease; }
+.fcf-info-card:hover { box-shadow: 0 18px 44px rgba(44,92,195,0.13), 0 4px 12px rgba(0,0,0,0.04); border-color: rgba(44,92,195,0.3); }
+.fcf-info-card > i { flex: none; width: 46px; height: 46px; display: grid; place-items: center; border-radius: 14px; font-size: 1.1rem; background: rgba(44,92,195,0.1); color: #2c5cc5; }
 .fcf-info-card.is-orange > i { background: rgba(255,107,53,0.12); color: #e2551f; }
 .fcf-info-card.is-green > i { background: rgba(40,167,69,0.12); color: #1f8a3b; }
 .fcf-info-card.is-gold > i { background: rgba(243,156,18,0.15); color: #c87f0a; }
-.fcf-info-card h3 { margin: 0 0 6px; font-size: 1.02rem; font-weight: 900; color: #1c2541; }
-.fcf-info-card p { margin: 0; font-size: 0.92rem; line-height: 1.85; color: #4b5563; }
-.fcf-info-card p b { color: #1c2541; }
+.fcf-info-card h3 { margin: 0 0 6px; font-size: 1.02rem; font-weight: 900; color: #0f172a; }
+.fcf-info-card p { margin: 0; font-size: 0.92rem; line-height: 1.85; color: #475569; }
+.fcf-info-card p b { color: #0f172a; }
 .fcf-info-card a { color: #2c5cc5; font-weight: 800; }
 
-/* ── FAQ ── */
-.fcf-faq { display: flex; flex-direction: column; gap: 0.8rem; }
-.fcf-faq details { background: #fff; border: 1.5px solid rgba(44,92,197,0.1); border-radius: 18px; overflow: hidden; transition: border-color .2s ease, box-shadow .2s ease; }
-.fcf-faq details[open] { border-color: rgba(44,92,197,0.3); box-shadow: 0 8px 24px rgba(44,92,197,0.08); }
-.fcf-faq summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 1.1rem 1.35rem; font-size: 1rem; font-weight: 800; color: #1c2541; }
-.fcf-faq summary::-webkit-details-marker { display: none; }
-.fcf-faq summary::after { content: '+'; flex: none; width: 30px; height: 30px; display: grid; place-items: center; border-radius: 10px; background: rgba(44,92,197,0.08); color: #2c5cc5; font-size: 1.2rem; font-weight: 700; transition: transform .25s ease; }
-.fcf-faq details[open] summary::after { transform: rotate(45deg); }
-.fcf-faq summary:focus-visible { outline: 3px solid #ff6b35; outline-offset: -3px; border-radius: 18px; }
-.fcf-faq details p { margin: 0; padding: 0 1.35rem 1.2rem; font-size: 0.94rem; line-height: 1.9; color: #4b5563; }
 
 /* ── Sources ── */
-.fcf-sources { padding: 1.3rem 1.5rem; border-radius: 18px; background: #f8faff; border: 1px dashed rgba(44,92,197,0.25); font-size: 0.88rem; line-height: 1.9; color: #4b5563; }
-.fcf-sources b { color: #1c2541; }
+.fcf-sources { padding: 1.3rem 1.5rem; background: radial-gradient(circle at 10% 15%, rgba(44,92,195,0.05) 0%, transparent 55%), rgba(255,255,255,0.92); -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); border: 1.5px solid rgba(44,92,195,0.09); border-radius: 22px; box-shadow: 0 6px 28px rgba(44,92,195,0.07), 0 2px 6px rgba(0,0,0,0.03); font-size: 0.88rem; line-height: 1.9; color: #475569; }
+.fcf-sources b { color: #0f172a; }
 .fcf-sources ul { margin: 0.4rem 0 0; padding-inline-start: 1.2rem; }
 .fcf-sources a { color: #2c5cc5; }
 
@@ -271,7 +266,6 @@
 @media (max-width: 980px) {
     .fcf-hero { grid-template-columns: 1fr; gap: 1.8rem; padding: 2.3rem 2rem; }
     .fcf-calc { grid-template-columns: 1fr; }
-    .fcf-result { position: relative; top: auto; }
     .fcf-tables { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
@@ -285,6 +279,7 @@
     .fcf-attempts[data-count="3"] .fcf-chip { flex-basis: 100%; }
     .fcf-attempts[data-count="3"] .fcf-chip span { flex-direction: row; justify-content: space-between; min-height: 54px; padding: 0.6rem 1rem; }
     .fcf-result { padding: 1.6rem 1.25rem 1.4rem; border-radius: 20px; }
+    .fcf-card-note { padding-top: 1.2rem; }
     .fcf-bars { gap: 5px; }
     .fcf-bar-val { font-size: 0.62rem; }
     .fcf-info { grid-template-columns: 1fr; }
@@ -336,6 +331,7 @@
             <p class="fcf-hint" id="fcfAttemptHint">عُدّ كل مرة اجتزت فيها البكالوريا من قبل، ثم أضف هذه المرة. مثال: إذا اجتزتها مرة واحدة ولم تنجح، فهذه محاولتك الثانية.</p>
             <div class="fcf-attempts" id="fcfAttempts" role="radiogroup" aria-labelledby="fcfAttemptLegend"></div>
         </fieldset>
+        <p class="fcf-card-note"><i class="fas fa-circle-info" aria-hidden="true"></i><span>المبلغ النهائي تحدده منصة الديوان آلياً حسب سجلك عند التسجيل. هذه الحاسبة تعتمد الجدول المعلن منذ دورة 2026.</span></p>
     </form>
 
     <aside class="fcf-result" aria-live="polite" aria-atomic="true">
@@ -360,7 +356,7 @@
 
 <!-- ══ FULL TABLE ══ -->
 <section class="fcf-section">
-    <h2 class="fcf-h2"><i class="fas fa-table" aria-hidden="true"></i> جدول حقوق التسجيل كاملاً</h2>
+    <div class="fcf-head"><h2><i class="fas fa-table" aria-hidden="true"></i> جدول حقوق التسجيل كاملاً</h2><p>المبالغ المعتمدة منذ دورة 2026 لكل وضعية</p></div>
     <div class="fcf-tables">
         <div class="fcf-table-card">
             <div class="fcf-table-head"><i class="fas fa-user-graduate" aria-hidden="true"></i><h3>مترشح حر لم يتحصل على البكالوريا</h3></div>
@@ -390,7 +386,7 @@
 
 <!-- ══ BEFORE YOU PAY ══ -->
 <section class="fcf-section">
-    <h2 class="fcf-h2"><i class="fas fa-list-check" aria-hidden="true"></i> قبل أن تدفع</h2>
+    <div class="fcf-head"><h2><i class="fas fa-list-check" aria-hidden="true"></i> قبل أن تدفع</h2><p>أربع نقاط تجنّبك المفاجآت يوم التسجيل</p></div>
     <div class="fcf-info">
         <div class="fcf-info-card"><i class="fas fa-credit-card" aria-hidden="true"></i><div><h3>طريقة الدفع</h3><p>الدفع <b>إلكتروني فقط</b> بالبطاقة الذهبية لبريد الجزائر (Edahabia) على موقع الديوان <a href="https://bac.onec.dz" target="_blank" rel="noopener">bac.onec.dz</a>، ولا يُؤكَّد التسجيل قبل إتمام الدفع. جهّز بطاقتك ورصيداً كافياً قبل البدء.</p></div></div>
         <div class="fcf-info-card is-orange"><i class="fas fa-calendar-days" aria-hidden="true"></i><div><h3>مواعيد التسجيل</h3><p>تعلن وزارة التربية الوطنية تاريخ فتح تسجيلات دورة 2027. للمقارنة: تسجيلات دورة 2026 امتدت من <b>18 نوفمبر إلى 17 ديسمبر 2025</b>. تابع <a href="/tools/countdown">العد التنازلي للبكالوريا</a>.</p></div></div>
@@ -401,13 +397,13 @@
 
 <!-- ══ FAQ ══ -->
 <section class="fcf-section">
-    <h2 class="fcf-h2"><i class="fas fa-circle-question" aria-hidden="true"></i> أسئلة شائعة</h2>
-    <div class="fcf-faq">
-        <details open><summary>كم تبلغ حقوق تسجيل المترشح الحر في البكالوريا 2027؟</summary><p>حسب الجدول المعتمد منذ دورة 2026، يدفع المترشح الحر الذي لم يتحصل على البكالوريا 3,000 دج في المحاولة الأولى والثانية، و5,000 دج في الثالثة، و10,000 دج في الرابعة، و20,000 دج من المحاولة الخامسة فما فوق. المبلغ النهائي لكل مترشح تحدده منصة الديوان الوطني للامتحانات والمسابقات عند التسجيل.</p></details>
-        <details><summary>كم يدفع المتحصل على البكالوريا الذي يريد إعادتها؟</summary><p>المتحصل على البكالوريا الذي يعيدها لتحسين معدله أو لتغيير شعبته يدفع 5,000 دج في المحاولة الثانية (أول إعادة)، و10,000 دج في المحاولة الثالثة، و20,000 دج من المحاولة الرابعة فما فوق.</p></details>
-        <details><summary>كيف أدفع حقوق التسجيل في البكالوريا كمترشح حر؟</summary><p>يتم الدفع إلكترونياً فقط عبر موقع الديوان bac.onec.dz بالبطاقة الذهبية لبريد الجزائر (Edahabia) أثناء التسجيل، ولا يُعتبر التسجيل مؤكداً قبل إتمام الدفع.</p></details>
-        <details><summary>هل تُسترجع حقوق التسجيل إذا رُفض ملف المترشح الحر؟</summary><p>في دورة 2026 فتح الديوان الوطني للامتحانات والمسابقات منصة لاسترجاع الحقوق المدفوعة لفائدة المترشحين الأحرار الذين لم تُقبل ملفاتهم، من 20 جوان إلى 30 نوفمبر 2026. تابع بيانات الوزارة لمعرفة إجراءات دورة 2027.</p></details>
-        <details><summary>كم يدفع التلميذ المتمدرس للتسجيل في البكالوريا؟</summary><p>التلميذ المتمدرس يسجله مدير مؤسسته، وحقوق تسجيله 1,500 دج تُدفع إلكترونياً. هذه الحاسبة مخصصة للمترشحين الأحرار.</p></details>
+    <div class="fcf-head"><h2><i class="fas fa-circle-question" aria-hidden="true"></i> أسئلة شائعة</h2></div>
+    <div class="crc-faq">
+        <details><summary>كم تبلغ حقوق تسجيل المترشح الحر في البكالوريا 2027؟ <i class="fas fa-plus" aria-hidden="true"></i></summary><p>حسب الجدول المعتمد منذ دورة 2026، يدفع المترشح الحر الذي لم يتحصل على البكالوريا 3,000 دج في المحاولة الأولى والثانية، و5,000 دج في الثالثة، و10,000 دج في الرابعة، و20,000 دج من المحاولة الخامسة فما فوق. المبلغ النهائي لكل مترشح تحدده منصة الديوان الوطني للامتحانات والمسابقات عند التسجيل.</p></details>
+        <details><summary>كم يدفع المتحصل على البكالوريا الذي يريد إعادتها؟ <i class="fas fa-plus" aria-hidden="true"></i></summary><p>المتحصل على البكالوريا الذي يعيدها لتحسين معدله أو لتغيير شعبته يدفع 5,000 دج في المحاولة الثانية (أول إعادة)، و10,000 دج في المحاولة الثالثة، و20,000 دج من المحاولة الرابعة فما فوق.</p></details>
+        <details><summary>كيف أدفع حقوق التسجيل في البكالوريا كمترشح حر؟ <i class="fas fa-plus" aria-hidden="true"></i></summary><p>يتم الدفع إلكترونياً فقط عبر موقع الديوان bac.onec.dz بالبطاقة الذهبية لبريد الجزائر (Edahabia) أثناء التسجيل، ولا يُعتبر التسجيل مؤكداً قبل إتمام الدفع.</p></details>
+        <details><summary>هل تُسترجع حقوق التسجيل إذا رُفض ملف المترشح الحر؟ <i class="fas fa-plus" aria-hidden="true"></i></summary><p>في دورة 2026 فتح الديوان الوطني للامتحانات والمسابقات منصة لاسترجاع الحقوق المدفوعة لفائدة المترشحين الأحرار الذين لم تُقبل ملفاتهم، من 20 جوان إلى 30 نوفمبر 2026. تابع بيانات الوزارة لمعرفة إجراءات دورة 2027.</p></details>
+        <details><summary>كم يدفع التلميذ المتمدرس للتسجيل في البكالوريا؟ <i class="fas fa-plus" aria-hidden="true"></i></summary><p>التلميذ المتمدرس يسجله مدير مؤسسته، وحقوق تسجيله 1,500 دج تُدفع إلكترونياً. هذه الحاسبة مخصصة للمترشحين الأحرار.</p></details>
     </div>
 </section>
 
