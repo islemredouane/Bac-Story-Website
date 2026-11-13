@@ -339,16 +339,6 @@ function setupMobileMenu() {
             a.classList.toggle('active', on);
             if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
         });
-        // Highlight the top menu that holds the current page (longest matching link wins)
-        let best = null, bestLen = 0;
-        document.querySelectorAll('#navLinks > .dropdown, #navLinks > a.nav-direct').forEach((item) => {
-            const links = item.matches('a') ? [item] : item.querySelectorAll('a');
-            links.forEach((a) => {
-                const h = norm(a.getAttribute('href'));
-                if (h !== '/' && (here === h || here.indexOf(h + '/') === 0) && h.length > bestLen) { best = item; bestLen = h.length; }
-            });
-        });
-        if (best) best.classList.add('is-current');
     } catch (e) {}
     const hamburger = document.getElementById('hamburger');
     const bottomMenuBtn = document.getElementById('bottomMenuBtn');

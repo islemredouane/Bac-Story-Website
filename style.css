@@ -1257,16 +1257,6 @@ body.search-active .mobile-bottom-bar,
 }
 
 /* Centre "+" button (leads to the contribute page): icon only, same row as the other tabs, YouTube-style */
-.mobile-bottom-bar .bottom-nav-add i {
-    font-size: 2.2rem;
-    line-height: 1;
-    margin: 0;
-    color: #fff;
-}
-
-.mobile-bottom-bar .bottom-nav-add:active i {
-    transform: scale(0.92);
-}
 
 /* The site has generic ".active" rules (display/width/margin) that would
    otherwise shift the selected tab; pin its layout so it matches the rest. */
@@ -5864,9 +5854,6 @@ body.pdf-body-lock [id="footer-placeholder"] {
 }
 
 @media (max-width: 768px) {
-    .detail-card {
-        padding: 20px;
-    }
 
     .detail-card h3 {
         font-size: 1.3rem;
@@ -7505,27 +7492,6 @@ body.pdf-body-lock [id="footer-placeholder"] {
 }
 
 /* shine sweep — fully contained, no overflow */
-.adx-cta::before {
-    content: '';
-    position: absolute;
-    top: 0; bottom: 0;
-    width: 45%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,.32), transparent);
-    animation: adxCtaShine 3s ease-in-out infinite;
-    pointer-events: none;
-}
-
-.adx-cta i {
-    font-size: 1.1rem;
-    position: relative;
-}
-
-.adx-cta:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 26px rgba(37,211,102,.5), 0 0 0 0 rgba(37,211,102,0);
-    animation-play-state: paused;
-    color: #fff;
-}
 
 /* shine sweep — fully contained, no overflow */
 .adx-cta::before {
@@ -7711,13 +7677,6 @@ body.pdf-body-lock [id="footer-placeholder"] {
 .adp-hero-content {
     position: relative;
     z-index: 1;
-}
-
-.adp-hero-eyebrow {
-    font-family: 'Tajawal', sans-serif;
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.45);
-    margin-bottom: 0.9rem;
 }
 
 .adp-hero-title {
@@ -9909,37 +9868,6 @@ a.spec-detail-btn {
 }
 
 /* The + sits in the bottom bar, so its tooltip opens ABOVE it (colours/shape come from the shared rules above) */
-.mobile-bottom-bar .bottom-nav-add::after {
-    left: 50%;
-    top: auto;
-    bottom: calc(100% + 14px);
-    transform: translateX(-50%) translateY(6px);
-    /* centre the label in the bubble (the bar's inherited line-height and Tajawal's metrics push it up) */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    line-height: 1;
-    padding: 9px 13px 5px;
-}
-
-.mobile-bottom-bar .bottom-nav-add::before {
-    left: 50%;
-    top: auto;
-    bottom: calc(100% + 8px);
-    transform: translateX(-50%) translateY(6px);
-    border-top: 6px solid var(--primary-color);
-    border-bottom: 0;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-}
-
-.mobile-bottom-bar .bottom-nav-add:hover::after,
-.mobile-bottom-bar .bottom-nav-add:hover::before,
-.mobile-bottom-bar .bottom-nav-add:focus-visible::after,
-.mobile-bottom-bar .bottom-nav-add:focus-visible::before {
-    transform: translateX(-50%) translateY(0);
-}
 
 .uni-share-btn {
     position: fixed;
@@ -10716,12 +10644,6 @@ a.spec-detail-btn {
     background: linear-gradient(135deg, #125426, #28a745);
     color: white;
     box-shadow: 0 4px 10px rgba(40, 167, 69, 0.21);
-}
-
-@media (max-width: 768px) {
-    .sim-source-grid {
-        grid-template-columns: 1fr;
-    }
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -12761,7 +12683,6 @@ button, a.main-btn, a.spec-detail-btn, .modern-cta-btn, .spec-nav-btn, .gcta-btn
     border-radius: 50%;
     pointer-events: none;
 }
-.fb-avg-loading { font-size: 1rem; opacity: 0.85; position: relative; z-index: 1; padding: 1.4rem 0; }
 .fb-avg-num {
     font-size: 3.6rem;
     font-weight: 900;
@@ -13562,8 +13483,6 @@ button, a.main-btn, a.spec-detail-btn, .modern-cta-btn, .spec-nav-btn, .gcta-btn
 .mega-title { margin: 0; font-size: 0.76rem; font-weight: 800; color: #64748b; letter-spacing: 0; }
 .dropdown-content a.dropdown-all { justify-content: space-between; color: #2c5cc5; font-weight: 800; }
 .dropdown-content a.dropdown-all i { background: none; width: auto; height: auto; color: inherit; }
-.dropdown.is-current > .dropdown-btn,
-.nav-links > a.nav-direct.is-current { background-color: rgba(255, 255, 255, 0.16); }
 .dropdown-content a.dropdown-all:hover,
 .dropdown-content a.dropdown-all:active { color: #fff; }
 .dropdown-content a.dropdown-all:hover i,
@@ -13586,8 +13505,6 @@ button, a.main-btn, a.spec-detail-btn, .modern-cta-btn, .spec-nav-btn, .gcta-btn
     .nav-brand a { white-space: nowrap; }
     .dropdown--end .dropdown-content { right: auto; left: 0; }
     .dropdown--mega .dropdown-all { grid-column: 1 / -1; }
-    .dropdown.is-current > .dropdown-btn:hover,
-    .nav-links > a.nav-direct.is-current:hover { background-color: #fff; }
 }
 
 @media (max-width: 1100px) {
@@ -13633,8 +13550,6 @@ button, a.main-btn, a.spec-detail-btn, .modern-cta-btn, .spec-nav-btn, .gcta-btn
     }
     .dropdown.active > .dropdown-btn { background: rgba(255, 255, 255, 0.16); }
     .dropdown.active > .dropdown-btn::after { transform: rotate(180deg); color: #fff; }
-    .dropdown.is-current > .dropdown-btn,
-    .nav-links > a.nav-direct.is-current { box-shadow: inset -3px 0 0 #ff8f5e; }
 }
 
 /* Full-page phone menu. The global ".active { width: 90%; margin: 2rem auto }"
