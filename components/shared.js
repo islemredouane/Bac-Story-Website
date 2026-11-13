@@ -65,7 +65,7 @@ setTimeout(function () {
 // ─── COMPONENT INJECTOR ───────────────────────────────────────────────────────
 // Component URLs (?v= is set by scripts/stamp-versions.py). They are requested as soon as this
 // script runs, in parallel, so the navbar/footer/search are usually ready by DOMContentLoaded.
-const _NAVBAR_URL = '/components/navbar?v=b780e89741';
+const _NAVBAR_URL = '/components/navbar?v=86cd9bf666';
 const _FOOTER_URL = '/components/footer?v=2143fc87f1';
 const _SEARCH_URL = '/components/search?v=307da03145';
 const _componentFetches = {};
