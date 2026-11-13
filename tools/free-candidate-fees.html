@@ -123,22 +123,41 @@
 .fcf-status { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
 .fcf-opt { position: relative; display: block; cursor: pointer; }
 .fcf-opt input { position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none; }
+/* Status option: icon + selection mark on top, then title, one-line reason, and the starting fee.
+   Stacked so the title never shares its line with the icon (it used to wrap after 2 words). */
 .fcf-opt-box {
-    height: 100%; display: flex; align-items: flex-start; gap: 13px; padding: 1.1rem 1.1rem 1.15rem;
+    height: 100%; display: flex; flex-direction: column; padding: 1.05rem 1.15rem 1rem;
     border: 1.5px solid rgba(44,92,195,0.12); border-radius: 18px; background: rgba(255,255,255,0.75);
     transition: border-color .25s ease, background .25s ease, box-shadow .25s ease, transform .25s ease;
 }
-.fcf-opt-box i {
-    flex: none; width: 42px; height: 42px; display: grid; place-items: center; border-radius: 13px;
-    background: rgba(44,92,195,0.1); color: #2c5cc5; font-size: 1.05rem; transition: inherit;
+.fcf-opt-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.85rem; }
+.fcf-opt-icon {
+    width: 44px; height: 44px; display: grid; place-items: center; border-radius: 13px;
+    background: rgba(44,92,195,0.1); color: #2c5cc5; font-size: 1.05rem;
+    transition: background .25s ease, color .25s ease;
 }
-.fcf-opt-box b { display: block; font-size: 1rem; font-weight: 800; color: #0f172a; margin-bottom: 3px; line-height: 1.5; }
-.fcf-opt-box span { display: block; font-size: 0.84rem; line-height: 1.65; color: #64748b; }
+.fcf-opt-radio {
+    width: 24px; height: 24px; display: grid; place-items: center; border-radius: 50%;
+    border: 2px solid rgba(44,92,195,0.28); background: #fff; color: #fff; font-size: 0.68rem;
+    transition: background .25s ease, border-color .25s ease;
+}
+.fcf-opt-radio i { transform: scale(0); transition: transform .3s cubic-bezier(.34,1.56,.64,1); }
+.fcf-opt-title { display: block; font-size: 1.04rem; font-weight: 900; color: #0f172a; line-height: 1.45; }
+.fcf-opt-desc { display: block; flex: 1; margin-top: 4px; font-size: 0.85rem; line-height: 1.7; color: #64748b; }
+.fcf-opt-price {
+    display: flex; align-items: center; justify-content: space-between; gap: 8px;
+    margin-top: 0.85rem; padding-top: 0.75rem; border-top: 1px dashed rgba(44,92,195,0.18);
+    font-size: 0.8rem; font-weight: 700; color: #64748b;
+}
+.fcf-opt-price b { font-size: 0.95rem; font-weight: 900; color: #1a3a8f; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .fcf-opt:hover .fcf-opt-box { border-color: rgba(44,92,195,0.38); transform: translateY(-2px); }
 .fcf-opt input:checked + .fcf-opt-box {
     border-color: #2c5cc5; background: #fff; box-shadow: 0 0 0 4px rgba(44,92,195,0.12), 0 10px 26px rgba(44,92,195,0.14);
 }
-.fcf-opt input:checked + .fcf-opt-box i { background: linear-gradient(135deg, #1a3a8f, #2c5cc5); color: #fff; }
+.fcf-opt input:checked + .fcf-opt-box .fcf-opt-icon { background: linear-gradient(135deg, #1a3a8f, #2c5cc5); color: #fff; }
+.fcf-opt input:checked + .fcf-opt-box .fcf-opt-radio { background: linear-gradient(135deg, #1a3a8f, #2c5cc5); border-color: transparent; }
+.fcf-opt input:checked + .fcf-opt-box .fcf-opt-radio i { transform: scale(1); }
+.fcf-opt input:checked + .fcf-opt-box .fcf-opt-price b { color: #2c5cc5; }
 .fcf-opt input:focus-visible + .fcf-opt-box { outline: 3px solid #ff6b35; outline-offset: 2px; }
 
 /* attempt chips */
@@ -259,7 +278,7 @@
 .fcf-amount.is-pop { animation: fcf-pop .45s cubic-bezier(.2,.8,.2,1); }
 @media (prefers-reduced-motion: reduce) {
     .fcf-amount.is-pop { animation: none; }
-    .fcf-bar-fill, .fcf-opt-box, .fcf-chip span { transition: none; }
+    .fcf-bar-fill, .fcf-opt-box, .fcf-chip span, .fcf-opt-radio i { transition: none; }
 }
 
 /* ── Responsive ── */
@@ -275,6 +294,17 @@
     .fcf-lead { font-size: 0.96rem; line-height: 1.85; }
     .fcf-card { padding: 1.4rem 1.1rem; border-radius: 20px; }
     .fcf-status { grid-template-columns: 1fr; }
+    /* phones: one row per option, icon | text | mark, starting fee under the text */
+    .fcf-opt-box {
+        display: grid; grid-template-columns: auto minmax(0, 1fr) auto; column-gap: 13px; align-items: start;
+        grid-template-areas: "icon title radio" "icon desc radio" "icon price radio"; padding: 0.95rem 1rem;
+    }
+    .fcf-opt-top { display: contents; }
+    .fcf-opt-icon { grid-area: icon; }
+    .fcf-opt-radio { grid-area: radio; align-self: center; }
+    .fcf-opt-title { grid-area: title; }
+    .fcf-opt-desc { grid-area: desc; margin-top: 2px; }
+    .fcf-opt-price { grid-area: price; justify-content: flex-start; margin-top: 0.5rem; padding-top: 0; border-top: 0; }
     .fcf-chip { flex-basis: calc(33.333% - 0.6rem); min-width: 0; }
     .fcf-attempts[data-count="3"] .fcf-chip { flex-basis: 100%; }
     .fcf-attempts[data-count="3"] .fcf-chip span { flex-direction: row; justify-content: space-between; min-height: 54px; padding: 0.6rem 1rem; }
@@ -313,15 +343,25 @@
 <section class="fcf-calc" aria-label="حاسبة حقوق التسجيل">
     <form class="fcf-card" id="fcfForm" onsubmit="return false" novalidate>
         <fieldset class="fcf-step">
-            <legend><span class="fcf-step-num">1</span> ما هي وضعيتك؟</legend>
+            <legend><span class="fcf-step-num">1</span> ما وضعيتك مع البكالوريا؟</legend>
             <div class="fcf-status">
                 <label class="fcf-opt">
                     <input type="radio" name="fcfStatus" value="never" checked>
-                    <span class="fcf-opt-box"><i class="fas fa-user-graduate" aria-hidden="true"></i><span><b>لم أتحصل على البكالوريا بعد</b><span>أترشح حراً لأنني لم أنجح من قبل أو لم أدرسها نظامياً.</span></span></span>
+                    <span class="fcf-opt-box">
+                        <span class="fcf-opt-top"><span class="fcf-opt-icon"><i class="fas fa-user-graduate" aria-hidden="true"></i></span><span class="fcf-opt-radio" aria-hidden="true"><i class="fas fa-check"></i></span></span>
+                        <span class="fcf-opt-title">لم أتحصل عليها بعد</span>
+                        <span class="fcf-opt-desc">لأول مرة أو بعد عدم النجاح</span>
+                        <span class="fcf-opt-price">الحقوق تبدأ من <b>3,000 دج</b></span>
+                    </span>
                 </label>
                 <label class="fcf-opt">
                     <input type="radio" name="fcfStatus" value="holder">
-                    <span class="fcf-opt-box"><i class="fas fa-award" aria-hidden="true"></i><span><b>متحصل عليها وأريد إعادتها</b><span>لتحسين معدلي أو لتغيير الشعبة.</span></span></span>
+                    <span class="fcf-opt-box">
+                        <span class="fcf-opt-top"><span class="fcf-opt-icon"><i class="fas fa-award" aria-hidden="true"></i></span><span class="fcf-opt-radio" aria-hidden="true"><i class="fas fa-check"></i></span></span>
+                        <span class="fcf-opt-title">متحصل عليها</span>
+                        <span class="fcf-opt-desc">لتحسين المعدل أو تغيير الشعبة</span>
+                        <span class="fcf-opt-price">الحقوق تبدأ من <b>5,000 دج</b></span>
+                    </span>
                 </label>
             </div>
         </fieldset>
