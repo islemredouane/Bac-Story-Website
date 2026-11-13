@@ -55,7 +55,7 @@
                 "description": "أعلنت وزارة التربية الوطنية الجزائرية رسمياً إلغاء جميع التعديلات المقترحة لبكالوريا 2027 والعودة للعمل بالقرار رقم 186 المؤرخ في 23 مارس 2006 الخاص بالمواقيت والمعاملات.",
                 "url": "https://www.bac-story.com/bac-2027-curriculum-changes",
                 "datePublished": "2026-09-10T16:00:00+01:00",
-                "dateModified": "2026-11-13T12:00:00+01:00",
+                "dateModified": "2026-09-10T16:00:00+01:00",
                 "inLanguage": "ar",
                 "publisher": {
                     "@type": "EducationalOrganization",
@@ -265,55 +265,6 @@
         font-size: 0.9rem;
         line-height: 1.75;
         color: rgba(255, 255, 255, 0.78);
-    }
-
-    /* ══ NEWS BRIEF (latest update above the decree story) ══ */
-    .crc-brief {
-        position: relative; overflow: hidden;
-        display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1.6rem; align-items: center;
-        margin-bottom: 1.8rem; padding: 1.6rem 1.8rem;
-        background: radial-gradient(circle at 10% 15%, rgba(255, 107, 53, 0.07) 0%, transparent 55%), rgba(255, 255, 255, 0.92);
-        -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px);
-        border: 1.5px solid rgba(255, 107, 53, 0.22); border-radius: 22px;
-        box-shadow: 0 6px 28px rgba(44, 92, 195, 0.07), 0 2px 6px rgba(0, 0, 0, 0.03);
-    }
-    .crc-brief-date {
-        width: 104px; border-radius: 18px; overflow: hidden; text-align: center;
-        background: #fff; border: 1.5px solid rgba(44, 92, 197, 0.14); box-shadow: 0 8px 22px rgba(26, 58, 143, 0.1);
-    }
-    .crc-brief-date span { display: block; }
-    .crc-brief-date .d-day { padding: 6px 0; background: linear-gradient(135deg, #1a3a8f, #2c5cc5); color: #fff; font-size: 0.8rem; font-weight: 800; }
-    .crc-brief-date .d-num { padding-top: 6px; font-size: 2.3rem; font-weight: 900; line-height: 1.15; color: #1a3a8f; }
-    .crc-brief-date .d-month { padding-bottom: 9px; font-size: 0.82rem; font-weight: 800; color: #64748b; }
-    .crc-brief-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 0.55rem; }
-    .crc-brief-label { display: inline-flex; align-items: center; gap: 7px; font-size: 0.8rem; font-weight: 900; color: #e2551f; }
-    .crc-brief-label i { font-size: 0.75rem; }
-    .crc-brief-status {
-        display: inline-flex; align-items: center; gap: 6px; padding: 3px 11px; border-radius: 999px;
-        background: rgba(243, 156, 18, 0.14); border: 1px solid rgba(243, 156, 18, 0.32); color: #a2650a; font-size: 0.75rem; font-weight: 800;
-    }
-    .crc-brief-status::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: #f39c12; }
-    .crc-brief-when { font-size: 0.78rem; font-weight: 700; color: #94a3b8; }
-    .crc-brief h2 { margin: 0 0 0.45rem; font-size: clamp(1.15rem, 2.6vw, 1.4rem); font-weight: 900; line-height: 1.5; color: #0f172a; text-wrap: balance; }
-    .crc-brief p { margin: 0; font-size: 0.95rem; line-height: 1.9; color: #475569; max-width: 70ch; }
-    .crc-brief p b { color: #0f172a; }
-    .crc-brief-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1rem; }
-    .crc-brief-btn {
-        display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0.55rem 1.15rem; border-radius: 999px;
-        font-size: 0.9rem; font-weight: 800; text-decoration: none; transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-    }
-    .crc-brief-btn--primary { background: linear-gradient(135deg, #1a3a8f, #2c5cc5); color: #fff; box-shadow: 0 8px 20px rgba(44, 92, 197, 0.25); }
-    .crc-brief-btn--primary:hover { transform: translateY(-2px); color: #fff; }
-    .crc-brief-btn--ghost { background: rgba(44, 92, 197, 0.07); color: #1a3a8f; border: 1px solid rgba(44, 92, 197, 0.18); }
-    .crc-brief-btn--ghost:hover { background: rgba(44, 92, 197, 0.12); color: #1a3a8f; }
-    .crc-brief-btn:focus-visible { outline: 3px solid #ff6b35; outline-offset: 2px; }
-    @media (max-width: 640px) {
-        .crc-brief { grid-template-columns: 1fr; gap: 1.1rem; padding: 1.3rem 1.15rem; }
-        .crc-brief-date { width: auto; display: flex; align-items: center; gap: 10px; padding: 0 0 0 12px; }
-        .crc-brief-date .d-day { padding: 12px 14px; }
-        .crc-brief-date .d-num { padding: 0; font-size: 1.5rem; }
-        .crc-brief-date .d-month { padding: 0; font-size: 0.9rem; }
-        .crc-brief-btn { flex: 1 1 auto; justify-content: center; }
     }
 
     /* ══ STATS STRIP ══ */
@@ -1151,23 +1102,6 @@
 </div>
 </li>
 </ul>
-</section>
-<!-- ══ LATEST UPDATE ══ -->
-<section class="crc-brief" aria-labelledby="crcBriefTitle">
-<div class="crc-brief-date" aria-hidden="true"><span class="d-day">الثلاثاء</span><span class="d-num">17</span><span class="d-month">نوفمبر 2026</span></div>
-<div>
-<div class="crc-brief-meta">
-<span class="crc-brief-label"><i class="fas fa-bell"></i> آخر المستجدات</span>
-<span class="crc-brief-status">موعد متوقع · لم يُعلن رسمياً</span>
-<time class="crc-brief-when" datetime="2026-11-13">13 نوفمبر 2026</time>
-</div>
-<h2 id="crcBriefTitle">تسجيلات بكالوريا 2027: الانطلاق المتوقع يوم 17 نوفمبر</h2>
-<p>لم تعلن وزارة التربية الوطنية بعد عن تاريخ فتح تسجيلات دورة 2027، و<b>من المتوقع أن تنطلق يوم الثلاثاء 17 نوفمبر 2026</b>، على غرار دورة 2026 التي فُتحت تسجيلاتها يوم 18 نوفمبر 2025. يسجّل المترشحون الأحرار عبر bac.onec.dz ويدفعون الحقوق بالبطاقة الذهبية.</p>
-<div class="crc-brief-actions">
-<a class="crc-brief-btn crc-brief-btn--primary" href="/tools/free-candidate-fees"><i class="fas fa-receipt"></i> احسب حقوق تسجيلك كمترشح حر</a>
-<a class="crc-brief-btn crc-brief-btn--ghost" href="/tools/countdown"><i class="fas fa-hourglass-half"></i> العد التنازلي للبكالوريا</a>
-</div>
-</div>
 </section>
 <!-- ══ STATS STRIP ══ -->
 <div class="crc-stats">
