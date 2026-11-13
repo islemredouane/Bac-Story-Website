@@ -142,7 +142,6 @@ window.addEventListener('popstate', (event) => {
 });
 
 const TIMERS_CONFIG = [
-    { suffix: '2', target: new Date(2026, 6, 12, 10, 0, 0) }, // July 12 - النتائج
     { suffix: '3', target: new Date(2027, 5, 13, 8, 30, 0) }, // June 13 2027 - بكالوريا 2027
 ];
 
@@ -171,7 +170,8 @@ function updateAllTimers() {
 // Timer with Page Visibility API — pauses when tab is hidden
 let timerInterval = null;
 function startTimer() {
-    if (timerInterval) return;
+    // Only pages with a countdown (tools/countdown) need the one-second tick
+    if (timerInterval || !TIMERS_CONFIG.some(function (c) { return document.getElementById('t-days-' + c.suffix); })) return;
     updateAllTimers();
     timerInterval = setInterval(updateAllTimers, 1000);
 }
@@ -532,11 +532,6 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         history.replaceState({ section: initial, calculatorState: savedState }, '', location.href);
         showSection(initial, false);
-    }
-
-    // 2. Timer Setup — start immediately if timer elements exist on this page
-    if (document.getElementById('t-days-1')) {
-        startTimer();
     }
 
     // 3. Load calculator data (only runs when calculator.js is present on tools.html)

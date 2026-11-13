@@ -29,7 +29,6 @@
 .nw-status::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
 .nw-status--expected { background: rgba(243,156,18,0.14); border: 1px solid rgba(243,156,18,0.32); color: #a2650a; }
 .nw-status--official { background: rgba(40,167,69,0.12); border: 1px solid rgba(40,167,69,0.3); color: #1f7a37; }
-.nw-status--tool { background: rgba(44,92,195,0.1); border: 1px solid rgba(44,92,195,0.24); color: #1a3a8f; }
 .nw-hero .nw-status--expected { background: rgba(255,176,77,0.18); border-color: rgba(255,190,110,0.45); color: #ffd59a; }
 
 /* ── Hero ── */
@@ -43,10 +42,6 @@
 .nw-hero::before { width: 340px; height: 340px; top: -150px; left: -90px; background: radial-gradient(circle, rgba(255,255,255,0.13), transparent 70%); }
 .nw-hero::after { width: 260px; height: 260px; bottom: -130px; right: 35%; background: radial-gradient(circle, rgba(255,107,53,0.22), transparent 70%); }
 .nw-hero > * { position: relative; z-index: 1; }
-.nw-crumbs { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0 0 1rem; padding: 0; list-style: none; font-size: 0.82rem; font-weight: 700; color: rgba(255,255,255,0.72); }
-.nw-crumbs a { color: rgba(255,255,255,0.88); text-decoration: none; }
-.nw-crumbs a:hover { color: #fff; text-decoration: underline; }
-.nw-crumbs li + li::before { content: '‹'; margin-left: 6px; color: rgba(255,255,255,0.5); }
 .nw-badge {
     display: inline-flex; align-items: center; gap: 9px; margin-bottom: 1rem;
     background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.24); border-radius: 999px;
@@ -66,7 +61,6 @@
 .nw-date .d-day { padding: 8px 0; background: linear-gradient(135deg, #ff6b35, #ff8f5e); color: #fff; font-size: 0.86rem; font-weight: 800; }
 .nw-date .d-num { padding-top: 6px; font-size: 3rem; font-weight: 900; line-height: 1.1; color: #1a3a8f; }
 .nw-date .d-month { padding-bottom: 6px; font-size: 0.9rem; font-weight: 800; color: #475569; }
-.nw-date .d-note { padding: 6px 0 9px; border-top: 1px dashed rgba(44,92,195,0.18); font-size: 0.72rem; font-weight: 800; color: #a2650a; }
 
 /* ── Key facts ── */
 .nw-facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.1rem; margin-bottom: 3rem; }
@@ -114,13 +108,6 @@
 .nw-steps span { display: block; font-size: 0.85rem; line-height: 1.75; color: #64748b; }
 
 /* ── Fees ── */
-.nw-fees { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 0.9fr); gap: 1.2rem; align-items: stretch; }
-.nw-fee-card { overflow: hidden; }
-.nw-fee-card h3 { margin: 0; padding: 1rem 1.3rem; font-size: 0.98rem; font-weight: 900; color: #0f172a; background: rgba(44,92,195,0.04); border-bottom: 1px solid rgba(44,92,195,0.09); }
-.nw-fee-card table { width: 100%; border-collapse: collapse; }
-.nw-fee-card td { padding: 0.75rem 1.3rem; font-size: 0.92rem; color: #475569; }
-.nw-fee-card tr + tr td { border-top: 1px solid rgba(44,92,195,0.07); }
-.nw-fee-card td:last-child { text-align: left; font-weight: 900; color: #1a3a8f; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .nw-fee-cta {
     position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: center; gap: 0.7rem; padding: 1.6rem;
     border-radius: 22px; color: #fff; background: radial-gradient(120% 90% at 100% 0%, #3d6ee0 0%, #2c5cc5 40%, #1a3a8f 100%);
@@ -218,7 +205,6 @@
     .nw-hero { padding: 2.2rem 2rem; gap: 1.6rem; }
     .nw-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .nw-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .nw-fees { grid-template-columns: 1fr 1fr; }
     .nw-fee-cta { grid-column: 1 / -1; }
 }
 @media (max-width: 640px) {
@@ -228,7 +214,6 @@
     .nw-hero > .nw-date .d-day { padding: 12px 14px; }
     .nw-hero > .nw-date .d-num { padding: 0; font-size: 1.6rem; }
     .nw-hero > .nw-date .d-month { padding: 0; }
-    .nw-hero > .nw-date .d-note { margin-right: auto; border: 0; padding: 0; }
     .nw-split, .nw-who, .nw-grid, .nw-fees { grid-template-columns: 1fr; }
     .nw-steps { grid-template-columns: 1fr; }
     .nw-steps li { display: grid; grid-template-columns: 36px minmax(0, 1fr); column-gap: 12px; }
@@ -238,7 +223,6 @@
     .nw-feature .nw-date .d-day { padding: 11px 14px; }
     .nw-feature .nw-date .d-num { padding: 0; font-size: 1.5rem; }
     .nw-feature .nw-date .d-month { padding: 0; }
-    .nw-feature .nw-date .d-note { margin-right: auto; border: 0; padding: 0; }
     .nw-related .nw-btn { flex: 1 1 100%; }
 }
 
@@ -248,7 +232,6 @@
 .nw-legend li { display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: rgba(255,255,255,0.82); }
 .nw-legend .nw-status--official { background: rgba(74,222,128,0.16); border-color: rgba(134,239,172,0.4); color: #bbf7d0; }
 .nw-legend .nw-status--expected { background: rgba(255,176,77,0.18); border-color: rgba(255,190,110,0.45); color: #ffd59a; }
-.nw-legend .nw-status--tool { background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.3); color: #fff; }
 @media (max-width: 640px) { .nw-hero--hub { grid-template-columns: 1fr; } }
 
 /* Article hero side panel: date tile, live countdown, key facts */

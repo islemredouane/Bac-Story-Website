@@ -36,3 +36,7 @@ preview-site.bat
 
 # README asset screenshots (re-captured when needed, see README "Maintaining this README")
 .github/assets/src/shots/
+
+# Python cache
+__pycache__/
+*.pyc
