@@ -65,7 +65,7 @@ setTimeout(function () {
 // ─── COMPONENT INJECTOR ───────────────────────────────────────────────────────
 // Component URLs (?v= is set by scripts/stamp-versions.py). They are requested as soon as this
 // script runs, in parallel, so the navbar/footer/search are usually ready by DOMContentLoaded.
-const _NAVBAR_URL = '/components/navbar?v=d651014d58';
+const _NAVBAR_URL = '/components/navbar?v=e3e8a8c94d';
 const _FOOTER_URL = '/components/footer?v=6cdd7a19f0';
 const _SEARCH_URL = '/components/search?v=307da03145';
 const _componentFetches = {};
@@ -139,18 +139,27 @@ function injectGlobalCTA() {
 
     ph.innerHTML = `
 <section class="global-cta" id="global-cta">
-    <!-- CTA Cards (side-by-side on desktop, rotating on mobile) -->
+    <!-- CTA Cards (rotating on all screens, curated high-efficiency set) -->
     <div class="gcta-cards" id="gcta-cards">
-        <!-- 1. Urgent Start of Year / Prerequisites -->
-        <a href="/plans/monthly/prerequisites" class="gcta-card gcta-card--moktasabat">
-            <div class="gcta-icon-circle"><i class="fa-solid fa-book-open-reader"></i></div>
+        <!-- 1. تسجيلات البكالوريا (Bac 2027 Registration Guide) -->
+        <a href="/news/bac-2027-registration" class="gcta-card gcta-card--registration">
+            <div class="gcta-icon-circle"><i class="fas fa-file-pen"></i></div>
             <div class="gcta-text">
-                <strong>كُتيّب المكتسبات القبلية 2027</strong>
-                <span>شروحات يوتيوب تفاعلية وروابط ملخصات وتمارين لجميع الشعب</span>
+                <strong>تسجيلات بكالوريا 2027: الشروط والملف</strong>
+                <span>الدليل الشامل للتسجيل: موعد الانطلاق، شروط وترشح الأحرار، والملف المطلوب</span>
             </div>
-            <div class="gcta-btn">تصفح الكُتيّب <i class="fas fa-arrow-left"></i></div>
+            <div class="gcta-btn">دليل التسجيل <i class="fas fa-arrow-left"></i></div>
         </a>
-        <!-- 2. Approved References Booklet (same family as the prerequisites booklet, brand blue) -->
+        <!-- 2. حاسبة الحقوق (Free Candidate Fees Calculator) -->
+        <a href="/tools/free-candidate-fees" class="gcta-card gcta-card--fees">
+            <div class="gcta-icon-circle"><i class="fas fa-calculator"></i></div>
+            <div class="gcta-text">
+                <strong>حاسبة حقوق تسجيل الأحرار 2027</strong>
+                <span>كم ستدفع بالبطاقة الذهبية؟ احسب حقوقك بدقة حسب رقم محاولتك ووضعيتك</span>
+            </div>
+            <div class="gcta-btn">احسب حقوقك <i class="fas fa-arrow-left"></i></div>
+        </a>
+        <!-- 3. كتيب المراجع (Approved References Booklet) -->
         <a href="/plans/subject-plans/references" class="gcta-card gcta-card--references">
             <div class="gcta-icon-circle"><i class="fas fa-book-bookmark"></i></div>
             <div class="gcta-text">
@@ -159,7 +168,7 @@ function injectGlobalCTA() {
             </div>
             <div class="gcta-btn">تصفح الكُتيّب <i class="fas fa-arrow-left"></i></div>
         </a>
-        <!-- 3. Experiences of Top Rankers -->
+        <!-- 4. تجارب المتفوقين (Top Rankers Experiences) -->
         <a href="/experiences" class="gcta-card gcta-card--experiences">
             <div class="gcta-icon-circle"><i class="fas fa-medal"></i></div>
             <div class="gcta-text">
@@ -168,68 +177,19 @@ function injectGlobalCTA() {
             </div>
             <div class="gcta-btn">تصفح التجارب <i class="fas fa-arrow-left"></i></div>
         </a>
-        <!-- 4. Essential Bag & Resources -->
-        <a href="/resources" class="gcta-card gcta-card--resources">
-            <div class="gcta-icon-circle"><i class="fas fa-briefcase"></i></div>
-            <div class="gcta-text">
-                <strong>حقيبة بكالوريا 2027</strong>
-                <span>حمل أفضل الكتب الخارجية، الملخصات، ودرايفات المتفوقين</span>
-            </div>
-            <div class="gcta-btn">تصفح المصادر <i class="fas fa-arrow-left"></i></div>
-        </a>
-        <!-- 5. Monthly Study Plans -->
-        <a href="/plans/monthly" class="gcta-card gcta-card--plans">
-            <div class="gcta-icon-circle"><i class="fas fa-rocket"></i></div>
-            <div class="gcta-text">
-                <strong>بكالوريا 2027؟ ابدأ بقوة!</strong>
-                <span>اكتشف خطط التميز الشهرية ونظم وقتك من بداية العام الدراسي</span>
-            </div>
-            <div class="gcta-btn">تصفح الخطط <i class="fas fa-arrow-left"></i></div>
-        </a>
-        <!-- 6. Oqba Roadmaps -->
-        <a href="/oqba" class="gcta-card gcta-card--oqba">
-            <div class="gcta-icon-circle"><i class="fas fa-map-signs"></i></div>
-            <div class="gcta-text">
-                <strong>طريقك للنجاح 2027</strong>
-                <span>باقات عقبة بن نافع — دليلك الشامل لجميع المواد خطوة بخطوة</span>
-            </div>
-            <div class="gcta-btn">اكتشف الباقات <i class="fas fa-arrow-left"></i></div>
-        </a>
-        <!-- 7. Telegram Community & News -->
-        <a href="https://t.me/islembacdz" target="_blank" rel="noopener noreferrer" class="gcta-card gcta-card--news">
-            <div class="gcta-icon-circle"><i class="fas fa-newspaper"></i></div>
-            <div class="gcta-text">
-                <strong>آخر الأخبار والتحديثات</strong>
-                <span>تابع قناتنا الرسمية على التلغرام للحصول على المستجدات والنصائح اليومية</span>
-            </div>
-            <div class="gcta-btn">تابع الأخبار <i class="fas fa-arrow-left"></i></div>
-        </a>
-        <!-- 8. Contribute Resources -->
+        <!-- 5. شاركنا مصادرك (Contribute Resources) -->
         <a href="/contribute" class="gcta-card gcta-card--contribute">
             <div class="gcta-icon-circle"><i class="fas fa-upload"></i></div>
             <div class="gcta-text">
-                <strong>شارك مصادرك مع الجيل القادم</strong>
-                <span>درس ساعدك؟ تمرين أنقذك؟ شاركه مجاناً وباسمك لآلاف الطلاب</span>
+                <strong>شارك مصادرك مع زملائك</strong>
+                <span>درس ساعدك أو ملخص مميز؟ شاركه باسمك ليصل لآلاف الطلاب مجاناً</span>
             </div>
             <div class="gcta-btn">شارك الآن <i class="fas fa-arrow-left"></i></div>
         </a>
-        <!-- 9. Platform Feedback & Rating -->
-        <a href="/feedback" class="gcta-card gcta-card--feedback">
-            <div class="gcta-icon-circle"><i class="fas fa-star"></i></div>
-            <div class="gcta-text">
-                <strong>قيّم تجربتك مع BAC STORY</strong>
-                <span>سواء كنت من دفعة 2026 أو بدأت مشوار 2027 — رأيك يساعدنا في تطوير المنصة</span>
-            </div>
-            <div class="gcta-btn">اكتب رأيك <i class="fas fa-arrow-left"></i></div>
-        </a>
-    </div></div>
-    <!-- Mobile-only rotation dots (count = active gcta-card count) -->
+    </div>
+    <!-- Rotation navigation dots (count = 5 active cards) -->
     <div class="gcta-dots" id="gcta-dots">
         <span class="gcta-dot gcta-dot--active"></span>
-        <span class="gcta-dot"></span>
-        <span class="gcta-dot"></span>
-        <span class="gcta-dot"></span>
-        <span class="gcta-dot"></span>
         <span class="gcta-dot"></span>
         <span class="gcta-dot"></span>
         <span class="gcta-dot"></span>

@@ -611,44 +611,87 @@ button i, a i, .btn i {
     pointer-events: none;
 }
 
-.gcta-card--moktasabat {
-    background: linear-gradient(135deg, #ff6b35 0%, #ea580c 100%);
+/* ── 1. Registration (Warm Coral / Amber - Official & Urgent) ── */
+.gcta-card--registration {
+    background: linear-gradient(135deg, #c2410c 0%, #ea580c 45%, #f97316 100%);
     box-shadow: 0 8px 28px rgba(234, 88, 12, 0.28);
     border: 1px solid rgba(255, 255, 255, 0.22);
 }
-.gcta-card--moktasabat:hover {
-    box-shadow: 0 18px 44px rgba(234, 88, 12, 0.4) !important;
+.gcta-card--registration:hover {
+    box-shadow: 0 18px 44px rgba(234, 88, 12, 0.42) !important;
 }
-.gcta-card--moktasabat .gcta-icon-circle {
+.gcta-card--registration .gcta-icon-circle {
     background: #ffffff;
-    box-shadow: 0 4px 14px rgba(234, 88, 12, 0.18);
+    box-shadow: 0 4px 14px rgba(234, 88, 12, 0.2);
     color: #ea580c;
 }
-.gcta-card--moktasabat .gcta-icon-circle i {
+.gcta-card--registration .gcta-icon-circle i {
     color: #ea580c;
 }
-.gcta-card--moktasabat .gcta-text strong {
+.gcta-card--registration .gcta-text strong {
     color: #ffffff;
 }
-.gcta-card--moktasabat .gcta-text span {
-    color: rgba(255, 255, 255, 0.88);
+.gcta-card--registration .gcta-text span {
+    color: rgba(255, 255, 255, 0.90);
 }
-.gcta-card--moktasabat .gcta-btn {
-    background: linear-gradient(135deg, #ffffff 0%, #f4f7ff 100%);
+.gcta-card--registration .gcta-btn {
+    background: linear-gradient(135deg, #ffffff 0%, #fff7ed 100%);
     color: #ea580c;
     font-weight: 800;
     border: 1px solid rgba(255, 255, 255, 0.85);
     box-shadow: 0 10px 24px rgba(234, 88, 12, 0.18), 0 2px 6px rgba(15, 23, 42, 0.05);
 }
-.gcta-card--moktasabat:hover .gcta-btn {
+.gcta-card--registration:hover .gcta-btn {
     background: #ffffff;
     color: #c2410c;
     transform: translateY(-2px) scale(1.03);
     box-shadow: 0 12px 28px rgba(234, 88, 12, 0.28);
 }
-.gcta-card--moktasabat:hover .gcta-btn i.fa-arrow-left {
+.gcta-card--registration:hover .gcta-btn i.fa-arrow-left {
     transform: translateX(-4px);
 }
+
+/* ── 2. Fees Calculator (Fintech Emerald - Calculator & Edahabia) ── */
+.gcta-card--fees {
+    background: linear-gradient(135deg, #065f46 0%, #059669 45%, #10b981 100%);
+    box-shadow: 0 8px 28px rgba(5, 150, 105, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+}
+.gcta-card--fees:hover {
+    box-shadow: 0 18px 44px rgba(5, 150, 105, 0.42) !important;
+}
+.gcta-card--fees .gcta-icon-circle {
+    background: #ffffff;
+    box-shadow: 0 4px 14px rgba(5, 150, 105, 0.2);
+    color: #059669;
+}
+.gcta-card--fees .gcta-icon-circle i {
+    color: #059669;
+}
+.gcta-card--fees .gcta-text strong {
+    color: #ffffff;
+}
+.gcta-card--fees .gcta-text span {
+    color: rgba(255, 255, 255, 0.90);
+}
+.gcta-card--fees .gcta-btn {
+    background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+    color: #059669;
+    font-weight: 800;
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    box-shadow: 0 10px 24px rgba(5, 150, 105, 0.18), 0 2px 6px rgba(15, 23, 42, 0.05);
+}
+.gcta-card--fees:hover .gcta-btn {
+    background: #ffffff;
+    color: #047857;
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 12px 28px rgba(5, 150, 105, 0.3);
+}
+.gcta-card--fees:hover .gcta-btn i.fa-arrow-left {
+    transform: translateX(-4px);
+}
+
+/* ── 3. References Booklet (Brand Sapphire Blue - Academic Authority) ── */
 .gcta-card--references {
     background: linear-gradient(135deg, #1a3a8f 0%, #2c5cc5 55%, #3d6ee0 100%);
     box-shadow: 0 8px 28px rgba(44, 92, 197, 0.28);
@@ -660,6 +703,7 @@ button i, a i, .btn i {
 .gcta-card--references .gcta-icon-circle {
     background: #ffffff;
     box-shadow: 0 4px 14px rgba(26, 58, 143, 0.2);
+    color: #2c5cc5;
 }
 .gcta-card--references .gcta-icon-circle i {
     color: #2c5cc5;
@@ -686,37 +730,109 @@ button i, a i, .btn i {
 .gcta-card--references:hover .gcta-btn i.fa-arrow-left {
     transform: translateX(-4px);
 }
+
+/* ── 4. Top Rankers Experiences (Royal Indigo - Prestige & Motivation) ── */
 .gcta-card--experiences {
-    background: linear-gradient(135deg, #065f46 0%, #059669 45%, #10b981 100%);
-    box-shadow: 0 8px 28px rgba(5, 150, 105, 0.22);
+    background: linear-gradient(135deg, #1e1b4b 0%, #3730a3 50%, #4f46e5 100%);
+    box-shadow: 0 8px 28px rgba(79, 70, 229, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+}
+.gcta-card--experiences:hover {
+    box-shadow: 0 18px 44px rgba(79, 70, 229, 0.42) !important;
+}
+.gcta-card--experiences .gcta-icon-circle {
+    background: #ffffff;
+    box-shadow: 0 4px 14px rgba(79, 70, 229, 0.2);
+    color: #4f46e5;
+}
+.gcta-card--experiences .gcta-icon-circle i {
+    color: #4f46e5;
+}
+.gcta-card--experiences .gcta-text strong {
+    color: #ffffff;
+}
+.gcta-card--experiences .gcta-text span {
+    color: rgba(255, 255, 255, 0.90);
+}
+.gcta-card--experiences .gcta-btn {
+    background: linear-gradient(135deg, #ffffff 0%, #f5f3ff 100%);
+    color: #4338ca;
+    font-weight: 800;
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    box-shadow: 0 10px 24px rgba(79, 70, 229, 0.2), 0 2px 6px rgba(15, 23, 42, 0.05);
+}
+.gcta-card--experiences:hover .gcta-btn {
+    background: #ffffff;
+    color: #312e81;
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 12px 28px rgba(79, 70, 229, 0.32);
+}
+.gcta-card--experiences:hover .gcta-btn i.fa-arrow-left {
+    transform: translateX(-4px);
 }
 
+/* ── 5. Contribute Resources (Ocean Sky / Teal - Community & Sharing) ── */
+.gcta-card--contribute {
+    background: linear-gradient(135deg, #0c4a6e 0%, #0284c7 48%, #0ea5e9 100%);
+    box-shadow: 0 8px 28px rgba(2, 132, 199, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+}
+.gcta-card--contribute:hover {
+    box-shadow: 0 18px 44px rgba(2, 132, 199, 0.42) !important;
+}
+.gcta-card--contribute .gcta-icon-circle {
+    background: #ffffff;
+    box-shadow: 0 4px 14px rgba(2, 132, 199, 0.2);
+    color: #0284c7;
+}
+.gcta-card--contribute .gcta-icon-circle i {
+    color: #0284c7;
+}
+.gcta-card--contribute .gcta-text strong {
+    color: #ffffff;
+}
+.gcta-card--contribute .gcta-text span {
+    color: rgba(255, 255, 255, 0.90);
+}
+.gcta-card--contribute .gcta-btn {
+    background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+    color: #0284c7;
+    font-weight: 800;
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    box-shadow: 0 10px 24px rgba(2, 132, 199, 0.2), 0 2px 6px rgba(15, 23, 42, 0.05);
+}
+.gcta-card--contribute:hover .gcta-btn {
+    background: #ffffff;
+    color: #0369a1;
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 12px 28px rgba(2, 132, 199, 0.3);
+}
+.gcta-card--contribute:hover .gcta-btn i.fa-arrow-left {
+    transform: translateX(-4px);
+}
+
+/* ── Legacy Card Styles (Preserved for compatibility) ── */
+.gcta-card--moktasabat {
+    background: linear-gradient(135deg, #ff6b35 0%, #ea580c 100%);
+    box-shadow: 0 8px 28px rgba(234, 88, 12, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+}
 .gcta-card--plans {
     background: linear-gradient(135deg, #7c3a00 0%, #c4600a 45%, #ff6b35 100%);
     box-shadow: 0 8px 28px rgba(196, 96, 10, 0.17);
 }
-
 .gcta-card--resources {
     background: linear-gradient(135deg, #0f2060 0%, #1a3a8f 45%, #2c5cc5 100%);
     box-shadow: 0 8px 28px rgba(26, 58, 143, 0.17);
 }
-
 .gcta-card--oqba {
     background: linear-gradient(135deg, #1e1b4b 0%, #312e81 45%, #4f46e5 100%);
     box-shadow: 0 8px 28px rgba(79, 70, 229, 0.15);
 }
-
-
-.gcta-card--contribute {
-    background: linear-gradient(135deg, #1a3a8f 0%, #2c5cc5 55%, #3d6ee0 100%);
-    box-shadow: 0 8px 28px rgba(26, 58, 143, 0.17);
-}
-
 .gcta-card--news {
     background: linear-gradient(135deg, #0c4a6e 0%, #0284c7 45%, #2aabee 100%);
     box-shadow: 0 8px 28px rgba(2, 132, 199, 0.22);
 }
-
 .gcta-card--feedback {
     background:
         linear-gradient(120deg, #7a4f00 0%, #b8860b 30%, #d4a017 55%, #c8920e 75%, #8b6200 100%);
