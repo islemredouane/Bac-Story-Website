@@ -1347,8 +1347,20 @@ async function bootPage() {
         var hadController = !!navigator.serviceWorker.controller;
 
         const regSw = () => {
+            // register() alone does not re-download sw.js when it is already installed. The extra
+            // reg.update() that used to run on every page made /sw.js the most requested file
+            // (about 70,000 a day, ~5 per visit). The browser also checks it by itself, so ask at
+            // most once every 6 hours per visitor.
             navigator.serviceWorker.register('/sw.js')
-                .then(reg => { reg.update(); })
+                .then(reg => {
+                    try {
+                        var last = +localStorage.getItem('bs_sw_upd') || 0;
+                        if (Date.now() - last > 6 * 36e5) {
+                            localStorage.setItem('bs_sw_upd', String(Date.now()));
+                            reg.update();
+                        }
+                    } catch (e) { reg.update(); }
+                })
                 .catch(err => console.warn('SW failed', err));
         };
 
