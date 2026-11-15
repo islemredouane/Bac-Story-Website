@@ -7136,6 +7136,27 @@ body.pdf-body-lock [id="footer-placeholder"] {
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
+/* Reserve the card's height before shared.js injects it. Without this the box is empty at first
+   and the whole page jumps down 250 px on phones when the card appears (measured CLS ~0.22 on
+   every page that has the placeholder). Heights are the measured card heights: 271 px at 360 px
+   wide, 250 px from 380 px, 144 px at tablet width and up. The :has() test lifts the reservation
+   as soon as a card is inside, so the box then follows the card's own height. */
+.ad-card-inject:not(:has(.ad-card-wrap)) {
+    min-height: 271px;
+}
+
+@media (min-width: 380px) {
+    .ad-card-inject:not(:has(.ad-card-wrap)) {
+        min-height: 250px;
+    }
+}
+
+@media (min-width: 700px) {
+    .ad-card-inject:not(:has(.ad-card-wrap)) {
+        min-height: 144px;
+    }
+}
+
 .ad-card-inject.ad-card-fade-out {
     opacity: 0;
     transform: translateY(-6px);
