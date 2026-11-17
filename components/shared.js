@@ -66,7 +66,7 @@ setTimeout(function () {
 // Component URLs (?v= is set by scripts/stamp-versions.py). They are requested as soon as this
 // script runs, in parallel, so the navbar/footer/search are usually ready by DOMContentLoaded.
 const _NAVBAR_URL = '/components/navbar?v=e3e8a8c94d';
-const _FOOTER_URL = '/components/footer?v=6cdd7a19f0';
+const _FOOTER_URL = '/components/footer?v=21c2f488da';
 const _SEARCH_URL = '/components/search?v=307da03145';
 const _componentFetches = {};
 
@@ -797,7 +797,7 @@ function setupSearch() {
     // only when a visitor opens or hovers the search button, so ordinary page
     // loads stay light. After editing /search-index.json, run scripts/stamp-versions.py
     // so the ?v= below changes and browsers fetch the new copy.
-    const SEARCH_INDEX_URL = '/search-index.json?v=ef28b2a8fb';
+    const SEARCH_INDEX_URL = '/search-index.json?v=249d14b342';
     let navSearchData = null;
     let searchIndexPromise = null;
     const loadSearchIndex = () => {
