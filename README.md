@@ -261,6 +261,8 @@ All tokens are CSS variables at the top of `style.css` (`--primary-color`, `--se
 | `search` | a visitor stops typing in the site search (term, number of results, stream) | `components/shared.js` |
 | `page_not_found` | the 404 page is shown (the wrong address, where the visitor came from) | `components/shared.js` |
 | `bac_stream_detected` | a page that belongs to one stream opens (`bac_stream`: science, math, tech, management, literature, languages) | `components/shared.js` |
+| `pdf_view` | a study file finishes loading in the Google Drive viewer, once per file (file URL, file name, page, stream) | `components/shared.js` |
+| `pdf_read` | the visitor leaves or hides the tab after reading inside the viewer: seconds spent with focus in the viewer, from 5 s (`time_spent_seconds`, file URL, file name, page, stream). GA4's own engagement time stops when focus moves into the iframe, so this is the real reading time | `components/shared.js` |
 
 Each event needs a trigger and a GA4 event tag in Tag Manager. `bac_stream` is also saved as a user property, so reports can be split by stream.
 
