@@ -1975,4 +1975,77 @@ if (document.readyState === 'loading') {
             }, 1500);
         } catch (err) {}
     }, true);
+
+    // pdf_view and pdf_read: the study files open inside a Google Drive viewer (an iframe). As soon as a
+    // student scrolls or taps inside it, the page loses focus and GA4 stops counting engagement time, so a
+    // page read for 20 minutes shows as ~30 s. These two events measure the real use:
+    //   pdf_view  once per file, when the viewer has loaded it (file_url, file_name, page_path, bac_stream)
+    //   pdf_read  the seconds spent inside the viewer (focus in the iframe while the tab is visible), sent in
+    //             time_spent_seconds when the student leaves or hides the tab; only from 5 s, capped at 3 h.
+    try {
+        var frames = Array.prototype.filter.call(document.getElementsByTagName('iframe'), function (f) {
+            return /drive\.google\.com\//.test(f.getAttribute('src') || '');
+        });
+        if (frames.length) {
+            var viewed = {}, pending = {}, active = null, since = 0;
+            var fileUrl = function (f) { return (f.getAttribute('src') || '').slice(0, 200); };
+            var fileName = function () {
+                var t = document.querySelector('.pdf-switcher-tab.active') || document.querySelector('.modern-section-header h2, h1');
+                return t ? (t.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 100) : '';
+            };
+            var stop = function () {
+                if (!active) return;
+                var key = active.url;
+                pending[key] = pending[key] || { secs: 0, name: active.name };
+                pending[key].secs += (Date.now() - since) / 1000;
+                active = null;
+            };
+            var start = function (f) {
+                if (active || document.visibilityState === 'hidden') return;
+                active = { url: fileUrl(f), name: fileName() };
+                since = Date.now();
+            };
+            var flush = function () {
+                stop();
+                Object.keys(pending).forEach(function (url) {
+                    var secs = Math.min(Math.round(pending[url].secs), 10800);
+                    if (secs >= 5) {
+                        push({ event: 'pdf_read', file_url: url, file_name: pending[url].name, time_spent_seconds: secs,
+                               page_path: location.pathname, bac_stream: stream || '(none)' });
+                        delete pending[url];
+                    }
+                });
+            };
+            var markViewed = function (f) {
+                var url = fileUrl(f);
+                if (url && !viewed[url]) {
+                    viewed[url] = 1;
+                    push({ event: 'pdf_view', file_url: url, file_name: fileName(), page_path: location.pathname, bac_stream: stream || '(none)' });
+                }
+            };
+            frames.forEach(function (f) {
+                f.addEventListener('load', function () {
+                    if (active && active.url !== fileUrl(f)) stop();   /* the file tab was switched */
+                    markViewed(f);
+                });
+            });
+            // A tap or scroll inside the viewer moves focus into the iframe, so the page gets "blur".
+            // (If the viewer finished loading before this script ran, the first use also counts as the view.)
+            window.addEventListener('blur', function () {
+                setTimeout(function () {
+                    var el = document.activeElement;
+                    if (el && frames.indexOf(el) !== -1) { markViewed(el); start(el); }
+                }, 0);
+            });
+            window.addEventListener('focus', stop);
+            document.addEventListener('visibilitychange', function () {
+                if (document.visibilityState === 'hidden') flush();
+                else {
+                    var el = document.activeElement;
+                    if (el && frames.indexOf(el) !== -1 && !document.hasFocus()) start(el);
+                }
+            });
+            window.addEventListener('pagehide', flush);
+        }
+    } catch (err) {}
 })();
