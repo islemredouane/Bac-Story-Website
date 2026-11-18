@@ -8,7 +8,9 @@
      Runs before GTM so a quick fix leaves no 404 page_view. Single-segment paths are checked against the top-level
      pages below (keep in sync with sitemap.xml); deeper paths fetch /sitemap.xml once. Redirects at most once per
      10 s (sessionStorage), never to the current path, and stays silent on any error.
-     window.__bs404Recover resolves true when it redirects, so shared.js skips page_not_found for recovered visits. -->
+     window.__bs404Recover resolves true when it redirects, so shared.js skips page_not_found for recovered visits.
+     When there is no single clear match, the page list is kept in window.__bs404Pages and the "هل تقصد" box
+     (script at the end of <body>) suggests up to 3 close pages. -->
 <script>(function(w){var done,res=new Promise(function(r){done=r});w.__bs404Recover=res;try{
 var TOP=['/','/about','/advertise','/bac-2026','/bac-2026-graduation','/bac-2027-curriculum-changes','/contact','/contribute','/experiences','/feedback','/news','/oqba','/orientation','/plans','/privacy','/resources','/simulation','/tools','/topics','/university'];
 var L=w.location,cur=L.pathname,K='bs404_redirect_at',ss=null;
@@ -28,10 +30,11 @@ return best?map[best]:null}
 function go(to){if(!to||to.replace(/\/+$/,'')===cur.replace(/\/+$/,''))return false;
 try{if(ss)ss.setItem(K,String(Date.now()))}catch(e){}L.replace(to+L.search+L.hash);return true}
 w.__bs404Find=find;
-if(/^\/[^\/]*\/?$/.test(cur)||/^\/[^\/]*$/.test(clean(dec(cur)))){done(go(find(cur,TOP)));return}
+w.__bs404Clean=function(p){return norm(clean(dec(p)))};
+if(/^\/[^\/]*\/?$/.test(cur)||/^\/[^\/]*$/.test(clean(dec(cur)))){w.__bs404Pages=TOP;done(go(find(cur,TOP)));return}
 var x=new XMLHttpRequest();x.open('GET','/sitemap.xml',true);x.timeout=8000;
 x.onload=function(){try{var r=[],m,re=/<loc>\s*https?:\/\/[^\/<]+(\/[^<\s]*)\s*<\/loc>/g,s=x.status===200?x.responseText:'';
-while((m=re.exec(s)))r.push(m[1]);done(r.length?go(find(cur,r)):false)}catch(e){done(false)}};
+while((m=re.exec(s)))r.push(m[1]);w.__bs404Pages=r;done(r.length?go(find(cur,r)):false)}catch(e){done(false)}};
 x.onerror=x.ontimeout=function(){done(false)};x.send();
 }catch(e){done(false)}})(window)</script>
 <!-- Google Tag Manager -->
@@ -65,6 +68,162 @@ x.onerror=x.ontimeout=function(){done(false)};x.send();
 /* ============================================================
    BAC STORY 404 — PREMIUM BRAND-AUTHENTIC REDESIGN
    ============================================================ */
+
+/* "Did you mean" box: shown only when the address has no single clear match.
+   Same language as the destination cards and action buttons below: frosted glass panel, brand-gradient
+   featured row (closest match), soft icon tiles, pill hover lift. */
+.nf-suggest {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto 2.4rem;
+    padding: 1.4rem 1.25rem 1.3rem;
+    border-radius: 24px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.82) 0%, rgba(247, 249, 254, 0.72) 100%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    backdrop-filter: blur(14px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 18px 48px rgba(44, 92, 195, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    text-align: right;
+    animation: nfSuggestIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.nf-suggest::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(44, 92, 197, 0.35), rgba(79, 127, 255, 0.08) 45%, rgba(255, 107, 53, 0.25));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+@keyframes nfSuggestIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.nf-suggest-head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.55rem;
+    margin-bottom: 1.1rem;
+    text-align: center;
+}
+.nf-suggest-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.32rem 0.85rem 0.26rem;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #ff6b35, #e8420e);
+    color: #ffffff;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 0.74rem;
+    font-weight: 800;
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.35);
+}
+.nf-suggest-title {
+    margin: 0;
+    font-family: 'Tajawal', sans-serif;
+    font-size: clamp(1.15rem, 2.8vw, 1.4rem);
+    font-weight: 900;
+    color: #1e293b;
+    text-wrap: balance;
+}
+.nf-suggest-list { display: flex; flex-direction: column; gap: 0.7rem; }
+.nf-suggest-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 0.85rem 1rem;
+    border-radius: 18px;
+    background: linear-gradient(180deg, #ffffff 0%, #f7f9fe 100%);
+    border: 1px solid #e6ebf5;
+    box-shadow: 0 6px 18px rgba(44, 92, 195, 0.07);
+    color: inherit;
+    text-decoration: none !important;
+    font-family: 'Tajawal', sans-serif;
+    transition: transform 0.24s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.24s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.24s ease;
+}
+.nf-suggest-item:hover, .nf-suggest-item:focus-visible {
+    transform: translateY(-3px);
+    border-color: rgba(44, 92, 195, 0.35);
+    box-shadow: 0 14px 30px rgba(44, 92, 195, 0.15);
+    outline: none;
+}
+.nf-suggest-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    background: rgba(44, 92, 195, 0.10);
+    color: var(--primary-color, #1a3a8f);
+    font-size: 1.15rem;
+    transition: transform 0.22s ease;
+}
+.nf-suggest-item:hover .nf-suggest-icon { transform: scale(1.08); }
+.nf-suggest-text { display: flex; flex-direction: column; gap: 0.15rem; min-width: 0; flex: 1; }
+.nf-suggest-text strong { font-size: 1rem; font-weight: 800; color: #1a3a8f; line-height: 1.45; }
+.nf-suggest-text small {
+    direction: ltr;
+    text-align: right;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: #64748b;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.nf-suggest-go {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    background: #ffffff;
+    color: #1a3a8f;
+    border: 2px solid #1a3a8f;
+    font-size: 0.85rem;
+    transition: transform 0.22s ease, background-color 0.22s ease;
+}
+.nf-suggest-item:hover .nf-suggest-go { transform: translateX(-4px); }
+/* Closest match: brand gradient like the featured destination card */
+.nf-suggest-item.is-best {
+    background: linear-gradient(135deg, #1a3a8f 0%, #2660d8 60%, #4a82f5 100%);
+    border-color: transparent;
+    box-shadow: 0 12px 30px rgba(38, 96, 216, 0.3);
+}
+.nf-suggest-item.is-best:hover { border-color: transparent; box-shadow: 0 18px 40px rgba(38, 96, 216, 0.4); }
+.nf-suggest-item.is-best .nf-suggest-icon { background: rgba(255, 255, 255, 0.18); color: #ffffff; }
+.nf-suggest-item.is-best .nf-suggest-text strong { color: #ffffff; }
+.nf-suggest-item.is-best .nf-suggest-text small { color: rgba(255, 255, 255, 0.8); }
+.nf-suggest-item.is-best .nf-suggest-go { background: rgba(255, 255, 255, 0.16); color: #ffffff; border-color: rgba(255, 255, 255, 0.85); }
+.nf-suggest-best-tag {
+    position: absolute;
+    top: -9px;
+    left: 16px;
+    padding: 0.2rem 0.6rem 0.15rem;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #ff6b35, #e8420e);
+    color: #ffffff;
+    font-size: 0.68rem;
+    font-weight: 800;
+    box-shadow: 0 4px 10px rgba(255, 107, 53, 0.35);
+}
+@media (max-width: 600px) {
+    .nf-suggest { padding: 1.15rem 0.9rem 1rem; border-radius: 20px; margin-bottom: 2rem; }
+    .nf-suggest-item { padding: 0.75rem 0.8rem; gap: 0.7rem; }
+    .nf-suggest-icon { width: 40px; height: 40px; font-size: 1rem; border-radius: 12px; }
+    .nf-suggest-go { width: 32px; height: 32px; }
+    .nf-suggest-text strong { font-size: 0.94rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .nf-suggest, .nf-suggest-item, .nf-suggest-icon, .nf-suggest-go { animation: none; transition: none; }
+}
 
 /* Seamless Footer Connection */
 .footer-arabic {
@@ -557,6 +716,15 @@ x.onerror=x.ontimeout=function(){done(false)};x.send();
             لا تقلق — كل ما تحتاجه للتحضير والتفوق في البكالوريا في متناول يدك.
         </p>
 
+        <!-- "هل تقصد" box: filled by the script at the end of <body> when suggestions exist -->
+        <div class="nf-suggest" id="nfSuggest" hidden>
+            <div class="nf-suggest-head">
+                <span class="nf-suggest-pill"><i class="fas fa-wand-magic-sparkles"></i> اقتراحات ذكية</span>
+                <h2 class="nf-suggest-title">هل تقصد إحدى هذه الصفحات؟</h2>
+            </div>
+            <div class="nf-suggest-list" id="nfSuggestList"></div>
+        </div>
+
         <!-- Navigation Hub with Landing Page Centered Title & Strategic 6-Card Architecture -->
         <div style="width: 100%; margin-top: 1rem;">
             <div class="hp-social-header">
@@ -648,6 +816,80 @@ x.onerror=x.ontimeout=function(){done(false)};x.send();
     }
 </script>
 
+<script>
+/* "هل تقصد" suggestions. Runs only when the recovery script above did not redirect. Ranks real pages from
+   window.__bs404Pages by how much of the address they share (same leading characters, then a page whose last
+   part contains the typed last part), shows up to 3, and fills in each page's <title> (3 small requests,
+   2.5 s limit; the path is shown if a title does not arrive). Silent on any error. */
+(function () {
+    var box = document.getElementById('nfSuggest'), list = document.getElementById('nfSuggestList');
+    var rec = window.__bs404Recover;
+    if (!box || !list || !rec || !rec.then) return;
+    function lcp(a, b) { var n = Math.min(a.length, b.length), i = 0; while (i < n && a.charCodeAt(i) === b.charCodeAt(i)) i++; return i; }
+    function dec(p) { try { return decodeURIComponent(p); } catch (e) { return p; } }
+    function pick(c, pages) {
+        var last = c.split('/').pop(), seen = {}, out = [];
+        pages.forEach(function (raw) {
+            var k = dec(raw).replace(/\/+$/, '').toLowerCase() || '/';
+            if (seen[k] || k === '/' || k === c) return;
+            seen[k] = 1;
+            var pre = lcp(c, k);
+            var segs = k.split('/'), seg = segs[segs.length - 1], bonus = 0;
+            if (last.length >= 4 && seg.indexOf(last) !== -1) bonus = 6 + last.length;
+            else if (seg.length >= 4 && last.indexOf(seg) !== -1) bonus = 4 + seg.length;
+            var score = pre + bonus - Math.abs(k.length - c.length) * 0.05;
+            /* must share more than a leading slash: at least 5 characters, or the whole first section */
+            var first = '/' + (c.split('/')[1] || '');
+            if (pre < 5 && !(first.length > 1 && k.indexOf(first) === 0) && !bonus) return;
+            out.push({ url: raw.replace(/\/+$/, '') || '/', score: score, len: k.length });
+        });
+        out.sort(function (a, b) { return b.score - a.score || a.len - b.len; });
+        return out.slice(0, 3);
+    }
+    function label(url) {
+        return dec(url).replace(/^\/+/, '').split('/').pop().replace(/[-_]+/g, ' ') || url;
+    }
+    rec.then(function (redirected) {
+        try {
+            var pages = window.__bs404Pages, clean = window.__bs404Clean;
+            if (redirected || !pages || !pages.length || !clean) return;
+            var c = clean(location.pathname);
+            var top = pick(c, pages);
+            if (!top.length) return;
+            top.forEach(function (t, idx) {
+                var a = document.createElement('a');
+                a.className = 'nf-suggest-item';
+                a.href = t.url;
+                var ic = /^\/plans/.test(t.url) ? 'fa-calendar-check' : /^\/topics/.test(t.url) ? 'fa-file-signature'
+                    : /^\/resources/.test(t.url) ? 'fa-book-open' : /^\/university|^\/orientation/.test(t.url) ? 'fa-graduation-cap'
+                    : /^\/tools/.test(t.url) ? 'fa-calculator' : /^\/news/.test(t.url) ? 'fa-newspaper' : 'fa-compass';
+                if (idx === 0) a.className += ' is-best';
+                a.innerHTML = (idx === 0 ? '<span class="nf-suggest-best-tag">الأقرب</span>' : '') +
+                    '<span class="nf-suggest-icon"><i class="fas ' + ic + '"></i></span>' +
+                    '<span class="nf-suggest-text"><strong></strong><small></small></span>' +
+                    '<span class="nf-suggest-go"><i class="fas fa-arrow-left"></i></span>';
+                a.querySelector('strong').textContent = label(t.url);
+                a.querySelector('small').textContent = 'bac-story.com' + dec(t.url);
+                a.addEventListener('click', function () {
+                    try { (window.dataLayer = window.dataLayer || []).push({ event: 'not_found_suggestion_click', link_url: t.url, page_path: location.pathname }); } catch (e) {}
+                });
+                list.appendChild(a);
+                /* real page title, without the site suffix */
+                var x = new XMLHttpRequest();
+                x.open('GET', t.url, true); x.timeout = 2500;
+                x.onload = function () {
+                    try {
+                        var m = x.status === 200 && /<title>([^<]+)<\/title>/i.exec(x.responseText);
+                        if (m) a.querySelector('strong').textContent = m[1].replace(/\s*\|\s*BAC STORY\s*$/i, '').trim();
+                    } catch (e) {}
+                };
+                x.send();
+            });
+            box.hidden = false;
+        } catch (e) {}
+    });
+})();
+</script>
 <script defer src="/components/shared.js?v=13a41e60d5"></script>
 <!-- Cloudflare Web Analytics --><script data-cf-beacon='{"token": "6153c3a6dd54435780cd9d84f9f958f8"}' src="https://static.cloudflareinsights.com/beacon.min.js" type="module"></script><!-- End Cloudflare Web Analytics -->
 </body>
