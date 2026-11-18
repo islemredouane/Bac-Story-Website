@@ -731,6 +731,16 @@ function setupSearch() {
         'كل', 'جميع', 'بعض', 'غير', 'سوى', 'عند', 'نحو', 'بين', 'خلال', 'ضد', 'اما', 'ان', 'انما', 'لكن'
     ]);
 
+    // "PDF" as students type it ("بدياف", "بي دي اف", "pdf"...). Nearly every book/subject page is a PDF,
+    // so the word carries no topical meaning: it is dropped from the query (not expanded as a synonym),
+    // otherwise "بدياف كتاب ..." would never get the all-words-matched bonus. Matched on the normalized
+    // query (ي/ى unified, ة->ه). A query made only of this word is left as typed.
+    const PDF_NOISE_RE = /(^|\s)(pdf|بدياف|بيدياف|بديف|بي ?دي ?اف|بي ?دي ?ايف)(?=\s|$)/g;
+    const stripPdfNoise = (q) => {
+        const cleaned = q.replace(PDF_NOISE_RE, ' ').replace(/\s+/g, ' ').trim();
+        return cleaned || q;
+    };
+
     // Arabic prefix/suffix stem generator for matching flexibility
     const getWordStems = (word) => {
         const stems = new Set([word]);
@@ -797,7 +807,7 @@ function setupSearch() {
     // only when a visitor opens or hovers the search button, so ordinary page
     // loads stay light. After editing /search-index.json, run scripts/stamp-versions.py
     // so the ?v= below changes and browsers fetch the new copy.
-    const SEARCH_INDEX_URL = '/search-index.json?v=249d14b342';
+    const SEARCH_INDEX_URL = '/search-index.json?v=763a1bcc40';
     let navSearchData = null;
     let searchIndexPromise = null;
     const loadSearchIndex = () => {
@@ -909,7 +919,7 @@ function setupSearch() {
                 return;
             }
 
-            const query = normalizeSearch(queryRaw);
+            const query = stripPdfNoise(normalizeSearch(queryRaw));
             const queryWords = query.split(/\s+/).filter(w => w.length >= 1);
 
             const scored = navSearchData.map(item => {
@@ -1894,7 +1904,12 @@ if (document.readyState === 'loading') {
     try {
         var can = document.querySelector('link[rel="canonical"]');
         if (can && /\/404\/?$/.test(can.getAttribute('href') || '')) {
-            push({ event: 'page_not_found', page_path: location.pathname, page_referrer: document.referrer || '(direct)' });
+            var nf = { event: 'page_not_found', page_path: location.pathname, page_referrer: document.referrer || '(direct)' };
+            // 404.html first tries to send near-miss links (text glued on, cut short) to the real page.
+            // Only count the visit as broken when that recovery did not redirect.
+            var rec = window.__bs404Recover;
+            if (rec && typeof rec.then === 'function') rec.then(function (moved) { if (!moved) push(nf); }, function () { push(nf); });
+            else push(nf);
         }
     } catch (e) {}
 
