@@ -4,6 +4,36 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link rel="preload" href="/fonts/fa/fa-solid-900.woff2?v=a8f9152027" as="font" type="font/woff2" crossorigin="anonymous"/>
+<!-- 404 recovery: links shared with text glued on ("/experiencشوفو") or cut short ("/experienc") go to the real page.
+     Runs before GTM so a quick fix leaves no 404 page_view. Single-segment paths are checked against the top-level
+     pages below (keep in sync with sitemap.xml); deeper paths fetch /sitemap.xml once. Redirects at most once per
+     10 s (sessionStorage), never to the current path, and stays silent on any error.
+     window.__bs404Recover resolves true when it redirects, so shared.js skips page_not_found for recovered visits. -->
+<script>(function(w){var done,res=new Promise(function(r){done=r});w.__bs404Recover=res;try{
+var TOP=['/','/about','/advertise','/bac-2026','/bac-2026-graduation','/bac-2027-curriculum-changes','/contact','/contribute','/experiences','/feedback','/news','/oqba','/orientation','/plans','/privacy','/resources','/simulation','/tools','/topics','/university'];
+var L=w.location,cur=L.pathname,K='bs404_redirect_at',ss=null;
+try{ss=w.sessionStorage;var t=+ss.getItem(K);if(t&&Date.now()-t<1e4){done(false);return}}catch(e){ss=null}
+function dec(p){try{return decodeURIComponent(p)}catch(e){return p}}
+function norm(p){p=p.replace(/\/+$/,'');return(p||'/').toLowerCase()}
+function clean(p){var o;do{o=p;p=p.replace(/[^\x00-\x7f]+$/,'').replace(/[\s.,;:!?'"`()\[\]{}<>*_~|\\^-]+$/,'').replace(/\.html$/i,'').replace(/\/index$/i,'').replace(/\/+$/,'')}while(p!==o);return p||'/'}
+function find(path,pages){var raw=norm(dec(path)),c=norm(clean(dec(path))),map={},i,k;
+for(i=0;i<pages.length;i++)map[norm(dec(pages[i]))]=pages[i];
+if(map.hasOwnProperty(raw)){k=map[raw];return k.replace(/\/+$/,'')===path.replace(/\/+$/,'')?null:k}
+if(map.hasOwnProperty(c))return map[c];
+if(c.length>=6){var cand=[];for(k in map)if(map.hasOwnProperty(k)&&k.length>c.length&&k.indexOf(c)===0)cand.push(k);
+if(cand.length){cand.sort(function(a,b){return a.length-b.length});var top=cand[0],ok=true;
+for(i=1;i<cand.length;i++)if(cand[i].indexOf(top+'/')!==0){ok=false;break}if(ok)return map[top]}}
+var best='';for(k in map)if(map.hasOwnProperty(k)&&k.length>=5&&k.length>best.length&&c.length>k.length&&c.indexOf(k)===0&&c.charAt(k.length)!=='/')best=k;
+return best?map[best]:null}
+function go(to){if(!to||to.replace(/\/+$/,'')===cur.replace(/\/+$/,''))return false;
+try{if(ss)ss.setItem(K,String(Date.now()))}catch(e){}L.replace(to+L.search+L.hash);return true}
+w.__bs404Find=find;
+if(/^\/[^\/]*\/?$/.test(cur)||/^\/[^\/]*$/.test(clean(dec(cur)))){done(go(find(cur,TOP)));return}
+var x=new XMLHttpRequest();x.open('GET','/sitemap.xml',true);x.timeout=8000;
+x.onload=function(){try{var r=[],m,re=/<loc>\s*https?:\/\/[^\/<]+(\/[^<\s]*)\s*<\/loc>/g,s=x.status===200?x.responseText:'';
+while((m=re.exec(s)))r.push(m[1]);done(r.length?go(find(cur,r)):false)}catch(e){done(false)}};
+x.onerror=x.ontimeout=function(){done(false)};x.send();
+}catch(e){done(false)}})(window)</script>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -618,7 +648,7 @@
     }
 </script>
 
-<script defer src="/components/shared.js?v=aa39842b58"></script>
+<script defer src="/components/shared.js?v=13a41e60d5"></script>
 <!-- Cloudflare Web Analytics --><script data-cf-beacon='{"token": "6153c3a6dd54435780cd9d84f9f958f8"}' src="https://static.cloudflareinsights.com/beacon.min.js" type="module"></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
