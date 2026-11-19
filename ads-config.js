@@ -36,6 +36,8 @@ window.BAC_ADS = {
   //   Plan tiers → الظهور الكامل = 1 | بطاقة مميزة = 2 | شريط فقط = 3
   // If 2 advertisers: higher-plan card repeats once in the rotation array.
   // Set active: false to pause without deleting.
+  // Optional per card: stat: { value, label } shows one persuasive figure in the card's side rail
+  // (tokens {days}, {days_text}, {days_unit} count down to bacExamDate each day). No stat = slim icon rail.
   cardRotationMs: 7000,
 
   rotatingCards: [
@@ -50,6 +52,7 @@ window.BAC_ADS = {
       name:         'دورات الدعم والمراجعة المكثفة',
       subject:      'جميع الشعب والمواد',
       specialty:    null,
+      stat:         { value: 'ديسمبر', label: 'اختبارات الفصل الأول' },
       pitch:        'اختبارات الفصل الأول على الأبواب وعطلة الشتاء بعدها، وتلاميذ بكالوريا 2027 يبحثون عن أساتذة ودورات مراجعة. كن أول خيار أمامهم.',
       ctaText:      'احجز إعلانك',
       ctaHref:      '/advertise',
@@ -66,6 +69,7 @@ window.BAC_ADS = {
       name:         'بكالوريا 2027: بقي {days_text}',
       subject:      'جميع المواد والشعب',
       specialty:    null,
+      stat:         { value: '{days}', label: '{days_unit} للبكالوريا' },
       pitch:        'تلاميذ البكالوريا يبحثون يومياً عن الملخصات والدورات. استهدفهم عبر المنصة وقناة التلغرام (+19 ألف متابع).',
       ctaText:      'أعلن معنا',
       ctaHref:      '/advertise',
@@ -82,6 +86,7 @@ window.BAC_ADS = {
       name:         'مدارس اللغات والتطوير الأكاديمي',
       subject:      'لغات ودورات تدريبية',
       specialty:    null,
+      stat:         { value: 'الشتاء', label: 'وقت تعلّم جديد' },
       pitch:        'عطلة الشتاء فرصة لتعلم لغة جديدة أو مهارة تفيد في الجامعة. اعرض برامجك أمام تلاميذ البكالوريا والجامعيين المقبلين.',
       ctaText:      'تعرف على الباقات',
       ctaHref:      '/advertise',
@@ -98,6 +103,7 @@ window.BAC_ADS = {
       name:         'منصة تعليمية أو تطبيق دراسي؟',
       subject:      'جميع المستويات والشعب',
       specialty:    null,
+      stat:         { value: '+100K', label: 'طالب على المنصة' },
       pitch:        'اعرض تطبيقك أو منصتك أو محتواك الرقمي أمام أكثر من 100,000 طالب يستعدون للبكالوريا.',
       ctaText:      'تعرف على الباقات',
       ctaHref:      '/advertise',
@@ -146,14 +152,29 @@ window.BAC_ADS = {
     return n + ' يوماً';
   },
 
-  // Replaces {days} and {days_text} tokens in headline/subline/name/pitch at render time
+  // Unit word for the day count (1 يوم، 2 يومان، 3-10 أيام، 11+ يوماً)
+  getDaysUnit: function () {
+    var n = this.getCountdownDays();
+    if (n === 1) return 'يوم';
+    if (n === 2) return 'يومان';
+    if (n <= 10) return 'أيام';
+    return 'يوماً';
+  },
+
+  // Replaces {days}, {days_text} and {days_unit} tokens in headline/subline/name/pitch at render time
   fillTokens: function (item) {
     var self = this, out = {};
     Object.keys(item).forEach(function (k) {
       var v = item[k];
-      out[k] = (typeof v === 'string')
-        ? v.replace(/\{days_text\}/g, self.getDaysText()).replace(/\{days\}/g, self.getCountdownDays())
-        : v;
+      if (typeof v === 'string') {
+        out[k] = v.replace(/\{days_text\}/g, self.getDaysText())
+                  .replace(/\{days_unit\}/g, self.getDaysUnit())
+                  .replace(/\{days\}/g, self.getCountdownDays());
+      } else if (v && typeof v === 'object' && !Array.isArray(v)) {
+        out[k] = self.fillTokens(v);   // nested objects such as `stat`
+      } else {
+        out[k] = v;
+      }
     });
     return out;
   },
