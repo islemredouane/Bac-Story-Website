@@ -66,7 +66,7 @@ setTimeout(function () {
 // Component URLs (?v= is set by scripts/stamp-versions.py). They are requested as soon as this
 // script runs, in parallel, so the navbar/footer/search are usually ready by DOMContentLoaded.
 const _NAVBAR_URL = '/components/navbar?v=e3e8a8c94d';
-const _FOOTER_URL = '/components/footer?v=d3300ddc4e';
+const _FOOTER_URL = '/components/footer?v=bbe6a64034';
 const _SEARCH_URL = '/components/search?v=307da03145';
 const _componentFetches = {};
 
