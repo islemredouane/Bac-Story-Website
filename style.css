@@ -12146,6 +12146,9 @@ a.spec-detail-btn {
     bottom: 0 !important;
     width: 100vw !important;
     height: 100vh !important;
+    height: 100dvh !important;
+    /* a generic .active { margin: 2rem auto } rule used to push this overlay down 32px, leaving the navbar uncovered */
+    margin: 0 !important;
     background: rgba(15, 23, 42, 0.7);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -12161,6 +12164,7 @@ a.spec-detail-btn {
 }
 
 .bac2026-overlay.active {
+    margin: 0 !important;
     opacity: 1;
     pointer-events: auto;
 }
@@ -14088,3 +14092,10 @@ button, a.main-btn, a.spec-detail-btn, .modern-cta-btn, .spec-nav-btn, .gcta-btn
     .footer-arabic.footer-v2 .fv2-watermark { font-size: 5.5rem; bottom: 5.5rem; }
 }
 
+
+/* The legacy generic .active rule (display:block; margin:2rem auto) must never touch full-screen overlays: it shifted them down and left the navbar uncovered. */
+.nav-overlay.active,
+.share-overlay.active,
+.search-overlay.active {
+    margin: 0 !important;
+}
