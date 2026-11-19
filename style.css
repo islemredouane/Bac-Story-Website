@@ -13721,12 +13721,12 @@ button, a.main-btn, a.spec-detail-btn, .modern-cta-btn, .spec-nav-btn, .gcta-btn
    1. Invitation band: eyebrow pill, big headline, "ساهم بملفاتك" + Telegram buttons.
    2. Brand block (logo, tagline, social pills with handles) + 3 link columns.
    3. Bottom bar: company/legal links and copyright.
-   Deep navy brand gradient with a soft blue glow and a faint giant "BAC STORY" watermark.
+   Brand gradient (same as the navbar) with a soft glow and a faint giant "BAC STORY" watermark.
    Columns are <details>: open on desktop/tablet; on phones (≤768px) shared.js closes them so
    each is a 52px tap-to-open row. Scoped to .footer-arabic.footer-v2 to override older rules.
 ══════════════════════════════════════════════════════════════ */
 .footer-arabic.footer-v2 {
-    background: linear-gradient(160deg, #0c1f5e 0%, #13307f 55%, #1a3a8f 100%);
+    background: linear-gradient(135deg, #1a3a8f 0%, #2c5cc5 55%, #3d6ee0 100%);   /* same as .navbar */
     border-top: 1px solid rgba(255, 255, 255, 0.08);
     padding: 0 0 0.25rem;
     margin-top: 2.5rem;
@@ -13743,7 +13743,7 @@ button, a.main-btn, a.spec-detail-btn, .modern-cta-btn, .spec-nav-btn, .gcta-btn
     transform: translateX(-50%);
     width: min(760px, 90%);
     height: 260px;
-    background: radial-gradient(ellipse at center, rgba(79, 127, 255, 0.35), rgba(79, 127, 255, 0) 70%);
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0) 70%);
     filter: blur(30px);
     pointer-events: none;
     z-index: 0;
