@@ -22,7 +22,7 @@ window.BAC_ADS = {
       sponsorLabel: 'إعلان مموّل',
       emoji:        '📚',
       headline:     'عندك دورة أو خدمة موجّهة لتلاميذ الباك؟',
-      subline:      'أكثر من 100,000 طالب يزورون المنصة والفصل الأول على الأبواب، اعرض خدماتك أمامهم الآن',
+      subline:      'أكثر من 100,000 طالب يزورون المنصة واختبارات الفصل الأول في ديسمبر، اعرض خدماتك أمامهم الآن',
       ctaText:      'أعلن معنا',
       ctaHref:      '/advertise',
       ctaTarget:    '_self',
@@ -50,7 +50,7 @@ window.BAC_ADS = {
       name:         'دورات الدعم والمراجعة المكثفة',
       subject:      'جميع الشعب والمواد',
       specialty:    null,
-      pitch:        'قبل اختبارات الفصل الأول وعطلة الشتاء، يبحث تلاميذ بكالوريا 2027 عن أساتذة ودورات مراجعة. كن أول خيار أمامهم.',
+      pitch:        'اختبارات الفصل الأول في ديسمبر وعطلة الشتاء بعدها، وتلاميذ بكالوريا 2027 يبحثون عن أساتذة ودورات مراجعة. كن أول خيار أمامهم.',
       ctaText:      'احجز إعلانك',
       ctaHref:      '/advertise',
       ctaTarget:    '_self'
@@ -63,10 +63,10 @@ window.BAC_ADS = {
       sponsorLabel: 'محتوى مدعوم',
       avatarIcon:   'fas fa-graduation-cap',
       avatarColor:  '#2c5cc5',
-      name:         'بكالوريا 2027: العد التنازلي بدأ',
+      name:         'بكالوريا 2027: بقي {days_text}',
       subject:      'جميع المواد والشعب',
       specialty:    null,
-      pitch:        'نحو 200 يوم تفصل التلاميذ عن البكالوريا، وهم يبحثون يومياً عن الملخصات والدورات. استهدفهم عبر المنصة وقناة التلغرام (+19 ألف متابع).',
+      pitch:        'تلاميذ الباك يبحثون يومياً عن الملخصات والدورات. استهدفهم عبر المنصة وقناة التلغرام (+19 ألف متابع).',
       ctaText:      'أعلن معنا',
       ctaHref:      '/advertise',
       ctaTarget:    '_self'
@@ -136,11 +136,39 @@ window.BAC_ADS = {
     } catch (e) {}
   },
 
+  // Arabic day count with correct grammar (1 يوم واحد، 2 يومان، 3-10 أيام، 11+ يوماً)
+  getDaysText: function () {
+    var n = this.getCountdownDays();
+    if (n === 0)  return 'أقل من يوم';
+    if (n === 1)  return 'يوم واحد';
+    if (n === 2)  return 'يومان';
+    if (n <= 10)  return n + ' أيام';
+    return n + ' يوماً';
+  },
+
+  // Replaces {days} and {days_text} tokens in headline/subline/name/pitch at render time
+  fillTokens: function (item) {
+    var self = this, out = {};
+    Object.keys(item).forEach(function (k) {
+      var v = item[k];
+      out[k] = (typeof v === 'string')
+        ? v.replace(/\{days_text\}/g, self.getDaysText()).replace(/\{days\}/g, self.getCountdownDays())
+        : v;
+    });
+    return out;
+  },
+
   getActiveStripAds: function () {
-    return this.strip.filter(function (a) { return a.active; });
+    var self = this;
+    return this.strip.filter(function (a) { return a.active; }).map(function (a) { return self.fillTokens(a); });
   },
 
   getActiveRotatingCards: function () {
+    var self = this;
+    return this._rawRotatingCards().map(function (c) { return self.fillTokens(c); });
+  },
+
+  _rawRotatingCards: function () {
     // Sort by priority (1 = highest). For 2 real advertisers:
     // the higher-plan card (lower priority number) appears twice in rotation.
     var active = this.rotatingCards
