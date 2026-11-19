@@ -11,7 +11,7 @@ window.BAC_ADS = {
   /* ── GLOBAL SETTINGS ─────────────────────────────────────── */
   stripDismissKey:    'bs_adstrip_v1',
   stripHideDurationMs: 86400000,          // 24 hours
-  bacExamDate:        '2026-06-07',       // DZ bac date — update each year
+  bacExamDate:        '2027-06-13',       // DZ bac date (estimated) — update each year
 
   /* ── AD STRIP ────────────────────────────────────────────── */
   // Rotates every 6 s. Set active: false to pause without deleting.
@@ -21,8 +21,8 @@ window.BAC_ADS = {
       active:       true,
       sponsorLabel: 'إعلان مموّل',
       emoji:        '📚',
-      headline:     'هل تريد الإعلان على المنصة؟',
-      subline:      'الموسم الدراسي لبكالوريا 2027 انطلق — اعرض خدماتك ودوراتك أمام آلاف الطلاب يومياً',
+      headline:     'عندك دورة أو خدمة موجّهة لتلاميذ الباك؟',
+      subline:      'أكثر من 100,000 طالب يزورون المنصة والفصل الأول على الأبواب، اعرض خدماتك أمامهم الآن',
       ctaText:      'أعلن معنا',
       ctaHref:      '/advertise',
       ctaTarget:    '_self',
@@ -47,10 +47,10 @@ window.BAC_ADS = {
       sponsorLabel: 'محتوى مدعوم',
       avatarIcon:   'fas fa-chalkboard-teacher',
       avatarColor:  '#2c5cc5',
-      name:         'دورات الدعم والمرافقة الدراسية',
+      name:         'دورات الدعم والمراجعة المكثفة',
       subject:      'جميع الشعب والمواد',
       specialty:    null,
-      pitch:        'الموسم الدراسي انطلق! آلاف طلاب بكالوريا 2027 يبحثون عن أساتذة متميزين ودورات دعم. اعرض خدماتك الآن.',
+      pitch:        'قبل اختبارات الفصل الأول وعطلة الشتاء، يبحث تلاميذ بكالوريا 2027 عن أساتذة ودورات مراجعة. كن أول خيار أمامهم.',
       ctaText:      'احجز إعلانك',
       ctaHref:      '/advertise',
       ctaTarget:    '_self'
@@ -63,10 +63,10 @@ window.BAC_ADS = {
       sponsorLabel: 'محتوى مدعوم',
       avatarIcon:   'fas fa-graduation-cap',
       avatarColor:  '#2c5cc5',
-      name:         'موسم بكالوريا 2027 في أوجه',
+      name:         'بكالوريا 2027: العد التنازلي بدأ',
       subject:      'جميع المواد والشعب',
       specialty:    null,
-      pitch:        'الطلاب في ذروة البحث عن المصادر والدورات والملخصات. استهدفهم مباشرة عبر المنصة وقناة التلغرام.',
+      pitch:        'نحو 200 يوم تفصل التلاميذ عن البكالوريا، وهم يبحثون يومياً عن الملخصات والدورات. استهدفهم عبر المنصة وقناة التلغرام (+19 ألف متابع).',
       ctaText:      'أعلن معنا',
       ctaHref:      '/advertise',
       ctaTarget:    '_self'
@@ -82,7 +82,7 @@ window.BAC_ADS = {
       name:         'مدارس اللغات والتطوير الأكاديمي',
       subject:      'لغات ودورات تدريبية',
       specialty:    null,
-      pitch:        'استهدف طلاب البكالوريا والجامعيين ببرامجك لتعلم اللغات، الدورات التطبيقية، والتطوير الأكاديمي.',
+      pitch:        'عطلة الشتاء فرصة لتعلم لغة جديدة أو مهارة تفيد في الجامعة. اعرض برامجك أمام تلاميذ الباك والجامعيين المقبلين.',
       ctaText:      'تعرف على الباقات',
       ctaHref:      '/advertise',
       ctaTarget:    '_self'
@@ -98,7 +98,7 @@ window.BAC_ADS = {
       name:         'منصة تعليمية أو تطبيق دراسي؟',
       subject:      'جميع المستويات والشعب',
       specialty:    null,
-      pitch:        'اعرض تطبيقك، منصتك أو محتواك الرقمي أمام أكثر من 60,000 طالب نشط يستعدون للباك.',
+      pitch:        'اعرض تطبيقك أو منصتك أو محتواك الرقمي أمام أكثر من 100,000 طالب يستعدون للباك.',
       ctaText:      'تعرف على الباقات',
       ctaHref:      '/advertise',
       ctaTarget:    '_self'
