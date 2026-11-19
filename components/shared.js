@@ -1994,6 +1994,46 @@ if (document.readyState === 'loading') {
         } catch (err) {}
     }, true);
 
+    // nav_click and footer_link_click: which navigation links people actually use.
+    //   nav_click          navbar, its menus, the mobile drawer and the floating bottom bar
+    //   footer_link_click  footer links (column, bottom row, socials, logo)
+    // Both send link_text, link_url and link_area (where the link sits, e.g. "menu: المصادر",
+    // "bottom_bar", "footer: الأدوات", "footer: bottom", "footer: social"), plus page_path.
+    document.addEventListener('click', function (e) {
+        try {
+            var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+            if (!a) return;
+            var clean = function (t) { return (t || '').replace(/\s+/g, ' ').trim().slice(0, 100); };
+            var text = clean(a.getAttribute('aria-label') || a.textContent);
+            var href = a.getAttribute('href') || '';
+            var url = /^https?:/i.test(href) ? href.split('?')[0].slice(0, 150) : href.split('?')[0].split('#')[0];
+            var area = '';
+            if (a.closest('.mobile-bottom-bar')) {
+                area = 'bottom_bar';
+            } else if (a.closest('.navbar')) {
+                var dd = a.closest('.dropdown');
+                if (a.closest('.nav-brand')) area = 'logo';
+                else if (dd) { var b = dd.querySelector('.dropdown-btn'); area = 'menu: ' + clean(b ? b.textContent : ''); }
+                else if (a.closest('.mobile-menu-footer, .mobile-menu-socials')) area = 'menu_social';
+                else area = 'top_link';
+                push({ event: 'nav_click', link_text: text, link_url: url, link_area: area, page_path: location.pathname });
+                return;
+            } else if (a.closest('footer')) {
+                var col = a.closest('.footer-section');
+                if (col) { var h = col.querySelector('h4'); area = 'footer: ' + clean(h ? h.textContent : ''); }
+                else if (a.closest('.footer-meta')) area = 'footer: bottom';
+                else if (a.closest('.fv2-socials, .social-links')) area = 'footer: social';
+                else if (a.classList.contains('footer-logo')) area = 'footer: logo';
+                else area = 'footer: other';
+                push({ event: 'footer_link_click', link_text: text, link_url: url, link_area: area, page_path: location.pathname });
+                return;
+            } else {
+                return;
+            }
+            push({ event: 'nav_click', link_text: text, link_url: url, link_area: area, page_path: location.pathname });
+        } catch (err) {}
+    }, true);
+
     // pdf_view and pdf_read: the study files open inside a Google Drive viewer (an iframe). As soon as a
     // student scrolls or taps inside it, the page loses focus and GA4 stops counting engagement time, so a
     // page read for 20 minutes shows as ~30 s. These two events measure the real use:
