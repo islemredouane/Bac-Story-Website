@@ -66,7 +66,7 @@ setTimeout(function () {
 // Component URLs (?v= is set by scripts/stamp-versions.py). They are requested as soon as this
 // script runs, in parallel, so the navbar/footer/search are usually ready by DOMContentLoaded.
 const _NAVBAR_URL = '/components/navbar?v=e3e8a8c94d';
-const _FOOTER_URL = '/components/footer?v=2fc2938dca';
+const _FOOTER_URL = '/components/footer?v=104e15a6d8';
 const _SEARCH_URL = '/components/search?v=307da03145';
 const _componentFetches = {};
 
@@ -1275,15 +1275,6 @@ function setupSpecFilterTabs() {
 // Footer v2: the link columns are <details>, open in the HTML so they always show without JS.
 // On phones (≤768px) they start closed and open on tap; on wider screens they stay open.
 function setupFooterAccordion() {
-    // The "ساهم معنا" invitation band shows only where contributing fits, not on every page:
-    // home, the resources hub and the stream hubs, summaries, books, drives, experiences, topics, about,
-    // and the news and tools hub pages (not individual articles or tools).
-    try {
-        var footer = document.querySelector('.footer-v2');
-        var path = location.pathname.replace(/\/index(\.html)?$/, '/').replace(/\.html$/, '').replace(/\/+$/, '') || '/';
-        var invitePages = /^\/(|resources|resources\/(sci|math|tech|ge|lp|le)|resources\/resumes-exercises|resources\/books|resources\/drives|experiences|topics|about|news|tools)$/;
-        if (footer && invitePages.test(path)) footer.classList.add('fv2-has-invite');
-    } catch (e) {}
     var sections = document.querySelectorAll('.footer-v2 details.footer-section');
     if (!sections.length || !window.matchMedia) return;
     var mq = window.matchMedia('(max-width: 768px)');
