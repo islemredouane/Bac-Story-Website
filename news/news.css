@@ -210,6 +210,10 @@
 @media (max-width: 640px) {
     .nw-page { padding-top: 12px; }
     .nw-hero { grid-template-columns: 1fr; padding: 1.8rem 1.3rem; border-radius: 22px; }
+    /* phones: centre the header text (hub + every article) */
+    .nw-hero { text-align: center; }
+    .nw-hero .nw-lead { margin-inline: auto; }
+    .nw-hero-meta { justify-content: center; }
     .nw-hero > .nw-date { order: -1; width: auto; display: flex; align-items: center; gap: 10px; padding-left: 12px; }
     .nw-hero > .nw-date .d-day { padding: 12px 14px; }
     .nw-hero > .nw-date .d-num { padding: 0; font-size: 1.6rem; }
