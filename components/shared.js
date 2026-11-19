@@ -66,7 +66,7 @@ setTimeout(function () {
 // Component URLs (?v= is set by scripts/stamp-versions.py). They are requested as soon as this
 // script runs, in parallel, so the navbar/footer/search are usually ready by DOMContentLoaded.
 const _NAVBAR_URL = '/components/navbar?v=e3e8a8c94d';
-const _FOOTER_URL = '/components/footer?v=21c2f488da';
+const _FOOTER_URL = '/components/footer?v=2fc2938dca';
 const _SEARCH_URL = '/components/search?v=307da03145';
 const _componentFetches = {};
 
@@ -1272,6 +1272,32 @@ function setupSpecFilterTabs() {
 }
 
 // ─── PAGE BOOT ───────────────────────────────────────────────────────────────
+// Footer v2: the link columns are <details>, open in the HTML so they always show without JS.
+// On phones (≤768px) they start closed and open on tap; on wider screens they stay open.
+function setupFooterAccordion() {
+    // The "ساهم معنا" invitation band shows only where contributing fits, not on every page:
+    // home, the resources hub and the stream hubs, summaries, books, drives, experiences, topics, about,
+    // and the news and tools hub pages (not individual articles or tools).
+    try {
+        var footer = document.querySelector('.footer-v2');
+        var path = location.pathname.replace(/\/index(\.html)?$/, '/').replace(/\.html$/, '').replace(/\/+$/, '') || '/';
+        var invitePages = /^\/(|resources|resources\/(sci|math|tech|ge|lp|le)|resources\/resumes-exercises|resources\/books|resources\/drives|experiences|topics|about|news|tools)$/;
+        if (footer && invitePages.test(path)) footer.classList.add('fv2-has-invite');
+    } catch (e) {}
+    var sections = document.querySelectorAll('.footer-v2 details.footer-section');
+    if (!sections.length || !window.matchMedia) return;
+    var mq = window.matchMedia('(max-width: 768px)');
+    var apply = function () {
+        for (var i = 0; i < sections.length; i++) {
+            if (mq.matches) sections[i].removeAttribute('open');
+            else sections[i].setAttribute('open', '');
+        }
+    };
+    apply();
+    if (mq.addEventListener) mq.addEventListener('change', apply);
+    else if (mq.addListener) mq.addListener(apply);
+}
+
 async function bootPage() {
     try {
         // Share button runs immediately — before any async ops that could fail
@@ -1294,6 +1320,7 @@ async function bootPage() {
 
         // Setup after injection - isolate each step so one failure cannot kill boot
         try { setupMobileMenu(); } catch (e) { console.warn('MobileMenu error', e); }
+        try { setupFooterAccordion(); } catch (e) { console.warn('Footer error', e); }
         try { setupNavbarScroll(); } catch (e) { console.warn('NavbarScroll error', e); }
         try { setupSearch(); } catch (e) { console.warn('Search error', e); }
         try { injectAdStrip(); } catch (e) { console.warn('AdStrip error', e); }
