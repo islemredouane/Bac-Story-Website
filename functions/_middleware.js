@@ -51,6 +51,8 @@ const GONE_FILES = new Set([
   '/university/speciality/ens-sport',
   '/university/speciality/ens-tamazight',
   '/resources/ge/math/salasil-al-mizan/sequences',
+  '/resources/ge/math/salasil-al-mizan/proba',
+  '/uni',
   '/preview',
 ]);
 
