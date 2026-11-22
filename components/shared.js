@@ -1909,7 +1909,15 @@ if (document.readyState === 'loading') {
 // tracking problem can never break a page. GTM needs one trigger per event name below.
 (function () {
     function push(obj) {
-        try { (window.dataLayer = window.dataLayer || []).push(obj); } catch (e) {}
+        try {
+            // GTM keeps every dataLayer value until it is overwritten, so link_area / link_url from the last
+            // nav or footer click would leak into later events (e.g. advertise_click). Clear them unless the
+            // event sets them itself.
+            if (obj && obj.event !== 'nav_click' && obj.event !== 'footer_link_click') {
+                ['link_area', 'link_url'].forEach(function (k) { if (!(k in obj)) obj[k] = undefined; });
+            }
+            (window.dataLayer = window.dataLayer || []).push(obj);
+        } catch (e) {}
     }
 
     // Same stream names the grade calculator already sends as bac_stream.
