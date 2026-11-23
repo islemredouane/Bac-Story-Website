@@ -235,6 +235,7 @@ Official Ministry of National Education curriculum blueprints for all Baccalaure
 - [بوابة الخطط والتحديات](https://www.bac-story.com/plans): Systematic revision programs and schedules.
 - [الخطط الشهرية](https://www.bac-story.com/plans/monthly): Full academic year monthly study roadmaps (September through April).
 - [خطط التميز في المواد](https://www.bac-story.com/plans/subject-plans): Subject-specific methodology blueprints (Arabic, Islamic Studies, History & Geography, Languages).
+  - [خطة التميز في مادة الأدب العربي](https://www.bac-story.com/plans/subject-plans/arabic): Interactive Arabic literature excellence plan for all streams (BAC 2027): lesson titles grouped by unit (intellectual structure, poetry and prose, grammar and rhetoric), a video and a file or summary page for each lesson, excellence topics, and a tracker of past BAC papers from 2016 to 2026.
 - [تحديات التميز](https://www.bac-story.com/plans/challenges): Intensive short-term memorization and exercise challenges.
 
 ## University Orientation & Post-Bac Guide (التوجيه الجامعي ودليل الجامعة)
