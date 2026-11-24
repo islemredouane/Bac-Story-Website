@@ -150,7 +150,16 @@ function injectGlobalCTA() {
             </div>
             <div class="gcta-btn">دليل التسجيل <i class="fas fa-arrow-left"></i></div>
         </a>
-        <!-- 2. حاسبة الحقوق (Free Candidate Fees Calculator) -->
+        <!-- 2. خطة التميز في الأدب العربي (Arabic Excellence Plan: all-stream study product, second slot for reach) -->
+        <a href="/plans/subject-plans/arabic" class="gcta-card gcta-card--arabic">
+            <div class="gcta-icon-circle"><i class="fas fa-feather-pointed"></i></div>
+            <div class="gcta-text">
+                <strong>خطة التميز في الأدب العربي</strong>
+                <span>فيديو وملف لكل درس، مواضيع التميز، ومتتبع البكالوريات من 2016 إلى 2026</span>
+            </div>
+            <div class="gcta-btn">افتح الخطة <i class="fas fa-arrow-left"></i></div>
+        </a>
+        <!-- 3. حاسبة الحقوق (Free Candidate Fees Calculator) -->
         <a href="/tools/free-candidate-fees" class="gcta-card gcta-card--fees">
             <div class="gcta-icon-circle"><i class="fas fa-calculator"></i></div>
             <div class="gcta-text">
@@ -159,7 +168,7 @@ function injectGlobalCTA() {
             </div>
             <div class="gcta-btn">احسب حقوقك <i class="fas fa-arrow-left"></i></div>
         </a>
-        <!-- 3. كتيب المراجع (Approved References Booklet) -->
+        <!-- 4. كتيب المراجع (Approved References Booklet) -->
         <a href="/plans/subject-plans/references" class="gcta-card gcta-card--references">
             <div class="gcta-icon-circle"><i class="fas fa-book-bookmark"></i></div>
             <div class="gcta-text">
@@ -168,7 +177,7 @@ function injectGlobalCTA() {
             </div>
             <div class="gcta-btn">تصفح الكُتيّب <i class="fas fa-arrow-left"></i></div>
         </a>
-        <!-- 4. تجارب المتفوقين (Top Rankers Experiences) -->
+        <!-- 5. تجارب المتفوقين (Top Rankers Experiences) -->
         <a href="/experiences" class="gcta-card gcta-card--experiences">
             <div class="gcta-icon-circle"><i class="fas fa-medal"></i></div>
             <div class="gcta-text">
@@ -177,7 +186,7 @@ function injectGlobalCTA() {
             </div>
             <div class="gcta-btn">تصفح التجارب <i class="fas fa-arrow-left"></i></div>
         </a>
-        <!-- 5. شاركنا مصادرك (Contribute Resources) -->
+        <!-- 6. شاركنا مصادرك (Contribute Resources) -->
         <a href="/contribute" class="gcta-card gcta-card--contribute">
             <div class="gcta-icon-circle"><i class="fas fa-upload"></i></div>
             <div class="gcta-text">
@@ -187,15 +196,24 @@ function injectGlobalCTA() {
             <div class="gcta-btn">شارك الآن <i class="fas fa-arrow-left"></i></div>
         </a>
     </div>
-    <!-- Rotation navigation dots (count = 5 active cards) -->
+    <!-- Rotation navigation dots (count = 6 active cards) -->
     <div class="gcta-dots" id="gcta-dots">
         <span class="gcta-dot gcta-dot--active"></span>
         <span class="gcta-dot"></span>
         <span class="gcta-dot"></span>
         <span class="gcta-dot"></span>
         <span class="gcta-dot"></span>
+        <span class="gcta-dot"></span>
     </div>
 </section>`;
+
+    // A page must not promote itself: drop the Arabic plan card (and one dot) on its own page.
+    if (/^\/plans\/subject-plans\/arabic\/?$/.test(location.pathname.replace(/\.html$/, ''))) {
+        const own = ph.querySelector('.gcta-card--arabic');
+        const lastDot = ph.querySelector('#gcta-dots .gcta-dot:last-child');
+        if (own) own.remove();
+        if (lastDot) lastDot.remove();
+    }
 
     // ── Card rotation (viewport-aware + hover pause + dot navigation) ──
     const gcCards   = document.querySelectorAll('.gcta-card');

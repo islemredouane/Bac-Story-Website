@@ -811,6 +811,46 @@ button i, a i, .btn i {
     transform: translateX(-4px);
 }
 
+/* ── Arabic Excellence Plan (Deep Brand Navy + Orange accent: BAC STORY identity, distinct from the sapphire references card) ── */
+.gcta-card--arabic {
+    background: linear-gradient(135deg, #0f2060 0%, #1a3a8f 50%, #2c5cc5 100%);
+    box-shadow: 0 8px 28px rgba(26, 58, 143, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+}
+.gcta-card--arabic:hover {
+    box-shadow: 0 18px 44px rgba(26, 58, 143, 0.45) !important;
+}
+.gcta-card--arabic .gcta-icon-circle {
+    background: #ffffff;
+    box-shadow: 0 4px 14px rgba(15, 32, 96, 0.25);
+    color: #ff6b35;
+}
+.gcta-card--arabic .gcta-icon-circle i {
+    color: #ff6b35;
+}
+.gcta-card--arabic .gcta-text strong {
+    color: #ffffff;
+}
+.gcta-card--arabic .gcta-text span {
+    color: rgba(255, 255, 255, 0.88);
+}
+.gcta-card--arabic .gcta-btn {
+    background: linear-gradient(135deg, #ff6b35 0%, #ea580c 100%);
+    color: #ffffff;
+    font-weight: 800;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 10px 24px rgba(234, 88, 12, 0.35), 0 2px 6px rgba(15, 23, 42, 0.08);
+}
+.gcta-card--arabic:hover .gcta-btn {
+    background: linear-gradient(135deg, #ff7a47 0%, #f06a1a 100%);
+    color: #ffffff;
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 12px 28px rgba(234, 88, 12, 0.45);
+}
+.gcta-card--arabic:hover .gcta-btn i.fa-arrow-left {
+    transform: translateX(-4px);
+}
+
 /* ── Legacy Card Styles (Preserved for compatibility) ── */
 .gcta-card--moktasabat {
     background: linear-gradient(135deg, #ff6b35 0%, #ea580c 100%);
