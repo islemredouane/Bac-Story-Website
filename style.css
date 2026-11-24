@@ -13875,8 +13875,8 @@ button, a.main-btn, a.spec-detail-btn, .modern-cta-btn, .spec-nav-btn, .gcta-btn
    - Brand block (logo, tagline, round icon-only socials) + 3 link columns.
    - Bottom bar: company/legal links (incl. ساهم معنا, أعلن معنا) and copyright.
    Brand gradient (same as the navbar) with a soft glow and a faint giant "BAC STORY" watermark.
-   Columns are <details>: open on desktop/tablet; on phones (≤768px) shared.js closes them so
-   each is a 52px tap-to-open row. Scoped to .footer-arabic.footer-v2 to override older rules.
+   Columns are plain <nav> blocks: on phones (≤768px) they sit in a 2-column grid and the "latest updates" block spans the full width,
+   they are always visible (no dropdowns). Scoped to .footer-arabic.footer-v2 to override older rules.
 ══════════════════════════════════════════════════════════════ */
 .footer-arabic.footer-v2 {
     background: linear-gradient(135deg, #1a3a8f 0%, #2c5cc5 55%, #3d6ee0 100%);   /* same as .navbar */
@@ -13984,26 +13984,14 @@ button, a.main-btn, a.spec-detail-btn, .modern-cta-btn, .spec-nav-btn, .gcta-btn
 .footer-arabic.footer-v2 .fv2-social:hover i { transform: scale(1.12); }
 .footer-arabic.footer-v2 .fv2-social:hover { border-color: rgba(255, 107, 53, 0.55); color: #ffffff; background: rgba(255, 255, 255, 0.08); }
 
-.footer-arabic.footer-v2 .footer-section summary {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.5rem;
-    margin-bottom: 1.1rem;
-    cursor: default;
-    pointer-events: none;
-}
-.footer-arabic.footer-v2 .footer-section summary::-webkit-details-marker { display: none; }
 .footer-arabic.footer-v2 .footer-section h4 {
-    margin: 0;
+    margin: 0 0 1.1rem;
     padding: 0;
     border: 0;
     font-size: 0.85rem;
     font-weight: 800;
     color: rgba(255, 255, 255, 0.5);
 }
-.footer-arabic.footer-v2 .footer-chev { display: none; }
 .footer-arabic.footer-v2 .footer-links { margin: 0; padding: 0; list-style: none; }
 .footer-arabic.footer-v2 .footer-section .footer-links li { margin-bottom: 0.7rem; }
 .footer-arabic.footer-v2 .footer-section .footer-links a {
@@ -14061,31 +14049,19 @@ button, a.main-btn, a.spec-detail-btn, .modern-cta-btn, .spec-nav-btn, .gcta-btn
     .footer-arabic.footer-v2 .footer-section:nth-child(4) { grid-column: auto; display: block; }
 }
 
-/* Phone */
+/* Phone: every link visible, no dropdowns (same idea as the Rasa and Insight footers). Brand on top, two link columns side by side, latest updates full width below them. */
 @media (max-width: 768px) {
     .footer-arabic.footer-v2 .fv2-wrap { padding: 0 1rem; }
-    .footer-arabic.footer-v2 .footer-content { grid-template-columns: 1fr; gap: 0; padding: 2rem 0 1.25rem; }
+    .footer-arabic.footer-v2 .footer-content { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.9rem 1.1rem; padding: 2rem 0 1.5rem; }
     .footer-arabic.footer-v2 .footer-section:nth-child(n) { grid-column: auto; }
-    .footer-arabic.footer-v2 .footer-brand { align-items: center; text-align: center; margin-bottom: 1.6rem; }
+    .footer-arabic.footer-v2 .footer-brand { grid-column: 1 / -1; align-items: center; text-align: center; margin-bottom: 0.2rem; }
     .footer-arabic.footer-v2 .footer-tagline { font-size: 0.9rem; }
     .footer-arabic.footer-v2 .fv2-socials { justify-content: center; }
-    .footer-arabic.footer-v2 .footer-section { border-top: 1px solid rgba(255, 255, 255, 0.1); }
-    .footer-arabic.footer-v2 .footer-section:last-child { border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
-    .footer-arabic.footer-v2 .footer-section summary {
-        min-height: 54px;
-        margin: 0;
-        padding: 0 0.15rem;
-        cursor: pointer;
-        pointer-events: auto;
-        -webkit-tap-highlight-color: transparent;
-    }
-    .footer-arabic.footer-v2 .footer-section h4,
-    .footer-arabic.footer-v2 .footer-section:nth-child(4) h4 { font-size: 1rem; color: #ffffff; text-align: right; }
-    .footer-arabic.footer-v2 .footer-chev { display: inline-block; font-size: 0.8rem; color: rgba(255, 255, 255, 0.6); transition: transform 0.25s ease; }
-    .footer-arabic.footer-v2 .footer-section[open] .footer-chev { transform: rotate(180deg); }
-    .footer-arabic.footer-v2 .footer-section .footer-links { padding: 0 0.15rem 0.7rem; }
+    .footer-arabic.footer-v2 .footer-section h4 { font-size: 0.95rem; color: #ffffff; text-align: right; margin: 0 0 0.5rem; padding-bottom: 0.65rem; border-bottom: 1px solid rgba(255, 255, 255, 0.16); }
     .footer-arabic.footer-v2 .footer-section .footer-links li { margin: 0; }
-    .footer-arabic.footer-v2 .footer-section .footer-links a { display: flex; min-height: 44px; padding: 0; }
+    .footer-arabic.footer-v2 .footer-section .footer-links a { display: flex; align-items: flex-start; min-height: 42px; padding: 0.55rem 0; font-size: 0.92rem; line-height: 1.45; }
+    .footer-arabic.footer-v2 .footer-section .footer-links a::before { margin-top: 0.55em; }
+    .footer-arabic.footer-v2 .footer-section:nth-of-type(3) { grid-column: 1 / -1; }
     .footer-arabic.footer-v2 .footer-bottom { flex-direction: column; justify-content: center; text-align: center; border-top: 0; padding-top: 0.5rem; }
     .footer-arabic.footer-v2 .footer-meta { justify-content: center; gap: 0 1.1rem; }
     .footer-arabic.footer-v2 .footer-meta a { display: inline-flex; align-items: center; min-height: 40px; }

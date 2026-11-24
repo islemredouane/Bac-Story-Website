@@ -66,7 +66,7 @@ setTimeout(function () {
 // Component URLs (?v= is set by scripts/stamp-versions.py). They are requested as soon as this
 // script runs, in parallel, so the navbar/footer/search are usually ready by DOMContentLoaded.
 const _NAVBAR_URL = '/components/navbar?v=84a0e287f0';
-const _FOOTER_URL = '/components/footer?v=961a7d34e6';
+const _FOOTER_URL = '/components/footer?v=ec9155f763';
 const _SEARCH_URL = '/components/search?v=307da03145';
 const _componentFetches = {};
 
@@ -1277,23 +1277,6 @@ function setupSpecFilterTabs() {
 }
 
 // ─── PAGE BOOT ───────────────────────────────────────────────────────────────
-// Footer v2: the link columns are <details>, open in the HTML so they always show without JS.
-// On phones (≤768px) they start closed and open on tap; on wider screens they stay open.
-function setupFooterAccordion() {
-    var sections = document.querySelectorAll('.footer-v2 details.footer-section');
-    if (!sections.length || !window.matchMedia) return;
-    var mq = window.matchMedia('(max-width: 768px)');
-    var apply = function () {
-        for (var i = 0; i < sections.length; i++) {
-            if (mq.matches) sections[i].removeAttribute('open');
-            else sections[i].setAttribute('open', '');
-        }
-    };
-    apply();
-    if (mq.addEventListener) mq.addEventListener('change', apply);
-    else if (mq.addListener) mq.addListener(apply);
-}
-
 async function bootPage() {
     try {
         // Share button runs immediately — before any async ops that could fail
@@ -1316,7 +1299,6 @@ async function bootPage() {
 
         // Setup after injection - isolate each step so one failure cannot kill boot
         try { setupMobileMenu(); } catch (e) { console.warn('MobileMenu error', e); }
-        try { setupFooterAccordion(); } catch (e) { console.warn('Footer error', e); }
         try { setupNavbarScroll(); } catch (e) { console.warn('NavbarScroll error', e); }
         try { setupSearch(); } catch (e) { console.warn('Search error', e); }
         try { injectAdStrip(); } catch (e) { console.warn('AdStrip error', e); }
