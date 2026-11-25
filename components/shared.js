@@ -150,7 +150,16 @@ function injectGlobalCTA() {
             </div>
             <div class="gcta-btn">دليل التسجيل <i class="fas fa-arrow-left"></i></div>
         </a>
-        <!-- 2. خطة التميز في الأدب العربي (Arabic Excellence Plan: all-stream study product, second slot for reach) -->
+        <!-- 2. باقات عقبة بن نافع 2027 (Oqba packs: first-term exams are close, so the second slot right after registration) -->
+        <a href="/oqba/2027" class="gcta-card gcta-card--oqba">
+            <div class="gcta-icon-circle"><i class="fas fa-briefcase"></i></div>
+            <div class="gcta-text">
+                <strong>باقات عقبة بن نافع 2027</strong>
+                <span>التحضير الممتاز لاختبار الفصل الأول في الرياضيات والفيزياء والعلوم والإنجليزية</span>
+            </div>
+            <div class="gcta-btn">افتح الباقات <i class="fas fa-arrow-left"></i></div>
+        </a>
+        <!-- 3. خطة التميز في الأدب العربي (Arabic Excellence Plan: all-stream study product, second slot for reach) -->
         <a href="/plans/subject-plans/arabic" class="gcta-card gcta-card--arabic">
             <div class="gcta-icon-circle"><i class="fas fa-feather-pointed"></i></div>
             <div class="gcta-text">
@@ -159,7 +168,7 @@ function injectGlobalCTA() {
             </div>
             <div class="gcta-btn">افتح الخطة <i class="fas fa-arrow-left"></i></div>
         </a>
-        <!-- 3. حاسبة الحقوق (Free Candidate Fees Calculator) -->
+        <!-- 4. حاسبة الحقوق (Free Candidate Fees Calculator) -->
         <a href="/tools/free-candidate-fees" class="gcta-card gcta-card--fees">
             <div class="gcta-icon-circle"><i class="fas fa-calculator"></i></div>
             <div class="gcta-text">
@@ -168,7 +177,7 @@ function injectGlobalCTA() {
             </div>
             <div class="gcta-btn">احسب حقوقك <i class="fas fa-arrow-left"></i></div>
         </a>
-        <!-- 4. كتيب المراجع (Approved References Booklet) -->
+        <!-- 5. كتيب المراجع (Approved References Booklet) -->
         <a href="/plans/subject-plans/references" class="gcta-card gcta-card--references">
             <div class="gcta-icon-circle"><i class="fas fa-book-bookmark"></i></div>
             <div class="gcta-text">
@@ -177,7 +186,7 @@ function injectGlobalCTA() {
             </div>
             <div class="gcta-btn">تصفح الكُتيّب <i class="fas fa-arrow-left"></i></div>
         </a>
-        <!-- 5. تجارب المتفوقين (Top Rankers Experiences) -->
+        <!-- 6. تجارب المتفوقين (Top Rankers Experiences) -->
         <a href="/experiences" class="gcta-card gcta-card--experiences">
             <div class="gcta-icon-circle"><i class="fas fa-medal"></i></div>
             <div class="gcta-text">
@@ -185,15 +194,6 @@ function injectGlobalCTA() {
                 <span>خلاصة مسيرة ونظام دراسة أوائل الجزائر بمعدلات تفوق 18 و19</span>
             </div>
             <div class="gcta-btn">تصفح التجارب <i class="fas fa-arrow-left"></i></div>
-        </a>
-        <!-- 6. باقات عقبة بن نافع 2027 (Oqba Ben Nafaa 2027 packs) -->
-        <a href="/oqba/2027" class="gcta-card gcta-card--oqba">
-            <div class="gcta-icon-circle"><i class="fas fa-briefcase"></i></div>
-            <div class="gcta-text">
-                <strong>باقات عقبة بن نافع 2027</strong>
-                <span>التحضير الممتاز لاختبار الفصل الأول في الرياضيات والفيزياء والعلوم والإنجليزية</span>
-            </div>
-            <div class="gcta-btn">افتح الباقات <i class="fas fa-arrow-left"></i></div>
         </a>
     </div>
     <!-- Rotation navigation dots (count = 6 active cards) -->
