@@ -3130,6 +3130,23 @@ body.pdf-body-lock [id="footer-placeholder"] {
     border: 2px solid var(--primary-color);
 }
 
+/* Oqba note box: auto-height, readable on phones */
+.oqba-note {
+    max-width: 900px;
+    margin: 1.5rem auto;
+    padding: 1rem 1.25rem;
+    background: #f8f9fa;
+    border: 1px solid #dbe4f7;
+    border-right: 4px solid var(--primary-color);
+    border-radius: 10px;
+    text-align: right;
+    line-height: 1.9;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #334155;
+}
+.oqba-note strong { color: var(--primary-color); margin-inline-end: 0.35rem; }
+
 /* Timer Styles */
 /* Modern Timer Redesign */
 .compact-timer {
