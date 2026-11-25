@@ -3153,25 +3153,6 @@ body.pdf-body-lock [id="footer-placeholder"] {
     display: none !important;
 }
 
-/*advice style*/
-.advice {
-    background: #f8f9fa;
-    padding: 2rem;
-    border-radius: 8px;
-    margin-top: 1rem;
-    margin-right: 7.7rem;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 900px;
-    height: 80px;
-    /* Fixed height for vertical centering */
-    color: var(--primary-color);
-    font-weight: 500;
-    border: 2px solid var(--primary-color);
-}
-
 /* Oqba note box: auto-height, readable on phones */
 .oqba-note {
     max-width: 900px;
@@ -6547,13 +6528,6 @@ body.pdf-body-lock [id="footer-placeholder"] {
         margin-bottom: 1rem;
     }
 
-    .advice {
-        width: 100%;
-        margin-right: 0;
-        padding: 1rem;
-        height: auto;
-        font-size: 0.9rem;
-    }
 
     .footer-content {
         grid-template-columns: 1fr;
@@ -6624,10 +6598,6 @@ body.pdf-body-lock [id="footer-placeholder"] {
 
 @media (min-width: 481px) and (max-width: 1024px) {
 
-    .advice {
-        width: 100%;
-        margin-right: 0;
-    }
 
     .subjects-grid>* {
         flex: 0 0 calc((100% - 20px) / 2);
