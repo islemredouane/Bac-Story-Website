@@ -186,14 +186,14 @@ function injectGlobalCTA() {
             </div>
             <div class="gcta-btn">تصفح التجارب <i class="fas fa-arrow-left"></i></div>
         </a>
-        <!-- 6. شاركنا مصادرك (Contribute Resources) -->
-        <a href="/contribute" class="gcta-card gcta-card--contribute">
-            <div class="gcta-icon-circle"><i class="fas fa-upload"></i></div>
+        <!-- 6. باقات عقبة بن نافع 2027 (Oqba Ben Nafaa 2027 packs) -->
+        <a href="/oqba/2027" class="gcta-card gcta-card--oqba">
+            <div class="gcta-icon-circle"><i class="fas fa-briefcase"></i></div>
             <div class="gcta-text">
-                <strong>شارك مصادرك مع زملائك</strong>
-                <span>درس ساعدك أو ملخص مميز؟ شاركه باسمك ليصل لآلاف الطلاب مجاناً</span>
+                <strong>باقات عقبة بن نافع 2027</strong>
+                <span>التحضير الممتاز لاختبار الفصل الأول في الرياضيات والفيزياء والعلوم والإنجليزية</span>
             </div>
-            <div class="gcta-btn">شارك الآن <i class="fas fa-arrow-left"></i></div>
+            <div class="gcta-btn">افتح الباقات <i class="fas fa-arrow-left"></i></div>
         </a>
     </div>
     <!-- Rotation navigation dots (count = 6 active cards) -->
@@ -213,6 +213,14 @@ function injectGlobalCTA() {
         const lastDot = ph.querySelector('#gcta-dots .gcta-dot:last-child');
         if (own) own.remove();
         if (lastDot) lastDot.remove();
+    }
+
+    // Same rule for the Oqba 2027 pages: drop the Oqba card (and one dot) on /oqba/2027 and below.
+    if (/^\/oqba\/2027(\/|$)/.test(location.pathname.replace(/\.html$/, ''))) {
+        const ownOqba = ph.querySelector('.gcta-card--oqba');
+        const lastDotOqba = ph.querySelector('#gcta-dots .gcta-dot:last-child');
+        if (ownOqba) ownOqba.remove();
+        if (lastDotOqba) lastDotOqba.remove();
     }
 
     // ── Card rotation (viewport-aware + hover pause + dot navigation) ──
