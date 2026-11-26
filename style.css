@@ -3151,80 +3151,132 @@ body.pdf-body-lock [id="footer-placeholder"] {
     display: none !important;
 }
 
-/* Method card: links a page's files to the step-by-step method post (reusable on any resource page) */
+/* Method card: links a page's files to the step-by-step method post (reusable on any resource page).
+   Same language as the calculator field cards and the 404 suggest box: frosted glass panel, hairline gradient border,
+   soft corner glow, brand-gradient icon tile, pill button. Blue only. */
 .method-card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.1rem;
     max-width: 900px;
-    margin: 0 auto 1.5rem;
-    padding: 1rem 1.25rem;
-    background: #ffffff;
-    border: 1px solid #dbe4f7;
-    border-right: 4px solid var(--primary-color);
-    border-radius: 14px;
-    box-shadow: 0 4px 16px rgba(26, 58, 143, 0.08);
+    margin: 0 auto 1.75rem;
+    padding: 1.15rem 1.35rem;
+    border-radius: 22px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.86) 0%, rgba(247, 249, 254, 0.74) 100%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    backdrop-filter: blur(14px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 14px 40px rgba(44, 92, 197, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9);
     text-align: right;
     text-decoration: none;
     color: inherit;
-    transition: box-shadow .2s ease, transform .2s ease;
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+.method-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(44, 92, 197, 0.38), rgba(79, 127, 255, 0.08) 50%, rgba(44, 92, 197, 0.22));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+.method-card::after {
+    content: "";
+    position: absolute;
+    top: -90px;
+    right: -70px;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(44, 92, 197, 0.13) 0%, transparent 70%);
+    z-index: -1;
+    pointer-events: none;
 }
 .method-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 26px rgba(26, 58, 143, 0.14);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 48px rgba(44, 92, 197, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 .method-card-icon {
     flex: 0 0 auto;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
+    width: 54px;
+    height: 54px;
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #eef3fd;
-    color: var(--primary-color);
-    font-size: 1.25rem;
+    background: linear-gradient(135deg, #1a3a8f, #3d6ee0);
+    color: #ffffff;
+    font-size: 1.35rem;
+    box-shadow: 0 6px 16px rgba(44, 92, 197, 0.32);
+    transition: transform .35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.method-card:hover .method-card-icon {
+    transform: scale(1.07) rotate(-8deg);
 }
 .method-card-text {
     flex: 1 1 auto;
     min-width: 0;
     display: flex;
     flex-direction: column;
-    gap: .2rem;
+    align-items: flex-start;
+    gap: .3rem;
 }
 .method-card-kicker {
-    font-size: .78rem;
-    font-weight: 700;
-    color: var(--primary-color);
+    display: inline-flex;
+    align-items: center;
+    padding: .2rem .7rem .15rem;
+    border-radius: 999px;
+    background: rgba(44, 92, 197, 0.1);
+    border: 1px solid rgba(44, 92, 197, 0.18);
+    color: #2c5cc5;
+    font-size: .74rem;
+    font-weight: 800;
 }
 .method-card-text strong {
-    font-size: 1.05rem;
+    font-size: 1.08rem;
+    font-weight: 800;
     color: #1e293b;
     line-height: 1.6;
+    text-wrap: balance;
 }
 .method-card-desc {
     font-size: .9rem;
     color: #475569;
-    line-height: 1.7;
+    line-height: 1.75;
 }
 .method-card-btn {
     flex: 0 0 auto;
     display: inline-flex;
     align-items: center;
-    gap: .45rem;
-    padding: .65rem 1.1rem;
-    border-radius: 10px;
-    background: var(--primary-color);
+    justify-content: center;
+    gap: .5rem;
+    padding: .72rem 1.35rem;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #2c5cc5, #1a3a8f);
     color: #ffffff;
-    font-weight: 700;
+    font-weight: 800;
     font-size: .92rem;
     white-space: nowrap;
+    box-shadow: 0 8px 20px rgba(44, 92, 197, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+.method-card-btn i { font-size: 1rem; }
+.method-card:hover .method-card-btn {
+    transform: translateY(-1px) scale(1.03);
+    box-shadow: 0 12px 26px rgba(44, 92, 197, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.18);
 }
 @media (max-width: 600px) {
-    .method-card { flex-wrap: wrap; padding: 1rem; }
-    .method-card-icon { width: 42px; height: 42px; font-size: 1.1rem; }
-    .method-card-text { flex-basis: calc(100% - 58px); }
-    .method-card-btn { width: 100%; justify-content: center; }
+    .method-card { flex-wrap: wrap; gap: .9rem; padding: 1.05rem; border-radius: 20px; }
+    .method-card-icon { width: 46px; height: 46px; border-radius: 14px; font-size: 1.15rem; }
+    .method-card-text { flex-basis: calc(100% - 62px); }
+    .method-card-btn { width: 100%; padding: .78rem 1rem; }
 }
 
 /* Oqba note box: auto-height, readable on phones */
