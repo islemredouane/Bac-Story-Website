@@ -3203,14 +3203,8 @@ body.pdf-body-lock [id="footer-placeholder"] {
     transform: translateY(-4px);
     box-shadow: 0 20px 48px rgba(44, 92, 197, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
-.method-card-head {
-    flex: 0 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: .5rem;
-}
 .method-card-icon {
+    flex: 0 0 auto;
     width: 54px;
     height: 54px;
     border-radius: 16px;
@@ -3282,21 +3276,17 @@ body.pdf-body-lock [id="footer-placeholder"] {
     .method-card {
         flex-direction: column;
         align-items: stretch;
-        gap: .85rem;
+        gap: .7rem;
         padding: 1.15rem 1.1rem;
         border-radius: 20px;
         text-align: center;
     }
-    .method-card-head {
-        flex-direction: row;
-        justify-content: center;
-        gap: .6rem;
-    }
-    .method-card-icon { width: 42px; height: 42px; border-radius: 13px; font-size: 1.05rem; }
+    .method-card-icon { display: none; }
     .method-card-text { align-items: center; text-align: center; gap: .4rem; }
     .method-card-text strong { font-size: 1.02rem; }
     .method-card-desc { font-size: .87rem; }
     .method-card-btn { width: 100%; padding: .8rem 1rem; margin-top: .15rem; }
+}
 }
 }
 
