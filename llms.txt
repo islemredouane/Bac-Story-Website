@@ -30,7 +30,7 @@ The platform is founded and operated by Redouane Mohamed Islem and is accessible
 
 ## Interactive Tools (الأدوات الذكية)
 
-- [حاسبة معدل البكالوريا](https://www.bac-story.com/tools/calculator): Free interactive Baccalaureate grade calculator with official ministerial coefficients for all six streams.
+- [حاسبة معدل البكالوريا](https://www.bac-story.com/tools/calculator): Free interactive Baccalaureate 2027 grade calculator (حساب معدل بكالوريا 2027) with official ministerial coefficients for all six streams.
 - [حاسبة المعدل الموزون](https://www.bac-story.com/tools/weighted-calc): Real-time weighted average calculator for Algerian university admissions, calculating composite scores for medicine, dentistry, pharmacy, national higher schools, and polytechnics.
 - [حاسبة المعدل الموزون لتخصص الترجمة](https://www.bac-story.com/tools/weighted-calc/translation): Specialized weighted average calculator for Algerian university translation programs (تخصص الترجمة — لغات أجنبية).
 - [حاسبة حقوق تسجيل المترشحين الأحرار](https://www.bac-story.com/tools/free-candidate-fees): BAC registration fee calculator for free candidates (3,000 to 20,000 DZD by attempt number, separate grid for BAC holders retaking the exam), with payment method and the full fee table.
