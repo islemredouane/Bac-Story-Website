@@ -3151,6 +3151,82 @@ body.pdf-body-lock [id="footer-placeholder"] {
     display: none !important;
 }
 
+/* Method card: links a page's files to the step-by-step method post (reusable on any resource page) */
+.method-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    max-width: 900px;
+    margin: 0 auto 1.5rem;
+    padding: 1rem 1.25rem;
+    background: #ffffff;
+    border: 1px solid #dbe4f7;
+    border-right: 4px solid var(--primary-color);
+    border-radius: 14px;
+    box-shadow: 0 4px 16px rgba(26, 58, 143, 0.08);
+    text-align: right;
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow .2s ease, transform .2s ease;
+}
+.method-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 26px rgba(26, 58, 143, 0.14);
+}
+.method-card-icon {
+    flex: 0 0 auto;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eef3fd;
+    color: var(--primary-color);
+    font-size: 1.25rem;
+}
+.method-card-text {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+}
+.method-card-kicker {
+    font-size: .78rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+.method-card-text strong {
+    font-size: 1.05rem;
+    color: #1e293b;
+    line-height: 1.6;
+}
+.method-card-desc {
+    font-size: .9rem;
+    color: #475569;
+    line-height: 1.7;
+}
+.method-card-btn {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: .45rem;
+    padding: .65rem 1.1rem;
+    border-radius: 10px;
+    background: var(--primary-color);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: .92rem;
+    white-space: nowrap;
+}
+@media (max-width: 600px) {
+    .method-card { flex-wrap: wrap; padding: 1rem; }
+    .method-card-icon { width: 42px; height: 42px; font-size: 1.1rem; }
+    .method-card-text { flex-basis: calc(100% - 58px); }
+    .method-card-btn { width: 100%; justify-content: center; }
+}
+
 /* Oqba note box: auto-height, readable on phones */
 .oqba-note {
     max-width: 900px;
