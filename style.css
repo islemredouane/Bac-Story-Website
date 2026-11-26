@@ -3200,7 +3200,6 @@ body.pdf-body-lock [id="footer-placeholder"] {
     pointer-events: none;
 }
 .method-card:hover {
-    transform: translateY(-4px);
     box-shadow: 0 20px 48px rgba(44, 92, 197, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 .method-card-icon {
