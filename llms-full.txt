@@ -197,7 +197,7 @@ The Algerian Baccalaureate comprises six distinct academic streams:
   - External Textbooks (https://www.bac-story.com/resources/books/sci/french): Silver Series (الشعب العلمية والأدبية), Boughdada, Mansouri, and Mounir Cheboua.
   - Paragraphs & Expressions (/paragraphs): Master compositions and high-yield written expression guides.
   - Preparatory Topics (/preparatory-topics): Comprehensive preparation packages with model solutions.
-  - Excellence Plan (https://www.bac-story.com/plans/subject-plans/french): Strategic French preparation roadmap.
+  - Excellence Plan (https://www.bac-story.com/plans/subject-plans/french): Interactive PDF French plan for all streams (BAC 2027) with units (texte d'Histoire, argumentatif, exhortatif, compte rendu objectif), videos, summaries, topics and a bac tracker; includes a written-production section for literature/philosophy and foreign-language streams.
   - Excellence Mock Exams (/tamayoz): 14 model experimental exam papers with comprehensive solutions.
 
 ### Scientific Philosophy Portal (مادة الفلسفة للشعب العلمية: علوم تجريبية، رياضيات)
