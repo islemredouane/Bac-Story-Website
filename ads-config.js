@@ -113,12 +113,19 @@ window.BAC_ADS = {
 
   /* ── HELPERS ─────────────────────────────────────────────── */
 
+  // Same rule as /tools/countdown: whole days left until the exam start time (floor), where the exam
+  // start comes from TIMERS_CONFIG in script.js (single source of truth). Fallback: 08:30 on bacExamDate.
   getCountdownDays: function () {
-    var examDate = new Date(this.bacExamDate);
-    var today    = new Date();
-    today.setHours(0, 0, 0, 0);
-    examDate.setHours(0, 0, 0, 0);
-    var diff = Math.ceil((examDate - today) / 86400000);
+    var target;
+    try {
+      var c = TIMERS_CONFIG.filter(function (t) { return t.suffix === '3'; })[0];
+      if (c) target = c.target;
+    } catch (e) {}
+    if (!target) {
+      var p = String(this.bacExamDate).split('-');
+      target = new Date(+p[0], +p[1] - 1, +p[2], 8, 30, 0);
+    }
+    var diff = Math.floor((target - new Date()) / 86400000);
     return diff > 0 ? diff : 0;
   },
 
